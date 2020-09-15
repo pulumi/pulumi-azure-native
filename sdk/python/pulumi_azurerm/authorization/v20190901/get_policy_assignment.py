@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -119,7 +119,7 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter(name="notScopes")
-    def not_scopes(self) -> Optional[List[str]]:
+    def not_scopes(self) -> Optional[Sequence[str]]:
         """
         The policy's excluded scopes.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -60,14 +60,14 @@ class GetQueueResult:
         if lock_duration and not isinstance(lock_duration, str):
             raise TypeError("Expected argument 'lock_duration' to be a str")
         pulumi.set(__self__, "lock_duration", lock_duration)
-        if max_delivery_count and not isinstance(max_delivery_count, float):
-            raise TypeError("Expected argument 'max_delivery_count' to be a float")
+        if max_delivery_count and not isinstance(max_delivery_count, int):
+            raise TypeError("Expected argument 'max_delivery_count' to be a int")
         pulumi.set(__self__, "max_delivery_count", max_delivery_count)
-        if max_size_in_megabytes and not isinstance(max_size_in_megabytes, float):
-            raise TypeError("Expected argument 'max_size_in_megabytes' to be a float")
+        if max_size_in_megabytes and not isinstance(max_size_in_megabytes, int):
+            raise TypeError("Expected argument 'max_size_in_megabytes' to be a int")
         pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
-        if message_count and not isinstance(message_count, float):
-            raise TypeError("Expected argument 'message_count' to be a float")
+        if message_count and not isinstance(message_count, int):
+            raise TypeError("Expected argument 'message_count' to be a int")
         pulumi.set(__self__, "message_count", message_count)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -78,8 +78,8 @@ class GetQueueResult:
         if requires_session and not isinstance(requires_session, bool):
             raise TypeError("Expected argument 'requires_session' to be a bool")
         pulumi.set(__self__, "requires_session", requires_session)
-        if size_in_bytes and not isinstance(size_in_bytes, float):
-            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        if size_in_bytes and not isinstance(size_in_bytes, int):
+            raise TypeError("Expected argument 'size_in_bytes' to be a int")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -197,7 +197,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> Optional[int]:
         """
         The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
         """
@@ -205,7 +205,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> Optional[float]:
+    def max_size_in_megabytes(self) -> Optional[int]:
         """
         The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
         """
@@ -213,7 +213,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> float:
+    def message_count(self) -> int:
         """
         The number of messages in the queue.
         """
@@ -245,7 +245,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> float:
+    def size_in_bytes(self) -> int:
         """
         The size of the queue, in bytes.
         """

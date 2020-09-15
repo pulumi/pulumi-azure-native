@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -133,7 +133,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[List['outputs.GroupContractResponse']]:
+    def groups(self) -> pulumi.Output[Sequence['outputs.GroupContractResponse']]:
         """
         Collection of groups user is part of.
         """
@@ -141,7 +141,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identities(self) -> pulumi.Output[List['outputs.UserIdentityContractResponse']]:
+    def identities(self) -> pulumi.Output[Sequence['outputs.UserIdentityContractResponse']]:
         """
         Collection of user identities.
         """

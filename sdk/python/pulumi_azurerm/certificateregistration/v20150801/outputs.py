@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -83,7 +83,7 @@ class CertificateDetailsResponse(dict):
                  tags: Optional[Mapping[str, str]] = None,
                  thumbprint: Optional[str] = None,
                  type: Optional[str] = None,
-                 version: Optional[float] = None):
+                 version: Optional[int] = None):
         """
         Certificate Details
         :param str location: Resource Location
@@ -100,7 +100,7 @@ class CertificateDetailsResponse(dict):
         :param Mapping[str, str] tags: Resource tags
         :param str thumbprint: Thumbprint
         :param str type: Resource type
-        :param float version: Version
+        :param int version: Version
         """
         pulumi.set(__self__, "location", location)
         if id is not None:
@@ -246,7 +246,7 @@ class CertificateDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[float]:
+    def version(self) -> Optional[int]:
         """
         Version
         """

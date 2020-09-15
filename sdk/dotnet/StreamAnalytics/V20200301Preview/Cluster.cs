@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20200301Preview
         /// The properties associated with a Stream Analytics cluster.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ClusterPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ClusterSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ClusterSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

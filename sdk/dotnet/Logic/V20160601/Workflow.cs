@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// The integration account.
         /// </summary>
         [Output("integrationAccount")]
-        public Output<Outputs.ResourceReferenceResponseResult?> IntegrationAccount { get; private set; } = null!;
+        public Output<Outputs.ResourceReferenceResponse?> IntegrationAccount { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// The parameters.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.WorkflowParameterResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// The sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The state.

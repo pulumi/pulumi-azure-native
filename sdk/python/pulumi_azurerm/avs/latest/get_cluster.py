@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,11 +21,11 @@ class GetClusterResult:
     A cluster resource
     """
     def __init__(__self__, cluster_id=None, cluster_size=None, hosts=None, name=None, provisioning_state=None, sku=None, type=None):
-        if cluster_id and not isinstance(cluster_id, float):
-            raise TypeError("Expected argument 'cluster_id' to be a float")
+        if cluster_id and not isinstance(cluster_id, int):
+            raise TypeError("Expected argument 'cluster_id' to be a int")
         pulumi.set(__self__, "cluster_id", cluster_id)
-        if cluster_size and not isinstance(cluster_size, float):
-            raise TypeError("Expected argument 'cluster_size' to be a float")
+        if cluster_size and not isinstance(cluster_size, int):
+            raise TypeError("Expected argument 'cluster_size' to be a int")
         pulumi.set(__self__, "cluster_size", cluster_size)
         if hosts and not isinstance(hosts, list):
             raise TypeError("Expected argument 'hosts' to be a list")
@@ -45,7 +45,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> float:
+    def cluster_id(self) -> int:
         """
         The identity
         """
@@ -53,7 +53,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> float:
+    def cluster_size(self) -> int:
         """
         The cluster size
         """
@@ -61,7 +61,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def hosts(self) -> List[str]:
+    def hosts(self) -> Sequence[str]:
         """
         The hosts
         """

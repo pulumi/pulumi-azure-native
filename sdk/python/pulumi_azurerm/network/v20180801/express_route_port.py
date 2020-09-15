@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,11 +17,11 @@ class ExpressRoutePort(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
                  encapsulation: Optional[pulumi.Input[str]] = None,
                  express_route_port_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 links: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteLinkArgs']]]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteLinkArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  peering_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -35,11 +35,11 @@ class ExpressRoutePort(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] bandwidth_in_gbps: Bandwidth of procured ports in Gbps
+        :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of procured ports in Gbps
         :param pulumi.Input[str] encapsulation: Encapsulation method on physical ports.
         :param pulumi.Input[str] express_route_port_name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteLinkArgs']]]] links: The set of physical links of the ExpressRoutePort resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteLinkArgs']]]] links: The set of physical links of the ExpressRoutePort resource
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] peering_location: The name of the peering location that the ExpressRoutePort is mapped to physically.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -122,7 +122,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bandwidthInGbps")
-    def bandwidth_in_gbps(self) -> pulumi.Output[Optional[float]]:
+    def bandwidth_in_gbps(self) -> pulumi.Output[Optional[int]]:
         """
         Bandwidth of procured ports in Gbps
         """
@@ -130,7 +130,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def circuits(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def circuits(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
         """
@@ -162,7 +162,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def links(self) -> pulumi.Output[Optional[List['outputs.ExpressRouteLinkResponse']]]:
+    def links(self) -> pulumi.Output[Optional[Sequence['outputs.ExpressRouteLinkResponse']]]:
         """
         The set of physical links of the ExpressRoutePort resource
         """

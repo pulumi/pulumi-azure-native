@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20180301Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20180301Preview
 
             string? friendlyName,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? keyVault,
 

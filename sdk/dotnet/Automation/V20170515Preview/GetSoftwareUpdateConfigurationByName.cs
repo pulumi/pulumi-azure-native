@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
         /// <summary>
         /// Details of provisioning error
         /// </summary>
-        public readonly Outputs.ErrorResponseResponseResult? Error;
+        public readonly Outputs.ErrorResponseResponse? Error;
         /// <summary>
         /// LastModifiedBy property, which only appears in the response.
         /// </summary>
@@ -76,11 +76,11 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
         /// <summary>
         /// Schedule information for the Software update configuration
         /// </summary>
-        public readonly Outputs.SchedulePropertiesResponseResult ScheduleInfo;
+        public readonly Outputs.SchedulePropertiesResponse ScheduleInfo;
         /// <summary>
         /// Tasks information for the Software update configuration.
         /// </summary>
-        public readonly Outputs.SoftwareUpdateConfigurationTasksResponseResult? Tasks;
+        public readonly Outputs.SoftwareUpdateConfigurationTasksResponse? Tasks;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
         /// <summary>
         /// update specific properties for the Software update configuration
         /// </summary>
-        public readonly Outputs.UpdateConfigurationResponseResult UpdateConfiguration;
+        public readonly Outputs.UpdateConfigurationResponse UpdateConfiguration;
 
         [OutputConstructor]
         private GetSoftwareUpdateConfigurationByNameResult(
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
 
             string creationTime,
 
-            Outputs.ErrorResponseResponseResult? error,
+            Outputs.ErrorResponseResponse? error,
 
             string lastModifiedBy,
 
@@ -106,13 +106,13 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
 
             string provisioningState,
 
-            Outputs.SchedulePropertiesResponseResult scheduleInfo,
+            Outputs.SchedulePropertiesResponse scheduleInfo,
 
-            Outputs.SoftwareUpdateConfigurationTasksResponseResult? tasks,
+            Outputs.SoftwareUpdateConfigurationTasksResponse? tasks,
 
             string type,
 
-            Outputs.UpdateConfigurationResponseResult updateConfiguration)
+            Outputs.UpdateConfigurationResponse updateConfiguration)
         {
             CreatedBy = createdBy;
             CreationTime = creationTime;

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,8 +30,8 @@ class GetClusterResult:
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
-        if current_node_count and not isinstance(current_node_count, float):
-            raise TypeError("Expected argument 'current_node_count' to be a float")
+        if current_node_count and not isinstance(current_node_count, int):
+            raise TypeError("Expected argument 'current_node_count' to be a int")
         pulumi.set(__self__, "current_node_count", current_node_count)
         if errors and not isinstance(errors, list):
             raise TypeError("Expected argument 'errors' to be a list")
@@ -99,7 +99,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="currentNodeCount")
-    def current_node_count(self) -> float:
+    def current_node_count(self) -> int:
         """
         The number of compute nodes currently assigned to the cluster.
         """
@@ -107,7 +107,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def errors(self) -> List['outputs.BatchAIErrorResponse']:
+    def errors(self) -> Sequence['outputs.BatchAIErrorResponse']:
         """
         Collection of errors encountered by various compute nodes during node setup.
         """

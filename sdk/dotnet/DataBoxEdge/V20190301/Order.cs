@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
         /// The contact details.
         /// </summary>
         [Output("contactInformation")]
-        public Output<Outputs.ContactDetailsResponseResult> ContactInformation { get; private set; } = null!;
+        public Output<Outputs.ContactDetailsResponse> ContactInformation { get; private set; } = null!;
 
         /// <summary>
         /// Current status of the order.
         /// </summary>
         [Output("currentStatus")]
-        public Output<Outputs.OrderStatusResponseResult?> CurrentStatus { get; private set; } = null!;
+        public Output<Outputs.OrderStatusResponse?> CurrentStatus { get; private set; } = null!;
 
         /// <summary>
         /// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
         /// </summary>
         [Output("deliveryTrackingInfo")]
-        public Output<ImmutableArray<Outputs.TrackingInfoResponseResult>> DeliveryTrackingInfo { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TrackingInfoResponse>> DeliveryTrackingInfo { get; private set; } = null!;
 
         /// <summary>
         /// The object name.
@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
         /// List of status changes in the order.
         /// </summary>
         [Output("orderHistory")]
-        public Output<ImmutableArray<Outputs.OrderStatusResponseResult>> OrderHistory { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OrderStatusResponse>> OrderHistory { get; private set; } = null!;
 
         /// <summary>
         /// Tracking information for the package returned from the customer whether it has an original or a replacement device.
         /// </summary>
         [Output("returnTrackingInfo")]
-        public Output<ImmutableArray<Outputs.TrackingInfoResponseResult>> ReturnTrackingInfo { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TrackingInfoResponse>> ReturnTrackingInfo { get; private set; } = null!;
 
         /// <summary>
         /// Serial number of the device.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
         /// The shipping address.
         /// </summary>
         [Output("shippingAddress")]
-        public Output<Outputs.AddressResponseResult> ShippingAddress { get; private set; } = null!;
+        public Output<Outputs.AddressResponse> ShippingAddress { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -77,7 +77,7 @@ class GetContentKeyPolicyResult:
 
     @property
     @pulumi.getter
-    def options(self) -> List['outputs.ContentKeyPolicyOptionResponse']:
+    def options(self) -> Sequence['outputs.ContentKeyPolicyOptionResponse']:
         """
         The Key Policy options.
         """

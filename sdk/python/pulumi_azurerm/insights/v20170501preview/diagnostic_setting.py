@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,8 +20,8 @@ class DiagnosticSetting(pulumi.CustomResource):
                  event_hub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogSettingsArgs']]]]] = None,
-                 metrics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricSettingsArgs']]]]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogSettingsArgs']]]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricSettingsArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,
@@ -38,8 +38,8 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[str] log_analytics_destination_type: A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogSettingsArgs']]]] logs: The list of logs settings.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricSettingsArgs']]]] metrics: The list of metric settings.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogSettingsArgs']]]] logs: The list of logs settings.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricSettingsArgs']]]] metrics: The list of metric settings.
         :param pulumi.Input[str] name: The name of the diagnostic setting.
         :param pulumi.Input[str] resource_uri: The identifier of the resource.
         :param pulumi.Input[str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -128,7 +128,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logs(self) -> pulumi.Output[Optional[List['outputs.LogSettingsResponse']]]:
+    def logs(self) -> pulumi.Output[Optional[Sequence['outputs.LogSettingsResponse']]]:
         """
         The list of logs settings.
         """
@@ -136,7 +136,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metrics(self) -> pulumi.Output[Optional[List['outputs.MetricSettingsResponse']]]:
+    def metrics(self) -> pulumi.Output[Optional[Sequence['outputs.MetricSettingsResponse']]]:
         """
         The list of metric settings.
         """

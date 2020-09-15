@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Devices.V20200710Preview
         /// The properties of a private endpoint connection
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

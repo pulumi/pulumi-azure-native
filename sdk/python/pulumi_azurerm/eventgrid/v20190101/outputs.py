@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -61,13 +61,13 @@ class EventSubscriptionFilterResponse(dict):
     Filter for the Event Subscription
     """
     def __init__(__self__, *,
-                 included_event_types: Optional[List[str]] = None,
+                 included_event_types: Optional[Sequence[str]] = None,
                  is_subject_case_sensitive: Optional[bool] = None,
                  subject_begins_with: Optional[str] = None,
                  subject_ends_with: Optional[str] = None):
         """
         Filter for the Event Subscription
-        :param List[str] included_event_types: A list of applicable event types that need to be part of the event subscription. 
+        :param Sequence[str] included_event_types: A list of applicable event types that need to be part of the event subscription. 
                If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
         :param bool is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
                should be compared in a case sensitive manner.
@@ -88,7 +88,7 @@ class EventSubscriptionFilterResponse(dict):
 
     @property
     @pulumi.getter(name="includedEventTypes")
-    def included_event_types(self) -> Optional[List[str]]:
+    def included_event_types(self) -> Optional[Sequence[str]]:
         """
         A list of applicable event types that need to be part of the event subscription. 
         If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
@@ -170,12 +170,12 @@ class RetryPolicyResponse(dict):
     Information about the retry policy for an event subscription
     """
     def __init__(__self__, *,
-                 event_time_to_live_in_minutes: Optional[float] = None,
-                 max_delivery_attempts: Optional[float] = None):
+                 event_time_to_live_in_minutes: Optional[int] = None,
+                 max_delivery_attempts: Optional[int] = None):
         """
         Information about the retry policy for an event subscription
-        :param float event_time_to_live_in_minutes: Time To Live (in minutes) for events.
-        :param float max_delivery_attempts: Maximum number of delivery retry attempts for events.
+        :param int event_time_to_live_in_minutes: Time To Live (in minutes) for events.
+        :param int max_delivery_attempts: Maximum number of delivery retry attempts for events.
         """
         if event_time_to_live_in_minutes is not None:
             pulumi.set(__self__, "event_time_to_live_in_minutes", event_time_to_live_in_minutes)
@@ -184,7 +184,7 @@ class RetryPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="eventTimeToLiveInMinutes")
-    def event_time_to_live_in_minutes(self) -> Optional[float]:
+    def event_time_to_live_in_minutes(self) -> Optional[int]:
         """
         Time To Live (in minutes) for events.
         """
@@ -192,7 +192,7 @@ class RetryPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxDeliveryAttempts")
-    def max_delivery_attempts(self) -> Optional[float]:
+    def max_delivery_attempts(self) -> Optional[int]:
         """
         Maximum number of delivery retry attempts for events.
         """

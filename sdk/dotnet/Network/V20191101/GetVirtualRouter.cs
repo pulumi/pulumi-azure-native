@@ -52,11 +52,11 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// The Gateway on which VirtualRouter is hosted.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? HostedGateway;
+        public readonly Outputs.SubResourceResponse? HostedGateway;
         /// <summary>
         /// The Subnet on which VirtualRouter is hosted.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? HostedSubnet;
+        public readonly Outputs.SubResourceResponse? HostedSubnet;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// List of references to VirtualRouterPeerings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Peerings;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> Peerings;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -94,15 +94,15 @@ namespace Pulumi.AzureRM.Network.V20191101
         private GetVirtualRouterResult(
             string etag,
 
-            Outputs.SubResourceResponseResult? hostedGateway,
+            Outputs.SubResourceResponse? hostedGateway,
 
-            Outputs.SubResourceResponseResult? hostedSubnet,
+            Outputs.SubResourceResponse? hostedSubnet,
 
             string? location,
 
             string name,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> peerings,
+            ImmutableArray<Outputs.SubResourceResponse> peerings,
 
             string provisioningState,
 

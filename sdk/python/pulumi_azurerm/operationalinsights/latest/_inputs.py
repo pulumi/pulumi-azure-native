@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -25,11 +25,11 @@ __all__ = [
 @pulumi.input_type
 class ClusterSkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The cluster sku definition.
-        :param pulumi.Input[float] capacity: The capacity value
+        :param pulumi.Input[int] capacity: The capacity value
         :param pulumi.Input[str] name: The name of the SKU.
         """
         if capacity is not None:
@@ -39,14 +39,14 @@ class ClusterSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The capacity value
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -375,11 +375,11 @@ class WorkspaceCappingArgs:
 class WorkspaceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity_reservation_level: Optional[pulumi.Input[float]] = None):
+                 capacity_reservation_level: Optional[pulumi.Input[int]] = None):
         """
         The SKU (tier) of a workspace.
         :param pulumi.Input[str] name: The name of the SKU.
-        :param pulumi.Input[float] capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        :param pulumi.Input[int] capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """
         pulumi.set(__self__, "name", name)
         if capacity_reservation_level is not None:
@@ -399,14 +399,14 @@ class WorkspaceSkuArgs:
 
     @property
     @pulumi.getter(name="capacityReservationLevel")
-    def capacity_reservation_level(self) -> Optional[pulumi.Input[float]]:
+    def capacity_reservation_level(self) -> Optional[pulumi.Input[int]]:
         """
         The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """
         return pulumi.get(self, "capacity_reservation_level")
 
     @capacity_reservation_level.setter
-    def capacity_reservation_level(self, value: Optional[pulumi.Input[float]]):
+    def capacity_reservation_level(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity_reservation_level", value)
 
 

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// The details of the latest operation. ex: status, error
         /// </summary>
         [Output("latestOperationResult")]
-        public Output<Outputs.LatestOperationResultResponseResult> LatestOperationResult { get; private set; } = null!;
+        public Output<Outputs.LatestOperationResultResponse> LatestOperationResult { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.

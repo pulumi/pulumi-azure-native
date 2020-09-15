@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// Describes a user that created the watchlist
         /// </summary>
         [Output("createdBy")]
-        public Output<Outputs.UserInfoResponseResult?> CreatedBy { get; private set; } = null!;
+        public Output<Outputs.UserInfoResponse?> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// The time the watchlist was created
@@ -102,13 +102,13 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// Describes a user that updated the watchlist
         /// </summary>
         [Output("updatedBy")]
-        public Output<Outputs.UserInfoResponseResult?> UpdatedBy { get; private set; } = null!;
+        public Output<Outputs.UserInfoResponse?> UpdatedBy { get; private set; } = null!;
 
         /// <summary>
         /// List of watchlist items.
         /// </summary>
         [Output("watchlistItems")]
-        public Output<ImmutableArray<Outputs.WatchlistItemResponseResult>> WatchlistItems { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WatchlistItemResponse>> WatchlistItems { get; private set; } = null!;
 
         /// <summary>
         /// The type of the watchlist

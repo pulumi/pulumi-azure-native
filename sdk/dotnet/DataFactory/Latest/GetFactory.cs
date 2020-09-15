@@ -50,11 +50,11 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// <summary>
         /// List of parameters for factory.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponseResult>? GlobalParameters;
+        public readonly ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponse>? GlobalParameters;
         /// <summary>
         /// Managed service identity of the factory.
         /// </summary>
-        public readonly Outputs.FactoryIdentityResponseResult? Identity;
+        public readonly Outputs.FactoryIdentityResponse? Identity;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// <summary>
         /// Git repo information of the factory.
         /// </summary>
-        public readonly Union<Outputs.FactoryGitHubConfigurationResponseResult, Outputs.FactoryVSTSConfigurationResponseResult>? RepoConfiguration;
+        public readonly Union<Outputs.FactoryGitHubConfigurationResponse, Outputs.FactoryVSTSConfigurationResponse>? RepoConfiguration;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -90,9 +90,9 @@ namespace Pulumi.AzureRM.DataFactory.Latest
 
             string eTag,
 
-            ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponseResult>? globalParameters,
+            ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponse>? globalParameters,
 
-            Outputs.FactoryIdentityResponseResult? identity,
+            Outputs.FactoryIdentityResponse? identity,
 
             string? location,
 
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
 
             string provisioningState,
 
-            Union<Outputs.FactoryGitHubConfigurationResponseResult, Outputs.FactoryVSTSConfigurationResponseResult>? repoConfiguration,
+            Union<Outputs.FactoryGitHubConfigurationResponse, Outputs.FactoryVSTSConfigurationResponse>? repoConfiguration,
 
             ImmutableDictionary<string, string>? tags,
 

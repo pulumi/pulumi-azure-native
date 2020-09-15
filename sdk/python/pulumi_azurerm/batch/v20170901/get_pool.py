@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,11 +42,11 @@ class GetPoolResult:
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
-        if current_dedicated_nodes and not isinstance(current_dedicated_nodes, float):
-            raise TypeError("Expected argument 'current_dedicated_nodes' to be a float")
+        if current_dedicated_nodes and not isinstance(current_dedicated_nodes, int):
+            raise TypeError("Expected argument 'current_dedicated_nodes' to be a int")
         pulumi.set(__self__, "current_dedicated_nodes", current_dedicated_nodes)
-        if current_low_priority_nodes and not isinstance(current_low_priority_nodes, float):
-            raise TypeError("Expected argument 'current_low_priority_nodes' to be a float")
+        if current_low_priority_nodes and not isinstance(current_low_priority_nodes, int):
+            raise TypeError("Expected argument 'current_low_priority_nodes' to be a int")
         pulumi.set(__self__, "current_low_priority_nodes", current_low_priority_nodes)
         if deployment_configuration and not isinstance(deployment_configuration, dict):
             raise TypeError("Expected argument 'deployment_configuration' to be a dict")
@@ -63,8 +63,8 @@ class GetPoolResult:
         if last_modified and not isinstance(last_modified, str):
             raise TypeError("Expected argument 'last_modified' to be a str")
         pulumi.set(__self__, "last_modified", last_modified)
-        if max_tasks_per_node and not isinstance(max_tasks_per_node, float):
-            raise TypeError("Expected argument 'max_tasks_per_node' to be a float")
+        if max_tasks_per_node and not isinstance(max_tasks_per_node, int):
+            raise TypeError("Expected argument 'max_tasks_per_node' to be a int")
         pulumi.set(__self__, "max_tasks_per_node", max_tasks_per_node)
         if metadata and not isinstance(metadata, list):
             raise TypeError("Expected argument 'metadata' to be a list")
@@ -122,7 +122,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="applicationLicenses")
-    def application_licenses(self) -> Optional[List[str]]:
+    def application_licenses(self) -> Optional[Sequence[str]]:
         """
         The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
         """
@@ -130,7 +130,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="applicationPackages")
-    def application_packages(self) -> Optional[List['outputs.ApplicationPackageReferenceResponse']]:
+    def application_packages(self) -> Optional[Sequence['outputs.ApplicationPackageReferenceResponse']]:
         """
         Changes to application packages affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged.
         """
@@ -146,7 +146,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[List['outputs.CertificateReferenceResponse']]:
+    def certificates(self) -> Optional[Sequence['outputs.CertificateReferenceResponse']]:
         """
         For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         """
@@ -159,12 +159,12 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="currentDedicatedNodes")
-    def current_dedicated_nodes(self) -> float:
+    def current_dedicated_nodes(self) -> int:
         return pulumi.get(self, "current_dedicated_nodes")
 
     @property
     @pulumi.getter(name="currentLowPriorityNodes")
-    def current_low_priority_nodes(self) -> float:
+    def current_low_priority_nodes(self) -> int:
         return pulumi.get(self, "current_low_priority_nodes")
 
     @property
@@ -209,12 +209,12 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="maxTasksPerNode")
-    def max_tasks_per_node(self) -> Optional[float]:
+    def max_tasks_per_node(self) -> Optional[int]:
         return pulumi.get(self, "max_tasks_per_node")
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[List['outputs.MetadataItemResponse']]:
+    def metadata(self) -> Optional[Sequence['outputs.MetadataItemResponse']]:
         """
         The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         """
@@ -291,7 +291,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="userAccounts")
-    def user_accounts(self) -> Optional[List['outputs.UserAccountResponse']]:
+    def user_accounts(self) -> Optional[Sequence['outputs.UserAccountResponse']]:
         return pulumi.get(self, "user_accounts")
 
     @property

@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Storage.V20190401
         /// <summary>
         /// Provides the identity based authentication settings for Azure Files.
         /// </summary>
-        public readonly Outputs.AzureFilesIdentityBasedAuthenticationResponseResult? AzureFilesIdentityBasedAuthentication;
+        public readonly Outputs.AzureFilesIdentityBasedAuthenticationResponse? AzureFilesIdentityBasedAuthentication;
         /// <summary>
         /// Gets the creation date and time of the storage account in UTC.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Storage.V20190401
         /// <summary>
         /// Gets the custom domain the user assigned to this storage account.
         /// </summary>
-        public readonly Outputs.CustomDomainResponseResult CustomDomain;
+        public readonly Outputs.CustomDomainResponse CustomDomain;
         /// <summary>
         /// Allows https traffic only to storage service if sets to true.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Storage.V20190401
         /// <summary>
         /// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         /// </summary>
-        public readonly Outputs.EncryptionResponseResult Encryption;
+        public readonly Outputs.EncryptionResponse Encryption;
         /// <summary>
         /// If the failover is in progress, the value will be true, otherwise, it will be null.
         /// </summary>
@@ -80,11 +80,11 @@ namespace Pulumi.AzureRM.Storage.V20190401
         /// <summary>
         /// Geo Replication Stats
         /// </summary>
-        public readonly Outputs.GeoReplicationStatsResponseResult GeoReplicationStats;
+        public readonly Outputs.GeoReplicationStatsResponse GeoReplicationStats;
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Account HierarchicalNamespace enabled if sets to true.
         /// </summary>
@@ -116,11 +116,11 @@ namespace Pulumi.AzureRM.Storage.V20190401
         /// <summary>
         /// Network rule set
         /// </summary>
-        public readonly Outputs.NetworkRuleSetResponseResult NetworkRuleSet;
+        public readonly Outputs.NetworkRuleSetResponse NetworkRuleSet;
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
         /// </summary>
-        public readonly Outputs.EndpointsResponseResult PrimaryEndpoints;
+        public readonly Outputs.EndpointsResponse PrimaryEndpoints;
         /// <summary>
         /// Gets the location of the primary data center for the storage account.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureRM.Storage.V20190401
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
         /// </summary>
-        public readonly Outputs.EndpointsResponseResult SecondaryEndpoints;
+        public readonly Outputs.EndpointsResponse SecondaryEndpoints;
         /// <summary>
         /// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureRM.Storage.V20190401
         /// <summary>
         /// Gets the SKU.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Gets the status indicating whether the primary location of the storage account is available or unavailable.
         /// </summary>
@@ -164,21 +164,21 @@ namespace Pulumi.AzureRM.Storage.V20190401
 
             bool? allowBlobPublicAccess,
 
-            Outputs.AzureFilesIdentityBasedAuthenticationResponseResult? azureFilesIdentityBasedAuthentication,
+            Outputs.AzureFilesIdentityBasedAuthenticationResponse? azureFilesIdentityBasedAuthentication,
 
             string creationTime,
 
-            Outputs.CustomDomainResponseResult customDomain,
+            Outputs.CustomDomainResponse customDomain,
 
             bool? enableHttpsTrafficOnly,
 
-            Outputs.EncryptionResponseResult encryption,
+            Outputs.EncryptionResponse encryption,
 
             bool failoverInProgress,
 
-            Outputs.GeoReplicationStatsResponseResult geoReplicationStats,
+            Outputs.GeoReplicationStatsResponse geoReplicationStats,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             bool? isHnsEnabled,
 
@@ -194,19 +194,19 @@ namespace Pulumi.AzureRM.Storage.V20190401
 
             string name,
 
-            Outputs.NetworkRuleSetResponseResult networkRuleSet,
+            Outputs.NetworkRuleSetResponse networkRuleSet,
 
-            Outputs.EndpointsResponseResult primaryEndpoints,
+            Outputs.EndpointsResponse primaryEndpoints,
 
             string primaryLocation,
 
             string provisioningState,
 
-            Outputs.EndpointsResponseResult secondaryEndpoints,
+            Outputs.EndpointsResponse secondaryEndpoints,
 
             string secondaryLocation,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             string statusOfPrimary,
 

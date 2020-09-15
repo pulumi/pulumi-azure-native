@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// The content link.
         /// </summary>
         [Output("contentLink")]
-        public Output<Outputs.ContentLinkResponseResult> ContentLink { get; private set; } = null!;
+        public Output<Outputs.ContentLinkResponse> ContentLink { get; private set; } = null!;
 
         /// <summary>
         /// The content type.

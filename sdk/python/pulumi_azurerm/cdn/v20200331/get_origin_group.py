@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetOriginGroupResult:
         if response_based_origin_error_detection_settings and not isinstance(response_based_origin_error_detection_settings, dict):
             raise TypeError("Expected argument 'response_based_origin_error_detection_settings' to be a dict")
         pulumi.set(__self__, "response_based_origin_error_detection_settings", response_based_origin_error_detection_settings)
-        if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes and not isinstance(traffic_restoration_time_to_healed_or_new_endpoints_in_minutes, float):
-            raise TypeError("Expected argument 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes' to be a float")
+        if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes and not isinstance(traffic_restoration_time_to_healed_or_new_endpoints_in_minutes, int):
+            raise TypeError("Expected argument 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes' to be a int")
         pulumi.set(__self__, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -64,7 +64,7 @@ class GetOriginGroupResult:
 
     @property
     @pulumi.getter
-    def origins(self) -> List['outputs.ResourceReferenceResponse']:
+    def origins(self) -> Sequence['outputs.ResourceReferenceResponse']:
         """
         The source of the content being delivered via CDN within given origin group.
         """
@@ -96,7 +96,7 @@ class GetOriginGroupResult:
 
     @property
     @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
-    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[float]:
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[int]:
         """
         Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """

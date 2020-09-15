@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -285,13 +285,13 @@ class ContactDetailsArgs:
     def __init__(__self__, *,
                  company_name: pulumi.Input[str],
                  contact_person: pulumi.Input[str],
-                 email_list: pulumi.Input[List[pulumi.Input[str]]],
+                 email_list: pulumi.Input[Sequence[pulumi.Input[str]]],
                  phone: pulumi.Input[str]):
         """
         Contains all the contact details of the customer.
         :param pulumi.Input[str] company_name: The name of the company.
         :param pulumi.Input[str] contact_person: The contact person name.
-        :param pulumi.Input[List[pulumi.Input[str]]] email_list: The email list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_list: The email list.
         :param pulumi.Input[str] phone: The phone number.
         """
         pulumi.set(__self__, "company_name", company_name)
@@ -325,14 +325,14 @@ class ContactDetailsArgs:
 
     @property
     @pulumi.getter(name="emailList")
-    def email_list(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def email_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The email list.
         """
         return pulumi.get(self, "email_list")
 
     @email_list.setter
-    def email_list(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def email_list(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "email_list", value)
 
     @property

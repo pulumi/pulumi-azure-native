@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -52,7 +52,7 @@ class GetRouteFilterRuleResult:
 
     @property
     @pulumi.getter
-    def communities(self) -> List[str]:
+    def communities(self) -> Sequence[str]:
         """
         The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -36,8 +36,8 @@ class GetDscNodeConfigurationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if node_count and not isinstance(node_count, float):
-            raise TypeError("Expected argument 'node_count' to be a float")
+        if node_count and not isinstance(node_count, int):
+            raise TypeError("Expected argument 'node_count' to be a int")
         pulumi.set(__self__, "node_count", node_count)
         if source and not isinstance(source, str):
             raise TypeError("Expected argument 'source' to be a str")
@@ -88,7 +88,7 @@ class GetDscNodeConfigurationResult:
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[float]:
+    def node_count(self) -> Optional[int]:
         """
         Number of nodes with this node configuration assigned
         """

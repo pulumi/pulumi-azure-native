@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -29,8 +29,8 @@ class AppServicePlan(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
                  spot_expiration_time: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_worker_count: Optional[pulumi.Input[float]] = None,
-                 target_worker_size_id: Optional[pulumi.Input[float]] = None,
+                 target_worker_count: Optional[pulumi.Input[int]] = None,
+                 target_worker_size_id: Optional[pulumi.Input[int]] = None,
                  worker_tier_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -53,8 +53,8 @@ class AppServicePlan(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuDescriptionArgs']] sku: Description of a SKU for a scalable resource.
         :param pulumi.Input[str] spot_expiration_time: The time when the server farm expires. Valid only if it is a spot server farm.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[float] target_worker_count: Scaling worker count.
-        :param pulumi.Input[float] target_worker_size_id: Scaling worker size ID.
+        :param pulumi.Input[int] target_worker_count: Scaling worker count.
+        :param pulumi.Input[int] target_worker_size_id: Scaling worker size ID.
         :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service plan.
         """
         if __name__ is not None:
@@ -179,7 +179,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumNumberOfWorkers")
-    def maximum_number_of_workers(self) -> pulumi.Output[float]:
+    def maximum_number_of_workers(self) -> pulumi.Output[int]:
         """
         Maximum number of instances that can be assigned to this App Service plan.
         """
@@ -195,7 +195,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfSites")
-    def number_of_sites(self) -> pulumi.Output[float]:
+    def number_of_sites(self) -> pulumi.Output[int]:
         """
         Number of apps assigned to this App Service plan.
         """
@@ -276,7 +276,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetWorkerCount")
-    def target_worker_count(self) -> pulumi.Output[Optional[float]]:
+    def target_worker_count(self) -> pulumi.Output[Optional[int]]:
         """
         Scaling worker count.
         """
@@ -284,7 +284,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetWorkerSizeId")
-    def target_worker_size_id(self) -> pulumi.Output[Optional[float]]:
+    def target_worker_size_id(self) -> pulumi.Output[Optional[int]]:
         """
         Scaling worker size ID.
         """

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Migrate.Latest
         /// Properties of the group.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.GroupPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.GroupPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the object = [Microsoft.Migrate/assessmentProjects/groups].

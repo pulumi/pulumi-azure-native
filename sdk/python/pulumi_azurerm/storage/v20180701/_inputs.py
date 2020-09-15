@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -303,14 +303,14 @@ class NetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
                  bypass: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         Network rule set
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match.
         :param pulumi.Input[str] bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        :param pulumi.Input[List[pulumi.Input['IPRuleArgs']]] ip_rules: Sets the IP ACL rules
-        :param pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: Sets the virtual network rules
+        :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: Sets the IP ACL rules
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: Sets the virtual network rules
         """
         pulumi.set(__self__, "default_action", default_action)
         if bypass is not None:
@@ -346,26 +346,26 @@ class NetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]:
         """
         Sets the IP ACL rules
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
         """
         Sets the virtual network rules
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -397,11 +397,11 @@ class RestrictionArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 restrictions: Optional[pulumi.Input[List[pulumi.Input['RestrictionArgs']]]] = None):
+                 restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionArgs']]]] = None):
         """
         The SKU of the storage account.
         :param pulumi.Input[str] name: Gets or sets the SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
-        :param pulumi.Input[List[pulumi.Input['RestrictionArgs']]] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
+        :param pulumi.Input[Sequence[pulumi.Input['RestrictionArgs']]] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
         """
         pulumi.set(__self__, "name", name)
         if restrictions is not None:
@@ -421,14 +421,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['RestrictionArgs']]]]:
+    def restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionArgs']]]]:
         """
         The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
         """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['RestrictionArgs']]]]):
+    def restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionArgs']]]]):
         pulumi.set(self, "restrictions", value)
 
 

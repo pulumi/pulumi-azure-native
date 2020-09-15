@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -144,7 +144,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobCount")
-    def job_count(self) -> pulumi.Output[Optional[float]]:
+    def job_count(self) -> pulumi.Output[Optional[int]]:
         """
         Gets or sets the job count of the configuration.
         """
@@ -184,7 +184,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeConfigurationCount")
-    def node_configuration_count(self) -> pulumi.Output[Optional[float]]:
+    def node_configuration_count(self) -> pulumi.Output[Optional[int]]:
         """
         Gets the number of compiled node configurations.
         """

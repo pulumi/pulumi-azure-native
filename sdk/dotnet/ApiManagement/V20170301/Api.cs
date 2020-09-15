@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// Api Version Set Contract details.
         /// </summary>
         [Output("apiVersionSet")]
-        public Output<Outputs.ApiVersionSetContractResponseResult?> ApiVersionSet { get; private set; } = null!;
+        public Output<Outputs.ApiVersionSetContractResponse?> ApiVersionSet { get; private set; } = null!;
 
         /// <summary>
         /// A resource identifier for the related ApiVersionSet.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// Collection of authentication settings included into this API.
         /// </summary>
         [Output("authenticationSettings")]
-        public Output<Outputs.AuthenticationSettingsContractResponseResult?> AuthenticationSettings { get; private set; } = null!;
+        public Output<Outputs.AuthenticationSettingsContractResponse?> AuthenticationSettings { get; private set; } = null!;
 
         /// <summary>
         /// Description of the API. May include HTML formatting tags.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// Protocols over which API is made available.
         /// </summary>
         [Output("subscriptionKeyParameterNames")]
-        public Output<Outputs.SubscriptionKeyParameterNamesContractResponseResult?> SubscriptionKeyParameterNames { get; private set; } = null!;
+        public Output<Outputs.SubscriptionKeyParameterNamesContractResponse?> SubscriptionKeyParameterNames { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

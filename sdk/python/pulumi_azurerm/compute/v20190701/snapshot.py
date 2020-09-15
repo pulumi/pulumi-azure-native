@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
-                 disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
-        :param pulumi.Input[float] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         :param pulumi.Input[str] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
@@ -130,7 +130,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeBytes")
-    def disk_size_bytes(self) -> pulumi.Output[float]:
+    def disk_size_bytes(self) -> pulumi.Output[int]:
         """
         The size of the disk in bytes. This field is read only.
         """
@@ -138,7 +138,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> pulumi.Output[Optional[float]]:
+    def disk_size_gb(self) -> pulumi.Output[Optional[int]]:
         """
         If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         """

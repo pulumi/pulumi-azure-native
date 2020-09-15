@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,13 +26,13 @@ class ContainerServiceAgentPoolProfileArgs:
                  dns_prefix: pulumi.Input[str],
                  name: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 count: Optional[pulumi.Input[float]] = None):
+                 count: Optional[pulumi.Input[int]] = None):
         """
         Profile for the container service agent pool.
         :param pulumi.Input[str] dns_prefix: DNS prefix to be used to create the FQDN for the agent pool.
         :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param pulumi.Input[str] vm_size: Size of agent VMs.
-        :param pulumi.Input[float] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
         pulumi.set(__self__, "dns_prefix", dns_prefix)
         pulumi.set(__self__, "name", name)
@@ -78,14 +78,14 @@ class ContainerServiceAgentPoolProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
 
@@ -153,11 +153,11 @@ class ContainerServiceLinuxProfileArgs:
 class ContainerServiceMasterProfileArgs:
     def __init__(__self__, *,
                  dns_prefix: pulumi.Input[str],
-                 count: Optional[pulumi.Input[float]] = None):
+                 count: Optional[pulumi.Input[int]] = None):
         """
         Profile for the container service master.
         :param pulumi.Input[str] dns_prefix: DNS prefix to be used to create the FQDN for master.
-        :param pulumi.Input[float] count: Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
+        :param pulumi.Input[int] count: Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
         """
         pulumi.set(__self__, "dns_prefix", dns_prefix)
         if count is not None:
@@ -177,14 +177,14 @@ class ContainerServiceMasterProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
 
@@ -214,23 +214,23 @@ class ContainerServiceOrchestratorProfileArgs:
 @pulumi.input_type
 class ContainerServiceSshConfigurationArgs:
     def __init__(__self__, *,
-                 public_keys: pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
+                 public_keys: pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]] public_keys: the list of SSH public keys used to authenticate with Linux-based VMs.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]] public_keys: the list of SSH public keys used to authenticate with Linux-based VMs.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]:
+    def public_keys(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]:
         """
         the list of SSH public keys used to authenticate with Linux-based VMs.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
+    def public_keys(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
         pulumi.set(self, "public_keys", value)
 
 

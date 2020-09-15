@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -164,12 +164,12 @@ class PrivateEndpointArgs:
 class SBSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         SKU of the namespace.
         :param pulumi.Input[str] name: Name of this SKU.
-        :param pulumi.Input[float] capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+        :param pulumi.Input[int] capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
         :param pulumi.Input[str] tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -192,14 +192,14 @@ class SBSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

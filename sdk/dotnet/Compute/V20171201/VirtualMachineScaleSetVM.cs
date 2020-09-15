@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.Compute.V20171201
         /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         /// </summary>
         [Output("availabilitySet")]
-        public Output<Outputs.SubResourceResponseResult?> AvailabilitySet { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> AvailabilitySet { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
         /// </summary>
         [Output("diagnosticsProfile")]
-        public Output<Outputs.DiagnosticsProfileResponseResult?> DiagnosticsProfile { get; private set; } = null!;
+        public Output<Outputs.DiagnosticsProfileResponse?> DiagnosticsProfile { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the hardware settings for the virtual machine.
         /// </summary>
         [Output("hardwareProfile")]
-        public Output<Outputs.HardwareProfileResponseResult?> HardwareProfile { get; private set; } = null!;
+        public Output<Outputs.HardwareProfileResponse?> HardwareProfile { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine instance ID.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
         /// The virtual machine instance view.
         /// </summary>
         [Output("instanceView")]
-        public Output<Outputs.VirtualMachineScaleSetVMInstanceViewResponseResult> InstanceView { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineScaleSetVMInstanceViewResponse> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the latest model has been applied to the virtual machine.
@@ -72,19 +72,19 @@ namespace Pulumi.AzureRM.Compute.V20171201
         /// Specifies the network interfaces of the virtual machine.
         /// </summary>
         [Output("networkProfile")]
-        public Output<Outputs.NetworkProfileResponseResult?> NetworkProfile { get; private set; } = null!;
+        public Output<Outputs.NetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the operating system settings for the virtual machine.
         /// </summary>
         [Output("osProfile")]
-        public Output<Outputs.OSProfileResponseResult?> OsProfile { get; private set; } = null!;
+        public Output<Outputs.OSProfileResponse?> OsProfile { get; private set; } = null!;
 
         /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
+        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state, which only appears in the response.
@@ -96,19 +96,19 @@ namespace Pulumi.AzureRM.Compute.V20171201
         /// The virtual machine child extension resources.
         /// </summary>
         [Output("resources")]
-        public Output<ImmutableArray<Outputs.VirtualMachineExtensionResponseResult>> Resources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualMachineExtensionResponse>> Resources { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the storage settings for the virtual machine disks.
         /// </summary>
         [Output("storageProfile")]
-        public Output<Outputs.StorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
+        public Output<Outputs.StorageProfileResponse?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

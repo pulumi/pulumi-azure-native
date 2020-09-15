@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -17,12 +17,12 @@ __all__ = [
 @pulumi.input_type
 class ActionGroupsInformationArgs:
     def __init__(__self__, *,
-                 group_ids: pulumi.Input[List[pulumi.Input[str]]],
+                 group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  custom_email_subject: Optional[pulumi.Input[str]] = None,
                  custom_webhook_payload: Optional[pulumi.Input[str]] = None):
         """
         The Action Groups information, used by the alert rule.
-        :param pulumi.Input[List[pulumi.Input[str]]] group_ids: The Action Group resource IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The Action Group resource IDs.
         :param pulumi.Input[str] custom_email_subject: An optional custom email subject to use in email notifications.
         :param pulumi.Input[str] custom_webhook_payload: An optional custom web-hook payload to use in web-hook notifications.
         """
@@ -34,14 +34,14 @@ class ActionGroupsInformationArgs:
 
     @property
     @pulumi.getter(name="groupIds")
-    def group_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The Action Group resource IDs.
         """
         return pulumi.get(self, "group_ids")
 
     @group_ids.setter
-    def group_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "group_ids", value)
 
     @property
@@ -74,18 +74,18 @@ class DetectorArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 image_paths: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 image_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
-                 supported_resource_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 supported_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The detector information. By default this is not populated, unless it's specified in expandDetector
         :param pulumi.Input[str] id: The detector id.
         :param pulumi.Input[str] description: The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
-        :param pulumi.Input[List[pulumi.Input[str]]] image_paths: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] image_paths: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
         :param pulumi.Input[str] name: The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] parameters: The detector's parameters.'
-        :param pulumi.Input[List[pulumi.Input[str]]] supported_resource_types: The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_resource_types: The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
         """
         pulumi.set(__self__, "id", id)
         if description is not None:
@@ -125,14 +125,14 @@ class DetectorArgs:
 
     @property
     @pulumi.getter(name="imagePaths")
-    def image_paths(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def image_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
         """
         return pulumi.get(self, "image_paths")
 
     @image_paths.setter
-    def image_paths(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def image_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "image_paths", value)
 
     @property
@@ -161,14 +161,14 @@ class DetectorArgs:
 
     @property
     @pulumi.getter(name="supportedResourceTypes")
-    def supported_resource_types(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def supported_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
         """
         return pulumi.get(self, "supported_resource_types")
 
     @supported_resource_types.setter
-    def supported_resource_types(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def supported_resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "supported_resource_types", value)
 
 

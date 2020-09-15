@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
         /// The daily recurrence of the schedule.
         /// </summary>
         [Output("dailyRecurrence")]
-        public Output<Outputs.DayDetailsResponseResult?> DailyRecurrence { get; private set; } = null!;
+        public Output<Outputs.DayDetailsResponse?> DailyRecurrence { get; private set; } = null!;
 
         /// <summary>
         /// The hourly recurrence of the schedule.
         /// </summary>
         [Output("hourlyRecurrence")]
-        public Output<Outputs.HourDetailsResponseResult?> HourlyRecurrence { get; private set; } = null!;
+        public Output<Outputs.HourDetailsResponse?> HourlyRecurrence { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
         /// The weekly recurrence of the schedule.
         /// </summary>
         [Output("weeklyRecurrence")]
-        public Output<Outputs.WeekDetailsResponseResult?> WeeklyRecurrence { get; private set; } = null!;
+        public Output<Outputs.WeekDetailsResponse?> WeeklyRecurrence { get; private set; } = null!;
 
 
         /// <summary>

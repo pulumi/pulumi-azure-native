@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetWebAppHybridConnectionSlotResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if relay_arm_uri and not isinstance(relay_arm_uri, str):
             raise TypeError("Expected argument 'relay_arm_uri' to be a str")
@@ -80,7 +80,7 @@ class GetWebAppHybridConnectionSlotResult:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         The port of the endpoint.
         """

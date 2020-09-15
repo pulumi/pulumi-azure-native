@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -38,8 +38,8 @@ class GetBackupPolicyResult:
         if scheduled_backup_status and not isinstance(scheduled_backup_status, str):
             raise TypeError("Expected argument 'scheduled_backup_status' to be a str")
         pulumi.set(__self__, "scheduled_backup_status", scheduled_backup_status)
-        if schedules_count and not isinstance(schedules_count, float):
-            raise TypeError("Expected argument 'schedules_count' to be a float")
+        if schedules_count and not isinstance(schedules_count, int):
+            raise TypeError("Expected argument 'schedules_count' to be a int")
         pulumi.set(__self__, "schedules_count", schedules_count)
         if ssm_host_name and not isinstance(ssm_host_name, str):
             raise TypeError("Expected argument 'ssm_host_name' to be a str")
@@ -101,7 +101,7 @@ class GetBackupPolicyResult:
 
     @property
     @pulumi.getter(name="schedulesCount")
-    def schedules_count(self) -> float:
+    def schedules_count(self) -> int:
         """
         The count of schedules the backup policy contains.
         """
@@ -125,7 +125,7 @@ class GetBackupPolicyResult:
 
     @property
     @pulumi.getter(name="volumeIds")
-    def volume_ids(self) -> List[str]:
+    def volume_ids(self) -> Sequence[str]:
         """
         The path IDs of the volumes which are part of the backup policy.
         """

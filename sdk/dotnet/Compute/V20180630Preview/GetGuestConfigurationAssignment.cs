@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Compute.V20180630Preview
         /// <summary>
         /// Properties of the Guest configuration assignment.
         /// </summary>
-        public readonly Outputs.GuestConfigurationAssignmentPropertiesResponseResult Properties;
+        public readonly Outputs.GuestConfigurationAssignmentPropertiesResponse Properties;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Compute.V20180630Preview
 
             string? name,
 
-            Outputs.GuestConfigurationAssignmentPropertiesResponseResult properties,
+            Outputs.GuestConfigurationAssignmentPropertiesResponse properties,
 
             string type)
         {

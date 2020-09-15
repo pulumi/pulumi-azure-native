@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <summary>
         /// The assembly properties.
         /// </summary>
-        public readonly Outputs.AssemblyPropertiesResponseResult Properties;
+        public readonly Outputs.AssemblyPropertiesResponse Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
 
             string name,
 
-            Outputs.AssemblyPropertiesResponseResult properties,
+            Outputs.AssemblyPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

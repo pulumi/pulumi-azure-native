@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -57,17 +57,17 @@ class BlockchainMemberNodesSkuResponse(dict):
     Payload of the blockchain member nodes Sku for a blockchain member.
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None):
+                 capacity: Optional[int] = None):
         """
         Payload of the blockchain member nodes Sku for a blockchain member.
-        :param float capacity: Gets or sets the nodes capacity.
+        :param int capacity: Gets or sets the nodes capacity.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Gets or sets the nodes capacity.
         """

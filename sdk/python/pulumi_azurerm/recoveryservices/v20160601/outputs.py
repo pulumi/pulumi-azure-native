@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,13 +42,13 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
-                 protected_items_count: Optional[float] = None,
+                 protected_items_count: Optional[int] = None,
                  retention_policy: Optional[Any] = None,
                  schedule_policy: Optional[Any] = None):
         """
         Azure VM (also known as IaaS VM) workload-specific backup policy.
         :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param float protected_items_count: The number of items associated with this policy.
+        :param int protected_items_count: The number of items associated with this policy.
         :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The retention policy with the details on backup copy retention ranges.
         :param Union['LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: The backup schedule specified as part of backup policy.
         """
@@ -71,7 +71,7 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemsCount")
-    def protected_items_count(self) -> Optional[float]:
+    def protected_items_count(self) -> Optional[int]:
         """
         The number of items associated with this policy.
         """
@@ -104,12 +104,12 @@ class AzureSqlProtectionPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
-                 protected_items_count: Optional[float] = None,
+                 protected_items_count: Optional[int] = None,
                  retention_policy: Optional[Any] = None):
         """
          The Azure SQL workload-specific backup policy.
         :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param float protected_items_count: The number of items associated with this policy.
+        :param int protected_items_count: The number of items associated with this policy.
         :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The retention policy details.
         """
         if backup_management_type is not None:
@@ -129,7 +129,7 @@ class AzureSqlProtectionPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemsCount")
-    def protected_items_count(self) -> Optional[float]:
+    def protected_items_count(self) -> Optional[int]:
         """
         The number of items associated with this policy.
         """
@@ -153,17 +153,17 @@ class DailyRetentionFormatResponse(dict):
     Daily retention format.
     """
     def __init__(__self__, *,
-                 days_of_the_month: Optional[List['outputs.DayResponse']] = None):
+                 days_of_the_month: Optional[Sequence['outputs.DayResponse']] = None):
         """
         Daily retention format.
-        :param List['DayResponseArgs'] days_of_the_month: List of days of the month.
+        :param Sequence['DayResponseArgs'] days_of_the_month: List of days of the month.
         """
         if days_of_the_month is not None:
             pulumi.set(__self__, "days_of_the_month", days_of_the_month)
 
     @property
     @pulumi.getter(name="daysOfTheMonth")
-    def days_of_the_month(self) -> Optional[List['outputs.DayResponse']]:
+    def days_of_the_month(self) -> Optional[Sequence['outputs.DayResponse']]:
         """
         List of days of the month.
         """
@@ -180,11 +180,11 @@ class DailyRetentionScheduleResponse(dict):
     """
     def __init__(__self__, *,
                  retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
-                 retention_times: Optional[List[str]] = None):
+                 retention_times: Optional[Sequence[str]] = None):
         """
         Daily retention schedule.
         :param 'RetentionDurationResponseArgs' retention_duration: The retention duration of retention policy.
-        :param List[str] retention_times: The retention times of retention policy.
+        :param Sequence[str] retention_times: The retention times of retention policy.
         """
         if retention_duration is not None:
             pulumi.set(__self__, "retention_duration", retention_duration)
@@ -201,7 +201,7 @@ class DailyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[List[str]]:
+    def retention_times(self) -> Optional[Sequence[str]]:
         """
         The retention times of retention policy.
         """
@@ -217,7 +217,7 @@ class DayResponse(dict):
     Day of the week.
     """
     def __init__(__self__, *,
-                 date: Optional[float] = None,
+                 date: Optional[int] = None,
                  is_last: Optional[bool] = None):
         """
         Day of the week.
@@ -229,7 +229,7 @@ class DayResponse(dict):
 
     @property
     @pulumi.getter
-    def date(self) -> Optional[float]:
+    def date(self) -> Optional[int]:
         return pulumi.get(self, "date")
 
     @property
@@ -395,13 +395,13 @@ class MabProtectionPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
-                 protected_items_count: Optional[float] = None,
+                 protected_items_count: Optional[int] = None,
                  retention_policy: Optional[Any] = None,
                  schedule_policy: Optional[Any] = None):
         """
         The backup policy for the file or folder container.
         :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param float protected_items_count: The number of items associated with this policy.
+        :param int protected_items_count: The number of items associated with this policy.
         :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The details specified in the Retention policy.
         :param Union['LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: The schedule specified in the backup policy.
         """
@@ -424,7 +424,7 @@ class MabProtectionPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemsCount")
-    def protected_items_count(self) -> Optional[float]:
+    def protected_items_count(self) -> Optional[int]:
         """
         The number of items associated with this policy.
         """
@@ -460,14 +460,14 @@ class MonthlyRetentionScheduleResponse(dict):
                  retention_schedule_daily: Optional['outputs.DailyRetentionFormatResponse'] = None,
                  retention_schedule_format_type: Optional[str] = None,
                  retention_schedule_weekly: Optional['outputs.WeeklyRetentionFormatResponse'] = None,
-                 retention_times: Optional[List[str]] = None):
+                 retention_times: Optional[Sequence[str]] = None):
         """
         The monthly retention schedule.
         :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the retention policy.
         :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for the monthly retention policy.
         :param str retention_schedule_format_type: Retention schedule format type for monthly retention policy.
         :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for the monthly retention policy.
-        :param List[str] retention_times: Retention times of the retention policy.
+        :param Sequence[str] retention_times: Retention times of the retention policy.
         """
         if retention_duration is not None:
             pulumi.set(__self__, "retention_duration", retention_duration)
@@ -514,7 +514,7 @@ class MonthlyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[List[str]]:
+    def retention_times(self) -> Optional[Sequence[str]]:
         """
         Retention times of the retention policy.
         """
@@ -688,11 +688,11 @@ class RetentionDurationResponse(dict):
     Retention duration.
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  duration_type: Optional[str] = None):
         """
         Retention duration.
-        :param float count: Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
+        :param int count: Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
                   For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
         :param str duration_type: The retention duration type of the retention policy.
         """
@@ -703,7 +703,7 @@ class RetentionDurationResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
            For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
@@ -767,17 +767,17 @@ class SimpleSchedulePolicyResponse(dict):
     """
     def __init__(__self__, *,
                  schedule_policy_type: Optional[str] = None,
-                 schedule_run_days: Optional[List[str]] = None,
+                 schedule_run_days: Optional[Sequence[str]] = None,
                  schedule_run_frequency: Optional[str] = None,
-                 schedule_run_times: Optional[List[str]] = None,
-                 schedule_weekly_frequency: Optional[float] = None):
+                 schedule_run_times: Optional[Sequence[str]] = None,
+                 schedule_weekly_frequency: Optional[int] = None):
         """
         Simple policy schedule.
         :param str schedule_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param List[str] schedule_run_days: This list is the days of the week when the schedule runs.
+        :param Sequence[str] schedule_run_days: This list is the days of the week when the schedule runs.
         :param str schedule_run_frequency: Defines the frequency interval (daily or weekly) for the schedule policy.
-        :param List[str] schedule_run_times: List of times, during a day, when the schedule runs.
-        :param float schedule_weekly_frequency: The number of times per week the schedule runs.
+        :param Sequence[str] schedule_run_times: List of times, during a day, when the schedule runs.
+        :param int schedule_weekly_frequency: The number of times per week the schedule runs.
         """
         if schedule_policy_type is not None:
             pulumi.set(__self__, "schedule_policy_type", 'SimpleSchedulePolicy')
@@ -800,7 +800,7 @@ class SimpleSchedulePolicyResponse(dict):
 
     @property
     @pulumi.getter(name="scheduleRunDays")
-    def schedule_run_days(self) -> Optional[List[str]]:
+    def schedule_run_days(self) -> Optional[Sequence[str]]:
         """
         This list is the days of the week when the schedule runs.
         """
@@ -816,7 +816,7 @@ class SimpleSchedulePolicyResponse(dict):
 
     @property
     @pulumi.getter(name="scheduleRunTimes")
-    def schedule_run_times(self) -> Optional[List[str]]:
+    def schedule_run_times(self) -> Optional[Sequence[str]]:
         """
         List of times, during a day, when the schedule runs.
         """
@@ -824,7 +824,7 @@ class SimpleSchedulePolicyResponse(dict):
 
     @property
     @pulumi.getter(name="scheduleWeeklyFrequency")
-    def schedule_weekly_frequency(self) -> Optional[float]:
+    def schedule_weekly_frequency(self) -> Optional[int]:
         """
         The number of times per week the schedule runs.
         """
@@ -978,14 +978,14 @@ class VaultPropertiesResponse(dict):
     Properties of the vault.
     """
     def __init__(__self__, *,
-                 private_endpoint_connections: List['outputs.PrivateEndpointConnectionVaultPropertiesResponse'],
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionVaultPropertiesResponse'],
                  private_endpoint_state_for_backup: str,
                  private_endpoint_state_for_site_recovery: str,
                  provisioning_state: str,
                  upgrade_details: Optional['outputs.UpgradeDetailsResponse'] = None):
         """
         Properties of the vault.
-        :param List['PrivateEndpointConnectionVaultPropertiesResponseArgs'] private_endpoint_connections: List of private endpoint connection.
+        :param Sequence['PrivateEndpointConnectionVaultPropertiesResponseArgs'] private_endpoint_connections: List of private endpoint connection.
         :param str private_endpoint_state_for_backup: Private endpoint state for backup.
         :param str private_endpoint_state_for_site_recovery: Private endpoint state for site recovery.
         :param str provisioning_state: Provisioning State.
@@ -1000,7 +1000,7 @@ class VaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionVaultPropertiesResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionVaultPropertiesResponse']:
         """
         List of private endpoint connection.
         """
@@ -1048,12 +1048,12 @@ class WeeklyRetentionFormatResponse(dict):
     Weekly retention format.
     """
     def __init__(__self__, *,
-                 days_of_the_week: Optional[List[str]] = None,
-                 weeks_of_the_month: Optional[List[str]] = None):
+                 days_of_the_week: Optional[Sequence[str]] = None,
+                 weeks_of_the_month: Optional[Sequence[str]] = None):
         """
         Weekly retention format.
-        :param List[str] days_of_the_week: List of days of the week.
-        :param List[str] weeks_of_the_month: List of weeks of the month.
+        :param Sequence[str] days_of_the_week: List of days of the week.
+        :param Sequence[str] weeks_of_the_month: List of weeks of the month.
         """
         if days_of_the_week is not None:
             pulumi.set(__self__, "days_of_the_week", days_of_the_week)
@@ -1062,7 +1062,7 @@ class WeeklyRetentionFormatResponse(dict):
 
     @property
     @pulumi.getter(name="daysOfTheWeek")
-    def days_of_the_week(self) -> Optional[List[str]]:
+    def days_of_the_week(self) -> Optional[Sequence[str]]:
         """
         List of days of the week.
         """
@@ -1070,7 +1070,7 @@ class WeeklyRetentionFormatResponse(dict):
 
     @property
     @pulumi.getter(name="weeksOfTheMonth")
-    def weeks_of_the_month(self) -> Optional[List[str]]:
+    def weeks_of_the_month(self) -> Optional[Sequence[str]]:
         """
         List of weeks of the month.
         """
@@ -1086,14 +1086,14 @@ class WeeklyRetentionScheduleResponse(dict):
     Weekly retention schedule.
     """
     def __init__(__self__, *,
-                 days_of_the_week: Optional[List[str]] = None,
+                 days_of_the_week: Optional[Sequence[str]] = None,
                  retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
-                 retention_times: Optional[List[str]] = None):
+                 retention_times: Optional[Sequence[str]] = None):
         """
         Weekly retention schedule.
-        :param List[str] days_of_the_week: List of the days of the week for the weekly retention policy.
+        :param Sequence[str] days_of_the_week: List of the days of the week for the weekly retention policy.
         :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention policy.
-        :param List[str] retention_times: Retention times of the retention policy.
+        :param Sequence[str] retention_times: Retention times of the retention policy.
         """
         if days_of_the_week is not None:
             pulumi.set(__self__, "days_of_the_week", days_of_the_week)
@@ -1104,7 +1104,7 @@ class WeeklyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="daysOfTheWeek")
-    def days_of_the_week(self) -> Optional[List[str]]:
+    def days_of_the_week(self) -> Optional[Sequence[str]]:
         """
         List of the days of the week for the weekly retention policy.
         """
@@ -1120,7 +1120,7 @@ class WeeklyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[List[str]]:
+    def retention_times(self) -> Optional[Sequence[str]]:
         """
         Retention times of the retention policy.
         """
@@ -1136,20 +1136,20 @@ class YearlyRetentionScheduleResponse(dict):
     Yearly retention schedule.
     """
     def __init__(__self__, *,
-                 months_of_year: Optional[List[str]] = None,
+                 months_of_year: Optional[Sequence[str]] = None,
                  retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
                  retention_schedule_daily: Optional['outputs.DailyRetentionFormatResponse'] = None,
                  retention_schedule_format_type: Optional[str] = None,
                  retention_schedule_weekly: Optional['outputs.WeeklyRetentionFormatResponse'] = None,
-                 retention_times: Optional[List[str]] = None):
+                 retention_times: Optional[Sequence[str]] = None):
         """
         Yearly retention schedule.
-        :param List[str] months_of_year: List of the months of year for the yearly retention policy.
+        :param Sequence[str] months_of_year: List of the months of year for the yearly retention policy.
         :param 'RetentionDurationResponseArgs' retention_duration: Retention duration for the retention policy.
         :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for the yearly retention policy.
         :param str retention_schedule_format_type: Retention schedule format for the yearly retention policy.
         :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for the yearly retention policy.
-        :param List[str] retention_times: Retention times for the retention policy.
+        :param Sequence[str] retention_times: Retention times for the retention policy.
         """
         if months_of_year is not None:
             pulumi.set(__self__, "months_of_year", months_of_year)
@@ -1166,7 +1166,7 @@ class YearlyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="monthsOfYear")
-    def months_of_year(self) -> Optional[List[str]]:
+    def months_of_year(self) -> Optional[Sequence[str]]:
         """
         List of the months of year for the yearly retention policy.
         """
@@ -1206,7 +1206,7 @@ class YearlyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[List[str]]:
+    def retention_times(self) -> Optional[Sequence[str]]:
         """
         Retention times for the retention policy.
         """

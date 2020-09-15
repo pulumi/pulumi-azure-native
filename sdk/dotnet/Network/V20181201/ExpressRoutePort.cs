@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20181201
         /// Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
         /// </summary>
         [Output("circuits")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> Circuits { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> Circuits { get; private set; } = null!;
 
         /// <summary>
         /// Encapsulation method on physical ports.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20181201
         /// The set of physical links of the ExpressRoutePort resource
         /// </summary>
         [Output("links")]
-        public Output<ImmutableArray<Outputs.ExpressRouteLinkResponseResult>> Links { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ExpressRouteLinkResponse>> Links { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.

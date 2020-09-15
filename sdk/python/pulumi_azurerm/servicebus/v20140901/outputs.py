@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,18 +19,18 @@ class MessageCountDetailsResponse(dict):
     Message Count Details.
     """
     def __init__(__self__, *,
-                 active_message_count: float,
-                 dead_letter_message_count: float,
-                 scheduled_message_count: float,
-                 transfer_dead_letter_message_count: float,
-                 transfer_message_count: float):
+                 active_message_count: int,
+                 dead_letter_message_count: int,
+                 scheduled_message_count: int,
+                 transfer_dead_letter_message_count: int,
+                 transfer_message_count: int):
         """
         Message Count Details.
-        :param float active_message_count: Number of active messages in the queue, topic, or subscription.
-        :param float dead_letter_message_count: Number of messages that are dead lettered.
-        :param float scheduled_message_count: Number of scheduled messages.
-        :param float transfer_dead_letter_message_count: Number of messages transferred into dead letters.
-        :param float transfer_message_count: Number of messages transferred to another queue, topic, or subscription.
+        :param int active_message_count: Number of active messages in the queue, topic, or subscription.
+        :param int dead_letter_message_count: Number of messages that are dead lettered.
+        :param int scheduled_message_count: Number of scheduled messages.
+        :param int transfer_dead_letter_message_count: Number of messages transferred into dead letters.
+        :param int transfer_message_count: Number of messages transferred to another queue, topic, or subscription.
         """
         pulumi.set(__self__, "active_message_count", active_message_count)
         pulumi.set(__self__, "dead_letter_message_count", dead_letter_message_count)
@@ -40,7 +40,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="activeMessageCount")
-    def active_message_count(self) -> float:
+    def active_message_count(self) -> int:
         """
         Number of active messages in the queue, topic, or subscription.
         """
@@ -48,7 +48,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="deadLetterMessageCount")
-    def dead_letter_message_count(self) -> float:
+    def dead_letter_message_count(self) -> int:
         """
         Number of messages that are dead lettered.
         """
@@ -56,7 +56,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="scheduledMessageCount")
-    def scheduled_message_count(self) -> float:
+    def scheduled_message_count(self) -> int:
         """
         Number of scheduled messages.
         """
@@ -64,7 +64,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="transferDeadLetterMessageCount")
-    def transfer_dead_letter_message_count(self) -> float:
+    def transfer_dead_letter_message_count(self) -> int:
         """
         Number of messages transferred into dead letters.
         """
@@ -72,7 +72,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="transferMessageCount")
-    def transfer_message_count(self) -> float:
+    def transfer_message_count(self) -> int:
         """
         Number of messages transferred to another queue, topic, or subscription.
         """
@@ -89,12 +89,12 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  tier: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None):
         """
         SKU of the namespace.
         :param str tier: The billing tier of this particular SKU.
-        :param float capacity: The specified messaging units for the tier.
+        :param int capacity: The specified messaging units for the tier.
         :param str name: Name of this SKU.
         """
         pulumi.set(__self__, "tier", tier)
@@ -113,7 +113,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The specified messaging units for the tier.
         """

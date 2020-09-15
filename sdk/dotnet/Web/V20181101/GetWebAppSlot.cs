@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// If specified during app creation, the app is cloned from a source app.
         /// </summary>
-        public readonly Outputs.CloningInfoResponseResult? CloningInfo;
+        public readonly Outputs.CloningInfoResponse? CloningInfo;
         /// <summary>
         /// Size of the function container.
         /// </summary>
@@ -89,11 +89,11 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// GeoDistributions for this site
         /// </summary>
-        public readonly ImmutableArray<Outputs.GeoDistributionResponseResult> GeoDistributions;
+        public readonly ImmutableArray<Outputs.GeoDistributionResponse> GeoDistributions;
         /// <summary>
         /// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HostNameSslStateResponseResult> HostNameSslStates;
+        public readonly ImmutableArray<Outputs.HostNameSslStateResponse> HostNameSslStates;
         /// <summary>
         /// Hostnames associated with the app.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// App Service Environment to use for the app.
         /// </summary>
-        public readonly Outputs.HostingEnvironmentProfileResponseResult? HostingEnvironmentProfile;
+        public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
         /// <summary>
         /// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
         /// http requests
@@ -119,7 +119,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// Managed service identity.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponseResult? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Specifies an operation id if this site has a pending operation.
         /// </summary>
@@ -188,11 +188,11 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// Configuration of the app.
         /// </summary>
-        public readonly Outputs.SiteConfigResponseResult? SiteConfig;
+        public readonly Outputs.SiteConfigResponse? SiteConfig;
         /// <summary>
         /// Status of the last deployment slot swap operation.
         /// </summary>
-        public readonly Outputs.SlotSwapStatusResponseResult SlotSwapStatus;
+        public readonly Outputs.SlotSwapStatusResponse SlotSwapStatus;
         /// <summary>
         /// Current state of the app.
         /// </summary>
@@ -232,7 +232,7 @@ namespace Pulumi.AzureRM.Web.V20181101
 
             string? clientCertExclusionPaths,
 
-            Outputs.CloningInfoResponseResult? cloningInfo,
+            Outputs.CloningInfoResponse? cloningInfo,
 
             int? containerSize,
 
@@ -244,21 +244,21 @@ namespace Pulumi.AzureRM.Web.V20181101
 
             ImmutableArray<string> enabledHostNames,
 
-            ImmutableArray<Outputs.GeoDistributionResponseResult> geoDistributions,
+            ImmutableArray<Outputs.GeoDistributionResponse> geoDistributions,
 
-            ImmutableArray<Outputs.HostNameSslStateResponseResult> hostNameSslStates,
+            ImmutableArray<Outputs.HostNameSslStateResponse> hostNameSslStates,
 
             ImmutableArray<string> hostNames,
 
             bool? hostNamesDisabled,
 
-            Outputs.HostingEnvironmentProfileResponseResult? hostingEnvironmentProfile,
+            Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
 
             bool? httpsOnly,
 
             bool? hyperV,
 
-            Outputs.ManagedServiceIdentityResponseResult? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string inProgressOperationId,
 
@@ -292,9 +292,9 @@ namespace Pulumi.AzureRM.Web.V20181101
 
             string? serverFarmId,
 
-            Outputs.SiteConfigResponseResult? siteConfig,
+            Outputs.SiteConfigResponse? siteConfig,
 
-            Outputs.SlotSwapStatusResponseResult slotSwapStatus,
+            Outputs.SlotSwapStatusResponse slotSwapStatus,
 
             string state,
 

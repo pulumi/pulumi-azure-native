@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class Account(pulumi.CustomResource):
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigArgs']]] = None,
                  encryption_state: Optional[pulumi.Input[str]] = None,
                  firewall_allow_azure_ips: Optional[pulumi.Input[str]] = None,
-                 firewall_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]]] = None,
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]]] = None,
                  firewall_state: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EncryptionIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -30,8 +30,8 @@ class Account(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_id_provider_state: Optional[pulumi.Input[str]] = None,
-                 trusted_id_providers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateTrustedIdProviderWithAccountParametersArgs']]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateVirtualNetworkRuleWithAccountParametersArgs']]]]] = None,
+                 trusted_id_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateTrustedIdProviderWithAccountParametersArgs']]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateVirtualNetworkRuleWithAccountParametersArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -45,7 +45,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EncryptionConfigArgs']] encryption_config: The Key Vault encryption configuration.
         :param pulumi.Input[str] encryption_state: The current state of encryption for this Data Lake Store account.
         :param pulumi.Input[str] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]] firewall_rules: The list of firewall rules associated with this Data Lake Store account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]] firewall_rules: The list of firewall rules associated with this Data Lake Store account.
         :param pulumi.Input[str] firewall_state: The current state of the IP address firewall for this Data Lake Store account.
         :param pulumi.Input[pulumi.InputType['EncryptionIdentityArgs']] identity: The Key Vault encryption identity, if any.
         :param pulumi.Input[str] location: The resource location.
@@ -53,8 +53,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] trusted_id_provider_state: The current state of the trusted identity provider feature for this Data Lake Store account.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateTrustedIdProviderWithAccountParametersArgs']]]] trusted_id_providers: The list of trusted identity providers associated with this Data Lake Store account.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateVirtualNetworkRuleWithAccountParametersArgs']]]] virtual_network_rules: The list of virtual network rules associated with this Data Lake Store account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateTrustedIdProviderWithAccountParametersArgs']]]] trusted_id_providers: The list of trusted identity providers associated with this Data Lake Store account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateVirtualNetworkRuleWithAccountParametersArgs']]]] virtual_network_rules: The list of virtual network rules associated with this Data Lake Store account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -204,7 +204,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> pulumi.Output[List['outputs.FirewallRuleResponse']]:
+    def firewall_rules(self) -> pulumi.Output[Sequence['outputs.FirewallRuleResponse']]:
         """
         The list of firewall rules associated with this Data Lake Store account.
         """
@@ -292,7 +292,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedIdProviders")
-    def trusted_id_providers(self) -> pulumi.Output[List['outputs.TrustedIdProviderResponse']]:
+    def trusted_id_providers(self) -> pulumi.Output[Sequence['outputs.TrustedIdProviderResponse']]:
         """
         The list of trusted identity providers associated with this Data Lake Store account.
         """
@@ -308,7 +308,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> pulumi.Output[List['outputs.VirtualNetworkRuleResponse']]:
+    def virtual_network_rules(self) -> pulumi.Output[Sequence['outputs.VirtualNetworkRuleResponse']]:
         """
         The list of virtual network rules associated with this Data Lake Store account.
         """

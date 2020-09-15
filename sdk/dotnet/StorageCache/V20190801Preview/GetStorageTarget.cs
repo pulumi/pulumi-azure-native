@@ -48,11 +48,11 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
         /// <summary>
         /// Properties when clfs target.
         /// </summary>
-        public readonly Outputs.ClfsTargetResponseResult? Clfs;
+        public readonly Outputs.ClfsTargetResponse? Clfs;
         /// <summary>
         /// List of cache namespace to target namespace associations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NamespaceJunctionResponseResult> Junctions;
+        public readonly ImmutableArray<Outputs.NamespaceJunctionResponse> Junctions;
         /// <summary>
         /// A fully qualified URL.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
         /// <summary>
         /// Properties when nfs3 target.
         /// </summary>
-        public readonly Outputs.Nfs3TargetResponseResult? Nfs3;
+        public readonly Outputs.Nfs3TargetResponse? Nfs3;
         /// <summary>
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
@@ -76,17 +76,17 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
         /// <summary>
         /// Properties when unknown target.
         /// </summary>
-        public readonly Outputs.UnknownTargetResponseResult? Unknown;
+        public readonly Outputs.UnknownTargetResponse? Unknown;
 
         [OutputConstructor]
         private GetStorageTargetResult(
-            Outputs.ClfsTargetResponseResult? clfs,
+            Outputs.ClfsTargetResponse? clfs,
 
-            ImmutableArray<Outputs.NamespaceJunctionResponseResult> junctions,
+            ImmutableArray<Outputs.NamespaceJunctionResponse> junctions,
 
             string name,
 
-            Outputs.Nfs3TargetResponseResult? nfs3,
+            Outputs.Nfs3TargetResponse? nfs3,
 
             string? provisioningState,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
 
             string type,
 
-            Outputs.UnknownTargetResponseResult? unknown)
+            Outputs.UnknownTargetResponse? unknown)
         {
             Clfs = clfs;
             Junctions = junctions;

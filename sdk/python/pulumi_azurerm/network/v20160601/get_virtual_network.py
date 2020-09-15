@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -113,7 +113,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[List['outputs.SubnetResponse']]:
+    def subnets(self) -> Optional[Sequence['outputs.SubnetResponse']]:
         """
         Gets or sets list of subnets in a VirtualNetwork
         """
@@ -137,7 +137,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="virtualNetworkPeerings")
-    def virtual_network_peerings(self) -> Optional[List['outputs.VirtualNetworkPeeringResponse']]:
+    def virtual_network_peerings(self) -> Optional[Sequence['outputs.VirtualNetworkPeeringResponse']]:
         """
         Gets or sets list of peerings in a VirtualNetwork
         """

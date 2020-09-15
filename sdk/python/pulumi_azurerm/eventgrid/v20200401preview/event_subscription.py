@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,7 +25,7 @@ class EventSubscription(pulumi.CustomResource):
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']]] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retry_policy: Optional[pulumi.Input[pulumi.InputType['RetryPolicyArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -48,7 +48,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] event_subscription_name: Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
         :param pulumi.Input[str] expiration_time_utc: Expiration time of the event subscription.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']] filter: Information about the filter for the event subscription.
-        :param pulumi.Input[List[pulumi.Input[str]]] labels: List of user defined labels.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of user defined labels.
         :param pulumi.Input[pulumi.InputType['RetryPolicyArgs']] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         :param pulumi.Input[str] scope: The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
         """
@@ -176,7 +176,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[List[str]]]:
+    def labels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of user defined labels.
         """

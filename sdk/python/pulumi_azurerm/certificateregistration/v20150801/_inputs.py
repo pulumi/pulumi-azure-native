@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -71,7 +71,7 @@ class CertificateDetailsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[float]] = None):
+                 version: Optional[pulumi.Input[int]] = None):
         """
         Certificate Details
         :param pulumi.Input[str] location: Resource Location
@@ -88,7 +88,7 @@ class CertificateDetailsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] thumbprint: Thumbprint
         :param pulumi.Input[str] type: Resource type
-        :param pulumi.Input[float] version: Version
+        :param pulumi.Input[int] version: Version
         """
         pulumi.set(__self__, "location", location)
         if id is not None:
@@ -290,14 +290,14 @@ class CertificateDetailsArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[float]]:
+    def version(self) -> Optional[pulumi.Input[int]]:
         """
         Version
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[float]]):
+    def version(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "version", value)
 
 

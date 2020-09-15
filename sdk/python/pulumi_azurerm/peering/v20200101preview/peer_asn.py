@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,9 +17,9 @@ class PeerAsn(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 peer_asn: Optional[pulumi.Input[float]] = None,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
                  peer_asn_name: Optional[pulumi.Input[str]] = None,
-                 peer_contact_detail: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
+                 peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
                  peer_name: Optional[pulumi.Input[str]] = None,
                  validation_state: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,9 +30,9 @@ class PeerAsn(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] peer_asn: The Autonomous System Number (ASN) of the peer.
+        :param pulumi.Input[int] peer_asn: The Autonomous System Number (ASN) of the peer.
         :param pulumi.Input[str] peer_asn_name: The peer ASN name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]] peer_contact_detail: The contact details of the peer.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]] peer_contact_detail: The contact details of the peer.
         :param pulumi.Input[str] peer_name: The name of the peer.
         :param pulumi.Input[str] validation_state: The validation state of the ASN associated with the peer.
         """
@@ -107,7 +107,7 @@ class PeerAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> pulumi.Output[Optional[float]]:
+    def peer_asn(self) -> pulumi.Output[Optional[int]]:
         """
         The Autonomous System Number (ASN) of the peer.
         """
@@ -115,7 +115,7 @@ class PeerAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerContactDetail")
-    def peer_contact_detail(self) -> pulumi.Output[Optional[List['outputs.ContactDetailResponse']]]:
+    def peer_contact_detail(self) -> pulumi.Output[Optional[Sequence['outputs.ContactDetailResponse']]]:
         """
         The contact details of the peer.
         """

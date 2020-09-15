@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -31,11 +31,11 @@ class ClusterSkuResponse(dict):
     The cluster sku definition.
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None):
         """
         The cluster sku definition.
-        :param float capacity: The capacity value
+        :param int capacity: The capacity value
         :param str name: The name of the SKU.
         """
         if capacity is not None:
@@ -45,7 +45,7 @@ class ClusterSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The capacity value
         """
@@ -116,18 +116,18 @@ class IncidentAdditionalDataResponse(dict):
     Incident additional data property bag.
     """
     def __init__(__self__, *,
-                 alert_product_names: List[str],
-                 alerts_count: float,
-                 bookmarks_count: float,
-                 comments_count: float,
-                 tactics: List[str]):
+                 alert_product_names: Sequence[str],
+                 alerts_count: int,
+                 bookmarks_count: int,
+                 comments_count: int,
+                 tactics: Sequence[str]):
         """
         Incident additional data property bag.
-        :param List[str] alert_product_names: List of product names of alerts in the incident
-        :param float alerts_count: The number of alerts in the incident
-        :param float bookmarks_count: The number of bookmarks in the incident
-        :param float comments_count: The number of comments in the incident
-        :param List[str] tactics: The tactics associated with incident
+        :param Sequence[str] alert_product_names: List of product names of alerts in the incident
+        :param int alerts_count: The number of alerts in the incident
+        :param int bookmarks_count: The number of bookmarks in the incident
+        :param int comments_count: The number of comments in the incident
+        :param Sequence[str] tactics: The tactics associated with incident
         """
         pulumi.set(__self__, "alert_product_names", alert_product_names)
         pulumi.set(__self__, "alerts_count", alerts_count)
@@ -137,7 +137,7 @@ class IncidentAdditionalDataResponse(dict):
 
     @property
     @pulumi.getter(name="alertProductNames")
-    def alert_product_names(self) -> List[str]:
+    def alert_product_names(self) -> Sequence[str]:
         """
         List of product names of alerts in the incident
         """
@@ -145,7 +145,7 @@ class IncidentAdditionalDataResponse(dict):
 
     @property
     @pulumi.getter(name="alertsCount")
-    def alerts_count(self) -> float:
+    def alerts_count(self) -> int:
         """
         The number of alerts in the incident
         """
@@ -153,7 +153,7 @@ class IncidentAdditionalDataResponse(dict):
 
     @property
     @pulumi.getter(name="bookmarksCount")
-    def bookmarks_count(self) -> float:
+    def bookmarks_count(self) -> int:
         """
         The number of bookmarks in the incident
         """
@@ -161,7 +161,7 @@ class IncidentAdditionalDataResponse(dict):
 
     @property
     @pulumi.getter(name="commentsCount")
-    def comments_count(self) -> float:
+    def comments_count(self) -> int:
         """
         The number of comments in the incident
         """
@@ -169,7 +169,7 @@ class IncidentAdditionalDataResponse(dict):
 
     @property
     @pulumi.getter
-    def tactics(self) -> List[str]:
+    def tactics(self) -> Sequence[str]:
         """
         The tactics associated with incident
         """
@@ -584,15 +584,15 @@ class WorkspaceSkuResponse(dict):
     """
     def __init__(__self__, *,
                  last_sku_update: str,
-                 max_capacity_reservation_level: float,
+                 max_capacity_reservation_level: int,
                  name: str,
-                 capacity_reservation_level: Optional[float] = None):
+                 capacity_reservation_level: Optional[int] = None):
         """
         The SKU (tier) of a workspace.
         :param str last_sku_update: The last time when the sku was updated.
-        :param float max_capacity_reservation_level: The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
+        :param int max_capacity_reservation_level: The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
         :param str name: The name of the SKU.
-        :param float capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        :param int capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """
         pulumi.set(__self__, "last_sku_update", last_sku_update)
         pulumi.set(__self__, "max_capacity_reservation_level", max_capacity_reservation_level)
@@ -610,7 +610,7 @@ class WorkspaceSkuResponse(dict):
 
     @property
     @pulumi.getter(name="maxCapacityReservationLevel")
-    def max_capacity_reservation_level(self) -> float:
+    def max_capacity_reservation_level(self) -> int:
         """
         The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
         """
@@ -626,7 +626,7 @@ class WorkspaceSkuResponse(dict):
 
     @property
     @pulumi.getter(name="capacityReservationLevel")
-    def capacity_reservation_level(self) -> Optional[float]:
+    def capacity_reservation_level(self) -> Optional[int]:
         """
         The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """

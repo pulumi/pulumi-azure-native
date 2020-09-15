@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
         /// Gets or sets the firewall rules.
         /// </summary>
         [Output("firewallRules")]
-        public Output<ImmutableArray<Outputs.FirewallRuleResponseResult>> FirewallRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallRuleResponse>> FirewallRules { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the transaction node location.

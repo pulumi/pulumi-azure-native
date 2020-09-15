@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,7 +25,7 @@ class Connection(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  first_expiration_time: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 keywords: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 keywords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -33,7 +33,7 @@ class Connection(pulumi.CustomResource):
                  non_secret_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
                  parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 statuses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ConnectionStatusArgs']]]]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionStatusArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -53,14 +53,14 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: display name
         :param pulumi.Input[str] first_expiration_time: Time in UTC when the first expiration of OAuth tokens
         :param pulumi.Input[str] id: Resource Id
-        :param pulumi.Input[List[pulumi.Input[str]]] keywords: List of Keywords that tag the acl
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: List of Keywords that tag the acl
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] non_secret_parameter_values: Tokens/Claim
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] parameter_values: Tokens/Claim
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ConnectionStatusArgs']]]] statuses: Status of the connection
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionStatusArgs']]]] statuses: Status of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
@@ -183,7 +183,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def keywords(self) -> pulumi.Output[Optional[List[str]]]:
+    def keywords(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Keywords that tag the acl
         """
@@ -236,7 +236,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def statuses(self) -> pulumi.Output[Optional[List['outputs.ConnectionStatusResponse']]]:
+    def statuses(self) -> pulumi.Output[Optional[Sequence['outputs.ConnectionStatusResponse']]]:
         """
         Status of the connection
         """

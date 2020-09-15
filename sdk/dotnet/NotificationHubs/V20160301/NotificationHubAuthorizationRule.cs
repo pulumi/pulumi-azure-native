@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         /// The sku of the created namespace
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

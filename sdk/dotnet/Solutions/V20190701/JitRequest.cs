@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// The client entity that created the JIT request.
         /// </summary>
         [Output("createdBy")]
-        public Output<Outputs.ApplicationClientDetailsResponseResult> CreatedBy { get; private set; } = null!;
+        public Output<Outputs.ApplicationClientDetailsResponse> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// The JIT authorization policies.
         /// </summary>
         [Output("jitAuthorizationPolicies")]
-        public Output<ImmutableArray<Outputs.JitAuthorizationPoliciesResponseResult>> JitAuthorizationPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.JitAuthorizationPoliciesResponse>> JitAuthorizationPolicies { get; private set; } = null!;
 
         /// <summary>
         /// The JIT request state.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// The JIT request properties.
         /// </summary>
         [Output("jitSchedulingPolicy")]
-        public Output<Outputs.JitSchedulingPolicyResponseResult> JitSchedulingPolicy { get; private set; } = null!;
+        public Output<Outputs.JitSchedulingPolicyResponse> JitSchedulingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// The client entity that last updated the JIT request.
         /// </summary>
         [Output("updatedBy")]
-        public Output<Outputs.ApplicationClientDetailsResponseResult> UpdatedBy { get; private set; } = null!;
+        public Output<Outputs.ApplicationClientDetailsResponse> UpdatedBy { get; private set; } = null!;
 
 
         /// <summary>

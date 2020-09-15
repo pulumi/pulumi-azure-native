@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,14 +23,14 @@ class GetWorkloadGroupResult:
         if importance and not isinstance(importance, str):
             raise TypeError("Expected argument 'importance' to be a str")
         pulumi.set(__self__, "importance", importance)
-        if max_resource_percent and not isinstance(max_resource_percent, float):
-            raise TypeError("Expected argument 'max_resource_percent' to be a float")
+        if max_resource_percent and not isinstance(max_resource_percent, int):
+            raise TypeError("Expected argument 'max_resource_percent' to be a int")
         pulumi.set(__self__, "max_resource_percent", max_resource_percent)
         if max_resource_percent_per_request and not isinstance(max_resource_percent_per_request, float):
             raise TypeError("Expected argument 'max_resource_percent_per_request' to be a float")
         pulumi.set(__self__, "max_resource_percent_per_request", max_resource_percent_per_request)
-        if min_resource_percent and not isinstance(min_resource_percent, float):
-            raise TypeError("Expected argument 'min_resource_percent' to be a float")
+        if min_resource_percent and not isinstance(min_resource_percent, int):
+            raise TypeError("Expected argument 'min_resource_percent' to be a int")
         pulumi.set(__self__, "min_resource_percent", min_resource_percent)
         if min_resource_percent_per_request and not isinstance(min_resource_percent_per_request, float):
             raise TypeError("Expected argument 'min_resource_percent_per_request' to be a float")
@@ -38,8 +38,8 @@ class GetWorkloadGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if query_execution_timeout and not isinstance(query_execution_timeout, float):
-            raise TypeError("Expected argument 'query_execution_timeout' to be a float")
+        if query_execution_timeout and not isinstance(query_execution_timeout, int):
+            raise TypeError("Expected argument 'query_execution_timeout' to be a int")
         pulumi.set(__self__, "query_execution_timeout", query_execution_timeout)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -55,7 +55,7 @@ class GetWorkloadGroupResult:
 
     @property
     @pulumi.getter(name="maxResourcePercent")
-    def max_resource_percent(self) -> float:
+    def max_resource_percent(self) -> int:
         """
         The workload group cap percentage resource.
         """
@@ -71,7 +71,7 @@ class GetWorkloadGroupResult:
 
     @property
     @pulumi.getter(name="minResourcePercent")
-    def min_resource_percent(self) -> float:
+    def min_resource_percent(self) -> int:
         """
         The workload group minimum percentage resource.
         """
@@ -95,7 +95,7 @@ class GetWorkloadGroupResult:
 
     @property
     @pulumi.getter(name="queryExecutionTimeout")
-    def query_execution_timeout(self) -> Optional[float]:
+    def query_execution_timeout(self) -> Optional[int]:
         """
         The workload group query execution timeout.
         """

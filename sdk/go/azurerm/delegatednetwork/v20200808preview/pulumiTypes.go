@@ -82,61 +82,6 @@ func (i KubernetesPropertiesArray) ToKubernetesPropertiesArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesPropertiesArrayOutput)
 }
 
-// Properties of kubernetes cluster
-type KubernetesPropertiesOutput struct{ *pulumi.OutputState }
-
-func (KubernetesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesProperties)(nil)).Elem()
-}
-
-func (o KubernetesPropertiesOutput) ToKubernetesPropertiesOutput() KubernetesPropertiesOutput {
-	return o
-}
-
-func (o KubernetesPropertiesOutput) ToKubernetesPropertiesOutputWithContext(ctx context.Context) KubernetesPropertiesOutput {
-	return o
-}
-
-// APIServer url
-func (o KubernetesPropertiesOutput) ApiServerEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesProperties) *string { return v.ApiServerEndpoint }).(pulumi.StringPtrOutput)
-}
-
-// RootCA certificate of kubernetes cluster
-func (o KubernetesPropertiesOutput) ClusterRootCA() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesProperties) *string { return v.ClusterRootCA }).(pulumi.StringPtrOutput)
-}
-
-// AAD ID used with apiserver
-func (o KubernetesPropertiesOutput) ServerAppID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesProperties) *string { return v.ServerAppID }).(pulumi.StringPtrOutput)
-}
-
-// TenantID of server App ID
-func (o KubernetesPropertiesOutput) ServerTenantID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesProperties) *string { return v.ServerTenantID }).(pulumi.StringPtrOutput)
-}
-
-type KubernetesPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (KubernetesPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesProperties)(nil)).Elem()
-}
-
-func (o KubernetesPropertiesArrayOutput) ToKubernetesPropertiesArrayOutput() KubernetesPropertiesArrayOutput {
-	return o
-}
-
-func (o KubernetesPropertiesArrayOutput) ToKubernetesPropertiesArrayOutputWithContext(ctx context.Context) KubernetesPropertiesArrayOutput {
-	return o
-}
-
-func (o KubernetesPropertiesArrayOutput) Index(i pulumi.IntInput) KubernetesPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesProperties {
-		return vs[0].([]KubernetesProperties)[vs[1].(int)]
-	}).(KubernetesPropertiesOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(KubernetesPropertiesOutput{})
 	pulumi.RegisterOutputType(KubernetesPropertiesArrayOutput{})

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]]] = None,
+                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRulesDefinitionArgs']]] = None,
@@ -33,7 +33,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]] custom_rules: Describes custom rules inside the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]] custom_rules: Describes custom rules inside the policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['ManagedRulesDefinitionArgs']] managed_rules: Describes the managedRules structure.
@@ -109,7 +109,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationGateways")
-    def application_gateways(self) -> pulumi.Output[List['outputs.ApplicationGatewayResponse']]:
+    def application_gateways(self) -> pulumi.Output[Sequence['outputs.ApplicationGatewayResponse']]:
         """
         A collection of references to application gateways.
         """
@@ -117,7 +117,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> pulumi.Output[Optional[List['outputs.WebApplicationFirewallCustomRuleResponse']]]:
+    def custom_rules(self) -> pulumi.Output[Optional[Sequence['outputs.WebApplicationFirewallCustomRuleResponse']]]:
         """
         Describes custom rules inside the policy.
         """
@@ -133,7 +133,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpListeners")
-    def http_listeners(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def http_listeners(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         A collection of references to application gateway http listeners.
         """
@@ -165,7 +165,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pathBasedRules")
-    def path_based_rules(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def path_based_rules(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         A collection of references to application gateway path rules.
         """

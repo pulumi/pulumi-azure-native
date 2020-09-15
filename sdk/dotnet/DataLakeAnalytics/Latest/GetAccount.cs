@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
         /// <summary>
         /// The list of compute policies associated with this account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ComputePolicyResponseResult> ComputePolicies;
+        public readonly ImmutableArray<Outputs.ComputePolicyResponse> ComputePolicies;
         /// <summary>
         /// The account creation time.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
         /// <summary>
         /// The list of Data Lake Store accounts associated with this account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataLakeStoreAccountInformationResponseResult> DataLakeStoreAccounts;
+        public readonly ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse> DataLakeStoreAccounts;
         /// <summary>
         /// The default Data Lake Store account associated with this account.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
         /// <summary>
         /// The list of firewall rules associated with this account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FirewallRuleResponseResult> FirewallRules;
+        public readonly ImmutableArray<Outputs.FirewallRuleResponse> FirewallRules;
         /// <summary>
         /// The current state of the IP address firewall for this account.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
         /// <summary>
         /// The list of Azure Blob Storage accounts associated with this account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StorageAccountInformationResponseResult> StorageAccounts;
+        public readonly ImmutableArray<Outputs.StorageAccountInformationResponse> StorageAccounts;
         /// <summary>
         /// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
         /// </summary>
@@ -148,13 +148,13 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
         private GetAccountResult(
             string accountId,
 
-            ImmutableArray<Outputs.ComputePolicyResponseResult> computePolicies,
+            ImmutableArray<Outputs.ComputePolicyResponse> computePolicies,
 
             string creationTime,
 
             string currentTier,
 
-            ImmutableArray<Outputs.DataLakeStoreAccountInformationResponseResult> dataLakeStoreAccounts,
+            ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse> dataLakeStoreAccounts,
 
             string defaultDataLakeStoreAccount,
 
@@ -162,7 +162,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
 
             string firewallAllowAzureIps,
 
-            ImmutableArray<Outputs.FirewallRuleResponseResult> firewallRules,
+            ImmutableArray<Outputs.FirewallRuleResponse> firewallRules,
 
             string firewallState,
 
@@ -188,7 +188,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
 
             string state,
 
-            ImmutableArray<Outputs.StorageAccountInformationResponseResult> storageAccounts,
+            ImmutableArray<Outputs.StorageAccountInformationResponse> storageAccounts,
 
             int systemMaxDegreeOfParallelism,
 

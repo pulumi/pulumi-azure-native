@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StorSimple.Latest
         /// The chap password.
         /// </summary>
         [Output("password")]
-        public Output<Outputs.AsymmetricEncryptedSecretResponseResult> Password { get; private set; } = null!;
+        public Output<Outputs.AsymmetricEncryptedSecretResponse> Password { get; private set; } = null!;
 
         /// <summary>
         /// The type.

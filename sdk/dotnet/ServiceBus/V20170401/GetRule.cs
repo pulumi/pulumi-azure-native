@@ -60,11 +60,11 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// <summary>
         /// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         /// </summary>
-        public readonly Outputs.ActionResponseResult? Action;
+        public readonly Outputs.ActionResponse? Action;
         /// <summary>
         /// Properties of correlationFilter
         /// </summary>
-        public readonly Outputs.CorrelationFilterResponseResult? CorrelationFilter;
+        public readonly Outputs.CorrelationFilterResponse? CorrelationFilter;
         /// <summary>
         /// Filter type that is evaluated against a BrokeredMessage.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// <summary>
         /// Properties of sqlFilter
         /// </summary>
-        public readonly Outputs.SqlFilterResponseResult? SqlFilter;
+        public readonly Outputs.SqlFilterResponse? SqlFilter;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -84,15 +84,15 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
 
         [OutputConstructor]
         private GetRuleResult(
-            Outputs.ActionResponseResult? action,
+            Outputs.ActionResponse? action,
 
-            Outputs.CorrelationFilterResponseResult? correlationFilter,
+            Outputs.CorrelationFilterResponse? correlationFilter,
 
             string? filterType,
 
             string name,
 
-            Outputs.SqlFilterResponseResult? sqlFilter,
+            Outputs.SqlFilterResponse? sqlFilter,
 
             string type)
         {

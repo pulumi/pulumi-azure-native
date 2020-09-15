@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.IoTCentral.Latest
         /// A valid instance SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.AppSkuInfoResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.AppSkuInfoResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The subdomain of the application.

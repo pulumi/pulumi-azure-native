@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['DisasterRecoveryConfig']
@@ -119,7 +119,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pendingReplicationOperationsCount")
-    def pending_replication_operations_count(self) -> pulumi.Output[float]:
+    def pending_replication_operations_count(self) -> pulumi.Output[int]:
         """
         Number of entities pending to be replicated.
         """

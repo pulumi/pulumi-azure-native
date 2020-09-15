@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,8 @@ class SavedSearch(pulumi.CustomResource):
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  saved_search_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
-                 version: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
+                 version: Optional[pulumi.Input[int]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -40,8 +40,8 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] query: The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
         :param pulumi.Input[str] resource_group_name: The Resource Group name.
         :param pulumi.Input[str] saved_search_id: The id of the saved search.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TagArgs']]]] tags: The tags attached to the saved search.
-        :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagArgs']]]] tags: The tags attached to the saved search.
+        :param pulumi.Input[int] version: The version number of the query language. The current version is 2 and is the default.
         :param pulumi.Input[str] workspace_name: The Log Analytics Workspace name.
         """
         if __name__ is not None:
@@ -152,7 +152,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[List['outputs.TagResponse']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TagResponse']]]:
         """
         The tags attached to the saved search.
         """
@@ -168,7 +168,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[Optional[float]]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         The version number of the query language. The current version is 2 and is the default.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -157,28 +157,28 @@ class DockerBuildStepResponse(dict):
     The Docker build step.
     """
     def __init__(__self__, *,
-                 base_image_dependencies: List['outputs.BaseImageDependencyResponse'],
+                 base_image_dependencies: Sequence['outputs.BaseImageDependencyResponse'],
                  provisioning_state: str,
                  type: str,
                  base_image_trigger: Optional[str] = None,
                  branch: Optional[str] = None,
-                 build_arguments: Optional[List['outputs.BuildArgumentResponse']] = None,
+                 build_arguments: Optional[Sequence['outputs.BuildArgumentResponse']] = None,
                  context_path: Optional[str] = None,
                  docker_file_path: Optional[str] = None,
-                 image_names: Optional[List[str]] = None,
+                 image_names: Optional[Sequence[str]] = None,
                  is_push_enabled: Optional[bool] = None,
                  no_cache: Optional[bool] = None):
         """
         The Docker build step.
-        :param List['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str provisioning_state: The provisioning state of the build step.
         :param str type: The type of the step.
         :param str base_image_trigger: The type of the auto trigger for base image dependency updates.
         :param str branch: The repository branch name.
-        :param List['BuildArgumentResponseArgs'] build_arguments: The custom arguments for building this build step.
+        :param Sequence['BuildArgumentResponseArgs'] build_arguments: The custom arguments for building this build step.
         :param str context_path: The relative context path for a docker build in the source.
         :param str docker_file_path: The Docker file path relative to the source control root.
-        :param List[str] image_names: The fully qualified image names including the repository and tag.
+        :param Sequence[str] image_names: The fully qualified image names including the repository and tag.
         :param bool is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
         :param bool no_cache: The value of this property indicates whether the image cache is enabled or not.
         """
@@ -204,7 +204,7 @@ class DockerBuildStepResponse(dict):
 
     @property
     @pulumi.getter(name="baseImageDependencies")
-    def base_image_dependencies(self) -> List['outputs.BaseImageDependencyResponse']:
+    def base_image_dependencies(self) -> Sequence['outputs.BaseImageDependencyResponse']:
         """
         List of base image dependencies for a step.
         """
@@ -244,7 +244,7 @@ class DockerBuildStepResponse(dict):
 
     @property
     @pulumi.getter(name="buildArguments")
-    def build_arguments(self) -> Optional[List['outputs.BuildArgumentResponse']]:
+    def build_arguments(self) -> Optional[Sequence['outputs.BuildArgumentResponse']]:
         """
         The custom arguments for building this build step.
         """
@@ -268,7 +268,7 @@ class DockerBuildStepResponse(dict):
 
     @property
     @pulumi.getter(name="imageNames")
-    def image_names(self) -> Optional[List[str]]:
+    def image_names(self) -> Optional[Sequence[str]]:
         """
         The fully qualified image names including the repository and tag.
         """
@@ -301,11 +301,11 @@ class PlatformPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  os_type: str,
-                 cpu: Optional[float] = None):
+                 cpu: Optional[int] = None):
         """
         The platform properties against which the build has to happen.
         :param str os_type: The operating system type required for the build.
-        :param float cpu: The CPU configuration in terms of number of cores required for the build.
+        :param int cpu: The CPU configuration in terms of number of cores required for the build.
         """
         pulumi.set(__self__, "os_type", os_type)
         if cpu is not None:
@@ -321,7 +321,7 @@ class PlatformPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def cpu(self) -> Optional[float]:
+    def cpu(self) -> Optional[int]:
         """
         The CPU configuration in terms of number of cores required for the build.
         """
@@ -338,14 +338,14 @@ class SourceControlAuthInfoResponse(dict):
     """
     def __init__(__self__, *,
                  token: str,
-                 expires_in: Optional[float] = None,
+                 expires_in: Optional[int] = None,
                  refresh_token: Optional[str] = None,
                  scope: Optional[str] = None,
                  token_type: Optional[str] = None):
         """
         The authorization properties for accessing the source code repository.
         :param str token: The access token used to access the source control provider.
-        :param float expires_in: Time in seconds that the token remains valid
+        :param int expires_in: Time in seconds that the token remains valid
         :param str refresh_token: The refresh token used to refresh the access token.
         :param str scope: The scope of the access token.
         :param str token_type: The type of Auth token.
@@ -370,7 +370,7 @@ class SourceControlAuthInfoResponse(dict):
 
     @property
     @pulumi.getter(name="expiresIn")
-    def expires_in(self) -> Optional[float]:
+    def expires_in(self) -> Optional[int]:
         """
         Time in seconds that the token remains valid
         """

@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
         /// <summary>
         /// The list of step groups that define the orchestration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StepGroupResponseResult> StepGroups;
+        public readonly ImmutableArray<Outputs.StepGroupResponse> StepGroups;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
 
             string buildVersion,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string location,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
 
             string status,
 
-            ImmutableArray<Outputs.StepGroupResponseResult> stepGroups,
+            ImmutableArray<Outputs.StepGroupResponse> stepGroups,
 
             ImmutableDictionary<string, string>? tags,
 

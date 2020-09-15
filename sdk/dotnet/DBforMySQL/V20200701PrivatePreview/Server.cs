@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// Delegated subnet arguments.
         /// </summary>
         [Output("delegatedSubnetArguments")]
-        public Output<Outputs.DelegatedSubnetArgumentsResponseResult?> DelegatedSubnetArguments { get; private set; } = null!;
+        public Output<Outputs.DelegatedSubnetArgumentsResponse?> DelegatedSubnetArguments { get; private set; } = null!;
 
         /// <summary>
         /// Earliest restore point creation time (ISO8601 format)
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Status showing whether the server enabled infrastructure encryption.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// Maintenance window of a server.
         /// </summary>
         [Output("maintenanceWindow")]
-        public Output<Outputs.MaintenanceWindowResponseResult?> MaintenanceWindow { get; private set; } = null!;
+        public Output<Outputs.MaintenanceWindowResponse?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -132,7 +132,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// The SKU (pricing tier) of the server.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The source MySQL server id.
@@ -162,7 +162,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// Storage profile of a server.
         /// </summary>
         [Output("storageProfile")]
-        public Output<Outputs.StorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
+        public Output<Outputs.StorageProfileResponse?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

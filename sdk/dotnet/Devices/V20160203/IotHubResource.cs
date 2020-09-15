@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Devices.V20160203
         /// The properties of an IoT hub.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IotHubPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.IotHubPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Devices.V20160203
         /// Information about the SKU of the IoT hub.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.IotHubSkuInfoResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.IotHubSkuInfoResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The subscription identifier.

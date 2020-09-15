@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
         /// <summary>
         /// Describes the diagnostics definition and usage for an application resource.
         /// </summary>
-        public readonly Outputs.DiagnosticsDescriptionResponseResult? Diagnostics;
+        public readonly Outputs.DiagnosticsDescriptionResponse? Diagnostics;
         /// <summary>
         /// Describes the health state of an application resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
         /// <summary>
         /// describes the services in the application.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceResourceDescriptionResponseResult> Services;
+        public readonly ImmutableArray<Outputs.ServiceResourceDescriptionResponse> Services;
         /// <summary>
         /// Status of the application resource.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
 
             string? description,
 
-            Outputs.DiagnosticsDescriptionResponseResult? diagnostics,
+            Outputs.DiagnosticsDescriptionResponse? diagnostics,
 
             string healthState,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
 
             ImmutableArray<string> serviceNames,
 
-            ImmutableArray<Outputs.ServiceResourceDescriptionResponseResult> services,
+            ImmutableArray<Outputs.ServiceResourceDescriptionResponse> services,
 
             string status,
 

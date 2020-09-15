@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,8 +30,8 @@ class GetProfileResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_return and not isinstance(max_return, float):
-            raise TypeError("Expected argument 'max_return' to be a float")
+        if max_return and not isinstance(max_return, int):
+            raise TypeError("Expected argument 'max_return' to be a int")
         pulumi.set(__self__, "max_return", max_return)
         if monitor_config and not isinstance(monitor_config, dict):
             raise TypeError("Expected argument 'monitor_config' to be a dict")
@@ -65,7 +65,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[List['outputs.EndpointResponse']]:
+    def endpoints(self) -> Optional[Sequence['outputs.EndpointResponse']]:
         """
         The list of endpoints in the Traffic Manager profile.
         """
@@ -81,7 +81,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter(name="maxReturn")
-    def max_return(self) -> Optional[float]:
+    def max_return(self) -> Optional[int]:
         """
         Maximum number of endpoints to be returned for MultiValue routing type.
         """

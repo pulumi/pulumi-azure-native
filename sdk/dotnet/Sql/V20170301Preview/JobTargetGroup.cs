@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
         /// Members of the target group.
         /// </summary>
         [Output("members")]
-        public Output<ImmutableArray<Outputs.JobTargetResponseResult>> Members { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.JobTargetResponse>> Members { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.

@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         /// </summary>
         [Output("expressRouteCircuitPeering")]
-        public Output<Outputs.SubResourceResponseResult?> ExpressRouteCircuitPeering { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> ExpressRouteCircuitPeering { get; private set; } = null!;
 
         /// <summary>
         /// IPv6 Address PrefixProperties of the express route circuit connection.
         /// </summary>
         [Output("ipv6CircuitConnectionConfig")]
-        public Output<Outputs.Ipv6CircuitConnectionConfigResponseResult?> Ipv6CircuitConnectionConfig { get; private set; } = null!;
+        public Output<Outputs.Ipv6CircuitConnectionConfigResponse?> Ipv6CircuitConnectionConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         /// </summary>
         [Output("peerExpressRouteCircuitPeering")]
-        public Output<Outputs.SubResourceResponseResult?> PeerExpressRouteCircuitPeering { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> PeerExpressRouteCircuitPeering { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the express route circuit connection resource.

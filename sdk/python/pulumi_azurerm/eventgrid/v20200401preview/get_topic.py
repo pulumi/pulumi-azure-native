@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -82,7 +82,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[List['outputs.InboundIpRuleResponse']]:
+    def inbound_ip_rules(self) -> Optional[Sequence['outputs.InboundIpRuleResponse']]:
         """
         This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         """
@@ -130,7 +130,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[List['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         return pulumi.get(self, "private_endpoint_connections")
 
     @property

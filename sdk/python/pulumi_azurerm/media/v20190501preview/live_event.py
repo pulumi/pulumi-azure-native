@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -27,9 +27,9 @@ class LiveEvent(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 stream_options: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 transcriptions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]]] = None,
+                 transcriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]]] = None,
                  vanity_url: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
@@ -49,9 +49,9 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region of the resource.
         :param pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']] preview: The Live Event preview.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-        :param pulumi.Input[List[pulumi.Input[str]]] stream_options: The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]] transcriptions: The Live Event transcription.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]] transcriptions: The Live Event transcription.
         :param pulumi.Input[bool] vanity_url: Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
         """
         if __name__ is not None:
@@ -215,7 +215,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamOptions")
-    def stream_options(self) -> pulumi.Output[Optional[List[str]]]:
+    def stream_options(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
         """
@@ -231,7 +231,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def transcriptions(self) -> pulumi.Output[Optional[List['outputs.LiveEventTranscriptionResponse']]]:
+    def transcriptions(self) -> pulumi.Output[Optional[Sequence['outputs.LiveEventTranscriptionResponse']]]:
         """
         The Live Event transcription.
         """

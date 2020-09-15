@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.Web.V20160601
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ConnectionGatewayDefinitionResponsePropertiesResult Properties;
+        public readonly Outputs.ConnectionGatewayDefinitionResponseProperties Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.Web.V20160601
 
             string name,
 
-            Outputs.ConnectionGatewayDefinitionResponsePropertiesResult properties,
+            Outputs.ConnectionGatewayDefinitionResponseProperties properties,
 
             ImmutableDictionary<string, string>? tags,
 

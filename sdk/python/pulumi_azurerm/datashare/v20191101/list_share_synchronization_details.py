@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,7 +38,7 @@ class ListShareSynchronizationDetailsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> List['outputs.SynchronizationDetailsResponseResult']:
+    def value(self) -> Sequence['outputs.SynchronizationDetailsResponseResult']:
         """
         Collection of items of type DataTransferObjects.
         """
@@ -59,7 +59,7 @@ def list_share_synchronization_details(account_name: Optional[str] = None,
                                        consumer_email: Optional[str] = None,
                                        consumer_name: Optional[str] = None,
                                        consumer_tenant_name: Optional[str] = None,
-                                       duration_ms: Optional[float] = None,
+                                       duration_ms: Optional[int] = None,
                                        end_time: Optional[str] = None,
                                        filter: Optional[str] = None,
                                        message: Optional[str] = None,
@@ -78,7 +78,7 @@ def list_share_synchronization_details(account_name: Optional[str] = None,
     :param str consumer_email: Email of the user who created the synchronization
     :param str consumer_name: Name of the user who created the synchronization
     :param str consumer_tenant_name: Tenant name of the consumer who created the synchronization
-    :param float duration_ms: synchronization duration
+    :param int duration_ms: synchronization duration
     :param str end_time: End time of synchronization
     :param str filter: Filters the results using OData syntax.
     :param str message: message of synchronization

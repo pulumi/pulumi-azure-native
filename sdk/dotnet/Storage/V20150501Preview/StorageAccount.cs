@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Storage.V20150501Preview
         /// Gets the user assigned custom domain assigned to this storage account.
         /// </summary>
         [Output("customDomain")]
-        public Output<Outputs.CustomDomainResponseResult?> CustomDomain { get; private set; } = null!;
+        public Output<Outputs.CustomDomainResponse?> CustomDomain { get; private set; } = null!;
 
         /// <summary>
         /// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is StandardGRS or StandardRAGRS.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Storage.V20150501Preview
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object.Note that StandardZRS and PremiumLRS accounts only return the blob endpoint.
         /// </summary>
         [Output("primaryEndpoints")]
-        public Output<Outputs.EndpointsResponseResult?> PrimaryEndpoints { get; private set; } = null!;
+        public Output<Outputs.EndpointsResponse?> PrimaryEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Gets the location of the primary for the storage account.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Storage.V20150501Preview
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object from the secondary location of the storage account. Only available if the accountType is StandardRAGRS.
         /// </summary>
         [Output("secondaryEndpoints")]
-        public Output<Outputs.EndpointsResponseResult?> SecondaryEndpoints { get; private set; } = null!;
+        public Output<Outputs.EndpointsResponse?> SecondaryEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Gets the location of the geo replicated secondary for the storage account. Only available if the accountType is StandardGRS or StandardRAGRS.

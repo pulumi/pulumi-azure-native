@@ -24,19 +24,19 @@ namespace Pulumi.AzureRM.StorageCache.Latest
         /// Specifies encryption settings of the cache.
         /// </summary>
         [Output("encryptionSettings")]
-        public Output<Outputs.CacheEncryptionSettingsResponseResult?> EncryptionSettings { get; private set; } = null!;
+        public Output<Outputs.CacheEncryptionSettingsResponse?> EncryptionSettings { get; private set; } = null!;
 
         /// <summary>
         /// Health of the Cache.
         /// </summary>
         [Output("health")]
-        public Output<Outputs.CacheHealthResponseResult> Health { get; private set; } = null!;
+        public Output<Outputs.CacheHealthResponse> Health { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the cache, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.CacheIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.CacheIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Region name string.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.StorageCache.Latest
         /// Specifies network settings of the cache.
         /// </summary>
         [Output("networkSettings")]
-        public Output<Outputs.CacheNetworkSettingsResponseResult?> NetworkSettings { get; private set; } = null!;
+        public Output<Outputs.CacheNetworkSettingsResponse?> NetworkSettings { get; private set; } = null!;
 
         /// <summary>
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
@@ -72,13 +72,13 @@ namespace Pulumi.AzureRM.StorageCache.Latest
         /// Specifies security settings of the cache.
         /// </summary>
         [Output("securitySettings")]
-        public Output<Outputs.CacheSecuritySettingsResponseResult?> SecuritySettings { get; private set; } = null!;
+        public Output<Outputs.CacheSecuritySettingsResponse?> SecuritySettings { get; private set; } = null!;
 
         /// <summary>
         /// SKU for the Cache.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.CacheResponseSkuResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.CacheResponseSku?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Subnet used for the Cache.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.StorageCache.Latest
         /// Upgrade status of the Cache.
         /// </summary>
         [Output("upgradeStatus")]
-        public Output<Outputs.CacheUpgradeStatusResponseResult?> UpgradeStatus { get; private set; } = null!;
+        public Output<Outputs.CacheUpgradeStatusResponse?> UpgradeStatus { get; private set; } = null!;
 
 
         /// <summary>

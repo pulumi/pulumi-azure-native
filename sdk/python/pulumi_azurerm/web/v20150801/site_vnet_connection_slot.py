@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -26,7 +26,7 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resync_required: Optional[pulumi.Input[bool]] = None,
-                 routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VnetRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnetRouteArgs']]]]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -50,7 +50,7 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[bool] resync_required: Flag to determine if a resync is required
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VnetRouteArgs']]]] routes: The routes that this virtual network connection uses.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnetRouteArgs']]]] routes: The routes that this virtual network connection uses.
         :param pulumi.Input[str] slot: The name of the slot for this web app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
@@ -184,7 +184,7 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> pulumi.Output[Optional[List['outputs.VnetRouteResponse']]]:
+    def routes(self) -> pulumi.Output[Optional[Sequence['outputs.VnetRouteResponse']]]:
         """
         The routes that this virtual network connection uses.
         """

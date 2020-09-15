@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// The RosettaNet process configuration activity settings.
         /// </summary>
         [Output("activitySettings")]
-        public Output<Outputs.RosettaNetPipActivitySettingsResponseResult> ActivitySettings { get; private set; } = null!;
+        public Output<Outputs.RosettaNetPipActivitySettingsResponse> ActivitySettings { get; private set; } = null!;
 
         /// <summary>
         /// The changed time.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// The RosettaNet initiator role settings.
         /// </summary>
         [Output("initiatorRoleSettings")]
-        public Output<Outputs.RosettaNetPipRoleSettingsResponseResult> InitiatorRoleSettings { get; private set; } = null!;
+        public Output<Outputs.RosettaNetPipRoleSettingsResponse> InitiatorRoleSettings { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// The RosettaNet responder role settings.
         /// </summary>
         [Output("responderRoleSettings")]
-        public Output<Outputs.RosettaNetPipRoleSettingsResponseResult> ResponderRoleSettings { get; private set; } = null!;
+        public Output<Outputs.RosettaNetPipRoleSettingsResponse> ResponderRoleSettings { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

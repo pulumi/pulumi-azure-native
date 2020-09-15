@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Blueprint.V20171111Preview
         /// Managed Service Identity for this Blueprint assignment
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponseResult> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of this Blueprint assignment.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Blueprint.V20171111Preview
         /// Defines how Blueprint-managed resources will be locked.
         /// </summary>
         [Output("locks")]
-        public Output<Outputs.AssignmentLockSettingsResponseResult?> Locks { get; private set; } = null!;
+        public Output<Outputs.AssignmentLockSettingsResponse?> Locks { get; private set; } = null!;
 
         /// <summary>
         /// Name of this resource.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Blueprint.V20171111Preview
         /// Blueprint parameter values.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterValueBaseResponseResult>> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ParameterValueBaseResponse>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// State of the assignment.
@@ -72,13 +72,13 @@ namespace Pulumi.AzureRM.Blueprint.V20171111Preview
         /// Names and locations of resource group placeholders.
         /// </summary>
         [Output("resourceGroups")]
-        public Output<ImmutableDictionary<string, Outputs.ResourceGroupValueResponseResult>> ResourceGroups { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ResourceGroupValueResponse>> ResourceGroups { get; private set; } = null!;
 
         /// <summary>
         /// Status of Blueprint assignment. This field is readonly.
         /// </summary>
         [Output("status")]
-        public Output<Outputs.AssignmentStatusResponseResult> Status { get; private set; } = null!;
+        public Output<Outputs.AssignmentStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.

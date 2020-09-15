@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -101,7 +101,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter
-    def fqdns(self) -> Optional[List[str]]:
+    def fqdns(self) -> Optional[Sequence[str]]:
         """
         The list of Fqdn.
         """
@@ -109,7 +109,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.PrivateLinkServiceIpConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.PrivateLinkServiceIpConfigurationResponse']]:
         """
         An array of private link service IP configurations.
         """
@@ -117,7 +117,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurations")
-    def load_balancer_frontend_ip_configurations(self) -> Optional[List['outputs.FrontendIPConfigurationResponse']]:
+    def load_balancer_frontend_ip_configurations(self) -> Optional[Sequence['outputs.FrontendIPConfigurationResponse']]:
         """
         An array of references to the load balancer IP configurations.
         """
@@ -141,7 +141,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
         """
         An array of references to the network interfaces created for this private link service.
         """
@@ -149,7 +149,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
         An array of list about connections to the private endpoint.
         """

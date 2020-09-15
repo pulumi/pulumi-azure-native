@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// An array of public ip addresses associated with the nat gateway resource.
         /// </summary>
         [Output("publicIpAddresses")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> PublicIpAddresses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> PublicIpAddresses { get; private set; } = null!;
 
         /// <summary>
         /// An array of public ip prefixes associated with the nat gateway resource.
         /// </summary>
         [Output("publicIpPrefixes")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> PublicIpPrefixes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> PublicIpPrefixes { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the NAT gateway resource.
@@ -66,13 +66,13 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// The nat gateway SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.NatGatewaySkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.NatGatewaySkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// An array of references to the subnets using this nat gateway resource.
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

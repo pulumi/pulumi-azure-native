@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,12 +21,12 @@ class DashboardLensResponse(dict):
     A dashboard lens.
     """
     def __init__(__self__, *,
-                 order: float,
+                 order: int,
                  parts: Mapping[str, 'outputs.DashboardPartsResponse'],
                  metadata: Optional[Mapping[str, Mapping[str, Any]]] = None):
         """
         A dashboard lens.
-        :param float order: The lens order.
+        :param int order: The lens order.
         :param Mapping[str, 'DashboardPartsResponseArgs'] parts: The dashboard parts.
         :param Mapping[str, Mapping[str, Any]] metadata: The dashboard len's metadata.
         """
@@ -37,7 +37,7 @@ class DashboardLensResponse(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> float:
+    def order(self) -> int:
         """
         The lens order.
         """
@@ -106,17 +106,17 @@ class DashboardPartsResponsePosition(dict):
     The dashboard's part position.
     """
     def __init__(__self__, *,
-                 col_span: float,
-                 row_span: float,
-                 x: float,
-                 y: float,
+                 col_span: int,
+                 row_span: int,
+                 x: int,
+                 y: int,
                  metadata: Optional[Mapping[str, Mapping[str, Any]]] = None):
         """
         The dashboard's part position.
-        :param float col_span: The dashboard's part column span.
-        :param float row_span: The dashboard's part row span.
-        :param float x: The dashboard's part x coordinate.
-        :param float y: The dashboard's part y coordinate.
+        :param int col_span: The dashboard's part column span.
+        :param int row_span: The dashboard's part row span.
+        :param int x: The dashboard's part x coordinate.
+        :param int y: The dashboard's part y coordinate.
         :param Mapping[str, Mapping[str, Any]] metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "col_span", col_span)
@@ -128,7 +128,7 @@ class DashboardPartsResponsePosition(dict):
 
     @property
     @pulumi.getter(name="colSpan")
-    def col_span(self) -> float:
+    def col_span(self) -> int:
         """
         The dashboard's part column span.
         """
@@ -136,7 +136,7 @@ class DashboardPartsResponsePosition(dict):
 
     @property
     @pulumi.getter(name="rowSpan")
-    def row_span(self) -> float:
+    def row_span(self) -> int:
         """
         The dashboard's part row span.
         """
@@ -144,7 +144,7 @@ class DashboardPartsResponsePosition(dict):
 
     @property
     @pulumi.getter
-    def x(self) -> float:
+    def x(self) -> int:
         """
         The dashboard's part x coordinate.
         """
@@ -152,7 +152,7 @@ class DashboardPartsResponsePosition(dict):
 
     @property
     @pulumi.getter
-    def y(self) -> float:
+    def y(self) -> int:
         """
         The dashboard's part y coordinate.
         """

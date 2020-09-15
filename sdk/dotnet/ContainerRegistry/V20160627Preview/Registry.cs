@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20160627Preview
         /// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
         /// </summary>
         [Output("storageAccount")]
-        public Output<Outputs.StorageAccountPropertiesResponseResult> StorageAccount { get; private set; } = null!;
+        public Output<Outputs.StorageAccountPropertiesResponse> StorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

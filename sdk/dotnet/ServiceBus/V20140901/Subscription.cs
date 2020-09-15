@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         /// Message Count Details.
         /// </summary>
         [Output("countDetails")]
-        public Output<Outputs.MessageCountDetailsResponseResult> CountDetails { get; private set; } = null!;
+        public Output<Outputs.MessageCountDetailsResponse> CountDetails { get; private set; } = null!;
 
         /// <summary>
         /// Exact time the message was created.

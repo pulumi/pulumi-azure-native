@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -25,12 +25,12 @@ class AzureSkuResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  tier: str,
-                 capacity: Optional[float] = None):
+                 capacity: Optional[int] = None):
         """
         Azure SKU definition.
         :param str name: SKU name.
         :param str tier: SKU tier.
-        :param float capacity: The number of instances of the cluster.
+        :param int capacity: The number of instances of the cluster.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -55,7 +55,7 @@ class AzureSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The number of instances of the cluster.
         """
@@ -189,15 +189,15 @@ class OptimizedAutoscaleResponse(dict):
     """
     def __init__(__self__, *,
                  is_enabled: bool,
-                 maximum: float,
-                 minimum: float,
-                 version: float):
+                 maximum: int,
+                 minimum: int,
+                 version: int):
         """
         A class that contains the optimized auto scale definition.
         :param bool is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
-        :param float maximum: Maximum allowed instances count.
-        :param float minimum: Minimum allowed instances count.
-        :param float version: The version of the template defined, for instance 1.
+        :param int maximum: Maximum allowed instances count.
+        :param int minimum: Minimum allowed instances count.
+        :param int version: The version of the template defined, for instance 1.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "maximum", maximum)
@@ -214,7 +214,7 @@ class OptimizedAutoscaleResponse(dict):
 
     @property
     @pulumi.getter
-    def maximum(self) -> float:
+    def maximum(self) -> int:
         """
         Maximum allowed instances count.
         """
@@ -222,7 +222,7 @@ class OptimizedAutoscaleResponse(dict):
 
     @property
     @pulumi.getter
-    def minimum(self) -> float:
+    def minimum(self) -> int:
         """
         Minimum allowed instances count.
         """
@@ -230,7 +230,7 @@ class OptimizedAutoscaleResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> float:
+    def version(self) -> int:
         """
         The version of the template defined, for instance 1.
         """

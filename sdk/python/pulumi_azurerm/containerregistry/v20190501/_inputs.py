@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -63,13 +63,13 @@ class IPRuleArgs:
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         The network rule set for a container registry.
         :param pulumi.Input[str] default_action: The default action of allow or deny when no other rules match.
-        :param pulumi.Input[List[pulumi.Input['IPRuleArgs']]] ip_rules: The IP ACL rules.
-        :param pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The virtual network rules.
+        :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: The IP ACL rules.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The virtual network rules.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -91,26 +91,26 @@ class NetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]:
         """
         The IP ACL rules.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
         """
         The virtual network rules.
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -197,11 +197,11 @@ class QuarantinePolicyArgs:
 @pulumi.input_type
 class RetentionPolicyArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[float]] = None,
+                 days: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         The retention policy for a container registry.
-        :param pulumi.Input[float] days: The number of days to retain an untagged manifest after which it gets purged.
+        :param pulumi.Input[int] days: The number of days to retain an untagged manifest after which it gets purged.
         :param pulumi.Input[str] status: The value that indicates whether the policy is enabled or not.
         """
         if days is not None:
@@ -211,14 +211,14 @@ class RetentionPolicyArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[float]]:
+    def days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days to retain an untagged manifest after which it gets purged.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[float]]):
+    def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
 
     @property

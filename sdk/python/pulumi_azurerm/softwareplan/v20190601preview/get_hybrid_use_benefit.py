@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,8 +24,8 @@ class GetHybridUseBenefitResult:
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
-        if etag and not isinstance(etag, float):
-            raise TypeError("Expected argument 'etag' to be a float")
+        if etag and not isinstance(etag, int):
+            raise TypeError("Expected argument 'etag' to be a int")
         pulumi.set(__self__, "etag", etag)
         if last_updated_date and not isinstance(last_updated_date, str):
             raise TypeError("Expected argument 'last_updated_date' to be a str")
@@ -53,7 +53,7 @@ class GetHybridUseBenefitResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> float:
+    def etag(self) -> int:
         """
         Indicates the revision of the hybrid use benefit
         """

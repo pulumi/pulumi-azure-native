@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The identity of the import pipeline.
         /// </summary>
-        public readonly Outputs.IdentityPropertiesResponseResult? Identity;
+        public readonly Outputs.IdentityPropertiesResponse? Identity;
         /// <summary>
         /// The location of the import pipeline.
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The source properties of the import pipeline.
         /// </summary>
-        public readonly Outputs.ImportPipelineSourcePropertiesResponseResult Source;
+        public readonly Outputs.ImportPipelineSourcePropertiesResponse Source;
         /// <summary>
         /// The properties that describe the trigger of the import pipeline.
         /// </summary>
-        public readonly Outputs.PipelineTriggerPropertiesResponseResult? Trigger;
+        public readonly Outputs.PipelineTriggerPropertiesResponse? Trigger;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 
         [OutputConstructor]
         private GetImportPipelineResult(
-            Outputs.IdentityPropertiesResponseResult? identity,
+            Outputs.IdentityPropertiesResponse? identity,
 
             string? location,
 
@@ -90,9 +90,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 
             string provisioningState,
 
-            Outputs.ImportPipelineSourcePropertiesResponseResult source,
+            Outputs.ImportPipelineSourcePropertiesResponse source,
 
-            Outputs.PipelineTriggerPropertiesResponseResult? trigger,
+            Outputs.PipelineTriggerPropertiesResponse? trigger,
 
             string type)
         {

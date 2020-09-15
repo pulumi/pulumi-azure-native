@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkServiceConnectionResponseResult> ManualPrivateLinkServiceConnections;
+        public readonly ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> ManualPrivateLinkServiceConnections;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -64,11 +64,11 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// An array of references to the network interfaces created for this private endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceResponseResult> NetworkInterfaces;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceResponse> NetworkInterfaces;
         /// <summary>
         /// A grouping of information about the connection to the remote resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkServiceConnectionResponseResult> PrivateLinkServiceConnections;
+        public readonly ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> PrivateLinkServiceConnections;
         /// <summary>
         /// The provisioning state of the private endpoint resource.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
-        public readonly Outputs.SubnetResponseResult? Subnet;
+        public readonly Outputs.SubnetResponse? Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -92,17 +92,17 @@ namespace Pulumi.AzureRM.Network.V20191201
 
             string? location,
 
-            ImmutableArray<Outputs.PrivateLinkServiceConnectionResponseResult> manualPrivateLinkServiceConnections,
+            ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> manualPrivateLinkServiceConnections,
 
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfaceResponseResult> networkInterfaces,
+            ImmutableArray<Outputs.NetworkInterfaceResponse> networkInterfaces,
 
-            ImmutableArray<Outputs.PrivateLinkServiceConnectionResponseResult> privateLinkServiceConnections,
+            ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> privateLinkServiceConnections,
 
             string provisioningState,
 
-            Outputs.SubnetResponseResult? subnet,
+            Outputs.SubnetResponse? subnet,
 
             ImmutableDictionary<string, string>? tags,
 

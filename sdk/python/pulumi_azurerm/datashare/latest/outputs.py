@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -116,7 +116,7 @@ class ShareSubscriptionSynchronizationResponseResult(dict):
     A ShareSubscriptionSynchronization data transfer object.
     """
     def __init__(__self__, *,
-                 duration_ms: float,
+                 duration_ms: int,
                  end_time: str,
                  message: str,
                  start_time: str,
@@ -125,7 +125,7 @@ class ShareSubscriptionSynchronizationResponseResult(dict):
                  synchronization_mode: str):
         """
         A ShareSubscriptionSynchronization data transfer object.
-        :param float duration_ms: Synchronization duration
+        :param int duration_ms: Synchronization duration
         :param str end_time: End time of synchronization
         :param str message: message of Synchronization
         :param str start_time: start time of synchronization
@@ -143,7 +143,7 @@ class ShareSubscriptionSynchronizationResponseResult(dict):
 
     @property
     @pulumi.getter(name="durationMs")
-    def duration_ms(self) -> float:
+    def duration_ms(self) -> int:
         """
         Synchronization duration
         """
@@ -208,7 +208,7 @@ class ShareSynchronizationResponseResult(dict):
                  consumer_email: Optional[str] = None,
                  consumer_name: Optional[str] = None,
                  consumer_tenant_name: Optional[str] = None,
-                 duration_ms: Optional[float] = None,
+                 duration_ms: Optional[int] = None,
                  end_time: Optional[str] = None,
                  message: Optional[str] = None,
                  start_time: Optional[str] = None,
@@ -220,7 +220,7 @@ class ShareSynchronizationResponseResult(dict):
         :param str consumer_email: Email of the user who created the synchronization
         :param str consumer_name: Name of the user who created the synchronization
         :param str consumer_tenant_name: Tenant name of the consumer who created the synchronization
-        :param float duration_ms: synchronization duration
+        :param int duration_ms: synchronization duration
         :param str end_time: End time of synchronization
         :param str message: message of synchronization
         :param str start_time: start time of synchronization
@@ -281,7 +281,7 @@ class ShareSynchronizationResponseResult(dict):
 
     @property
     @pulumi.getter(name="durationMs")
-    def duration_ms(self) -> Optional[float]:
+    def duration_ms(self) -> Optional[int]:
         """
         synchronization duration
         """
@@ -336,36 +336,36 @@ class SynchronizationDetailsResponseResult(dict):
     def __init__(__self__, *,
                  data_set_id: str,
                  data_set_type: str,
-                 duration_ms: float,
+                 duration_ms: int,
                  end_time: str,
-                 files_read: float,
-                 files_written: float,
+                 files_read: int,
+                 files_written: int,
                  message: str,
                  name: str,
-                 rows_copied: float,
-                 rows_read: float,
-                 size_read: float,
-                 size_written: float,
+                 rows_copied: int,
+                 rows_read: int,
+                 size_read: int,
+                 size_written: int,
                  start_time: str,
                  status: str,
-                 v_core: float):
+                 v_core: int):
         """
         Synchronization details at data set level
         :param str data_set_id: Id of data set
         :param str data_set_type: Type of the data set
-        :param float duration_ms: Duration of data set level copy
+        :param int duration_ms: Duration of data set level copy
         :param str end_time: End time of data set level copy
-        :param float files_read: The number of files read from the source data set
-        :param float files_written: The number of files written into the sink data set
+        :param int files_read: The number of files read from the source data set
+        :param int files_written: The number of files written into the sink data set
         :param str message: Error message if any
         :param str name: Name of the data set
-        :param float rows_copied: The number of files copied into the sink data set
-        :param float rows_read: The number of rows read from the source data set.
-        :param float size_read: The size of the data read from the source data set in bytes
-        :param float size_written: The size of the data written into the sink data set in bytes
+        :param int rows_copied: The number of files copied into the sink data set
+        :param int rows_read: The number of rows read from the source data set.
+        :param int size_read: The size of the data read from the source data set in bytes
+        :param int size_written: The size of the data written into the sink data set in bytes
         :param str start_time: Start time of data set level copy
         :param str status: Raw Status
-        :param float v_core: The vCore units consumed for the data set synchronization
+        :param int v_core: The vCore units consumed for the data set synchronization
         """
         pulumi.set(__self__, "data_set_id", data_set_id)
         pulumi.set(__self__, "data_set_type", data_set_type)
@@ -401,7 +401,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="durationMs")
-    def duration_ms(self) -> float:
+    def duration_ms(self) -> int:
         """
         Duration of data set level copy
         """
@@ -417,7 +417,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="filesRead")
-    def files_read(self) -> float:
+    def files_read(self) -> int:
         """
         The number of files read from the source data set
         """
@@ -425,7 +425,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="filesWritten")
-    def files_written(self) -> float:
+    def files_written(self) -> int:
         """
         The number of files written into the sink data set
         """
@@ -449,7 +449,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="rowsCopied")
-    def rows_copied(self) -> float:
+    def rows_copied(self) -> int:
         """
         The number of files copied into the sink data set
         """
@@ -457,7 +457,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="rowsRead")
-    def rows_read(self) -> float:
+    def rows_read(self) -> int:
         """
         The number of rows read from the source data set.
         """
@@ -465,7 +465,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="sizeRead")
-    def size_read(self) -> float:
+    def size_read(self) -> int:
         """
         The size of the data read from the source data set in bytes
         """
@@ -473,7 +473,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="sizeWritten")
-    def size_written(self) -> float:
+    def size_written(self) -> int:
         """
         The size of the data written into the sink data set in bytes
         """
@@ -497,7 +497,7 @@ class SynchronizationDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="vCore")
-    def v_core(self) -> float:
+    def v_core(self) -> int:
         """
         The vCore units consumed for the data set synchronization
         """

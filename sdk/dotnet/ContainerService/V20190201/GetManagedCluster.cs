@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
         /// <summary>
         /// Profile of Azure Active Directory configuration.
         /// </summary>
-        public readonly Outputs.ManagedClusterAADProfileResponseResult? AadProfile;
+        public readonly Outputs.ManagedClusterAADProfileResponse? AadProfile;
         /// <summary>
         /// Profile of managed cluster add-on.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? AddonProfiles;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponse>? AddonProfiles;
         /// <summary>
         /// Properties of the agent pool.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult> AgentPoolProfiles;
+        public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponse> AgentPoolProfiles;
         /// <summary>
         /// (PREVIEW) Authorized IP Ranges to kubernetes API server.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
         /// <summary>
         /// Profile for Linux VMs in the container service cluster.
         /// </summary>
-        public readonly Outputs.ContainerServiceLinuxProfileResponseResult? LinuxProfile;
+        public readonly Outputs.ContainerServiceLinuxProfileResponse? LinuxProfile;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
         /// <summary>
         /// Profile of network configuration.
         /// </summary>
-        public readonly Outputs.ContainerServiceNetworkProfileResponseResult? NetworkProfile;
+        public readonly Outputs.ContainerServiceNetworkProfileResponse? NetworkProfile;
         /// <summary>
         /// Name of the resource group containing agent pool nodes.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         /// </summary>
-        public readonly Outputs.ManagedClusterServicePrincipalProfileResponseResult? ServicePrincipalProfile;
+        public readonly Outputs.ManagedClusterServicePrincipalProfileResponse? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -114,11 +114,11 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
 
         [OutputConstructor]
         private GetManagedClusterResult(
-            Outputs.ManagedClusterAADProfileResponseResult? aadProfile,
+            Outputs.ManagedClusterAADProfileResponse? aadProfile,
 
-            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? addonProfiles,
+            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponse>? addonProfiles,
 
-            ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult> agentPoolProfiles,
+            ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponse> agentPoolProfiles,
 
             ImmutableArray<string> apiServerAuthorizedIPRanges,
 
@@ -132,19 +132,19 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
 
             string? kubernetesVersion,
 
-            Outputs.ContainerServiceLinuxProfileResponseResult? linuxProfile,
+            Outputs.ContainerServiceLinuxProfileResponse? linuxProfile,
 
             string location,
 
             string name,
 
-            Outputs.ContainerServiceNetworkProfileResponseResult? networkProfile,
+            Outputs.ContainerServiceNetworkProfileResponse? networkProfile,
 
             string nodeResourceGroup,
 
             string provisioningState,
 
-            Outputs.ManagedClusterServicePrincipalProfileResponseResult? servicePrincipalProfile,
+            Outputs.ManagedClusterServicePrincipalProfileResponse? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 

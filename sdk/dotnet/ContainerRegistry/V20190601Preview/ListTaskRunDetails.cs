@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.IdentityPropertiesResponseResult? Identity;
+        public readonly Outputs.IdentityPropertiesResponse? Identity;
         /// <summary>
         /// The location of the resource
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// <summary>
         /// The request (parameters) for the run
         /// </summary>
-        public readonly Union<Outputs.DockerBuildRequestResponseResult, Union<Outputs.EncodedTaskRunRequestResponseResult, Union<Outputs.FileTaskRunRequestResponseResult, Outputs.TaskRunRequestResponseResult>>>? RunRequest;
+        public readonly Union<Outputs.DockerBuildRequestResponse, Union<Outputs.EncodedTaskRunRequestResponse, Union<Outputs.FileTaskRunRequestResponse, Outputs.TaskRunRequestResponse>>>? RunRequest;
         /// <summary>
         /// The result of this task run
         /// </summary>
-        public readonly Outputs.RunResponseResult RunResult;
+        public readonly Outputs.RunResponse RunResult;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         private ListTaskRunDetailsResult(
             string? forceUpdateTag,
 
-            Outputs.IdentityPropertiesResponseResult? identity,
+            Outputs.IdentityPropertiesResponse? identity,
 
             string? location,
 
@@ -90,9 +90,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
 
             string provisioningState,
 
-            Union<Outputs.DockerBuildRequestResponseResult, Union<Outputs.EncodedTaskRunRequestResponseResult, Union<Outputs.FileTaskRunRequestResponseResult, Outputs.TaskRunRequestResponseResult>>>? runRequest,
+            Union<Outputs.DockerBuildRequestResponse, Union<Outputs.EncodedTaskRunRequestResponse, Union<Outputs.FileTaskRunRequestResponse, Outputs.TaskRunRequestResponse>>>? runRequest,
 
-            Outputs.RunResponseResult runResult,
+            Outputs.RunResponse runResult,
 
             string type)
         {

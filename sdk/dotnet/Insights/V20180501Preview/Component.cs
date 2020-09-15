@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Insights.V20180501Preview
         /// List of linked private link scope resources.
         /// </summary>
         [Output("privateLinkScopedResources")]
-        public Output<ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult>> PrivateLinkScopedResources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateLinkScopedResourceResponse>> PrivateLinkScopedResources { get; private set; } = null!;
 
         /// <summary>
         /// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.

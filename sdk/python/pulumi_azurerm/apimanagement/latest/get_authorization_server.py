@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -86,7 +86,7 @@ class GetAuthorizationServerResult:
 
     @property
     @pulumi.getter(name="authorizationMethods")
-    def authorization_methods(self) -> Optional[List[str]]:
+    def authorization_methods(self) -> Optional[Sequence[str]]:
         """
         HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
         """
@@ -94,7 +94,7 @@ class GetAuthorizationServerResult:
 
     @property
     @pulumi.getter(name="bearerTokenSendingMethods")
-    def bearer_token_sending_methods(self) -> Optional[List[str]]:
+    def bearer_token_sending_methods(self) -> Optional[Sequence[str]]:
         """
         Specifies the mechanism by which access token is passed to the API. 
         """
@@ -102,7 +102,7 @@ class GetAuthorizationServerResult:
 
     @property
     @pulumi.getter(name="clientAuthenticationMethod")
-    def client_authentication_method(self) -> Optional[List[str]]:
+    def client_authentication_method(self) -> Optional[Sequence[str]]:
         """
         Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
         """
@@ -158,7 +158,7 @@ class GetAuthorizationServerResult:
 
     @property
     @pulumi.getter(name="grantTypes")
-    def grant_types(self) -> List[str]:
+    def grant_types(self) -> Sequence[str]:
         """
         Form of an authorization grant, which the client uses to request the access token.
         """
@@ -198,7 +198,7 @@ class GetAuthorizationServerResult:
 
     @property
     @pulumi.getter(name="tokenBodyParameters")
-    def token_body_parameters(self) -> Optional[List['outputs.TokenBodyParameterContractResponse']]:
+    def token_body_parameters(self) -> Optional[Sequence['outputs.TokenBodyParameterContractResponse']]:
         """
         Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
         """

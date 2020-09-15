@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,12 +24,12 @@ class MasterSitePropertiesResponse(dict):
     def __init__(__self__, *,
                  allow_multiple_sites: Optional[bool] = None,
                  public_network_access: Optional[str] = None,
-                 sites: Optional[List[str]] = None):
+                 sites: Optional[Sequence[str]] = None):
         """
         Class for site properties.
         :param bool allow_multiple_sites: Value indicating whether multiple sites per site type are allowed.
         :param str public_network_access: State of public network access.
-        :param List[str] sites: List of sites that are a part of Master Site.
+        :param Sequence[str] sites: List of sites that are a part of Master Site.
         """
         if allow_multiple_sites is not None:
             pulumi.set(__self__, "allow_multiple_sites", allow_multiple_sites)
@@ -56,7 +56,7 @@ class MasterSitePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def sites(self) -> Optional[List[str]]:
+    def sites(self) -> Optional[Sequence[str]]:
         """
         List of sites that are a part of Master Site.
         """

@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// <summary>
         /// The virtual machine extension instance view.
         /// </summary>
-        public readonly Outputs.VirtualMachineExtensionInstanceViewResponseResult? InstanceView;
+        public readonly Outputs.VirtualMachineExtensionInstanceViewResponse? InstanceView;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureRM.Compute.V20200601
 
             string? forceUpdateTag,
 
-            Outputs.VirtualMachineExtensionInstanceViewResponseResult? instanceView,
+            Outputs.VirtualMachineExtensionInstanceViewResponse? instanceView,
 
             string location,
 

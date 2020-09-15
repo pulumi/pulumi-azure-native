@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
         /// List of application capacity metric description.
         /// </summary>
         [Output("metrics")]
-        public Output<ImmutableArray<Outputs.ApplicationMetricDescriptionResponseResult>> Metrics { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationMetricDescriptionResponse>> Metrics { get; private set; } = null!;
 
         /// <summary>
         /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
         /// Describes the policy for a monitored application upgrade.
         /// </summary>
         [Output("upgradePolicy")]
-        public Output<Outputs.ApplicationUpgradePolicyResponseResult?> UpgradePolicy { get; private set; } = null!;
+        public Output<Outputs.ApplicationUpgradePolicyResponse?> UpgradePolicy { get; private set; } = null!;
 
 
         /// <summary>

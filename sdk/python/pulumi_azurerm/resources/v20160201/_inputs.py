@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -242,7 +242,7 @@ class PlanArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  model: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -250,7 +250,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Sku for the resource.
-        :param pulumi.Input[float] capacity: The sku capacity.
+        :param pulumi.Input[int] capacity: The sku capacity.
         :param pulumi.Input[str] family: The sku family.
         :param pulumi.Input[str] model: The sku model.
         :param pulumi.Input[str] name: The sku name.
@@ -272,14 +272,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The sku capacity.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -70,7 +70,7 @@ class GetNotificationChannelResult:
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[List['outputs.EventResponse']]:
+    def events(self) -> Optional[Sequence['outputs.EventResponse']]:
         """
         The list of event for which this notification is enabled.
         """

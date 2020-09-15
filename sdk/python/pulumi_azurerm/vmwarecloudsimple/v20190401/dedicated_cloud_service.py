@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['DedicatedCloudService']
@@ -129,7 +129,7 @@ class DedicatedCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def nodes(self) -> pulumi.Output[float]:
+    def nodes(self) -> pulumi.Output[int]:
         """
         total nodes purchased
         """

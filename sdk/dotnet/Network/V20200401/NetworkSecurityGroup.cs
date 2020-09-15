@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// The default security rules of network security group.
         /// </summary>
         [Output("defaultSecurityRules")]
-        public Output<ImmutableArray<Outputs.SecurityRuleResponseResult>> DefaultSecurityRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SecurityRuleResponse>> DefaultSecurityRules { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// A collection of references to flow log resources.
         /// </summary>
         [Output("flowLogs")]
-        public Output<ImmutableArray<Outputs.FlowLogResponseResult>> FlowLogs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FlowLogResponse>> FlowLogs { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// A collection of references to network interfaces.
         /// </summary>
         [Output("networkInterfaces")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceResponseResult>> NetworkInterfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceResponse>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the network security group resource.
@@ -66,13 +66,13 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// A collection of security rules of the network security group.
         /// </summary>
         [Output("securityRules")]
-        public Output<ImmutableArray<Outputs.SecurityRuleResponseResult>> SecurityRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SecurityRuleResponse>> SecurityRules { get; private set; } = null!;
 
         /// <summary>
         /// A collection of references to subnets.
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubnetResponse>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

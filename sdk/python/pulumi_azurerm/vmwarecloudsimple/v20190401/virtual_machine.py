@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,13 +17,13 @@ class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amount_of_ram: Optional[pulumi.Input[float]] = None,
+                 amount_of_ram: Optional[pulumi.Input[int]] = None,
                  customization: Optional[pulumi.Input[pulumi.InputType['GuestOSCustomizationArgs']]] = None,
-                 disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualDiskArgs']]]]] = None,
+                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualDiskArgs']]]]] = None,
                  expose_to_guest_vm: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 nics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNicArgs']]]]] = None,
-                 number_of_cores: Optional[pulumi.Input[float]] = None,
+                 nics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNicArgs']]]]] = None,
+                 number_of_cores: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  private_cloud_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class VirtualMachine(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
-                 v_sphere_networks: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 v_sphere_networks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -41,13 +41,13 @@ class VirtualMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] amount_of_ram: The amount of memory
+        :param pulumi.Input[int] amount_of_ram: The amount of memory
         :param pulumi.Input[pulumi.InputType['GuestOSCustomizationArgs']] customization: Virtual machine properties
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualDiskArgs']]]] disks: The list of Virtual Disks
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualDiskArgs']]]] disks: The list of Virtual Disks
         :param pulumi.Input[bool] expose_to_guest_vm: Expose Guest OS or not
         :param pulumi.Input[str] location: Azure region
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNicArgs']]]] nics: The list of Virtual NICs
-        :param pulumi.Input[float] number_of_cores: The number of CPU cores
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNicArgs']]]] nics: The list of Virtual NICs
+        :param pulumi.Input[int] number_of_cores: The number of CPU cores
         :param pulumi.Input[str] password: Password for login. Deprecated - use customization property
         :param pulumi.Input[str] private_cloud_id: Private Cloud Id
         :param pulumi.Input[str] resource_group_name: The name of the resource group
@@ -55,7 +55,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags
         :param pulumi.Input[str] template_id: Virtual Machine Template Id
         :param pulumi.Input[str] username: Username for login. Deprecated - use customization property
-        :param pulumi.Input[List[pulumi.Input[str]]] v_sphere_networks: The list of Virtual VSphere Networks
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] v_sphere_networks: The list of Virtual VSphere Networks
         :param pulumi.Input[str] virtual_machine_name: virtual machine name
         """
         if __name__ is not None:
@@ -143,7 +143,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amountOfRam")
-    def amount_of_ram(self) -> pulumi.Output[float]:
+    def amount_of_ram(self) -> pulumi.Output[int]:
         """
         The amount of memory
         """
@@ -151,7 +151,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def controllers(self) -> pulumi.Output[List['outputs.VirtualDiskControllerResponse']]:
+    def controllers(self) -> pulumi.Output[Sequence['outputs.VirtualDiskControllerResponse']]:
         """
         The list of Virtual Disks' Controllers
         """
@@ -167,7 +167,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def disks(self) -> pulumi.Output[Optional[List['outputs.VirtualDiskResponse']]]:
+    def disks(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualDiskResponse']]]:
         """
         The list of Virtual Disks
         """
@@ -231,7 +231,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def nics(self) -> pulumi.Output[Optional[List['outputs.VirtualNicResponse']]]:
+    def nics(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualNicResponse']]]:
         """
         The list of Virtual NICs
         """
@@ -239,7 +239,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfCores")
-    def number_of_cores(self) -> pulumi.Output[float]:
+    def number_of_cores(self) -> pulumi.Output[int]:
         """
         The number of CPU cores
         """
@@ -327,7 +327,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vSphereNetworks")
-    def v_sphere_networks(self) -> pulumi.Output[Optional[List[str]]]:
+    def v_sphere_networks(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of Virtual VSphere Networks
         """

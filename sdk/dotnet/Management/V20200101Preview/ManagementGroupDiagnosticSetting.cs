@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Management.V20200101Preview
         /// The list of logs settings.
         /// </summary>
         [Output("logs")]
-        public Output<ImmutableArray<Outputs.ManagementGroupLogSettingsResponseResult>> Logs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ManagementGroupLogSettingsResponse>> Logs { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name

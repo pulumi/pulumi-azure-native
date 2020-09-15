@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -78,7 +78,7 @@ class GetDiagnosticSettingResult:
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional[List['outputs.LogSettingsResponse']]:
+    def logs(self) -> Optional[Sequence['outputs.LogSettingsResponse']]:
         """
         The list of logs settings.
         """
@@ -86,7 +86,7 @@ class GetDiagnosticSettingResult:
 
     @property
     @pulumi.getter
-    def metrics(self) -> Optional[List['outputs.MetricSettingsResponse']]:
+    def metrics(self) -> Optional[Sequence['outputs.MetricSettingsResponse']]:
         """
         The list of metric settings.
         """

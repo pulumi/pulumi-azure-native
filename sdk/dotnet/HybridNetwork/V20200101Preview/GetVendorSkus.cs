@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// <summary>
         /// The template definition of the virtual network function.
         /// </summary>
-        public readonly Outputs.VirtualNetworkFunctionTemplateResponseResult? VirtualNetworkFunctionTemplate;
+        public readonly Outputs.VirtualNetworkFunctionTemplateResponse? VirtualNetworkFunctionTemplate;
 
         [OutputConstructor]
         private GetVendorSkusResult(
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
 
             string type,
 
-            Outputs.VirtualNetworkFunctionTemplateResponseResult? virtualNetworkFunctionTemplate)
+            Outputs.VirtualNetworkFunctionTemplateResponse? virtualNetworkFunctionTemplate)
         {
             DeploymentMode = deploymentMode;
             Location = location;

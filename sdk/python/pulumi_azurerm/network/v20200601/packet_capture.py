@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,15 +17,15 @@ class PacketCapture(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
-                 filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]]] = None,
+                 bytes_to_capture_per_packet: Optional[pulumi.Input[int]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_location: Optional[pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
-                 time_limit_in_seconds: Optional[pulumi.Input[float]] = None,
-                 total_bytes_per_session: Optional[pulumi.Input[float]] = None,
+                 time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
+                 total_bytes_per_session: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,15 +34,15 @@ class PacketCapture(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]] filters: A list of packet capture filters.
+        :param pulumi.Input[int] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]] filters: A list of packet capture filters.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] packet_capture_name: The name of the packet capture session.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']] storage_location: The storage location for a packet capture session.
         :param pulumi.Input[str] target: The ID of the targeted resource, only VM is currently supported.
-        :param pulumi.Input[float] time_limit_in_seconds: Maximum duration of the capture session in seconds.
-        :param pulumi.Input[float] total_bytes_per_session: Maximum size of the capture output.
+        :param pulumi.Input[int] time_limit_in_seconds: Maximum duration of the capture session in seconds.
+        :param pulumi.Input[int] total_bytes_per_session: Maximum size of the capture output.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,7 +111,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bytesToCapturePerPacket")
-    def bytes_to_capture_per_packet(self) -> pulumi.Output[Optional[float]]:
+    def bytes_to_capture_per_packet(self) -> pulumi.Output[Optional[int]]:
         """
         Number of bytes captured per packet, the remaining bytes are truncated.
         """
@@ -127,7 +127,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Output[Optional[List['outputs.PacketCaptureFilterResponse']]]:
+    def filters(self) -> pulumi.Output[Optional[Sequence['outputs.PacketCaptureFilterResponse']]]:
         """
         A list of packet capture filters.
         """
@@ -167,7 +167,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeLimitInSeconds")
-    def time_limit_in_seconds(self) -> pulumi.Output[Optional[float]]:
+    def time_limit_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum duration of the capture session in seconds.
         """
@@ -175,7 +175,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalBytesPerSession")
-    def total_bytes_per_session(self) -> pulumi.Output[Optional[float]]:
+    def total_bytes_per_session(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum size of the capture output.
         """

@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
         /// </summary>
         [Output("tokenBodyParameters")]
-        public Output<ImmutableArray<Outputs.TokenBodyParameterContractResponseResult>> TokenBodyParameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TokenBodyParameterContractResponse>> TokenBodyParameters { get; private set; } = null!;
 
         /// <summary>
         /// OAuth token endpoint. Contains absolute URI to entity being referenced.

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.LabServices.Latest
         /// The image reference of the gallery image.
         /// </summary>
         [Output("imageReference")]
-        public Output<Outputs.GalleryImageReferenceResponseResult> ImageReference { get; private set; } = null!;
+        public Output<Outputs.GalleryImageReferenceResponse> ImageReference { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether this gallery image is enabled.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.LabServices.Latest
         /// The details of the latest operation. ex: status, error
         /// </summary>
         [Output("latestOperationResult")]
-        public Output<Outputs.LatestOperationResultResponseResult> LatestOperationResult { get; private set; } = null!;
+        public Output<Outputs.LatestOperationResultResponse> LatestOperationResult { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.

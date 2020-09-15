@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  destination_account: Optional[pulumi.Input[str]] = None,
                  object_replication_policy_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,7 +35,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] destination_account: Required. Destination account name.
         :param pulumi.Input[str] object_replication_policy_id: The ID of object replication policy or 'default' if the policy ID is unknown.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]] rules: The storage account object replication rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]] rules: The storage account object replication rules.
         :param pulumi.Input[str] source_account: Required. Source account name.
         """
         if __name__ is not None:
@@ -135,7 +135,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Output[Optional[List['outputs.ObjectReplicationPolicyRuleResponse']]]:
+    def rules(self) -> pulumi.Output[Optional[Sequence['outputs.ObjectReplicationPolicyRuleResponse']]]:
         """
         The storage account object replication rules.
         """

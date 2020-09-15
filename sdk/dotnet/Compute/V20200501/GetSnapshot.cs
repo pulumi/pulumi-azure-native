@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
-        public readonly Outputs.CreationDataResponseResult CreationData;
+        public readonly Outputs.CreationDataResponse CreationData;
         /// <summary>
         /// ARM id of the DiskAccess resource for using private endpoints on disks.
         /// </summary>
@@ -58,11 +58,11 @@ namespace Pulumi.AzureRM.Compute.V20200501
         /// <summary>
         /// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         /// </summary>
-        public readonly Outputs.EncryptionResponseResult? Encryption;
+        public readonly Outputs.EncryptionResponse? Encryption;
         /// <summary>
         /// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         /// </summary>
-        public readonly Outputs.EncryptionSettingsCollectionResponseResult? EncryptionSettingsCollection;
+        public readonly Outputs.EncryptionSettingsCollectionResponse? EncryptionSettingsCollection;
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
         /// <summary>
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         /// </summary>
-        public readonly Outputs.SnapshotSkuResponseResult? Sku;
+        public readonly Outputs.SnapshotSkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
 
         [OutputConstructor]
         private GetSnapshotResult(
-            Outputs.CreationDataResponseResult creationData,
+            Outputs.CreationDataResponse creationData,
 
             string? diskAccessId,
 
@@ -126,9 +126,9 @@ namespace Pulumi.AzureRM.Compute.V20200501
 
             int? diskSizeGB,
 
-            Outputs.EncryptionResponseResult? encryption,
+            Outputs.EncryptionResponse? encryption,
 
-            Outputs.EncryptionSettingsCollectionResponseResult? encryptionSettingsCollection,
+            Outputs.EncryptionSettingsCollectionResponse? encryptionSettingsCollection,
 
             string? hyperVGeneration,
 
@@ -146,7 +146,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
 
             string provisioningState,
 
-            Outputs.SnapshotSkuResponseResult? sku,
+            Outputs.SnapshotSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -56,11 +56,11 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// <summary>
         /// Links relevant to the assessment
         /// </summary>
-        public readonly Outputs.AssessmentLinksResponseResult? Links;
+        public readonly Outputs.AssessmentLinksResponse? Links;
         /// <summary>
         /// Describes properties of an assessment metadata.
         /// </summary>
-        public readonly Outputs.SecurityAssessmentMetadataPropertiesResponseResult? Metadata;
+        public readonly Outputs.SecurityAssessmentMetadataPropertiesResponse? Metadata;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -68,15 +68,15 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// <summary>
         /// Data regarding 3rd party partner integration
         /// </summary>
-        public readonly Outputs.SecurityAssessmentPartnerDataResponseResult? PartnersData;
+        public readonly Outputs.SecurityAssessmentPartnerDataResponse? PartnersData;
         /// <summary>
         /// Details of the resource that was assessed
         /// </summary>
-        public readonly Union<Outputs.AzureResourceDetailsResponseResult, Outputs.OnPremiseResourceDetailsResponseResult> ResourceDetails;
+        public readonly Union<Outputs.AzureResourceDetailsResponse, Outputs.OnPremiseResourceDetailsResponse> ResourceDetails;
         /// <summary>
         /// The result of the assessment
         /// </summary>
-        public readonly Outputs.AssessmentStatusResponseResult Status;
+        public readonly Outputs.AssessmentStatusResponse Status;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -88,17 +88,17 @@ namespace Pulumi.AzureRM.Security.V20200101
 
             string displayName,
 
-            Outputs.AssessmentLinksResponseResult? links,
+            Outputs.AssessmentLinksResponse? links,
 
-            Outputs.SecurityAssessmentMetadataPropertiesResponseResult? metadata,
+            Outputs.SecurityAssessmentMetadataPropertiesResponse? metadata,
 
             string name,
 
-            Outputs.SecurityAssessmentPartnerDataResponseResult? partnersData,
+            Outputs.SecurityAssessmentPartnerDataResponse? partnersData,
 
-            Union<Outputs.AzureResourceDetailsResponseResult, Outputs.OnPremiseResourceDetailsResponseResult> resourceDetails,
+            Union<Outputs.AzureResourceDetailsResponse, Outputs.OnPremiseResourceDetailsResponse> resourceDetails,
 
-            Outputs.AssessmentStatusResponseResult status,
+            Outputs.AssessmentStatusResponse status,
 
             string type)
         {

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -242,13 +242,13 @@ class RelationNodeArgs:
 class ThreatIntelligenceGranularMarkingModelArgs:
     def __init__(__self__, *,
                  language: Optional[pulumi.Input[str]] = None,
-                 marking_ref: Optional[pulumi.Input[float]] = None,
-                 selectors: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 marking_ref: Optional[pulumi.Input[int]] = None,
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Describes threat granular marking model entity
         :param pulumi.Input[str] language: Language granular marking model
-        :param pulumi.Input[float] marking_ref: marking reference granular marking model
-        :param pulumi.Input[List[pulumi.Input[str]]] selectors: granular marking model selectors
+        :param pulumi.Input[int] marking_ref: marking reference granular marking model
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selectors: granular marking model selectors
         """
         if language is not None:
             pulumi.set(__self__, "language", language)
@@ -271,26 +271,26 @@ class ThreatIntelligenceGranularMarkingModelArgs:
 
     @property
     @pulumi.getter(name="markingRef")
-    def marking_ref(self) -> Optional[pulumi.Input[float]]:
+    def marking_ref(self) -> Optional[pulumi.Input[int]]:
         """
         marking reference granular marking model
         """
         return pulumi.get(self, "marking_ref")
 
     @marking_ref.setter
-    def marking_ref(self, value: Optional[pulumi.Input[float]]):
+    def marking_ref(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "marking_ref", value)
 
     @property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         granular marking model selectors
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "selectors", value)
 
 
@@ -298,11 +298,11 @@ class ThreatIntelligenceGranularMarkingModelArgs:
 class ThreatIntelligenceKillChainPhaseArgs:
     def __init__(__self__, *,
                  kill_chain_name: Optional[pulumi.Input[str]] = None,
-                 phase_name: Optional[pulumi.Input[float]] = None):
+                 phase_name: Optional[pulumi.Input[int]] = None):
         """
         Describes threat kill chain phase entity
         :param pulumi.Input[str] kill_chain_name: Kill chainName name
-        :param pulumi.Input[float] phase_name: Phase name
+        :param pulumi.Input[int] phase_name: Phase name
         """
         if kill_chain_name is not None:
             pulumi.set(__self__, "kill_chain_name", kill_chain_name)
@@ -323,14 +323,14 @@ class ThreatIntelligenceKillChainPhaseArgs:
 
     @property
     @pulumi.getter(name="phaseName")
-    def phase_name(self) -> Optional[pulumi.Input[float]]:
+    def phase_name(self) -> Optional[pulumi.Input[int]]:
         """
         Phase name
         """
         return pulumi.get(self, "phase_name")
 
     @phase_name.setter
-    def phase_name(self, value: Optional[pulumi.Input[float]]):
+    def phase_name(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "phase_name", value)
 
 

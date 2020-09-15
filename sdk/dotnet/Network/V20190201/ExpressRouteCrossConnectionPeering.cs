@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// The IPv6 peering configuration.
         /// </summary>
         [Output("ipv6PeeringConfig")]
-        public Output<Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponseResult?> Ipv6PeeringConfig { get; private set; } = null!;
+        public Output<Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse?> Ipv6PeeringConfig { get; private set; } = null!;
 
         /// <summary>
         /// Gets whether the provider or the customer last modified the peering.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// The Microsoft peering configuration.
         /// </summary>
         [Output("microsoftPeeringConfig")]
-        public Output<Outputs.ExpressRouteCircuitPeeringConfigResponseResult?> MicrosoftPeeringConfig { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitPeeringConfigResponse?> MicrosoftPeeringConfig { get; private set; } = null!;
 
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.

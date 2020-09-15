@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -27,18 +27,18 @@ __all__ = [
 class ContactDetailsArgs:
     def __init__(__self__, *,
                  contact_name: pulumi.Input[str],
-                 email_list: pulumi.Input[List[pulumi.Input[str]]],
+                 email_list: pulumi.Input[Sequence[pulumi.Input[str]]],
                  phone: pulumi.Input[str],
                  mobile: Optional[pulumi.Input[str]] = None,
-                 notification_preference: Optional[pulumi.Input[List[pulumi.Input['NotificationPreferenceArgs']]]] = None,
+                 notification_preference: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]] = None,
                  phone_extension: Optional[pulumi.Input[str]] = None):
         """
         Contact Details.
         :param pulumi.Input[str] contact_name: Contact name of the person.
-        :param pulumi.Input[List[pulumi.Input[str]]] email_list: List of Email-ids to be notified about job progress.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_list: List of Email-ids to be notified about job progress.
         :param pulumi.Input[str] phone: Phone number of the contact person.
         :param pulumi.Input[str] mobile: Mobile number of the contact person.
-        :param pulumi.Input[List[pulumi.Input['NotificationPreferenceArgs']]] notification_preference: Notification preference for a job stage.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]] notification_preference: Notification preference for a job stage.
         :param pulumi.Input[str] phone_extension: Phone extension number of the contact person.
         """
         pulumi.set(__self__, "contact_name", contact_name)
@@ -65,14 +65,14 @@ class ContactDetailsArgs:
 
     @property
     @pulumi.getter(name="emailList")
-    def email_list(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def email_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of Email-ids to be notified about job progress.
         """
         return pulumi.get(self, "email_list")
 
     @email_list.setter
-    def email_list(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def email_list(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "email_list", value)
 
     @property
@@ -101,14 +101,14 @@ class ContactDetailsArgs:
 
     @property
     @pulumi.getter(name="notificationPreference")
-    def notification_preference(self) -> Optional[pulumi.Input[List[pulumi.Input['NotificationPreferenceArgs']]]]:
+    def notification_preference(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]]:
         """
         Notification preference for a job stage.
         """
         return pulumi.get(self, "notification_preference")
 
     @notification_preference.setter
-    def notification_preference(self, value: Optional[pulumi.Input[List[pulumi.Input['NotificationPreferenceArgs']]]]):
+    def notification_preference(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]]):
         pulumi.set(self, "notification_preference", value)
 
     @property
@@ -128,23 +128,23 @@ class ContactDetailsArgs:
 class DataBoxDiskJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
-                 destination_account_details: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]],
+                 destination_account_details: pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]],
                  job_details_type: pulumi.Input[str],
                  shipping_address: pulumi.Input['ShippingAddressArgs'],
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[float]] = None,
+                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
                  passkey: Optional[pulumi.Input[str]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
-                 preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]] = None):
+                 preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None):
         """
         DataBox Disk Job Details.
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
-        :param pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
-        :param pulumi.Input[float] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input[str] passkey: User entered passkey for DataBox Disk job.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
-        :param pulumi.Input[Mapping[str, pulumi.Input[float]]] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+        :param pulumi.Input[Mapping[str, pulumi.Input[int]]] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
         """
         pulumi.set(__self__, "contact_details", contact_details)
         pulumi.set(__self__, "destination_account_details", destination_account_details)
@@ -173,14 +173,14 @@ class DataBoxDiskJobDetailsArgs:
 
     @property
     @pulumi.getter(name="destinationAccountDetails")
-    def destination_account_details(self) -> pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]:
+    def destination_account_details(self) -> pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]:
         """
         Destination account details.
         """
         return pulumi.get(self, "destination_account_details")
 
     @destination_account_details.setter
-    def destination_account_details(self, value: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]):
+    def destination_account_details(self, value: pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]):
         pulumi.set(self, "destination_account_details", value)
 
     @property
@@ -209,14 +209,14 @@ class DataBoxDiskJobDetailsArgs:
 
     @property
     @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[float]]:
+    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_terabytes")
 
     @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[float]]):
+    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expected_data_size_in_terabytes", value)
 
     @property
@@ -245,14 +245,14 @@ class DataBoxDiskJobDetailsArgs:
 
     @property
     @pulumi.getter(name="preferredDisks")
-    def preferred_disks(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]:
+    def preferred_disks(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]]:
         """
         User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
         """
         return pulumi.get(self, "preferred_disks")
 
     @preferred_disks.setter
-    def preferred_disks(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]):
+    def preferred_disks(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]]):
         pulumi.set(self, "preferred_disks", value)
 
 
@@ -260,20 +260,20 @@ class DataBoxDiskJobDetailsArgs:
 class DataBoxHeavyJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
-                 destination_account_details: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]],
+                 destination_account_details: pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]],
                  job_details_type: pulumi.Input[str],
                  shipping_address: pulumi.Input['ShippingAddressArgs'],
                  device_password: Optional[pulumi.Input[str]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[float]] = None,
+                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None):
         """
         Databox Heavy Device Job Details
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
-        :param pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox Heavy
-        :param pulumi.Input[float] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         """
         pulumi.set(__self__, "contact_details", contact_details)
@@ -301,14 +301,14 @@ class DataBoxHeavyJobDetailsArgs:
 
     @property
     @pulumi.getter(name="destinationAccountDetails")
-    def destination_account_details(self) -> pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]:
+    def destination_account_details(self) -> pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]:
         """
         Destination account details.
         """
         return pulumi.get(self, "destination_account_details")
 
     @destination_account_details.setter
-    def destination_account_details(self, value: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]):
+    def destination_account_details(self, value: pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]):
         pulumi.set(self, "destination_account_details", value)
 
     @property
@@ -349,14 +349,14 @@ class DataBoxHeavyJobDetailsArgs:
 
     @property
     @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[float]]:
+    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_terabytes")
 
     @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[float]]):
+    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expected_data_size_in_terabytes", value)
 
     @property
@@ -376,20 +376,20 @@ class DataBoxHeavyJobDetailsArgs:
 class DataBoxJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
-                 destination_account_details: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]],
+                 destination_account_details: pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]],
                  job_details_type: pulumi.Input[str],
                  shipping_address: pulumi.Input['ShippingAddressArgs'],
                  device_password: Optional[pulumi.Input[str]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[float]] = None,
+                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None):
         """
         Databox Job Details
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
-        :param pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox
-        :param pulumi.Input[float] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         """
         pulumi.set(__self__, "contact_details", contact_details)
@@ -417,14 +417,14 @@ class DataBoxJobDetailsArgs:
 
     @property
     @pulumi.getter(name="destinationAccountDetails")
-    def destination_account_details(self) -> pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]:
+    def destination_account_details(self) -> pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]:
         """
         Destination account details.
         """
         return pulumi.get(self, "destination_account_details")
 
     @destination_account_details.setter
-    def destination_account_details(self, value: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]):
+    def destination_account_details(self, value: pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]):
         pulumi.set(self, "destination_account_details", value)
 
     @property
@@ -465,14 +465,14 @@ class DataBoxJobDetailsArgs:
 
     @property
     @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[float]]:
+    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_terabytes")
 
     @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[float]]):
+    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expected_data_size_in_terabytes", value)
 
     @property
@@ -708,11 +708,11 @@ class NotificationPreferenceArgs:
 @pulumi.input_type
 class PreferencesArgs:
     def __init__(__self__, *,
-                 preferred_data_center_region: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 preferred_data_center_region: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None):
         """
         Preferences related to the order
-        :param pulumi.Input[List[pulumi.Input[str]]] preferred_data_center_region: Preferred Data Center Region.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_data_center_region: Preferred Data Center Region.
         :param pulumi.Input['TransportPreferencesArgs'] transport_preferences: Preferences related to the shipment logistics of the sku.
         """
         if preferred_data_center_region is not None:
@@ -722,14 +722,14 @@ class PreferencesArgs:
 
     @property
     @pulumi.getter(name="preferredDataCenterRegion")
-    def preferred_data_center_region(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def preferred_data_center_region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Preferred Data Center Region.
         """
         return pulumi.get(self, "preferred_data_center_region")
 
     @preferred_data_center_region.setter
-    def preferred_data_center_region(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def preferred_data_center_region(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "preferred_data_center_region", value)
 
     @property

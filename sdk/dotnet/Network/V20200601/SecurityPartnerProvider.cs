@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// The virtualHub to which the Security Partner Provider belongs.
         /// </summary>
         [Output("virtualHub")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualHub { get; private set; } = null!;
 
 
         /// <summary>

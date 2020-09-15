@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// Gets or sets the configuration of the node.
         /// </summary>
         [Output("configuration")]
-        public Output<Outputs.DscConfigurationAssociationPropertyResponseResult?> Configuration { get; private set; } = null!;
+        public Output<Outputs.DscConfigurationAssociationPropertyResponse?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets creation time.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -20,11 +20,11 @@ class GetComputePolicyResult:
     Data Lake Analytics compute policy information.
     """
     def __init__(__self__, max_degree_of_parallelism_per_job=None, min_priority_per_job=None, name=None, object_id=None, object_type=None, type=None):
-        if max_degree_of_parallelism_per_job and not isinstance(max_degree_of_parallelism_per_job, float):
-            raise TypeError("Expected argument 'max_degree_of_parallelism_per_job' to be a float")
+        if max_degree_of_parallelism_per_job and not isinstance(max_degree_of_parallelism_per_job, int):
+            raise TypeError("Expected argument 'max_degree_of_parallelism_per_job' to be a int")
         pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
-        if min_priority_per_job and not isinstance(min_priority_per_job, float):
-            raise TypeError("Expected argument 'min_priority_per_job' to be a float")
+        if min_priority_per_job and not isinstance(min_priority_per_job, int):
+            raise TypeError("Expected argument 'min_priority_per_job' to be a int")
         pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -41,7 +41,7 @@ class GetComputePolicyResult:
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> float:
+    def max_degree_of_parallelism_per_job(self) -> int:
         """
         The maximum degree of parallelism per job this user can use to submit jobs.
         """
@@ -49,7 +49,7 @@ class GetComputePolicyResult:
 
     @property
     @pulumi.getter(name="minPriorityPerJob")
-    def min_priority_per_job(self) -> float:
+    def min_priority_per_job(self) -> int:
         """
         The minimum priority per job this user can use to submit jobs.
         """

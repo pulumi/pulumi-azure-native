@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.MachineLearningExperimentation.V20170501Preview
         /// The properties of the storage account for the machine learning team account.
         /// </summary>
         [Output("storageAccount")]
-        public Output<Outputs.StorageAccountPropertiesResponseResult> StorageAccount { get; private set; } = null!;
+        public Output<Outputs.StorageAccountPropertiesResponse> StorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -240,16 +240,16 @@ class ContainerServiceSshConfigurationResponse(dict):
     SSH configuration for Linux-based VMs running on Azure.
     """
     def __init__(__self__, *,
-                 public_keys: List['outputs.ContainerServiceSshPublicKeyResponse']):
+                 public_keys: Sequence['outputs.ContainerServiceSshPublicKeyResponse']):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param List['ContainerServiceSshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        :param Sequence['ContainerServiceSshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> List['outputs.ContainerServiceSshPublicKeyResponse']:
+    def public_keys(self) -> Sequence['outputs.ContainerServiceSshPublicKeyResponse']:
         """
         The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
@@ -323,7 +323,7 @@ class ManagedClusterAADProfileResponse(dict):
     AADProfile specifies attributes for Azure Active Directory integration.
     """
     def __init__(__self__, *,
-                 admin_group_object_ids: Optional[List[str]] = None,
+                 admin_group_object_ids: Optional[Sequence[str]] = None,
                  client_app_id: Optional[str] = None,
                  enable_azure_rbac: Optional[bool] = None,
                  managed: Optional[bool] = None,
@@ -332,7 +332,7 @@ class ManagedClusterAADProfileResponse(dict):
                  tenant_id: Optional[str] = None):
         """
         AADProfile specifies attributes for Azure Active Directory integration.
-        :param List[str] admin_group_object_ids: AAD group object IDs that will have admin role of the cluster.
+        :param Sequence[str] admin_group_object_ids: AAD group object IDs that will have admin role of the cluster.
         :param str client_app_id: The client AAD application ID.
         :param bool enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
         :param bool managed: Whether to enable managed AAD.
@@ -357,7 +357,7 @@ class ManagedClusterAADProfileResponse(dict):
 
     @property
     @pulumi.getter(name="adminGroupObjectIDs")
-    def admin_group_object_ids(self) -> Optional[List[str]]:
+    def admin_group_object_ids(self) -> Optional[Sequence[str]]:
         """
         AAD group object IDs that will have admin role of the cluster.
         """
@@ -421,11 +421,11 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
     Access profile for managed cluster API server.
     """
     def __init__(__self__, *,
-                 authorized_ip_ranges: Optional[List[str]] = None,
+                 authorized_ip_ranges: Optional[Sequence[str]] = None,
                  enable_private_cluster: Optional[bool] = None):
         """
         Access profile for managed cluster API server.
-        :param List[str] authorized_ip_ranges: Authorized IP Ranges to kubernetes API server.
+        :param Sequence[str] authorized_ip_ranges: Authorized IP Ranges to kubernetes API server.
         :param bool enable_private_cluster: Whether to create the cluster as a private cluster or not.
         """
         if authorized_ip_ranges is not None:
@@ -435,7 +435,7 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
 
     @property
     @pulumi.getter(name="authorizedIPRanges")
-    def authorized_ip_ranges(self) -> Optional[List[str]]:
+    def authorized_ip_ranges(self) -> Optional[Sequence[str]]:
         """
         Authorized IP Ranges to kubernetes API server.
         """
@@ -561,18 +561,18 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  node_image_version: str,
                  power_state: 'outputs.PowerStateResponse',
                  provisioning_state: str,
-                 availability_zones: Optional[List[str]] = None,
-                 count: Optional[float] = None,
+                 availability_zones: Optional[Sequence[str]] = None,
+                 count: Optional[int] = None,
                  enable_auto_scaling: Optional[bool] = None,
                  enable_node_public_ip: Optional[bool] = None,
-                 max_count: Optional[float] = None,
-                 max_pods: Optional[float] = None,
-                 min_count: Optional[float] = None,
+                 max_count: Optional[int] = None,
+                 max_pods: Optional[int] = None,
+                 min_count: Optional[int] = None,
                  mode: Optional[str] = None,
                  node_labels: Optional[Mapping[str, str]] = None,
-                 node_taints: Optional[List[str]] = None,
+                 node_taints: Optional[Sequence[str]] = None,
                  orchestrator_version: Optional[str] = None,
-                 os_disk_size_gb: Optional[float] = None,
+                 os_disk_size_gb: Optional[int] = None,
                  os_disk_type: Optional[str] = None,
                  os_type: Optional[str] = None,
                  proximity_placement_group_id: Optional[str] = None,
@@ -590,18 +590,18 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param str node_image_version: Version of node image
         :param 'PowerStateResponseArgs' power_state: Describes whether the Agent Pool is Running or Stopped
         :param str provisioning_state: The current deployment or provisioning state, which only appears in the response.
-        :param List[str] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-        :param float count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+        :param Sequence[str] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        :param int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param bool enable_auto_scaling: Whether to enable auto-scaler
         :param bool enable_node_public_ip: Enable public IP for nodes
-        :param float max_count: Maximum number of nodes for auto-scaling
-        :param float max_pods: Maximum number of pods that can run on a node.
-        :param float min_count: Minimum number of nodes for auto-scaling
+        :param int max_count: Maximum number of nodes for auto-scaling
+        :param int max_pods: Maximum number of pods that can run on a node.
+        :param int min_count: Minimum number of nodes for auto-scaling
         :param str mode: AgentPoolMode represents mode of an agent pool
         :param Mapping[str, str] node_labels: Agent pool node labels to be persisted across all nodes in agent pool.
-        :param List[str] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        :param Sequence[str] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param str orchestrator_version: Version of orchestrator specified when creating the managed cluster.
-        :param float os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param int os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param str os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param str proximity_placement_group_id: The ID for Proximity Placement Group.
@@ -699,7 +699,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[List[str]]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         """
         Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         """
@@ -707,7 +707,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         """
@@ -731,7 +731,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[float]:
+    def max_count(self) -> Optional[int]:
         """
         Maximum number of nodes for auto-scaling
         """
@@ -739,7 +739,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[float]:
+    def max_pods(self) -> Optional[int]:
         """
         Maximum number of pods that can run on a node.
         """
@@ -747,7 +747,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[float]:
+    def min_count(self) -> Optional[int]:
         """
         Minimum number of nodes for auto-scaling
         """
@@ -771,7 +771,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[List[str]]:
+    def node_taints(self) -> Optional[Sequence[str]]:
         """
         Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         """
@@ -787,7 +787,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[float]:
+    def os_disk_size_gb(self) -> Optional[int]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
@@ -983,17 +983,17 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
     Profile of the managed cluster load balancer.
     """
     def __init__(__self__, *,
-                 allocated_outbound_ports: Optional[float] = None,
-                 effective_outbound_ips: Optional[List['outputs.ResourceReferenceResponse']] = None,
-                 idle_timeout_in_minutes: Optional[float] = None,
+                 allocated_outbound_ports: Optional[int] = None,
+                 effective_outbound_ips: Optional[Sequence['outputs.ResourceReferenceResponse']] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
                  managed_outbound_ips: Optional['outputs.ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs'] = None,
                  outbound_ip_prefixes: Optional['outputs.ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes'] = None,
                  outbound_ips: Optional['outputs.ManagedClusterLoadBalancerProfileResponseOutboundIPs'] = None):
         """
         Profile of the managed cluster load balancer.
-        :param float allocated_outbound_ports: Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
-        :param List['ResourceReferenceResponseArgs'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
-        :param float idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
+        :param int allocated_outbound_ports: Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+        :param Sequence['ResourceReferenceResponseArgs'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
+        :param int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
         :param 'ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs' managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
         :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs' outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
         :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs' outbound_ips: Desired outbound IP resources for the cluster load balancer.
@@ -1013,7 +1013,7 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
 
     @property
     @pulumi.getter(name="allocatedOutboundPorts")
-    def allocated_outbound_ports(self) -> Optional[float]:
+    def allocated_outbound_ports(self) -> Optional[int]:
         """
         Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
         """
@@ -1021,7 +1021,7 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
 
     @property
     @pulumi.getter(name="effectiveOutboundIPs")
-    def effective_outbound_ips(self) -> Optional[List['outputs.ResourceReferenceResponse']]:
+    def effective_outbound_ips(self) -> Optional[Sequence['outputs.ResourceReferenceResponse']]:
         """
         The effective outbound IP resources of the cluster load balancer.
         """
@@ -1029,7 +1029,7 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> Optional[int]:
         """
         Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
         """
@@ -1069,17 +1069,17 @@ class ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs(dict):
     Desired managed outbound IPs for the cluster load balancer.
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None):
+                 count: Optional[int] = None):
         """
         Desired managed outbound IPs for the cluster load balancer.
-        :param float count: Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        :param int count: Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
@@ -1095,17 +1095,17 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes(dict):
     Desired outbound IP Prefix resources for the cluster load balancer.
     """
     def __init__(__self__, *,
-                 public_ip_prefixes: Optional[List['outputs.ResourceReferenceResponse']] = None):
+                 public_ip_prefixes: Optional[Sequence['outputs.ResourceReferenceResponse']] = None):
         """
         Desired outbound IP Prefix resources for the cluster load balancer.
-        :param List['ResourceReferenceResponseArgs'] public_ip_prefixes: A list of public IP prefix resources.
+        :param Sequence['ResourceReferenceResponseArgs'] public_ip_prefixes: A list of public IP prefix resources.
         """
         if public_ip_prefixes is not None:
             pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
 
     @property
     @pulumi.getter(name="publicIPPrefixes")
-    def public_ip_prefixes(self) -> Optional[List['outputs.ResourceReferenceResponse']]:
+    def public_ip_prefixes(self) -> Optional[Sequence['outputs.ResourceReferenceResponse']]:
         """
         A list of public IP prefix resources.
         """
@@ -1121,17 +1121,17 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPs(dict):
     Desired outbound IP resources for the cluster load balancer.
     """
     def __init__(__self__, *,
-                 public_ips: Optional[List['outputs.ResourceReferenceResponse']] = None):
+                 public_ips: Optional[Sequence['outputs.ResourceReferenceResponse']] = None):
         """
         Desired outbound IP resources for the cluster load balancer.
-        :param List['ResourceReferenceResponseArgs'] public_ips: A list of public IP resources.
+        :param Sequence['ResourceReferenceResponseArgs'] public_ips: A list of public IP resources.
         """
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)
 
     @property
     @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> Optional[List['outputs.ResourceReferenceResponse']]:
+    def public_ips(self) -> Optional[Sequence['outputs.ResourceReferenceResponse']]:
         """
         A list of public IP resources.
         """

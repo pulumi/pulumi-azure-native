@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StorSimple.Latest
         /// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
         /// </summary>
         [Output("encryptionKey")]
-        public Output<Outputs.AsymmetricEncryptedSecretResponseResult?> EncryptionKey { get; private set; } = null!;
+        public Output<Outputs.AsymmetricEncryptedSecretResponse?> EncryptionKey { get; private set; } = null!;
 
         /// <summary>
         /// The flag to denote whether encryption is enabled or not.

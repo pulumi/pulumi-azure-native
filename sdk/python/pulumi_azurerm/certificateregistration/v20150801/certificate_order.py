@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,7 +25,7 @@ class CertificateOrder(pulumi.CustomResource):
                  expiration_time: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  intermediate: Optional[pulumi.Input[pulumi.InputType['CertificateDetailsArgs']]] = None,
-                 key_size: Optional[pulumi.Input[float]] = None,
+                 key_size: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  last_certificate_issuance_time: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class CertificateOrder(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 validity_in_years: Optional[pulumi.Input[float]] = None,
+                 validity_in_years: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -56,7 +56,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_time: Certificate expiration time
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[pulumi.InputType['CertificateDetailsArgs']] intermediate: Intermediate certificate
-        :param pulumi.Input[float] key_size: Certificate Key Size
+        :param pulumi.Input[int] key_size: Certificate Key Size
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] last_certificate_issuance_time: Certificate last issuance time
         :param pulumi.Input[str] location: Resource Location
@@ -70,7 +70,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] status: Current order status
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
-        :param pulumi.Input[float] validity_in_years: Duration in years (must be between 1 and 3)
+        :param pulumi.Input[int] validity_in_years: Duration in years (must be between 1 and 3)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -202,7 +202,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> pulumi.Output[Optional[float]]:
+    def key_size(self) -> pulumi.Output[Optional[int]]:
         """
         Certificate Key Size
         """
@@ -306,7 +306,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validityInYears")
-    def validity_in_years(self) -> pulumi.Output[Optional[float]]:
+    def validity_in_years(self) -> pulumi.Output[Optional[int]]:
         """
         Duration in years (must be between 1 and 3)
         """

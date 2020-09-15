@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// VCenter related data.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VCenterPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.VCenterPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource Type

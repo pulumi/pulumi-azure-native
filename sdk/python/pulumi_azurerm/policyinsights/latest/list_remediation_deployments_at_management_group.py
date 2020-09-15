@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,7 +38,7 @@ class ListRemediationDeploymentsAtManagementGroupResult:
 
     @property
     @pulumi.getter
-    def value(self) -> List['outputs.RemediationDeploymentResponseResult']:
+    def value(self) -> Sequence['outputs.RemediationDeploymentResponseResult']:
         """
         Array of deployments for the remediation.
         """
@@ -58,7 +58,7 @@ class AwaitableListRemediationDeploymentsAtManagementGroupResult(ListRemediation
 def list_remediation_deployments_at_management_group(management_group_id: Optional[str] = None,
                                                      management_groups_namespace: Optional[str] = None,
                                                      remediation_name: Optional[str] = None,
-                                                     top: Optional[float] = None,
+                                                     top: Optional[int] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtManagementGroupResult:
     """
     Use this data source to access information about an existing resource.
@@ -66,7 +66,7 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
     :param str management_group_id: Management group ID.
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param str remediation_name: The name of the remediation.
-    :param float top: Maximum number of records to return.
+    :param int top: Maximum number of records to return.
     """
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id

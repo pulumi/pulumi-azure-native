@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['SapMonitor']
@@ -20,7 +20,7 @@ class SapMonitor(pulumi.CustomResource):
                  hana_db_name: Optional[pulumi.Input[str]] = None,
                  hana_db_password: Optional[pulumi.Input[str]] = None,
                  hana_db_password_key_vault_url: Optional[pulumi.Input[str]] = None,
-                 hana_db_sql_port: Optional[pulumi.Input[float]] = None,
+                 hana_db_sql_port: Optional[pulumi.Input[int]] = None,
                  hana_db_username: Optional[pulumi.Input[str]] = None,
                  hana_hostname: Optional[pulumi.Input[str]] = None,
                  hana_subnet: Optional[pulumi.Input[str]] = None,
@@ -44,7 +44,7 @@ class SapMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] hana_db_name: Database name of the HANA instance.
         :param pulumi.Input[str] hana_db_password: Database password of the HANA instance.
         :param pulumi.Input[str] hana_db_password_key_vault_url: KeyVault URL link to the password for the HANA database.
-        :param pulumi.Input[float] hana_db_sql_port: Database port of the HANA instance.
+        :param pulumi.Input[int] hana_db_sql_port: Database port of the HANA instance.
         :param pulumi.Input[str] hana_db_username: Database username of the HANA instance.
         :param pulumi.Input[str] hana_hostname: Hostname of the HANA instance.
         :param pulumi.Input[str] hana_subnet: Specifies the SAP monitor unique ID.
@@ -166,7 +166,7 @@ class SapMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hanaDbSqlPort")
-    def hana_db_sql_port(self) -> pulumi.Output[Optional[float]]:
+    def hana_db_sql_port(self) -> pulumi.Output[Optional[int]]:
         """
         Database port of the HANA instance.
         """

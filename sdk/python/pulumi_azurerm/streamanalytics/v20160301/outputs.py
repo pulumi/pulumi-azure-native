@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -201,18 +201,18 @@ class AzureMachineLearningWebServiceFunctionBindingResponse(dict):
     """
     def __init__(__self__, *,
                  api_key: Optional[str] = None,
-                 batch_size: Optional[float] = None,
+                 batch_size: Optional[int] = None,
                  endpoint: Optional[str] = None,
                  inputs: Optional['outputs.AzureMachineLearningWebServiceInputsResponse'] = None,
-                 outputs: Optional[List['outputs.AzureMachineLearningWebServiceOutputColumnResponse']] = None,
+                 outputs: Optional[Sequence['outputs.AzureMachineLearningWebServiceOutputColumnResponse']] = None,
                  type: Optional[str] = None):
         """
         The binding to an Azure Machine Learning web service.
         :param str api_key: The API key used to authenticate with Request-Response endpoint.
-        :param float batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+        :param int batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         :param str endpoint: The Request-Response execute endpoint of the Azure Machine Learning web service. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
         :param 'AzureMachineLearningWebServiceInputsResponseArgs' inputs: The inputs for the Azure Machine Learning web service endpoint.
-        :param List['AzureMachineLearningWebServiceOutputColumnResponseArgs'] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
+        :param Sequence['AzureMachineLearningWebServiceOutputColumnResponseArgs'] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
         :param str type: Indicates the function binding type.
         """
         if api_key is not None:
@@ -238,7 +238,7 @@ class AzureMachineLearningWebServiceFunctionBindingResponse(dict):
 
     @property
     @pulumi.getter(name="batchSize")
-    def batch_size(self) -> Optional[float]:
+    def batch_size(self) -> Optional[int]:
         """
         Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         """
@@ -262,7 +262,7 @@ class AzureMachineLearningWebServiceFunctionBindingResponse(dict):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[List['outputs.AzureMachineLearningWebServiceOutputColumnResponse']]:
+    def outputs(self) -> Optional[Sequence['outputs.AzureMachineLearningWebServiceOutputColumnResponse']]:
         """
         A list of outputs from the Azure Machine Learning web service endpoint execution.
         """
@@ -287,12 +287,12 @@ class AzureMachineLearningWebServiceInputColumnResponse(dict):
     """
     def __init__(__self__, *,
                  data_type: Optional[str] = None,
-                 map_to: Optional[float] = None,
+                 map_to: Optional[int] = None,
                  name: Optional[str] = None):
         """
         Describes an input column for the Azure Machine Learning web service endpoint.
         :param str data_type: The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
-        :param float map_to: The zero based index of the function parameter this input maps to.
+        :param int map_to: The zero based index of the function parameter this input maps to.
         :param str name: The name of the input column.
         """
         if data_type is not None:
@@ -312,7 +312,7 @@ class AzureMachineLearningWebServiceInputColumnResponse(dict):
 
     @property
     @pulumi.getter(name="mapTo")
-    def map_to(self) -> Optional[float]:
+    def map_to(self) -> Optional[int]:
         """
         The zero based index of the function parameter this input maps to.
         """
@@ -336,11 +336,11 @@ class AzureMachineLearningWebServiceInputsResponse(dict):
     The inputs for the Azure Machine Learning web service endpoint.
     """
     def __init__(__self__, *,
-                 column_names: Optional[List['outputs.AzureMachineLearningWebServiceInputColumnResponse']] = None,
+                 column_names: Optional[Sequence['outputs.AzureMachineLearningWebServiceInputColumnResponse']] = None,
                  name: Optional[str] = None):
         """
         The inputs for the Azure Machine Learning web service endpoint.
-        :param List['AzureMachineLearningWebServiceInputColumnResponseArgs'] column_names: A list of input columns for the Azure Machine Learning web service endpoint.
+        :param Sequence['AzureMachineLearningWebServiceInputColumnResponseArgs'] column_names: A list of input columns for the Azure Machine Learning web service endpoint.
         :param str name: The name of the input. This is the name provided while authoring the endpoint.
         """
         if column_names is not None:
@@ -350,7 +350,7 @@ class AzureMachineLearningWebServiceInputsResponse(dict):
 
     @property
     @pulumi.getter(name="columnNames")
-    def column_names(self) -> Optional[List['outputs.AzureMachineLearningWebServiceInputColumnResponse']]:
+    def column_names(self) -> Optional[Sequence['outputs.AzureMachineLearningWebServiceInputColumnResponse']]:
         """
         A list of input columns for the Azure Machine Learning web service endpoint.
         """
@@ -500,8 +500,8 @@ class AzureTableOutputDataSourceResponse(dict):
     def __init__(__self__, *,
                  account_key: Optional[str] = None,
                  account_name: Optional[str] = None,
-                 batch_size: Optional[float] = None,
-                 columns_to_remove: Optional[List[str]] = None,
+                 batch_size: Optional[int] = None,
+                 columns_to_remove: Optional[Sequence[str]] = None,
                  partition_key: Optional[str] = None,
                  row_key: Optional[str] = None,
                  table: Optional[str] = None,
@@ -510,8 +510,8 @@ class AzureTableOutputDataSourceResponse(dict):
         Describes an Azure Table output data source.
         :param str account_key: The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param str account_name: The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
-        :param float batch_size: The number of rows to write to the Azure Table at a time.
-        :param List[str] columns_to_remove: If specified, each item in the array is the name of a column to remove (if present) from output event entities.
+        :param int batch_size: The number of rows to write to the Azure Table at a time.
+        :param Sequence[str] columns_to_remove: If specified, each item in the array is the name of a column to remove (if present) from output event entities.
         :param str partition_key: This element indicates the name of a column from the SELECT statement in the query that will be used as the partition key for the Azure Table. Required on PUT (CreateOrReplace) requests.
         :param str row_key: This element indicates the name of a column from the SELECT statement in the query that will be used as the row key for the Azure Table. Required on PUT (CreateOrReplace) requests.
         :param str table: The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
@@ -552,7 +552,7 @@ class AzureTableOutputDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="batchSize")
-    def batch_size(self) -> Optional[float]:
+    def batch_size(self) -> Optional[int]:
         """
         The number of rows to write to the Azure Table at a time.
         """
@@ -560,7 +560,7 @@ class AzureTableOutputDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="columnsToRemove")
-    def columns_to_remove(self) -> Optional[List[str]]:
+    def columns_to_remove(self) -> Optional[Sequence[str]]:
         """
         If specified, each item in the array is the name of a column to remove (if present) from output event entities.
         """
@@ -611,7 +611,7 @@ class BlobOutputDataSourceResponse(dict):
                  container: Optional[str] = None,
                  date_format: Optional[str] = None,
                  path_pattern: Optional[str] = None,
-                 storage_accounts: Optional[List['outputs.StorageAccountResponse']] = None,
+                 storage_accounts: Optional[Sequence['outputs.StorageAccountResponse']] = None,
                  time_format: Optional[str] = None,
                  type: Optional[str] = None):
         """
@@ -619,7 +619,7 @@ class BlobOutputDataSourceResponse(dict):
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param List['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
         """
@@ -662,7 +662,7 @@ class BlobOutputDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[List['outputs.StorageAccountResponse']]:
+    def storage_accounts(self) -> Optional[Sequence['outputs.StorageAccountResponse']]:
         """
         A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         """
@@ -697,7 +697,7 @@ class BlobReferenceInputDataSourceResponse(dict):
                  container: Optional[str] = None,
                  date_format: Optional[str] = None,
                  path_pattern: Optional[str] = None,
-                 storage_accounts: Optional[List['outputs.StorageAccountResponse']] = None,
+                 storage_accounts: Optional[Sequence['outputs.StorageAccountResponse']] = None,
                  time_format: Optional[str] = None,
                  type: Optional[str] = None):
         """
@@ -705,7 +705,7 @@ class BlobReferenceInputDataSourceResponse(dict):
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param List['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
         """
@@ -748,7 +748,7 @@ class BlobReferenceInputDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[List['outputs.StorageAccountResponse']]:
+    def storage_accounts(self) -> Optional[Sequence['outputs.StorageAccountResponse']]:
         """
         A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         """
@@ -783,8 +783,8 @@ class BlobStreamInputDataSourceResponse(dict):
                  container: Optional[str] = None,
                  date_format: Optional[str] = None,
                  path_pattern: Optional[str] = None,
-                 source_partition_count: Optional[float] = None,
-                 storage_accounts: Optional[List['outputs.StorageAccountResponse']] = None,
+                 source_partition_count: Optional[int] = None,
+                 storage_accounts: Optional[Sequence['outputs.StorageAccountResponse']] = None,
                  time_format: Optional[str] = None,
                  type: Optional[str] = None):
         """
@@ -792,8 +792,8 @@ class BlobStreamInputDataSourceResponse(dict):
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param float source_partition_count: The partition count of the blob input data source. Range 1 - 256.
-        :param List['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param int source_partition_count: The partition count of the blob input data source. Range 1 - 256.
+        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
         """
@@ -838,7 +838,7 @@ class BlobStreamInputDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="sourcePartitionCount")
-    def source_partition_count(self) -> Optional[float]:
+    def source_partition_count(self) -> Optional[int]:
         """
         The partition count of the blob input data source. Range 1 - 256.
         """
@@ -846,7 +846,7 @@ class BlobStreamInputDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[List['outputs.StorageAccountResponse']]:
+    def storage_accounts(self) -> Optional[Sequence['outputs.StorageAccountResponse']]:
         """
         A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         """
@@ -975,16 +975,16 @@ class DiagnosticsResponse(dict):
     Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
     """
     def __init__(__self__, *,
-                 conditions: List['outputs.DiagnosticConditionResponse']):
+                 conditions: Sequence['outputs.DiagnosticConditionResponse']):
         """
         Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-        :param List['DiagnosticConditionResponseArgs'] conditions: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
+        :param Sequence['DiagnosticConditionResponseArgs'] conditions: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
         """
         pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
-    def conditions(self) -> List['outputs.DiagnosticConditionResponse']:
+    def conditions(self) -> Sequence['outputs.DiagnosticConditionResponse']:
         """
         A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
         """
@@ -1906,14 +1906,14 @@ class ScalarFunctionPropertiesResponse(dict):
     def __init__(__self__, *,
                  etag: str,
                  binding: Optional[Any] = None,
-                 inputs: Optional[List['outputs.FunctionInputResponse']] = None,
+                 inputs: Optional[Sequence['outputs.FunctionInputResponse']] = None,
                  output: Optional['outputs.FunctionOutputResponse'] = None,
                  type: Optional[str] = None):
         """
         The properties that are associated with a scalar function.
         :param str etag: The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param Union['AzureMachineLearningWebServiceFunctionBindingResponseArgs', 'JavaScriptFunctionBindingResponseArgs'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
-        :param List['FunctionInputResponseArgs'] inputs: A list of inputs describing the parameters of the function.
+        :param Sequence['FunctionInputResponseArgs'] inputs: A list of inputs describing the parameters of the function.
         :param 'FunctionOutputResponseArgs' output: The output of the function.
         :param str type: Indicates the type of function.
         """
@@ -1945,7 +1945,7 @@ class ScalarFunctionPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[List['outputs.FunctionInputResponse']]:
+    def inputs(self) -> Optional[Sequence['outputs.FunctionInputResponse']]:
         """
         A list of inputs describing the parameters of the function.
         """
@@ -1977,7 +1977,7 @@ class ServiceBusQueueOutputDataSourceResponse(dict):
     Describes a Service Bus Queue output data source.
     """
     def __init__(__self__, *,
-                 property_columns: Optional[List[str]] = None,
+                 property_columns: Optional[Sequence[str]] = None,
                  queue_name: Optional[str] = None,
                  service_bus_namespace: Optional[str] = None,
                  shared_access_policy_key: Optional[str] = None,
@@ -1985,7 +1985,7 @@ class ServiceBusQueueOutputDataSourceResponse(dict):
                  type: Optional[str] = None):
         """
         Describes a Service Bus Queue output data source.
-        :param List[str] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+        :param Sequence[str] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         :param str queue_name: The name of the Service Bus Queue. Required on PUT (CreateOrReplace) requests.
         :param str service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
@@ -2007,7 +2007,7 @@ class ServiceBusQueueOutputDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="propertyColumns")
-    def property_columns(self) -> Optional[List[str]]:
+    def property_columns(self) -> Optional[Sequence[str]]:
         """
         A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         """
@@ -2063,7 +2063,7 @@ class ServiceBusTopicOutputDataSourceResponse(dict):
     Describes a Service Bus Topic output data source.
     """
     def __init__(__self__, *,
-                 property_columns: Optional[List[str]] = None,
+                 property_columns: Optional[Sequence[str]] = None,
                  service_bus_namespace: Optional[str] = None,
                  shared_access_policy_key: Optional[str] = None,
                  shared_access_policy_name: Optional[str] = None,
@@ -2071,7 +2071,7 @@ class ServiceBusTopicOutputDataSourceResponse(dict):
                  type: Optional[str] = None):
         """
         Describes a Service Bus Topic output data source.
-        :param List[str] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+        :param Sequence[str] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         :param str service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -2093,7 +2093,7 @@ class ServiceBusTopicOutputDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="propertyColumns")
-    def property_columns(self) -> Optional[List[str]]:
+    def property_columns(self) -> Optional[Sequence[str]]:
         """
         A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         """
@@ -2290,7 +2290,7 @@ class TransformationResponse(dict):
                  type: str,
                  name: Optional[str] = None,
                  query: Optional[str] = None,
-                 streaming_units: Optional[float] = None):
+                 streaming_units: Optional[int] = None):
         """
         A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
         :param str etag: The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
@@ -2298,7 +2298,7 @@ class TransformationResponse(dict):
         :param str type: Resource type
         :param str name: Resource name
         :param str query: Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
-        :param float streaming_units: Specifies the number of streaming units that the streaming job uses.
+        :param int streaming_units: Specifies the number of streaming units that the streaming job uses.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -2352,7 +2352,7 @@ class TransformationResponse(dict):
 
     @property
     @pulumi.getter(name="streamingUnits")
-    def streaming_units(self) -> Optional[float]:
+    def streaming_units(self) -> Optional[int]:
         """
         Specifies the number of streaming units that the streaming job uses.
         """

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
         /// Gets or sets FQDN of the DNS record associated with the public IP address
         /// </summary>
         [Output("dnsSettings")]
-        public Output<Outputs.PublicIpAddressDnsSettingsResponseResult?> DnsSettings { get; private set; } = null!;
+        public Output<Outputs.PublicIpAddressDnsSettingsResponse?> DnsSettings { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
         /// Gets a reference to the network interface IP configurations using this public IP address
         /// </summary>
         [Output("ipConfiguration")]
-        public Output<Outputs.SubResourceResponseResult?> IpConfiguration { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> IpConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

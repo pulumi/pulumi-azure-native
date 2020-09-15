@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -194,19 +194,19 @@ class CacheKeyQueryStringActionParametersArgs:
 @pulumi.input_type
 class CookiesMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  selector: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for Cookies match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[str] selector: Name of Cookies to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -219,14 +219,14 @@ class CookiesMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -276,14 +276,14 @@ class CookiesMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
@@ -291,16 +291,16 @@ class CookiesMatchConditionParametersArgs:
 class CustomRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
-                 match_conditions: pulumi.Input[List[pulumi.Input['MatchConditionArgs']]],
+                 match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]],
                  name: pulumi.Input[str],
-                 priority: pulumi.Input[float],
+                 priority: pulumi.Input[int],
                  enabled_state: Optional[pulumi.Input[str]] = None):
         """
         Defines the common attributes for a custom rule that can be included in a waf policy
         :param pulumi.Input[str] action: Describes what action to be applied when rule matches
-        :param pulumi.Input[List[pulumi.Input['MatchConditionArgs']]] match_conditions: List of match conditions.
+        :param pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]] match_conditions: List of match conditions.
         :param pulumi.Input[str] name: Defines the name of the custom rule
-        :param pulumi.Input[float] priority: Defines in what order this rule be evaluated in the overall list of custom rules
+        :param pulumi.Input[int] priority: Defines in what order this rule be evaluated in the overall list of custom rules
         :param pulumi.Input[str] enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         """
         pulumi.set(__self__, "action", action)
@@ -324,14 +324,14 @@ class CustomRuleArgs:
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> pulumi.Input[List[pulumi.Input['MatchConditionArgs']]]:
+    def match_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]]:
         """
         List of match conditions.
         """
         return pulumi.get(self, "match_conditions")
 
     @match_conditions.setter
-    def match_conditions(self, value: pulumi.Input[List[pulumi.Input['MatchConditionArgs']]]):
+    def match_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]]):
         pulumi.set(self, "match_conditions", value)
 
     @property
@@ -348,14 +348,14 @@ class CustomRuleArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Input[float]:
+    def priority(self) -> pulumi.Input[int]:
         """
         Defines in what order this rule be evaluated in the overall list of custom rules
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: pulumi.Input[float]):
+    def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -374,24 +374,24 @@ class CustomRuleArgs:
 @pulumi.input_type
 class CustomRuleListArgs:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[List[pulumi.Input['CustomRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]] = None):
         """
         Defines contents of custom rules
-        :param pulumi.Input[List[pulumi.Input['CustomRuleArgs']]] rules: List of rules
+        :param pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]] rules: List of rules
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[List[pulumi.Input['CustomRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]:
         """
         List of rules
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[List[pulumi.Input['CustomRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -401,29 +401,29 @@ class DeepCreatedOriginArgs:
                  host_name: pulumi.Input[str],
                  name: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 http_port: Optional[pulumi.Input[float]] = None,
-                 https_port: Optional[pulumi.Input[float]] = None,
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  private_link_alias: Optional[pulumi.Input[str]] = None,
                  private_link_approval_message: Optional[pulumi.Input[str]] = None,
                  private_link_location: Optional[pulumi.Input[str]] = None,
                  private_link_resource_id: Optional[pulumi.Input[str]] = None,
-                 weight: Optional[pulumi.Input[float]] = None):
+                 weight: Optional[pulumi.Input[int]] = None):
         """
         The main origin of CDN content which is added when creating a CDN endpoint.
         :param pulumi.Input[str] host_name: The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
         :param pulumi.Input[str] name: Origin name which must be unique within the endpoint. 
         :param pulumi.Input[bool] enabled: Origin is enabled for load balancing or not. By default, origin is always enabled.
-        :param pulumi.Input[float] http_port: The value of the HTTP port. Must be between 1 and 65535.
-        :param pulumi.Input[float] https_port: The value of the HTTPS port. Must be between 1 and 65535.
+        :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535.
+        :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
         :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-        :param pulumi.Input[float] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+        :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
         :param pulumi.Input[str] private_link_alias: The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
         :param pulumi.Input[str] private_link_approval_message: A custom message to be included in the approval request to connect to the Private Link.
         :param pulumi.Input[str] private_link_location: The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
         :param pulumi.Input[str] private_link_resource_id: The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
-        :param pulumi.Input[float] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+        :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "name", name)
@@ -486,26 +486,26 @@ class DeepCreatedOriginArgs:
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[pulumi.Input[float]]:
+    def http_port(self) -> Optional[pulumi.Input[int]]:
         """
         The value of the HTTP port. Must be between 1 and 65535.
         """
         return pulumi.get(self, "http_port")
 
     @http_port.setter
-    def http_port(self, value: Optional[pulumi.Input[float]]):
+    def http_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "http_port", value)
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[pulumi.Input[float]]:
+    def https_port(self) -> Optional[pulumi.Input[int]]:
         """
         The value of the HTTPS port. Must be between 1 and 65535.
         """
         return pulumi.get(self, "https_port")
 
     @https_port.setter
-    def https_port(self, value: Optional[pulumi.Input[float]]):
+    def https_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "https_port", value)
 
     @property
@@ -522,14 +522,14 @@ class DeepCreatedOriginArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -582,14 +582,14 @@ class DeepCreatedOriginArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[float]]:
+    def weight(self) -> Optional[pulumi.Input[int]]:
         """
         Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[float]]):
+    def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -597,17 +597,17 @@ class DeepCreatedOriginArgs:
 class DeepCreatedOriginGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 origins: pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]],
+                 origins: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]],
                  health_probe_settings: Optional[pulumi.Input['HealthProbeParametersArgs']] = None,
                  response_based_origin_error_detection_settings: Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']] = None,
-                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[float]] = None):
+                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
         :param pulumi.Input[str] name: Origin group name which must be unique within the endpoint.
-        :param pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]] origins: The source of the content being delivered via CDN within given origin group.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] origins: The source of the content being delivered via CDN within given origin group.
         :param pulumi.Input['HealthProbeParametersArgs'] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs'] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
-        :param pulumi.Input[float] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "origins", origins)
@@ -632,14 +632,14 @@ class DeepCreatedOriginGroupArgs:
 
     @property
     @pulumi.getter
-    def origins(self) -> pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]:
+    def origins(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]:
         """
         The source of the content being delivered via CDN within given origin group.
         """
         return pulumi.get(self, "origins")
 
     @origins.setter
-    def origins(self, value: pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]):
+    def origins(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]):
         pulumi.set(self, "origins", value)
 
     @property
@@ -668,29 +668,29 @@ class DeepCreatedOriginGroupArgs:
 
     @property
     @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
-    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         return pulumi.get(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes")
 
     @traffic_restoration_time_to_healed_or_new_endpoints_in_minutes.setter
-    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", value)
 
 
 @pulumi.input_type
 class DeliveryRuleArgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input[List[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]],
-                 order: pulumi.Input[float],
-                 conditions: Optional[pulumi.Input[List[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]],
+                 order: pulumi.Input[int],
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         A rule that specifies a set of actions and conditions
-        :param pulumi.Input[List[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
-        :param pulumi.Input[float] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param pulumi.Input[List[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param pulumi.Input[int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
         :param pulumi.Input[str] name: Name of the rule
         """
         pulumi.set(__self__, "actions", actions)
@@ -702,38 +702,38 @@ class DeliveryRuleArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input[List[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]:
         """
         A list of actions that are executed when all the conditions of a rule are satisfied.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input[List[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter
-    def order(self) -> pulumi.Input[float]:
+    def order(self) -> pulumi.Input[int]:
         """
         The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: pulumi.Input[float]):
+    def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[List[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
         """
         A list of conditions that must be matched for the actions to be executed
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[List[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -1436,11 +1436,11 @@ class DeliveryRuleUrlPathConditionArgs:
 @pulumi.input_type
 class EndpointPropertiesUpdateParametersDeliveryPolicyArgs:
     def __init__(__self__, *,
-                 rules: pulumi.Input[List[pulumi.Input['DeliveryRuleArgs']]],
+                 rules: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]],
                  description: Optional[pulumi.Input[str]] = None):
         """
         A policy that specifies the delivery rules to be used for an endpoint.
-        :param pulumi.Input[List[pulumi.Input['DeliveryRuleArgs']]] rules: A list of the delivery rules.
+        :param pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]] rules: A list of the delivery rules.
         :param pulumi.Input[str] description: User-friendly description of the policy.
         """
         pulumi.set(__self__, "rules", rules)
@@ -1449,14 +1449,14 @@ class EndpointPropertiesUpdateParametersDeliveryPolicyArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[List[pulumi.Input['DeliveryRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]]:
         """
         A list of the delivery rules.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[List[pulumi.Input['DeliveryRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -1500,12 +1500,12 @@ class EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs:
 class GeoFilterArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
-                 country_codes: pulumi.Input[List[pulumi.Input[str]]],
+                 country_codes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  relative_path: pulumi.Input[str]):
         """
         Rules defining user's geo access within a CDN endpoint.
         :param pulumi.Input[str] action: Action of the geo filter, i.e. allow or block access.
-        :param pulumi.Input[List[pulumi.Input[str]]] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         :param pulumi.Input[str] relative_path: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
         """
         pulumi.set(__self__, "action", action)
@@ -1526,14 +1526,14 @@ class GeoFilterArgs:
 
     @property
     @pulumi.getter(name="countryCodes")
-    def country_codes(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def country_codes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         """
         return pulumi.get(self, "country_codes")
 
     @country_codes.setter
-    def country_codes(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def country_codes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "country_codes", value)
 
     @property
@@ -1617,13 +1617,13 @@ class HeaderActionParametersArgs:
 @pulumi.input_type
 class HealthProbeParametersArgs:
     def __init__(__self__, *,
-                 probe_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+                 probe_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  probe_path: Optional[pulumi.Input[str]] = None,
                  probe_protocol: Optional[pulumi.Input[str]] = None,
                  probe_request_type: Optional[pulumi.Input[str]] = None):
         """
         The JSON object that contains the properties to send health probes to origin.
-        :param pulumi.Input[float] probe_interval_in_seconds: The number of seconds between health probes.Default is 240sec.
+        :param pulumi.Input[int] probe_interval_in_seconds: The number of seconds between health probes.Default is 240sec.
         :param pulumi.Input[str] probe_path: The path relative to the origin that is used to determine the health of the origin.
         :param pulumi.Input[str] probe_protocol: Protocol to use for health probe.
         :param pulumi.Input[str] probe_request_type: The type of health probe request that is made.
@@ -1639,14 +1639,14 @@ class HealthProbeParametersArgs:
 
     @property
     @pulumi.getter(name="probeIntervalInSeconds")
-    def probe_interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def probe_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The number of seconds between health probes.Default is 240sec.
         """
         return pulumi.get(self, "probe_interval_in_seconds")
 
     @probe_interval_in_seconds.setter
-    def probe_interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def probe_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "probe_interval_in_seconds", value)
 
     @property
@@ -1689,12 +1689,12 @@ class HealthProbeParametersArgs:
 @pulumi.input_type
 class HttpErrorRangeParametersArgs:
     def __init__(__self__, *,
-                 begin: Optional[pulumi.Input[float]] = None,
-                 end: Optional[pulumi.Input[float]] = None):
+                 begin: Optional[pulumi.Input[int]] = None,
+                 end: Optional[pulumi.Input[int]] = None):
         """
         The JSON object that represents the range for http status codes
-        :param pulumi.Input[float] begin: The inclusive start of the http status code range.
-        :param pulumi.Input[float] end: The inclusive end of the http status code range.
+        :param pulumi.Input[int] begin: The inclusive start of the http status code range.
+        :param pulumi.Input[int] end: The inclusive end of the http status code range.
         """
         if begin is not None:
             pulumi.set(__self__, "begin", begin)
@@ -1703,39 +1703,39 @@ class HttpErrorRangeParametersArgs:
 
     @property
     @pulumi.getter
-    def begin(self) -> Optional[pulumi.Input[float]]:
+    def begin(self) -> Optional[pulumi.Input[int]]:
         """
         The inclusive start of the http status code range.
         """
         return pulumi.get(self, "begin")
 
     @begin.setter
-    def begin(self, value: Optional[pulumi.Input[float]]):
+    def begin(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "begin", value)
 
     @property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[float]]:
+    def end(self) -> Optional[pulumi.Input[int]]:
         """
         The inclusive end of the http status code range.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[float]]):
+    def end(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "end", value)
 
 
 @pulumi.input_type
 class HttpVersionMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None):
         """
         Defines the parameters for HttpVersion match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         """
@@ -1747,14 +1747,14 @@ class HttpVersionMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -1794,17 +1794,17 @@ class HttpVersionMatchConditionParametersArgs:
 @pulumi.input_type
 class IsDeviceMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for IsDevice match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -1816,14 +1816,14 @@ class IsDeviceMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -1861,14 +1861,14 @@ class IsDeviceMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
@@ -1970,11 +1970,11 @@ class KeyVaultSigningKeyParametersArgs:
 class ManagedRuleGroupOverrideArgs:
     def __init__(__self__, *,
                  rule_group_name: pulumi.Input[str],
-                 rules: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleOverrideArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]]] = None):
         """
         Defines a managed rule group override setting.
         :param pulumi.Input[str] rule_group_name: Describes the managed rule group within the rule set to override
-        :param pulumi.Input[List[pulumi.Input['ManagedRuleOverrideArgs']]] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if rules is not None:
@@ -1994,14 +1994,14 @@ class ManagedRuleGroupOverrideArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[List[pulumi.Input['ManagedRuleOverrideArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]]]:
         """
         List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleOverrideArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -2065,14 +2065,14 @@ class ManagedRuleSetArgs:
     def __init__(__self__, *,
                  rule_set_type: pulumi.Input[str],
                  rule_set_version: pulumi.Input[str],
-                 anomaly_score: Optional[pulumi.Input[float]] = None,
-                 rule_group_overrides: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleGroupOverrideArgs']]]] = None):
+                 anomaly_score: Optional[pulumi.Input[int]] = None,
+                 rule_group_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]]] = None):
         """
         Defines a managed rule set.
         :param pulumi.Input[str] rule_set_type: Defines the rule set type to use.
         :param pulumi.Input[str] rule_set_version: Defines the version of the rule set to use.
-        :param pulumi.Input[float] anomaly_score: Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
-        :param pulumi.Input[List[pulumi.Input['ManagedRuleGroupOverrideArgs']]] rule_group_overrides: Defines the rule overrides to apply to the rule set.
+        :param pulumi.Input[int] anomaly_score: Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]] rule_group_overrides: Defines the rule overrides to apply to the rule set.
         """
         pulumi.set(__self__, "rule_set_type", rule_set_type)
         pulumi.set(__self__, "rule_set_version", rule_set_version)
@@ -2107,70 +2107,70 @@ class ManagedRuleSetArgs:
 
     @property
     @pulumi.getter(name="anomalyScore")
-    def anomaly_score(self) -> Optional[pulumi.Input[float]]:
+    def anomaly_score(self) -> Optional[pulumi.Input[int]]:
         """
         Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
         """
         return pulumi.get(self, "anomaly_score")
 
     @anomaly_score.setter
-    def anomaly_score(self, value: Optional[pulumi.Input[float]]):
+    def anomaly_score(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "anomaly_score", value)
 
     @property
     @pulumi.getter(name="ruleGroupOverrides")
-    def rule_group_overrides(self) -> Optional[pulumi.Input[List[pulumi.Input['ManagedRuleGroupOverrideArgs']]]]:
+    def rule_group_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]]]:
         """
         Defines the rule overrides to apply to the rule set.
         """
         return pulumi.get(self, "rule_group_overrides")
 
     @rule_group_overrides.setter
-    def rule_group_overrides(self, value: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleGroupOverrideArgs']]]]):
+    def rule_group_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]]]):
         pulumi.set(self, "rule_group_overrides", value)
 
 
 @pulumi.input_type
 class ManagedRuleSetListArgs:
     def __init__(__self__, *,
-                 managed_rule_sets: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]]] = None):
+                 managed_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]] = None):
         """
         Defines the list of managed rule sets for the policy.
-        :param pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]] managed_rule_sets: List of rule sets.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]] managed_rule_sets: List of rule sets.
         """
         if managed_rule_sets is not None:
             pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
 
     @property
     @pulumi.getter(name="managedRuleSets")
-    def managed_rule_sets(self) -> Optional[pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]]]:
+    def managed_rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]]:
         """
         List of rule sets.
         """
         return pulumi.get(self, "managed_rule_sets")
 
     @managed_rule_sets.setter
-    def managed_rule_sets(self, value: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]]]):
+    def managed_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]]):
         pulumi.set(self, "managed_rule_sets", value)
 
 
 @pulumi.input_type
 class MatchConditionArgs:
     def __init__(__self__, *,
-                 match_value: pulumi.Input[List[pulumi.Input[str]]],
+                 match_value: pulumi.Input[Sequence[pulumi.Input[str]]],
                  match_variable: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  selector: Optional[pulumi.Input[str]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Define match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_value: List of possible match values.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_value: List of possible match values.
         :param pulumi.Input[str] match_variable: Match variable to compare against.
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if the result of this condition should be negated.
         :param pulumi.Input[str] selector: Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms.
         """
         pulumi.set(__self__, "match_value", match_value)
         pulumi.set(__self__, "match_variable", match_variable)
@@ -2184,14 +2184,14 @@ class MatchConditionArgs:
 
     @property
     @pulumi.getter(name="matchValue")
-    def match_value(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_value(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of possible match values.
         """
         return pulumi.get(self, "match_value")
 
     @match_value.setter
-    def match_value(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_value(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_value", value)
 
     @property
@@ -2244,33 +2244,33 @@ class MatchConditionArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms.
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type
 class PostArgsMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  selector: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for PostArgs match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[str] selector: Name of PostArg to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -2283,14 +2283,14 @@ class PostArgsMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -2340,31 +2340,31 @@ class PostArgsMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type
 class QueryStringMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for QueryString match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -2376,14 +2376,14 @@ class QueryStringMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -2421,14 +2421,14 @@ class QueryStringMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
@@ -2436,20 +2436,20 @@ class QueryStringMatchConditionParametersArgs:
 class RateLimitRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
-                 match_conditions: pulumi.Input[List[pulumi.Input['MatchConditionArgs']]],
+                 match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]],
                  name: pulumi.Input[str],
-                 priority: pulumi.Input[float],
-                 rate_limit_duration_in_minutes: pulumi.Input[float],
-                 rate_limit_threshold: pulumi.Input[float],
+                 priority: pulumi.Input[int],
+                 rate_limit_duration_in_minutes: pulumi.Input[int],
+                 rate_limit_threshold: pulumi.Input[int],
                  enabled_state: Optional[pulumi.Input[str]] = None):
         """
         Defines a rate limiting rule that can be included in a waf policy
         :param pulumi.Input[str] action: Describes what action to be applied when rule matches
-        :param pulumi.Input[List[pulumi.Input['MatchConditionArgs']]] match_conditions: List of match conditions.
+        :param pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]] match_conditions: List of match conditions.
         :param pulumi.Input[str] name: Defines the name of the custom rule
-        :param pulumi.Input[float] priority: Defines in what order this rule be evaluated in the overall list of custom rules
-        :param pulumi.Input[float] rate_limit_duration_in_minutes: Defines rate limit duration. Default is 1 minute.
-        :param pulumi.Input[float] rate_limit_threshold: Defines rate limit threshold.
+        :param pulumi.Input[int] priority: Defines in what order this rule be evaluated in the overall list of custom rules
+        :param pulumi.Input[int] rate_limit_duration_in_minutes: Defines rate limit duration. Default is 1 minute.
+        :param pulumi.Input[int] rate_limit_threshold: Defines rate limit threshold.
         :param pulumi.Input[str] enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         """
         pulumi.set(__self__, "action", action)
@@ -2475,14 +2475,14 @@ class RateLimitRuleArgs:
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> pulumi.Input[List[pulumi.Input['MatchConditionArgs']]]:
+    def match_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]]:
         """
         List of match conditions.
         """
         return pulumi.get(self, "match_conditions")
 
     @match_conditions.setter
-    def match_conditions(self, value: pulumi.Input[List[pulumi.Input['MatchConditionArgs']]]):
+    def match_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]]):
         pulumi.set(self, "match_conditions", value)
 
     @property
@@ -2499,38 +2499,38 @@ class RateLimitRuleArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Input[float]:
+    def priority(self) -> pulumi.Input[int]:
         """
         Defines in what order this rule be evaluated in the overall list of custom rules
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: pulumi.Input[float]):
+    def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter(name="rateLimitDurationInMinutes")
-    def rate_limit_duration_in_minutes(self) -> pulumi.Input[float]:
+    def rate_limit_duration_in_minutes(self) -> pulumi.Input[int]:
         """
         Defines rate limit duration. Default is 1 minute.
         """
         return pulumi.get(self, "rate_limit_duration_in_minutes")
 
     @rate_limit_duration_in_minutes.setter
-    def rate_limit_duration_in_minutes(self, value: pulumi.Input[float]):
+    def rate_limit_duration_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "rate_limit_duration_in_minutes", value)
 
     @property
     @pulumi.getter(name="rateLimitThreshold")
-    def rate_limit_threshold(self) -> pulumi.Input[float]:
+    def rate_limit_threshold(self) -> pulumi.Input[int]:
         """
         Defines rate limit threshold.
         """
         return pulumi.get(self, "rate_limit_threshold")
 
     @rate_limit_threshold.setter
-    def rate_limit_threshold(self, value: pulumi.Input[float]):
+    def rate_limit_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "rate_limit_threshold", value)
 
     @property
@@ -2549,41 +2549,41 @@ class RateLimitRuleArgs:
 @pulumi.input_type
 class RateLimitRuleListArgs:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[List[pulumi.Input['RateLimitRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]] = None):
         """
         Defines contents of rate limit rules
-        :param pulumi.Input[List[pulumi.Input['RateLimitRuleArgs']]] rules: List of rules
+        :param pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]] rules: List of rules
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[List[pulumi.Input['RateLimitRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]]:
         """
         List of rules
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[List[pulumi.Input['RateLimitRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
 class RemoteAddressMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for RemoteAddress match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -2595,14 +2595,14 @@ class RemoteAddressMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -2640,31 +2640,31 @@ class RemoteAddressMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type
 class RequestBodyMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for RequestBody match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -2676,14 +2676,14 @@ class RequestBodyMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -2721,33 +2721,33 @@ class RequestBodyMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type
 class RequestHeaderMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  selector: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for RequestHeader match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[str] selector: Name of Header to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -2760,14 +2760,14 @@ class RequestHeaderMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -2817,27 +2817,27 @@ class RequestHeaderMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type
 class RequestMethodMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None):
         """
         Defines the parameters for RequestMethod match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         """
@@ -2849,14 +2849,14 @@ class RequestMethodMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -2896,13 +2896,13 @@ class RequestMethodMatchConditionParametersArgs:
 @pulumi.input_type
 class RequestSchemeMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None):
         """
         Defines the parameters for RequestScheme match conditions 
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         """
@@ -2914,14 +2914,14 @@ class RequestSchemeMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -2961,17 +2961,17 @@ class RequestSchemeMatchConditionParametersArgs:
 @pulumi.input_type
 class RequestUriMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for RequestUri match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -2983,14 +2983,14 @@ class RequestUriMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -3028,14 +3028,14 @@ class RequestUriMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
@@ -3066,14 +3066,14 @@ class ResourceReferenceArgs:
 @pulumi.input_type
 class ResponseBasedOriginErrorDetectionParametersArgs:
     def __init__(__self__, *,
-                 http_error_ranges: Optional[pulumi.Input[List[pulumi.Input['HttpErrorRangeParametersArgs']]]] = None,
+                 http_error_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['HttpErrorRangeParametersArgs']]]] = None,
                  response_based_detected_error_types: Optional[pulumi.Input[str]] = None,
-                 response_based_failover_threshold_percentage: Optional[pulumi.Input[float]] = None):
+                 response_based_failover_threshold_percentage: Optional[pulumi.Input[int]] = None):
         """
         The JSON object that contains the properties to determine origin health using real requests/responses.
-        :param pulumi.Input[List[pulumi.Input['HttpErrorRangeParametersArgs']]] http_error_ranges: The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+        :param pulumi.Input[Sequence[pulumi.Input['HttpErrorRangeParametersArgs']]] http_error_ranges: The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
         :param pulumi.Input[str] response_based_detected_error_types: Type of response errors for real user requests for which origin will be deemed unhealthy
-        :param pulumi.Input[float] response_based_failover_threshold_percentage: The percentage of failed requests in the sample where failover should trigger.
+        :param pulumi.Input[int] response_based_failover_threshold_percentage: The percentage of failed requests in the sample where failover should trigger.
         """
         if http_error_ranges is not None:
             pulumi.set(__self__, "http_error_ranges", http_error_ranges)
@@ -3084,14 +3084,14 @@ class ResponseBasedOriginErrorDetectionParametersArgs:
 
     @property
     @pulumi.getter(name="httpErrorRanges")
-    def http_error_ranges(self) -> Optional[pulumi.Input[List[pulumi.Input['HttpErrorRangeParametersArgs']]]]:
+    def http_error_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HttpErrorRangeParametersArgs']]]]:
         """
         The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
         """
         return pulumi.get(self, "http_error_ranges")
 
     @http_error_ranges.setter
-    def http_error_ranges(self, value: Optional[pulumi.Input[List[pulumi.Input['HttpErrorRangeParametersArgs']]]]):
+    def http_error_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HttpErrorRangeParametersArgs']]]]):
         pulumi.set(self, "http_error_ranges", value)
 
     @property
@@ -3108,14 +3108,14 @@ class ResponseBasedOriginErrorDetectionParametersArgs:
 
     @property
     @pulumi.getter(name="responseBasedFailoverThresholdPercentage")
-    def response_based_failover_threshold_percentage(self) -> Optional[pulumi.Input[float]]:
+    def response_based_failover_threshold_percentage(self) -> Optional[pulumi.Input[int]]:
         """
         The percentage of failed requests in the sample where failover should trigger.
         """
         return pulumi.get(self, "response_based_failover_threshold_percentage")
 
     @response_based_failover_threshold_percentage.setter
-    def response_based_failover_threshold_percentage(self, value: Optional[pulumi.Input[float]]):
+    def response_based_failover_threshold_percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "response_based_failover_threshold_percentage", value)
 
 
@@ -3146,17 +3146,17 @@ class SkuArgs:
 @pulumi.input_type
 class UrlFileExtensionMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for UrlFileExtension match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -3168,14 +3168,14 @@ class UrlFileExtensionMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -3213,31 +3213,31 @@ class UrlFileExtensionMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type
 class UrlFileNameMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for UrlFilename match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -3249,14 +3249,14 @@ class UrlFileNameMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -3294,31 +3294,31 @@ class UrlFileNameMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type
 class UrlPathMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
-                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines the parameters for UrlPath match conditions
-        :param pulumi.Input[List[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[str] operator: Describes operator to be matched
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
-        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -3330,14 +3330,14 @@ class UrlPathMatchConditionParametersArgs:
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The match value for the condition of the delivery rule
         """
         return pulumi.get(self, "match_values")
 
     @match_values.setter
-    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "match_values", value)
 
     @property
@@ -3375,14 +3375,14 @@ class UrlPathMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
 
@@ -3684,15 +3684,15 @@ class UrlSigningActionParametersArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[str],
                  algorithm: Optional[pulumi.Input[str]] = None,
-                 ip_subnets: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ip_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  odata_type: Optional[pulumi.Input[str]] = None,
-                 parameter_name_override: Optional[pulumi.Input[List[pulumi.Input['UrlSigningParamIdentifierArgs']]]] = None):
+                 parameter_name_override: Optional[pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgs']]]] = None):
         """
         Defines the parameters for the Url Signing action.
         :param pulumi.Input[str] key_id: Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
         :param pulumi.Input[str] algorithm: Algorithm to use for URL signing
-        :param pulumi.Input[List[pulumi.Input[str]]] ip_subnets: Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
-        :param pulumi.Input[List[pulumi.Input['UrlSigningParamIdentifierArgs']]] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc. 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_subnets: Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
+        :param pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgs']]] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc. 
         """
         pulumi.set(__self__, "key_id", key_id)
         if algorithm is not None:
@@ -3730,14 +3730,14 @@ class UrlSigningActionParametersArgs:
 
     @property
     @pulumi.getter(name="ipSubnets")
-    def ip_subnets(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ip_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
         """
         return pulumi.get(self, "ip_subnets")
 
     @ip_subnets.setter
-    def ip_subnets(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ip_subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_subnets", value)
 
     @property
@@ -3751,14 +3751,14 @@ class UrlSigningActionParametersArgs:
 
     @property
     @pulumi.getter(name="parameterNameOverride")
-    def parameter_name_override(self) -> Optional[pulumi.Input[List[pulumi.Input['UrlSigningParamIdentifierArgs']]]]:
+    def parameter_name_override(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgs']]]]:
         """
         Defines which query string parameters in the url to be considered for expires, key id etc. 
         """
         return pulumi.get(self, "parameter_name_override")
 
     @parameter_name_override.setter
-    def parameter_name_override(self, value: Optional[pulumi.Input[List[pulumi.Input['UrlSigningParamIdentifierArgs']]]]):
+    def parameter_name_override(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgs']]]]):
         pulumi.set(self, "parameter_name_override", value)
 
 
@@ -3842,14 +3842,14 @@ class UrlSigningParamIdentifierArgs:
 class PolicySettingsArgs:
     def __init__(__self__, *,
                  default_custom_block_response_body: Optional[pulumi.Input[str]] = None,
-                 default_custom_block_response_status_code: Optional[pulumi.Input[float]] = None,
+                 default_custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
                  default_redirect_url: Optional[pulumi.Input[str]] = None,
                  enabled_state: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None):
         """
         Defines contents of a web application firewall global configuration
         :param pulumi.Input[str] default_custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-        :param pulumi.Input[float] default_custom_block_response_status_code: If the action type is block, this field defines the default customer overridable http response status code.
+        :param pulumi.Input[int] default_custom_block_response_status_code: If the action type is block, this field defines the default customer overridable http response status code.
         :param pulumi.Input[str] default_redirect_url: If action type is redirect, this field represents the default redirect URL for the client.
         :param pulumi.Input[str] enabled_state: describes if the policy is in enabled state or disabled state
         :param pulumi.Input[str] mode: Describes if it is in detection mode or prevention mode at policy level.
@@ -3879,14 +3879,14 @@ class PolicySettingsArgs:
 
     @property
     @pulumi.getter(name="defaultCustomBlockResponseStatusCode")
-    def default_custom_block_response_status_code(self) -> Optional[pulumi.Input[float]]:
+    def default_custom_block_response_status_code(self) -> Optional[pulumi.Input[int]]:
         """
         If the action type is block, this field defines the default customer overridable http response status code.
         """
         return pulumi.get(self, "default_custom_block_response_status_code")
 
     @default_custom_block_response_status_code.setter
-    def default_custom_block_response_status_code(self, value: Optional[pulumi.Input[float]]):
+    def default_custom_block_response_status_code(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "default_custom_block_response_status_code", value)
 
     @property

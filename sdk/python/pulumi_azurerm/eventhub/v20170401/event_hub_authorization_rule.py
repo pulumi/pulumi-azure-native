@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['EventHubAuthorizationRule']
@@ -19,7 +19,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,7 +32,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] event_hub_name: The Event Hub name
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
-        :param pulumi.Input[List[pulumi.Input[str]]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rights: The rights associated with the rule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -104,7 +104,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Output[List[str]]:
+    def rights(self) -> pulumi.Output[Sequence[str]]:
         """
         The rights associated with the rule.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -74,7 +74,7 @@ class GetTransformResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> List['outputs.TransformOutputResponse']:
+    def outputs(self) -> Sequence['outputs.TransformOutputResponse']:
         """
         An array of one or more TransformOutputs that the Transform should generate.
         """

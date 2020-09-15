@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.HardwareSecurityModules.V20181031Preview
         /// <summary>
         /// Specifies the network interfaces of the dedicated hsm.
         /// </summary>
-        public readonly Outputs.NetworkProfileResponseResult? NetworkProfile;
+        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
         /// <summary>
         /// Provisioning state.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.HardwareSecurityModules.V20181031Preview
         /// <summary>
         /// SKU details
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// This field will be used when RP does not support Availability zones.
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureRM.HardwareSecurityModules.V20181031Preview
 
             string name,
 
-            Outputs.NetworkProfileResponseResult? networkProfile,
+            Outputs.NetworkProfileResponse? networkProfile,
 
             string provisioningState,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             string? stampId,
 

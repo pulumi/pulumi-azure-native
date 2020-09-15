@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -110,7 +110,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="hostedWorkloads")
-    def hosted_workloads(self) -> List[str]:
+    def hosted_workloads(self) -> Sequence[str]:
         """
         A list of references to linked BareMetal resources.
         """
@@ -118,7 +118,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]:
         """
         A list of IPConfigurations of the network interface.
         """
@@ -198,7 +198,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="tapConfigurations")
-    def tap_configurations(self) -> Optional[List['outputs.NetworkInterfaceTapConfigurationResponse']]:
+    def tap_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceTapConfigurationResponse']]:
         """
         A list of TapConfigurations of the network interface.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -63,7 +63,7 @@ class GetAssetFilterResult:
 
     @property
     @pulumi.getter
-    def tracks(self) -> Optional[List['outputs.FilterTrackSelectionResponse']]:
+    def tracks(self) -> Optional[Sequence['outputs.FilterTrackSelectionResponse']]:
         """
         The tracks selection conditions.
         """

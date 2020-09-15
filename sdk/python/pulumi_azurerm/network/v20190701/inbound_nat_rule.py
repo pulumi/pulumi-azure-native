@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,14 +17,14 @@ class InboundNatRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_port: Optional[pulumi.Input[float]] = None,
+                 backend_port: Optional[pulumi.Input[int]] = None,
                  enable_floating_ip: Optional[pulumi.Input[bool]] = None,
                  enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  frontend_ip_configuration: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 frontend_port: Optional[pulumi.Input[float]] = None,
+                 frontend_port: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  inbound_nat_rule_name: Optional[pulumi.Input[str]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -39,14 +39,14 @@ class InboundNatRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] backend_port: The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+        :param pulumi.Input[int] backend_port: The port used for the internal endpoint. Acceptable values range from 1 to 65535.
         :param pulumi.Input[bool] enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
         :param pulumi.Input[bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] frontend_ip_configuration: A reference to frontend IP addresses.
-        :param pulumi.Input[float] frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+        :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[float] idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[str] inbound_nat_rule_name: The name of the inbound nat rule.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
@@ -129,7 +129,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> pulumi.Output[Optional[float]]:
+    def backend_port(self) -> pulumi.Output[Optional[int]]:
         """
         The port used for the internal endpoint. Acceptable values range from 1 to 65535.
         """
@@ -169,7 +169,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> pulumi.Output[Optional[float]]:
+    def frontend_port(self) -> pulumi.Output[Optional[int]]:
         """
         The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
         """
@@ -177,7 +177,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         """

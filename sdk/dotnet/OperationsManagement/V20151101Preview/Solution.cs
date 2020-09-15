@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
         /// Plan for solution object supported by the OperationsManagement resource provider.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.SolutionPlanResponseResult?> Plan { get; private set; } = null!;
+        public Output<Outputs.SolutionPlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// Properties for solution object supported by the OperationsManagement resource provider.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SolutionPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.SolutionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

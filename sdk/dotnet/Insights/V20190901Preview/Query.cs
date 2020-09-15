@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.Insights.V20190901Preview
         /// The related metadata items for the function.
         /// </summary>
         [Output("related")]
-        public Output<Outputs.LogAnalyticsQueryPackQueryPropertiesResponseRelatedResult?> Related { get; private set; } = null!;
+        public Output<Outputs.LogAnalyticsQueryPackQueryPropertiesResponseRelated?> Related { get; private set; } = null!;
 
         /// <summary>
         /// Read only system data
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponseResult> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tags associated with the query.

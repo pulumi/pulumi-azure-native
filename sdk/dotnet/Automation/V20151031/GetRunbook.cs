@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <summary>
         /// Gets or sets the draft runbook properties.
         /// </summary>
-        public readonly Outputs.RunbookDraftResponseResult? Draft;
+        public readonly Outputs.RunbookDraftResponse? Draft;
         /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <summary>
         /// Gets or sets the runbook parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.RunbookParameterResponseResult>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.RunbookParameterResponse>? Parameters;
         /// <summary>
         /// Gets or sets the provisioning state of the runbook.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <summary>
         /// Gets or sets the published runbook content link.
         /// </summary>
-        public readonly Outputs.ContentLinkResponseResult? PublishContentLink;
+        public readonly Outputs.ContentLinkResponse? PublishContentLink;
         /// <summary>
         /// Gets or sets the type of the runbook.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
 
             string? description,
 
-            Outputs.RunbookDraftResponseResult? draft,
+            Outputs.RunbookDraftResponse? draft,
 
             string? etag,
 
@@ -154,11 +154,11 @@ namespace Pulumi.AzureRM.Automation.V20151031
 
             ImmutableArray<string> outputTypes,
 
-            ImmutableDictionary<string, Outputs.RunbookParameterResponseResult>? parameters,
+            ImmutableDictionary<string, Outputs.RunbookParameterResponse>? parameters,
 
             string? provisioningState,
 
-            Outputs.ContentLinkResponseResult? publishContentLink,
+            Outputs.ContentLinkResponse? publishContentLink,
 
             string? runbookType,
 

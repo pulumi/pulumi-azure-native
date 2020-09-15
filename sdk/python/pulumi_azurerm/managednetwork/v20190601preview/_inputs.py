@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,14 +19,14 @@ class ManagedNetworkPeeringPolicyPropertiesArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  hub: Optional[pulumi.Input['ResourceIdArgs']] = None,
-                 mesh: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]] = None,
-                 spokes: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]] = None):
+                 mesh: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+                 spokes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None):
         """
         Properties of a Managed Network Peering Policy
         :param pulumi.Input[str] type: Gets or sets the connectivity type of a network structure policy
         :param pulumi.Input['ResourceIdArgs'] hub: Gets or sets the hub virtual network ID
-        :param pulumi.Input[List[pulumi.Input['ResourceIdArgs']]] mesh: Gets or sets the mesh group IDs
-        :param pulumi.Input[List[pulumi.Input['ResourceIdArgs']]] spokes: Gets or sets the spokes group IDs
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] mesh: Gets or sets the mesh group IDs
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] spokes: Gets or sets the spokes group IDs
         """
         pulumi.set(__self__, "type", type)
         if hub is not None:
@@ -62,26 +62,26 @@ class ManagedNetworkPeeringPolicyPropertiesArgs:
 
     @property
     @pulumi.getter
-    def mesh(self) -> Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]:
+    def mesh(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]:
         """
         Gets or sets the mesh group IDs
         """
         return pulumi.get(self, "mesh")
 
     @mesh.setter
-    def mesh(self, value: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]):
+    def mesh(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]):
         pulumi.set(self, "mesh", value)
 
     @property
     @pulumi.getter
-    def spokes(self) -> Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]:
+    def spokes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]:
         """
         Gets or sets the spokes group IDs
         """
         return pulumi.get(self, "spokes")
 
     @spokes.setter
-    def spokes(self, value: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]):
+    def spokes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]):
         pulumi.set(self, "spokes", value)
 
 
@@ -112,16 +112,16 @@ class ResourceIdArgs:
 @pulumi.input_type
 class ScopeArgs:
     def __init__(__self__, *,
-                 management_groups: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]] = None,
-                 subnets: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]] = None,
-                 subscriptions: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]] = None,
-                 virtual_networks: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]] = None):
+                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None):
         """
         Scope of a Managed Network
-        :param pulumi.Input[List[pulumi.Input['ResourceIdArgs']]] management_groups: The collection of management groups covered by the Managed Network
-        :param pulumi.Input[List[pulumi.Input['ResourceIdArgs']]] subnets: The collection of  subnets covered by the Managed Network
-        :param pulumi.Input[List[pulumi.Input['ResourceIdArgs']]] subscriptions: The collection of subscriptions covered by the Managed Network
-        :param pulumi.Input[List[pulumi.Input['ResourceIdArgs']]] virtual_networks: The collection of virtual nets covered by the Managed Network
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] management_groups: The collection of management groups covered by the Managed Network
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] subnets: The collection of  subnets covered by the Managed Network
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] subscriptions: The collection of subscriptions covered by the Managed Network
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] virtual_networks: The collection of virtual nets covered by the Managed Network
         """
         if management_groups is not None:
             pulumi.set(__self__, "management_groups", management_groups)
@@ -134,50 +134,50 @@ class ScopeArgs:
 
     @property
     @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]:
+    def management_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]:
         """
         The collection of management groups covered by the Managed Network
         """
         return pulumi.get(self, "management_groups")
 
     @management_groups.setter
-    def management_groups(self, value: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]):
+    def management_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]):
         pulumi.set(self, "management_groups", value)
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]:
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]:
         """
         The collection of  subnets covered by the Managed Network
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]):
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @property
     @pulumi.getter
-    def subscriptions(self) -> Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]:
+    def subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]:
         """
         The collection of subscriptions covered by the Managed Network
         """
         return pulumi.get(self, "subscriptions")
 
     @subscriptions.setter
-    def subscriptions(self, value: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]):
+    def subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]):
         pulumi.set(self, "subscriptions", value)
 
     @property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]:
+    def virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]:
         """
         The collection of virtual nets covered by the Managed Network
         """
         return pulumi.get(self, "virtual_networks")
 
     @virtual_networks.setter
-    def virtual_networks(self, value: Optional[pulumi.Input[List[pulumi.Input['ResourceIdArgs']]]]):
+    def virtual_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]]):
         pulumi.set(self, "virtual_networks", value)
 
 

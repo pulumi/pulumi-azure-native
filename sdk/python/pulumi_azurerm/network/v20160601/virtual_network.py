@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,10 @@ class VirtualNetwork(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 subnets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
-                 virtual_network_peerings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]]] = None,
+                 virtual_network_peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -45,10 +45,10 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_state: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: Gets or sets resource guid property of the VirtualNetwork resource
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]] subnets: Gets or sets list of subnets in a VirtualNetwork
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]] subnets: Gets or sets list of subnets in a VirtualNetwork
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]] virtual_network_peerings: Gets or sets list of peerings in a VirtualNetwork
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]] virtual_network_peerings: Gets or sets list of peerings in a VirtualNetwork
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -169,7 +169,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> pulumi.Output[Optional[List['outputs.SubnetResponse']]]:
+    def subnets(self) -> pulumi.Output[Optional[Sequence['outputs.SubnetResponse']]]:
         """
         Gets or sets list of subnets in a VirtualNetwork
         """
@@ -193,7 +193,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkPeerings")
-    def virtual_network_peerings(self) -> pulumi.Output[Optional[List['outputs.VirtualNetworkPeeringResponse']]]:
+    def virtual_network_peerings(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualNetworkPeeringResponse']]]:
         """
         Gets or sets list of peerings in a VirtualNetwork
         """

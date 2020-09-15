@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.BotService.V20180712
         /// The set of properties specific to bot channel resource
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.DirectLineChannelResponseResult, Union<Outputs.EmailChannelResponseResult, Union<Outputs.FacebookChannelResponseResult, Union<Outputs.KikChannelResponseResult, Union<Outputs.MsTeamsChannelResponseResult, Union<Outputs.SkypeChannelResponseResult, Union<Outputs.SlackChannelResponseResult, Union<Outputs.SmsChannelResponseResult, Union<Outputs.TelegramChannelResponseResult, Outputs.WebChatChannelResponseResult>>>>>>>>>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.DirectLineChannelResponse, Union<Outputs.EmailChannelResponse, Union<Outputs.FacebookChannelResponse, Union<Outputs.KikChannelResponse, Union<Outputs.MsTeamsChannelResponse, Union<Outputs.SkypeChannelResponse, Union<Outputs.SlackChannelResponse, Union<Outputs.SmsChannelResponse, Union<Outputs.TelegramChannelResponse, Outputs.WebChatChannelResponse>>>>>>>>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.

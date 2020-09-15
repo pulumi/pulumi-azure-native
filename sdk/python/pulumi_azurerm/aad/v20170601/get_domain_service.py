@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -81,7 +81,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="domainControllerIpAddress")
-    def domain_controller_ip_address(self) -> List[str]:
+    def domain_controller_ip_address(self) -> Sequence[str]:
         """
         List of Domain Controller IP Address
         """
@@ -121,7 +121,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="healthAlerts")
-    def health_alerts(self) -> List['outputs.HealthAlertResponse']:
+    def health_alerts(self) -> Sequence['outputs.HealthAlertResponse']:
         """
         List of Domain Health Alerts
         """
@@ -137,7 +137,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="healthMonitors")
-    def health_monitors(self) -> List['outputs.HealthMonitorResponse']:
+    def health_monitors(self) -> Sequence['outputs.HealthMonitorResponse']:
         """
         List of Domain Health Monitors
         """

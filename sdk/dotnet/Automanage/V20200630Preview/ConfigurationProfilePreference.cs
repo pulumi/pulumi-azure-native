@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Automanage.V20200630Preview
         /// Properties of the configuration profile preference.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConfigurationProfilePreferencePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ConfigurationProfilePreferencePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

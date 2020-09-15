@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.Insights.V20191017Preview
         /// Workbook galleries supported by the template.
         /// </summary>
         [Output("galleries")]
-        public Output<ImmutableArray<Outputs.WorkbookTemplateGalleryResponseResult>> Galleries { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WorkbookTemplateGalleryResponse>> Galleries { get; private set; } = null!;
 
         /// <summary>
         /// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         /// </summary>
         [Output("localized")]
-        public Output<ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponseResult>>?> Localized { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponse>>?> Localized { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

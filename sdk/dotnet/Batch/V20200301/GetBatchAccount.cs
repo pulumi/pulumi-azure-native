@@ -47,7 +47,7 @@ namespace Pulumi.AzureRM.Batch.V20200301
         /// <summary>
         /// Contains information about the auto-storage account associated with a Batch account.
         /// </summary>
-        public readonly Outputs.AutoStoragePropertiesResponseResult AutoStorage;
+        public readonly Outputs.AutoStoragePropertiesResponse AutoStorage;
         /// <summary>
         /// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         /// </summary>
@@ -55,16 +55,16 @@ namespace Pulumi.AzureRM.Batch.V20200301
         /// <summary>
         /// A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponseResult> DedicatedCoreQuotaPerVMFamily;
+        public readonly ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponse> DedicatedCoreQuotaPerVMFamily;
         /// <summary>
         /// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
         /// </summary>
         public readonly bool DedicatedCoreQuotaPerVMFamilyEnforced;
-        public readonly Outputs.EncryptionPropertiesResponseResult Encryption;
+        public readonly Outputs.EncryptionPropertiesResponse Encryption;
         /// <summary>
         /// Identifies the Azure key vault associated with a Batch account.
         /// </summary>
-        public readonly Outputs.KeyVaultReferenceResponseResult KeyVaultReference;
+        public readonly Outputs.KeyVaultReferenceResponse KeyVaultReference;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureRM.Batch.V20200301
         /// <summary>
         /// List of private endpoint connections associated with the Batch account
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioned state of the resource
         /// </summary>
@@ -109,17 +109,17 @@ namespace Pulumi.AzureRM.Batch.V20200301
 
             int activeJobAndJobScheduleQuota,
 
-            Outputs.AutoStoragePropertiesResponseResult autoStorage,
+            Outputs.AutoStoragePropertiesResponse autoStorage,
 
             int dedicatedCoreQuota,
 
-            ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponseResult> dedicatedCoreQuotaPerVMFamily,
+            ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponse> dedicatedCoreQuotaPerVMFamily,
 
             bool dedicatedCoreQuotaPerVMFamilyEnforced,
 
-            Outputs.EncryptionPropertiesResponseResult encryption,
+            Outputs.EncryptionPropertiesResponse encryption,
 
-            Outputs.KeyVaultReferenceResponseResult keyVaultReference,
+            Outputs.KeyVaultReferenceResponse keyVaultReference,
 
             string location,
 
@@ -131,7 +131,7 @@ namespace Pulumi.AzureRM.Batch.V20200301
 
             int poolQuota,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 

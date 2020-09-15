@@ -27,31 +27,31 @@ namespace Pulumi.AzureRM.DomainRegistration.Latest
         /// Legal agreement consent.
         /// </summary>
         [Output("consent")]
-        public Output<Outputs.DomainPurchaseConsentResponseResult> Consent { get; private set; } = null!;
+        public Output<Outputs.DomainPurchaseConsentResponse> Consent { get; private set; } = null!;
 
         /// <summary>
         /// Administrative contact.
         /// </summary>
         [Output("contactAdmin")]
-        public Output<Outputs.ContactResponseResult> ContactAdmin { get; private set; } = null!;
+        public Output<Outputs.ContactResponse> ContactAdmin { get; private set; } = null!;
 
         /// <summary>
         /// Billing contact.
         /// </summary>
         [Output("contactBilling")]
-        public Output<Outputs.ContactResponseResult> ContactBilling { get; private set; } = null!;
+        public Output<Outputs.ContactResponse> ContactBilling { get; private set; } = null!;
 
         /// <summary>
         /// Registrant contact.
         /// </summary>
         [Output("contactRegistrant")]
-        public Output<Outputs.ContactResponseResult> ContactRegistrant { get; private set; } = null!;
+        public Output<Outputs.ContactResponse> ContactRegistrant { get; private set; } = null!;
 
         /// <summary>
         /// Technical contact.
         /// </summary>
         [Output("contactTech")]
-        public Output<Outputs.ContactResponseResult> ContactTech { get; private set; } = null!;
+        public Output<Outputs.ContactResponse> ContactTech { get; private set; } = null!;
 
         /// <summary>
         /// Domain creation timestamp.
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.DomainRegistration.Latest
         /// All hostnames derived from the domain and assigned to Azure resources.
         /// </summary>
         [Output("managedHostNames")]
-        public Output<ImmutableArray<Outputs.HostNameResponseResult>> ManagedHostNames { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HostNameResponse>> ManagedHostNames { get; private set; } = null!;
 
         /// <summary>
         /// Resource Name.

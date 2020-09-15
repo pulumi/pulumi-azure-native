@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['ScopeMap']
@@ -15,7 +15,7 @@ class ScopeMap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class ScopeMap(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] actions: The list of scoped permissions for registry artifacts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: The list of scoped permissions for registry artifacts.
                E.g. repositories/repository-name/content/read,
                repositories/repository-name/metadata/write
         :param pulumi.Input[str] description: The user friendly description of the scope map.
@@ -96,7 +96,7 @@ class ScopeMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[List[str]]:
+    def actions(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of scoped permissions for registry artifacts.
         E.g. repositories/repository-name/content/read,

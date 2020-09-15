@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetExpressRouteConnectionResult:
         if routing_configuration and not isinstance(routing_configuration, dict):
             raise TypeError("Expected argument 'routing_configuration' to be a dict")
         pulumi.set(__self__, "routing_configuration", routing_configuration)
-        if routing_weight and not isinstance(routing_weight, float):
-            raise TypeError("Expected argument 'routing_weight' to be a float")
+        if routing_weight and not isinstance(routing_weight, int):
+            raise TypeError("Expected argument 'routing_weight' to be a int")
         pulumi.set(__self__, "routing_weight", routing_weight)
 
     @property
@@ -93,7 +93,7 @@ class GetExpressRouteConnectionResult:
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> Optional[float]:
+    def routing_weight(self) -> Optional[int]:
         """
         The routing weight associated to the connection.
         """

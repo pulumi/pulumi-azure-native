@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,8 +27,8 @@ class GetVirtualNetworkTapResult:
         if destination_network_interface_ip_configuration and not isinstance(destination_network_interface_ip_configuration, dict):
             raise TypeError("Expected argument 'destination_network_interface_ip_configuration' to be a dict")
         pulumi.set(__self__, "destination_network_interface_ip_configuration", destination_network_interface_ip_configuration)
-        if destination_port and not isinstance(destination_port, float):
-            raise TypeError("Expected argument 'destination_port' to be a float")
+        if destination_port and not isinstance(destination_port, int):
+            raise TypeError("Expected argument 'destination_port' to be a int")
         pulumi.set(__self__, "destination_port", destination_port)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
@@ -73,7 +73,7 @@ class GetVirtualNetworkTapResult:
 
     @property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[float]:
+    def destination_port(self) -> Optional[int]:
         """
         The VXLAN destination port that will receive the tapped traffic.
         """
@@ -105,7 +105,7 @@ class GetVirtualNetworkTapResult:
 
     @property
     @pulumi.getter(name="networkInterfaceTapConfigurations")
-    def network_interface_tap_configurations(self) -> List['outputs.NetworkInterfaceTapConfigurationResponse']:
+    def network_interface_tap_configurations(self) -> Sequence['outputs.NetworkInterfaceTapConfigurationResponse']:
         """
         Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
         """

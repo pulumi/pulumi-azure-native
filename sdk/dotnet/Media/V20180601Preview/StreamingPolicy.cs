@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Media.V20180601Preview
         /// Configuration of CommonEncryptionCbcs
         /// </summary>
         [Output("commonEncryptionCbcs")]
-        public Output<Outputs.CommonEncryptionCbcsResponseResult?> CommonEncryptionCbcs { get; private set; } = null!;
+        public Output<Outputs.CommonEncryptionCbcsResponse?> CommonEncryptionCbcs { get; private set; } = null!;
 
         /// <summary>
         /// Configuration of CommonEncryptionCenc
         /// </summary>
         [Output("commonEncryptionCenc")]
-        public Output<Outputs.CommonEncryptionCencResponseResult?> CommonEncryptionCenc { get; private set; } = null!;
+        public Output<Outputs.CommonEncryptionCencResponse?> CommonEncryptionCenc { get; private set; } = null!;
 
         /// <summary>
         /// Creation time of Streaming Policy
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Media.V20180601Preview
         /// Configuration of EnvelopeEncryption
         /// </summary>
         [Output("envelopeEncryption")]
-        public Output<Outputs.EnvelopeEncryptionResponseResult?> EnvelopeEncryption { get; private set; } = null!;
+        public Output<Outputs.EnvelopeEncryptionResponse?> EnvelopeEncryption { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Media.V20180601Preview
         /// Configurations of NoEncryption
         /// </summary>
         [Output("noEncryption")]
-        public Output<Outputs.NoEncryptionResponseResult?> NoEncryption { get; private set; } = null!;
+        public Output<Outputs.NoEncryptionResponse?> NoEncryption { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

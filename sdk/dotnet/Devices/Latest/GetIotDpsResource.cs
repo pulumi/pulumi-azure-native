@@ -54,11 +54,11 @@ namespace Pulumi.AzureRM.Devices.Latest
         /// <summary>
         /// Service specific properties for a provisioning service
         /// </summary>
-        public readonly Outputs.IotDpsPropertiesDescriptionResponseResult Properties;
+        public readonly Outputs.IotDpsPropertiesDescriptionResponse Properties;
         /// <summary>
         /// Sku info for a provisioning Service.
         /// </summary>
-        public readonly Outputs.IotDpsSkuInfoResponseResult Sku;
+        public readonly Outputs.IotDpsSkuInfoResponse Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureRM.Devices.Latest
 
             string name,
 
-            Outputs.IotDpsPropertiesDescriptionResponseResult properties,
+            Outputs.IotDpsPropertiesDescriptionResponse properties,
 
-            Outputs.IotDpsSkuInfoResponseResult sku,
+            Outputs.IotDpsSkuInfoResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 

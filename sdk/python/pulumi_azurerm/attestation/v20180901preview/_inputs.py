@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -72,7 +72,7 @@ class JSONWebKeyArgs:
                  q: Optional[pulumi.Input[str]] = None,
                  qi: Optional[pulumi.Input[str]] = None,
                  x: Optional[pulumi.Input[str]] = None,
-                 x5c: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 x5c: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  y: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] alg: The "alg" (algorithm) parameter identifies the algorithm intended for
@@ -109,7 +109,7 @@ class JSONWebKeyArgs:
         :param pulumi.Input[str] q: RSA secret prime, with p < q
         :param pulumi.Input[str] qi: RSA Private Key Parameter
         :param pulumi.Input[str] x: X coordinate for the Elliptic Curve point
-        :param pulumi.Input[List[pulumi.Input[str]]] x5c: The "x5c" (X.509 certificate chain) parameter contains a chain of one
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5c: The "x5c" (X.509 certificate chain) parameter contains a chain of one
                or more PKIX certificates [RFC5280].  The certificate chain is
                represented as a JSON array of certificate value strings.  Each
                string in the array is a base64-encoded (Section 4 of [RFC4648] --
@@ -350,7 +350,7 @@ class JSONWebKeyArgs:
 
     @property
     @pulumi.getter
-    def x5c(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def x5c(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The "x5c" (X.509 certificate chain) parameter contains a chain of one
         or more PKIX certificates [RFC5280].  The certificate chain is
@@ -363,7 +363,7 @@ class JSONWebKeyArgs:
         return pulumi.get(self, "x5c")
 
     @x5c.setter
-    def x5c(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def x5c(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x5c", value)
 
     @property
@@ -382,9 +382,9 @@ class JSONWebKeyArgs:
 @pulumi.input_type
 class JSONWebKeySetArgs:
     def __init__(__self__, *,
-                 keys: Optional[pulumi.Input[List[pulumi.Input['JSONWebKeyArgs']]]] = None):
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['JSONWebKeyArgs']]] keys: The value of the "keys" parameter is an array of JWK values.  By
+        :param pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]] keys: The value of the "keys" parameter is an array of JWK values.  By
                default, the order of the JWK values within the array does not imply
                an order of preference among them, although applications of JWK Sets
                can choose to assign a meaning to the order for their purposes, if
@@ -395,7 +395,7 @@ class JSONWebKeySetArgs:
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[List[pulumi.Input['JSONWebKeyArgs']]]]:
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]]:
         """
         The value of the "keys" parameter is an array of JWK values.  By
         default, the order of the JWK values within the array does not imply
@@ -406,7 +406,7 @@ class JSONWebKeySetArgs:
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[List[pulumi.Input['JSONWebKeyArgs']]]]):
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]]):
         pulumi.set(self, "keys", value)
 
 

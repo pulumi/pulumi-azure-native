@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,11 +39,11 @@ class GetSignalRResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if public_port and not isinstance(public_port, float):
-            raise TypeError("Expected argument 'public_port' to be a float")
+        if public_port and not isinstance(public_port, int):
+            raise TypeError("Expected argument 'public_port' to be a int")
         pulumi.set(__self__, "public_port", public_port)
-        if server_port and not isinstance(server_port, float):
-            raise TypeError("Expected argument 'server_port' to be a float")
+        if server_port and not isinstance(server_port, int):
+            raise TypeError("Expected argument 'server_port' to be a int")
         pulumi.set(__self__, "server_port", server_port)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -109,7 +109,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> float:
+    def public_port(self) -> int:
         """
         The publicly accessibly port of the SignalR service which is designed for browser/client side usage.
         """
@@ -117,7 +117,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter(name="serverPort")
-    def server_port(self) -> float:
+    def server_port(self) -> int:
         """
         The publicly accessibly port of the SignalR service which is designed for customer server side usage.
         """

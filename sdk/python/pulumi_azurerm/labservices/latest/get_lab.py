@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetLabResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_users_in_lab and not isinstance(max_users_in_lab, float):
-            raise TypeError("Expected argument 'max_users_in_lab' to be a float")
+        if max_users_in_lab and not isinstance(max_users_in_lab, int):
+            raise TypeError("Expected argument 'max_users_in_lab' to be a int")
         pulumi.set(__self__, "max_users_in_lab", max_users_in_lab)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -63,8 +63,8 @@ class GetLabResult:
         if user_access_mode and not isinstance(user_access_mode, str):
             raise TypeError("Expected argument 'user_access_mode' to be a str")
         pulumi.set(__self__, "user_access_mode", user_access_mode)
-        if user_quota and not isinstance(user_quota, float):
-            raise TypeError("Expected argument 'user_quota' to be a float")
+        if user_quota and not isinstance(user_quota, int):
+            raise TypeError("Expected argument 'user_quota' to be a int")
         pulumi.set(__self__, "user_quota", user_quota)
 
     @property
@@ -117,7 +117,7 @@ class GetLabResult:
 
     @property
     @pulumi.getter(name="maxUsersInLab")
-    def max_users_in_lab(self) -> Optional[float]:
+    def max_users_in_lab(self) -> Optional[int]:
         """
         Maximum number of users allowed in the lab.
         """
@@ -181,7 +181,7 @@ class GetLabResult:
 
     @property
     @pulumi.getter(name="userQuota")
-    def user_quota(self) -> float:
+    def user_quota(self) -> int:
         """
         Maximum value MaxUsersInLab can be set to, as specified by the service
         """

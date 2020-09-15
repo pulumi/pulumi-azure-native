@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,11 +20,11 @@ class Prediction(pulumi.CustomResource):
                  auto_analyze: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 grades: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PredictionGradesArgs']]]]] = None,
+                 grades: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PredictionGradesArgs']]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
-                 involved_interaction_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 involved_kpi_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 involved_relationships: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 involved_interaction_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 involved_kpi_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 involved_relationships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mappings: Optional[pulumi.Input[pulumi.InputType['PredictionMappingsArgs']]] = None,
                  negative_outcome_expression: Optional[pulumi.Input[str]] = None,
                  positive_outcome_expression: Optional[pulumi.Input[str]] = None,
@@ -44,11 +44,11 @@ class Prediction(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_analyze: Whether do auto analyze.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Description of the prediction.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Display name of the prediction.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PredictionGradesArgs']]]] grades: The prediction grades.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PredictionGradesArgs']]]] grades: The prediction grades.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[List[pulumi.Input[str]]] involved_interaction_types: Interaction types involved in the prediction.
-        :param pulumi.Input[List[pulumi.Input[str]]] involved_kpi_types: KPI types involved in the prediction.
-        :param pulumi.Input[List[pulumi.Input[str]]] involved_relationships: Relationships involved in the prediction.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] involved_interaction_types: Interaction types involved in the prediction.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] involved_kpi_types: KPI types involved in the prediction.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] involved_relationships: Relationships involved in the prediction.
         :param pulumi.Input[pulumi.InputType['PredictionMappingsArgs']] mappings: Definition of the link mapping of prediction.
         :param pulumi.Input[str] negative_outcome_expression: Negative outcome expression.
         :param pulumi.Input[str] positive_outcome_expression: Positive outcome expression.
@@ -168,7 +168,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def grades(self) -> pulumi.Output[Optional[List['outputs.PredictionResponseGrades']]]:
+    def grades(self) -> pulumi.Output[Optional[Sequence['outputs.PredictionResponseGrades']]]:
         """
         The prediction grades.
         """
@@ -176,7 +176,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="involvedInteractionTypes")
-    def involved_interaction_types(self) -> pulumi.Output[Optional[List[str]]]:
+    def involved_interaction_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Interaction types involved in the prediction.
         """
@@ -184,7 +184,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="involvedKpiTypes")
-    def involved_kpi_types(self) -> pulumi.Output[Optional[List[str]]]:
+    def involved_kpi_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         KPI types involved in the prediction.
         """
@@ -192,7 +192,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="involvedRelationships")
-    def involved_relationships(self) -> pulumi.Output[Optional[List[str]]]:
+    def involved_relationships(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Relationships involved in the prediction.
         """

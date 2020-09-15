@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
         /// <summary>
         /// The properties that define the step.
         /// </summary>
-        public readonly Outputs.WaitStepPropertiesResponseResult Properties;
+        public readonly Outputs.WaitStepPropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
 
             string name,
 
-            Outputs.WaitStepPropertiesResponseResult properties,
+            Outputs.WaitStepPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Portal.V20181001Preview
         /// <summary>
         /// The dashboard lenses.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.DashboardLensResponseResult>? Lenses;
+        public readonly ImmutableDictionary<string, Outputs.DashboardLensResponse>? Lenses;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Portal.V20181001Preview
 
         [OutputConstructor]
         private GetDashboardResult(
-            ImmutableDictionary<string, Outputs.DashboardLensResponseResult>? lenses,
+            ImmutableDictionary<string, Outputs.DashboardLensResponse>? lenses,
 
             string location,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -110,7 +110,7 @@ class GetPolicyExemptionResult:
 
     @property
     @pulumi.getter(name="policyDefinitionReferenceIds")
-    def policy_definition_reference_ids(self) -> Optional[List[str]]:
+    def policy_definition_reference_ids(self) -> Optional[Sequence[str]]:
         """
         The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         """

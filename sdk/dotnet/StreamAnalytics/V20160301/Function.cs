@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
         /// The properties that are associated with a function.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ScalarFunctionPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ScalarFunctionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

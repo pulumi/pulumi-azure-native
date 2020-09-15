@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
-        public readonly Outputs.CreationDataResponseResult CreationData;
+        public readonly Outputs.CreationDataResponse CreationData;
         /// <summary>
         /// The size of the disk in bytes. This field is read only.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// <summary>
         /// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         /// </summary>
-        public readonly Outputs.EncryptionSettingsCollectionResponseResult? EncryptionSettingsCollection;
+        public readonly Outputs.EncryptionSettingsCollectionResponse? EncryptionSettingsCollection;
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// <summary>
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         /// </summary>
-        public readonly Outputs.SnapshotSkuResponseResult? Sku;
+        public readonly Outputs.SnapshotSkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -106,13 +106,13 @@ namespace Pulumi.AzureRM.Compute.V20190301
 
         [OutputConstructor]
         private GetSnapshotResult(
-            Outputs.CreationDataResponseResult creationData,
+            Outputs.CreationDataResponse creationData,
 
             int diskSizeBytes,
 
             int? diskSizeGB,
 
-            Outputs.EncryptionSettingsCollectionResponseResult? encryptionSettingsCollection,
+            Outputs.EncryptionSettingsCollectionResponse? encryptionSettingsCollection,
 
             string? hyperVGeneration,
 
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.Compute.V20190301
 
             string provisioningState,
 
-            Outputs.SnapshotSkuResponseResult? sku,
+            Outputs.SnapshotSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

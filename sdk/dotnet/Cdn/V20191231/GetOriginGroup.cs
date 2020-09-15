@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Cdn.V20191231
         /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
         /// </summary>
-        public readonly Outputs.HealthProbeParametersResponseResult? HealthProbeSettings;
+        public readonly Outputs.HealthProbeParametersResponse? HealthProbeSettings;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Cdn.V20191231
         /// <summary>
         /// The source of the content being delivered via CDN within given origin group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceReferenceResponseResult> Origins;
+        public readonly ImmutableArray<Outputs.ResourceReferenceResponse> Origins;
         /// <summary>
         /// Provisioning status of the origin group.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Cdn.V20191231
         /// <summary>
         /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         /// </summary>
-        public readonly Outputs.ResponseBasedOriginErrorDetectionParametersResponseResult? ResponseBasedOriginErrorDetectionSettings;
+        public readonly Outputs.ResponseBasedOriginErrorDetectionParametersResponse? ResponseBasedOriginErrorDetectionSettings;
         /// <summary>
         /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         /// </summary>
@@ -86,17 +86,17 @@ namespace Pulumi.AzureRM.Cdn.V20191231
 
         [OutputConstructor]
         private GetOriginGroupResult(
-            Outputs.HealthProbeParametersResponseResult? healthProbeSettings,
+            Outputs.HealthProbeParametersResponse? healthProbeSettings,
 
             string name,
 
-            ImmutableArray<Outputs.ResourceReferenceResponseResult> origins,
+            ImmutableArray<Outputs.ResourceReferenceResponse> origins,
 
             string provisioningState,
 
             string resourceState,
 
-            Outputs.ResponseBasedOriginErrorDetectionParametersResponseResult? responseBasedOriginErrorDetectionSettings,
+            Outputs.ResponseBasedOriginErrorDetectionParametersResponse? responseBasedOriginErrorDetectionSettings,
 
             int? trafficRestorationTimeToHealedOrNewEndpointsInMinutes,
 

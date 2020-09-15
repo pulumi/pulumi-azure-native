@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -238,12 +238,12 @@ class QueryComparisonExpressionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The comparison expression to be used in the query.
         :param pulumi.Input[str] name: The name of the column to use in comparison.
         :param pulumi.Input[str] operator: The operator to use for comparison.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: Array of values to use for comparison
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -275,14 +275,14 @@ class QueryComparisonExpressionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Array of values to use for comparison
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
@@ -293,16 +293,16 @@ class QueryDatasetArgs:
                  configuration: Optional[pulumi.Input['QueryDatasetConfigurationArgs']] = None,
                  filter: Optional[pulumi.Input['QueryFilterArgs']] = None,
                  granularity: Optional[pulumi.Input[str]] = None,
-                 grouping: Optional[pulumi.Input[List[pulumi.Input['QueryGroupingArgs']]]] = None,
-                 sorting: Optional[pulumi.Input[List[pulumi.Input['QuerySortingConfigurationArgs']]]] = None):
+                 grouping: Optional[pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgs']]]] = None,
+                 sorting: Optional[pulumi.Input[Sequence[pulumi.Input['QuerySortingConfigurationArgs']]]] = None):
         """
         The definition of data present in the query.
         :param pulumi.Input[Mapping[str, pulumi.Input['QueryAggregationArgs']]] aggregation: Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
         :param pulumi.Input['QueryDatasetConfigurationArgs'] configuration: Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
         :param pulumi.Input['QueryFilterArgs'] filter: Has filter expression to use in the query.
         :param pulumi.Input[str] granularity: The granularity of rows in the query.
-        :param pulumi.Input[List[pulumi.Input['QueryGroupingArgs']]] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
-        :param pulumi.Input[List[pulumi.Input['QuerySortingConfigurationArgs']]] sorting: Array of sorting by columns in query.
+        :param pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgs']]] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
+        :param pulumi.Input[Sequence[pulumi.Input['QuerySortingConfigurationArgs']]] sorting: Array of sorting by columns in query.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -367,50 +367,50 @@ class QueryDatasetArgs:
 
     @property
     @pulumi.getter
-    def grouping(self) -> Optional[pulumi.Input[List[pulumi.Input['QueryGroupingArgs']]]]:
+    def grouping(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgs']]]]:
         """
         Array of group by expression to use in the query. Query can have up to 2 group by clauses.
         """
         return pulumi.get(self, "grouping")
 
     @grouping.setter
-    def grouping(self, value: Optional[pulumi.Input[List[pulumi.Input['QueryGroupingArgs']]]]):
+    def grouping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgs']]]]):
         pulumi.set(self, "grouping", value)
 
     @property
     @pulumi.getter
-    def sorting(self) -> Optional[pulumi.Input[List[pulumi.Input['QuerySortingConfigurationArgs']]]]:
+    def sorting(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuerySortingConfigurationArgs']]]]:
         """
         Array of sorting by columns in query.
         """
         return pulumi.get(self, "sorting")
 
     @sorting.setter
-    def sorting(self, value: Optional[pulumi.Input[List[pulumi.Input['QuerySortingConfigurationArgs']]]]):
+    def sorting(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuerySortingConfigurationArgs']]]]):
         pulumi.set(self, "sorting", value)
 
 
 @pulumi.input_type
 class QueryDatasetConfigurationArgs:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The configuration of dataset in the query.
-        :param pulumi.Input[List[pulumi.Input[str]]] columns: Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
         """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "columns", value)
 
 
@@ -487,17 +487,17 @@ class QueryDefinitionArgs:
 @pulumi.input_type
 class QueryFilterArgs:
     def __init__(__self__, *,
-                 and_: Optional[pulumi.Input[List[pulumi.Input['QueryFilterArgs']]]] = None,
+                 and_: Optional[pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]]] = None,
                  dimension: Optional[pulumi.Input['QueryComparisonExpressionArgs']] = None,
                  not_: Optional[pulumi.Input['QueryFilterArgs']] = None,
-                 or_: Optional[pulumi.Input[List[pulumi.Input['QueryFilterArgs']]]] = None,
+                 or_: Optional[pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]]] = None,
                  tag: Optional[pulumi.Input['QueryComparisonExpressionArgs']] = None):
         """
         The filter expression to be used in the export.
-        :param pulumi.Input[List[pulumi.Input['QueryFilterArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
+        :param pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
         :param pulumi.Input['QueryComparisonExpressionArgs'] dimension: Has comparison expression for a dimension
         :param pulumi.Input['QueryFilterArgs'] not_: The logical "NOT" expression.
-        :param pulumi.Input[List[pulumi.Input['QueryFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
+        :param pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
         :param pulumi.Input['QueryComparisonExpressionArgs'] tag: Has comparison expression for a tag
         """
         if and_ is not None:
@@ -513,14 +513,14 @@ class QueryFilterArgs:
 
     @property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[pulumi.Input[List[pulumi.Input['QueryFilterArgs']]]]:
+    def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]]]:
         """
         The logical "AND" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "and_")
 
     @and_.setter
-    def and_(self, value: Optional[pulumi.Input[List[pulumi.Input['QueryFilterArgs']]]]):
+    def and_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]]]):
         pulumi.set(self, "and_", value)
 
     @property
@@ -549,14 +549,14 @@ class QueryFilterArgs:
 
     @property
     @pulumi.getter(name="or")
-    def or_(self) -> Optional[pulumi.Input[List[pulumi.Input['QueryFilterArgs']]]]:
+    def or_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]]]:
         """
         The logical "OR" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "or_")
 
     @or_.setter
-    def or_(self, value: Optional[pulumi.Input[List[pulumi.Input['QueryFilterArgs']]]]):
+    def or_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]]]):
         pulumi.set(self, "or_", value)
 
     @property

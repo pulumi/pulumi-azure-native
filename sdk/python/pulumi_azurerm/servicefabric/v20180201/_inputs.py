@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -317,19 +317,19 @@ class ClientCertificateThumbprintArgs:
 class ClusterHealthPolicyArgs:
     def __init__(__self__, *,
                  application_health_policies: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationHealthPolicyArgs']]]] = None,
-                 max_percent_unhealthy_applications: Optional[pulumi.Input[float]] = None,
-                 max_percent_unhealthy_nodes: Optional[pulumi.Input[float]] = None):
+                 max_percent_unhealthy_applications: Optional[pulumi.Input[int]] = None,
+                 max_percent_unhealthy_nodes: Optional[pulumi.Input[int]] = None):
         """
         Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 
         :param pulumi.Input[Mapping[str, pulumi.Input['ApplicationHealthPolicyArgs']]] application_health_policies: Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-        :param pulumi.Input[float] max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+        :param pulumi.Input[int] max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
                
                The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
                If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
                This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
                The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-        :param pulumi.Input[float] max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+        :param pulumi.Input[int] max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
                
                The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
                If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
@@ -359,7 +359,7 @@ class ClusterHealthPolicyArgs:
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyApplications")
-    def max_percent_unhealthy_applications(self) -> Optional[pulumi.Input[float]]:
+    def max_percent_unhealthy_applications(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 
@@ -371,12 +371,12 @@ class ClusterHealthPolicyArgs:
         return pulumi.get(self, "max_percent_unhealthy_applications")
 
     @max_percent_unhealthy_applications.setter
-    def max_percent_unhealthy_applications(self, value: Optional[pulumi.Input[float]]):
+    def max_percent_unhealthy_applications(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_percent_unhealthy_applications", value)
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyNodes")
-    def max_percent_unhealthy_nodes(self) -> Optional[pulumi.Input[float]]:
+    def max_percent_unhealthy_nodes(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
 
@@ -390,26 +390,26 @@ class ClusterHealthPolicyArgs:
         return pulumi.get(self, "max_percent_unhealthy_nodes")
 
     @max_percent_unhealthy_nodes.setter
-    def max_percent_unhealthy_nodes(self, value: Optional[pulumi.Input[float]]):
+    def max_percent_unhealthy_nodes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_percent_unhealthy_nodes", value)
 
 
 @pulumi.input_type
 class ClusterUpgradeDeltaHealthPolicyArgs:
     def __init__(__self__, *,
-                 max_percent_delta_unhealthy_applications: pulumi.Input[float],
-                 max_percent_delta_unhealthy_nodes: pulumi.Input[float],
-                 max_percent_upgrade_domain_delta_unhealthy_nodes: pulumi.Input[float],
+                 max_percent_delta_unhealthy_applications: pulumi.Input[int],
+                 max_percent_delta_unhealthy_nodes: pulumi.Input[int],
+                 max_percent_upgrade_domain_delta_unhealthy_nodes: pulumi.Input[int],
                  application_delta_health_policies: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationDeltaHealthPolicyArgs']]]] = None):
         """
         Describes the delta health policies for the cluster upgrade.
-        :param pulumi.Input[float] max_percent_delta_unhealthy_applications: The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+        :param pulumi.Input[int] max_percent_delta_unhealthy_applications: The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
                The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-        :param pulumi.Input[float] max_percent_delta_unhealthy_nodes: The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+        :param pulumi.Input[int] max_percent_delta_unhealthy_nodes: The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
                The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-        :param pulumi.Input[float] max_percent_upgrade_domain_delta_unhealthy_nodes: The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+        :param pulumi.Input[int] max_percent_upgrade_domain_delta_unhealthy_nodes: The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
                The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
         :param pulumi.Input[Mapping[str, pulumi.Input['ApplicationDeltaHealthPolicyArgs']]] application_delta_health_policies: Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
@@ -422,7 +422,7 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyApplications")
-    def max_percent_delta_unhealthy_applications(self) -> pulumi.Input[float]:
+    def max_percent_delta_unhealthy_applications(self) -> pulumi.Input[int]:
         """
         The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
         The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
@@ -431,12 +431,12 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
         return pulumi.get(self, "max_percent_delta_unhealthy_applications")
 
     @max_percent_delta_unhealthy_applications.setter
-    def max_percent_delta_unhealthy_applications(self, value: pulumi.Input[float]):
+    def max_percent_delta_unhealthy_applications(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_percent_delta_unhealthy_applications", value)
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyNodes")
-    def max_percent_delta_unhealthy_nodes(self) -> pulumi.Input[float]:
+    def max_percent_delta_unhealthy_nodes(self) -> pulumi.Input[int]:
         """
         The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
         The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
@@ -445,12 +445,12 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
         return pulumi.get(self, "max_percent_delta_unhealthy_nodes")
 
     @max_percent_delta_unhealthy_nodes.setter
-    def max_percent_delta_unhealthy_nodes(self, value: pulumi.Input[float]):
+    def max_percent_delta_unhealthy_nodes(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_percent_delta_unhealthy_nodes", value)
 
     @property
     @pulumi.getter(name="maxPercentUpgradeDomainDeltaUnhealthyNodes")
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> pulumi.Input[float]:
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> pulumi.Input[int]:
         """
         The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
         The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
@@ -459,7 +459,7 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
         return pulumi.get(self, "max_percent_upgrade_domain_delta_unhealthy_nodes")
 
     @max_percent_upgrade_domain_delta_unhealthy_nodes.setter
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self, value: pulumi.Input[float]):
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_percent_upgrade_domain_delta_unhealthy_nodes", value)
 
     @property
@@ -706,62 +706,62 @@ class DiagnosticsStorageAccountConfigArgs:
 @pulumi.input_type
 class EndpointRangeDescriptionArgs:
     def __init__(__self__, *,
-                 end_port: pulumi.Input[float],
-                 start_port: pulumi.Input[float]):
+                 end_port: pulumi.Input[int],
+                 start_port: pulumi.Input[int]):
         """
         Port range details
-        :param pulumi.Input[float] end_port: End port of a range of ports
-        :param pulumi.Input[float] start_port: Starting port of a range of ports
+        :param pulumi.Input[int] end_port: End port of a range of ports
+        :param pulumi.Input[int] start_port: Starting port of a range of ports
         """
         pulumi.set(__self__, "end_port", end_port)
         pulumi.set(__self__, "start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
-    def end_port(self) -> pulumi.Input[float]:
+    def end_port(self) -> pulumi.Input[int]:
         """
         End port of a range of ports
         """
         return pulumi.get(self, "end_port")
 
     @end_port.setter
-    def end_port(self, value: pulumi.Input[float]):
+    def end_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "end_port", value)
 
     @property
     @pulumi.getter(name="startPort")
-    def start_port(self) -> pulumi.Input[float]:
+    def start_port(self) -> pulumi.Input[int]:
         """
         Starting port of a range of ports
         """
         return pulumi.get(self, "start_port")
 
     @start_port.setter
-    def start_port(self, value: pulumi.Input[float]):
+    def start_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_port", value)
 
 
 @pulumi.input_type
 class NodeTypeDescriptionArgs:
     def __init__(__self__, *,
-                 client_connection_endpoint_port: pulumi.Input[float],
-                 http_gateway_endpoint_port: pulumi.Input[float],
+                 client_connection_endpoint_port: pulumi.Input[int],
+                 http_gateway_endpoint_port: pulumi.Input[int],
                  is_primary: pulumi.Input[bool],
                  name: pulumi.Input[str],
-                 vm_instance_count: pulumi.Input[float],
+                 vm_instance_count: pulumi.Input[int],
                  application_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  durability_level: Optional[pulumi.Input[str]] = None,
                  ephemeral_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 reverse_proxy_endpoint_port: Optional[pulumi.Input[float]] = None):
+                 reverse_proxy_endpoint_port: Optional[pulumi.Input[int]] = None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-        :param pulumi.Input[float] client_connection_endpoint_port: The TCP cluster management endpoint port.
-        :param pulumi.Input[float] http_gateway_endpoint_port: The HTTP cluster management endpoint port.
+        :param pulumi.Input[int] client_connection_endpoint_port: The TCP cluster management endpoint port.
+        :param pulumi.Input[int] http_gateway_endpoint_port: The HTTP cluster management endpoint port.
         :param pulumi.Input[bool] is_primary: The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
         :param pulumi.Input[str] name: The name of the node type.
-        :param pulumi.Input[float] vm_instance_count: The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
         :param pulumi.Input['EndpointRangeDescriptionArgs'] application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param pulumi.Input[str] durability_level: The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
@@ -771,7 +771,7 @@ class NodeTypeDescriptionArgs:
                  - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM SKUs like D15_V2, G5 etc.
         :param pulumi.Input['EndpointRangeDescriptionArgs'] ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-        :param pulumi.Input[float] reverse_proxy_endpoint_port: The endpoint used by reverse proxy.
+        :param pulumi.Input[int] reverse_proxy_endpoint_port: The endpoint used by reverse proxy.
         """
         pulumi.set(__self__, "client_connection_endpoint_port", client_connection_endpoint_port)
         pulumi.set(__self__, "http_gateway_endpoint_port", http_gateway_endpoint_port)
@@ -793,26 +793,26 @@ class NodeTypeDescriptionArgs:
 
     @property
     @pulumi.getter(name="clientConnectionEndpointPort")
-    def client_connection_endpoint_port(self) -> pulumi.Input[float]:
+    def client_connection_endpoint_port(self) -> pulumi.Input[int]:
         """
         The TCP cluster management endpoint port.
         """
         return pulumi.get(self, "client_connection_endpoint_port")
 
     @client_connection_endpoint_port.setter
-    def client_connection_endpoint_port(self, value: pulumi.Input[float]):
+    def client_connection_endpoint_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "client_connection_endpoint_port", value)
 
     @property
     @pulumi.getter(name="httpGatewayEndpointPort")
-    def http_gateway_endpoint_port(self) -> pulumi.Input[float]:
+    def http_gateway_endpoint_port(self) -> pulumi.Input[int]:
         """
         The HTTP cluster management endpoint port.
         """
         return pulumi.get(self, "http_gateway_endpoint_port")
 
     @http_gateway_endpoint_port.setter
-    def http_gateway_endpoint_port(self, value: pulumi.Input[float]):
+    def http_gateway_endpoint_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "http_gateway_endpoint_port", value)
 
     @property
@@ -841,14 +841,14 @@ class NodeTypeDescriptionArgs:
 
     @property
     @pulumi.getter(name="vmInstanceCount")
-    def vm_instance_count(self) -> pulumi.Input[float]:
+    def vm_instance_count(self) -> pulumi.Input[int]:
         """
         The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
         """
         return pulumi.get(self, "vm_instance_count")
 
     @vm_instance_count.setter
-    def vm_instance_count(self, value: pulumi.Input[float]):
+    def vm_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "vm_instance_count", value)
 
     @property
@@ -917,14 +917,14 @@ class NodeTypeDescriptionArgs:
 
     @property
     @pulumi.getter(name="reverseProxyEndpointPort")
-    def reverse_proxy_endpoint_port(self) -> Optional[pulumi.Input[float]]:
+    def reverse_proxy_endpoint_port(self) -> Optional[pulumi.Input[int]]:
         """
         The endpoint used by reverse proxy.
         """
         return pulumi.get(self, "reverse_proxy_endpoint_port")
 
     @reverse_proxy_endpoint_port.setter
-    def reverse_proxy_endpoint_port(self, value: Optional[pulumi.Input[float]]):
+    def reverse_proxy_endpoint_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "reverse_proxy_endpoint_port", value)
 
 
@@ -969,11 +969,11 @@ class ServerCertificateCommonNameArgs:
 @pulumi.input_type
 class ServerCertificateCommonNamesArgs:
     def __init__(__self__, *,
-                 common_names: Optional[pulumi.Input[List[pulumi.Input['ServerCertificateCommonNameArgs']]]] = None,
+                 common_names: Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]] = None,
                  x509_store_name: Optional[pulumi.Input[str]] = None):
         """
         Describes a list of server certificates referenced by common name that are used to secure the cluster.
-        :param pulumi.Input[List[pulumi.Input['ServerCertificateCommonNameArgs']]] common_names: The list of server certificates referenced by common name that are used to secure the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]] common_names: The list of server certificates referenced by common name that are used to secure the cluster.
         :param pulumi.Input[str] x509_store_name: The local certificate store location.
         """
         if common_names is not None:
@@ -983,14 +983,14 @@ class ServerCertificateCommonNamesArgs:
 
     @property
     @pulumi.getter(name="commonNames")
-    def common_names(self) -> Optional[pulumi.Input[List[pulumi.Input['ServerCertificateCommonNameArgs']]]]:
+    def common_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]]:
         """
         The list of server certificates referenced by common name that are used to secure the cluster.
         """
         return pulumi.get(self, "common_names")
 
     @common_names.setter
-    def common_names(self, value: Optional[pulumi.Input[List[pulumi.Input['ServerCertificateCommonNameArgs']]]]):
+    def common_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]]):
         pulumi.set(self, "common_names", value)
 
     @property
@@ -1009,11 +1009,11 @@ class ServerCertificateCommonNamesArgs:
 @pulumi.input_type
 class ServiceTypeDeltaHealthPolicyArgs:
     def __init__(__self__, *,
-                 max_percent_delta_unhealthy_services: Optional[pulumi.Input[float]] = None):
+                 max_percent_delta_unhealthy_services: Optional[pulumi.Input[int]] = None):
         """
         Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
 
-        :param pulumi.Input[float] max_percent_delta_unhealthy_services: The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+        :param pulumi.Input[int] max_percent_delta_unhealthy_services: The maximum allowed percentage of services health degradation allowed during cluster upgrades.
                The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
         """
@@ -1022,7 +1022,7 @@ class ServiceTypeDeltaHealthPolicyArgs:
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyServices")
-    def max_percent_delta_unhealthy_services(self) -> Optional[pulumi.Input[float]]:
+    def max_percent_delta_unhealthy_services(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum allowed percentage of services health degradation allowed during cluster upgrades.
         The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
@@ -1031,32 +1031,32 @@ class ServiceTypeDeltaHealthPolicyArgs:
         return pulumi.get(self, "max_percent_delta_unhealthy_services")
 
     @max_percent_delta_unhealthy_services.setter
-    def max_percent_delta_unhealthy_services(self, value: Optional[pulumi.Input[float]]):
+    def max_percent_delta_unhealthy_services(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_percent_delta_unhealthy_services", value)
 
 
 @pulumi.input_type
 class ServiceTypeHealthPolicyArgs:
     def __init__(__self__, *,
-                 max_percent_unhealthy_services: Optional[pulumi.Input[float]] = None):
+                 max_percent_unhealthy_services: Optional[pulumi.Input[int]] = None):
         """
         Represents the health policy used to evaluate the health of services belonging to a service type.
 
-        :param pulumi.Input[float] max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+        :param pulumi.Input[int] max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
         """
         if max_percent_unhealthy_services is not None:
             pulumi.set(__self__, "max_percent_unhealthy_services", max_percent_unhealthy_services)
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyServices")
-    def max_percent_unhealthy_services(self) -> Optional[pulumi.Input[float]]:
+    def max_percent_unhealthy_services(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum percentage of services allowed to be unhealthy before your application is considered in error.
         """
         return pulumi.get(self, "max_percent_unhealthy_services")
 
     @max_percent_unhealthy_services.setter
-    def max_percent_unhealthy_services(self, value: Optional[pulumi.Input[float]]):
+    def max_percent_unhealthy_services(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_percent_unhealthy_services", value)
 
 
@@ -1102,11 +1102,11 @@ class SettingsParameterDescriptionArgs:
 class SettingsSectionDescriptionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 parameters: pulumi.Input[List[pulumi.Input['SettingsParameterDescriptionArgs']]]):
+                 parameters: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]]):
         """
         Describes a section in the fabric settings of the cluster.
         :param pulumi.Input[str] name: The section name of the fabric settings.
-        :param pulumi.Input[List[pulumi.Input['SettingsParameterDescriptionArgs']]] parameters: The collection of parameters in the section.
+        :param pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]] parameters: The collection of parameters in the section.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parameters", parameters)
@@ -1125,14 +1125,14 @@ class SettingsSectionDescriptionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input[List[pulumi.Input['SettingsParameterDescriptionArgs']]]:
+    def parameters(self) -> pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]]:
         """
         The collection of parameters in the section.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: pulumi.Input[List[pulumi.Input['SettingsParameterDescriptionArgs']]]):
+    def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]]):
         pulumi.set(self, "parameters", value)
 
 

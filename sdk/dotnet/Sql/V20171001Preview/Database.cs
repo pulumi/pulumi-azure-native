@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// The name and tier of the SKU.
         /// </summary>
         [Output("currentSku")]
-        public Output<Outputs.SkuResponseResult> CurrentSku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> CurrentSku { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the database.
@@ -230,7 +230,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// ````
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the time that the database was deleted.

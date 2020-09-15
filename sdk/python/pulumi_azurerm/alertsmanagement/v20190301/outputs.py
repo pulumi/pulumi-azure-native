@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -20,12 +20,12 @@ class ActionGroupsInformationResponse(dict):
     The Action Groups information, used by the alert rule.
     """
     def __init__(__self__, *,
-                 group_ids: List[str],
+                 group_ids: Sequence[str],
                  custom_email_subject: Optional[str] = None,
                  custom_webhook_payload: Optional[str] = None):
         """
         The Action Groups information, used by the alert rule.
-        :param List[str] group_ids: The Action Group resource IDs.
+        :param Sequence[str] group_ids: The Action Group resource IDs.
         :param str custom_email_subject: An optional custom email subject to use in email notifications.
         :param str custom_webhook_payload: An optional custom web-hook payload to use in web-hook notifications.
         """
@@ -37,7 +37,7 @@ class ActionGroupsInformationResponse(dict):
 
     @property
     @pulumi.getter(name="groupIds")
-    def group_ids(self) -> List[str]:
+    def group_ids(self) -> Sequence[str]:
         """
         The Action Group resource IDs.
         """
@@ -71,18 +71,18 @@ class DetectorResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  description: Optional[str] = None,
-                 image_paths: Optional[List[str]] = None,
+                 image_paths: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  parameters: Optional[Mapping[str, Mapping[str, Any]]] = None,
-                 supported_resource_types: Optional[List[str]] = None):
+                 supported_resource_types: Optional[Sequence[str]] = None):
         """
         The detector information. By default this is not populated, unless it's specified in expandDetector
         :param str id: The detector id.
         :param str description: The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
-        :param List[str] image_paths: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+        :param Sequence[str] image_paths: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
         :param str name: The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
         :param Mapping[str, Mapping[str, Any]] parameters: The detector's parameters.'
-        :param List[str] supported_resource_types: The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+        :param Sequence[str] supported_resource_types: The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
         """
         pulumi.set(__self__, "id", id)
         if description is not None:
@@ -114,7 +114,7 @@ class DetectorResponse(dict):
 
     @property
     @pulumi.getter(name="imagePaths")
-    def image_paths(self) -> Optional[List[str]]:
+    def image_paths(self) -> Optional[Sequence[str]]:
         """
         The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
         """
@@ -138,7 +138,7 @@ class DetectorResponse(dict):
 
     @property
     @pulumi.getter(name="supportedResourceTypes")
-    def supported_resource_types(self) -> Optional[List[str]]:
+    def supported_resource_types(self) -> Optional[Sequence[str]]:
         """
         The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
         """

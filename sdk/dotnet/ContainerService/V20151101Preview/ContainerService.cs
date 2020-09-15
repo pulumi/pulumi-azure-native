@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.ContainerService.V20151101Preview
         /// Properties of agent pools
         /// </summary>
         [Output("agentPoolProfiles")]
-        public Output<ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult>> AgentPoolProfiles { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse>> AgentPoolProfiles { get; private set; } = null!;
 
         /// <summary>
         /// Properties for Diagnostic Agent
         /// </summary>
         [Output("diagnosticsProfile")]
-        public Output<Outputs.ContainerServiceDiagnosticsProfileResponseResult?> DiagnosticsProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceDiagnosticsProfileResponse?> DiagnosticsProfile { get; private set; } = null!;
 
         /// <summary>
         /// Properties for Linux VMs
         /// </summary>
         [Output("linuxProfile")]
-        public Output<Outputs.ContainerServiceLinuxProfileResponseResult> LinuxProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceLinuxProfileResponse> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ContainerService.V20151101Preview
         /// Properties of master agents
         /// </summary>
         [Output("masterProfile")]
-        public Output<Outputs.ContainerServiceMasterProfileResponseResult> MasterProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceMasterProfileResponse> MasterProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.ContainerService.V20151101Preview
         /// Properties of orchestrator
         /// </summary>
         [Output("orchestratorProfile")]
-        public Output<Outputs.ContainerServiceOrchestratorProfileResponseResult?> OrchestratorProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceOrchestratorProfileResponse?> OrchestratorProfile { get; private set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state, which only appears in the response.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.ContainerService.V20151101Preview
         /// Properties of Windows VMs
         /// </summary>
         [Output("windowsProfile")]
-        public Output<Outputs.ContainerServiceWindowsProfileResponseResult?> WindowsProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceWindowsProfileResponse?> WindowsProfile { get; private set; } = null!;
 
 
         /// <summary>

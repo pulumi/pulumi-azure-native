@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// <summary>
         /// This type describes a volume provided by an Azure Files file share.
         /// </summary>
-        public readonly Outputs.VolumeProviderParametersAzureFileResponseResult? AzureFileParameters;
+        public readonly Outputs.VolumeProviderParametersAzureFileResponse? AzureFileParameters;
         /// <summary>
         /// User readable description of the volume.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
 
         [OutputConstructor]
         private GetVolumeResult(
-            Outputs.VolumeProviderParametersAzureFileResponseResult? azureFileParameters,
+            Outputs.VolumeProviderParametersAzureFileResponse? azureFileParameters,
 
             string? description,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Partner']
@@ -91,7 +91,7 @@ class Partner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[Optional[float]]:
+    def etag(self) -> pulumi.Output[Optional[int]]:
         """
         Type of the partner
         """
@@ -155,7 +155,7 @@ class Partner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[Optional[float]]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         This is the version.
         """

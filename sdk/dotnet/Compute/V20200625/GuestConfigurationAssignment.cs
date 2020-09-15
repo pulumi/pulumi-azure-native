@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute.V20200625
         /// Properties of the Guest configuration assignment.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.GuestConfigurationAssignmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.GuestConfigurationAssignmentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

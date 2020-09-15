@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -100,17 +100,17 @@ class NetworkRuleSetResponse(dict):
     Network specific rules that determine how the Azure Cognitive Search service may be reached.
     """
     def __init__(__self__, *,
-                 ip_rules: Optional[List['outputs.IpRuleResponse']] = None):
+                 ip_rules: Optional[Sequence['outputs.IpRuleResponse']] = None):
         """
         Network specific rules that determine how the Azure Cognitive Search service may be reached.
-        :param List['IpRuleResponseArgs'] ip_rules: A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
+        :param Sequence['IpRuleResponseArgs'] ip_rules: A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
         """
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List['outputs.IpRuleResponse']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.IpRuleResponse']]:
         """
         A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
         """

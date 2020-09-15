@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -66,14 +66,14 @@ class GetServerEndpointResult:
         if sync_status and not isinstance(sync_status, dict):
             raise TypeError("Expected argument 'sync_status' to be a dict")
         pulumi.set(__self__, "sync_status", sync_status)
-        if tier_files_older_than_days and not isinstance(tier_files_older_than_days, float):
-            raise TypeError("Expected argument 'tier_files_older_than_days' to be a float")
+        if tier_files_older_than_days and not isinstance(tier_files_older_than_days, int):
+            raise TypeError("Expected argument 'tier_files_older_than_days' to be a int")
         pulumi.set(__self__, "tier_files_older_than_days", tier_files_older_than_days)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volume_free_space_percent and not isinstance(volume_free_space_percent, float):
-            raise TypeError("Expected argument 'volume_free_space_percent' to be a float")
+        if volume_free_space_percent and not isinstance(volume_free_space_percent, int):
+            raise TypeError("Expected argument 'volume_free_space_percent' to be a int")
         pulumi.set(__self__, "volume_free_space_percent", volume_free_space_percent)
 
     @property
@@ -198,7 +198,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="tierFilesOlderThanDays")
-    def tier_files_older_than_days(self) -> Optional[float]:
+    def tier_files_older_than_days(self) -> Optional[int]:
         """
         Tier files older than days.
         """
@@ -214,7 +214,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="volumeFreeSpacePercent")
-    def volume_free_space_percent(self) -> Optional[float]:
+    def volume_free_space_percent(self) -> Optional[int]:
         """
         Level of free space to be maintained by Cloud Tiering if it is enabled.
         """

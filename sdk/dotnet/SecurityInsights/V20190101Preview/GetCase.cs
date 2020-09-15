@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// <summary>
         /// Describes a user that the case is assigned to
         /// </summary>
-        public readonly Outputs.UserInfoResponseResult? Owner;
+        public readonly Outputs.UserInfoResponse? Owner;
         /// <summary>
         /// List of related alert identifiers
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
 
             string name,
 
-            Outputs.UserInfoResponseResult? owner,
+            Outputs.UserInfoResponse? owner,
 
             ImmutableArray<string> relatedAlertIds,
 

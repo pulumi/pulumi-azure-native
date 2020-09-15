@@ -24,37 +24,37 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190601Preview
         /// The Service Fabric runtime versions available for this cluster.
         /// </summary>
         [Output("availableClusterVersions")]
-        public Output<ImmutableArray<Outputs.ClusterVersionDetailsResponseResult>> AvailableClusterVersions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterVersionDetailsResponse>> AvailableClusterVersions { get; private set; } = null!;
 
         /// <summary>
         /// The AAD authentication settings of the cluster.
         /// </summary>
         [Output("azureActiveDirectory")]
-        public Output<Outputs.AzureActiveDirectoryResponseResult?> AzureActiveDirectory { get; private set; } = null!;
+        public Output<Outputs.AzureActiveDirectoryResponse?> AzureActiveDirectory { get; private set; } = null!;
 
         /// <summary>
         /// The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
         /// </summary>
         [Output("certificate")]
-        public Output<Outputs.CertificateDescriptionResponseResult?> Certificate { get; private set; } = null!;
+        public Output<Outputs.CertificateDescriptionResponse?> Certificate { get; private set; } = null!;
 
         /// <summary>
         /// Describes a list of server certificates referenced by common name that are used to secure the cluster.
         /// </summary>
         [Output("certificateCommonNames")]
-        public Output<Outputs.ServerCertificateCommonNamesResponseResult?> CertificateCommonNames { get; private set; } = null!;
+        public Output<Outputs.ServerCertificateCommonNamesResponse?> CertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
         /// The list of client certificates referenced by common name that are allowed to manage the cluster.
         /// </summary>
         [Output("clientCertificateCommonNames")]
-        public Output<ImmutableArray<Outputs.ClientCertificateCommonNameResponseResult>> ClientCertificateCommonNames { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClientCertificateCommonNameResponse>> ClientCertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
         /// The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
         /// </summary>
         [Output("clientCertificateThumbprints")]
-        public Output<ImmutableArray<Outputs.ClientCertificateThumbprintResponseResult>> ClientCertificateThumbprints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClientCertificateThumbprintResponse>> ClientCertificateThumbprints { get; private set; } = null!;
 
         /// <summary>
         /// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190601Preview
         /// The storage account information for storing Service Fabric diagnostic logs.
         /// </summary>
         [Output("diagnosticsStorageAccountConfig")]
-        public Output<Outputs.DiagnosticsStorageAccountConfigResponseResult?> DiagnosticsStorageAccountConfig { get; private set; } = null!;
+        public Output<Outputs.DiagnosticsStorageAccountConfigResponse?> DiagnosticsStorageAccountConfig { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource etag.
@@ -113,7 +113,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190601Preview
         /// The list of custom fabric settings to configure the cluster.
         /// </summary>
         [Output("fabricSettings")]
-        public Output<ImmutableArray<Outputs.SettingsSectionDescriptionResponseResult>> FabricSettings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SettingsSectionDescriptionResponse>> FabricSettings { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource location.
@@ -137,7 +137,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190601Preview
         /// The list of node types in the cluster.
         /// </summary>
         [Output("nodeTypes")]
-        public Output<ImmutableArray<Outputs.NodeTypeDescriptionResponseResult>> NodeTypes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NodeTypeDescriptionResponse>> NodeTypes { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the cluster resource.
@@ -161,13 +161,13 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190601Preview
         /// The server certificate used by reverse proxy.
         /// </summary>
         [Output("reverseProxyCertificate")]
-        public Output<Outputs.CertificateDescriptionResponseResult?> ReverseProxyCertificate { get; private set; } = null!;
+        public Output<Outputs.CertificateDescriptionResponse?> ReverseProxyCertificate { get; private set; } = null!;
 
         /// <summary>
         /// Describes a list of server certificates referenced by common name that are used to secure the cluster.
         /// </summary>
         [Output("reverseProxyCertificateCommonNames")]
-        public Output<Outputs.ServerCertificateCommonNamesResponseResult?> ReverseProxyCertificateCommonNames { get; private set; } = null!;
+        public Output<Outputs.ServerCertificateCommonNamesResponse?> ReverseProxyCertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.
@@ -185,7 +185,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190601Preview
         /// The policy to use when upgrading the cluster.
         /// </summary>
         [Output("upgradeDescription")]
-        public Output<Outputs.ClusterUpgradePolicyResponseResult?> UpgradeDescription { get; private set; } = null!;
+        public Output<Outputs.ClusterUpgradePolicyResponse?> UpgradeDescription { get; private set; } = null!;
 
         /// <summary>
         /// The upgrade mode of the cluster when new Service Fabric runtime version is available.

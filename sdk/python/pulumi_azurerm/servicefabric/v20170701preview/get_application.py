@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,14 +24,14 @@ class GetApplicationResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if maximum_nodes and not isinstance(maximum_nodes, float):
-            raise TypeError("Expected argument 'maximum_nodes' to be a float")
+        if maximum_nodes and not isinstance(maximum_nodes, int):
+            raise TypeError("Expected argument 'maximum_nodes' to be a int")
         pulumi.set(__self__, "maximum_nodes", maximum_nodes)
         if metrics and not isinstance(metrics, list):
             raise TypeError("Expected argument 'metrics' to be a list")
         pulumi.set(__self__, "metrics", metrics)
-        if minimum_nodes and not isinstance(minimum_nodes, float):
-            raise TypeError("Expected argument 'minimum_nodes' to be a float")
+        if minimum_nodes and not isinstance(minimum_nodes, int):
+            raise TypeError("Expected argument 'minimum_nodes' to be a int")
         pulumi.set(__self__, "minimum_nodes", minimum_nodes)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -68,7 +68,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="maximumNodes")
-    def maximum_nodes(self) -> Optional[float]:
+    def maximum_nodes(self) -> Optional[int]:
         """
         The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
         """
@@ -76,7 +76,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def metrics(self) -> Optional[List['outputs.ApplicationMetricDescriptionResponse']]:
+    def metrics(self) -> Optional[Sequence['outputs.ApplicationMetricDescriptionResponse']]:
         """
         List of application capacity metric description.
         """
@@ -84,7 +84,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="minimumNodes")
-    def minimum_nodes(self) -> Optional[float]:
+    def minimum_nodes(self) -> Optional[int]:
         """
         The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
         """

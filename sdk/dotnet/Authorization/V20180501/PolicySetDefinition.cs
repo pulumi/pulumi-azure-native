@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Authorization.V20180501
         /// An array of policy definition references.
         /// </summary>
         [Output("policyDefinitions")]
-        public Output<ImmutableArray<Outputs.PolicyDefinitionReferenceResponseResult>> PolicyDefinitions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PolicyDefinitionReferenceResponse>> PolicyDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]]] = None,
                  created_date_time: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]] authorizations: The workspace provider authorizations.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]] authorizations: The workspace provider authorizations.
         :param pulumi.Input[str] created_date_time: Specifies the date and time when the workspace is created.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
@@ -117,7 +117,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> pulumi.Output[Optional[List['outputs.WorkspaceProviderAuthorizationResponse']]]:
+    def authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.WorkspaceProviderAuthorizationResponse']]]:
         """
         The workspace provider authorizations.
         """

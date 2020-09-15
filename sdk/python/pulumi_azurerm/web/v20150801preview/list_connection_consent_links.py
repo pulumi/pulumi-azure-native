@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -28,7 +28,7 @@ class ListConnectionConsentLinksResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[List['outputs.ConsentLinkResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.ConsentLinkResponseResult']]:
         """
         Collection of resources
         """
@@ -49,7 +49,7 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
                                   kind: Optional[str] = None,
                                   location: Optional[str] = None,
                                   name: Optional[str] = None,
-                                  parameters: Optional[List[pulumi.InputType['ConsentLinkInputParameterArgs']]] = None,
+                                  parameters: Optional[Sequence[pulumi.InputType['ConsentLinkInputParameterArgs']]] = None,
                                   resource_group_name: Optional[str] = None,
                                   tags: Optional[Mapping[str, str]] = None,
                                   type: Optional[str] = None,
@@ -62,7 +62,7 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
     :param str kind: Kind of resource
     :param str location: Resource Location
     :param str name: Resource Name
-    :param List[pulumi.InputType['ConsentLinkInputParameterArgs']] parameters: Array of links
+    :param Sequence[pulumi.InputType['ConsentLinkInputParameterArgs']] parameters: Array of links
     :param str resource_group_name: The resource group name.
     :param Mapping[str, str] tags: Resource tags
     :param str type: Resource type

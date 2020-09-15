@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// <summary>
         /// Gets or sets the connectionType of the connection.
         /// </summary>
-        public readonly Outputs.ConnectionTypeAssociationPropertyResponseResult? ConnectionType;
+        public readonly Outputs.ConnectionTypeAssociationPropertyResponse? ConnectionType;
         /// <summary>
         /// Gets the creation time.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Automation.Latest
 
         [OutputConstructor]
         private GetConnectionResult(
-            Outputs.ConnectionTypeAssociationPropertyResponseResult? connectionType,
+            Outputs.ConnectionTypeAssociationPropertyResponse? connectionType,
 
             string creationTime,
 

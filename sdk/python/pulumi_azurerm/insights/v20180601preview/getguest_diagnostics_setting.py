@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -45,7 +45,7 @@ class GetguestDiagnosticsSettingResult:
 
     @property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[List['outputs.DataSourceResponse']]:
+    def data_sources(self) -> Optional[Sequence['outputs.DataSourceResponse']]:
         """
         the array of data source object which are configured to collect and send data
         """

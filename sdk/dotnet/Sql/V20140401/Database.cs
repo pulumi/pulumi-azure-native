@@ -140,7 +140,7 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// The recommended indices for this database.
         /// </summary>
         [Output("recommendedIndex")]
-        public Output<ImmutableArray<Outputs.RecommendedIndexResponseResult>> RecommendedIndex { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecommendedIndexResponse>> RecommendedIndex { get; private set; } = null!;
 
         /// <summary>
         /// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
@@ -194,7 +194,7 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// The list of service tier advisors for this database. Expanded property
         /// </summary>
         [Output("serviceTierAdvisors")]
-        public Output<ImmutableArray<Outputs.ServiceTierAdvisorResponseResult>> ServiceTierAdvisors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceTierAdvisorResponse>> ServiceTierAdvisors { get; private set; } = null!;
 
         /// <summary>
         /// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
@@ -224,7 +224,7 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// The transparent data encryption info for this database.
         /// </summary>
         [Output("transparentDataEncryption")]
-        public Output<ImmutableArray<Outputs.TransparentDataEncryptionResponseResult>> TransparentDataEncryption { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TransparentDataEncryptionResponse>> TransparentDataEncryption { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

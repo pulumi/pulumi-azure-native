@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
         /// Sync schema of the sync group.
         /// </summary>
         [Output("schema")]
-        public Output<Outputs.SyncGroupSchemaResponseResult?> Schema { get; private set; } = null!;
+        public Output<Outputs.SyncGroupSchemaResponse?> Schema { get; private set; } = null!;
 
         /// <summary>
         /// ARM resource id of the sync database in the sync group.

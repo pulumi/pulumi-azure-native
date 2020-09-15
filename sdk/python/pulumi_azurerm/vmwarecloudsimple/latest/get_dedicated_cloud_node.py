@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetDedicatedCloudNodeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if nodes_count and not isinstance(nodes_count, float):
-            raise TypeError("Expected argument 'nodes_count' to be a float")
+        if nodes_count and not isinstance(nodes_count, int):
+            raise TypeError("Expected argument 'nodes_count' to be a int")
         pulumi.set(__self__, "nodes_count", nodes_count)
         if placement_group_id and not isinstance(placement_group_id, str):
             raise TypeError("Expected argument 'placement_group_id' to be a str")
@@ -126,7 +126,7 @@ class GetDedicatedCloudNodeResult:
 
     @property
     @pulumi.getter(name="nodesCount")
-    def nodes_count(self) -> float:
+    def nodes_count(self) -> int:
         """
         count of nodes to create
         """

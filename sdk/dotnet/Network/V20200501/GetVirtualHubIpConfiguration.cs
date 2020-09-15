@@ -68,11 +68,11 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The reference to the public IP resource.
         /// </summary>
-        public readonly Outputs.PublicIPAddressResponseResult? PublicIPAddress;
+        public readonly Outputs.PublicIPAddressResponse? PublicIPAddress;
         /// <summary>
         /// The reference to the subnet resource.
         /// </summary>
-        public readonly Outputs.SubnetResponseResult? Subnet;
+        public readonly Outputs.SubnetResponse? Subnet;
         /// <summary>
         /// Ipconfiguration type.
         /// </summary>
@@ -90,9 +90,9 @@ namespace Pulumi.AzureRM.Network.V20200501
 
             string provisioningState,
 
-            Outputs.PublicIPAddressResponseResult? publicIPAddress,
+            Outputs.PublicIPAddressResponse? publicIPAddress,
 
-            Outputs.SubnetResponseResult? subnet,
+            Outputs.SubnetResponse? subnet,
 
             string type)
         {

@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
         /// A list of allow-list custom alert rules.
         /// </summary>
         [Output("allowlistRules")]
-        public Output<ImmutableArray<Outputs.AllowlistCustomAlertRuleResponseResult>> AllowlistRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AllowlistCustomAlertRuleResponse>> AllowlistRules { get; private set; } = null!;
 
         /// <summary>
         /// A list of deny-list custom alert rules.
         /// </summary>
         [Output("denylistRules")]
-        public Output<ImmutableArray<Outputs.DenylistCustomAlertRuleResponseResult>> DenylistRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DenylistCustomAlertRuleResponse>> DenylistRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
         /// A list of threshold custom alert rules.
         /// </summary>
         [Output("thresholdRules")]
-        public Output<ImmutableArray<Outputs.ThresholdCustomAlertRuleResponseResult>> ThresholdRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ThresholdCustomAlertRuleResponse>> ThresholdRules { get; private set; } = null!;
 
         /// <summary>
         /// A list of time window custom alert rules.
         /// </summary>
         [Output("timeWindowRules")]
-        public Output<ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponseResult>> TimeWindowRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponse>> TimeWindowRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Aad.V20170601
         /// DomainSecurity Settings
         /// </summary>
         [Output("domainSecuritySettings")]
-        public Output<Outputs.DomainSecuritySettingsResponseResult?> DomainSecuritySettings { get; private set; } = null!;
+        public Output<Outputs.DomainSecuritySettingsResponse?> DomainSecuritySettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource etag
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Aad.V20170601
         /// List of Domain Health Alerts
         /// </summary>
         [Output("healthAlerts")]
-        public Output<ImmutableArray<Outputs.HealthAlertResponseResult>> HealthAlerts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HealthAlertResponse>> HealthAlerts { get; private set; } = null!;
 
         /// <summary>
         /// Last domain evaluation run DateTime
@@ -60,13 +60,13 @@ namespace Pulumi.AzureRM.Aad.V20170601
         /// List of Domain Health Monitors
         /// </summary>
         [Output("healthMonitors")]
-        public Output<ImmutableArray<Outputs.HealthMonitorResponseResult>> HealthMonitors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HealthMonitorResponse>> HealthMonitors { get; private set; } = null!;
 
         /// <summary>
         /// Secure LDAP Settings
         /// </summary>
         [Output("ldapsSettings")]
-        public Output<Outputs.LdapsSettingsResponseResult?> LdapsSettings { get; private set; } = null!;
+        public Output<Outputs.LdapsSettingsResponse?> LdapsSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Aad.V20170601
         /// Notification Settings
         /// </summary>
         [Output("notificationSettings")]
-        public Output<Outputs.NotificationSettingsResponseResult?> NotificationSettings { get; private set; } = null!;
+        public Output<Outputs.NotificationSettingsResponse?> NotificationSettings { get; private set; } = null!;
 
         /// <summary>
         /// the current deployment or provisioning state, which only appears in the response.

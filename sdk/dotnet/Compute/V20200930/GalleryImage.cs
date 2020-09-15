@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Compute.V20200930
         /// Describes the disallowed disk types.
         /// </summary>
         [Output("disallowed")]
-        public Output<Outputs.DisallowedResponseResult?> Disallowed { get; private set; } = null!;
+        public Output<Outputs.DisallowedResponse?> Disallowed { get; private set; } = null!;
 
         /// <summary>
         /// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20200930
         /// A list of gallery image features.
         /// </summary>
         [Output("features")]
-        public Output<ImmutableArray<Outputs.GalleryImageFeatureResponseResult>> Features { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GalleryImageFeatureResponse>> Features { get; private set; } = null!;
 
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Compute.V20200930
         /// This is the gallery image definition identifier.
         /// </summary>
         [Output("identifier")]
-        public Output<Outputs.GalleryImageIdentifierResponseResult> Identifier { get; private set; } = null!;
+        public Output<Outputs.GalleryImageIdentifierResponse> Identifier { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -96,13 +96,13 @@ namespace Pulumi.AzureRM.Compute.V20200930
         /// Describes the gallery image definition purchase plan. This is used by marketplace images.
         /// </summary>
         [Output("purchasePlan")]
-        public Output<Outputs.ImagePurchasePlanResponseResult?> PurchasePlan { get; private set; } = null!;
+        public Output<Outputs.ImagePurchasePlanResponse?> PurchasePlan { get; private set; } = null!;
 
         /// <summary>
         /// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         /// </summary>
         [Output("recommended")]
-        public Output<Outputs.RecommendedMachineConfigurationResponseResult?> Recommended { get; private set; } = null!;
+        public Output<Outputs.RecommendedMachineConfigurationResponse?> Recommended { get; private set; } = null!;
 
         /// <summary>
         /// The release note uri.

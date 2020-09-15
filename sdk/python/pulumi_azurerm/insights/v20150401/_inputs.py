@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -28,12 +28,12 @@ class AutoscaleNotificationArgs:
     def __init__(__self__, *,
                  operation: pulumi.Input[str],
                  email: Optional[pulumi.Input['EmailNotificationArgs']] = None,
-                 webhooks: Optional[pulumi.Input[List[pulumi.Input['WebhookNotificationArgs']]]] = None):
+                 webhooks: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]] = None):
         """
         Autoscale notification.
         :param pulumi.Input[str] operation: the operation associated with the notification and its value must be "scale"
         :param pulumi.Input['EmailNotificationArgs'] email: the email notification.
-        :param pulumi.Input[List[pulumi.Input['WebhookNotificationArgs']]] webhooks: the collection of webhook notifications.
+        :param pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]] webhooks: the collection of webhook notifications.
         """
         pulumi.set(__self__, "operation", operation)
         if email is not None:
@@ -67,14 +67,14 @@ class AutoscaleNotificationArgs:
 
     @property
     @pulumi.getter
-    def webhooks(self) -> Optional[pulumi.Input[List[pulumi.Input['WebhookNotificationArgs']]]]:
+    def webhooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]]:
         """
         the collection of webhook notifications.
         """
         return pulumi.get(self, "webhooks")
 
     @webhooks.setter
-    def webhooks(self, value: Optional[pulumi.Input[List[pulumi.Input['WebhookNotificationArgs']]]]):
+    def webhooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]]):
         pulumi.set(self, "webhooks", value)
 
 
@@ -83,14 +83,14 @@ class AutoscaleProfileArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input['ScaleCapacityArgs'],
                  name: pulumi.Input[str],
-                 rules: pulumi.Input[List[pulumi.Input['ScaleRuleArgs']]],
+                 rules: pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]],
                  fixed_date: Optional[pulumi.Input['TimeWindowArgs']] = None,
                  recurrence: Optional[pulumi.Input['RecurrenceArgs']] = None):
         """
         Autoscale profile.
         :param pulumi.Input['ScaleCapacityArgs'] capacity: the number of instances that can be used during this profile.
         :param pulumi.Input[str] name: the name of the profile.
-        :param pulumi.Input[List[pulumi.Input['ScaleRuleArgs']]] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
         :param pulumi.Input['TimeWindowArgs'] fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
         :param pulumi.Input['RecurrenceArgs'] recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
@@ -128,14 +128,14 @@ class AutoscaleProfileArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[List[pulumi.Input['ScaleRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]:
         """
         the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[List[pulumi.Input['ScaleRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -166,12 +166,12 @@ class AutoscaleProfileArgs:
 @pulumi.input_type
 class EmailNotificationArgs:
     def __init__(__self__, *,
-                 custom_emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  send_to_subscription_administrator: Optional[pulumi.Input[bool]] = None,
                  send_to_subscription_co_administrators: Optional[pulumi.Input[bool]] = None):
         """
         Email notification of an autoscale event.
-        :param pulumi.Input[List[pulumi.Input[str]]] custom_emails: the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_emails: the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         :param pulumi.Input[bool] send_to_subscription_administrator: a value indicating whether to send email to subscription administrator.
         :param pulumi.Input[bool] send_to_subscription_co_administrators: a value indicating whether to send email to subscription co-administrators.
         """
@@ -184,14 +184,14 @@ class EmailNotificationArgs:
 
     @property
     @pulumi.getter(name="customEmails")
-    def custom_emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def custom_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         """
         return pulumi.get(self, "custom_emails")
 
     @custom_emails.setter
-    def custom_emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def custom_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "custom_emails", value)
 
     @property
@@ -230,7 +230,7 @@ class MetricTriggerArgs:
                  time_aggregation: pulumi.Input[str],
                  time_grain: pulumi.Input[str],
                  time_window: pulumi.Input[str],
-                 dimensions: Optional[pulumi.Input[List[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
                  metric_namespace: Optional[pulumi.Input[str]] = None):
         """
         The trigger that results in a scaling action.
@@ -242,7 +242,7 @@ class MetricTriggerArgs:
         :param pulumi.Input[str] time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         :param pulumi.Input[str] time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param pulumi.Input[str] time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-        :param pulumi.Input[List[pulumi.Input['ScaleRuleMetricDimensionArgs']]] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         :param pulumi.Input[str] metric_namespace: the namespace of the metric that defines what the rule monitors.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -356,14 +356,14 @@ class MetricTriggerArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]:
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]:
         """
         List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]):
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @property
@@ -420,15 +420,15 @@ class RecurrenceArgs:
 @pulumi.input_type
 class RecurrentScheduleArgs:
     def __init__(__self__, *,
-                 days: pulumi.Input[List[pulumi.Input[str]]],
-                 hours: pulumi.Input[List[pulumi.Input[float]]],
-                 minutes: pulumi.Input[List[pulumi.Input[float]]],
+                 days: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 hours: pulumi.Input[Sequence[pulumi.Input[int]]],
+                 minutes: pulumi.Input[Sequence[pulumi.Input[int]]],
                  time_zone: pulumi.Input[str]):
         """
         The scheduling constraints for when the profile begins.
-        :param pulumi.Input[List[pulumi.Input[str]]] days: the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-        :param pulumi.Input[List[pulumi.Input[float]]] hours: A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-        :param pulumi.Input[List[pulumi.Input[float]]] minutes: A collection of minutes at which the profile takes effect at.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: A collection of minutes at which the profile takes effect at.
         :param pulumi.Input[str] time_zone: the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
         pulumi.set(__self__, "days", days)
@@ -438,38 +438,38 @@ class RecurrentScheduleArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def days(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def days(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "days", value)
 
     @property
     @pulumi.getter
-    def hours(self) -> pulumi.Input[List[pulumi.Input[float]]]:
+    def hours(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
         """
         A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
         """
         return pulumi.get(self, "hours")
 
     @hours.setter
-    def hours(self, value: pulumi.Input[List[pulumi.Input[float]]]):
+    def hours(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
         pulumi.set(self, "hours", value)
 
     @property
     @pulumi.getter
-    def minutes(self) -> pulumi.Input[List[pulumi.Input[float]]]:
+    def minutes(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
         """
         A collection of minutes at which the profile takes effect at.
         """
         return pulumi.get(self, "minutes")
 
     @minutes.setter
-    def minutes(self, value: pulumi.Input[List[pulumi.Input[float]]]):
+    def minutes(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
         pulumi.set(self, "minutes", value)
 
     @property
@@ -650,12 +650,12 @@ class ScaleRuleMetricDimensionArgs:
     def __init__(__self__, *,
                  dimension_name: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Specifies an auto scale rule metric dimension.
         :param pulumi.Input[str] dimension_name: Name of the dimension.
         :param pulumi.Input[str] operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-        :param pulumi.Input[List[pulumi.Input[str]]] values: list of dimension values. For example: ["App1","App2"].
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of dimension values. For example: ["App1","App2"].
         """
         pulumi.set(__self__, "dimension_name", dimension_name)
         pulumi.set(__self__, "operator", operator)
@@ -687,14 +687,14 @@ class ScaleRuleMetricDimensionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         list of dimension values. For example: ["App1","App2"].
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 

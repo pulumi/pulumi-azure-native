@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -54,7 +54,7 @@ class GetFailoverGroupResult:
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[List[str]]:
+    def databases(self) -> Optional[Sequence[str]]:
         """
         List of databases in the failover group.
         """
@@ -78,7 +78,7 @@ class GetFailoverGroupResult:
 
     @property
     @pulumi.getter(name="partnerServers")
-    def partner_servers(self) -> List['outputs.PartnerInfoResponse']:
+    def partner_servers(self) -> Sequence['outputs.PartnerInfoResponse']:
         """
         List of partner server information for the failover group.
         """

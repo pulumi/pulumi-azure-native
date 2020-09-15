@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -241,7 +241,7 @@ class GuestConfigurationNavigationResponse(dict):
     def __init__(__self__, *,
                  content_hash: str,
                  content_uri: str,
-                 configuration_parameter: Optional[List['outputs.ConfigurationParameterResponse']] = None,
+                 configuration_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
                  configuration_setting: Optional['outputs.ConfigurationSettingResponse'] = None,
                  kind: Optional[str] = None,
                  name: Optional[str] = None,
@@ -250,7 +250,7 @@ class GuestConfigurationNavigationResponse(dict):
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
         :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param str content_uri: Uri of the storage where guest configuration package is uploaded.
-        :param List['ConfigurationParameterResponseArgs'] configuration_parameter: The configuration parameters for the guest configuration.
+        :param Sequence['ConfigurationParameterResponseArgs'] configuration_parameter: The configuration parameters for the guest configuration.
         :param 'ConfigurationSettingResponseArgs' configuration_setting: The configuration setting for the guest configuration.
         :param str kind: Kind of the guest configuration. For example:DSC
         :param str name: Name of the guest configuration.
@@ -287,7 +287,7 @@ class GuestConfigurationNavigationResponse(dict):
 
     @property
     @pulumi.getter(name="configurationParameter")
-    def configuration_parameter(self) -> Optional[List['outputs.ConfigurationParameterResponse']]:
+    def configuration_parameter(self) -> Optional[Sequence['outputs.ConfigurationParameterResponse']]:
         """
         The configuration parameters for the guest configuration.
         """

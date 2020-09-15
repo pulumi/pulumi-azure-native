@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -30,7 +30,7 @@ class VirtualMachine(pulumi.CustomResource):
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
-                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -52,7 +52,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vm_name: The name of the virtual machine.
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: The virtual machine zones.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine zones.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -221,7 +221,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def resources(self) -> pulumi.Output[List['outputs.VirtualMachineExtensionResponse']]:
+    def resources(self) -> pulumi.Output[Sequence['outputs.VirtualMachineExtensionResponse']]:
         """
         The virtual machine child extension resources.
         """
@@ -261,7 +261,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The virtual machine zones.
         """

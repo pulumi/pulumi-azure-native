@@ -50,11 +50,11 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
         /// <summary>
         /// Properties of BYOK Encryption description
         /// </summary>
-        public readonly Outputs.EncryptionResponseResult? Encryption;
+        public readonly Outputs.EncryptionResponse? Encryption;
         /// <summary>
         /// Properties of BYOK Identity description
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
         /// <summary>
         /// Properties of sku resource
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -114,9 +114,9 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
 
             string createdAt,
 
-            Outputs.EncryptionResponseResult? encryption,
+            Outputs.EncryptionResponse? encryption,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             bool? isAutoInflateEnabled,
 
@@ -134,7 +134,7 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
 
             string serviceBusEndpoint,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -42,39 +42,39 @@ namespace Pulumi.AzureRM.ContainerInstance.Latest
         /// <summary>
         /// The containers within the container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerResponseResult> Containers;
+        public readonly ImmutableArray<Outputs.ContainerResponse> Containers;
         /// <summary>
         /// The diagnostic information for a container group.
         /// </summary>
-        public readonly Outputs.ContainerGroupDiagnosticsResponseResult? Diagnostics;
+        public readonly Outputs.ContainerGroupDiagnosticsResponse? Diagnostics;
         /// <summary>
         /// The DNS config information for a container group.
         /// </summary>
-        public readonly Outputs.DnsConfigurationResponseResult? DnsConfig;
+        public readonly Outputs.DnsConfigurationResponse? DnsConfig;
         /// <summary>
         /// The encryption properties for a container group.
         /// </summary>
-        public readonly Outputs.EncryptionPropertiesResponseResult? EncryptionProperties;
+        public readonly Outputs.EncryptionPropertiesResponse? EncryptionProperties;
         /// <summary>
         /// The identity of the container group, if configured.
         /// </summary>
-        public readonly Outputs.ContainerGroupIdentityResponseResult? Identity;
+        public readonly Outputs.ContainerGroupIdentityResponse? Identity;
         /// <summary>
         /// The image registry credentials by which the container group is created from.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponseResult> ImageRegistryCredentials;
+        public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponse> ImageRegistryCredentials;
         /// <summary>
         /// The init containers for a container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InitContainerDefinitionResponseResult> InitContainers;
+        public readonly ImmutableArray<Outputs.InitContainerDefinitionResponse> InitContainers;
         /// <summary>
         /// The instance view of the container group. Only valid in response.
         /// </summary>
-        public readonly Outputs.ContainerGroupResponseInstanceViewResult InstanceView;
+        public readonly Outputs.ContainerGroupResponseInstanceView InstanceView;
         /// <summary>
         /// The IP address type of the container group.
         /// </summary>
-        public readonly Outputs.IpAddressResponseResult? IpAddress;
+        public readonly Outputs.IpAddressResponse? IpAddress;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.ContainerInstance.Latest
         /// <summary>
         /// The network profile information for a container group.
         /// </summary>
-        public readonly Outputs.ContainerGroupNetworkProfileResponseResult? NetworkProfile;
+        public readonly Outputs.ContainerGroupNetworkProfileResponse? NetworkProfile;
         /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
@@ -117,33 +117,33 @@ namespace Pulumi.AzureRM.ContainerInstance.Latest
         /// <summary>
         /// The list of volumes that can be mounted by containers in this container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeResponseResult> Volumes;
+        public readonly ImmutableArray<Outputs.VolumeResponse> Volumes;
 
         [OutputConstructor]
         private GetContainerGroupResult(
-            ImmutableArray<Outputs.ContainerResponseResult> containers,
+            ImmutableArray<Outputs.ContainerResponse> containers,
 
-            Outputs.ContainerGroupDiagnosticsResponseResult? diagnostics,
+            Outputs.ContainerGroupDiagnosticsResponse? diagnostics,
 
-            Outputs.DnsConfigurationResponseResult? dnsConfig,
+            Outputs.DnsConfigurationResponse? dnsConfig,
 
-            Outputs.EncryptionPropertiesResponseResult? encryptionProperties,
+            Outputs.EncryptionPropertiesResponse? encryptionProperties,
 
-            Outputs.ContainerGroupIdentityResponseResult? identity,
+            Outputs.ContainerGroupIdentityResponse? identity,
 
-            ImmutableArray<Outputs.ImageRegistryCredentialResponseResult> imageRegistryCredentials,
+            ImmutableArray<Outputs.ImageRegistryCredentialResponse> imageRegistryCredentials,
 
-            ImmutableArray<Outputs.InitContainerDefinitionResponseResult> initContainers,
+            ImmutableArray<Outputs.InitContainerDefinitionResponse> initContainers,
 
-            Outputs.ContainerGroupResponseInstanceViewResult instanceView,
+            Outputs.ContainerGroupResponseInstanceView instanceView,
 
-            Outputs.IpAddressResponseResult? ipAddress,
+            Outputs.IpAddressResponse? ipAddress,
 
             string? location,
 
             string name,
 
-            Outputs.ContainerGroupNetworkProfileResponseResult? networkProfile,
+            Outputs.ContainerGroupNetworkProfileResponse? networkProfile,
 
             string osType,
 
@@ -157,7 +157,7 @@ namespace Pulumi.AzureRM.ContainerInstance.Latest
 
             string type,
 
-            ImmutableArray<Outputs.VolumeResponseResult> volumes)
+            ImmutableArray<Outputs.VolumeResponse> volumes)
         {
             Containers = containers;
             Diagnostics = diagnostics;

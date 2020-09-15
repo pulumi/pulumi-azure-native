@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// A list of rules that define a particular Rules Engine Configuration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RulesEngineRuleResponseResult> Rules;
+        public readonly ImmutableArray<Outputs.RulesEngineRuleResponse> Rules;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Network.V20200401
 
             string? resourceState,
 
-            ImmutableArray<Outputs.RulesEngineRuleResponseResult> rules,
+            ImmutableArray<Outputs.RulesEngineRuleResponse> rules,
 
             string type)
         {

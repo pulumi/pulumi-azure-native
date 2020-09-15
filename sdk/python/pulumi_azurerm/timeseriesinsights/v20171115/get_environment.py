@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -111,7 +111,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter(name="partitionKeyProperties")
-    def partition_key_properties(self) -> Optional[List['outputs.PartitionKeyPropertyResponse']]:
+    def partition_key_properties(self) -> Optional[Sequence['outputs.PartitionKeyPropertyResponse']]:
         """
         The list of partition keys according to which the data in the environment will be ordered.
         """

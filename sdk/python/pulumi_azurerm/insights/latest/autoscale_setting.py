@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,8 +21,8 @@ class AutoscaleSetting(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]]] = None,
-                 profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]]] = None,
+                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_uri: Optional[pulumi.Input[str]] = None,
@@ -38,8 +38,8 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: the name of the autoscale setting.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]] notifications: the collection of notifications.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]] notifications: the collection of notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
@@ -131,7 +131,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notifications(self) -> pulumi.Output[Optional[List['outputs.AutoscaleNotificationResponse']]]:
+    def notifications(self) -> pulumi.Output[Optional[Sequence['outputs.AutoscaleNotificationResponse']]]:
         """
         the collection of notifications.
         """
@@ -139,7 +139,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def profiles(self) -> pulumi.Output[List['outputs.AutoscaleProfileResponse']]:
+    def profiles(self) -> pulumi.Output[Sequence['outputs.AutoscaleProfileResponse']]:
         """
         the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         """

@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// List of all routes.
         /// </summary>
         [Output("routes")]
-        public Output<ImmutableArray<Outputs.HubRouteResponseResult>> Routes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HubRouteResponse>> Routes { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

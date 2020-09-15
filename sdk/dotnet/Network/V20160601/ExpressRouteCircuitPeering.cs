@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets the Microsoft peering config
         /// </summary>
         [Output("microsoftPeeringConfig")]
-        public Output<Outputs.ExpressRouteCircuitPeeringConfigResponseResult?> MicrosoftPeeringConfig { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitPeeringConfigResponse?> MicrosoftPeeringConfig { get; private set; } = null!;
 
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or peering stats
         /// </summary>
         [Output("stats")]
-        public Output<Outputs.ExpressRouteCircuitStatsResponseResult?> Stats { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitStatsResponse?> Stats { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the vlan id

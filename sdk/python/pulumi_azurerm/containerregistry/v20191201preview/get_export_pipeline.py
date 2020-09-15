@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -69,7 +69,7 @@ class GetExportPipelineResult:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[List[str]]:
+    def options(self) -> Optional[Sequence[str]]:
         """
         The list of all options configured for the pipeline.
         """

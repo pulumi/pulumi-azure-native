@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['VirtualRouterPeering']
@@ -17,7 +17,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_asn: Optional[pulumi.Input[float]] = None,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
                  peer_ip: Optional[pulumi.Input[str]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Gets name of the peering unique to VirtualRouter. This name can be used to access the resource.
-        :param pulumi.Input[float] peer_asn: Peer ASN.
+        :param pulumi.Input[int] peer_asn: Peer ASN.
         :param pulumi.Input[str] peer_ip: Peer IP.
         :param pulumi.Input[str] peering_name: The name of the Virtual Router Peering.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -115,7 +115,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> pulumi.Output[Optional[float]]:
+    def peer_asn(self) -> pulumi.Output[Optional[int]]:
         """
         Peer ASN.
         """

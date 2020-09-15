@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Authentication certificates of application gateway resource
         /// </summary>
         [Output("authenticationCertificates")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificateResponseResult>> AuthenticationCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificateResponse>> AuthenticationCertificates { get; private set; } = null!;
 
         /// <summary>
         /// Backend address pool of application gateway resource
         /// </summary>
         [Output("backendAddressPools")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult>> BackendAddressPools { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponse>> BackendAddressPools { get; private set; } = null!;
 
         /// <summary>
         /// Backend http settings of application gateway resource
         /// </summary>
         [Output("backendHttpSettingsCollection")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponseResult>> BackendHttpSettingsCollection { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse>> BackendHttpSettingsCollection { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
@@ -42,25 +42,25 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Frontend IP addresses of application gateway resource
         /// </summary>
         [Output("frontendIPConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponseResult>> FrontendIPConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponse>> FrontendIPConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Frontend ports of application gateway resource
         /// </summary>
         [Output("frontendPorts")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponseResult>> FrontendPorts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponse>> FrontendPorts { get; private set; } = null!;
 
         /// <summary>
         /// Subnets of application gateway resource
         /// </summary>
         [Output("gatewayIPConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponseResult>> GatewayIPConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse>> GatewayIPConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// HTTP listeners of application gateway resource
         /// </summary>
         [Output("httpListeners")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponseResult>> HttpListeners { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse>> HttpListeners { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Probes of application gateway resource
         /// </summary>
         [Output("probes")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayProbeResponseResult>> Probes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayProbeResponse>> Probes { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Request routing rules of application gateway resource
         /// </summary>
         [Output("requestRoutingRules")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponseResult>> RequestRoutingRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponse>> RequestRoutingRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource guid property of the ApplicationGateway resource
@@ -108,19 +108,19 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Sku of application gateway resource
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ApplicationGatewaySkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ApplicationGatewaySkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// SSL certificates of application gateway resource
         /// </summary>
         [Output("sslCertificates")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponseResult>> SslCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponse>> SslCertificates { get; private set; } = null!;
 
         /// <summary>
         /// SSL policy of application gateway resource
         /// </summary>
         [Output("sslPolicy")]
-        public Output<Outputs.ApplicationGatewaySslPolicyResponseResult?> SslPolicy { get; private set; } = null!;
+        public Output<Outputs.ApplicationGatewaySslPolicyResponse?> SslPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -138,7 +138,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// URL path map of application gateway resource
         /// </summary>
         [Output("urlPathMaps")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponseResult>> UrlPathMaps { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponse>> UrlPathMaps { get; private set; } = null!;
 
 
         /// <summary>

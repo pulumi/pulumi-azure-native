@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -129,7 +129,7 @@ class AzureStorageContainerArgs:
                  container_type: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
-                 protected_item_count: Optional[pulumi.Input[float]] = None,
+                 protected_item_count: Optional[pulumi.Input[int]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class AzureStorageContainerArgs:
                Backup is VMAppContainer
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
-        :param pulumi.Input[float] protected_item_count: Number of items backed up in this container.
+        :param pulumi.Input[int] protected_item_count: Number of items backed up in this container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
         :param pulumi.Input[str] resource_group: Resource group name of Recovery Services Vault.
         :param pulumi.Input[str] source_resource_id: Fully qualified ARM url.
@@ -221,14 +221,14 @@ class AzureStorageContainerArgs:
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[pulumi.Input[float]]:
+    def protected_item_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of items backed up in this container.
         """
         return pulumi.get(self, "protected_item_count")
 
     @protected_item_count.setter
-    def protected_item_count(self, value: Optional[pulumi.Input[float]]):
+    def protected_item_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_item_count", value)
 
     @property
@@ -459,12 +459,12 @@ class AzureWorkloadContainerExtendedInfoArgs:
     def __init__(__self__, *,
                  host_server_name: Optional[pulumi.Input[str]] = None,
                  inquiry_info: Optional[pulumi.Input['InquiryInfoArgs']] = None,
-                 nodes_list: Optional[pulumi.Input[List[pulumi.Input['DistributedNodesInfoArgs']]]] = None):
+                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None):
         """
         Extended information of the container.
         :param pulumi.Input[str] host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
         :param pulumi.Input['InquiryInfoArgs'] inquiry_info: Inquiry Status for the container.
-        :param pulumi.Input[List[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
         """
         if host_server_name is not None:
             pulumi.set(__self__, "host_server_name", host_server_name)
@@ -499,14 +499,14 @@ class AzureWorkloadContainerExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="nodesList")
-    def nodes_list(self) -> Optional[pulumi.Input[List[pulumi.Input['DistributedNodesInfoArgs']]]]:
+    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
         """
         List of the nodes in case of distributed container.
         """
         return pulumi.get(self, "nodes_list")
 
     @nodes_list.setter
-    def nodes_list(self, value: Optional[pulumi.Input[List[pulumi.Input['DistributedNodesInfoArgs']]]]):
+    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
         pulumi.set(self, "nodes_list", value)
 
 
@@ -656,11 +656,11 @@ class DpmContainerArgs:
                  container_id: Optional[pulumi.Input[str]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
                  dpm_agent_version: Optional[pulumi.Input[str]] = None,
-                 dpm_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 dpm_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extended_info: Optional[pulumi.Input['DPMContainerExtendedInfoArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
-                 protected_item_count: Optional[pulumi.Input[float]] = None,
+                 protected_item_count: Optional[pulumi.Input[int]] = None,
                  protection_status: Optional[pulumi.Input[str]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None,
                  upgrade_available: Optional[pulumi.Input[bool]] = None):
@@ -674,11 +674,11 @@ class DpmContainerArgs:
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
         :param pulumi.Input[str] dpm_agent_version: Backup engine Agent version
-        :param pulumi.Input[List[pulumi.Input[str]]] dpm_servers: List of BackupEngines protecting the container
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dpm_servers: List of BackupEngines protecting the container
         :param pulumi.Input['DPMContainerExtendedInfoArgs'] extended_info: Extended Info of the container.
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
-        :param pulumi.Input[float] protected_item_count: Number of protected items in the BackupEngine
+        :param pulumi.Input[int] protected_item_count: Number of protected items in the BackupEngine
         :param pulumi.Input[str] protection_status: Protection status of the container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
         :param pulumi.Input[bool] upgrade_available: To check if upgrade available
@@ -775,14 +775,14 @@ class DpmContainerArgs:
 
     @property
     @pulumi.getter(name="dpmServers")
-    def dpm_servers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def dpm_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of BackupEngines protecting the container
         """
         return pulumi.get(self, "dpm_servers")
 
     @dpm_servers.setter
-    def dpm_servers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def dpm_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dpm_servers", value)
 
     @property
@@ -823,14 +823,14 @@ class DpmContainerArgs:
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[pulumi.Input[float]]:
+    def protected_item_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of protected items in the BackupEngine
         """
         return pulumi.get(self, "protected_item_count")
 
     @protected_item_count.setter
-    def protected_item_count(self, value: Optional[pulumi.Input[float]]):
+    def protected_item_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_item_count", value)
 
     @property
@@ -1197,11 +1197,11 @@ class IaaSVMContainerArgs:
 @pulumi.input_type
 class InquiryInfoArgs:
     def __init__(__self__, *,
-                 inquiry_details: Optional[pulumi.Input[List[pulumi.Input['WorkloadInquiryDetailsArgs']]]] = None,
+                 inquiry_details: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInquiryDetailsArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         Details about inquired protectable items under a given container.
-        :param pulumi.Input[List[pulumi.Input['WorkloadInquiryDetailsArgs']]] inquiry_details: Inquiry Details which will have workload specific details.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadInquiryDetailsArgs']]] inquiry_details: Inquiry Details which will have workload specific details.
                For e.g. - For SQL and oracle this will contain different details.
         :param pulumi.Input[str] status: Inquiry Status for this container such as
                InProgress | Failed | Succeeded
@@ -1213,7 +1213,7 @@ class InquiryInfoArgs:
 
     @property
     @pulumi.getter(name="inquiryDetails")
-    def inquiry_details(self) -> Optional[pulumi.Input[List[pulumi.Input['WorkloadInquiryDetailsArgs']]]]:
+    def inquiry_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInquiryDetailsArgs']]]]:
         """
         Inquiry Details which will have workload specific details.
         For e.g. - For SQL and oracle this will contain different details.
@@ -1221,7 +1221,7 @@ class InquiryInfoArgs:
         return pulumi.get(self, "inquiry_details")
 
     @inquiry_details.setter
-    def inquiry_details(self, value: Optional[pulumi.Input[List[pulumi.Input['WorkloadInquiryDetailsArgs']]]]):
+    def inquiry_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInquiryDetailsArgs']]]]):
         pulumi.set(self, "inquiry_details", value)
 
     @property
@@ -1265,15 +1265,15 @@ class InquiryValidationArgs:
 @pulumi.input_type
 class MABContainerHealthDetailsArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[float]] = None,
+                 code: Optional[pulumi.Input[int]] = None,
                  message: Optional[pulumi.Input[str]] = None,
-                 recommendations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  title: Optional[pulumi.Input[str]] = None):
         """
         MAB workload-specific Health Details.
-        :param pulumi.Input[float] code: Health Code
+        :param pulumi.Input[int] code: Health Code
         :param pulumi.Input[str] message: Health Message
-        :param pulumi.Input[List[pulumi.Input[str]]] recommendations: Health Recommended Actions
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] recommendations: Health Recommended Actions
         :param pulumi.Input[str] title: Health Title
         """
         if code is not None:
@@ -1287,14 +1287,14 @@ class MABContainerHealthDetailsArgs:
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[float]]:
+    def code(self) -> Optional[pulumi.Input[int]]:
         """
         Health Code
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[float]]):
+    def code(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "code", value)
 
     @property
@@ -1311,14 +1311,14 @@ class MABContainerHealthDetailsArgs:
 
     @property
     @pulumi.getter
-    def recommendations(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def recommendations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Health Recommended Actions
         """
         return pulumi.get(self, "recommendations")
 
     @recommendations.setter
-    def recommendations(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def recommendations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "recommendations", value)
 
     @property
@@ -1341,13 +1341,13 @@ class MabContainerArgs:
                  backup_management_type: Optional[pulumi.Input[str]] = None,
                  can_re_register: Optional[pulumi.Input[bool]] = None,
                  container_health_state: Optional[pulumi.Input[str]] = None,
-                 container_id: Optional[pulumi.Input[float]] = None,
+                 container_id: Optional[pulumi.Input[int]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['MabContainerExtendedInfoArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
-                 mab_container_health_details: Optional[pulumi.Input[List[pulumi.Input['MABContainerHealthDetailsArgs']]]] = None,
-                 protected_item_count: Optional[pulumi.Input[float]] = None,
+                 mab_container_health_details: Optional[pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgs']]]] = None,
+                 protected_item_count: Optional[pulumi.Input[int]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None):
         """
         Container with items backed up using MAB backup engine.
@@ -1355,7 +1355,7 @@ class MabContainerArgs:
         :param pulumi.Input[str] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[bool] can_re_register: Can the container be registered one more time.
         :param pulumi.Input[str] container_health_state: Health state of mab container.
-        :param pulumi.Input[float] container_id: ContainerID represents the container.
+        :param pulumi.Input[int] container_id: ContainerID represents the container.
         :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -1363,8 +1363,8 @@ class MabContainerArgs:
         :param pulumi.Input['MabContainerExtendedInfoArgs'] extended_info: Additional information for this container
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
-        :param pulumi.Input[List[pulumi.Input['MABContainerHealthDetailsArgs']]] mab_container_health_details: Health details on this mab container.
-        :param pulumi.Input[float] protected_item_count: Number of items backed up in this container.
+        :param pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgs']]] mab_container_health_details: Health details on this mab container.
+        :param pulumi.Input[int] protected_item_count: Number of items backed up in this container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         if agent_version is not None:
@@ -1442,14 +1442,14 @@ class MabContainerArgs:
 
     @property
     @pulumi.getter(name="containerId")
-    def container_id(self) -> Optional[pulumi.Input[float]]:
+    def container_id(self) -> Optional[pulumi.Input[int]]:
         """
         ContainerID represents the container.
         """
         return pulumi.get(self, "container_id")
 
     @container_id.setter
-    def container_id(self, value: Optional[pulumi.Input[float]]):
+    def container_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "container_id", value)
 
     @property
@@ -1505,26 +1505,26 @@ class MabContainerArgs:
 
     @property
     @pulumi.getter(name="mabContainerHealthDetails")
-    def mab_container_health_details(self) -> Optional[pulumi.Input[List[pulumi.Input['MABContainerHealthDetailsArgs']]]]:
+    def mab_container_health_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgs']]]]:
         """
         Health details on this mab container.
         """
         return pulumi.get(self, "mab_container_health_details")
 
     @mab_container_health_details.setter
-    def mab_container_health_details(self, value: Optional[pulumi.Input[List[pulumi.Input['MABContainerHealthDetailsArgs']]]]):
+    def mab_container_health_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgs']]]]):
         pulumi.set(self, "mab_container_health_details", value)
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[pulumi.Input[float]]:
+    def protected_item_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of items backed up in this container.
         """
         return pulumi.get(self, "protected_item_count")
 
     @protected_item_count.setter
-    def protected_item_count(self, value: Optional[pulumi.Input[float]]):
+    def protected_item_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_item_count", value)
 
     @property
@@ -1544,14 +1544,14 @@ class MabContainerArgs:
 class MabContainerExtendedInfoArgs:
     def __init__(__self__, *,
                  backup_item_type: Optional[pulumi.Input[str]] = None,
-                 backup_items: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 backup_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  last_backup_status: Optional[pulumi.Input[str]] = None,
                  last_refreshed_at: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None):
         """
         Additional information of the container.
         :param pulumi.Input[str] backup_item_type: Type of backup items associated with this container.
-        :param pulumi.Input[List[pulumi.Input[str]]] backup_items: List of backup items associated with this container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_items: List of backup items associated with this container.
         :param pulumi.Input[str] last_backup_status: Latest backup status of this container.
         :param pulumi.Input[str] last_refreshed_at: Time stamp when this container was refreshed.
         :param pulumi.Input[str] policy_name: Backup policy associated with this container.
@@ -1581,14 +1581,14 @@ class MabContainerExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="backupItems")
-    def backup_items(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def backup_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of backup items associated with this container.
         """
         return pulumi.get(self, "backup_items")
 
     @backup_items.setter
-    def backup_items(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def backup_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "backup_items", value)
 
     @property
@@ -1632,12 +1632,12 @@ class MabContainerExtendedInfoArgs:
 class WorkloadInquiryDetailsArgs:
     def __init__(__self__, *,
                  inquiry_validation: Optional[pulumi.Input['InquiryValidationArgs']] = None,
-                 item_count: Optional[pulumi.Input[float]] = None,
+                 item_count: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Details of an inquired protectable item.
         :param pulumi.Input['InquiryValidationArgs'] inquiry_validation: Inquiry validation such as permissions and other backup validations.
-        :param pulumi.Input[float] item_count: Contains the protectable item Count inside this Container.
+        :param pulumi.Input[int] item_count: Contains the protectable item Count inside this Container.
         :param pulumi.Input[str] type: Type of the Workload such as SQL, Oracle etc.
         """
         if inquiry_validation is not None:
@@ -1661,14 +1661,14 @@ class WorkloadInquiryDetailsArgs:
 
     @property
     @pulumi.getter(name="itemCount")
-    def item_count(self) -> Optional[pulumi.Input[float]]:
+    def item_count(self) -> Optional[pulumi.Input[int]]:
         """
         Contains the protectable item Count inside this Container.
         """
         return pulumi.get(self, "item_count")
 
     @item_count.setter
-    def item_count(self, value: Optional[pulumi.Input[float]]):
+    def item_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "item_count", value)
 
     @property

@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.StorSimple.Latest
         /// <summary>
         /// The schedules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BandwidthScheduleResponseResult> Schedules;
+        public readonly ImmutableArray<Outputs.BandwidthScheduleResponse> Schedules;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.StorSimple.Latest
 
             string name,
 
-            ImmutableArray<Outputs.BandwidthScheduleResponseResult> schedules,
+            ImmutableArray<Outputs.BandwidthScheduleResponse> schedules,
 
             string type,
 

@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Insights.V20170501Preview
         /// The list of logs settings.
         /// </summary>
         [Output("logs")]
-        public Output<ImmutableArray<Outputs.LogSettingsResponseResult>> Logs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LogSettingsResponse>> Logs { get; private set; } = null!;
 
         /// <summary>
         /// The list of metric settings.
         /// </summary>
         [Output("metrics")]
-        public Output<ImmutableArray<Outputs.MetricSettingsResponseResult>> Metrics { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MetricSettingsResponse>> Metrics { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name

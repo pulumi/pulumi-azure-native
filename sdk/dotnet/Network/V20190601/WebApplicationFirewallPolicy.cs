@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// A collection of references to application gateways.
         /// </summary>
         [Output("applicationGateways")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayResponseResult>> ApplicationGateways { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayResponse>> ApplicationGateways { get; private set; } = null!;
 
         /// <summary>
         /// Describes custom rules inside the policy.
         /// </summary>
         [Output("customRules")]
-        public Output<ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult>> CustomRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponse>> CustomRules { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// Describes policySettings for policy.
         /// </summary>
         [Output("policySettings")]
-        public Output<Outputs.PolicySettingsResponseResult?> PolicySettings { get; private set; } = null!;
+        public Output<Outputs.PolicySettingsResponse?> PolicySettings { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the WebApplicationFirewallPolicy.

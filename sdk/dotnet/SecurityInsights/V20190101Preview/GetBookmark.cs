@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// <summary>
         /// Describes a user that created the bookmark
         /// </summary>
-        public readonly Outputs.UserInfoResponseResult? CreatedBy;
+        public readonly Outputs.UserInfoResponse? CreatedBy;
         /// <summary>
         /// The display name of the bookmark
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// <summary>
         /// Describes an incident that relates to bookmark
         /// </summary>
-        public readonly Outputs.IncidentInfoResponseResult? IncidentInfo;
+        public readonly Outputs.IncidentInfoResponse? IncidentInfo;
         /// <summary>
         /// List of labels relevant to this bookmark
         /// </summary>
@@ -102,19 +102,19 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// <summary>
         /// Describes a user that updated the bookmark
         /// </summary>
-        public readonly Outputs.UserInfoResponseResult? UpdatedBy;
+        public readonly Outputs.UserInfoResponse? UpdatedBy;
 
         [OutputConstructor]
         private GetBookmarkResult(
             string? created,
 
-            Outputs.UserInfoResponseResult? createdBy,
+            Outputs.UserInfoResponse? createdBy,
 
             string displayName,
 
             string? etag,
 
-            Outputs.IncidentInfoResponseResult? incidentInfo,
+            Outputs.IncidentInfoResponse? incidentInfo,
 
             ImmutableArray<string> labels,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
 
             string? updated,
 
-            Outputs.UserInfoResponseResult? updatedBy)
+            Outputs.UserInfoResponse? updatedBy)
         {
             Created = created;
             CreatedBy = createdBy;

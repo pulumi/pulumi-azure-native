@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -70,17 +70,17 @@ class AddressSpaceResponse(dict):
     AddressSpace contains an array of IP address ranges that can be used by subnets
     """
     def __init__(__self__, *,
-                 address_prefixes: Optional[List[str]] = None):
+                 address_prefixes: Optional[Sequence[str]] = None):
         """
         AddressSpace contains an array of IP address ranges that can be used by subnets
-        :param List[str] address_prefixes: Gets or sets list of address blocks reserved for this virtual network in CIDR notation
+        :param Sequence[str] address_prefixes: Gets or sets list of address blocks reserved for this virtual network in CIDR notation
         """
         if address_prefixes is not None:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[List[str]]:
+    def address_prefixes(self) -> Optional[Sequence[str]]:
         """
         Gets or sets list of address blocks reserved for this virtual network in CIDR notation
         """
@@ -170,16 +170,16 @@ class ApplicationGatewayBackendAddressPoolResponse(dict):
     Backend Address Pool of application gateway
     """
     def __init__(__self__, *,
-                 backend_addresses: Optional[List['outputs.ApplicationGatewayBackendAddressResponse']] = None,
-                 backend_ip_configurations: Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
+                 backend_addresses: Optional[Sequence['outputs.ApplicationGatewayBackendAddressResponse']] = None,
+                 backend_ip_configurations: Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  provisioning_state: Optional[str] = None):
         """
         Backend Address Pool of application gateway
-        :param List['ApplicationGatewayBackendAddressResponseArgs'] backend_addresses: Backend addresses
-        :param List['NetworkInterfaceIPConfigurationResponseArgs'] backend_ip_configurations: Collection of references to IPs defined in NICs
+        :param Sequence['ApplicationGatewayBackendAddressResponseArgs'] backend_addresses: Backend addresses
+        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] backend_ip_configurations: Collection of references to IPs defined in NICs
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str name: Resource that is unique within a resource group. This name can be used to access the resource
@@ -200,7 +200,7 @@ class ApplicationGatewayBackendAddressPoolResponse(dict):
 
     @property
     @pulumi.getter(name="backendAddresses")
-    def backend_addresses(self) -> Optional[List['outputs.ApplicationGatewayBackendAddressResponse']]:
+    def backend_addresses(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendAddressResponse']]:
         """
         Backend addresses
         """
@@ -208,7 +208,7 @@ class ApplicationGatewayBackendAddressPoolResponse(dict):
 
     @property
     @pulumi.getter(name="backendIPConfigurations")
-    def backend_ip_configurations(self) -> Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']]:
+    def backend_ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]:
         """
         Collection of references to IPs defined in NICs
         """
@@ -294,28 +294,28 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
     Backend address pool settings of application gateway
     """
     def __init__(__self__, *,
-                 authentication_certificates: Optional[List['outputs.SubResourceResponse']] = None,
+                 authentication_certificates: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  cookie_based_affinity: Optional[str] = None,
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 port: Optional[float] = None,
+                 port: Optional[int] = None,
                  probe: Optional['outputs.SubResourceResponse'] = None,
                  protocol: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
-                 request_timeout: Optional[float] = None):
+                 request_timeout: Optional[int] = None):
         """
         Backend address pool settings of application gateway
-        :param List['SubResourceResponseArgs'] authentication_certificates: Array of references to Application Gateway Authentication Certificates
+        :param Sequence['SubResourceResponseArgs'] authentication_certificates: Array of references to Application Gateway Authentication Certificates
         :param str cookie_based_affinity: Cookie affinity
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param float port: Port
+        :param int port: Port
         :param 'SubResourceResponseArgs' probe: Probe resource of application gateway 
         :param str protocol: Protocol
         :param str provisioning_state: Provisioning state of the backend http settings resource Updating/Deleting/Failed
-        :param float request_timeout: Request timeout
+        :param int request_timeout: Request timeout
         """
         if authentication_certificates is not None:
             pulumi.set(__self__, "authentication_certificates", authentication_certificates)
@@ -340,7 +340,7 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def authentication_certificates(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         Array of references to Application Gateway Authentication Certificates
         """
@@ -380,7 +380,7 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         Port
         """
@@ -412,7 +412,7 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="requestTimeout")
-    def request_timeout(self) -> Optional[float]:
+    def request_timeout(self) -> Optional[int]:
         """
         Request timeout
         """
@@ -541,14 +541,14 @@ class ApplicationGatewayFrontendPortResponse(dict):
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 port: Optional[float] = None,
+                 port: Optional[int] = None,
                  provisioning_state: Optional[str] = None):
         """
         Frontend Port of application gateway
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param float port: Frontend port
+        :param int port: Frontend port
         :param str provisioning_state: Provisioning state of the frontend port resource Updating/Deleting/Failed
         """
         if etag is not None:
@@ -588,7 +588,7 @@ class ApplicationGatewayFrontendPortResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         Frontend port
         """
@@ -825,7 +825,7 @@ class ApplicationGatewayPathRuleResponse(dict):
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 paths: Optional[List[str]] = None,
+                 paths: Optional[Sequence[str]] = None,
                  provisioning_state: Optional[str] = None):
         """
         Path rule of URL path map of application gateway
@@ -834,7 +834,7 @@ class ApplicationGatewayPathRuleResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param List[str] paths: Path rules of URL path map
+        :param Sequence[str] paths: Path rules of URL path map
         :param str provisioning_state: Path rule of URL path map resource Updating/Deleting/Failed
         """
         if backend_address_pool is not None:
@@ -894,7 +894,7 @@ class ApplicationGatewayPathRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def paths(self) -> Optional[List[str]]:
+    def paths(self) -> Optional[Sequence[str]]:
         """
         Path rules of URL path map
         """
@@ -921,25 +921,25 @@ class ApplicationGatewayProbeResponse(dict):
                  etag: Optional[str] = None,
                  host: Optional[str] = None,
                  id: Optional[str] = None,
-                 interval: Optional[float] = None,
+                 interval: Optional[int] = None,
                  name: Optional[str] = None,
                  path: Optional[str] = None,
                  protocol: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
-                 timeout: Optional[float] = None,
-                 unhealthy_threshold: Optional[float] = None):
+                 timeout: Optional[int] = None,
+                 unhealthy_threshold: Optional[int] = None):
         """
         Probe of application gateway
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str host: Host to send probe to 
         :param str id: Resource Id
-        :param float interval: Probing interval in seconds 
+        :param int interval: Probing interval in seconds 
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource
         :param str path: Relative path of probe 
         :param str protocol: Protocol
         :param str provisioning_state: Provisioning state of the backend http settings resource Updating/Deleting/Failed
-        :param float timeout: Probing timeout in seconds 
-        :param float unhealthy_threshold: Probing unhealthy threshold 
+        :param int timeout: Probing timeout in seconds 
+        :param int unhealthy_threshold: Probing unhealthy threshold 
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -988,7 +988,7 @@ class ApplicationGatewayProbeResponse(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         """
         Probing interval in seconds 
         """
@@ -1028,7 +1028,7 @@ class ApplicationGatewayProbeResponse(dict):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> Optional[int]:
         """
         Probing timeout in seconds 
         """
@@ -1036,7 +1036,7 @@ class ApplicationGatewayProbeResponse(dict):
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> Optional[float]:
+    def unhealthy_threshold(self) -> Optional[int]:
         """
         Probing unhealthy threshold 
         """
@@ -1174,12 +1174,12 @@ class ApplicationGatewaySkuResponse(dict):
     SKU of application gateway
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         SKU of application gateway
-        :param float capacity: Capacity (instance count) of application gateway
+        :param int capacity: Capacity (instance count) of application gateway
         :param str name: Name of application gateway SKU
         :param str tier: Tier of application gateway
         """
@@ -1192,7 +1192,7 @@ class ApplicationGatewaySkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Capacity (instance count) of application gateway
         """
@@ -1322,17 +1322,17 @@ class ApplicationGatewaySslPolicyResponse(dict):
     Application gateway SSL policy
     """
     def __init__(__self__, *,
-                 disabled_ssl_protocols: Optional[List[str]] = None):
+                 disabled_ssl_protocols: Optional[Sequence[str]] = None):
         """
         Application gateway SSL policy
-        :param List[str] disabled_ssl_protocols: SSL protocols to be disabled on Application Gateway
+        :param Sequence[str] disabled_ssl_protocols: SSL protocols to be disabled on Application Gateway
         """
         if disabled_ssl_protocols is not None:
             pulumi.set(__self__, "disabled_ssl_protocols", disabled_ssl_protocols)
 
     @property
     @pulumi.getter(name="disabledSslProtocols")
-    def disabled_ssl_protocols(self) -> Optional[List[str]]:
+    def disabled_ssl_protocols(self) -> Optional[Sequence[str]]:
         """
         SSL protocols to be disabled on Application Gateway
         """
@@ -1353,7 +1353,7 @@ class ApplicationGatewayUrlPathMapResponse(dict):
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 path_rules: Optional[List['outputs.ApplicationGatewayPathRuleResponse']] = None,
+                 path_rules: Optional[Sequence['outputs.ApplicationGatewayPathRuleResponse']] = None,
                  provisioning_state: Optional[str] = None):
         """
         UrlPathMap of application gateway
@@ -1362,7 +1362,7 @@ class ApplicationGatewayUrlPathMapResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param List['ApplicationGatewayPathRuleResponseArgs'] path_rules: Path rule of URL path map resource
+        :param Sequence['ApplicationGatewayPathRuleResponseArgs'] path_rules: Path rule of URL path map resource
         :param str provisioning_state: Provisioning state of the backend http settings resource Updating/Deleting/Failed
         """
         if default_backend_address_pool is not None:
@@ -1422,7 +1422,7 @@ class ApplicationGatewayUrlPathMapResponse(dict):
 
     @property
     @pulumi.getter(name="pathRules")
-    def path_rules(self) -> Optional[List['outputs.ApplicationGatewayPathRuleResponse']]:
+    def path_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayPathRuleResponse']]:
         """
         Path rule of URL path map resource
         """
@@ -1446,8 +1446,8 @@ class BackendAddressPoolResponse(dict):
     Pool of backend IP addresses
     """
     def __init__(__self__, *,
-                 backend_ip_configurations: List['outputs.NetworkInterfaceIPConfigurationResponse'],
-                 load_balancing_rules: List['outputs.SubResourceResponse'],
+                 backend_ip_configurations: Sequence['outputs.NetworkInterfaceIPConfigurationResponse'],
+                 load_balancing_rules: Sequence['outputs.SubResourceResponse'],
                  outbound_nat_rule: 'outputs.SubResourceResponse',
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
@@ -1455,8 +1455,8 @@ class BackendAddressPoolResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Pool of backend IP addresses
-        :param List['NetworkInterfaceIPConfigurationResponseArgs'] backend_ip_configurations: Gets collection of references to IPs defined in NICs
-        :param List['SubResourceResponseArgs'] load_balancing_rules: Gets Load Balancing rules that use this Backend Address Pool
+        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] backend_ip_configurations: Gets collection of references to IPs defined in NICs
+        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: Gets Load Balancing rules that use this Backend Address Pool
         :param 'SubResourceResponseArgs' outbound_nat_rule: Gets outbound rules that use this Backend Address Pool
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
@@ -1477,7 +1477,7 @@ class BackendAddressPoolResponse(dict):
 
     @property
     @pulumi.getter(name="backendIPConfigurations")
-    def backend_ip_configurations(self) -> List['outputs.NetworkInterfaceIPConfigurationResponse']:
+    def backend_ip_configurations(self) -> Sequence['outputs.NetworkInterfaceIPConfigurationResponse']:
         """
         Gets collection of references to IPs defined in NICs
         """
@@ -1485,7 +1485,7 @@ class BackendAddressPoolResponse(dict):
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> List['outputs.SubResourceResponse']:
+    def load_balancing_rules(self) -> Sequence['outputs.SubResourceResponse']:
         """
         Gets Load Balancing rules that use this Backend Address Pool
         """
@@ -1538,13 +1538,13 @@ class BackendAddressPoolResponse(dict):
 @pulumi.output_type
 class BgpSettingsResponse(dict):
     def __init__(__self__, *,
-                 asn: Optional[float] = None,
+                 asn: Optional[int] = None,
                  bgp_peering_address: Optional[str] = None,
-                 peer_weight: Optional[float] = None):
+                 peer_weight: Optional[int] = None):
         """
-        :param float asn: Gets or sets this BGP speaker's ASN
+        :param int asn: Gets or sets this BGP speaker's ASN
         :param str bgp_peering_address: Gets or sets the BGP peering address and BGP identifier of this BGP speaker
-        :param float peer_weight: Gets or sets the weight added to routes learned from this BGP speaker
+        :param int peer_weight: Gets or sets the weight added to routes learned from this BGP speaker
         """
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
@@ -1555,7 +1555,7 @@ class BgpSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[float]:
+    def asn(self) -> Optional[int]:
         """
         Gets or sets this BGP speaker's ASN
         """
@@ -1571,7 +1571,7 @@ class BgpSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="peerWeight")
-    def peer_weight(self) -> Optional[float]:
+    def peer_weight(self) -> Optional[int]:
         """
         Gets or sets the weight added to routes learned from this BGP speaker
         """
@@ -1587,17 +1587,17 @@ class DhcpOptionsResponse(dict):
     DHCPOptions contains an array of DNS servers available to VMs deployed in the virtual networkStandard DHCP option for a subnet overrides VNET DHCP options.
     """
     def __init__(__self__, *,
-                 dns_servers: Optional[List[str]] = None):
+                 dns_servers: Optional[Sequence[str]] = None):
         """
         DHCPOptions contains an array of DNS servers available to VMs deployed in the virtual networkStandard DHCP option for a subnet overrides VNET DHCP options.
-        :param List[str] dns_servers: Gets or sets list of DNS servers IP addresses
+        :param Sequence[str] dns_servers: Gets or sets list of DNS servers IP addresses
         """
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> Optional[Sequence[str]]:
         """
         Gets or sets list of DNS servers IP addresses
         """
@@ -1699,15 +1699,15 @@ class ExpressRouteCircuitPeeringConfigResponse(dict):
     Specifies the peering config
     """
     def __init__(__self__, *,
-                 advertised_public_prefixes: Optional[List[str]] = None,
+                 advertised_public_prefixes: Optional[Sequence[str]] = None,
                  advertised_public_prefixes_state: Optional[str] = None,
-                 customer_asn: Optional[float] = None,
+                 customer_asn: Optional[int] = None,
                  routing_registry_name: Optional[str] = None):
         """
         Specifies the peering config
-        :param List[str] advertised_public_prefixes: Gets or sets the reference of AdvertisedPublicPrefixes
+        :param Sequence[str] advertised_public_prefixes: Gets or sets the reference of AdvertisedPublicPrefixes
         :param str advertised_public_prefixes_state: Gets or sets AdvertisedPublicPrefixState of the Peering resource 
-        :param float customer_asn: Gets or Sets CustomerAsn of the peering.
+        :param int customer_asn: Gets or Sets CustomerAsn of the peering.
         :param str routing_registry_name: Gets or Sets RoutingRegistryName of the config.
         """
         if advertised_public_prefixes is not None:
@@ -1721,7 +1721,7 @@ class ExpressRouteCircuitPeeringConfigResponse(dict):
 
     @property
     @pulumi.getter(name="advertisedPublicPrefixes")
-    def advertised_public_prefixes(self) -> Optional[List[str]]:
+    def advertised_public_prefixes(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the reference of AdvertisedPublicPrefixes
         """
@@ -1737,7 +1737,7 @@ class ExpressRouteCircuitPeeringConfigResponse(dict):
 
     @property
     @pulumi.getter(name="customerASN")
-    def customer_asn(self) -> Optional[float]:
+    def customer_asn(self) -> Optional[int]:
         """
         Gets or Sets CustomerAsn of the peering.
         """
@@ -1761,14 +1761,14 @@ class ExpressRouteCircuitPeeringResponse(dict):
     Peering in a ExpressRouteCircuit resource
     """
     def __init__(__self__, *,
-                 azure_asn: Optional[float] = None,
+                 azure_asn: Optional[int] = None,
                  etag: Optional[str] = None,
                  gateway_manager_etag: Optional[str] = None,
                  id: Optional[str] = None,
                  last_modified_by: Optional[str] = None,
                  microsoft_peering_config: Optional['outputs.ExpressRouteCircuitPeeringConfigResponse'] = None,
                  name: Optional[str] = None,
-                 peer_asn: Optional[float] = None,
+                 peer_asn: Optional[int] = None,
                  peering_type: Optional[str] = None,
                  primary_azure_port: Optional[str] = None,
                  primary_peer_address_prefix: Optional[str] = None,
@@ -1778,17 +1778,17 @@ class ExpressRouteCircuitPeeringResponse(dict):
                  shared_key: Optional[str] = None,
                  state: Optional[str] = None,
                  stats: Optional['outputs.ExpressRouteCircuitStatsResponse'] = None,
-                 vlan_id: Optional[float] = None):
+                 vlan_id: Optional[int] = None):
         """
         Peering in a ExpressRouteCircuit resource
-        :param float azure_asn: Gets or sets the azure ASN
+        :param int azure_asn: Gets or sets the azure ASN
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str gateway_manager_etag: Gets or sets the GatewayManager Etag
         :param str id: Resource Id
         :param str last_modified_by: Gets whether the provider or the customer last modified the peering
         :param 'ExpressRouteCircuitPeeringConfigResponseArgs' microsoft_peering_config: Gets or sets the Microsoft peering config
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param float peer_asn: Gets or sets the peer ASN
+        :param int peer_asn: Gets or sets the peer ASN
         :param str peering_type: Gets or sets PeeringType
         :param str primary_azure_port: Gets or sets the primary port
         :param str primary_peer_address_prefix: Gets or sets the primary address prefix
@@ -1798,7 +1798,7 @@ class ExpressRouteCircuitPeeringResponse(dict):
         :param str shared_key: Gets or sets the shared key
         :param str state: Gets or sets state of Peering
         :param 'ExpressRouteCircuitStatsResponseArgs' stats: Gets or peering stats
-        :param float vlan_id: Gets or sets the vlan id
+        :param int vlan_id: Gets or sets the vlan id
         """
         if azure_asn is not None:
             pulumi.set(__self__, "azure_asn", azure_asn)
@@ -1839,7 +1839,7 @@ class ExpressRouteCircuitPeeringResponse(dict):
 
     @property
     @pulumi.getter(name="azureASN")
-    def azure_asn(self) -> Optional[float]:
+    def azure_asn(self) -> Optional[int]:
         """
         Gets or sets the azure ASN
         """
@@ -1895,7 +1895,7 @@ class ExpressRouteCircuitPeeringResponse(dict):
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> Optional[float]:
+    def peer_asn(self) -> Optional[int]:
         """
         Gets or sets the peer ASN
         """
@@ -1975,7 +1975,7 @@ class ExpressRouteCircuitPeeringResponse(dict):
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> Optional[float]:
+    def vlan_id(self) -> Optional[int]:
         """
         Gets or sets the vlan id
         """
@@ -1991,12 +1991,12 @@ class ExpressRouteCircuitServiceProviderPropertiesResponse(dict):
     Contains ServiceProviderProperties in an ExpressRouteCircuit
     """
     def __init__(__self__, *,
-                 bandwidth_in_mbps: Optional[float] = None,
+                 bandwidth_in_mbps: Optional[int] = None,
                  peering_location: Optional[str] = None,
                  service_provider_name: Optional[str] = None):
         """
         Contains ServiceProviderProperties in an ExpressRouteCircuit
-        :param float bandwidth_in_mbps: Gets or sets BandwidthInMbps.
+        :param int bandwidth_in_mbps: Gets or sets BandwidthInMbps.
         :param str peering_location: Gets or sets peering location.
         :param str service_provider_name: Gets or sets serviceProviderName.
         """
@@ -2009,7 +2009,7 @@ class ExpressRouteCircuitServiceProviderPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="bandwidthInMbps")
-    def bandwidth_in_mbps(self) -> Optional[float]:
+    def bandwidth_in_mbps(self) -> Optional[int]:
         """
         Gets or sets BandwidthInMbps.
         """
@@ -2091,16 +2091,16 @@ class ExpressRouteCircuitStatsResponse(dict):
     Contains Stats associated with the peering
     """
     def __init__(__self__, *,
-                 primarybytes_in: Optional[float] = None,
-                 primarybytes_out: Optional[float] = None,
-                 secondarybytes_in: Optional[float] = None,
-                 secondarybytes_out: Optional[float] = None):
+                 primarybytes_in: Optional[int] = None,
+                 primarybytes_out: Optional[int] = None,
+                 secondarybytes_in: Optional[int] = None,
+                 secondarybytes_out: Optional[int] = None):
         """
         Contains Stats associated with the peering
-        :param float primarybytes_in: Gets BytesIn of the peering.
-        :param float primarybytes_out: Gets BytesOut of the peering.
-        :param float secondarybytes_in: Gets BytesIn of the peering.
-        :param float secondarybytes_out: Gets BytesOut of the peering.
+        :param int primarybytes_in: Gets BytesIn of the peering.
+        :param int primarybytes_out: Gets BytesOut of the peering.
+        :param int secondarybytes_in: Gets BytesIn of the peering.
+        :param int secondarybytes_out: Gets BytesOut of the peering.
         """
         if primarybytes_in is not None:
             pulumi.set(__self__, "primarybytes_in", primarybytes_in)
@@ -2113,7 +2113,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="primarybytesIn")
-    def primarybytes_in(self) -> Optional[float]:
+    def primarybytes_in(self) -> Optional[int]:
         """
         Gets BytesIn of the peering.
         """
@@ -2121,7 +2121,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="primarybytesOut")
-    def primarybytes_out(self) -> Optional[float]:
+    def primarybytes_out(self) -> Optional[int]:
         """
         Gets BytesOut of the peering.
         """
@@ -2129,7 +2129,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="secondarybytesIn")
-    def secondarybytes_in(self) -> Optional[float]:
+    def secondarybytes_in(self) -> Optional[int]:
         """
         Gets BytesIn of the peering.
         """
@@ -2137,7 +2137,7 @@ class ExpressRouteCircuitStatsResponse(dict):
 
     @property
     @pulumi.getter(name="secondarybytesOut")
-    def secondarybytes_out(self) -> Optional[float]:
+    def secondarybytes_out(self) -> Optional[int]:
         """
         Gets BytesOut of the peering.
         """
@@ -2153,10 +2153,10 @@ class FrontendIPConfigurationResponse(dict):
     Frontend IP address of the load balancer
     """
     def __init__(__self__, *,
-                 inbound_nat_pools: List['outputs.SubResourceResponse'],
-                 inbound_nat_rules: List['outputs.SubResourceResponse'],
-                 load_balancing_rules: List['outputs.SubResourceResponse'],
-                 outbound_nat_rules: List['outputs.SubResourceResponse'],
+                 inbound_nat_pools: Sequence['outputs.SubResourceResponse'],
+                 inbound_nat_rules: Sequence['outputs.SubResourceResponse'],
+                 load_balancing_rules: Sequence['outputs.SubResourceResponse'],
+                 outbound_nat_rules: Sequence['outputs.SubResourceResponse'],
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
@@ -2167,10 +2167,10 @@ class FrontendIPConfigurationResponse(dict):
                  subnet: Optional['outputs.SubnetResponse'] = None):
         """
         Frontend IP address of the load balancer
-        :param List['SubResourceResponseArgs'] inbound_nat_pools: Read only. Inbound pools URIs that use this frontend IP
-        :param List['SubResourceResponseArgs'] inbound_nat_rules: Read only. Inbound rules URIs that use this frontend IP
-        :param List['SubResourceResponseArgs'] load_balancing_rules: Gets Load Balancing rules URIs that use this frontend IP
-        :param List['SubResourceResponseArgs'] outbound_nat_rules: Read only. Outbound rules URIs that use this frontend IP
+        :param Sequence['SubResourceResponseArgs'] inbound_nat_pools: Read only. Inbound pools URIs that use this frontend IP
+        :param Sequence['SubResourceResponseArgs'] inbound_nat_rules: Read only. Inbound rules URIs that use this frontend IP
+        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: Gets Load Balancing rules URIs that use this frontend IP
+        :param Sequence['SubResourceResponseArgs'] outbound_nat_rules: Read only. Outbound rules URIs that use this frontend IP
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -2203,7 +2203,7 @@ class FrontendIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="inboundNatPools")
-    def inbound_nat_pools(self) -> List['outputs.SubResourceResponse']:
+    def inbound_nat_pools(self) -> Sequence['outputs.SubResourceResponse']:
         """
         Read only. Inbound pools URIs that use this frontend IP
         """
@@ -2211,7 +2211,7 @@ class FrontendIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> List['outputs.SubResourceResponse']:
+    def inbound_nat_rules(self) -> Sequence['outputs.SubResourceResponse']:
         """
         Read only. Inbound rules URIs that use this frontend IP
         """
@@ -2219,7 +2219,7 @@ class FrontendIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> List['outputs.SubResourceResponse']:
+    def load_balancing_rules(self) -> Sequence['outputs.SubResourceResponse']:
         """
         Gets Load Balancing rules URIs that use this frontend IP
         """
@@ -2227,7 +2227,7 @@ class FrontendIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="outboundNatRules")
-    def outbound_nat_rules(self) -> List['outputs.SubResourceResponse']:
+    def outbound_nat_rules(self) -> Sequence['outputs.SubResourceResponse']:
         """
         Read only. Outbound rules URIs that use this frontend IP
         """
@@ -2417,9 +2417,9 @@ class InboundNatPoolResponse(dict):
     Inbound NAT pool of the load balancer
     """
     def __init__(__self__, *,
-                 backend_port: float,
-                 frontend_port_range_end: float,
-                 frontend_port_range_start: float,
+                 backend_port: int,
+                 frontend_port_range_end: int,
+                 frontend_port_range_start: int,
                  protocol: str,
                  etag: Optional[str] = None,
                  frontend_ip_configuration: Optional['outputs.SubResourceResponse'] = None,
@@ -2428,9 +2428,9 @@ class InboundNatPoolResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         Inbound NAT pool of the load balancer
-        :param float backend_port: Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-        :param float frontend_port_range_end: Gets or sets the ending port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-        :param float frontend_port_range_start: Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
+        :param int backend_port: Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
+        :param int frontend_port_range_end: Gets or sets the ending port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
+        :param int frontend_port_range_start: Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
         :param str protocol: Gets or sets the transport protocol for the endpoint. Possible values are Udp or Tcp
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param 'SubResourceResponseArgs' frontend_ip_configuration: Gets or sets a reference to frontend IP Addresses
@@ -2455,7 +2455,7 @@ class InboundNatPoolResponse(dict):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> float:
+    def backend_port(self) -> int:
         """
         Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
         """
@@ -2463,7 +2463,7 @@ class InboundNatPoolResponse(dict):
 
     @property
     @pulumi.getter(name="frontendPortRangeEnd")
-    def frontend_port_range_end(self) -> float:
+    def frontend_port_range_end(self) -> int:
         """
         Gets or sets the ending port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
         """
@@ -2471,7 +2471,7 @@ class InboundNatPoolResponse(dict):
 
     @property
     @pulumi.getter(name="frontendPortRangeStart")
-    def frontend_port_range_start(self) -> float:
+    def frontend_port_range_start(self) -> int:
         """
         Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
         """
@@ -2536,26 +2536,26 @@ class InboundNatRuleResponse(dict):
     """
     def __init__(__self__, *,
                  backend_ip_configuration: 'outputs.NetworkInterfaceIPConfigurationResponse',
-                 backend_port: Optional[float] = None,
+                 backend_port: Optional[int] = None,
                  enable_floating_ip: Optional[bool] = None,
                  etag: Optional[str] = None,
                  frontend_ip_configuration: Optional['outputs.SubResourceResponse'] = None,
-                 frontend_port: Optional[float] = None,
+                 frontend_port: Optional[int] = None,
                  id: Optional[str] = None,
-                 idle_timeout_in_minutes: Optional[float] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
                  name: Optional[str] = None,
                  protocol: Optional[str] = None,
                  provisioning_state: Optional[str] = None):
         """
         Inbound NAT rule of the loadbalancer
         :param 'NetworkInterfaceIPConfigurationResponseArgs' backend_ip_configuration: Gets or sets a reference to a private ip address defined on a NetworkInterface of a VM. Traffic sent to frontendPort of each of the frontendIPConfigurations is forwarded to the backed IP
-        :param float backend_port: Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
+        :param int backend_port: Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param 'SubResourceResponseArgs' frontend_ip_configuration: Gets or sets a reference to frontend IP Addresses
-        :param float frontend_port: Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
+        :param int frontend_port: Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
         :param str id: Resource Id
-        :param float idle_timeout_in_minutes: Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
+        :param int idle_timeout_in_minutes: Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param str protocol: Gets or sets the transport protocol for the endpoint. Possible values are Udp or Tcp
         :param str provisioning_state: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -2592,7 +2592,7 @@ class InboundNatRuleResponse(dict):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[float]:
+    def backend_port(self) -> Optional[int]:
         """
         Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
         """
@@ -2624,7 +2624,7 @@ class InboundNatRuleResponse(dict):
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[float]:
+    def frontend_port(self) -> Optional[int]:
         """
         Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
         """
@@ -2640,7 +2640,7 @@ class InboundNatRuleResponse(dict):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> Optional[int]:
         """
         Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
         """
@@ -2680,30 +2680,30 @@ class LoadBalancingRuleResponse(dict):
     Rules of the load balancer
     """
     def __init__(__self__, *,
-                 frontend_port: float,
+                 frontend_port: int,
                  protocol: str,
                  backend_address_pool: Optional['outputs.SubResourceResponse'] = None,
-                 backend_port: Optional[float] = None,
+                 backend_port: Optional[int] = None,
                  enable_floating_ip: Optional[bool] = None,
                  etag: Optional[str] = None,
                  frontend_ip_configuration: Optional['outputs.SubResourceResponse'] = None,
                  id: Optional[str] = None,
-                 idle_timeout_in_minutes: Optional[float] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
                  load_distribution: Optional[str] = None,
                  name: Optional[str] = None,
                  probe: Optional['outputs.SubResourceResponse'] = None,
                  provisioning_state: Optional[str] = None):
         """
         Rules of the load balancer
-        :param float frontend_port: Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
+        :param int frontend_port: Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
         :param str protocol: Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
         :param 'SubResourceResponseArgs' backend_address_pool: Gets or sets  a reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs
-        :param float backend_port: Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
+        :param int backend_port: Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param 'SubResourceResponseArgs' frontend_ip_configuration: Gets or sets a reference to frontend IP Addresses
         :param str id: Resource Id
-        :param float idle_timeout_in_minutes: Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
+        :param int idle_timeout_in_minutes: Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
         :param str load_distribution: Gets or sets the load distribution policy for this rule
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param 'SubResourceResponseArgs' probe: Gets or sets the reference of the load balancer probe used by the Load Balancing rule.
@@ -2736,7 +2736,7 @@ class LoadBalancingRuleResponse(dict):
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> float:
+    def frontend_port(self) -> int:
         """
         Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
         """
@@ -2760,7 +2760,7 @@ class LoadBalancingRuleResponse(dict):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[float]:
+    def backend_port(self) -> Optional[int]:
         """
         Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
         """
@@ -2800,7 +2800,7 @@ class LoadBalancingRuleResponse(dict):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> Optional[int]:
         """
         Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
         """
@@ -2992,15 +2992,15 @@ class NetworkInterfaceDnsSettingsResponse(dict):
     Dns settings of a network interface
     """
     def __init__(__self__, *,
-                 applied_dns_servers: Optional[List[str]] = None,
-                 dns_servers: Optional[List[str]] = None,
+                 applied_dns_servers: Optional[Sequence[str]] = None,
+                 dns_servers: Optional[Sequence[str]] = None,
                  internal_dns_name_label: Optional[str] = None,
                  internal_domain_name_suffix: Optional[str] = None,
                  internal_fqdn: Optional[str] = None):
         """
         Dns settings of a network interface
-        :param List[str] applied_dns_servers: Gets or sets list of Applied DNS servers IP addresses
-        :param List[str] dns_servers: Gets or sets list of DNS servers IP addresses
+        :param Sequence[str] applied_dns_servers: Gets or sets list of Applied DNS servers IP addresses
+        :param Sequence[str] dns_servers: Gets or sets list of DNS servers IP addresses
         :param str internal_dns_name_label: Gets or sets the internal DNS name
         :param str internal_domain_name_suffix: Gets or sets internal domain name suffix of the NIC.
         :param str internal_fqdn: Gets or sets the internal fqdn.
@@ -3018,7 +3018,7 @@ class NetworkInterfaceDnsSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="appliedDnsServers")
-    def applied_dns_servers(self) -> Optional[List[str]]:
+    def applied_dns_servers(self) -> Optional[Sequence[str]]:
         """
         Gets or sets list of Applied DNS servers IP addresses
         """
@@ -3026,7 +3026,7 @@ class NetworkInterfaceDnsSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> Optional[Sequence[str]]:
         """
         Gets or sets list of DNS servers IP addresses
         """
@@ -3066,11 +3066,11 @@ class NetworkInterfaceIPConfigurationResponse(dict):
     IPConfiguration in a NetworkInterface
     """
     def __init__(__self__, *,
-                 application_gateway_backend_address_pools: Optional[List['outputs.ApplicationGatewayBackendAddressPoolResponse']] = None,
+                 application_gateway_backend_address_pools: Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']] = None,
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
-                 load_balancer_backend_address_pools: Optional[List['outputs.BackendAddressPoolResponse']] = None,
-                 load_balancer_inbound_nat_rules: Optional[List['outputs.InboundNatRuleResponse']] = None,
+                 load_balancer_backend_address_pools: Optional[Sequence['outputs.BackendAddressPoolResponse']] = None,
+                 load_balancer_inbound_nat_rules: Optional[Sequence['outputs.InboundNatRuleResponse']] = None,
                  name: Optional[str] = None,
                  primary: Optional[bool] = None,
                  private_ip_address: Optional[str] = None,
@@ -3081,11 +3081,11 @@ class NetworkInterfaceIPConfigurationResponse(dict):
                  subnet: Optional['outputs.SubnetResponse'] = None):
         """
         IPConfiguration in a NetworkInterface
-        :param List['ApplicationGatewayBackendAddressPoolResponseArgs'] application_gateway_backend_address_pools: Gets or sets the reference of ApplicationGatewayBackendAddressPool resource
+        :param Sequence['ApplicationGatewayBackendAddressPoolResponseArgs'] application_gateway_backend_address_pools: Gets or sets the reference of ApplicationGatewayBackendAddressPool resource
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
-        :param List['BackendAddressPoolResponseArgs'] load_balancer_backend_address_pools: Gets or sets the reference of LoadBalancerBackendAddressPool resource
-        :param List['InboundNatRuleResponseArgs'] load_balancer_inbound_nat_rules: Gets or sets list of references of LoadBalancerInboundNatRules
+        :param Sequence['BackendAddressPoolResponseArgs'] load_balancer_backend_address_pools: Gets or sets the reference of LoadBalancerBackendAddressPool resource
+        :param Sequence['InboundNatRuleResponseArgs'] load_balancer_inbound_nat_rules: Gets or sets list of references of LoadBalancerInboundNatRules
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param bool primary: Gets whether this is a primary customer address on the NIC
         :param str private_ip_address_version: Gets or sets PrivateIP address version (IPv4/IPv6)
@@ -3122,7 +3122,7 @@ class NetworkInterfaceIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPools")
-    def application_gateway_backend_address_pools(self) -> Optional[List['outputs.ApplicationGatewayBackendAddressPoolResponse']]:
+    def application_gateway_backend_address_pools(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']]:
         """
         Gets or sets the reference of ApplicationGatewayBackendAddressPool resource
         """
@@ -3146,7 +3146,7 @@ class NetworkInterfaceIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPools")
-    def load_balancer_backend_address_pools(self) -> Optional[List['outputs.BackendAddressPoolResponse']]:
+    def load_balancer_backend_address_pools(self) -> Optional[Sequence['outputs.BackendAddressPoolResponse']]:
         """
         Gets or sets the reference of LoadBalancerBackendAddressPool resource
         """
@@ -3154,7 +3154,7 @@ class NetworkInterfaceIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="loadBalancerInboundNatRules")
-    def load_balancer_inbound_nat_rules(self) -> Optional[List['outputs.InboundNatRuleResponse']]:
+    def load_balancer_inbound_nat_rules(self) -> Optional[Sequence['outputs.InboundNatRuleResponse']]:
         """
         Gets or sets list of references of LoadBalancerInboundNatRules
         """
@@ -3234,7 +3234,7 @@ class NetworkInterfaceResponse(dict):
                  enable_ip_forwarding: Optional[bool] = None,
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
-                 ip_configurations: Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
+                 ip_configurations: Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
                  location: Optional[str] = None,
                  mac_address: Optional[str] = None,
                  network_security_group: Optional['outputs.NetworkSecurityGroupResponse'] = None,
@@ -3251,7 +3251,7 @@ class NetworkInterfaceResponse(dict):
         :param bool enable_ip_forwarding: Gets or sets whether IPForwarding is enabled on the NIC
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
-        :param List['NetworkInterfaceIPConfigurationResponseArgs'] ip_configurations: Gets or sets list of IPConfigurations of the network interface
+        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] ip_configurations: Gets or sets list of IPConfigurations of the network interface
         :param str location: Resource location
         :param str mac_address: Gets the MAC address of the network interface
         :param 'NetworkSecurityGroupResponseArgs' network_security_group: Gets or sets the reference of the NetworkSecurityGroup resource
@@ -3340,7 +3340,7 @@ class NetworkInterfaceResponse(dict):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]:
         """
         Gets or sets list of IPConfigurations of the network interface
         """
@@ -3421,30 +3421,30 @@ class NetworkSecurityGroupResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 network_interfaces: List['outputs.NetworkInterfaceResponse'],
-                 subnets: List['outputs.SubnetResponse'],
+                 network_interfaces: Sequence['outputs.NetworkInterfaceResponse'],
+                 subnets: Sequence['outputs.SubnetResponse'],
                  type: str,
-                 default_security_rules: Optional[List['outputs.SecurityRuleResponse']] = None,
+                 default_security_rules: Optional[Sequence['outputs.SecurityRuleResponse']] = None,
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
                  location: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
                  resource_guid: Optional[str] = None,
-                 security_rules: Optional[List['outputs.SecurityRuleResponse']] = None,
+                 security_rules: Optional[Sequence['outputs.SecurityRuleResponse']] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
         NetworkSecurityGroup resource
         :param str name: Resource name
-        :param List['NetworkInterfaceResponseArgs'] network_interfaces: Gets collection of references to Network Interfaces
-        :param List['SubnetResponseArgs'] subnets: Gets collection of references to subnets
+        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: Gets collection of references to Network Interfaces
+        :param Sequence['SubnetResponseArgs'] subnets: Gets collection of references to subnets
         :param str type: Resource type
-        :param List['SecurityRuleResponseArgs'] default_security_rules: Gets or default security rules of network security group
+        :param Sequence['SecurityRuleResponseArgs'] default_security_rules: Gets or default security rules of network security group
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str location: Resource location
         :param str provisioning_state: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         :param str resource_guid: Gets or sets resource guid property of the network security group resource
-        :param List['SecurityRuleResponseArgs'] security_rules: Gets or sets security rules of network security group
+        :param Sequence['SecurityRuleResponseArgs'] security_rules: Gets or sets security rules of network security group
         :param Mapping[str, str] tags: Resource tags
         """
         pulumi.set(__self__, "name", name)
@@ -3478,7 +3478,7 @@ class NetworkSecurityGroupResponse(dict):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
         """
         Gets collection of references to Network Interfaces
         """
@@ -3486,7 +3486,7 @@ class NetworkSecurityGroupResponse(dict):
 
     @property
     @pulumi.getter
-    def subnets(self) -> List['outputs.SubnetResponse']:
+    def subnets(self) -> Sequence['outputs.SubnetResponse']:
         """
         Gets collection of references to subnets
         """
@@ -3502,7 +3502,7 @@ class NetworkSecurityGroupResponse(dict):
 
     @property
     @pulumi.getter(name="defaultSecurityRules")
-    def default_security_rules(self) -> Optional[List['outputs.SecurityRuleResponse']]:
+    def default_security_rules(self) -> Optional[Sequence['outputs.SecurityRuleResponse']]:
         """
         Gets or default security rules of network security group
         """
@@ -3550,7 +3550,7 @@ class NetworkSecurityGroupResponse(dict):
 
     @property
     @pulumi.getter(name="securityRules")
-    def security_rules(self) -> Optional[List['outputs.SecurityRuleResponse']]:
+    def security_rules(self) -> Optional[Sequence['outputs.SecurityRuleResponse']]:
         """
         Gets or sets security rules of network security group
         """
@@ -3575,18 +3575,18 @@ class OutboundNatRuleResponse(dict):
     """
     def __init__(__self__, *,
                  backend_address_pool: 'outputs.SubResourceResponse',
-                 allocated_outbound_ports: Optional[float] = None,
+                 allocated_outbound_ports: Optional[int] = None,
                  etag: Optional[str] = None,
-                 frontend_ip_configurations: Optional[List['outputs.SubResourceResponse']] = None,
+                 frontend_ip_configurations: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  provisioning_state: Optional[str] = None):
         """
         Outbound NAT pool of the load balancer
         :param 'SubResourceResponseArgs' backend_address_pool: Gets or sets a reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs
-        :param float allocated_outbound_ports: Gets or sets the number of outbound ports to be used for SNAT
+        :param int allocated_outbound_ports: Gets or sets the number of outbound ports to be used for SNAT
         :param str etag: A unique read-only string that changes whenever the resource is updated
-        :param List['SubResourceResponseArgs'] frontend_ip_configurations: Gets or sets Frontend IP addresses of the load balancer
+        :param Sequence['SubResourceResponseArgs'] frontend_ip_configurations: Gets or sets Frontend IP addresses of the load balancer
         :param str id: Resource Id
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param str provisioning_state: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -3615,7 +3615,7 @@ class OutboundNatRuleResponse(dict):
 
     @property
     @pulumi.getter(name="allocatedOutboundPorts")
-    def allocated_outbound_ports(self) -> Optional[float]:
+    def allocated_outbound_ports(self) -> Optional[int]:
         """
         Gets or sets the number of outbound ports to be used for SNAT
         """
@@ -3631,7 +3631,7 @@ class OutboundNatRuleResponse(dict):
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def frontend_ip_configurations(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         Gets or sets Frontend IP addresses of the load balancer
         """
@@ -3671,26 +3671,26 @@ class ProbeResponse(dict):
     Load balancer Probe
     """
     def __init__(__self__, *,
-                 load_balancing_rules: List['outputs.SubResourceResponse'],
-                 port: float,
+                 load_balancing_rules: Sequence['outputs.SubResourceResponse'],
+                 port: int,
                  protocol: str,
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
-                 interval_in_seconds: Optional[float] = None,
+                 interval_in_seconds: Optional[int] = None,
                  name: Optional[str] = None,
-                 number_of_probes: Optional[float] = None,
+                 number_of_probes: Optional[int] = None,
                  provisioning_state: Optional[str] = None,
                  request_path: Optional[str] = None):
         """
         Load balancer Probe
-        :param List['SubResourceResponseArgs'] load_balancing_rules: Gets Load balancer rules that use this probe
-        :param float port: Gets or sets Port for communicating the probe. Possible values range from 1 to 65535, inclusive.
+        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: Gets Load balancer rules that use this probe
+        :param int port: Gets or sets Port for communicating the probe. Possible values range from 1 to 65535, inclusive.
         :param str protocol: Gets or sets the protocol of the end point. Possible values are http or Tcp. If Tcp is specified, a received ACK is required for the probe to be successful. If http is specified,a 200 OK response from the specifies URI is required for the probe to be successful
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
-        :param float interval_in_seconds: Gets or sets the interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5
+        :param int interval_in_seconds: Gets or sets the interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param float number_of_probes: Gets or sets the number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure. 
+        :param int number_of_probes: Gets or sets the number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure. 
         :param str provisioning_state: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         :param str request_path: Gets or sets the URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value
         """
@@ -3714,7 +3714,7 @@ class ProbeResponse(dict):
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> List['outputs.SubResourceResponse']:
+    def load_balancing_rules(self) -> Sequence['outputs.SubResourceResponse']:
         """
         Gets Load balancer rules that use this probe
         """
@@ -3722,7 +3722,7 @@ class ProbeResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         Gets or sets Port for communicating the probe. Possible values range from 1 to 65535, inclusive.
         """
@@ -3754,7 +3754,7 @@ class ProbeResponse(dict):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[float]:
+    def interval_in_seconds(self) -> Optional[int]:
         """
         Gets or sets the interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5
         """
@@ -3770,7 +3770,7 @@ class ProbeResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfProbes")
-    def number_of_probes(self) -> Optional[float]:
+    def number_of_probes(self) -> Optional[int]:
         """
         Gets or sets the number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure. 
         """
@@ -3858,7 +3858,7 @@ class PublicIPAddressResponse(dict):
                  dns_settings: Optional['outputs.PublicIPAddressDnsSettingsResponse'] = None,
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
-                 idle_timeout_in_minutes: Optional[float] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
                  ip_address: Optional[str] = None,
                  location: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
@@ -3874,7 +3874,7 @@ class PublicIPAddressResponse(dict):
         :param 'PublicIPAddressDnsSettingsResponseArgs' dns_settings: Gets or sets FQDN of the DNS record associated with the public IP address
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
-        :param float idle_timeout_in_minutes: Gets or sets the idle timeout of the public IP address
+        :param int idle_timeout_in_minutes: Gets or sets the idle timeout of the public IP address
         :param str location: Resource location
         :param str provisioning_state: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         :param str public_ip_address_version: Gets or sets PublicIP address version (IPv4/IPv6)
@@ -3958,7 +3958,7 @@ class PublicIPAddressResponse(dict):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> Optional[int]:
         """
         Gets or sets the idle timeout of the public IP address
         """
@@ -4209,24 +4209,24 @@ class RouteTableResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 subnets: List['outputs.SubnetResponse'],
+                 subnets: Sequence['outputs.SubnetResponse'],
                  type: str,
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
                  location: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
-                 routes: Optional[List['outputs.RouteResponse']] = None,
+                 routes: Optional[Sequence['outputs.RouteResponse']] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
         RouteTable resource
         :param str name: Resource name
-        :param List['SubnetResponseArgs'] subnets: Gets collection of references to subnets
+        :param Sequence['SubnetResponseArgs'] subnets: Gets collection of references to subnets
         :param str type: Resource type
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str location: Resource location
         :param str provisioning_state: Gets provisioning state of the resource Updating/Deleting/Failed
-        :param List['RouteResponseArgs'] routes: Gets or sets Routes in a Route Table
+        :param Sequence['RouteResponseArgs'] routes: Gets or sets Routes in a Route Table
         :param Mapping[str, str] tags: Resource tags
         """
         pulumi.set(__self__, "name", name)
@@ -4255,7 +4255,7 @@ class RouteTableResponse(dict):
 
     @property
     @pulumi.getter
-    def subnets(self) -> List['outputs.SubnetResponse']:
+    def subnets(self) -> Sequence['outputs.SubnetResponse']:
         """
         Gets collection of references to subnets
         """
@@ -4303,7 +4303,7 @@ class RouteTableResponse(dict):
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[List['outputs.RouteResponse']]:
+    def routes(self) -> Optional[Sequence['outputs.RouteResponse']]:
         """
         Gets or sets Routes in a Route Table
         """
@@ -4337,7 +4337,7 @@ class SecurityRuleResponse(dict):
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 priority: Optional[float] = None,
+                 priority: Optional[int] = None,
                  provisioning_state: Optional[str] = None,
                  source_port_range: Optional[str] = None):
         """
@@ -4352,7 +4352,7 @@ class SecurityRuleResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        :param float priority: Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param int priority: Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str provisioning_state: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         :param str source_port_range: Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         """
@@ -4460,7 +4460,7 @@ class SecurityRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         """
@@ -4514,25 +4514,25 @@ class SubnetResponse(dict):
     Subnet in a VirtualNetwork resource
     """
     def __init__(__self__, *,
-                 ip_configurations: List['outputs.IPConfigurationResponse'],
+                 ip_configurations: Sequence['outputs.IPConfigurationResponse'],
                  address_prefix: Optional[str] = None,
                  etag: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  network_security_group: Optional['outputs.NetworkSecurityGroupResponse'] = None,
                  provisioning_state: Optional[str] = None,
-                 resource_navigation_links: Optional[List['outputs.ResourceNavigationLinkResponse']] = None,
+                 resource_navigation_links: Optional[Sequence['outputs.ResourceNavigationLinkResponse']] = None,
                  route_table: Optional['outputs.RouteTableResponse'] = None):
         """
         Subnet in a VirtualNetwork resource
-        :param List['IPConfigurationResponseArgs'] ip_configurations: Gets array of references to the network interface IP configurations using subnet
+        :param Sequence['IPConfigurationResponseArgs'] ip_configurations: Gets array of references to the network interface IP configurations using subnet
         :param str address_prefix: Gets or sets Address prefix for the subnet.
         :param str etag: A unique read-only string that changes whenever the resource is updated
         :param str id: Resource Id
         :param str name: Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
         :param 'NetworkSecurityGroupResponseArgs' network_security_group: Gets or sets the reference of the NetworkSecurityGroup resource
         :param str provisioning_state: Gets provisioning state of the resource
-        :param List['ResourceNavigationLinkResponseArgs'] resource_navigation_links: Gets array of references to the external resources using subnet
+        :param Sequence['ResourceNavigationLinkResponseArgs'] resource_navigation_links: Gets array of references to the external resources using subnet
         :param 'RouteTableResponseArgs' route_table: Gets or sets the reference of the RouteTable resource
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -4555,7 +4555,7 @@ class SubnetResponse(dict):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.IPConfigurationResponse']:
+    def ip_configurations(self) -> Sequence['outputs.IPConfigurationResponse']:
         """
         Gets array of references to the network interface IP configurations using subnet
         """
@@ -4611,7 +4611,7 @@ class SubnetResponse(dict):
 
     @property
     @pulumi.getter(name="resourceNavigationLinks")
-    def resource_navigation_links(self) -> Optional[List['outputs.ResourceNavigationLinkResponse']]:
+    def resource_navigation_links(self) -> Optional[Sequence['outputs.ResourceNavigationLinkResponse']]:
         """
         Gets array of references to the external resources using subnet
         """
@@ -4742,7 +4742,7 @@ class VirtualNetworkGatewayResponse(dict):
                  gateway_default_site: Optional['outputs.SubResourceResponse'] = None,
                  gateway_type: Optional[str] = None,
                  id: Optional[str] = None,
-                 ip_configurations: Optional[List['outputs.VirtualNetworkGatewayIPConfigurationResponse']] = None,
+                 ip_configurations: Optional[Sequence['outputs.VirtualNetworkGatewayIPConfigurationResponse']] = None,
                  location: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
                  resource_guid: Optional[str] = None,
@@ -4761,7 +4761,7 @@ class VirtualNetworkGatewayResponse(dict):
         :param 'SubResourceResponseArgs' gateway_default_site: Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
         :param str gateway_type: The type of this virtual network gateway.
         :param str id: Resource Id
-        :param List['VirtualNetworkGatewayIPConfigurationResponseArgs'] ip_configurations: IpConfigurations for Virtual network gateway.
+        :param Sequence['VirtualNetworkGatewayIPConfigurationResponseArgs'] ip_configurations: IpConfigurations for Virtual network gateway.
         :param str location: Resource location
         :param str provisioning_state: Gets provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
         :param str resource_guid: Gets or sets resource guid property of the VirtualNetworkGateway resource
@@ -4877,7 +4877,7 @@ class VirtualNetworkGatewayResponse(dict):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.VirtualNetworkGatewayIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayIPConfigurationResponse']]:
         """
         IpConfigurations for Virtual network gateway.
         """
@@ -4949,12 +4949,12 @@ class VirtualNetworkGatewaySkuResponse(dict):
     VirtualNetworkGatewaySku details
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         VirtualNetworkGatewaySku details
-        :param float capacity: The capacity
+        :param int capacity: The capacity
         :param str name: Gateway sku name -Basic/HighPerformance/Standard/UltraPerformance
         :param str tier: Gateway sku tier -Basic/HighPerformance/Standard/UltraPerformance
         """
@@ -4967,7 +4967,7 @@ class VirtualNetworkGatewaySkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The capacity
         """
@@ -5134,13 +5134,13 @@ class VpnClientConfigurationResponse(dict):
     """
     def __init__(__self__, *,
                  vpn_client_address_pool: Optional['outputs.AddressSpaceResponse'] = None,
-                 vpn_client_revoked_certificates: Optional[List['outputs.VpnClientRevokedCertificateResponse']] = None,
-                 vpn_client_root_certificates: Optional[List['outputs.VpnClientRootCertificateResponse']] = None):
+                 vpn_client_revoked_certificates: Optional[Sequence['outputs.VpnClientRevokedCertificateResponse']] = None,
+                 vpn_client_root_certificates: Optional[Sequence['outputs.VpnClientRootCertificateResponse']] = None):
         """
         VpnClientConfiguration for P2S client
         :param 'AddressSpaceResponseArgs' vpn_client_address_pool: Gets or sets the reference of the Address space resource which represents Address space for P2S VpnClient.
-        :param List['VpnClientRevokedCertificateResponseArgs'] vpn_client_revoked_certificates: VpnClientRevokedCertificate for Virtual network gateway.
-        :param List['VpnClientRootCertificateResponseArgs'] vpn_client_root_certificates: VpnClientRootCertificate for Virtual network gateway.
+        :param Sequence['VpnClientRevokedCertificateResponseArgs'] vpn_client_revoked_certificates: VpnClientRevokedCertificate for Virtual network gateway.
+        :param Sequence['VpnClientRootCertificateResponseArgs'] vpn_client_root_certificates: VpnClientRootCertificate for Virtual network gateway.
         """
         if vpn_client_address_pool is not None:
             pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
@@ -5159,7 +5159,7 @@ class VpnClientConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="vpnClientRevokedCertificates")
-    def vpn_client_revoked_certificates(self) -> Optional[List['outputs.VpnClientRevokedCertificateResponse']]:
+    def vpn_client_revoked_certificates(self) -> Optional[Sequence['outputs.VpnClientRevokedCertificateResponse']]:
         """
         VpnClientRevokedCertificate for Virtual network gateway.
         """
@@ -5167,7 +5167,7 @@ class VpnClientConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="vpnClientRootCertificates")
-    def vpn_client_root_certificates(self) -> Optional[List['outputs.VpnClientRootCertificateResponse']]:
+    def vpn_client_root_certificates(self) -> Optional[Sequence['outputs.VpnClientRootCertificateResponse']]:
         """
         VpnClientRootCertificate for Virtual network gateway.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -213,12 +213,12 @@ class ClusterHealthPolicyResponse(dict):
     Defines a health policy used to evaluate the health of the cluster or of a cluster node.
     """
     def __init__(__self__, *,
-                 max_percent_unhealthy_applications: Optional[float] = None,
-                 max_percent_unhealthy_nodes: Optional[float] = None):
+                 max_percent_unhealthy_applications: Optional[int] = None,
+                 max_percent_unhealthy_nodes: Optional[int] = None):
         """
         Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-        :param float max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
-        :param float max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
+        :param int max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
+        :param int max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
         """
         if max_percent_unhealthy_applications is not None:
             pulumi.set(__self__, "max_percent_unhealthy_applications", max_percent_unhealthy_applications)
@@ -227,7 +227,7 @@ class ClusterHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyApplications")
-    def max_percent_unhealthy_applications(self) -> Optional[float]:
+    def max_percent_unhealthy_applications(self) -> Optional[int]:
         """
         The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
         """
@@ -235,7 +235,7 @@ class ClusterHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyNodes")
-    def max_percent_unhealthy_nodes(self) -> Optional[float]:
+    def max_percent_unhealthy_nodes(self) -> Optional[int]:
         """
         The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
         """
@@ -251,14 +251,14 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
     Delta health policy for the cluster
     """
     def __init__(__self__, *,
-                 max_percent_delta_unhealthy_applications: float,
-                 max_percent_delta_unhealthy_nodes: float,
-                 max_percent_upgrade_domain_delta_unhealthy_nodes: float):
+                 max_percent_delta_unhealthy_applications: int,
+                 max_percent_delta_unhealthy_nodes: int,
+                 max_percent_upgrade_domain_delta_unhealthy_nodes: int):
         """
         Delta health policy for the cluster
-        :param float max_percent_delta_unhealthy_applications: Additional unhealthy applications percentage
-        :param float max_percent_delta_unhealthy_nodes: Additional unhealthy nodes percentage
-        :param float max_percent_upgrade_domain_delta_unhealthy_nodes: Additional unhealthy nodes percentage per upgrade domain 
+        :param int max_percent_delta_unhealthy_applications: Additional unhealthy applications percentage
+        :param int max_percent_delta_unhealthy_nodes: Additional unhealthy nodes percentage
+        :param int max_percent_upgrade_domain_delta_unhealthy_nodes: Additional unhealthy nodes percentage per upgrade domain 
         """
         pulumi.set(__self__, "max_percent_delta_unhealthy_applications", max_percent_delta_unhealthy_applications)
         pulumi.set(__self__, "max_percent_delta_unhealthy_nodes", max_percent_delta_unhealthy_nodes)
@@ -266,7 +266,7 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyApplications")
-    def max_percent_delta_unhealthy_applications(self) -> float:
+    def max_percent_delta_unhealthy_applications(self) -> int:
         """
         Additional unhealthy applications percentage
         """
@@ -274,7 +274,7 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyNodes")
-    def max_percent_delta_unhealthy_nodes(self) -> float:
+    def max_percent_delta_unhealthy_nodes(self) -> int:
         """
         Additional unhealthy nodes percentage
         """
@@ -282,7 +282,7 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentUpgradeDomainDeltaUnhealthyNodes")
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> float:
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> int:
         """
         Additional unhealthy nodes percentage per upgrade domain 
         """
@@ -544,19 +544,19 @@ class EndpointRangeDescriptionResponse(dict):
     Port range details
     """
     def __init__(__self__, *,
-                 end_port: float,
-                 start_port: float):
+                 end_port: int,
+                 start_port: int):
         """
         Port range details
-        :param float end_port: End port of a range of ports
-        :param float start_port: Starting port of a range of ports
+        :param int end_port: End port of a range of ports
+        :param int start_port: Starting port of a range of ports
         """
         pulumi.set(__self__, "end_port", end_port)
         pulumi.set(__self__, "start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
-    def end_port(self) -> float:
+    def end_port(self) -> int:
         """
         End port of a range of ports
         """
@@ -564,7 +564,7 @@ class EndpointRangeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="startPort")
-    def start_port(self) -> float:
+    def start_port(self) -> int:
         """
         Starting port of a range of ports
         """
@@ -580,30 +580,30 @@ class NodeTypeDescriptionResponse(dict):
     Describes a node type in the cluster, each node type represents sub set of nodes in the cluster
     """
     def __init__(__self__, *,
-                 client_connection_endpoint_port: float,
-                 http_gateway_endpoint_port: float,
+                 client_connection_endpoint_port: int,
+                 http_gateway_endpoint_port: int,
                  is_primary: bool,
                  name: str,
-                 vm_instance_count: float,
+                 vm_instance_count: int,
                  application_ports: Optional['outputs.EndpointRangeDescriptionResponse'] = None,
                  capacities: Optional[Mapping[str, str]] = None,
                  durability_level: Optional[str] = None,
                  ephemeral_ports: Optional['outputs.EndpointRangeDescriptionResponse'] = None,
                  placement_properties: Optional[Mapping[str, str]] = None,
-                 reverse_proxy_endpoint_port: Optional[float] = None):
+                 reverse_proxy_endpoint_port: Optional[int] = None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster
-        :param float client_connection_endpoint_port: The TCP cluster management endpoint port
-        :param float http_gateway_endpoint_port: The HTTP cluster management endpoint port
+        :param int client_connection_endpoint_port: The TCP cluster management endpoint port
+        :param int http_gateway_endpoint_port: The HTTP cluster management endpoint port
         :param bool is_primary: Mark this as the primary node type
         :param str name: Name of the node type
-        :param float vm_instance_count: The number of node instances in the node type
+        :param int vm_instance_count: The number of node instances in the node type
         :param 'EndpointRangeDescriptionResponseArgs' application_ports: Ports used by applications
         :param Mapping[str, str] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
         :param str durability_level: Node type durability Level
         :param 'EndpointRangeDescriptionResponseArgs' ephemeral_ports: System assigned application ports
         :param Mapping[str, str] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
-        :param float reverse_proxy_endpoint_port: Endpoint used by reverse proxy
+        :param int reverse_proxy_endpoint_port: Endpoint used by reverse proxy
         """
         pulumi.set(__self__, "client_connection_endpoint_port", client_connection_endpoint_port)
         pulumi.set(__self__, "http_gateway_endpoint_port", http_gateway_endpoint_port)
@@ -625,7 +625,7 @@ class NodeTypeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="clientConnectionEndpointPort")
-    def client_connection_endpoint_port(self) -> float:
+    def client_connection_endpoint_port(self) -> int:
         """
         The TCP cluster management endpoint port
         """
@@ -633,7 +633,7 @@ class NodeTypeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="httpGatewayEndpointPort")
-    def http_gateway_endpoint_port(self) -> float:
+    def http_gateway_endpoint_port(self) -> int:
         """
         The HTTP cluster management endpoint port
         """
@@ -657,7 +657,7 @@ class NodeTypeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="vmInstanceCount")
-    def vm_instance_count(self) -> float:
+    def vm_instance_count(self) -> int:
         """
         The number of node instances in the node type
         """
@@ -705,7 +705,7 @@ class NodeTypeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="reverseProxyEndpointPort")
-    def reverse_proxy_endpoint_port(self) -> Optional[float]:
+    def reverse_proxy_endpoint_port(self) -> Optional[int]:
         """
         Endpoint used by reverse proxy
         """
@@ -758,11 +758,11 @@ class SettingsSectionDescriptionResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 parameters: List['outputs.SettingsParameterDescriptionResponse']):
+                 parameters: Sequence['outputs.SettingsParameterDescriptionResponse']):
         """
         ServiceFabric section settings
         :param str name: The name of settings section
-        :param List['SettingsParameterDescriptionResponseArgs'] parameters: Collection of settings in the section, each setting is a tuple consisting of setting name and value
+        :param Sequence['SettingsParameterDescriptionResponseArgs'] parameters: Collection of settings in the section, each setting is a tuple consisting of setting name and value
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parameters", parameters)
@@ -777,7 +777,7 @@ class SettingsSectionDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> List['outputs.SettingsParameterDescriptionResponse']:
+    def parameters(self) -> Sequence['outputs.SettingsParameterDescriptionResponse']:
         """
         Collection of settings in the section, each setting is a tuple consisting of setting name and value
         """

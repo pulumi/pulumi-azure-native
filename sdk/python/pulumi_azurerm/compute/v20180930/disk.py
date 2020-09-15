@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,10 +18,10 @@ class Disk(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[float]] = None,
-                 disk_m_bps_read_write: Optional[pulumi.Input[float]] = None,
+                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_m_bps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
-                 disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,7 @@ class Disk(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['DiskSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -39,10 +39,10 @@ class Disk(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
-        :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-        :param pulumi.Input[float] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[int] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-        :param pulumi.Input[float] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         :param pulumi.Input[str] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[str] location: Resource location
@@ -50,7 +50,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['DiskSkuArgs']] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: The Logical zone list for Disk.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Logical zone list for Disk.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,7 +132,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskIOPSReadWrite")
-    def disk_iops_read_write(self) -> pulumi.Output[Optional[float]]:
+    def disk_iops_read_write(self) -> pulumi.Output[Optional[int]]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         """
@@ -140,7 +140,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskMBpsReadWrite")
-    def disk_m_bps_read_write(self) -> pulumi.Output[Optional[float]]:
+    def disk_m_bps_read_write(self) -> pulumi.Output[Optional[int]]:
         """
         The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
@@ -148,7 +148,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> pulumi.Output[Optional[float]]:
+    def disk_size_gb(self) -> pulumi.Output[Optional[int]]:
         """
         If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         """
@@ -252,7 +252,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The Logical zone list for Disk.
         """

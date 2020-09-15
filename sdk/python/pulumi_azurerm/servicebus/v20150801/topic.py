@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,7 +27,7 @@ class Topic(pulumi.CustomResource):
                  is_anonymous_accessible: Optional[pulumi.Input[bool]] = None,
                  is_express: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_size_in_megabytes: Optional[pulumi.Input[float]] = None,
+                 max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
@@ -53,7 +53,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] filtering_messages_before_publishing: Whether messages should be filtered before publishing.
         :param pulumi.Input[bool] is_anonymous_accessible: Value that indicates whether the message is accessible anonymously.
         :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[float] max_size_in_megabytes: Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
+        :param pulumi.Input[int] max_size_in_megabytes: Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
         :param pulumi.Input[str] name: Topic name.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[bool] requires_duplicate_detection: Value indicating if this topic requires duplicate detection.
@@ -250,7 +250,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> pulumi.Output[Optional[float]]:
+    def max_size_in_megabytes(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
         """
@@ -274,7 +274,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> pulumi.Output[float]:
+    def size_in_bytes(self) -> pulumi.Output[int]:
         """
         Size of the topic, in bytes.
         """
@@ -290,7 +290,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionCount")
-    def subscription_count(self) -> pulumi.Output[float]:
+    def subscription_count(self) -> pulumi.Output[int]:
         """
         Number of subscriptions.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class ConnectionMonitor(pulumi.CustomResource):
                  connection_monitor_name: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+                 monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']]] = None,
@@ -38,7 +38,7 @@ class ConnectionMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] connection_monitor_name: The name of the connection monitor.
         :param pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']] destination: Describes the destination of connection monitor.
         :param pulumi.Input[str] location: Connection monitor location.
-        :param pulumi.Input[float] monitoring_interval_in_seconds: Monitoring interval in seconds.
+        :param pulumi.Input[int] monitoring_interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing Network Watcher.
         :param pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']] source: Describes the source of connection monitor.
@@ -146,7 +146,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringIntervalInSeconds")
-    def monitoring_interval_in_seconds(self) -> pulumi.Output[Optional[float]]:
+    def monitoring_interval_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         Monitoring interval in seconds.
         """

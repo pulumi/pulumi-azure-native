@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -35,11 +35,11 @@ class ManagedInstance(pulumi.CustomResource):
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_managed_instance_id: Optional[pulumi.Input[str]] = None,
-                 storage_size_in_gb: Optional[pulumi.Input[float]] = None,
+                 storage_size_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
-                 v_cores: Optional[pulumi.Input[float]] = None,
+                 v_cores: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -70,7 +70,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
         :param pulumi.Input[str] source_managed_instance_id: The resource identifier of the source managed instance associated with create operation of this instance.
-        :param pulumi.Input[float] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+        :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
         :param pulumi.Input[str] subnet_id: Subnet resource ID for the managed instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] timezone_id: Id of the timezone. Allowed values are timezones supported by Windows.
@@ -79,7 +79,7 @@ class ManagedInstance(pulumi.CustomResource):
                You can get those registry values via SQL Server by querying SELECT name AS timezone_id FROM sys.time_zone_info.
                List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
                An example of valid timezone id is "Pacific Standard Time" or "W. Europe Standard Time".
-        :param pulumi.Input[float] v_cores: The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
+        :param pulumi.Input[int] v_cores: The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -324,7 +324,7 @@ class ManagedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageSizeInGB")
-    def storage_size_in_gb(self) -> pulumi.Output[Optional[float]]:
+    def storage_size_in_gb(self) -> pulumi.Output[Optional[int]]:
         """
         Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
         """
@@ -369,7 +369,7 @@ class ManagedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vCores")
-    def v_cores(self) -> pulumi.Output[Optional[float]]:
+    def v_cores(self) -> pulumi.Output[Optional[int]]:
         """
         The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         """

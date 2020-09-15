@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -32,11 +32,11 @@ __all__ = [
 @pulumi.input_type
 class DataDiskImageEncryptionArgs:
     def __init__(__self__, *,
-                 lun: pulumi.Input[float],
+                 lun: pulumi.Input[int],
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
         """
         Contains encryption settings for a data disk image.
-        :param pulumi.Input[float] lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        :param pulumi.Input[int] lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         :param pulumi.Input[str] disk_encryption_set_id: A relative URI containing the resource ID of the disk encryption set.
         """
         pulumi.set(__self__, "lun", lun)
@@ -45,14 +45,14 @@ class DataDiskImageEncryptionArgs:
 
     @property
     @pulumi.getter
-    def lun(self) -> pulumi.Input[float]:
+    def lun(self) -> pulumi.Input[int]:
         """
         This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         """
         return pulumi.get(self, "lun")
 
     @lun.setter
-    def lun(self, value: pulumi.Input[float]):
+    def lun(self, value: pulumi.Input[int]):
         pulumi.set(self, "lun", value)
 
     @property
@@ -71,35 +71,35 @@ class DataDiskImageEncryptionArgs:
 @pulumi.input_type
 class DisallowedArgs:
     def __init__(__self__, *,
-                 disk_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 disk_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Describes the disallowed disk types.
-        :param pulumi.Input[List[pulumi.Input[str]]] disk_types: A list of disk types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types: A list of disk types.
         """
         if disk_types is not None:
             pulumi.set(__self__, "disk_types", disk_types)
 
     @property
     @pulumi.getter(name="diskTypes")
-    def disk_types(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def disk_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of disk types.
         """
         return pulumi.get(self, "disk_types")
 
     @disk_types.setter
-    def disk_types(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def disk_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "disk_types", value)
 
 
 @pulumi.input_type
 class EncryptionImagesArgs:
     def __init__(__self__, *,
-                 data_disk_images: Optional[pulumi.Input[List[pulumi.Input['DataDiskImageEncryptionArgs']]]] = None,
+                 data_disk_images: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskImageEncryptionArgs']]]] = None,
                  os_disk_image: Optional[pulumi.Input['OSDiskImageEncryptionArgs']] = None):
         """
         Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-        :param pulumi.Input[List[pulumi.Input['DataDiskImageEncryptionArgs']]] data_disk_images: A list of encryption specifications for data disk images.
+        :param pulumi.Input[Sequence[pulumi.Input['DataDiskImageEncryptionArgs']]] data_disk_images: A list of encryption specifications for data disk images.
         :param pulumi.Input['OSDiskImageEncryptionArgs'] os_disk_image: Contains encryption settings for an OS disk image.
         """
         if data_disk_images is not None:
@@ -109,14 +109,14 @@ class EncryptionImagesArgs:
 
     @property
     @pulumi.getter(name="dataDiskImages")
-    def data_disk_images(self) -> Optional[pulumi.Input[List[pulumi.Input['DataDiskImageEncryptionArgs']]]]:
+    def data_disk_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskImageEncryptionArgs']]]]:
         """
         A list of encryption specifications for data disk images.
         """
         return pulumi.get(self, "data_disk_images")
 
     @data_disk_images.setter
-    def data_disk_images(self, value: Optional[pulumi.Input[List[pulumi.Input['DataDiskImageEncryptionArgs']]]]):
+    def data_disk_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskImageEncryptionArgs']]]]):
         pulumi.set(self, "data_disk_images", value)
 
     @property
@@ -140,9 +140,9 @@ class GalleryApplicationVersionPublishingProfileArgs:
                  enable_health_check: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
-                 replica_count: Optional[pulumi.Input[float]] = None,
+                 replica_count: Optional[pulumi.Input[int]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
-                 target_regions: Optional[pulumi.Input[List[pulumi.Input['TargetRegionArgs']]]] = None):
+                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]] = None):
         """
         The publishing profile of a gallery image version.
         :param pulumi.Input['UserArtifactSourceArgs'] source: The source image from which the Image Version is going to be created.
@@ -150,9 +150,9 @@ class GalleryApplicationVersionPublishingProfileArgs:
         :param pulumi.Input[bool] enable_health_check: Optional. Whether or not this application reports health.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-        :param pulumi.Input[float] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        :param pulumi.Input[int] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
-        :param pulumi.Input[List[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "source", source)
         if content_type is not None:
@@ -232,14 +232,14 @@ class GalleryApplicationVersionPublishingProfileArgs:
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[float]]:
+    def replica_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[float]]):
+    def replica_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replica_count", value)
 
     @property
@@ -256,14 +256,14 @@ class GalleryApplicationVersionPublishingProfileArgs:
 
     @property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> Optional[pulumi.Input[List[pulumi.Input['TargetRegionArgs']]]]:
+    def target_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]]:
         """
         The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         return pulumi.get(self, "target_regions")
 
     @target_regions.setter
-    def target_regions(self, value: Optional[pulumi.Input[List[pulumi.Input['TargetRegionArgs']]]]):
+    def target_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]]):
         pulumi.set(self, "target_regions", value)
 
 
@@ -310,12 +310,12 @@ class GalleryArtifactVersionSourceArgs:
 @pulumi.input_type
 class GalleryDataDiskImageArgs:
     def __init__(__self__, *,
-                 lun: pulumi.Input[float],
+                 lun: pulumi.Input[int],
                  host_caching: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input['GalleryArtifactVersionSourceArgs']] = None):
         """
         This is the data disk image.
-        :param pulumi.Input[float] lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        :param pulumi.Input[int] lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         :param pulumi.Input[str] host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         :param pulumi.Input['GalleryArtifactVersionSourceArgs'] source: The gallery artifact version source.
         """
@@ -327,14 +327,14 @@ class GalleryDataDiskImageArgs:
 
     @property
     @pulumi.getter
-    def lun(self) -> pulumi.Input[float]:
+    def lun(self) -> pulumi.Input[int]:
         """
         This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         """
         return pulumi.get(self, "lun")
 
     @lun.setter
-    def lun(self, value: pulumi.Input[float]):
+    def lun(self, value: pulumi.Input[int]):
         pulumi.set(self, "lun", value)
 
     @property
@@ -460,16 +460,16 @@ class GalleryImageVersionPublishingProfileArgs:
     def __init__(__self__, *,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
-                 replica_count: Optional[pulumi.Input[float]] = None,
+                 replica_count: Optional[pulumi.Input[int]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
-                 target_regions: Optional[pulumi.Input[List[pulumi.Input['TargetRegionArgs']]]] = None):
+                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]] = None):
         """
         The publishing profile of a gallery image Version.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-        :param pulumi.Input[float] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        :param pulumi.Input[int] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
-        :param pulumi.Input[List[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         if end_of_life_date is not None:
             pulumi.set(__self__, "end_of_life_date", end_of_life_date)
@@ -508,14 +508,14 @@ class GalleryImageVersionPublishingProfileArgs:
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[float]]:
+    def replica_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[float]]):
+    def replica_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replica_count", value)
 
     @property
@@ -532,26 +532,26 @@ class GalleryImageVersionPublishingProfileArgs:
 
     @property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> Optional[pulumi.Input[List[pulumi.Input['TargetRegionArgs']]]]:
+    def target_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]]:
         """
         The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         return pulumi.get(self, "target_regions")
 
     @target_regions.setter
-    def target_regions(self, value: Optional[pulumi.Input[List[pulumi.Input['TargetRegionArgs']]]]):
+    def target_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]]):
         pulumi.set(self, "target_regions", value)
 
 
 @pulumi.input_type
 class GalleryImageVersionStorageProfileArgs:
     def __init__(__self__, *,
-                 data_disk_images: Optional[pulumi.Input[List[pulumi.Input['GalleryDataDiskImageArgs']]]] = None,
+                 data_disk_images: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryDataDiskImageArgs']]]] = None,
                  os_disk_image: Optional[pulumi.Input['GalleryOSDiskImageArgs']] = None,
                  source: Optional[pulumi.Input['GalleryArtifactVersionSourceArgs']] = None):
         """
         This is the storage profile of a Gallery Image Version.
-        :param pulumi.Input[List[pulumi.Input['GalleryDataDiskImageArgs']]] data_disk_images: A list of data disk images.
+        :param pulumi.Input[Sequence[pulumi.Input['GalleryDataDiskImageArgs']]] data_disk_images: A list of data disk images.
         :param pulumi.Input['GalleryOSDiskImageArgs'] os_disk_image: This is the OS disk image.
         :param pulumi.Input['GalleryArtifactVersionSourceArgs'] source: The gallery artifact version source.
         """
@@ -564,14 +564,14 @@ class GalleryImageVersionStorageProfileArgs:
 
     @property
     @pulumi.getter(name="dataDiskImages")
-    def data_disk_images(self) -> Optional[pulumi.Input[List[pulumi.Input['GalleryDataDiskImageArgs']]]]:
+    def data_disk_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GalleryDataDiskImageArgs']]]]:
         """
         A list of data disk images.
         """
         return pulumi.get(self, "data_disk_images")
 
     @data_disk_images.setter
-    def data_disk_images(self, value: Optional[pulumi.Input[List[pulumi.Input['GalleryDataDiskImageArgs']]]]):
+    def data_disk_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryDataDiskImageArgs']]]]):
         pulumi.set(self, "data_disk_images", value)
 
     @property
@@ -762,12 +762,12 @@ class RecommendedMachineConfigurationArgs:
 @pulumi.input_type
 class ResourceRangeArgs:
     def __init__(__self__, *,
-                 max: Optional[pulumi.Input[float]] = None,
-                 min: Optional[pulumi.Input[float]] = None):
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
         """
         Describes the resource range.
-        :param pulumi.Input[float] max: The maximum number of the resource.
-        :param pulumi.Input[float] min: The minimum number of the resource.
+        :param pulumi.Input[int] max: The maximum number of the resource.
+        :param pulumi.Input[int] min: The minimum number of the resource.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -776,26 +776,26 @@ class ResourceRangeArgs:
 
     @property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[float]]:
+    def max(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of the resource.
         """
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[float]]):
+    def max(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max", value)
 
     @property
     @pulumi.getter
-    def min(self) -> Optional[pulumi.Input[float]]:
+    def min(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of the resource.
         """
         return pulumi.get(self, "min")
 
     @min.setter
-    def min(self, value: Optional[pulumi.Input[float]]):
+    def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
 
@@ -828,13 +828,13 @@ class TargetRegionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  encryption: Optional[pulumi.Input['EncryptionImagesArgs']] = None,
-                 regional_replica_count: Optional[pulumi.Input[float]] = None,
+                 regional_replica_count: Optional[pulumi.Input[int]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None):
         """
         Describes the target region information.
         :param pulumi.Input[str] name: The name of the region.
         :param pulumi.Input['EncryptionImagesArgs'] encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-        :param pulumi.Input[float] regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
+        :param pulumi.Input[int] regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         pulumi.set(__self__, "name", name)
@@ -871,14 +871,14 @@ class TargetRegionArgs:
 
     @property
     @pulumi.getter(name="regionalReplicaCount")
-    def regional_replica_count(self) -> Optional[pulumi.Input[float]]:
+    def regional_replica_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of replicas of the Image Version to be created per region. This property is updatable.
         """
         return pulumi.get(self, "regional_replica_count")
 
     @regional_replica_count.setter
-    def regional_replica_count(self, value: Optional[pulumi.Input[float]]):
+    def regional_replica_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "regional_replica_count", value)
 
     @property

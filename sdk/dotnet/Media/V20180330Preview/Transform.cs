@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
         /// An array of one or more TransformOutputs that the Transform should generate.
         /// </summary>
         [Output("outputs")]
-        public Output<ImmutableArray<Outputs.TransformOutputResponseResult>> Outputs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TransformOutputResponse>> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

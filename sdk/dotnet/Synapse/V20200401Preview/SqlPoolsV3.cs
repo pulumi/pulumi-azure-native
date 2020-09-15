@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
         /// The sql pool SKU. The list of SKUs may vary by region and support offer.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The Guid of the sql pool.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
         /// SystemData of SqlPool.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponseResult> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

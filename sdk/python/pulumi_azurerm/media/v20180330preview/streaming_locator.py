@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class StreamingLocator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
-                 content_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StreamingLocatorUserDefinedContentKeyArgs']]]]] = None,
+                 content_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingLocatorUserDefinedContentKeyArgs']]]]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +37,7 @@ class StreamingLocator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] asset_name: Asset Name
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StreamingLocatorUserDefinedContentKeyArgs']]]] content_keys: ContentKeys used by this Streaming Locator
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingLocatorUserDefinedContentKeyArgs']]]] content_keys: ContentKeys used by this Streaming Locator
         :param pulumi.Input[str] default_content_key_policy_name: Default ContentKeyPolicy used by this Streaming Locator
         :param pulumi.Input[str] end_time: EndTime of Streaming Locator
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
@@ -122,7 +122,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentKeys")
-    def content_keys(self) -> pulumi.Output[Optional[List['outputs.StreamingLocatorUserDefinedContentKeyResponse']]]:
+    def content_keys(self) -> pulumi.Output[Optional[Sequence['outputs.StreamingLocatorUserDefinedContentKeyResponse']]]:
         """
         ContentKeys used by this Streaming Locator
         """

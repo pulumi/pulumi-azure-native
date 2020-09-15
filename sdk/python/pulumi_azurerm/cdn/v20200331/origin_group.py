@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,11 +20,11 @@ class OriginGroup(pulumi.CustomResource):
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  health_probe_settings: Optional[pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']]] = None,
                  origin_group_name: Optional[pulumi.Input[str]] = None,
-                 origins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  response_based_origin_error_detection_settings: Optional[pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']]] = None,
-                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[float]] = None,
+                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,11 +36,11 @@ class OriginGroup(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input[str] origin_group_name: Name of the origin group which is unique within the endpoint.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] origins: The source of the content being delivered via CDN within given origin group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] origins: The source of the content being delivered via CDN within given origin group.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-        :param pulumi.Input[float] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,7 +125,7 @@ class OriginGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origins(self) -> pulumi.Output[List['outputs.ResourceReferenceResponse']]:
+    def origins(self) -> pulumi.Output[Sequence['outputs.ResourceReferenceResponse']]:
         """
         The source of the content being delivered via CDN within given origin group.
         """
@@ -157,7 +157,7 @@ class OriginGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
-    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> pulumi.Output[Optional[float]]:
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """

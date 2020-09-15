@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityDataResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityDataResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
         /// Properties of the vault.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VaultPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.VaultPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Identifies the unique system identifier for each Azure resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

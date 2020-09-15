@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['MultipleActivationKey']
@@ -16,7 +16,7 @@ class MultipleActivationKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agreement_number: Optional[pulumi.Input[str]] = None,
-                 installed_server_number: Optional[pulumi.Input[float]] = None,
+                 installed_server_number: Optional[pulumi.Input[int]] = None,
                  is_eligible: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  multiple_activation_key_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class MultipleActivationKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agreement_number: Agreement number under which the key is requested.
-        :param pulumi.Input[float] installed_server_number: Number of activations/servers using the MAK key.
+        :param pulumi.Input[int] installed_server_number: Number of activations/servers using the MAK key.
         :param pulumi.Input[bool] is_eligible: <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] multiple_activation_key_name: The name of the MAK key.
@@ -121,7 +121,7 @@ class MultipleActivationKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="installedServerNumber")
-    def installed_server_number(self) -> pulumi.Output[Optional[float]]:
+    def installed_server_number(self) -> pulumi.Output[Optional[int]]:
         """
         Number of activations/servers using the MAK key.
         """

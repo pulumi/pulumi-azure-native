@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// The conflict resolution policy for the container.
         /// </summary>
         [Output("conflictResolutionPolicy")]
-        public Output<Outputs.ConflictResolutionPolicyResponseResult?> ConflictResolutionPolicy { get; private set; } = null!;
+        public Output<Outputs.ConflictResolutionPolicyResponse?> ConflictResolutionPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Default time to live
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         /// </summary>
         [Output("indexingPolicy")]
-        public Output<Outputs.IndexingPolicyResponseResult?> IndexingPolicy { get; private set; } = null!;
+        public Output<Outputs.IndexingPolicyResponse?> IndexingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// The configuration of the partition key to be used for partitioning data into multiple partitions
         /// </summary>
         [Output("partitionKey")]
-        public Output<Outputs.ContainerPartitionKeyResponseResult?> PartitionKey { get; private set; } = null!;
+        public Output<Outputs.ContainerPartitionKeyResponse?> PartitionKey { get; private set; } = null!;
 
         /// <summary>
         /// A system generated property. A unique identifier.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         /// </summary>
         [Output("uniqueKeyPolicy")]
-        public Output<Outputs.UniqueKeyPolicyResponseResult?> UniqueKeyPolicy { get; private set; } = null!;
+        public Output<Outputs.UniqueKeyPolicyResponse?> UniqueKeyPolicy { get; private set; } = null!;
 
 
         /// <summary>

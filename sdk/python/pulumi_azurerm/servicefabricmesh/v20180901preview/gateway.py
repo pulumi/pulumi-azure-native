@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,12 +20,12 @@ class Gateway(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  destination_network: Optional[pulumi.Input[pulumi.InputType['NetworkRefArgs']]] = None,
                  gateway_resource_name: Optional[pulumi.Input[str]] = None,
-                 http: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HttpConfigArgs']]]]] = None,
+                 http: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HttpConfigArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_network: Optional[pulumi.Input[pulumi.InputType['NetworkRefArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tcp: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TcpConfigArgs']]]]] = None,
+                 tcp: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TcpConfigArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -37,12 +37,12 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] description: User readable description of the gateway.
         :param pulumi.Input[pulumi.InputType['NetworkRefArgs']] destination_network: Network that the Application is using.
         :param pulumi.Input[str] gateway_resource_name: The identity of the gateway.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HttpConfigArgs']]]] http: Configuration for http connectivity for this gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HttpConfigArgs']]]] http: Configuration for http connectivity for this gateway.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: Azure resource group name
         :param pulumi.Input[pulumi.InputType['NetworkRefArgs']] source_network: Network the gateway should listen on for requests.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TcpConfigArgs']]]] tcp: Configuration for tcp connectivity for this gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TcpConfigArgs']]]] tcp: Configuration for tcp connectivity for this gateway.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,7 +128,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def http(self) -> pulumi.Output[Optional[List['outputs.HttpConfigResponse']]]:
+    def http(self) -> pulumi.Output[Optional[Sequence['outputs.HttpConfigResponse']]]:
         """
         Configuration for http connectivity for this gateway.
         """
@@ -200,7 +200,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tcp(self) -> pulumi.Output[Optional[List['outputs.TcpConfigResponse']]]:
+    def tcp(self) -> pulumi.Output[Optional[Sequence['outputs.TcpConfigResponse']]]:
         """
         Configuration for tcp connectivity for this gateway.
         """

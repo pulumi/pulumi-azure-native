@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -31,15 +31,15 @@ class CloudTieringCachePerformanceResponse(dict):
     Server endpoint cloud tiering status object.
     """
     def __init__(__self__, *,
-                 cache_hit_bytes: float,
-                 cache_hit_bytes_percent: float,
-                 cache_miss_bytes: float,
+                 cache_hit_bytes: int,
+                 cache_hit_bytes_percent: int,
+                 cache_miss_bytes: int,
                  last_updated_timestamp: str):
         """
         Server endpoint cloud tiering status object.
-        :param float cache_hit_bytes: Count of bytes that were served from the local server
-        :param float cache_hit_bytes_percent: Percentage of total bytes (hit + miss) that were served from the local server
-        :param float cache_miss_bytes: Count of bytes that were served from the cloud
+        :param int cache_hit_bytes: Count of bytes that were served from the local server
+        :param int cache_hit_bytes_percent: Percentage of total bytes (hit + miss) that were served from the local server
+        :param int cache_miss_bytes: Count of bytes that were served from the cloud
         :param str last_updated_timestamp: Last updated timestamp
         """
         pulumi.set(__self__, "cache_hit_bytes", cache_hit_bytes)
@@ -49,7 +49,7 @@ class CloudTieringCachePerformanceResponse(dict):
 
     @property
     @pulumi.getter(name="cacheHitBytes")
-    def cache_hit_bytes(self) -> float:
+    def cache_hit_bytes(self) -> int:
         """
         Count of bytes that were served from the local server
         """
@@ -57,7 +57,7 @@ class CloudTieringCachePerformanceResponse(dict):
 
     @property
     @pulumi.getter(name="cacheHitBytesPercent")
-    def cache_hit_bytes_percent(self) -> float:
+    def cache_hit_bytes_percent(self) -> int:
         """
         Percentage of total bytes (hit + miss) that were served from the local server
         """
@@ -65,7 +65,7 @@ class CloudTieringCachePerformanceResponse(dict):
 
     @property
     @pulumi.getter(name="cacheMissBytes")
-    def cache_miss_bytes(self) -> float:
+    def cache_miss_bytes(self) -> int:
         """
         Count of bytes that were served from the cloud
         """
@@ -125,14 +125,14 @@ class CloudTieringFilesNotTieringResponse(dict):
     Server endpoint cloud tiering status object.
     """
     def __init__(__self__, *,
-                 errors: List['outputs.FilesNotTieringErrorResponse'],
+                 errors: Sequence['outputs.FilesNotTieringErrorResponse'],
                  last_updated_timestamp: str,
-                 total_file_count: float):
+                 total_file_count: int):
         """
         Server endpoint cloud tiering status object.
-        :param List['FilesNotTieringErrorResponseArgs'] errors: Array of tiering errors
+        :param Sequence['FilesNotTieringErrorResponseArgs'] errors: Array of tiering errors
         :param str last_updated_timestamp: Last updated timestamp
-        :param float total_file_count: Last cloud tiering result (HResult)
+        :param int total_file_count: Last cloud tiering result (HResult)
         """
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
@@ -140,7 +140,7 @@ class CloudTieringFilesNotTieringResponse(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> List['outputs.FilesNotTieringErrorResponse']:
+    def errors(self) -> Sequence['outputs.FilesNotTieringErrorResponse']:
         """
         Array of tiering errors
         """
@@ -156,7 +156,7 @@ class CloudTieringFilesNotTieringResponse(dict):
 
     @property
     @pulumi.getter(name="totalFileCount")
-    def total_file_count(self) -> float:
+    def total_file_count(self) -> int:
         """
         Last cloud tiering result (HResult)
         """
@@ -172,20 +172,20 @@ class CloudTieringSpaceSavingsResponse(dict):
     Server endpoint cloud tiering status object.
     """
     def __init__(__self__, *,
-                 cached_size_bytes: float,
+                 cached_size_bytes: int,
                  last_updated_timestamp: str,
-                 space_savings_bytes: float,
-                 space_savings_percent: float,
-                 total_size_cloud_bytes: float,
-                 volume_size_bytes: float):
+                 space_savings_bytes: int,
+                 space_savings_percent: int,
+                 total_size_cloud_bytes: int,
+                 volume_size_bytes: int):
         """
         Server endpoint cloud tiering status object.
-        :param float cached_size_bytes: Cached content size on the server
+        :param int cached_size_bytes: Cached content size on the server
         :param str last_updated_timestamp: Last updated timestamp
-        :param float space_savings_bytes: Count of bytes saved on the server
-        :param float space_savings_percent: Percentage of cached size over total size
-        :param float total_size_cloud_bytes: Total size of content in the azure file share
-        :param float volume_size_bytes: Volume size
+        :param int space_savings_bytes: Count of bytes saved on the server
+        :param int space_savings_percent: Percentage of cached size over total size
+        :param int total_size_cloud_bytes: Total size of content in the azure file share
+        :param int volume_size_bytes: Volume size
         """
         pulumi.set(__self__, "cached_size_bytes", cached_size_bytes)
         pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
@@ -196,7 +196,7 @@ class CloudTieringSpaceSavingsResponse(dict):
 
     @property
     @pulumi.getter(name="cachedSizeBytes")
-    def cached_size_bytes(self) -> float:
+    def cached_size_bytes(self) -> int:
         """
         Cached content size on the server
         """
@@ -212,7 +212,7 @@ class CloudTieringSpaceSavingsResponse(dict):
 
     @property
     @pulumi.getter(name="spaceSavingsBytes")
-    def space_savings_bytes(self) -> float:
+    def space_savings_bytes(self) -> int:
         """
         Count of bytes saved on the server
         """
@@ -220,7 +220,7 @@ class CloudTieringSpaceSavingsResponse(dict):
 
     @property
     @pulumi.getter(name="spaceSavingsPercent")
-    def space_savings_percent(self) -> float:
+    def space_savings_percent(self) -> int:
         """
         Percentage of cached size over total size
         """
@@ -228,7 +228,7 @@ class CloudTieringSpaceSavingsResponse(dict):
 
     @property
     @pulumi.getter(name="totalSizeCloudBytes")
-    def total_size_cloud_bytes(self) -> float:
+    def total_size_cloud_bytes(self) -> int:
         """
         Total size of content in the azure file share
         """
@@ -236,7 +236,7 @@ class CloudTieringSpaceSavingsResponse(dict):
 
     @property
     @pulumi.getter(name="volumeSizeBytes")
-    def volume_size_bytes(self) -> float:
+    def volume_size_bytes(self) -> int:
         """
         Volume size
         """
@@ -252,13 +252,13 @@ class CloudTieringVolumeFreeSpacePolicyStatusResponse(dict):
     Status of the volume free space policy
     """
     def __init__(__self__, *,
-                 current_volume_free_space_percent: float,
-                 effective_volume_free_space_policy: float,
+                 current_volume_free_space_percent: int,
+                 effective_volume_free_space_policy: int,
                  last_updated_timestamp: str):
         """
         Status of the volume free space policy
-        :param float current_volume_free_space_percent: Current volume free space percentage.
-        :param float effective_volume_free_space_policy: In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
+        :param int current_volume_free_space_percent: Current volume free space percentage.
+        :param int effective_volume_free_space_policy: In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
         :param str last_updated_timestamp: Last updated timestamp
         """
         pulumi.set(__self__, "current_volume_free_space_percent", current_volume_free_space_percent)
@@ -267,7 +267,7 @@ class CloudTieringVolumeFreeSpacePolicyStatusResponse(dict):
 
     @property
     @pulumi.getter(name="currentVolumeFreeSpacePercent")
-    def current_volume_free_space_percent(self) -> float:
+    def current_volume_free_space_percent(self) -> int:
         """
         Current volume free space percentage.
         """
@@ -275,7 +275,7 @@ class CloudTieringVolumeFreeSpacePolicyStatusResponse(dict):
 
     @property
     @pulumi.getter(name="effectiveVolumeFreeSpacePolicy")
-    def effective_volume_free_space_policy(self) -> float:
+    def effective_volume_free_space_policy(self) -> int:
         """
         In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
         """
@@ -299,19 +299,19 @@ class FilesNotTieringErrorResponse(dict):
     Files not tiering error object
     """
     def __init__(__self__, *,
-                 error_code: float,
-                 file_count: float):
+                 error_code: int,
+                 file_count: int):
         """
         Files not tiering error object
-        :param float error_code: Error code (HResult)
-        :param float file_count: Count of files with this error
+        :param int error_code: Error code (HResult)
+        :param int file_count: Count of files with this error
         """
         pulumi.set(__self__, "error_code", error_code)
         pulumi.set(__self__, "file_count", file_count)
 
     @property
     @pulumi.getter(name="errorCode")
-    def error_code(self) -> float:
+    def error_code(self) -> int:
         """
         Error code (HResult)
         """
@@ -319,7 +319,7 @@ class FilesNotTieringErrorResponse(dict):
 
     @property
     @pulumi.getter(name="fileCount")
-    def file_count(self) -> float:
+    def file_count(self) -> int:
         """
         Count of files with this error
         """
@@ -340,7 +340,7 @@ class ServerEndpointCloudTieringStatusResponse(dict):
                  files_not_tiering: 'outputs.CloudTieringFilesNotTieringResponse',
                  health: str,
                  health_last_updated_timestamp: str,
-                 last_cloud_tiering_result: float,
+                 last_cloud_tiering_result: int,
                  last_success_timestamp: str,
                  last_updated_timestamp: str,
                  space_savings: 'outputs.CloudTieringSpaceSavingsResponse',
@@ -352,7 +352,7 @@ class ServerEndpointCloudTieringStatusResponse(dict):
         :param 'CloudTieringFilesNotTieringResponseArgs' files_not_tiering: Information regarding files that failed to be tiered
         :param str health: Cloud tiering health state.
         :param str health_last_updated_timestamp: The last updated timestamp of health state
-        :param float last_cloud_tiering_result: Last cloud tiering result (HResult)
+        :param int last_cloud_tiering_result: Last cloud tiering result (HResult)
         :param str last_success_timestamp: Last cloud tiering success timestamp
         :param str last_updated_timestamp: Last updated timestamp
         :param 'CloudTieringSpaceSavingsResponseArgs' space_savings: Information regarding how much local space cloud tiering is saving.
@@ -411,7 +411,7 @@ class ServerEndpointCloudTieringStatusResponse(dict):
 
     @property
     @pulumi.getter(name="lastCloudTieringResult")
-    def last_cloud_tiering_result(self) -> float:
+    def last_cloud_tiering_result(self) -> int:
         """
         Last cloud tiering result (HResult)
         """
@@ -459,14 +459,14 @@ class ServerEndpointFilesNotSyncingErrorResponse(dict):
     Files not syncing error object
     """
     def __init__(__self__, *,
-                 error_code: float,
-                 persistent_count: float,
-                 transient_count: float):
+                 error_code: int,
+                 persistent_count: int,
+                 transient_count: int):
         """
         Files not syncing error object
-        :param float error_code: Error code (HResult)
-        :param float persistent_count: Count of persistent files not syncing with the specified error code
-        :param float transient_count: Count of transient files not syncing with the specified error code
+        :param int error_code: Error code (HResult)
+        :param int persistent_count: Count of persistent files not syncing with the specified error code
+        :param int transient_count: Count of transient files not syncing with the specified error code
         """
         pulumi.set(__self__, "error_code", error_code)
         pulumi.set(__self__, "persistent_count", persistent_count)
@@ -474,7 +474,7 @@ class ServerEndpointFilesNotSyncingErrorResponse(dict):
 
     @property
     @pulumi.getter(name="errorCode")
-    def error_code(self) -> float:
+    def error_code(self) -> int:
         """
         Error code (HResult)
         """
@@ -482,7 +482,7 @@ class ServerEndpointFilesNotSyncingErrorResponse(dict):
 
     @property
     @pulumi.getter(name="persistentCount")
-    def persistent_count(self) -> float:
+    def persistent_count(self) -> int:
         """
         Count of persistent files not syncing with the specified error code
         """
@@ -490,7 +490,7 @@ class ServerEndpointFilesNotSyncingErrorResponse(dict):
 
     @property
     @pulumi.getter(name="transientCount")
-    def transient_count(self) -> float:
+    def transient_count(self) -> int:
         """
         Count of transient files not syncing with the specified error code
         """
@@ -506,19 +506,19 @@ class ServerEndpointRecallErrorResponse(dict):
     Server endpoint recall error object
     """
     def __init__(__self__, *,
-                 count: float,
-                 error_code: float):
+                 count: int,
+                 error_code: int):
         """
         Server endpoint recall error object
-        :param float count: Count of occurences of the error
-        :param float error_code: Error code (HResult)
+        :param int count: Count of occurences of the error
+        :param int error_code: Error code (HResult)
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "error_code", error_code)
 
     @property
     @pulumi.getter
-    def count(self) -> float:
+    def count(self) -> int:
         """
         Count of occurences of the error
         """
@@ -526,7 +526,7 @@ class ServerEndpointRecallErrorResponse(dict):
 
     @property
     @pulumi.getter(name="errorCode")
-    def error_code(self) -> float:
+    def error_code(self) -> int:
         """
         Error code (HResult)
         """
@@ -543,13 +543,13 @@ class ServerEndpointRecallStatusResponse(dict):
     """
     def __init__(__self__, *,
                  last_updated_timestamp: str,
-                 recall_errors: List['outputs.ServerEndpointRecallErrorResponse'],
-                 total_recall_errors_count: float):
+                 recall_errors: Sequence['outputs.ServerEndpointRecallErrorResponse'],
+                 total_recall_errors_count: int):
         """
         Server endpoint recall status object.
         :param str last_updated_timestamp: Last updated timestamp
-        :param List['ServerEndpointRecallErrorResponseArgs'] recall_errors: Array of recall errors
-        :param float total_recall_errors_count: Total count of recall errors.
+        :param Sequence['ServerEndpointRecallErrorResponseArgs'] recall_errors: Array of recall errors
+        :param int total_recall_errors_count: Total count of recall errors.
         """
         pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
         pulumi.set(__self__, "recall_errors", recall_errors)
@@ -565,7 +565,7 @@ class ServerEndpointRecallStatusResponse(dict):
 
     @property
     @pulumi.getter(name="recallErrors")
-    def recall_errors(self) -> List['outputs.ServerEndpointRecallErrorResponse']:
+    def recall_errors(self) -> Sequence['outputs.ServerEndpointRecallErrorResponse']:
         """
         Array of recall errors
         """
@@ -573,7 +573,7 @@ class ServerEndpointRecallStatusResponse(dict):
 
     @property
     @pulumi.getter(name="totalRecallErrorsCount")
-    def total_recall_errors_count(self) -> float:
+    def total_recall_errors_count(self) -> int:
         """
         Total count of recall errors.
         """
@@ -596,7 +596,7 @@ class ServerEndpointSyncStatusResponse(dict):
                  last_updated_timestamp: str,
                  offline_data_transfer_status: str,
                  sync_activity: str,
-                 total_persistent_files_not_syncing_count: float,
+                 total_persistent_files_not_syncing_count: int,
                  upload_activity: 'outputs.SyncActivityStatusResponse',
                  upload_health: str,
                  upload_status: 'outputs.SyncSessionStatusResponse'):
@@ -609,7 +609,7 @@ class ServerEndpointSyncStatusResponse(dict):
         :param str last_updated_timestamp: Last Updated Timestamp
         :param str offline_data_transfer_status: Offline Data Transfer State
         :param str sync_activity: Sync activity
-        :param float total_persistent_files_not_syncing_count: Total count of persistent files not syncing (combined upload + download).
+        :param int total_persistent_files_not_syncing_count: Total count of persistent files not syncing (combined upload + download).
         :param 'SyncActivityStatusResponseArgs' upload_activity: Upload sync activity
         :param str upload_health: Upload Health Status.
         :param 'SyncSessionStatusResponseArgs' upload_status: Upload Status
@@ -684,7 +684,7 @@ class ServerEndpointSyncStatusResponse(dict):
 
     @property
     @pulumi.getter(name="totalPersistentFilesNotSyncingCount")
-    def total_persistent_files_not_syncing_count(self) -> float:
+    def total_persistent_files_not_syncing_count(self) -> int:
         """
         Total count of persistent files not syncing (combined upload + download).
         """
@@ -724,20 +724,20 @@ class SyncActivityStatusResponse(dict):
     Sync Session status object.
     """
     def __init__(__self__, *,
-                 applied_bytes: float,
-                 applied_item_count: float,
-                 per_item_error_count: float,
+                 applied_bytes: int,
+                 applied_item_count: int,
+                 per_item_error_count: int,
                  timestamp: str,
-                 total_bytes: float,
-                 total_item_count: float):
+                 total_bytes: int,
+                 total_item_count: int):
         """
         Sync Session status object.
-        :param float applied_bytes: Applied bytes
-        :param float applied_item_count: Applied item count.
-        :param float per_item_error_count: Per item error count
+        :param int applied_bytes: Applied bytes
+        :param int applied_item_count: Applied item count.
+        :param int per_item_error_count: Per item error count
         :param str timestamp: Timestamp when properties were updated
-        :param float total_bytes: Total bytes (if available)
-        :param float total_item_count: Total item count (if available)
+        :param int total_bytes: Total bytes (if available)
+        :param int total_item_count: Total item count (if available)
         """
         pulumi.set(__self__, "applied_bytes", applied_bytes)
         pulumi.set(__self__, "applied_item_count", applied_item_count)
@@ -748,7 +748,7 @@ class SyncActivityStatusResponse(dict):
 
     @property
     @pulumi.getter(name="appliedBytes")
-    def applied_bytes(self) -> float:
+    def applied_bytes(self) -> int:
         """
         Applied bytes
         """
@@ -756,7 +756,7 @@ class SyncActivityStatusResponse(dict):
 
     @property
     @pulumi.getter(name="appliedItemCount")
-    def applied_item_count(self) -> float:
+    def applied_item_count(self) -> int:
         """
         Applied item count.
         """
@@ -764,7 +764,7 @@ class SyncActivityStatusResponse(dict):
 
     @property
     @pulumi.getter(name="perItemErrorCount")
-    def per_item_error_count(self) -> float:
+    def per_item_error_count(self) -> int:
         """
         Per item error count
         """
@@ -780,7 +780,7 @@ class SyncActivityStatusResponse(dict):
 
     @property
     @pulumi.getter(name="totalBytes")
-    def total_bytes(self) -> float:
+    def total_bytes(self) -> int:
         """
         Total bytes (if available)
         """
@@ -788,7 +788,7 @@ class SyncActivityStatusResponse(dict):
 
     @property
     @pulumi.getter(name="totalItemCount")
-    def total_item_count(self) -> float:
+    def total_item_count(self) -> int:
         """
         Total item count (if available)
         """
@@ -804,22 +804,22 @@ class SyncSessionStatusResponse(dict):
     Sync Session status object.
     """
     def __init__(__self__, *,
-                 files_not_syncing_errors: List['outputs.ServerEndpointFilesNotSyncingErrorResponse'],
-                 last_sync_per_item_error_count: float,
-                 last_sync_result: float,
+                 files_not_syncing_errors: Sequence['outputs.ServerEndpointFilesNotSyncingErrorResponse'],
+                 last_sync_per_item_error_count: int,
+                 last_sync_result: int,
                  last_sync_success_timestamp: str,
                  last_sync_timestamp: str,
-                 persistent_files_not_syncing_count: float,
-                 transient_files_not_syncing_count: float):
+                 persistent_files_not_syncing_count: int,
+                 transient_files_not_syncing_count: int):
         """
         Sync Session status object.
-        :param List['ServerEndpointFilesNotSyncingErrorResponseArgs'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
-        :param float last_sync_per_item_error_count: Last sync per item error count.
-        :param float last_sync_result: Last sync result (HResult)
+        :param Sequence['ServerEndpointFilesNotSyncingErrorResponseArgs'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
+        :param int last_sync_per_item_error_count: Last sync per item error count.
+        :param int last_sync_result: Last sync result (HResult)
         :param str last_sync_success_timestamp: Last sync success timestamp
         :param str last_sync_timestamp: Last sync timestamp
-        :param float persistent_files_not_syncing_count: Count of persistent files not syncing.
-        :param float transient_files_not_syncing_count: Count of transient files not syncing.
+        :param int persistent_files_not_syncing_count: Count of persistent files not syncing.
+        :param int transient_files_not_syncing_count: Count of transient files not syncing.
         """
         pulumi.set(__self__, "files_not_syncing_errors", files_not_syncing_errors)
         pulumi.set(__self__, "last_sync_per_item_error_count", last_sync_per_item_error_count)
@@ -831,7 +831,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="filesNotSyncingErrors")
-    def files_not_syncing_errors(self) -> List['outputs.ServerEndpointFilesNotSyncingErrorResponse']:
+    def files_not_syncing_errors(self) -> Sequence['outputs.ServerEndpointFilesNotSyncingErrorResponse']:
         """
         Array of per-item errors coming from the last sync session.
         """
@@ -839,7 +839,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="lastSyncPerItemErrorCount")
-    def last_sync_per_item_error_count(self) -> float:
+    def last_sync_per_item_error_count(self) -> int:
         """
         Last sync per item error count.
         """
@@ -847,7 +847,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="lastSyncResult")
-    def last_sync_result(self) -> float:
+    def last_sync_result(self) -> int:
         """
         Last sync result (HResult)
         """
@@ -871,7 +871,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="persistentFilesNotSyncingCount")
-    def persistent_files_not_syncing_count(self) -> float:
+    def persistent_files_not_syncing_count(self) -> int:
         """
         Count of persistent files not syncing.
         """
@@ -879,7 +879,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="transientFilesNotSyncingCount")
-    def transient_files_not_syncing_count(self) -> float:
+    def transient_files_not_syncing_count(self) -> int:
         """
         Count of transient files not syncing.
         """

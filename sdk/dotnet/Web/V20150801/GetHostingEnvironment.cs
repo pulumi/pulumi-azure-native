@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <summary>
         /// Custom settings for changing the behavior of the hosting environment
         /// </summary>
-        public readonly ImmutableArray<Outputs.NameValuePairResponseResult> ClusterSettings;
+        public readonly ImmutableArray<Outputs.NameValuePairResponse> ClusterSettings;
         /// <summary>
         /// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <summary>
         /// Current total, used, and available worker capacities
         /// </summary>
-        public readonly ImmutableArray<Outputs.StampCapacityResponseResult> EnvironmentCapacities;
+        public readonly ImmutableArray<Outputs.StampCapacityResponse> EnvironmentCapacities;
         /// <summary>
         /// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <summary>
         /// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkAccessControlEntryResponseResult> NetworkAccessControlList;
+        public readonly ImmutableArray<Outputs.NetworkAccessControlEntryResponse> NetworkAccessControlList;
         /// <summary>
         /// Provisioning state of the hostingEnvironment (App Service Environment)
         /// </summary>
@@ -159,11 +159,11 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <summary>
         /// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualIPMappingResponseResult> VipMappings;
+        public readonly ImmutableArray<Outputs.VirtualIPMappingResponse> VipMappings;
         /// <summary>
         /// Description of the hostingEnvironment's (App Service Environment) virtual network
         /// </summary>
-        public readonly Outputs.VirtualNetworkProfileResponseResult? VirtualNetwork;
+        public readonly Outputs.VirtualNetworkProfileResponse? VirtualNetwork;
         /// <summary>
         /// Name of the hostingEnvironment's (App Service Environment) virtual network
         /// </summary>
@@ -179,7 +179,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <summary>
         /// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
         /// </summary>
-        public readonly ImmutableArray<Outputs.WorkerPoolResponseResult> WorkerPools;
+        public readonly ImmutableArray<Outputs.WorkerPoolResponse> WorkerPools;
 
         [OutputConstructor]
         private GetHostingEnvironmentResult(
@@ -189,7 +189,7 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             string? apiManagementAccountId,
 
-            ImmutableArray<Outputs.NameValuePairResponseResult> clusterSettings,
+            ImmutableArray<Outputs.NameValuePairResponse> clusterSettings,
 
             string? databaseEdition,
 
@@ -197,7 +197,7 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             string? dnsSuffix,
 
-            ImmutableArray<Outputs.StampCapacityResponseResult> environmentCapacities,
+            ImmutableArray<Outputs.StampCapacityResponse> environmentCapacities,
 
             bool? environmentIsHealthy,
 
@@ -223,7 +223,7 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             string? name,
 
-            ImmutableArray<Outputs.NetworkAccessControlEntryResponseResult> networkAccessControlList,
+            ImmutableArray<Outputs.NetworkAccessControlEntryResponse> networkAccessControlList,
 
             string? provisioningState,
 
@@ -241,9 +241,9 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             int? upgradeDomains,
 
-            ImmutableArray<Outputs.VirtualIPMappingResponseResult> vipMappings,
+            ImmutableArray<Outputs.VirtualIPMappingResponse> vipMappings,
 
-            Outputs.VirtualNetworkProfileResponseResult? virtualNetwork,
+            Outputs.VirtualNetworkProfileResponse? virtualNetwork,
 
             string? vnetName,
 
@@ -251,7 +251,7 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             string? vnetSubnetName,
 
-            ImmutableArray<Outputs.WorkerPoolResponseResult> workerPools)
+            ImmutableArray<Outputs.WorkerPoolResponse> workerPools)
         {
             AllowedMultiSizes = allowedMultiSizes;
             AllowedWorkerSizes = allowedWorkerSizes;

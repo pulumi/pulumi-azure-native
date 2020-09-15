@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
         /// SystemData of SqlDatabase.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponseResult> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

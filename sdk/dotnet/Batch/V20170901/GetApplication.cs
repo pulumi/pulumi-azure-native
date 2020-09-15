@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Batch.V20170901
         /// <summary>
         /// The list of packages under this application.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationPackageResponseResult> Packages;
+        public readonly ImmutableArray<Outputs.ApplicationPackageResponse> Packages;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Batch.V20170901
 
             string? displayName,
 
-            ImmutableArray<Outputs.ApplicationPackageResponseResult> packages)
+            ImmutableArray<Outputs.ApplicationPackageResponse> packages)
         {
             AllowUpdates = allowUpdates;
             DefaultVersion = defaultVersion;

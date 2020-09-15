@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -32,11 +32,11 @@ class AdvancedScheduleMonthlyOccurrenceResponse(dict):
     """
     def __init__(__self__, *,
                  day: Optional[str] = None,
-                 occurrence: Optional[float] = None):
+                 occurrence: Optional[int] = None):
         """
         The properties of the create advanced schedule monthly occurrence.
         :param str day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        :param float occurrence: Occurrence of the week within the month. Must be between 1 and 5
+        :param int occurrence: Occurrence of the week within the month. Must be between 1 and 5
         """
         if day is not None:
             pulumi.set(__self__, "day", day)
@@ -53,7 +53,7 @@ class AdvancedScheduleMonthlyOccurrenceResponse(dict):
 
     @property
     @pulumi.getter
-    def occurrence(self) -> Optional[float]:
+    def occurrence(self) -> Optional[int]:
         """
         Occurrence of the week within the month. Must be between 1 and 5
         """
@@ -69,14 +69,14 @@ class AdvancedScheduleResponse(dict):
     The properties of the create Advanced Schedule.
     """
     def __init__(__self__, *,
-                 month_days: Optional[List[float]] = None,
-                 monthly_occurrences: Optional[List['outputs.AdvancedScheduleMonthlyOccurrenceResponse']] = None,
-                 week_days: Optional[List[str]] = None):
+                 month_days: Optional[Sequence[int]] = None,
+                 monthly_occurrences: Optional[Sequence['outputs.AdvancedScheduleMonthlyOccurrenceResponse']] = None,
+                 week_days: Optional[Sequence[str]] = None):
         """
         The properties of the create Advanced Schedule.
-        :param List[float] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
-        :param List['AdvancedScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Occurrences of days within a month.
-        :param List[str] week_days: Days of the week that the job should execute on.
+        :param Sequence[int] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
+        :param Sequence['AdvancedScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Occurrences of days within a month.
+        :param Sequence[str] week_days: Days of the week that the job should execute on.
         """
         if month_days is not None:
             pulumi.set(__self__, "month_days", month_days)
@@ -87,7 +87,7 @@ class AdvancedScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="monthDays")
-    def month_days(self) -> Optional[List[float]]:
+    def month_days(self) -> Optional[Sequence[int]]:
         """
         Days of the month that the job should execute on. Must be between 1 and 31.
         """
@@ -95,7 +95,7 @@ class AdvancedScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="monthlyOccurrences")
-    def monthly_occurrences(self) -> Optional[List['outputs.AdvancedScheduleMonthlyOccurrenceResponse']]:
+    def monthly_occurrences(self) -> Optional[Sequence['outputs.AdvancedScheduleMonthlyOccurrenceResponse']]:
         """
         Occurrences of days within a month.
         """
@@ -103,7 +103,7 @@ class AdvancedScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[List[str]]:
+    def week_days(self) -> Optional[Sequence[str]]:
         """
         Days of the week that the job should execute on.
         """
@@ -119,13 +119,13 @@ class AzureQueryPropertiesResponse(dict):
     Azure query for the update configuration.
     """
     def __init__(__self__, *,
-                 locations: Optional[List[str]] = None,
-                 scope: Optional[List[str]] = None,
+                 locations: Optional[Sequence[str]] = None,
+                 scope: Optional[Sequence[str]] = None,
                  tag_settings: Optional['outputs.TagSettingsPropertiesResponse'] = None):
         """
         Azure query for the update configuration.
-        :param List[str] locations: List of locations to scope the query to.
-        :param List[str] scope: List of Subscription or Resource Group ARM Ids.
+        :param Sequence[str] locations: List of locations to scope the query to.
+        :param Sequence[str] scope: List of Subscription or Resource Group ARM Ids.
         :param 'TagSettingsPropertiesResponseArgs' tag_settings: Tag settings for the VM.
         """
         if locations is not None:
@@ -137,7 +137,7 @@ class AzureQueryPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def locations(self) -> Optional[List[str]]:
+    def locations(self) -> Optional[Sequence[str]]:
         """
         List of locations to scope the query to.
         """
@@ -145,7 +145,7 @@ class AzureQueryPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[List[str]]:
+    def scope(self) -> Optional[Sequence[str]]:
         """
         List of Subscription or Resource Group ARM Ids.
         """
@@ -207,15 +207,15 @@ class LinuxPropertiesResponse(dict):
     Linux specific update configuration.
     """
     def __init__(__self__, *,
-                 excluded_package_name_masks: Optional[List[str]] = None,
+                 excluded_package_name_masks: Optional[Sequence[str]] = None,
                  included_package_classifications: Optional[str] = None,
-                 included_package_name_masks: Optional[List[str]] = None,
+                 included_package_name_masks: Optional[Sequence[str]] = None,
                  reboot_setting: Optional[str] = None):
         """
         Linux specific update configuration.
-        :param List[str] excluded_package_name_masks: packages excluded from the software update configuration.
+        :param Sequence[str] excluded_package_name_masks: packages excluded from the software update configuration.
         :param str included_package_classifications: Update classifications included in the software update configuration.
-        :param List[str] included_package_name_masks: packages included from the software update configuration.
+        :param Sequence[str] included_package_name_masks: packages included from the software update configuration.
         :param str reboot_setting: Reboot setting for the software update configuration.
         """
         if excluded_package_name_masks is not None:
@@ -229,7 +229,7 @@ class LinuxPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="excludedPackageNameMasks")
-    def excluded_package_name_masks(self) -> Optional[List[str]]:
+    def excluded_package_name_masks(self) -> Optional[Sequence[str]]:
         """
         packages excluded from the software update configuration.
         """
@@ -245,7 +245,7 @@ class LinuxPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="includedPackageNameMasks")
-    def included_package_name_masks(self) -> Optional[List[str]]:
+    def included_package_name_masks(self) -> Optional[Sequence[str]]:
         """
         packages included from the software update configuration.
         """
@@ -314,7 +314,7 @@ class SchedulePropertiesResponse(dict):
                  expiry_time: Optional[str] = None,
                  expiry_time_offset_minutes: Optional[float] = None,
                  frequency: Optional[str] = None,
-                 interval: Optional[float] = None,
+                 interval: Optional[int] = None,
                  is_enabled: Optional[bool] = None,
                  last_modified_time: Optional[str] = None,
                  next_run: Optional[str] = None,
@@ -330,7 +330,7 @@ class SchedulePropertiesResponse(dict):
         :param str expiry_time: Gets or sets the end time of the schedule.
         :param float expiry_time_offset_minutes: Gets or sets the expiry time's offset in minutes.
         :param str frequency: Gets or sets the frequency of the schedule.
-        :param float interval: Gets or sets the interval of the schedule.
+        :param int interval: Gets or sets the interval of the schedule.
         :param bool is_enabled: Gets or sets a value indicating whether this schedule is enabled.
         :param str last_modified_time: Gets or sets the last modified time.
         :param str next_run: Gets or sets the next run time of the schedule.
@@ -424,7 +424,7 @@ class SchedulePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         """
         Gets or sets the interval of the schedule.
         """
@@ -489,11 +489,11 @@ class TagSettingsPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  filter_operator: Optional[str] = None,
-                 tags: Optional[Mapping[str, List[str]]] = None):
+                 tags: Optional[Mapping[str, Sequence[str]]] = None):
         """
         Tag filter information for the VM.
         :param str filter_operator: Filter VMs by Any or All specified tags.
-        :param Mapping[str, List[str]] tags: Dictionary of tags with its list of values.
+        :param Mapping[str, Sequence[str]] tags: Dictionary of tags with its list of values.
         """
         if filter_operator is not None:
             pulumi.set(__self__, "filter_operator", filter_operator)
@@ -510,7 +510,7 @@ class TagSettingsPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, List[str]]]:
+    def tags(self) -> Optional[Mapping[str, Sequence[str]]]:
         """
         Dictionary of tags with its list of values.
         """
@@ -526,12 +526,12 @@ class TargetPropertiesResponse(dict):
     Group specific to the update configuration.
     """
     def __init__(__self__, *,
-                 azure_queries: Optional[List['outputs.AzureQueryPropertiesResponse']] = None,
-                 non_azure_queries: Optional[List['outputs.NonAzureQueryPropertiesResponse']] = None):
+                 azure_queries: Optional[Sequence['outputs.AzureQueryPropertiesResponse']] = None,
+                 non_azure_queries: Optional[Sequence['outputs.NonAzureQueryPropertiesResponse']] = None):
         """
         Group specific to the update configuration.
-        :param List['AzureQueryPropertiesResponseArgs'] azure_queries: List of Azure queries in the software update configuration.
-        :param List['NonAzureQueryPropertiesResponseArgs'] non_azure_queries: List of non Azure queries in the software update configuration.
+        :param Sequence['AzureQueryPropertiesResponseArgs'] azure_queries: List of Azure queries in the software update configuration.
+        :param Sequence['NonAzureQueryPropertiesResponseArgs'] non_azure_queries: List of non Azure queries in the software update configuration.
         """
         if azure_queries is not None:
             pulumi.set(__self__, "azure_queries", azure_queries)
@@ -540,7 +540,7 @@ class TargetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="azureQueries")
-    def azure_queries(self) -> Optional[List['outputs.AzureQueryPropertiesResponse']]:
+    def azure_queries(self) -> Optional[Sequence['outputs.AzureQueryPropertiesResponse']]:
         """
         List of Azure queries in the software update configuration.
         """
@@ -548,7 +548,7 @@ class TargetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="nonAzureQueries")
-    def non_azure_queries(self) -> Optional[List['outputs.NonAzureQueryPropertiesResponse']]:
+    def non_azure_queries(self) -> Optional[Sequence['outputs.NonAzureQueryPropertiesResponse']]:
         """
         List of non Azure queries in the software update configuration.
         """
@@ -564,14 +564,14 @@ class WindowsPropertiesResponse(dict):
     Windows specific update configuration.
     """
     def __init__(__self__, *,
-                 excluded_kb_numbers: Optional[List[str]] = None,
-                 included_kb_numbers: Optional[List[str]] = None,
+                 excluded_kb_numbers: Optional[Sequence[str]] = None,
+                 included_kb_numbers: Optional[Sequence[str]] = None,
                  included_update_classifications: Optional[str] = None,
                  reboot_setting: Optional[str] = None):
         """
         Windows specific update configuration.
-        :param List[str] excluded_kb_numbers: KB numbers excluded from the software update configuration.
-        :param List[str] included_kb_numbers: KB numbers included from the software update configuration.
+        :param Sequence[str] excluded_kb_numbers: KB numbers excluded from the software update configuration.
+        :param Sequence[str] included_kb_numbers: KB numbers included from the software update configuration.
         :param str included_update_classifications: Update classification included in the software update configuration. A comma separated string with required values
         :param str reboot_setting: Reboot setting for the software update configuration.
         """
@@ -586,7 +586,7 @@ class WindowsPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="excludedKbNumbers")
-    def excluded_kb_numbers(self) -> Optional[List[str]]:
+    def excluded_kb_numbers(self) -> Optional[Sequence[str]]:
         """
         KB numbers excluded from the software update configuration.
         """
@@ -594,7 +594,7 @@ class WindowsPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="includedKbNumbers")
-    def included_kb_numbers(self) -> Optional[List[str]]:
+    def included_kb_numbers(self) -> Optional[Sequence[str]]:
         """
         KB numbers included from the software update configuration.
         """
@@ -703,19 +703,19 @@ class UpdateConfigurationResponse(dict):
     """
     def __init__(__self__, *,
                  operating_system: str,
-                 azure_virtual_machines: Optional[List[str]] = None,
+                 azure_virtual_machines: Optional[Sequence[str]] = None,
                  duration: Optional[str] = None,
                  linux: Optional['outputs.LinuxPropertiesResponse'] = None,
-                 non_azure_computer_names: Optional[List[str]] = None,
+                 non_azure_computer_names: Optional[Sequence[str]] = None,
                  targets: Optional['outputs.TargetPropertiesResponse'] = None,
                  windows: Optional['outputs.WindowsPropertiesResponse'] = None):
         """
         Update specific properties of the software update configuration.
         :param str operating_system: operating system of target machines
-        :param List[str] azure_virtual_machines: List of azure resource Ids for azure virtual machines targeted by the software update configuration.
+        :param Sequence[str] azure_virtual_machines: List of azure resource Ids for azure virtual machines targeted by the software update configuration.
         :param str duration: Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
         :param 'LinuxPropertiesResponseArgs' linux: Linux specific update configuration.
-        :param List[str] non_azure_computer_names: List of names of non-azure machines targeted by the software update configuration.
+        :param Sequence[str] non_azure_computer_names: List of names of non-azure machines targeted by the software update configuration.
         :param 'TargetPropertiesResponseArgs' targets: Group targets for the software update configuration.
         :param 'WindowsPropertiesResponseArgs' windows: Windows specific update configuration.
         """
@@ -743,7 +743,7 @@ class UpdateConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="azureVirtualMachines")
-    def azure_virtual_machines(self) -> Optional[List[str]]:
+    def azure_virtual_machines(self) -> Optional[Sequence[str]]:
         """
         List of azure resource Ids for azure virtual machines targeted by the software update configuration.
         """
@@ -767,7 +767,7 @@ class UpdateConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="nonAzureComputerNames")
-    def non_azure_computer_names(self) -> Optional[List[str]]:
+    def non_azure_computer_names(self) -> Optional[Sequence[str]]:
         """
         List of names of non-azure machines targeted by the software update configuration.
         """

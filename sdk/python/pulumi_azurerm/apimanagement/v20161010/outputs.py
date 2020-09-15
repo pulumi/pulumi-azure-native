@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -25,15 +25,15 @@ class AdditionalRegionResponse(dict):
     def __init__(__self__, *,
                  location: str,
                  sku_type: str,
-                 static_ips: List[str],
-                 sku_unit_count: Optional[float] = None,
+                 static_ips: Sequence[str],
+                 sku_unit_count: Optional[int] = None,
                  vpnconfiguration: Optional['outputs.VirtualNetworkConfigurationResponse'] = None):
         """
         Description of an additional API Management resource location.
         :param str location: The location name of the additional region among Azure Data center regions.
         :param str sku_type: The SKU type in the location.
-        :param List[str] static_ips: Static IP addresses of the location's virtual machines.
-        :param float sku_unit_count: The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
+        :param Sequence[str] static_ips: Static IP addresses of the location's virtual machines.
+        :param int sku_unit_count: The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
         :param 'VirtualNetworkConfigurationResponseArgs' vpnconfiguration: Virtual network configuration for the location.
         """
         pulumi.set(__self__, "location", location)
@@ -62,7 +62,7 @@ class AdditionalRegionResponse(dict):
 
     @property
     @pulumi.getter(name="staticIPs")
-    def static_ips(self) -> List[str]:
+    def static_ips(self) -> Sequence[str]:
         """
         Static IP addresses of the location's virtual machines.
         """
@@ -70,7 +70,7 @@ class AdditionalRegionResponse(dict):
 
     @property
     @pulumi.getter(name="skuUnitCount")
-    def sku_unit_count(self) -> Optional[float]:
+    def sku_unit_count(self) -> Optional[int]:
         """
         The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
         """
@@ -95,11 +95,11 @@ class ApiManagementServiceSkuPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None):
+                 capacity: Optional[int] = None):
         """
         API Management service resource SKU properties.
         :param str name: Name of the Sku.
-        :param float capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
+        :param int capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -115,7 +115,7 @@ class ApiManagementServiceSkuPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """

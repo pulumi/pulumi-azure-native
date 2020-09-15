@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         /// The encryption settings of the configuration store.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.EncryptionPropertiesResponseResult?> Encryption { get; private set; } = null!;
+        public Output<Outputs.EncryptionPropertiesResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// The DNS endpoint where the configuration store API will be available.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         /// The managed identity information, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         /// The list of private endpoint connections that are set up for this resource.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionReferenceResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionReferenceResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the configuration store.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         /// The sku of the configuration store.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Subscription.V20191001Preview
         /// Put Alias response properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PutAliasResponsePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.PutAliasResponsePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type, Microsoft.Subscription/aliases.

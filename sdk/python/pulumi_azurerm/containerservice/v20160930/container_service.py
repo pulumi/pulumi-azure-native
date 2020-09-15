@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class ContainerService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]]] = None,
                  container_service_name: Optional[pulumi.Input[str]] = None,
                  custom_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceCustomProfileArgs']]] = None,
                  diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDiagnosticsProfileArgs']]] = None,
@@ -37,7 +37,7 @@ class ContainerService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
         :param pulumi.Input[str] container_service_name: The name of the container service in the specified subscription and resource group.
         :param pulumi.Input[pulumi.InputType['ContainerServiceCustomProfileArgs']] custom_profile: Properties for custom clusters.
         :param pulumi.Input[pulumi.InputType['ContainerServiceDiagnosticsProfileArgs']] diagnostics_profile: Properties of the diagnostic agent.
@@ -122,7 +122,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> pulumi.Output[List['outputs.ContainerServiceAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> pulumi.Output[Sequence['outputs.ContainerServiceAgentPoolProfileResponse']]:
         """
         Properties of the agent pool.
         """

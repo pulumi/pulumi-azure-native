@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Status showing whether the server enabled infrastructure encryption.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
         /// List of private endpoint connections on a server
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
         /// The SKU (pricing tier) of the server.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Enable ssl enforcement or not when connect to server.
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
         /// Storage profile of a server.
         /// </summary>
         [Output("storageProfile")]
-        public Output<Outputs.StorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
+        public Output<Outputs.StorageProfileResponse?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -86,14 +86,14 @@ class ManagementConfigurationPropertiesResponse(dict):
     ManagementConfiguration properties supported by the OperationsManagement resource provider.
     """
     def __init__(__self__, *,
-                 parameters: List['outputs.ArmTemplateParameterResponse'],
+                 parameters: Sequence['outputs.ArmTemplateParameterResponse'],
                  parent_resource_type: str,
                  provisioning_state: str,
                  template: Mapping[str, Any],
                  application_id: Optional[str] = None):
         """
         ManagementConfiguration properties supported by the OperationsManagement resource provider.
-        :param List['ArmTemplateParameterResponseArgs'] parameters: Parameters to run the ARM template
+        :param Sequence['ArmTemplateParameterResponseArgs'] parameters: Parameters to run the ARM template
         :param str parent_resource_type: The type of the parent resource.
         :param str provisioning_state: The provisioning state for the ManagementConfiguration.
         :param Mapping[str, Any] template: The Json object containing the ARM template to deploy
@@ -108,7 +108,7 @@ class ManagementConfigurationPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> List['outputs.ArmTemplateParameterResponse']:
+    def parameters(self) -> Sequence['outputs.ArmTemplateParameterResponse']:
         """
         Parameters to run the ARM template
         """
@@ -220,14 +220,14 @@ class SolutionPropertiesResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: str,
                  workspace_resource_id: str,
-                 contained_resources: Optional[List[str]] = None,
-                 referenced_resources: Optional[List[str]] = None):
+                 contained_resources: Optional[Sequence[str]] = None,
+                 referenced_resources: Optional[Sequence[str]] = None):
         """
         Solution properties supported by the OperationsManagement resource provider.
         :param str provisioning_state: The provisioning state for the solution.
         :param str workspace_resource_id: The azure resourceId for the workspace where the solution will be deployed/enabled.
-        :param List[str] contained_resources: The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
-        :param List[str] referenced_resources: The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+        :param Sequence[str] contained_resources: The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
+        :param Sequence[str] referenced_resources: The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
@@ -254,7 +254,7 @@ class SolutionPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="containedResources")
-    def contained_resources(self) -> Optional[List[str]]:
+    def contained_resources(self) -> Optional[Sequence[str]]:
         """
         The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
         """
@@ -262,7 +262,7 @@ class SolutionPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="referencedResources")
-    def referenced_resources(self) -> Optional[List[str]]:
+    def referenced_resources(self) -> Optional[Sequence[str]]:
         """
         The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
         """

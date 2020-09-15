@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// <summary>
         /// Cluster Active Directory domain profile.
         /// </summary>
-        public readonly Outputs.WsfcDomainProfileResponseResult? WsfcDomainProfile;
+        public readonly Outputs.WsfcDomainProfileResponse? WsfcDomainProfile;
 
         [OutputConstructor]
         private GetSqlVirtualMachineGroupResult(
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
 
             string type,
 
-            Outputs.WsfcDomainProfileResponseResult? wsfcDomainProfile)
+            Outputs.WsfcDomainProfileResponse? wsfcDomainProfile)
         {
             ClusterConfiguration = clusterConfiguration;
             ClusterManagerType = clusterManagerType;

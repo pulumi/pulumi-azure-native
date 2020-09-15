@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,14 +19,14 @@ class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):
     The related metadata items for the function.
     """
     def __init__(__self__, *,
-                 categories: Optional[List[str]] = None,
-                 resource_types: Optional[List[str]] = None,
-                 solutions: Optional[List[str]] = None):
+                 categories: Optional[Sequence[str]] = None,
+                 resource_types: Optional[Sequence[str]] = None,
+                 solutions: Optional[Sequence[str]] = None):
         """
         The related metadata items for the function.
-        :param List[str] categories: The related categories for the function.
-        :param List[str] resource_types: The related resource types for the function.
-        :param List[str] solutions: The related Log Analytics solutions for the function.
+        :param Sequence[str] categories: The related categories for the function.
+        :param Sequence[str] resource_types: The related resource types for the function.
+        :param Sequence[str] solutions: The related Log Analytics solutions for the function.
         """
         if categories is not None:
             pulumi.set(__self__, "categories", categories)
@@ -37,7 +37,7 @@ class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):
 
     @property
     @pulumi.getter
-    def categories(self) -> Optional[List[str]]:
+    def categories(self) -> Optional[Sequence[str]]:
         """
         The related categories for the function.
         """
@@ -45,7 +45,7 @@ class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[List[str]]:
+    def resource_types(self) -> Optional[Sequence[str]]:
         """
         The related resource types for the function.
         """
@@ -53,7 +53,7 @@ class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):
 
     @property
     @pulumi.getter
-    def solutions(self) -> Optional[List[str]]:
+    def solutions(self) -> Optional[Sequence[str]]:
         """
         The related Log Analytics solutions for the function.
         """

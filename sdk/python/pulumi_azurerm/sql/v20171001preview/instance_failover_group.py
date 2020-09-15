@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,8 +19,8 @@ class InstanceFailoverGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  failover_group_name: Optional[pulumi.Input[str]] = None,
                  location_name: Optional[pulumi.Input[str]] = None,
-                 managed_instance_pairs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagedInstancePairInfoArgs']]]]] = None,
-                 partner_regions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PartnerRegionInfoArgs']]]]] = None,
+                 managed_instance_pairs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedInstancePairInfoArgs']]]]] = None,
+                 partner_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerRegionInfoArgs']]]]] = None,
                  read_only_endpoint: Optional[pulumi.Input[pulumi.InputType['InstanceFailoverGroupReadOnlyEndpointArgs']]] = None,
                  read_write_endpoint: Optional[pulumi.Input[pulumi.InputType['InstanceFailoverGroupReadWriteEndpointArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -34,8 +34,8 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] failover_group_name: The name of the failover group.
         :param pulumi.Input[str] location_name: The name of the region where the resource is located.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagedInstancePairInfoArgs']]]] managed_instance_pairs: List of managed instance pairs in the failover group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PartnerRegionInfoArgs']]]] partner_regions: Partner region information for the failover group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedInstancePairInfoArgs']]]] managed_instance_pairs: List of managed instance pairs in the failover group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerRegionInfoArgs']]]] partner_regions: Partner region information for the failover group.
         :param pulumi.Input[pulumi.InputType['InstanceFailoverGroupReadOnlyEndpointArgs']] read_only_endpoint: Read-only endpoint of the failover group instance.
         :param pulumi.Input[pulumi.InputType['InstanceFailoverGroupReadWriteEndpointArgs']] read_write_endpoint: Read-write endpoint of the failover group instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -106,7 +106,7 @@ class InstanceFailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedInstancePairs")
-    def managed_instance_pairs(self) -> pulumi.Output[List['outputs.ManagedInstancePairInfoResponse']]:
+    def managed_instance_pairs(self) -> pulumi.Output[Sequence['outputs.ManagedInstancePairInfoResponse']]:
         """
         List of managed instance pairs in the failover group.
         """
@@ -122,7 +122,7 @@ class InstanceFailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerRegions")
-    def partner_regions(self) -> pulumi.Output[List['outputs.PartnerRegionInfoResponse']]:
+    def partner_regions(self) -> pulumi.Output[Sequence['outputs.PartnerRegionInfoResponse']]:
         """
         Partner region information for the failover group.
         """

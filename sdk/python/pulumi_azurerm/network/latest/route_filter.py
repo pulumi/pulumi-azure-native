@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class RouteFilter(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_filter_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,7 +35,7 @@ class RouteFilter(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] route_filter_name: The name of the route filter.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]]] rules: Collection of RouteFilterRules contained within a route filter.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]]] rules: Collection of RouteFilterRules contained within a route filter.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -109,7 +109,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6Peerings")
-    def ipv6_peerings(self) -> pulumi.Output[List['outputs.ExpressRouteCircuitPeeringResponse']]:
+    def ipv6_peerings(self) -> pulumi.Output[Sequence['outputs.ExpressRouteCircuitPeeringResponse']]:
         """
         A collection of references to express route circuit ipv6 peerings.
         """
@@ -133,7 +133,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def peerings(self) -> pulumi.Output[List['outputs.ExpressRouteCircuitPeeringResponse']]:
+    def peerings(self) -> pulumi.Output[Sequence['outputs.ExpressRouteCircuitPeeringResponse']]:
         """
         A collection of references to express route circuit peerings.
         """
@@ -149,7 +149,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Output[Optional[List['outputs.RouteFilterRuleResponse']]]:
+    def rules(self) -> pulumi.Output[Optional[Sequence['outputs.RouteFilterRuleResponse']]]:
         """
         Collection of RouteFilterRules contained within a route filter.
         """

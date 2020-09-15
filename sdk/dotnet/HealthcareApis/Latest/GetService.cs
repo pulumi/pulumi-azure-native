@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.HealthcareApis.Latest
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
-        public readonly Outputs.ResourceResponseIdentityResult? Identity;
+        public readonly Outputs.ResourceResponseIdentity? Identity;
         /// <summary>
         /// The kind of the service.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.HealthcareApis.Latest
         /// <summary>
         /// The common properties of a service.
         /// </summary>
-        public readonly Outputs.ServicesPropertiesResponseResult Properties;
+        public readonly Outputs.ServicesPropertiesResponse Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.HealthcareApis.Latest
         private GetServiceResult(
             string? etag,
 
-            Outputs.ResourceResponseIdentityResult? identity,
+            Outputs.ResourceResponseIdentity? identity,
 
             string kind,
 
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.HealthcareApis.Latest
 
             string name,
 
-            Outputs.ServicesPropertiesResponseResult properties,
+            Outputs.ServicesPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

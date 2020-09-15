@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.BotService.V20200602
         /// The set of properties specific to bot channel resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConnectionSettingPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ConnectionSettingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.

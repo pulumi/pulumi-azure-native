@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponseResult? Identity;
+        public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
         /// Kind of sql server. This is metadata used for the Azure portal experience.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
 
             string fullyQualifiedDomainName,
 
-            Outputs.ResourceIdentityResponseResult? identity,
+            Outputs.ResourceIdentityResponse? identity,
 
             string kind,
 

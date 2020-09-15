@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// A list of rules that define a particular Rules Engine Configuration.
         /// </summary>
         [Output("rules")]
-        public Output<ImmutableArray<Outputs.RulesEngineRuleResponseResult>> Rules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RulesEngineRuleResponse>> Rules { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

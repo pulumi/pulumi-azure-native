@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Management.Latest
         /// <summary>
         /// The ID of the parent management group.
         /// </summary>
-        public readonly Outputs.DescendantParentGroupInfoResponseResult? Parent;
+        public readonly Outputs.DescendantParentGroupInfoResponse? Parent;
         /// <summary>
         /// The state of the subscription.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Management.Latest
 
             string name,
 
-            Outputs.DescendantParentGroupInfoResponseResult? parent,
+            Outputs.DescendantParentGroupInfoResponse? parent,
 
             string? state,
 

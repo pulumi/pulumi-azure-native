@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.Cdn.V20171012
         /// A policy that specifies the delivery rules to be used for an endpoint.
         /// </summary>
         [Output("deliveryPolicy")]
-        public Output<Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicyResult?> DeliveryPolicy { get; private set; } = null!;
+        public Output<Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy?> DeliveryPolicy { get; private set; } = null!;
 
         /// <summary>
         /// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         /// </summary>
         [Output("geoFilters")]
-        public Output<ImmutableArray<Outputs.GeoFilterResponseResult>> GeoFilters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GeoFilterResponse>> GeoFilters { get; private set; } = null!;
 
         /// <summary>
         /// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Cdn.V20171012
         /// The source of the content being delivered via CDN.
         /// </summary>
         [Output("origins")]
-        public Output<ImmutableArray<Outputs.DeepCreatedOriginResponseResult>> Origins { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeepCreatedOriginResponse>> Origins { get; private set; } = null!;
 
         /// <summary>
         /// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.

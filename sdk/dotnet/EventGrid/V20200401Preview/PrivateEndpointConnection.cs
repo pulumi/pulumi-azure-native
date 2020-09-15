@@ -27,13 +27,13 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// The Private Endpoint resource for this Connection.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponseResult?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Details about the state of the connection.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.ConnectionStateResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.ConnectionStateResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the Private Endpoint Connection.

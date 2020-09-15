@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20180815Preview
         /// <summary>
         /// The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20180815Preview
 
             string name,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 

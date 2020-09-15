@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -26,7 +26,7 @@ class BigDataPool(pulumi.CustomResource):
                  is_compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirements: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 node_count: Optional[pulumi.Input[float]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  node_size_family: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -52,7 +52,7 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[bool] is_compute_isolation_enabled: Whether compute isolation is required or not.
         :param pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']] library_requirements: Library version requirements
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[float] node_count: The number of nodes in the Big Data pool.
+        :param pulumi.Input[int] node_count: The number of nodes in the Big Data pool.
         :param pulumi.Input[str] node_size: The level of compute power that each node in the Big Data pool has.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Big Data pool provides.
         :param pulumi.Input[str] provisioning_state: The state of the Big Data pool.
@@ -197,7 +197,7 @@ class BigDataPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> pulumi.Output[Optional[float]]:
+    def node_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of nodes in the Big Data pool.
         """

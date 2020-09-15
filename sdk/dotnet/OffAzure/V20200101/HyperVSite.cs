@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.OffAzure.V20200101
         /// Nested properties of Hyper-V site.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SitePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.SitePropertiesResponse> Properties { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;

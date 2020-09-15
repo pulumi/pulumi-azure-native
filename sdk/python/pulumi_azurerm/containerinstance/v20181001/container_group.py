@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,11 +18,11 @@ class ContainerGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_group_name: Optional[pulumi.Input[str]] = None,
-                 containers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerArgs']]]]] = None,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerArgs']]]]] = None,
                  diagnostics: Optional[pulumi.Input[pulumi.InputType['ContainerGroupDiagnosticsArgs']]] = None,
                  dns_config: Optional[pulumi.Input[pulumi.InputType['DnsConfigurationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ContainerGroupIdentityArgs']]] = None,
-                 image_registry_credentials: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageRegistryCredentialArgs']]]]] = None,
+                 image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRegistryCredentialArgs']]]]] = None,
                  ip_address: Optional[pulumi.Input[pulumi.InputType['IpAddressArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['ContainerGroupNetworkProfileArgs']]] = None,
@@ -30,7 +30,7 @@ class ContainerGroup(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 volumes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VolumeArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,11 +40,11 @@ class ContainerGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_group_name: The name of the container group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerArgs']]]] containers: The containers within the container group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerArgs']]]] containers: The containers within the container group.
         :param pulumi.Input[pulumi.InputType['ContainerGroupDiagnosticsArgs']] diagnostics: The diagnostic information for a container group.
         :param pulumi.Input[pulumi.InputType['DnsConfigurationArgs']] dns_config: The DNS config information for a container group.
         :param pulumi.Input[pulumi.InputType['ContainerGroupIdentityArgs']] identity: The identity of the container group, if configured.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageRegistryCredentialArgs']]]] image_registry_credentials: The image registry credentials by which the container group is created from.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRegistryCredentialArgs']]]] image_registry_credentials: The image registry credentials by which the container group is created from.
         :param pulumi.Input[pulumi.InputType['IpAddressArgs']] ip_address: The IP address type of the container group.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[pulumi.InputType['ContainerGroupNetworkProfileArgs']] network_profile: The network profile information for a container group.
@@ -55,7 +55,7 @@ class ContainerGroup(pulumi.CustomResource):
                - `OnFailure` Restart on failure
                - `Never` Never restart
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VolumeArgs']]]] volumes: The list of volumes that can be mounted by containers in this container group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeArgs']]]] volumes: The list of volumes that can be mounted by containers in this container group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,7 +128,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def containers(self) -> pulumi.Output[List['outputs.ContainerResponse']]:
+    def containers(self) -> pulumi.Output[Sequence['outputs.ContainerResponse']]:
         """
         The containers within the container group.
         """
@@ -160,7 +160,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageRegistryCredentials")
-    def image_registry_credentials(self) -> pulumi.Output[Optional[List['outputs.ImageRegistryCredentialResponse']]]:
+    def image_registry_credentials(self) -> pulumi.Output[Optional[Sequence['outputs.ImageRegistryCredentialResponse']]]:
         """
         The image registry credentials by which the container group is created from.
         """
@@ -251,7 +251,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def volumes(self) -> pulumi.Output[Optional[List['outputs.VolumeResponse']]]:
+    def volumes(self) -> pulumi.Output[Optional[Sequence['outputs.VolumeResponse']]]:
         """
         The list of volumes that can be mounted by containers in this container group.
         """

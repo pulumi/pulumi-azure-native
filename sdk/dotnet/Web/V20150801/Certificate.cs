@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Specification for the hosting environment (App Service Environment) to use for the certificate
         /// </summary>
         [Output("hostingEnvironmentProfile")]
-        public Output<Outputs.HostingEnvironmentProfileResponseResult?> HostingEnvironmentProfile { get; private set; } = null!;
+        public Output<Outputs.HostingEnvironmentProfileResponse?> HostingEnvironmentProfile { get; private set; } = null!;
 
         /// <summary>
         /// Certificate issue Date

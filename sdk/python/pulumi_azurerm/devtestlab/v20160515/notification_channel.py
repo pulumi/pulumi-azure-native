@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class NotificationChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventArgs']]]]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventArgs']]]]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of notification.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventArgs']]]] events: The list of event for which this notification is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventArgs']]]] events: The list of event for which this notification is enabled.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the notificationChannel.
@@ -125,7 +125,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def events(self) -> pulumi.Output[Optional[List['outputs.EventResponse']]]:
+    def events(self) -> pulumi.Output[Optional[Sequence['outputs.EventResponse']]]:
         """
         The list of event for which this notification is enabled.
         """

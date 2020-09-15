@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,7 +48,7 @@ class GetHubRouteTableResult:
 
     @property
     @pulumi.getter(name="associatedConnections")
-    def associated_connections(self) -> List[str]:
+    def associated_connections(self) -> Sequence[str]:
         """
         List of all connections associated with this route table.
         """
@@ -64,7 +64,7 @@ class GetHubRouteTableResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List[str]]:
+    def labels(self) -> Optional[Sequence[str]]:
         """
         List of labels associated with this route table.
         """
@@ -80,7 +80,7 @@ class GetHubRouteTableResult:
 
     @property
     @pulumi.getter(name="propagatingConnections")
-    def propagating_connections(self) -> List[str]:
+    def propagating_connections(self) -> Sequence[str]:
         """
         List of all connections that advertise to this route table.
         """
@@ -96,7 +96,7 @@ class GetHubRouteTableResult:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[List['outputs.HubRouteResponse']]:
+    def routes(self) -> Optional[Sequence['outputs.HubRouteResponse']]:
         """
         List of all routes.
         """

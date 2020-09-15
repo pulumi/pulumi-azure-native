@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,10 +24,10 @@ class Subnet(pulumi.CustomResource):
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_navigation_links: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceNavigationLinkArgs']]]]] = None,
+                 resource_navigation_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceNavigationLinkArgs']]]]] = None,
                  route_table: Optional[pulumi.Input[pulumi.InputType['RouteTableArgs']]] = None,
-                 service_endpoint_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]]] = None,
-                 service_endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]]] = None,
+                 service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]]] = None,
                  subnet_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -45,10 +45,10 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference of the NetworkSecurityGroup resource.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceNavigationLinkArgs']]]] resource_navigation_links: Gets an array of references to the external resources using subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceNavigationLinkArgs']]]] resource_navigation_links: Gets an array of references to the external resources using subnet.
         :param pulumi.Input[pulumi.InputType['RouteTableArgs']] route_table: The reference of the RouteTable resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]] service_endpoint_policies: An array of service endpoint policies.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]] service_endpoints: An array of service endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]] service_endpoint_policies: An array of service endpoint policies.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]] service_endpoints: An array of service endpoints.
         :param pulumi.Input[str] subnet_name: The name of the subnet.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         """
@@ -133,7 +133,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Output[List['outputs.IPConfigurationResponse']]:
+    def ip_configurations(self) -> pulumi.Output[Sequence['outputs.IPConfigurationResponse']]:
         """
         Gets an array of references to the network interface IP configurations using subnet.
         """
@@ -165,7 +165,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceNavigationLinks")
-    def resource_navigation_links(self) -> pulumi.Output[Optional[List['outputs.ResourceNavigationLinkResponse']]]:
+    def resource_navigation_links(self) -> pulumi.Output[Optional[Sequence['outputs.ResourceNavigationLinkResponse']]]:
         """
         Gets an array of references to the external resources using subnet.
         """
@@ -181,7 +181,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceEndpointPolicies")
-    def service_endpoint_policies(self) -> pulumi.Output[Optional[List['outputs.ServiceEndpointPolicyResponse']]]:
+    def service_endpoint_policies(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceEndpointPolicyResponse']]]:
         """
         An array of service endpoint policies.
         """
@@ -189,7 +189,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> pulumi.Output[Optional[List['outputs.ServiceEndpointPropertiesFormatResponse']]]:
+    def service_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceEndpointPropertiesFormatResponse']]]:
         """
         An array of service endpoints.
         """

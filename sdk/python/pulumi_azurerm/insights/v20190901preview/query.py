@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,7 +25,7 @@ class Query(pulumi.CustomResource):
                  query_pack_name: Optional[pulumi.Input[str]] = None,
                  related: Optional[pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -42,7 +42,7 @@ class Query(pulumi.CustomResource):
         :param pulumi.Input[str] query_pack_name: The name of the Log Analytics QueryPack resource.
         :param pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']] related: The related metadata items for the function.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]] tags: Tags associated with the query.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] tags: Tags associated with the query.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -176,7 +176,7 @@ class Query(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, List[str]]]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, Sequence[str]]]]:
         """
         Tags associated with the query.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class ServerFarm(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maximum_number_of_workers: Optional[pulumi.Input[float]] = None,
+                 maximum_number_of_workers: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  per_site_scaling: Optional[pulumi.Input[bool]] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
@@ -46,7 +46,7 @@ class ServerFarm(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[float] maximum_number_of_workers: Maximum number of instances that can be assigned to this App Service Plan
+        :param pulumi.Input[int] maximum_number_of_workers: Maximum number of instances that can be assigned to this App Service Plan
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[bool] per_site_scaling: If True apps assigned to this App Service Plan can be scaled independently
                            If False apps assigned to this App Service Plan will scale to all instances of the plan
@@ -168,7 +168,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumNumberOfWorkers")
-    def maximum_number_of_workers(self) -> pulumi.Output[Optional[float]]:
+    def maximum_number_of_workers(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of instances that can be assigned to this App Service Plan
         """
@@ -184,7 +184,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfSites")
-    def number_of_sites(self) -> pulumi.Output[float]:
+    def number_of_sites(self) -> pulumi.Output[int]:
         """
         Number of web apps assigned to this App Service Plan
         """

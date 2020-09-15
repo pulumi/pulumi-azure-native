@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -123,7 +123,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> pulumi.Output[Optional[List['outputs.SignalRFeatureResponse']]]:
+    def features(self) -> pulumi.Output[Optional[Sequence['outputs.SignalRFeatureResponse']]]:
         """
         List of SignalR featureFlags. e.g. ServiceMode.
         
@@ -177,7 +177,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> pulumi.Output[float]:
+    def public_port(self) -> pulumi.Output[int]:
         """
         The publicly accessible port of the SignalR service which is designed for browser/client side usage.
         """
@@ -185,7 +185,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverPort")
-    def server_port(self) -> pulumi.Output[float]:
+    def server_port(self) -> pulumi.Output[int]:
         """
         The publicly accessible port of the SignalR service which is designed for customer server side usage.
         """

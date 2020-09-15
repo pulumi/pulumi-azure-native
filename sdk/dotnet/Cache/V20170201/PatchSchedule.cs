@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Cache.V20170201
         /// List of patch schedules for a Redis cache.
         /// </summary>
         [Output("scheduleEntries")]
-        public Output<ImmutableArray<Outputs.ScheduleEntryResponseResult>> ScheduleEntries { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ScheduleEntryResponse>> ScheduleEntries { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

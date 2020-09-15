@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.EventHub.Latest
         /// Properties of sku resource
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

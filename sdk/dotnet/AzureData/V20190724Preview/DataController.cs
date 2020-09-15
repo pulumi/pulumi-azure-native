@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
         /// Properties from the on premise data controller
         /// </summary>
         [Output("onPremiseProperty")]
-        public Output<Outputs.OnPremisePropertyResponseResult> OnPremiseProperty { get; private set; } = null!;
+        public Output<Outputs.OnPremisePropertyResponse> OnPremiseProperty { get; private set; } = null!;
 
         /// <summary>
         /// Read only system data
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponseResult> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

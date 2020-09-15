@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
         /// <summary>
         /// Properties of the cluster SKU.
         /// </summary>
-        public readonly Outputs.ClusterSkuResponseResult? Sku;
+        public readonly Outputs.ClusterSkuResponse? Sku;
         /// <summary>
         /// Status of the Cluster resource
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
 
             string name,
 
-            Outputs.ClusterSkuResponseResult? sku,
+            Outputs.ClusterSkuResponse? sku,
 
             string status,
 

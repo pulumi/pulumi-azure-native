@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
         /// Properties when clfs target.
         /// </summary>
         [Output("clfs")]
-        public Output<Outputs.ClfsTargetResponseResult?> Clfs { get; private set; } = null!;
+        public Output<Outputs.ClfsTargetResponse?> Clfs { get; private set; } = null!;
 
         /// <summary>
         /// List of cache namespace to target namespace associations.
         /// </summary>
         [Output("junctions")]
-        public Output<ImmutableArray<Outputs.NamespaceJunctionResponseResult>> Junctions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NamespaceJunctionResponse>> Junctions { get; private set; } = null!;
 
         /// <summary>
         /// A fully qualified URL.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
         /// Properties when nfs3 target.
         /// </summary>
         [Output("nfs3")]
-        public Output<Outputs.Nfs3TargetResponseResult?> Nfs3 { get; private set; } = null!;
+        public Output<Outputs.Nfs3TargetResponse?> Nfs3 { get; private set; } = null!;
 
         /// <summary>
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
         /// Properties when unknown target.
         /// </summary>
         [Output("unknown")]
-        public Output<Outputs.UnknownTargetResponseResult?> Unknown { get; private set; } = null!;
+        public Output<Outputs.UnknownTargetResponse?> Unknown { get; private set; } = null!;
 
 
         /// <summary>

@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.DevSpaces.Latest
         /// <summary>
         /// Model representing SKU for Azure Dev Spaces Controller.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Tags for the Azure resource.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.DevSpaces.Latest
 
             string provisioningState,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 

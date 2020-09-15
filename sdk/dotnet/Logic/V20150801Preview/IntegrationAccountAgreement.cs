@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.Logic.V20150801Preview
         /// The agreement content.
         /// </summary>
         [Output("content")]
-        public Output<Outputs.AgreementContentResponseResult?> Content { get; private set; } = null!;
+        public Output<Outputs.AgreementContentResponse?> Content { get; private set; } = null!;
 
         /// <summary>
         /// The created time.
@@ -39,7 +39,7 @@ namespace Pulumi.AzureRM.Logic.V20150801Preview
         /// The guest identity.
         /// </summary>
         [Output("guestIdentity")]
-        public Output<Outputs.BusinessIdentityResponseResult?> GuestIdentity { get; private set; } = null!;
+        public Output<Outputs.BusinessIdentityResponse?> GuestIdentity { get; private set; } = null!;
 
         /// <summary>
         /// The guest partner.
@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.Logic.V20150801Preview
         /// The host identity.
         /// </summary>
         [Output("hostIdentity")]
-        public Output<Outputs.BusinessIdentityResponseResult?> HostIdentity { get; private set; } = null!;
+        public Output<Outputs.BusinessIdentityResponse?> HostIdentity { get; private set; } = null!;
 
         /// <summary>
         /// The host partner.

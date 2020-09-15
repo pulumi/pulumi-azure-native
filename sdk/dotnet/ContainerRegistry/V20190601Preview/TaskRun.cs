@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityPropertiesResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource
@@ -49,13 +49,13 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The request (parameters) for the run
         /// </summary>
         [Output("runRequest")]
-        public Output<Union<Outputs.DockerBuildRequestResponseResult, Union<Outputs.EncodedTaskRunRequestResponseResult, Union<Outputs.FileTaskRunRequestResponseResult, Outputs.TaskRunRequestResponseResult>>>?> RunRequest { get; private set; } = null!;
+        public Output<Union<Outputs.DockerBuildRequestResponse, Union<Outputs.EncodedTaskRunRequestResponse, Union<Outputs.FileTaskRunRequestResponse, Outputs.TaskRunRequestResponse>>>?> RunRequest { get; private set; } = null!;
 
         /// <summary>
         /// The result of this task run
         /// </summary>
         [Output("runResult")]
-        public Output<Outputs.RunResponseResult> RunResult { get; private set; } = null!;
+        public Output<Outputs.RunResponse> RunResult { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

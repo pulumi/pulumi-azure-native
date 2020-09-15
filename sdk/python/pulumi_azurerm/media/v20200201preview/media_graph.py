@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,8 +21,8 @@ class MediaGraph(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  media_graph_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sinks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MediaGraphAssetSinkArgs']]]]] = None,
-                 sources: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MediaGraphRtspSourceArgs']]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaGraphAssetSinkArgs']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaGraphRtspSourceArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,8 +35,8 @@ class MediaGraph(pulumi.CustomResource):
         :param pulumi.Input[str] description: Media Graph description.
         :param pulumi.Input[str] media_graph_name: The Media Graph name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MediaGraphAssetSinkArgs']]]] sinks: Media Graph sinks.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MediaGraphRtspSourceArgs']]]] sources: Media Graph sources.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaGraphAssetSinkArgs']]]] sinks: Media Graph sinks.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaGraphRtspSourceArgs']]]] sources: Media Graph sources.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -136,7 +136,7 @@ class MediaGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sinks(self) -> pulumi.Output[List['outputs.MediaGraphAssetSinkResponse']]:
+    def sinks(self) -> pulumi.Output[Sequence['outputs.MediaGraphAssetSinkResponse']]:
         """
         Media Graph sinks.
         """
@@ -144,7 +144,7 @@ class MediaGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sources(self) -> pulumi.Output[List['outputs.MediaGraphRtspSourceResponse']]:
+    def sources(self) -> pulumi.Output[Sequence['outputs.MediaGraphRtspSourceResponse']]:
         """
         Media Graph sources.
         """

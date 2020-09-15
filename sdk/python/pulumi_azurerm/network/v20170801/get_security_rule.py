@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -47,8 +47,8 @@ class GetSecurityRuleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if priority and not isinstance(priority, float):
-            raise TypeError("Expected argument 'priority' to be a float")
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
@@ -95,7 +95,7 @@ class GetSecurityRuleResult:
 
     @property
     @pulumi.getter(name="destinationAddressPrefixes")
-    def destination_address_prefixes(self) -> Optional[List[str]]:
+    def destination_address_prefixes(self) -> Optional[Sequence[str]]:
         """
         The destination address prefixes. CIDR or destination IP ranges.
         """
@@ -111,7 +111,7 @@ class GetSecurityRuleResult:
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[List[str]]:
+    def destination_port_ranges(self) -> Optional[Sequence[str]]:
         """
         The destination port ranges.
         """
@@ -143,7 +143,7 @@ class GetSecurityRuleResult:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         """
@@ -175,7 +175,7 @@ class GetSecurityRuleResult:
 
     @property
     @pulumi.getter(name="sourceAddressPrefixes")
-    def source_address_prefixes(self) -> Optional[List[str]]:
+    def source_address_prefixes(self) -> Optional[Sequence[str]]:
         """
         The CIDR or source IP ranges.
         """
@@ -191,7 +191,7 @@ class GetSecurityRuleResult:
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[List[str]]:
+    def source_port_ranges(self) -> Optional[Sequence[str]]:
         """
         The source port ranges.
         """

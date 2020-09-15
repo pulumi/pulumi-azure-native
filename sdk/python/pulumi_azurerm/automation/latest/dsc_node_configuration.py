@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -149,7 +149,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> pulumi.Output[Optional[float]]:
+    def node_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of nodes with this node configuration assigned
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,9 +20,9 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  asc_location: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 path_recommendations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PathRecommendationArgs']]]]] = None,
+                 path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PathRecommendationArgs']]]]] = None,
                  protection_mode: Optional[pulumi.Input[pulumi.InputType['ProtectionModeArgs']]] = None,
-                 vm_recommendations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
+                 vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -113,7 +113,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def issues(self) -> pulumi.Output[Optional[List['outputs.AppWhitelistingIssueSummaryResponse']]]:
+    def issues(self) -> pulumi.Output[Optional[Sequence['outputs.AppWhitelistingIssueSummaryResponse']]]:
         return pulumi.get(self, "issues")
 
     @property
@@ -134,7 +134,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pathRecommendations")
-    def path_recommendations(self) -> pulumi.Output[Optional[List['outputs.PathRecommendationResponse']]]:
+    def path_recommendations(self) -> pulumi.Output[Optional[Sequence['outputs.PathRecommendationResponse']]]:
         return pulumi.get(self, "path_recommendations")
 
     @property
@@ -171,7 +171,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmRecommendations")
-    def vm_recommendations(self) -> pulumi.Output[Optional[List['outputs.VmRecommendationResponse']]]:
+    def vm_recommendations(self) -> pulumi.Output[Optional[Sequence['outputs.VmRecommendationResponse']]]:
         return pulumi.get(self, "vm_recommendations")
 
     def translate_output_property(self, prop):

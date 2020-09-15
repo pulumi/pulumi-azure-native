@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -88,17 +88,17 @@ class AkamaiAccessControlResponse(dict):
     Akamai access control
     """
     def __init__(__self__, *,
-                 akamai_signature_header_authentication_key_list: Optional[List['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None):
+                 akamai_signature_header_authentication_key_list: Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None):
         """
         Akamai access control
-        :param List['AkamaiSignatureHeaderAuthenticationKeyResponseArgs'] akamai_signature_header_authentication_key_list: authentication key list
+        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponseArgs'] akamai_signature_header_authentication_key_list: authentication key list
         """
         if akamai_signature_header_authentication_key_list is not None:
             pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
 
     @property
     @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeyList")
-    def akamai_signature_header_authentication_key_list(self) -> Optional[List['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']]:
+    def akamai_signature_header_authentication_key_list(self) -> Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']]:
         """
         authentication key list
         """
@@ -299,17 +299,17 @@ class AudioResponse(dict):
     """
     def __init__(__self__, *,
                  odata_type: str,
-                 bitrate: Optional[float] = None,
-                 channels: Optional[float] = None,
+                 bitrate: Optional[int] = None,
+                 channels: Optional[int] = None,
                  label: Optional[str] = None,
-                 sampling_rate: Optional[float] = None):
+                 sampling_rate: Optional[int] = None):
         """
         Defines the common properties for all audio codecs.
         :param str odata_type: The discriminator for derived types.
-        :param float bitrate: The bitrate, in bits per second, of the output encoded audio.
-        :param float channels: The number of channels in the audio.
+        :param int bitrate: The bitrate, in bits per second, of the output encoded audio.
+        :param int channels: The number of channels in the audio.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param float sampling_rate: The sampling rate to use for encoding in hertz.
+        :param int sampling_rate: The sampling rate to use for encoding in hertz.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.Audio')
         if bitrate is not None:
@@ -331,7 +331,7 @@ class AudioResponse(dict):
 
     @property
     @pulumi.getter
-    def bitrate(self) -> Optional[float]:
+    def bitrate(self) -> Optional[int]:
         """
         The bitrate, in bits per second, of the output encoded audio.
         """
@@ -339,7 +339,7 @@ class AudioResponse(dict):
 
     @property
     @pulumi.getter
-    def channels(self) -> Optional[float]:
+    def channels(self) -> Optional[int]:
         """
         The number of channels in the audio.
         """
@@ -355,7 +355,7 @@ class AudioResponse(dict):
 
     @property
     @pulumi.getter(name="samplingRate")
-    def sampling_rate(self) -> Optional[float]:
+    def sampling_rate(self) -> Optional[int]:
         """
         The sampling rate to use for encoding in hertz.
         """
@@ -495,13 +495,13 @@ class CommonEncryptionCbcsResponse(dict):
     Class for CommonEncryptionCbcs encryption scheme
     """
     def __init__(__self__, *,
-                 clear_tracks: Optional[List['outputs.TrackSelectionResponse']] = None,
+                 clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
                  content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
                  drm: Optional['outputs.CbcsDrmConfigurationResponse'] = None,
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for CommonEncryptionCbcs encryption scheme
-        :param List['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
+        :param Sequence['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
         :param 'StreamingPolicyContentKeysResponseArgs' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
         :param 'CbcsDrmConfigurationResponseArgs' drm: Configuration of DRMs for current encryption scheme
         :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
@@ -517,7 +517,7 @@ class CommonEncryptionCbcsResponse(dict):
 
     @property
     @pulumi.getter(name="clearTracks")
-    def clear_tracks(self) -> Optional[List['outputs.TrackSelectionResponse']]:
+    def clear_tracks(self) -> Optional[Sequence['outputs.TrackSelectionResponse']]:
         """
         Representing which tracks should not be encrypted
         """
@@ -557,13 +557,13 @@ class CommonEncryptionCencResponse(dict):
     Class for envelope encryption scheme
     """
     def __init__(__self__, *,
-                 clear_tracks: Optional[List['outputs.TrackSelectionResponse']] = None,
+                 clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
                  content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
                  drm: Optional['outputs.CencDrmConfigurationResponse'] = None,
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for envelope encryption scheme
-        :param List['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
+        :param Sequence['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
         :param 'StreamingPolicyContentKeysResponseArgs' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
         :param 'CencDrmConfigurationResponseArgs' drm: Configuration of DRMs for CommonEncryptionCenc encryption scheme
         :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
@@ -579,7 +579,7 @@ class CommonEncryptionCencResponse(dict):
 
     @property
     @pulumi.getter(name="clearTracks")
-    def clear_tracks(self) -> Optional[List['outputs.TrackSelectionResponse']]:
+    def clear_tracks(self) -> Optional[Sequence['outputs.TrackSelectionResponse']]:
         """
         Representing which tracks should not be encrypted
         """
@@ -649,7 +649,7 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
                  fair_play_pfx_password: str,
                  odata_type: str,
                  rental_and_lease_key_type: str,
-                 rental_duration: float):
+                 rental_duration: int):
         """
         Specifies a configuration for FairPlay licenses.
         :param str ask: The key that must be used as FairPlay ASk.
@@ -657,7 +657,7 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
         :param str fair_play_pfx_password: The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
         :param str odata_type: The discriminator for derived types.
         :param str rental_and_lease_key_type: The rental and lease key type.
-        :param float rental_duration: The rental duration. Must be greater than or equal to 0.
+        :param int rental_duration: The rental duration. Must be greater than or equal to 0.
         """
         pulumi.set(__self__, "ask", ask)
         pulumi.set(__self__, "fair_play_pfx", fair_play_pfx)
@@ -708,7 +708,7 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="rentalDuration")
-    def rental_duration(self) -> float:
+    def rental_duration(self) -> int:
         """
         The rental duration. Must be greater than or equal to 0.
         """
@@ -808,12 +808,12 @@ class ContentKeyPolicyPlayReadyConfigurationResponse(dict):
     Specifies a configuration for PlayReady licenses.
     """
     def __init__(__self__, *,
-                 licenses: List['outputs.ContentKeyPolicyPlayReadyLicenseResponse'],
+                 licenses: Sequence['outputs.ContentKeyPolicyPlayReadyLicenseResponse'],
                  odata_type: str,
                  response_custom_data: Optional[str] = None):
         """
         Specifies a configuration for PlayReady licenses.
-        :param List['ContentKeyPolicyPlayReadyLicenseResponseArgs'] licenses: The PlayReady licenses.
+        :param Sequence['ContentKeyPolicyPlayReadyLicenseResponseArgs'] licenses: The PlayReady licenses.
         :param str odata_type: The discriminator for derived types.
         :param str response_custom_data: The custom response data.
         """
@@ -824,7 +824,7 @@ class ContentKeyPolicyPlayReadyConfigurationResponse(dict):
 
     @property
     @pulumi.getter
-    def licenses(self) -> List['outputs.ContentKeyPolicyPlayReadyLicenseResponse']:
+    def licenses(self) -> Sequence['outputs.ContentKeyPolicyPlayReadyLicenseResponse']:
         """
         The PlayReady licenses.
         """
@@ -918,11 +918,11 @@ class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse(dict)
     """
     def __init__(__self__, *,
                  best_effort: bool,
-                 configuration_data: float):
+                 configuration_data: int):
         """
         Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
         :param bool best_effort: Indicates whether this restriction is enforced on a Best Effort basis.
-        :param float configuration_data: Configures the restriction control bits. Must be between 0 and 3 inclusive.
+        :param int configuration_data: Configures the restriction control bits. Must be between 0 and 3 inclusive.
         """
         pulumi.set(__self__, "best_effort", best_effort)
         pulumi.set(__self__, "configuration_data", configuration_data)
@@ -937,7 +937,7 @@ class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse(dict)
 
     @property
     @pulumi.getter(name="configurationData")
-    def configuration_data(self) -> float:
+    def configuration_data(self) -> int:
         """
         Configures the restriction control bits. Must be between 0 and 3 inclusive.
         """
@@ -1087,30 +1087,30 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
                  digital_video_only_content_restriction: bool,
                  image_constraint_for_analog_component_video_restriction: bool,
                  image_constraint_for_analog_computer_monitor_restriction: bool,
-                 agc_and_color_stripe_restriction: Optional[float] = None,
-                 analog_video_opl: Optional[float] = None,
-                 compressed_digital_audio_opl: Optional[float] = None,
-                 compressed_digital_video_opl: Optional[float] = None,
+                 agc_and_color_stripe_restriction: Optional[int] = None,
+                 analog_video_opl: Optional[int] = None,
+                 compressed_digital_audio_opl: Optional[int] = None,
+                 compressed_digital_video_opl: Optional[int] = None,
                  explicit_analog_television_output_restriction: Optional['outputs.ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse'] = None,
                  first_play_expiration: Optional[str] = None,
-                 scms_restriction: Optional[float] = None,
-                 uncompressed_digital_audio_opl: Optional[float] = None,
-                 uncompressed_digital_video_opl: Optional[float] = None):
+                 scms_restriction: Optional[int] = None,
+                 uncompressed_digital_audio_opl: Optional[int] = None,
+                 uncompressed_digital_video_opl: Optional[int] = None):
         """
         Configures the Play Right in the PlayReady license.
         :param str allow_passing_video_content_to_unknown_output: Configures Unknown output handling settings of the license.
         :param bool digital_video_only_content_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
         :param bool image_constraint_for_analog_component_video_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
         :param bool image_constraint_for_analog_computer_monitor_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
-        :param float agc_and_color_stripe_restriction: Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
-        :param float analog_video_opl: Specifies the output protection level for compressed digital audio.
-        :param float compressed_digital_audio_opl: Specifies the output protection level for compressed digital audio.
-        :param float compressed_digital_video_opl: Specifies the output protection level for compressed digital video.
+        :param int agc_and_color_stripe_restriction: Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+        :param int analog_video_opl: Specifies the output protection level for compressed digital audio.
+        :param int compressed_digital_audio_opl: Specifies the output protection level for compressed digital audio.
+        :param int compressed_digital_video_opl: Specifies the output protection level for compressed digital video.
         :param 'ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseArgs' explicit_analog_television_output_restriction: Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
         :param str first_play_expiration: The amount of time that the license is valid after the license is first used to play content.
-        :param float scms_restriction: Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
-        :param float uncompressed_digital_audio_opl: Specifies the output protection level for uncompressed digital audio.
-        :param float uncompressed_digital_video_opl: Specifies the output protection level for uncompressed digital video.
+        :param int scms_restriction: Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+        :param int uncompressed_digital_audio_opl: Specifies the output protection level for uncompressed digital audio.
+        :param int uncompressed_digital_video_opl: Specifies the output protection level for uncompressed digital video.
         """
         pulumi.set(__self__, "allow_passing_video_content_to_unknown_output", allow_passing_video_content_to_unknown_output)
         pulumi.set(__self__, "digital_video_only_content_restriction", digital_video_only_content_restriction)
@@ -1169,7 +1169,7 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
 
     @property
     @pulumi.getter(name="agcAndColorStripeRestriction")
-    def agc_and_color_stripe_restriction(self) -> Optional[float]:
+    def agc_and_color_stripe_restriction(self) -> Optional[int]:
         """
         Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
         """
@@ -1177,7 +1177,7 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
 
     @property
     @pulumi.getter(name="analogVideoOpl")
-    def analog_video_opl(self) -> Optional[float]:
+    def analog_video_opl(self) -> Optional[int]:
         """
         Specifies the output protection level for compressed digital audio.
         """
@@ -1185,7 +1185,7 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
 
     @property
     @pulumi.getter(name="compressedDigitalAudioOpl")
-    def compressed_digital_audio_opl(self) -> Optional[float]:
+    def compressed_digital_audio_opl(self) -> Optional[int]:
         """
         Specifies the output protection level for compressed digital audio.
         """
@@ -1193,7 +1193,7 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
 
     @property
     @pulumi.getter(name="compressedDigitalVideoOpl")
-    def compressed_digital_video_opl(self) -> Optional[float]:
+    def compressed_digital_video_opl(self) -> Optional[int]:
         """
         Specifies the output protection level for compressed digital video.
         """
@@ -1217,7 +1217,7 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
 
     @property
     @pulumi.getter(name="scmsRestriction")
-    def scms_restriction(self) -> Optional[float]:
+    def scms_restriction(self) -> Optional[int]:
         """
         Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
         """
@@ -1225,7 +1225,7 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
 
     @property
     @pulumi.getter(name="uncompressedDigitalAudioOpl")
-    def uncompressed_digital_audio_opl(self) -> Optional[float]:
+    def uncompressed_digital_audio_opl(self) -> Optional[int]:
         """
         Specifies the output protection level for uncompressed digital audio.
         """
@@ -1233,7 +1233,7 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
 
     @property
     @pulumi.getter(name="uncompressedDigitalVideoOpl")
-    def uncompressed_digital_video_opl(self) -> Optional[float]:
+    def uncompressed_digital_video_opl(self) -> Optional[int]:
         """
         Specifies the output protection level for uncompressed digital video.
         """
@@ -1375,9 +1375,9 @@ class ContentKeyPolicyTokenRestrictionResponse(dict):
                  odata_type: str,
                  primary_verification_key: Any,
                  restriction_token_type: str,
-                 alternate_verification_keys: Optional[List[Any]] = None,
+                 alternate_verification_keys: Optional[Sequence[Any]] = None,
                  open_id_connect_discovery_document: Optional[str] = None,
-                 required_claims: Optional[List['outputs.ContentKeyPolicyTokenClaimResponse']] = None):
+                 required_claims: Optional[Sequence['outputs.ContentKeyPolicyTokenClaimResponse']] = None):
         """
         Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
         :param str audience: The audience for the token.
@@ -1385,9 +1385,9 @@ class ContentKeyPolicyTokenRestrictionResponse(dict):
         :param str odata_type: The discriminator for derived types.
         :param Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs'] primary_verification_key: The primary verification key.
         :param str restriction_token_type: The type of token.
-        :param List[Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs']] alternate_verification_keys: A list of alternative verification keys.
+        :param Sequence[Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs']] alternate_verification_keys: A list of alternative verification keys.
         :param str open_id_connect_discovery_document: The OpenID connect discovery document.
-        :param List['ContentKeyPolicyTokenClaimResponseArgs'] required_claims: A list of required token claims.
+        :param Sequence['ContentKeyPolicyTokenClaimResponseArgs'] required_claims: A list of required token claims.
         """
         pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "issuer", issuer)
@@ -1443,7 +1443,7 @@ class ContentKeyPolicyTokenRestrictionResponse(dict):
 
     @property
     @pulumi.getter(name="alternateVerificationKeys")
-    def alternate_verification_keys(self) -> Optional[List[Any]]:
+    def alternate_verification_keys(self) -> Optional[Sequence[Any]]:
         """
         A list of alternative verification keys.
         """
@@ -1459,7 +1459,7 @@ class ContentKeyPolicyTokenRestrictionResponse(dict):
 
     @property
     @pulumi.getter(name="requiredClaims")
-    def required_claims(self) -> Optional[List['outputs.ContentKeyPolicyTokenClaimResponse']]:
+    def required_claims(self) -> Optional[Sequence['outputs.ContentKeyPolicyTokenClaimResponse']]:
         """
         A list of required token claims.
         """
@@ -1843,13 +1843,13 @@ class EnvelopeEncryptionResponse(dict):
     Class for EnvelopeEncryption encryption scheme
     """
     def __init__(__self__, *,
-                 clear_tracks: Optional[List['outputs.TrackSelectionResponse']] = None,
+                 clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
                  content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
                  custom_license_acquisition_url_template: Optional[str] = None,
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for EnvelopeEncryption encryption scheme
-        :param List['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
+        :param Sequence['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
         :param 'StreamingPolicyContentKeysResponseArgs' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
         :param str custom_license_acquisition_url_template: LicenseAcquisitionUrlTemplate is used to point to user specified service to delivery content keys
         :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
@@ -1865,7 +1865,7 @@ class EnvelopeEncryptionResponse(dict):
 
     @property
     @pulumi.getter(name="clearTracks")
-    def clear_tracks(self) -> Optional[List['outputs.TrackSelectionResponse']]:
+    def clear_tracks(self) -> Optional[Sequence['outputs.TrackSelectionResponse']]:
         """
         Representing which tracks should not be encrypted
         """
@@ -1907,13 +1907,13 @@ class FiltersResponse(dict):
     def __init__(__self__, *,
                  crop: Optional['outputs.RectangleResponse'] = None,
                  deinterlace: Optional['outputs.DeinterlaceResponse'] = None,
-                 overlays: Optional[List[Any]] = None,
+                 overlays: Optional[Sequence[Any]] = None,
                  rotation: Optional[str] = None):
         """
         Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
         :param 'RectangleResponseArgs' crop: The parameters for the rectangular window with which to crop the input video.
         :param 'DeinterlaceResponseArgs' deinterlace: The de-interlacing settings.
-        :param List[Union['AudioOverlayResponseArgs', 'VideoOverlayResponseArgs']] overlays: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
+        :param Sequence[Union['AudioOverlayResponseArgs', 'VideoOverlayResponseArgs']] overlays: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
         :param str rotation: The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
         """
         if crop is not None:
@@ -1943,7 +1943,7 @@ class FiltersResponse(dict):
 
     @property
     @pulumi.getter
-    def overlays(self) -> Optional[List[Any]]:
+    def overlays(self) -> Optional[Sequence[Any]]:
         """
         The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
         """
@@ -1967,17 +1967,17 @@ class HlsResponse(dict):
     The HLS configuration.
     """
     def __init__(__self__, *,
-                 fragments_per_ts_segment: Optional[float] = None):
+                 fragments_per_ts_segment: Optional[int] = None):
         """
         The HLS configuration.
-        :param float fragments_per_ts_segment: The amount of fragments per HTTP Live Streaming (HLS) segment.
+        :param int fragments_per_ts_segment: The amount of fragments per HTTP Live Streaming (HLS) segment.
         """
         if fragments_per_ts_segment is not None:
             pulumi.set(__self__, "fragments_per_ts_segment", fragments_per_ts_segment)
 
     @property
     @pulumi.getter(name="fragmentsPerTsSegment")
-    def fragments_per_ts_segment(self) -> Optional[float]:
+    def fragments_per_ts_segment(self) -> Optional[int]:
         """
         The amount of fragments per HTTP Live Streaming (HLS) segment.
         """
@@ -1993,17 +1993,17 @@ class IPAccessControlResponse(dict):
     The IP access control.
     """
     def __init__(__self__, *,
-                 allow: Optional[List['outputs.IPRangeResponse']] = None):
+                 allow: Optional[Sequence['outputs.IPRangeResponse']] = None):
         """
         The IP access control.
-        :param List['IPRangeResponseArgs'] allow: The IP allow list.
+        :param Sequence['IPRangeResponseArgs'] allow: The IP allow list.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[List['outputs.IPRangeResponse']]:
+    def allow(self) -> Optional[Sequence['outputs.IPRangeResponse']]:
         """
         The IP allow list.
         """
@@ -2021,12 +2021,12 @@ class IPRangeResponse(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  name: Optional[str] = None,
-                 subnet_prefix_length: Optional[float] = None):
+                 subnet_prefix_length: Optional[int] = None):
         """
         The IP address range in the CIDR scheme.
         :param str address: The IP address.
         :param str name: The friendly name for the IP address range.
-        :param float subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
+        :param int subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -2053,7 +2053,7 @@ class IPRangeResponse(dict):
 
     @property
     @pulumi.getter(name="subnetPrefixLength")
-    def subnet_prefix_length(self) -> Optional[float]:
+    def subnet_prefix_length(self) -> Optional[int]:
         """
         The subnet mask prefix length (see CIDR notation).
         """
@@ -2144,14 +2144,14 @@ class JobErrorResponse(dict):
     def __init__(__self__, *,
                  category: str,
                  code: str,
-                 details: List['outputs.JobErrorDetailResponse'],
+                 details: Sequence['outputs.JobErrorDetailResponse'],
                  message: str,
                  retry: str):
         """
         Details of JobOutput errors.
         :param str category: Helps with categorization of errors.
         :param str code: Error code describing the error.
-        :param List['JobErrorDetailResponseArgs'] details: An array of details about specific errors that led to this reported error.
+        :param Sequence['JobErrorDetailResponseArgs'] details: An array of details about specific errors that led to this reported error.
         :param str message: A human-readable language-dependent representation of the error.
         :param str retry: Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
         """
@@ -2179,7 +2179,7 @@ class JobErrorResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> List['outputs.JobErrorDetailResponse']:
+    def details(self) -> Sequence['outputs.JobErrorDetailResponse']:
         """
         An array of details about specific errors that led to this reported error.
         """
@@ -2212,12 +2212,12 @@ class JobInputClipResponse(dict):
     """
     def __init__(__self__, *,
                  odata_type: str,
-                 files: Optional[List[str]] = None,
+                 files: Optional[Sequence[str]] = None,
                  label: Optional[str] = None):
         """
         Represents input files for a Job.
         :param str odata_type: The discriminator for derived types.
-        :param List[str] files: List of files. Required for JobInputHttp.
+        :param Sequence[str] files: List of files. Required for JobInputHttp.
         :param str label: A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputClip')
@@ -2236,7 +2236,7 @@ class JobInputClipResponse(dict):
 
     @property
     @pulumi.getter
-    def files(self) -> Optional[List[str]]:
+    def files(self) -> Optional[Sequence[str]]:
         """
         List of files. Required for JobInputHttp.
         """
@@ -2261,12 +2261,12 @@ class JobInputsResponse(dict):
     """
     def __init__(__self__, *,
                  odata_type: str,
-                 inputs: Optional[List[Any]] = None,
+                 inputs: Optional[Sequence[Any]] = None,
                  label: Optional[str] = None):
         """
         Describes a list of inputs to a Job.
         :param str odata_type: The discriminator for derived types.
-        :param List[Union['JobInputClipResponseArgs', 'JobInputsResponseArgs']] inputs: List of inputs to a Job.
+        :param Sequence[Union['JobInputClipResponseArgs', 'JobInputsResponseArgs']] inputs: List of inputs to a Job.
         :param str label: A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputs')
@@ -2285,7 +2285,7 @@ class JobInputsResponse(dict):
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[List[Any]]:
+    def inputs(self) -> Optional[Sequence[Any]]:
         """
         List of inputs to a Job.
         """
@@ -2312,14 +2312,14 @@ class JobOutputAssetResponse(dict):
                  asset_name: str,
                  error: 'outputs.JobErrorResponse',
                  odata_type: str,
-                 progress: float,
+                 progress: int,
                  state: str):
         """
         Represents an Asset used as a JobOutput.
         :param str asset_name: The name of the output Asset.
         :param 'JobErrorResponseArgs' error: If the JobOutput is in the Error state, it contains the details of the error.
         :param str odata_type: The discriminator for derived types.
-        :param float progress: If the JobOutput is in a Processing state, this contains the job completion percentage.  The value is an estimate and not intended to be used to predict job completion times. To determine if the JobOutput is complete, use the State property.
+        :param int progress: If the JobOutput is in a Processing state, this contains the job completion percentage.  The value is an estimate and not intended to be used to predict job completion times. To determine if the JobOutput is complete, use the State property.
         :param str state: Describes the state of the JobOutput.
         """
         pulumi.set(__self__, "asset_name", asset_name)
@@ -2354,7 +2354,7 @@ class JobOutputAssetResponse(dict):
 
     @property
     @pulumi.getter
-    def progress(self) -> float:
+    def progress(self) -> int:
         """
         If the JobOutput is in a Processing state, this contains the job completion percentage.  The value is an estimate and not intended to be used to predict job completion times. To determine if the JobOutput is complete, use the State property.
         """
@@ -2456,13 +2456,13 @@ class LiveEventInputResponse(dict):
     def __init__(__self__, *,
                  streaming_protocol: str,
                  access_token: Optional[str] = None,
-                 endpoints: Optional[List['outputs.LiveEventEndpointResponse']] = None,
+                 endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
                  key_frame_interval_duration: Optional[str] = None):
         """
         The Live Event input.
         :param str streaming_protocol: The streaming protocol for the Live Event.
         :param str access_token: The access token.
-        :param List['LiveEventEndpointResponseArgs'] endpoints: The input endpoints for the Live Event.
+        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The input endpoints for the Live Event.
         :param str key_frame_interval_duration: ISO 8601 timespan duration of the key frame interval duration.
         """
         pulumi.set(__self__, "streaming_protocol", streaming_protocol)
@@ -2491,7 +2491,7 @@ class LiveEventInputResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[List['outputs.LiveEventEndpointResponse']]:
+    def endpoints(self) -> Optional[Sequence['outputs.LiveEventEndpointResponse']]:
         """
         The input endpoints for the Live Event.
         """
@@ -2542,13 +2542,13 @@ class LiveEventPreviewResponse(dict):
     """
     def __init__(__self__, *,
                  access_control: Optional['outputs.LiveEventPreviewAccessControlResponse'] = None,
-                 endpoints: Optional[List['outputs.LiveEventEndpointResponse']] = None,
+                 endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
                  preview_locator: Optional[str] = None,
                  streaming_policy_name: Optional[str] = None):
         """
         The Live Event preview.
         :param 'LiveEventPreviewAccessControlResponseArgs' access_control: The access control for LiveEvent preview.
-        :param List['LiveEventEndpointResponseArgs'] endpoints: The endpoints for preview.
+        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The endpoints for preview.
         :param str preview_locator: The preview locator Guid.
         :param str streaming_policy_name: The name of streaming policy used for LiveEvent preview
         """
@@ -2571,7 +2571,7 @@ class LiveEventPreviewResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[List['outputs.LiveEventEndpointResponse']]:
+    def endpoints(self) -> Optional[Sequence['outputs.LiveEventEndpointResponse']]:
         """
         The endpoints for preview.
         """
@@ -2605,12 +2605,12 @@ class MultiBitrateFormatResponse(dict):
     def __init__(__self__, *,
                  odata_type: str,
                  filename_pattern: Optional[str] = None,
-                 output_files: Optional[List['outputs.OutputFileResponse']] = None):
+                 output_files: Optional[Sequence['outputs.OutputFileResponse']] = None):
         """
         Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
         :param str odata_type: The discriminator for derived types.
         :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-        :param List['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        :param Sequence['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
         if filename_pattern is not None:
@@ -2636,7 +2636,7 @@ class MultiBitrateFormatResponse(dict):
 
     @property
     @pulumi.getter(name="outputFiles")
-    def output_files(self) -> Optional[List['outputs.OutputFileResponse']]:
+    def output_files(self) -> Optional[Sequence['outputs.OutputFileResponse']]:
         """
         The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
@@ -2678,17 +2678,17 @@ class OutputFileResponse(dict):
     Represents an output file produced.
     """
     def __init__(__self__, *,
-                 labels: Optional[List[str]] = None):
+                 labels: Optional[Sequence[str]] = None):
         """
         Represents an output file produced.
-        :param List[str] labels: The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
+        :param Sequence[str] labels: The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
         """
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List[str]]:
+    def labels(self) -> Optional[Sequence[str]]:
         """
         The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
         """
@@ -2767,15 +2767,15 @@ class StandardEncoderPresetResponse(dict):
     """
     def __init__(__self__, *,
                  odata_type: str,
-                 codecs: Optional[List[Any]] = None,
+                 codecs: Optional[Sequence[Any]] = None,
                  filters: Optional['outputs.FiltersResponse'] = None,
-                 formats: Optional[List[Any]] = None):
+                 formats: Optional[Sequence[Any]] = None):
         """
         Describes all the settings to be used when encoding the input video with the Standard Encoder.
         :param str odata_type: The discriminator for derived types.
-        :param List[Union['AudioResponseArgs', 'CopyAudioResponseArgs', 'CopyVideoResponseArgs', 'VideoResponseArgs']] codecs: The list of codecs to be used when encoding the input video.
+        :param Sequence[Union['AudioResponseArgs', 'CopyAudioResponseArgs', 'CopyVideoResponseArgs', 'VideoResponseArgs']] codecs: The list of codecs to be used when encoding the input video.
         :param 'FiltersResponseArgs' filters: One or more filtering operations that are applied to the input media before encoding.
-        :param List[Union['ImageFormatResponseArgs', 'MultiBitrateFormatResponseArgs']] formats: The list of outputs to be produced by the encoder.
+        :param Sequence[Union['ImageFormatResponseArgs', 'MultiBitrateFormatResponseArgs']] formats: The list of outputs to be produced by the encoder.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.StandardEncoderPreset')
         if codecs is not None:
@@ -2795,7 +2795,7 @@ class StandardEncoderPresetResponse(dict):
 
     @property
     @pulumi.getter
-    def codecs(self) -> Optional[List[Any]]:
+    def codecs(self) -> Optional[Sequence[Any]]:
         """
         The list of codecs to be used when encoding the input video.
         """
@@ -2811,7 +2811,7 @@ class StandardEncoderPresetResponse(dict):
 
     @property
     @pulumi.getter
-    def formats(self) -> Optional[List[Any]]:
+    def formats(self) -> Optional[Sequence[Any]]:
         """
         The list of outputs to be produced by the encoder.
         """
@@ -2906,7 +2906,7 @@ class StreamingLocatorContentKeyResponseResult(dict):
                  type: str,
                  label: Optional[str] = None,
                  policy_name: Optional[str] = None,
-                 tracks: Optional[List['outputs.TrackSelectionResponse']] = None,
+                 tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
                  value: Optional[str] = None):
         """
         Class for content key in Streaming Locator
@@ -2914,7 +2914,7 @@ class StreamingLocatorContentKeyResponseResult(dict):
         :param str type: Encryption type of Content Key
         :param str label: Label of Content Key
         :param str policy_name: ContentKeyPolicy used by Content Key
-        :param List['TrackSelectionResponseArgs'] tracks: Tracks which use this Content Key
+        :param Sequence['TrackSelectionResponseArgs'] tracks: Tracks which use this Content Key
         :param str value: Value of Content Key
         """
         pulumi.set(__self__, "id", id)
@@ -2962,7 +2962,7 @@ class StreamingLocatorContentKeyResponseResult(dict):
 
     @property
     @pulumi.getter
-    def tracks(self) -> Optional[List['outputs.TrackSelectionResponse']]:
+    def tracks(self) -> Optional[Sequence['outputs.TrackSelectionResponse']]:
         """
         Tracks which use this Content Key
         """
@@ -3034,12 +3034,12 @@ class StreamingPathResponseResult(dict):
     def __init__(__self__, *,
                  encryption_scheme: str,
                  streaming_protocol: str,
-                 paths: Optional[List[str]] = None):
+                 paths: Optional[Sequence[str]] = None):
         """
         Class of paths for streaming
         :param str encryption_scheme: Encryption scheme
         :param str streaming_protocol: Streaming protocol
-        :param List[str] paths: Streaming paths for each protocol and encryptionScheme pair
+        :param Sequence[str] paths: Streaming paths for each protocol and encryptionScheme pair
         """
         pulumi.set(__self__, "encryption_scheme", encryption_scheme)
         pulumi.set(__self__, "streaming_protocol", streaming_protocol)
@@ -3064,7 +3064,7 @@ class StreamingPathResponseResult(dict):
 
     @property
     @pulumi.getter
-    def paths(self) -> Optional[List[str]]:
+    def paths(self) -> Optional[Sequence[str]]:
         """
         Streaming paths for each protocol and encryptionScheme pair
         """
@@ -3079,12 +3079,12 @@ class StreamingPolicyContentKeyResponse(dict):
     def __init__(__self__, *,
                  label: Optional[str] = None,
                  policy_name: Optional[str] = None,
-                 tracks: Optional[List['outputs.TrackSelectionResponse']] = None):
+                 tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None):
         """
         Class to specify properties of content key
         :param str label: Label can be used to specify Content Key when creating Streaming Locator
         :param str policy_name: Policy used by Content Key
-        :param List['TrackSelectionResponseArgs'] tracks: Tracks which use this content key
+        :param Sequence['TrackSelectionResponseArgs'] tracks: Tracks which use this content key
         """
         if label is not None:
             pulumi.set(__self__, "label", label)
@@ -3111,7 +3111,7 @@ class StreamingPolicyContentKeyResponse(dict):
 
     @property
     @pulumi.getter
-    def tracks(self) -> Optional[List['outputs.TrackSelectionResponse']]:
+    def tracks(self) -> Optional[Sequence['outputs.TrackSelectionResponse']]:
         """
         Tracks which use this content key
         """
@@ -3128,11 +3128,11 @@ class StreamingPolicyContentKeysResponse(dict):
     """
     def __init__(__self__, *,
                  default_key: Optional['outputs.DefaultKeyResponse'] = None,
-                 key_to_track_mappings: Optional[List['outputs.StreamingPolicyContentKeyResponse']] = None):
+                 key_to_track_mappings: Optional[Sequence['outputs.StreamingPolicyContentKeyResponse']] = None):
         """
         Class to specify properties of all content keys in Streaming Policy
         :param 'DefaultKeyResponseArgs' default_key: Default content key for an encryption scheme
-        :param List['StreamingPolicyContentKeyResponseArgs'] key_to_track_mappings: Representing tracks needs separate content key
+        :param Sequence['StreamingPolicyContentKeyResponseArgs'] key_to_track_mappings: Representing tracks needs separate content key
         """
         if default_key is not None:
             pulumi.set(__self__, "default_key", default_key)
@@ -3149,7 +3149,7 @@ class StreamingPolicyContentKeysResponse(dict):
 
     @property
     @pulumi.getter(name="keyToTrackMappings")
-    def key_to_track_mappings(self) -> Optional[List['outputs.StreamingPolicyContentKeyResponse']]:
+    def key_to_track_mappings(self) -> Optional[Sequence['outputs.StreamingPolicyContentKeyResponse']]:
         """
         Representing tracks needs separate content key
         """
@@ -3314,17 +3314,17 @@ class TrackSelectionResponse(dict):
     Class to select a track
     """
     def __init__(__self__, *,
-                 track_selections: Optional[List['outputs.TrackPropertyConditionResponse']] = None):
+                 track_selections: Optional[Sequence['outputs.TrackPropertyConditionResponse']] = None):
         """
         Class to select a track
-        :param List['TrackPropertyConditionResponseArgs'] track_selections: TrackSelections is a track property condition list which can specify track(s)
+        :param Sequence['TrackPropertyConditionResponseArgs'] track_selections: TrackSelections is a track property condition list which can specify track(s)
         """
         if track_selections is not None:
             pulumi.set(__self__, "track_selections", track_selections)
 
     @property
     @pulumi.getter(name="trackSelections")
-    def track_selections(self) -> Optional[List['outputs.TrackPropertyConditionResponse']]:
+    def track_selections(self) -> Optional[Sequence['outputs.TrackPropertyConditionResponse']]:
         """
         TrackSelections is a track property condition list which can specify track(s)
         """

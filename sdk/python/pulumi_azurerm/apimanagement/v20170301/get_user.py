@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -70,7 +70,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def groups(self) -> List['outputs.GroupContractResponse']:
+    def groups(self) -> Sequence['outputs.GroupContractResponse']:
         """
         Collection of groups user is part of.
         """
@@ -78,7 +78,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def identities(self) -> List['outputs.UserIdentityContractResponse']:
+    def identities(self) -> Sequence['outputs.UserIdentityContractResponse']:
         """
         Collection of user identities.
         """

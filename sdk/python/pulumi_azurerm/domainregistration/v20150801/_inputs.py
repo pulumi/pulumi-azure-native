@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -276,12 +276,12 @@ class DomainPurchaseConsentArgs:
     def __init__(__self__, *,
                  agreed_at: Optional[pulumi.Input[str]] = None,
                  agreed_by: Optional[pulumi.Input[str]] = None,
-                 agreement_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 agreement_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Domain purchase consent object representing acceptance of applicable legal agreements
         :param pulumi.Input[str] agreed_at: Timestamp when the agreements were accepted
         :param pulumi.Input[str] agreed_by: Client IP address
-        :param pulumi.Input[List[pulumi.Input[str]]] agreement_keys: List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements Api under TopLevelDomain resource
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agreement_keys: List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements Api under TopLevelDomain resource
         """
         if agreed_at is not None:
             pulumi.set(__self__, "agreed_at", agreed_at)
@@ -316,14 +316,14 @@ class DomainPurchaseConsentArgs:
 
     @property
     @pulumi.getter(name="agreementKeys")
-    def agreement_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def agreement_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements Api under TopLevelDomain resource
         """
         return pulumi.get(self, "agreement_keys")
 
     @agreement_keys.setter
-    def agreement_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def agreement_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "agreement_keys", value)
 
 
@@ -335,7 +335,7 @@ class HostNameArgs:
                  custom_host_name_dns_record_type: Optional[pulumi.Input[str]] = None,
                  host_name_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 site_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 site_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Details of a hostname derived from a domain
         :param pulumi.Input[str] azure_resource_name: Name of the Azure resource the hostname is assigned to. If it is assigned to a traffic manager then it will be the traffic manager name otherwise it will be the website name
@@ -343,7 +343,7 @@ class HostNameArgs:
         :param pulumi.Input[str] custom_host_name_dns_record_type: Type of the Dns record
         :param pulumi.Input[str] host_name_type: Type of the hostname
         :param pulumi.Input[str] name: Name of the hostname
-        :param pulumi.Input[List[pulumi.Input[str]]] site_names: List of sites the hostname is assigned to. This list will have more than one site only if the hostname is pointing to a Traffic Manager
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] site_names: List of sites the hostname is assigned to. This list will have more than one site only if the hostname is pointing to a Traffic Manager
         """
         if azure_resource_name is not None:
             pulumi.set(__self__, "azure_resource_name", azure_resource_name)
@@ -420,14 +420,14 @@ class HostNameArgs:
 
     @property
     @pulumi.getter(name="siteNames")
-    def site_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def site_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of sites the hostname is assigned to. This list will have more than one site only if the hostname is pointing to a Traffic Manager
         """
         return pulumi.get(self, "site_names")
 
     @site_names.setter
-    def site_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def site_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "site_names", value)
 
 

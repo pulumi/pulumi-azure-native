@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
         /// Service properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.ACIServiceResponseResponseResult, Outputs.AKSVariantResponseResponseResult>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ACIServiceResponseResponse, Outputs.AKSVariantResponseResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.

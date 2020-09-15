@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -57,7 +57,7 @@ class GetNetworkSecurityGroupResult:
 
     @property
     @pulumi.getter(name="defaultSecurityRules")
-    def default_security_rules(self) -> Optional[List['outputs.SecurityRuleResponse']]:
+    def default_security_rules(self) -> Optional[Sequence['outputs.SecurityRuleResponse']]:
         """
         Gets or default security rules of network security group
         """
@@ -89,7 +89,7 @@ class GetNetworkSecurityGroupResult:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
         """
         Gets collection of references to Network Interfaces
         """
@@ -113,7 +113,7 @@ class GetNetworkSecurityGroupResult:
 
     @property
     @pulumi.getter(name="securityRules")
-    def security_rules(self) -> Optional[List['outputs.SecurityRuleResponse']]:
+    def security_rules(self) -> Optional[Sequence['outputs.SecurityRuleResponse']]:
         """
         Gets or sets security rules of network security group
         """
@@ -121,7 +121,7 @@ class GetNetworkSecurityGroupResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> List['outputs.SubnetResponse']:
+    def subnets(self) -> Sequence['outputs.SubnetResponse']:
         """
         Gets collection of references to subnets
         """

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Storage.V20161201
         /// Gets the custom domain the user assigned to this storage account.
         /// </summary>
         [Output("customDomain")]
-        public Output<Outputs.CustomDomainResponseResult> CustomDomain { get; private set; } = null!;
+        public Output<Outputs.CustomDomainResponse> CustomDomain { get; private set; } = null!;
 
         /// <summary>
         /// Allows https traffic only to storage service if sets to true.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Storage.V20161201
         /// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.EncryptionResponseResult> Encryption { get; private set; } = null!;
+        public Output<Outputs.EncryptionResponse> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// Gets the Kind.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Storage.V20161201
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
         /// </summary>
         [Output("primaryEndpoints")]
-        public Output<Outputs.EndpointsResponseResult> PrimaryEndpoints { get; private set; } = null!;
+        public Output<Outputs.EndpointsResponse> PrimaryEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Gets the location of the primary data center for the storage account.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Storage.V20161201
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
         /// </summary>
         [Output("secondaryEndpoints")]
-        public Output<Outputs.EndpointsResponseResult> SecondaryEndpoints { get; private set; } = null!;
+        public Output<Outputs.EndpointsResponse> SecondaryEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Storage.V20161201
         /// Gets the SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Gets the status indicating whether the primary location of the storage account is available or unavailable.

@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
         /// <summary>
         /// Fabric related data.
         /// </summary>
-        public readonly Outputs.FabricPropertiesResponseResult Properties;
+        public readonly Outputs.FabricPropertiesResponse Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
 
             string name,
 
-            Outputs.FabricPropertiesResponseResult properties,
+            Outputs.FabricPropertiesResponse properties,
 
             string type)
         {

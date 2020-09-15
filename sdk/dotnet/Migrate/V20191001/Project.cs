@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         /// Properties of the project.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ProjectPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ProjectPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Tags provided by Azure Tagging service.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -34,7 +34,7 @@ class ApiEntityArgs:
                  location: pulumi.Input[str],
                  api_definition_url: Optional[pulumi.Input[str]] = None,
                  backend_service: Optional[pulumi.Input['BackendServiceDefinitionArgs']] = None,
-                 capabilities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  changed_time: Optional[pulumi.Input[str]] = None,
                  connection_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ConnectionParameterArgs']]]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
@@ -45,8 +45,8 @@ class ApiEntityArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input['ApiPoliciesArgs']] = None,
-                 protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 runtime_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 runtime_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -54,7 +54,7 @@ class ApiEntityArgs:
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] api_definition_url: API definition Url - url where the swagger can be downloaded from
         :param pulumi.Input['BackendServiceDefinitionArgs'] backend_service: Backend service definition
-        :param pulumi.Input[List[pulumi.Input[str]]] capabilities: Capabilities
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: Capabilities
         :param pulumi.Input[str] changed_time: Timestamp of last connection change.
         :param pulumi.Input[Mapping[str, pulumi.Input['ConnectionParameterArgs']]] connection_parameters: Connection parameters
         :param pulumi.Input[str] created_time: Timestamp of the connection creation
@@ -65,8 +65,8 @@ class ApiEntityArgs:
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] path: the URL path of this API when exposed via APIM
         :param pulumi.Input['ApiPoliciesArgs'] policies: API policies
-        :param pulumi.Input[List[pulumi.Input[str]]] protocols: Protocols supported by the front end - http/https
-        :param pulumi.Input[List[pulumi.Input[str]]] runtime_urls: Read only property returning the runtime endpoints where the API can be called
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Protocols supported by the front end - http/https
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] runtime_urls: Read only property returning the runtime endpoints where the API can be called
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
@@ -144,14 +144,14 @@ class ApiEntityArgs:
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Capabilities
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "capabilities", value)
 
     @property
@@ -276,26 +276,26 @@ class ApiEntityArgs:
 
     @property
     @pulumi.getter
-    def protocols(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Protocols supported by the front end - http/https
         """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
-    def protocols(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "protocols", value)
 
     @property
     @pulumi.getter(name="runtimeUrls")
-    def runtime_urls(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def runtime_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Read only property returning the runtime endpoints where the API can be called
         """
         return pulumi.get(self, "runtime_urls")
 
     @runtime_urls.setter
-    def runtime_urls(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def runtime_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "runtime_urls", value)
 
     @property
@@ -332,7 +332,7 @@ class ApiOAuthSettingsArgs:
                  identity_provider: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         OAuth settings for the connection provider
         :param pulumi.Input[str] client_id: Resource provider client id
@@ -341,7 +341,7 @@ class ApiOAuthSettingsArgs:
         :param pulumi.Input[str] identity_provider: Identity provider
         :param pulumi.Input[Mapping[str, Any]] properties: Read only properties for this oauth setting.
         :param pulumi.Input[str] redirect_url: Url
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: OAuth scopes
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: OAuth scopes
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -432,14 +432,14 @@ class ApiOAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         OAuth scopes
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -710,7 +710,7 @@ class ArmPlanArgs:
 class BackendServiceDefinitionArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
-                 hosting_environment_service_urls: Optional[pulumi.Input[List[pulumi.Input['HostingEnvironmentServiceDescriptionsArgs']]]] = None,
+                 hosting_environment_service_urls: Optional[pulumi.Input[Sequence[pulumi.Input['HostingEnvironmentServiceDescriptionsArgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -720,7 +720,7 @@ class BackendServiceDefinitionArgs:
         """
         API definitions with backend urls
         :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[List[pulumi.Input['HostingEnvironmentServiceDescriptionsArgs']]] hosting_environment_service_urls: Service Urls per Hosting environment
+        :param pulumi.Input[Sequence[pulumi.Input['HostingEnvironmentServiceDescriptionsArgs']]] hosting_environment_service_urls: Service Urls per Hosting environment
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] name: Resource Name
@@ -758,14 +758,14 @@ class BackendServiceDefinitionArgs:
 
     @property
     @pulumi.getter(name="hostingEnvironmentServiceUrls")
-    def hosting_environment_service_urls(self) -> Optional[pulumi.Input[List[pulumi.Input['HostingEnvironmentServiceDescriptionsArgs']]]]:
+    def hosting_environment_service_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostingEnvironmentServiceDescriptionsArgs']]]]:
         """
         Service Urls per Hosting environment
         """
         return pulumi.get(self, "hosting_environment_service_urls")
 
     @hosting_environment_service_urls.setter
-    def hosting_environment_service_urls(self, value: Optional[pulumi.Input[List[pulumi.Input['HostingEnvironmentServiceDescriptionsArgs']]]]):
+    def hosting_environment_service_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostingEnvironmentServiceDescriptionsArgs']]]]):
         pulumi.set(self, "hosting_environment_service_urls", value)
 
     @property
@@ -2065,14 +2065,14 @@ class ResponseMessageEnvelopeApiEntityArgs:
 @pulumi.input_type
 class SkuDescriptionArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Describes a sku for a scalable resource
-        :param pulumi.Input[float] capacity: Current number of instances assigned to the resource
+        :param pulumi.Input[int] capacity: Current number of instances assigned to the resource
         :param pulumi.Input[str] family: Family code of the resource sku
         :param pulumi.Input[str] name: Name of the resource sku
         :param pulumi.Input[str] size: Size specifier of the resource sku
@@ -2091,14 +2091,14 @@ class SkuDescriptionArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Current number of instances assigned to the resource
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

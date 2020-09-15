@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Insights.V20180416
         /// Action needs to be taken on rule execution.
         /// </summary>
         [Output("action")]
-        public Output<Union<Outputs.AlertingActionResponseResult, Outputs.LogToMetricActionResponseResult>> Action { get; private set; } = null!;
+        public Output<Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse>> Action { get; private set; } = null!;
 
         /// <summary>
         /// The description of the Log Search rule.
@@ -60,13 +60,13 @@ namespace Pulumi.AzureRM.Insights.V20180416
         /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
         /// </summary>
         [Output("schedule")]
-        public Output<Outputs.ScheduleResponseResult?> Schedule { get; private set; } = null!;
+        public Output<Outputs.ScheduleResponse?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Data Source against which rule will Query Data
         /// </summary>
         [Output("source")]
-        public Output<Outputs.SourceResponseResult> Source { get; private set; } = null!;
+        public Output<Outputs.SourceResponse> Source { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -61,7 +61,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.IPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.IPConfigurationResponse']]:
         """
         Gets an array of references to the network interface IP configurations using subnet.
         """

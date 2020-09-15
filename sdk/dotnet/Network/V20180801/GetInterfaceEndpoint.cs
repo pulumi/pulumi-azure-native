@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// <summary>
         /// A reference to the service being brought into the virtual network.
         /// </summary>
-        public readonly Outputs.EndpointServiceResponseResult? EndpointService;
+        public readonly Outputs.EndpointServiceResponse? EndpointService;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// <summary>
         /// Gets an array of references to the network interfaces created for this interface endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceResponseResult> NetworkInterfaces;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceResponse> NetworkInterfaces;
         /// <summary>
         /// A read-only property that identifies who created this interface endpoint.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// <summary>
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
-        public readonly Outputs.SubnetResponseResult? Subnet;
+        public readonly Outputs.SubnetResponse? Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Network.V20180801
 
         [OutputConstructor]
         private GetInterfaceEndpointResult(
-            Outputs.EndpointServiceResponseResult? endpointService,
+            Outputs.EndpointServiceResponse? endpointService,
 
             string? etag,
 
@@ -102,13 +102,13 @@ namespace Pulumi.AzureRM.Network.V20180801
 
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfaceResponseResult> networkInterfaces,
+            ImmutableArray<Outputs.NetworkInterfaceResponse> networkInterfaces,
 
             string owner,
 
             string provisioningState,
 
-            Outputs.SubnetResponseResult? subnet,
+            Outputs.SubnetResponse? subnet,
 
             ImmutableDictionary<string, string>? tags,
 

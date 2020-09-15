@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -65,7 +65,7 @@ class ListProductDetailsResult:
 
     @property
     @pulumi.getter(name="dataDiskImages")
-    def data_disk_images(self) -> List['outputs.DataDiskImageResponseResult']:
+    def data_disk_images(self) -> Sequence['outputs.DataDiskImageResponseResult']:
         """
         List of attached data disks.
         """

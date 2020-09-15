@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -698,14 +698,14 @@ class ManagementPolicyDefinitionArgs:
 @pulumi.input_type
 class ManagementPolicyFilterArgs:
     def __init__(__self__, *,
-                 blob_types: pulumi.Input[List[pulumi.Input[str]]],
-                 blob_index_match: Optional[pulumi.Input[List[pulumi.Input['TagFilterArgs']]]] = None,
-                 prefix_match: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 blob_index_match: Optional[pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]]] = None,
+                 prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
-        :param pulumi.Input[List[pulumi.Input[str]]] blob_types: An array of predefined enum values. Only blockBlob is supported.
-        :param pulumi.Input[List[pulumi.Input['TagFilterArgs']]] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
-        :param pulumi.Input[List[pulumi.Input[str]]] prefix_match: An array of strings for prefixes to be match.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: An array of predefined enum values. Only blockBlob is supported.
+        :param pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_match: An array of strings for prefixes to be match.
         """
         pulumi.set(__self__, "blob_types", blob_types)
         if blob_index_match is not None:
@@ -715,38 +715,38 @@ class ManagementPolicyFilterArgs:
 
     @property
     @pulumi.getter(name="blobTypes")
-    def blob_types(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def blob_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         An array of predefined enum values. Only blockBlob is supported.
         """
         return pulumi.get(self, "blob_types")
 
     @blob_types.setter
-    def blob_types(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def blob_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "blob_types", value)
 
     @property
     @pulumi.getter(name="blobIndexMatch")
-    def blob_index_match(self) -> Optional[pulumi.Input[List[pulumi.Input['TagFilterArgs']]]]:
+    def blob_index_match(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]]]:
         """
         An array of blob index tag based filters, there can be at most 10 tag filters
         """
         return pulumi.get(self, "blob_index_match")
 
     @blob_index_match.setter
-    def blob_index_match(self, value: Optional[pulumi.Input[List[pulumi.Input['TagFilterArgs']]]]):
+    def blob_index_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]]]):
         pulumi.set(self, "blob_index_match", value)
 
     @property
     @pulumi.getter(name="prefixMatch")
-    def prefix_match(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def prefix_match(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         An array of strings for prefixes to be match.
         """
         return pulumi.get(self, "prefix_match")
 
     @prefix_match.setter
-    def prefix_match(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def prefix_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "prefix_match", value)
 
 
@@ -822,23 +822,23 @@ class ManagementPolicyRuleArgs:
 @pulumi.input_type
 class ManagementPolicySchemaArgs:
     def __init__(__self__, *,
-                 rules: pulumi.Input[List[pulumi.Input['ManagementPolicyRuleArgs']]]):
+                 rules: pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]):
         """
         The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-        :param pulumi.Input[List[pulumi.Input['ManagementPolicyRuleArgs']]] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
         pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[List[pulumi.Input['ManagementPolicyRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]:
         """
         The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[List[pulumi.Input['ManagementPolicyRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]):
         pulumi.set(self, "rules", value)
 
 
@@ -871,14 +871,14 @@ class NetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
                  bypass: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         Network rule set
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match.
         :param pulumi.Input[str] bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        :param pulumi.Input[List[pulumi.Input['IPRuleArgs']]] ip_rules: Sets the IP ACL rules
-        :param pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: Sets the virtual network rules
+        :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: Sets the IP ACL rules
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: Sets the virtual network rules
         """
         pulumi.set(__self__, "default_action", default_action)
         if bypass is not None:
@@ -914,26 +914,26 @@ class NetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]:
         """
         Sets the IP ACL rules
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
         """
         Sets the virtual network rules
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -941,11 +941,11 @@ class NetworkRuleSetArgs:
 class ObjectReplicationPolicyFilterArgs:
     def __init__(__self__, *,
                  min_creation_time: Optional[pulumi.Input[str]] = None,
-                 prefix_match: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
         :param pulumi.Input[str] min_creation_time: Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
-        :param pulumi.Input[List[pulumi.Input[str]]] prefix_match: Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_match: Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
         """
         if min_creation_time is not None:
             pulumi.set(__self__, "min_creation_time", min_creation_time)
@@ -966,14 +966,14 @@ class ObjectReplicationPolicyFilterArgs:
 
     @property
     @pulumi.getter(name="prefixMatch")
-    def prefix_match(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def prefix_match(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
         """
         return pulumi.get(self, "prefix_match")
 
     @prefix_match.setter
-    def prefix_match(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def prefix_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "prefix_match", value)
 
 

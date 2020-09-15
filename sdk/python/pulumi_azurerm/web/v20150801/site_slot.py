@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,17 +20,17 @@ class SiteSlot(pulumi.CustomResource):
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
                  cloning_info: Optional[pulumi.Input[pulumi.InputType['CloningInfoArgs']]] = None,
-                 container_size: Optional[pulumi.Input[float]] = None,
+                 container_size: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  force_dns_registration: Optional[pulumi.Input[str]] = None,
                  gateway_site_name: Optional[pulumi.Input[str]] = None,
-                 host_name_ssl_states: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
+                 host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_number_of_workers: Optional[pulumi.Input[float]] = None,
+                 max_number_of_workers: Optional[pulumi.Input[int]] = None,
                  micro_service: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -55,18 +55,18 @@ class SiteSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] client_cert_enabled: Specifies if the client certificate is enabled for the web app
         :param pulumi.Input[pulumi.InputType['CloningInfoArgs']] cloning_info: This is only valid for web app creation. If specified, web app is cloned from 
                            a source web app
-        :param pulumi.Input[float] container_size: Size of a function container
+        :param pulumi.Input[int] container_size: Size of a function container
         :param pulumi.Input[bool] enabled: True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
         :param pulumi.Input[str] force_dns_registration: If true, web app hostname is force registered with DNS
         :param pulumi.Input[str] gateway_site_name: Name of gateway app associated with web app
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]] host_name_ssl_states: Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]] host_name_ssl_states: Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
         :param pulumi.Input[bool] host_names_disabled: Specifies if the public hostnames are disabled the web app.
                            If set to true the app is only accessible via API Management process
         :param pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']] hosting_environment_profile: Specification for the hosting environment (App Service Environment) to use for the web app
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[float] max_number_of_workers: Maximum number of workers
+        :param pulumi.Input[int] max_number_of_workers: Maximum number of workers
                            This only applies to function container
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] resource_group_name: Name of the resource group
@@ -208,7 +208,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerSize")
-    def container_size(self) -> pulumi.Output[Optional[float]]:
+    def container_size(self) -> pulumi.Output[Optional[int]]:
         """
         Size of a function container
         """
@@ -232,7 +232,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledHostNames")
-    def enabled_host_names(self) -> pulumi.Output[List[str]]:
+    def enabled_host_names(self) -> pulumi.Output[Sequence[str]]:
         """
         Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
                     the app is not served on those hostnames
@@ -249,7 +249,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNameSslStates")
-    def host_name_ssl_states(self) -> pulumi.Output[Optional[List['outputs.HostNameSslStateResponse']]]:
+    def host_name_ssl_states(self) -> pulumi.Output[Optional[Sequence['outputs.HostNameSslStateResponse']]]:
         """
         Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
         """
@@ -257,7 +257,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> pulumi.Output[List[str]]:
+    def host_names(self) -> pulumi.Output[Sequence[str]]:
         """
         Hostnames associated with web app
         """
@@ -314,7 +314,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfWorkers")
-    def max_number_of_workers(self) -> pulumi.Output[Optional[float]]:
+    def max_number_of_workers(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of workers
                     This only applies to function container
@@ -413,7 +413,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficManagerHostNames")
-    def traffic_manager_host_names(self) -> pulumi.Output[List[str]]:
+    def traffic_manager_host_names(self) -> pulumi.Output[Sequence[str]]:
         """
         Read-only list of Azure Traffic manager hostnames associated with web app
         """

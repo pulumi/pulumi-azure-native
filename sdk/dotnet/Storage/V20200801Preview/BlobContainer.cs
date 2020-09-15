@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// The ImmutabilityPolicy property of the container.
         /// </summary>
         [Output("immutabilityPolicy")]
-        public Output<Outputs.ImmutabilityPolicyPropertiesResponseResult> ImmutabilityPolicy { get; private set; } = null!;
+        public Output<Outputs.ImmutabilityPolicyPropertiesResponse> ImmutabilityPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Returns the date and time the container was last modified.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// The LegalHold property of the container.
         /// </summary>
         [Output("legalHold")]
-        public Output<Outputs.LegalHoldPropertiesResponseResult> LegalHold { get; private set; } = null!;
+        public Output<Outputs.LegalHoldPropertiesResponse> LegalHold { get; private set; } = null!;
 
         /// <summary>
         /// A name-value pair to associate with the container as metadata.

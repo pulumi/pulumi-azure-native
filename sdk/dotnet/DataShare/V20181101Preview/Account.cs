@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataShare.V20181101Preview
         /// Identity Info on the Account
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Location of the azure resource.

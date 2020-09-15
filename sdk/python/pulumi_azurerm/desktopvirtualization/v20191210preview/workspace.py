@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Workspace']
@@ -15,7 +15,7 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_group_references: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 application_group_references: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -30,7 +30,7 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] application_group_references: List of applicationGroup resource Ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_group_references: List of applicationGroup resource Ids.
         :param pulumi.Input[str] description: Description of Workspace.
         :param pulumi.Input[str] friendly_name: Friendly name of Workspace.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -98,7 +98,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationGroupReferences")
-    def application_group_references(self) -> pulumi.Output[Optional[List[str]]]:
+    def application_group_references(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of applicationGroup resource Ids.
         """

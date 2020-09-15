@@ -48,19 +48,19 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// <summary>
         /// Auto backup settings for SQL Server.
         /// </summary>
-        public readonly Outputs.AutoBackupSettingsResponseResult? AutoBackupSettings;
+        public readonly Outputs.AutoBackupSettingsResponse? AutoBackupSettings;
         /// <summary>
         /// Auto patching settings for applying critical security updates to SQL virtual machine.
         /// </summary>
-        public readonly Outputs.AutoPatchingSettingsResponseResult? AutoPatchingSettings;
+        public readonly Outputs.AutoPatchingSettingsResponse? AutoPatchingSettings;
         /// <summary>
         /// Azure Active Directory identity of the server.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponseResult? Identity;
+        public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
         /// Key vault credential settings.
         /// </summary>
-        public readonly Outputs.KeyVaultCredentialSettingsResponseResult? KeyVaultCredentialSettings;
+        public readonly Outputs.KeyVaultCredentialSettingsResponse? KeyVaultCredentialSettings;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// <summary>
         /// SQL Server configuration management settings.
         /// </summary>
-        public readonly Outputs.ServerConfigurationsManagementSettingsResponseResult? ServerConfigurationsManagementSettings;
+        public readonly Outputs.ServerConfigurationsManagementSettingsResponse? ServerConfigurationsManagementSettings;
         /// <summary>
         /// SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// <summary>
         /// Storage Configuration Settings.
         /// </summary>
-        public readonly Outputs.StorageConfigurationSettingsResponseResult? StorageConfigurationSettings;
+        public readonly Outputs.StorageConfigurationSettingsResponse? StorageConfigurationSettings;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -116,17 +116,17 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// <summary>
         /// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         /// </summary>
-        public readonly Outputs.WsfcDomainCredentialsResponseResult? WsfcDomainCredentials;
+        public readonly Outputs.WsfcDomainCredentialsResponse? WsfcDomainCredentials;
 
         [OutputConstructor]
         private GetSqlVirtualMachineResult(
-            Outputs.AutoBackupSettingsResponseResult? autoBackupSettings,
+            Outputs.AutoBackupSettingsResponse? autoBackupSettings,
 
-            Outputs.AutoPatchingSettingsResponseResult? autoPatchingSettings,
+            Outputs.AutoPatchingSettingsResponse? autoPatchingSettings,
 
-            Outputs.ResourceIdentityResponseResult? identity,
+            Outputs.ResourceIdentityResponse? identity,
 
-            Outputs.KeyVaultCredentialSettingsResponseResult? keyVaultCredentialSettings,
+            Outputs.KeyVaultCredentialSettingsResponse? keyVaultCredentialSettings,
 
             string location,
 
@@ -134,7 +134,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
 
             string provisioningState,
 
-            Outputs.ServerConfigurationsManagementSettingsResponseResult? serverConfigurationsManagementSettings,
+            Outputs.ServerConfigurationsManagementSettingsResponse? serverConfigurationsManagementSettings,
 
             string? sqlImageOffer,
 
@@ -146,7 +146,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
 
             string? sqlVirtualMachineGroupResourceId,
 
-            Outputs.StorageConfigurationSettingsResponseResult? storageConfigurationSettings,
+            Outputs.StorageConfigurationSettingsResponse? storageConfigurationSettings,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -154,7 +154,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
 
             string? virtualMachineResourceId,
 
-            Outputs.WsfcDomainCredentialsResponseResult? wsfcDomainCredentials)
+            Outputs.WsfcDomainCredentialsResponse? wsfcDomainCredentials)
         {
             AutoBackupSettings = autoBackupSettings;
             AutoPatchingSettings = autoPatchingSettings;

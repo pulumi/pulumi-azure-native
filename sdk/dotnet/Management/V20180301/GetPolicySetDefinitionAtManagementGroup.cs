@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Management.V20180301
         /// <summary>
         /// An array of policy definition references.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PolicyDefinitionReferenceResponseResult> PolicyDefinitions;
+        public readonly ImmutableArray<Outputs.PolicyDefinitionReferenceResponse> PolicyDefinitions;
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Management.V20180301
 
             ImmutableDictionary<string, object>? parameters,
 
-            ImmutableArray<Outputs.PolicyDefinitionReferenceResponseResult> policyDefinitions,
+            ImmutableArray<Outputs.PolicyDefinitionReferenceResponse> policyDefinitions,
 
             string? policyType,
 

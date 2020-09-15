@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// An array of references to the delegations on the subnet.
         /// </summary>
         [Output("delegations")]
-        public Output<ImmutableArray<Outputs.DelegationResponseResult>> Delegations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DelegationResponse>> Delegations { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -42,19 +42,19 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// Array of IpAllocation which reference this subnet.
         /// </summary>
         [Output("ipAllocations")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> IpAllocations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> IpAllocations { get; private set; } = null!;
 
         /// <summary>
         /// Array of IP configuration profiles which reference this subnet.
         /// </summary>
         [Output("ipConfigurationProfiles")]
-        public Output<ImmutableArray<Outputs.IPConfigurationProfileResponseResult>> IpConfigurationProfiles { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IPConfigurationProfileResponse>> IpConfigurationProfiles { get; private set; } = null!;
 
         /// <summary>
         /// An array of references to the network interface IP configurations using subnet.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.IPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IPConfigurationResponse>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -66,13 +66,13 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// Nat gateway associated with this subnet.
         /// </summary>
         [Output("natGateway")]
-        public Output<Outputs.SubResourceResponseResult?> NatGateway { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> NatGateway { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the NetworkSecurityGroup resource.
         /// </summary>
         [Output("networkSecurityGroup")]
-        public Output<Outputs.NetworkSecurityGroupResponseResult?> NetworkSecurityGroup { get; private set; } = null!;
+        public Output<Outputs.NetworkSecurityGroupResponse?> NetworkSecurityGroup { get; private set; } = null!;
 
         /// <summary>
         /// Enable or Disable apply network policies on private end point in the subnet.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// An array of references to private endpoints.
         /// </summary>
         [Output("privateEndpoints")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointResponseResult>> PrivateEndpoints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointResponse>> PrivateEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Enable or Disable apply network policies on private link service in the subnet.
@@ -108,31 +108,31 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// An array of references to the external resources using subnet.
         /// </summary>
         [Output("resourceNavigationLinks")]
-        public Output<ImmutableArray<Outputs.ResourceNavigationLinkResponseResult>> ResourceNavigationLinks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceNavigationLinkResponse>> ResourceNavigationLinks { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the RouteTable resource.
         /// </summary>
         [Output("routeTable")]
-        public Output<Outputs.RouteTableResponseResult?> RouteTable { get; private set; } = null!;
+        public Output<Outputs.RouteTableResponse?> RouteTable { get; private set; } = null!;
 
         /// <summary>
         /// An array of references to services injecting into this subnet.
         /// </summary>
         [Output("serviceAssociationLinks")]
-        public Output<ImmutableArray<Outputs.ServiceAssociationLinkResponseResult>> ServiceAssociationLinks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceAssociationLinkResponse>> ServiceAssociationLinks { get; private set; } = null!;
 
         /// <summary>
         /// An array of service endpoint policies.
         /// </summary>
         [Output("serviceEndpointPolicies")]
-        public Output<ImmutableArray<Outputs.ServiceEndpointPolicyResponseResult>> ServiceEndpointPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceEndpointPolicyResponse>> ServiceEndpointPolicies { get; private set; } = null!;
 
         /// <summary>
         /// An array of service endpoints.
         /// </summary>
         [Output("serviceEndpoints")]
-        public Output<ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult>> ServiceEndpoints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse>> ServiceEndpoints { get; private set; } = null!;
 
 
         /// <summary>

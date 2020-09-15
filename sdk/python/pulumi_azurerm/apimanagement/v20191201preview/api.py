@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -31,7 +31,7 @@ class Api(pulumi.CustomResource):
                  format: Optional[pulumi.Input[str]] = None,
                  is_current: Optional[pulumi.Input[bool]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] format: Format of the Content in which the API is getting imported.
         :param pulumi.Input[bool] is_current: Indicates if API revision is current api revision.
         :param pulumi.Input[str] path: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-        :param pulumi.Input[List[pulumi.Input[str]]] protocols: Describes on which protocols the operations in this API can be invoked.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Describes on which protocols the operations in this API can be invoked.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
@@ -268,7 +268,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocols(self) -> pulumi.Output[Optional[List[str]]]:
+    def protocols(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Describes on which protocols the operations in this API can be invoked.
         """

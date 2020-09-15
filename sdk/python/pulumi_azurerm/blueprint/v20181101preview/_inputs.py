@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,13 +23,13 @@ __all__ = [
 @pulumi.input_type
 class AssignmentLockSettingsArgs:
     def __init__(__self__, *,
-                 excluded_actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 excluded_principals: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 excluded_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 excluded_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None):
         """
         Defines how resources deployed by a blueprint assignment are locked.
-        :param pulumi.Input[List[pulumi.Input[str]]] excluded_actions: List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
-        :param pulumi.Input[List[pulumi.Input[str]]] excluded_principals: List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_actions: List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_principals: List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
         :param pulumi.Input[str] mode: Lock mode.
         """
         if excluded_actions is not None:
@@ -41,26 +41,26 @@ class AssignmentLockSettingsArgs:
 
     @property
     @pulumi.getter(name="excludedActions")
-    def excluded_actions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def excluded_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
         """
         return pulumi.get(self, "excluded_actions")
 
     @excluded_actions.setter
-    def excluded_actions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def excluded_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_actions", value)
 
     @property
     @pulumi.getter(name="excludedPrincipals")
-    def excluded_principals(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def excluded_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
         """
         return pulumi.get(self, "excluded_principals")
 
     @excluded_principals.setter
-    def excluded_principals(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def excluded_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_principals", value)
 
     @property
@@ -151,7 +151,7 @@ class ManagedServiceIdentityArgs:
 class ParameterDefinitionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 allowed_values: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  default_value: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -159,7 +159,7 @@ class ParameterDefinitionArgs:
         """
         Represent a parameter with constrains and metadata.
         :param pulumi.Input[str] type: Allowed data types for Resource Manager template parameters.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] allowed_values: Array of allowed values for this parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] allowed_values: Array of allowed values for this parameter.
         :param pulumi.Input[Mapping[str, Any]] default_value: Default Value for this parameter.
         :param pulumi.Input[str] description: Description of this parameter/resourceGroup.
         :param pulumi.Input[str] display_name: DisplayName of this parameter/resourceGroup.
@@ -191,14 +191,14 @@ class ParameterDefinitionArgs:
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         Array of allowed values for this parameter.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "allowed_values", value)
 
     @property
@@ -293,7 +293,7 @@ class ParameterValueArgs:
 @pulumi.input_type
 class ResourceGroupDefinitionArgs:
     def __init__(__self__, *,
-                 depends_on: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -302,7 +302,7 @@ class ResourceGroupDefinitionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Represents an Azure resource group in a blueprint definition.
-        :param pulumi.Input[List[pulumi.Input[str]]] depends_on: Artifacts which need to be deployed before this resource group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_on: Artifacts which need to be deployed before this resource group.
         :param pulumi.Input[str] description: Description of this parameter/resourceGroup.
         :param pulumi.Input[str] display_name: DisplayName of this parameter/resourceGroup.
         :param pulumi.Input[str] location: Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
@@ -327,14 +327,14 @@ class ResourceGroupDefinitionArgs:
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Artifacts which need to be deployed before this resource group.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "depends_on", value)
 
     @property

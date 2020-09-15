@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Authorization.V20180101Preview
         /// Role definition permissions.
         /// </summary>
         [Output("permissions")]
-        public Output<ImmutableArray<Outputs.PermissionResponseResult>> Permissions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PermissionResponse>> Permissions { get; private set; } = null!;
 
         /// <summary>
         /// The role name.

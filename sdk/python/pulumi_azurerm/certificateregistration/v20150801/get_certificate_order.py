@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,8 +42,8 @@ class GetCertificateOrderResult:
         if intermediate and not isinstance(intermediate, dict):
             raise TypeError("Expected argument 'intermediate' to be a dict")
         pulumi.set(__self__, "intermediate", intermediate)
-        if key_size and not isinstance(key_size, float):
-            raise TypeError("Expected argument 'key_size' to be a float")
+        if key_size and not isinstance(key_size, int):
+            raise TypeError("Expected argument 'key_size' to be a int")
         pulumi.set(__self__, "key_size", key_size)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
@@ -81,8 +81,8 @@ class GetCertificateOrderResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if validity_in_years and not isinstance(validity_in_years, float):
-            raise TypeError("Expected argument 'validity_in_years' to be a float")
+        if validity_in_years and not isinstance(validity_in_years, int):
+            raise TypeError("Expected argument 'validity_in_years' to be a int")
         pulumi.set(__self__, "validity_in_years", validity_in_years)
 
     @property
@@ -143,7 +143,7 @@ class GetCertificateOrderResult:
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[float]:
+    def key_size(self) -> Optional[int]:
         """
         Certificate Key Size
         """
@@ -247,7 +247,7 @@ class GetCertificateOrderResult:
 
     @property
     @pulumi.getter(name="validityInYears")
-    def validity_in_years(self) -> Optional[float]:
+    def validity_in_years(self) -> Optional[int]:
         """
         Duration in years (must be between 1 and 3)
         """

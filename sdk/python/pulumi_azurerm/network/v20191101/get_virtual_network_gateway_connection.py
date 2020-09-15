@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -33,8 +33,8 @@ class GetVirtualNetworkGatewayConnectionResult:
         if connection_type and not isinstance(connection_type, str):
             raise TypeError("Expected argument 'connection_type' to be a str")
         pulumi.set(__self__, "connection_type", connection_type)
-        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, float):
-            raise TypeError("Expected argument 'egress_bytes_transferred' to be a float")
+        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, int):
+            raise TypeError("Expected argument 'egress_bytes_transferred' to be a int")
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
         if enable_bgp and not isinstance(enable_bgp, bool):
             raise TypeError("Expected argument 'enable_bgp' to be a bool")
@@ -45,8 +45,8 @@ class GetVirtualNetworkGatewayConnectionResult:
         if express_route_gateway_bypass and not isinstance(express_route_gateway_bypass, bool):
             raise TypeError("Expected argument 'express_route_gateway_bypass' to be a bool")
         pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
-        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, float):
-            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a float")
+        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, int):
+            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a int")
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
         if ipsec_policies and not isinstance(ipsec_policies, list):
             raise TypeError("Expected argument 'ipsec_policies' to be a list")
@@ -69,8 +69,8 @@ class GetVirtualNetworkGatewayConnectionResult:
         if resource_guid and not isinstance(resource_guid, str):
             raise TypeError("Expected argument 'resource_guid' to be a str")
         pulumi.set(__self__, "resource_guid", resource_guid)
-        if routing_weight and not isinstance(routing_weight, float):
-            raise TypeError("Expected argument 'routing_weight' to be a float")
+        if routing_weight and not isinstance(routing_weight, int):
+            raise TypeError("Expected argument 'routing_weight' to be a int")
         pulumi.set(__self__, "routing_weight", routing_weight)
         if shared_key and not isinstance(shared_key, str):
             raise TypeError("Expected argument 'shared_key' to be a str")
@@ -131,7 +131,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> float:
+    def egress_bytes_transferred(self) -> int:
         """
         The egress bytes transferred in this connection.
         """
@@ -163,7 +163,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> float:
+    def ingress_bytes_transferred(self) -> int:
         """
         The ingress bytes transferred in this connection.
         """
@@ -171,7 +171,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> Optional[List['outputs.IpsecPolicyResponse']]:
+    def ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyResponse']]:
         """
         The IPSec Policies to be considered by this connection.
         """
@@ -227,7 +227,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> Optional[float]:
+    def routing_weight(self) -> Optional[int]:
         """
         The routing weight.
         """
@@ -251,7 +251,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="trafficSelectorPolicies")
-    def traffic_selector_policies(self) -> Optional[List['outputs.TrafficSelectorPolicyResponse']]:
+    def traffic_selector_policies(self) -> Optional[Sequence['outputs.TrafficSelectorPolicyResponse']]:
         """
         The Traffic Selector Policies to be considered by this connection.
         """
@@ -259,7 +259,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="tunnelConnectionStatus")
-    def tunnel_connection_status(self) -> List['outputs.TunnelConnectionHealthResponse']:
+    def tunnel_connection_status(self) -> Sequence['outputs.TunnelConnectionHealthResponse']:
         """
         Collection of all tunnels' connection health status.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -69,7 +69,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="backendPools")
-    def backend_pools(self) -> Optional[List['outputs.BackendPoolResponse']]:
+    def backend_pools(self) -> Optional[Sequence['outputs.BackendPoolResponse']]:
         """
         Backend pools available to routing rules.
         """
@@ -109,7 +109,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="frontendEndpoints")
-    def frontend_endpoints(self) -> Optional[List['outputs.FrontendEndpointResponse']]:
+    def frontend_endpoints(self) -> Optional[Sequence['outputs.FrontendEndpointResponse']]:
         """
         Frontend endpoints available to routing rules.
         """
@@ -117,7 +117,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="healthProbeSettings")
-    def health_probe_settings(self) -> Optional[List['outputs.HealthProbeSettingsModelResponse']]:
+    def health_probe_settings(self) -> Optional[Sequence['outputs.HealthProbeSettingsModelResponse']]:
         """
         Health probe settings associated with this Front Door instance.
         """
@@ -125,7 +125,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="loadBalancingSettings")
-    def load_balancing_settings(self) -> Optional[List['outputs.LoadBalancingSettingsModelResponse']]:
+    def load_balancing_settings(self) -> Optional[Sequence['outputs.LoadBalancingSettingsModelResponse']]:
         """
         Load balancing settings associated with this Front Door instance.
         """
@@ -165,7 +165,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> Optional[List['outputs.RoutingRuleResponse']]:
+    def routing_rules(self) -> Optional[Sequence['outputs.RoutingRuleResponse']]:
         """
         Routing rules associated with this Front Door.
         """

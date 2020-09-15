@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.KeyVault.V20180214Preview
         /// <summary>
         /// Properties of the vault
         /// </summary>
-        public readonly Outputs.VaultPropertiesResponseResult Properties;
+        public readonly Outputs.VaultPropertiesResponse Properties;
         /// <summary>
         /// The tags that will be assigned to the key vault. 
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.KeyVault.V20180214Preview
 
             string name,
 
-            Outputs.VaultPropertiesResponseResult properties,
+            Outputs.VaultPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.BotService.V20180712
         /// The set of properties specific to an Enterprise Channel resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.EnterpriseChannelPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.EnterpriseChannelPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.

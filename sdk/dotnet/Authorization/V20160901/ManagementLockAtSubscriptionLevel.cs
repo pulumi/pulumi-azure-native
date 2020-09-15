@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Authorization.V20160901
         /// The owners of the lock.
         /// </summary>
         [Output("owners")]
-        public Output<ImmutableArray<Outputs.ManagementLockOwnerResponseResult>> Owners { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ManagementLockOwnerResponse>> Owners { get; private set; } = null!;
 
         /// <summary>
         /// The resource type of the lock - Microsoft.Authorization/locks.

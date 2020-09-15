@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.SignalRService.V20180301Preview
         /// <summary>
         /// SKU of the service.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponseResult? Sku;
+        public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.
         /// </summary>
@@ -107,7 +107,7 @@ namespace Pulumi.AzureRM.SignalRService.V20180301Preview
 
             int serverPort,
 
-            Outputs.ResourceSkuResponseResult? sku,
+            Outputs.ResourceSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

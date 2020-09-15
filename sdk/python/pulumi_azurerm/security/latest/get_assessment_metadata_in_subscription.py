@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -74,7 +74,7 @@ class GetAssessmentMetadataInSubscriptionResult:
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[List[str]]:
+    def category(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "category")
 
     @property
@@ -151,7 +151,7 @@ class GetAssessmentMetadataInSubscriptionResult:
 
     @property
     @pulumi.getter
-    def threats(self) -> Optional[List[str]]:
+    def threats(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "threats")
 
     @property

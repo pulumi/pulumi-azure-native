@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
         /// The platform properties against which the build has to happen.
         /// </summary>
         [Output("platform")]
-        public Output<Outputs.PlatformPropertiesResponseResult> Platform { get; private set; } = null!;
+        public Output<Outputs.PlatformPropertiesResponse> Platform { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the build task.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
         /// The properties that describes the source(code) for the build task.
         /// </summary>
         [Output("sourceRepository")]
-        public Output<Outputs.SourceRepositoryPropertiesResponseResult> SourceRepository { get; private set; } = null!;
+        public Output<Outputs.SourceRepositoryPropertiesResponse> SourceRepository { get; private set; } = null!;
 
         /// <summary>
         /// The current status of build task.

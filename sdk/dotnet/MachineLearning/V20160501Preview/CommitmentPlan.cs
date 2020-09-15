@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.MachineLearning.V20160501Preview
         /// The commitment plan properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CommitmentPlanPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.CommitmentPlanPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The commitment plan SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ResourceSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ResourceSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// User-defined tags for the resource.

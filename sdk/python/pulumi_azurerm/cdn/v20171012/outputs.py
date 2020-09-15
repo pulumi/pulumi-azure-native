@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -86,14 +86,14 @@ class DeepCreatedOriginResponse(dict):
     def __init__(__self__, *,
                  host_name: str,
                  name: str,
-                 http_port: Optional[float] = None,
-                 https_port: Optional[float] = None):
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None):
         """
         The main origin of CDN content which is added when creating a CDN endpoint.
         :param str host_name: The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
         :param str name: Origin name
-        :param float http_port: The value of the HTTP port. Must be between 1 and 65535
-        :param float https_port: The value of the HTTPS port. Must be between 1 and 65535
+        :param int http_port: The value of the HTTP port. Must be between 1 and 65535
+        :param int https_port: The value of the HTTPS port. Must be between 1 and 65535
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "name", name)
@@ -120,7 +120,7 @@ class DeepCreatedOriginResponse(dict):
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[float]:
+    def http_port(self) -> Optional[int]:
         """
         The value of the HTTP port. Must be between 1 and 65535
         """
@@ -128,7 +128,7 @@ class DeepCreatedOriginResponse(dict):
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[float]:
+    def https_port(self) -> Optional[int]:
         """
         The value of the HTTPS port. Must be between 1 and 65535
         """
@@ -180,14 +180,14 @@ class DeliveryRuleResponse(dict):
     A rule that specifies a set of actions and conditions
     """
     def __init__(__self__, *,
-                 actions: List['outputs.DeliveryRuleCacheExpirationActionResponse'],
-                 order: float,
-                 conditions: Optional[List[Any]] = None):
+                 actions: Sequence['outputs.DeliveryRuleCacheExpirationActionResponse'],
+                 order: int,
+                 conditions: Optional[Sequence[Any]] = None):
         """
         A rule that specifies a set of actions and conditions
-        :param List['DeliveryRuleCacheExpirationActionResponseArgs'] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
-        :param float order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param List[Union['DeliveryRuleUrlFileExtensionConditionResponseArgs', 'DeliveryRuleUrlPathConditionResponseArgs']] conditions: A list of conditions that must be matched for the actions to be executed
+        :param Sequence['DeliveryRuleCacheExpirationActionResponseArgs'] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param int order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        :param Sequence[Union['DeliveryRuleUrlFileExtensionConditionResponseArgs', 'DeliveryRuleUrlPathConditionResponseArgs']] conditions: A list of conditions that must be matched for the actions to be executed
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "order", order)
@@ -196,7 +196,7 @@ class DeliveryRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> List['outputs.DeliveryRuleCacheExpirationActionResponse']:
+    def actions(self) -> Sequence['outputs.DeliveryRuleCacheExpirationActionResponse']:
         """
         A list of actions that are executed when all the conditions of a rule are satisfied.
         """
@@ -204,7 +204,7 @@ class DeliveryRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> float:
+    def order(self) -> int:
         """
         The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         """
@@ -212,7 +212,7 @@ class DeliveryRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[List[Any]]:
+    def conditions(self) -> Optional[Sequence[Any]]:
         """
         A list of conditions that must be matched for the actions to be executed
         """
@@ -300,11 +300,11 @@ class EndpointPropertiesUpdateParametersResponseDeliveryPolicy(dict):
     A policy that specifies the delivery rules to be used for an endpoint.
     """
     def __init__(__self__, *,
-                 rules: List['outputs.DeliveryRuleResponse'],
+                 rules: Sequence['outputs.DeliveryRuleResponse'],
                  description: Optional[str] = None):
         """
         A policy that specifies the delivery rules to be used for an endpoint.
-        :param List['DeliveryRuleResponseArgs'] rules: A list of the delivery rules.
+        :param Sequence['DeliveryRuleResponseArgs'] rules: A list of the delivery rules.
         :param str description: User-friendly description of the policy.
         """
         pulumi.set(__self__, "rules", rules)
@@ -313,7 +313,7 @@ class EndpointPropertiesUpdateParametersResponseDeliveryPolicy(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.DeliveryRuleResponse']:
+    def rules(self) -> Sequence['outputs.DeliveryRuleResponse']:
         """
         A list of the delivery rules.
         """
@@ -338,12 +338,12 @@ class GeoFilterResponse(dict):
     """
     def __init__(__self__, *,
                  action: str,
-                 country_codes: List[str],
+                 country_codes: Sequence[str],
                  relative_path: str):
         """
         Rules defining user's geo access within a CDN endpoint.
         :param str action: Action of the geo filter, i.e. allow or block access.
-        :param List[str] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+        :param Sequence[str] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         :param str relative_path: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
         """
         pulumi.set(__self__, "action", action)
@@ -360,7 +360,7 @@ class GeoFilterResponse(dict):
 
     @property
     @pulumi.getter(name="countryCodes")
-    def country_codes(self) -> List[str]:
+    def country_codes(self) -> Sequence[str]:
         """
         Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         """
@@ -410,18 +410,18 @@ class UrlFileExtensionConditionParametersResponse(dict):
     Defines the parameters for the URL file extension condition.
     """
     def __init__(__self__, *,
-                 extensions: List[str],
+                 extensions: Sequence[str],
                  odata_type: str):
         """
         Defines the parameters for the URL file extension condition.
-        :param List[str] extensions: A list of extensions for the condition of the delivery rule.
+        :param Sequence[str] extensions: A list of extensions for the condition of the delivery rule.
         """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "odata_type", odata_type)
 
     @property
     @pulumi.getter
-    def extensions(self) -> List[str]:
+    def extensions(self) -> Sequence[str]:
         """
         A list of extensions for the condition of the delivery rule.
         """

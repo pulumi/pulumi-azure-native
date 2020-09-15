@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -36,8 +36,8 @@ class GetJobStepResult:
         if output and not isinstance(output, dict):
             raise TypeError("Expected argument 'output' to be a dict")
         pulumi.set(__self__, "output", output)
-        if step_id and not isinstance(step_id, float):
-            raise TypeError("Expected argument 'step_id' to be a float")
+        if step_id and not isinstance(step_id, int):
+            raise TypeError("Expected argument 'step_id' to be a int")
         pulumi.set(__self__, "step_id", step_id)
         if target_group and not isinstance(target_group, str):
             raise TypeError("Expected argument 'target_group' to be a str")
@@ -88,7 +88,7 @@ class GetJobStepResult:
 
     @property
     @pulumi.getter(name="stepId")
-    def step_id(self) -> Optional[float]:
+    def step_id(self) -> Optional[int]:
         """
         The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
         """

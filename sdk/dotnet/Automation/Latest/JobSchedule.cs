@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// Gets or sets the runbook.
         /// </summary>
         [Output("runbook")]
-        public Output<Outputs.RunbookAssociationPropertyResponseResult?> Runbook { get; private set; } = null!;
+        public Output<Outputs.RunbookAssociationPropertyResponse?> Runbook { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the schedule.
         /// </summary>
         [Output("schedule")]
-        public Output<Outputs.ScheduleAssociationPropertyResponseResult?> Schedule { get; private set; } = null!;
+        public Output<Outputs.ScheduleAssociationPropertyResponse?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

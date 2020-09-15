@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// SQL pool SKU
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Source database to create from

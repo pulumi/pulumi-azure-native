@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -170,29 +170,29 @@ class ContainerCodePackagePropertiesArgs:
                  image: pulumi.Input[str],
                  name: pulumi.Input[str],
                  resources: pulumi.Input['ResourceRequirementsArgs'],
-                 commands: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  diagnostics: Optional[pulumi.Input['DiagnosticsRefArgs']] = None,
-                 endpoints: Optional[pulumi.Input[List[pulumi.Input['EndpointPropertiesArgs']]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None,
-                 environment_variables: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
                  image_registry_credential: Optional[pulumi.Input['ImageRegistryCredentialArgs']] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input['ContainerLabelArgs']]]] = None,
-                 settings: Optional[pulumi.Input[List[pulumi.Input['SettingArgs']]]] = None,
-                 volume_refs: Optional[pulumi.Input[List[pulumi.Input['ContainerVolumeArgs']]]] = None):
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['SettingArgs']]]] = None,
+                 volume_refs: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerVolumeArgs']]]] = None):
         """
         Describes a container and its runtime properties.
         :param pulumi.Input[str] image: The Container image to use.
         :param pulumi.Input[str] name: The name of the code package.
         :param pulumi.Input['ResourceRequirementsArgs'] resources: This type describes the resource requirements for a container or a service.
-        :param pulumi.Input[List[pulumi.Input[str]]] commands: Command array to execute within the container in exec form.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Command array to execute within the container in exec form.
         :param pulumi.Input['DiagnosticsRefArgs'] diagnostics: Reference to sinks in DiagnosticsDescription.
-        :param pulumi.Input[List[pulumi.Input['EndpointPropertiesArgs']]] endpoints: The endpoints exposed by this container.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]] endpoints: The endpoints exposed by this container.
         :param pulumi.Input[str] entrypoint: Override for the default entry point in the container.
-        :param pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in this container
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in this container
         :param pulumi.Input['ImageRegistryCredentialArgs'] image_registry_credential: Image registry credential.
-        :param pulumi.Input[List[pulumi.Input['ContainerLabelArgs']]] labels: The labels to set in this container.
-        :param pulumi.Input[List[pulumi.Input['SettingArgs']]] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
-        :param pulumi.Input[List[pulumi.Input['ContainerVolumeArgs']]] volume_refs: The volumes to be attached to the container.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]] labels: The labels to set in this container.
+        :param pulumi.Input[Sequence[pulumi.Input['SettingArgs']]] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerVolumeArgs']]] volume_refs: The volumes to be attached to the container.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -254,14 +254,14 @@ class ContainerCodePackagePropertiesArgs:
 
     @property
     @pulumi.getter
-    def commands(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Command array to execute within the container in exec form.
         """
         return pulumi.get(self, "commands")
 
     @commands.setter
-    def commands(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "commands", value)
 
     @property
@@ -278,14 +278,14 @@ class ContainerCodePackagePropertiesArgs:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[List[pulumi.Input['EndpointPropertiesArgs']]]]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]]]:
         """
         The endpoints exposed by this container.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[List[pulumi.Input['EndpointPropertiesArgs']]]]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
@@ -302,14 +302,14 @@ class ContainerCodePackagePropertiesArgs:
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
         The environment variables to set in this container
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property
@@ -326,38 +326,38 @@ class ContainerCodePackagePropertiesArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[List[pulumi.Input['ContainerLabelArgs']]]]:
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]]]:
         """
         The labels to set in this container.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[List[pulumi.Input['ContainerLabelArgs']]]]):
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]]]):
         pulumi.set(self, "labels", value)
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[List[pulumi.Input['SettingArgs']]]]:
+    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SettingArgs']]]]:
         """
         The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[List[pulumi.Input['SettingArgs']]]]):
+    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SettingArgs']]]]):
         pulumi.set(self, "settings", value)
 
     @property
     @pulumi.getter(name="volumeRefs")
-    def volume_refs(self) -> Optional[pulumi.Input[List[pulumi.Input['ContainerVolumeArgs']]]]:
+    def volume_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerVolumeArgs']]]]:
         """
         The volumes to be attached to the container.
         """
         return pulumi.get(self, "volume_refs")
 
     @volume_refs.setter
-    def volume_refs(self, value: Optional[pulumi.Input[List[pulumi.Input['ContainerVolumeArgs']]]]):
+    def volume_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerVolumeArgs']]]]):
         pulumi.set(self, "volume_refs", value)
 
 
@@ -456,14 +456,14 @@ class ContainerVolumeArgs:
 @pulumi.input_type
 class DiagnosticsDescriptionArgs:
     def __init__(__self__, *,
-                 default_sink_refs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 default_sink_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 sinks: Optional[pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]] = None):
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]] = None):
         """
         Describes the diagnostics options available
-        :param pulumi.Input[List[pulumi.Input[str]]] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param pulumi.Input[bool] enabled: Status of whether or not sinks are enabled.
-        :param pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]] sinks: List of supported sinks that can be referenced.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]] sinks: List of supported sinks that can be referenced.
         """
         if default_sink_refs is not None:
             pulumi.set(__self__, "default_sink_refs", default_sink_refs)
@@ -474,14 +474,14 @@ class DiagnosticsDescriptionArgs:
 
     @property
     @pulumi.getter(name="defaultSinkRefs")
-    def default_sink_refs(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def default_sink_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         """
         return pulumi.get(self, "default_sink_refs")
 
     @default_sink_refs.setter
-    def default_sink_refs(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def default_sink_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "default_sink_refs", value)
 
     @property
@@ -498,14 +498,14 @@ class DiagnosticsDescriptionArgs:
 
     @property
     @pulumi.getter
-    def sinks(self) -> Optional[pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]:
+    def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]:
         """
         List of supported sinks that can be referenced.
         """
         return pulumi.get(self, "sinks")
 
     @sinks.setter
-    def sinks(self, value: Optional[pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]):
+    def sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]):
         pulumi.set(self, "sinks", value)
 
 
@@ -513,11 +513,11 @@ class DiagnosticsDescriptionArgs:
 class DiagnosticsRefArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 sink_refs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 sink_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Reference to sinks in DiagnosticsDescription.
         :param pulumi.Input[bool] enabled: Status of whether or not sinks are enabled.
-        :param pulumi.Input[List[pulumi.Input[str]]] sink_refs: List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sink_refs: List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -538,14 +538,14 @@ class DiagnosticsRefArgs:
 
     @property
     @pulumi.getter(name="sinkRefs")
-    def sink_refs(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def sink_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
         return pulumi.get(self, "sink_refs")
 
     @sink_refs.setter
-    def sink_refs(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def sink_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "sink_refs", value)
 
 
@@ -553,11 +553,11 @@ class DiagnosticsRefArgs:
 class EndpointPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 port: Optional[pulumi.Input[float]] = None):
+                 port: Optional[pulumi.Input[int]] = None):
         """
         Describes a container endpoint.
         :param pulumi.Input[str] name: The name of the endpoint.
-        :param pulumi.Input[float] port: Port used by the container.
+        :param pulumi.Input[int] port: Port used by the container.
         """
         pulumi.set(__self__, "name", name)
         if port is not None:
@@ -577,14 +577,14 @@ class EndpointPropertiesArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         """
         Port used by the container.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
 
@@ -685,11 +685,11 @@ class ImageRegistryCredentialArgs:
 @pulumi.input_type
 class IngressConfigArgs:
     def __init__(__self__, *,
-                 layer4: Optional[pulumi.Input[List[pulumi.Input['Layer4IngressConfigArgs']]]] = None,
+                 layer4: Optional[pulumi.Input[Sequence[pulumi.Input['Layer4IngressConfigArgs']]]] = None,
                  qos_level: Optional[pulumi.Input[str]] = None):
         """
         Describes public connectivity configuration for the network.
-        :param pulumi.Input[List[pulumi.Input['Layer4IngressConfigArgs']]] layer4: Configuration for layer4 public connectivity for this network.
+        :param pulumi.Input[Sequence[pulumi.Input['Layer4IngressConfigArgs']]] layer4: Configuration for layer4 public connectivity for this network.
         :param pulumi.Input[str] qos_level: The QoS tier for ingress.
         """
         if layer4 is not None:
@@ -699,14 +699,14 @@ class IngressConfigArgs:
 
     @property
     @pulumi.getter
-    def layer4(self) -> Optional[pulumi.Input[List[pulumi.Input['Layer4IngressConfigArgs']]]]:
+    def layer4(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Layer4IngressConfigArgs']]]]:
         """
         Configuration for layer4 public connectivity for this network.
         """
         return pulumi.get(self, "layer4")
 
     @layer4.setter
-    def layer4(self, value: Optional[pulumi.Input[List[pulumi.Input['Layer4IngressConfigArgs']]]]):
+    def layer4(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Layer4IngressConfigArgs']]]]):
         pulumi.set(self, "layer4", value)
 
     @property
@@ -728,14 +728,14 @@ class Layer4IngressConfigArgs:
                  application_name: Optional[pulumi.Input[str]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 public_port: Optional[pulumi.Input[float]] = None,
+                 public_port: Optional[pulumi.Input[int]] = None,
                  service_name: Optional[pulumi.Input[str]] = None):
         """
         Describes the layer4 configuration for public connectivity for this network.
         :param pulumi.Input[str] application_name: The application name which contains the service to be exposed.
         :param pulumi.Input[str] endpoint_name: The service endpoint that needs to be exposed.
         :param pulumi.Input[str] name: Layer4 ingress config name.
-        :param pulumi.Input[float] public_port: Specifies the public port at which the service endpoint below needs to be exposed.
+        :param pulumi.Input[int] public_port: Specifies the public port at which the service endpoint below needs to be exposed.
         :param pulumi.Input[str] service_name: The service whose endpoint needs to be exposed at the public port.
         """
         if application_name is not None:
@@ -787,14 +787,14 @@ class Layer4IngressConfigArgs:
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[pulumi.Input[float]]:
+    def public_port(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the public port at which the service endpoint below needs to be exposed.
         """
         return pulumi.get(self, "public_port")
 
     @public_port.setter
-    def public_port(self, value: Optional[pulumi.Input[float]]):
+    def public_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "public_port", value)
 
     @property
@@ -955,24 +955,24 @@ class ResourceRequirementsArgs:
 @pulumi.input_type
 class ServiceResourceDescriptionArgs:
     def __init__(__self__, *,
-                 code_packages: pulumi.Input[List[pulumi.Input['ContainerCodePackagePropertiesArgs']]],
+                 code_packages: pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]],
                  os_type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics: Optional[pulumi.Input['DiagnosticsRefArgs']] = None,
                  health_state: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_refs: Optional[pulumi.Input[List[pulumi.Input['NetworkRefArgs']]]] = None,
-                 replica_count: Optional[pulumi.Input[float]] = None):
+                 network_refs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]] = None,
+                 replica_count: Optional[pulumi.Input[int]] = None):
         """
         This type describes a service resource.
-        :param pulumi.Input[List[pulumi.Input['ContainerCodePackagePropertiesArgs']]] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         :param pulumi.Input[str] os_type: The Operating system type required by the code in service.
         :param pulumi.Input[str] description: User readable description of the service.
         :param pulumi.Input['DiagnosticsRefArgs'] diagnostics: Reference to sinks in DiagnosticsDescription.
         :param pulumi.Input[str] health_state: The health state of a resource such as Application, Service, or Network.
         :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[List[pulumi.Input['NetworkRefArgs']]] network_refs: The names of the private networks that this service needs to be part of.
-        :param pulumi.Input[float] replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]] network_refs: The names of the private networks that this service needs to be part of.
+        :param pulumi.Input[int] replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
         """
         pulumi.set(__self__, "code_packages", code_packages)
         pulumi.set(__self__, "os_type", os_type)
@@ -991,14 +991,14 @@ class ServiceResourceDescriptionArgs:
 
     @property
     @pulumi.getter(name="codePackages")
-    def code_packages(self) -> pulumi.Input[List[pulumi.Input['ContainerCodePackagePropertiesArgs']]]:
+    def code_packages(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]]:
         """
         Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         """
         return pulumi.get(self, "code_packages")
 
     @code_packages.setter
-    def code_packages(self, value: pulumi.Input[List[pulumi.Input['ContainerCodePackagePropertiesArgs']]]):
+    def code_packages(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]]):
         pulumi.set(self, "code_packages", value)
 
     @property
@@ -1063,26 +1063,26 @@ class ServiceResourceDescriptionArgs:
 
     @property
     @pulumi.getter(name="networkRefs")
-    def network_refs(self) -> Optional[pulumi.Input[List[pulumi.Input['NetworkRefArgs']]]]:
+    def network_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]]:
         """
         The names of the private networks that this service needs to be part of.
         """
         return pulumi.get(self, "network_refs")
 
     @network_refs.setter
-    def network_refs(self, value: Optional[pulumi.Input[List[pulumi.Input['NetworkRefArgs']]]]):
+    def network_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]]):
         pulumi.set(self, "network_refs", value)
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[float]]:
+    def replica_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of replicas of the service to create. Defaults to 1 if not specified.
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[float]]):
+    def replica_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replica_count", value)
 
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class StorageTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  clfs: Optional[pulumi.Input[pulumi.InputType['ClfsTargetArgs']]] = None,
-                 junctions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]]] = None,
+                 junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]]] = None,
                  nfs3: Optional[pulumi.Input[pulumi.InputType['Nfs3TargetArgs']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class StorageTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: Name of cache.
         :param pulumi.Input[pulumi.InputType['ClfsTargetArgs']] clfs: Properties when clfs target.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]] junctions: List of cache namespace to target namespace associations.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]] junctions: List of cache namespace to target namespace associations.
         :param pulumi.Input[pulumi.InputType['Nfs3TargetArgs']] nfs3: Properties when nfs3 target.
         :param pulumi.Input[str] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
@@ -114,7 +114,7 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def junctions(self) -> pulumi.Output[Optional[List['outputs.NamespaceJunctionResponse']]]:
+    def junctions(self) -> pulumi.Output[Optional[Sequence['outputs.NamespaceJunctionResponse']]]:
         """
         List of cache namespace to target namespace associations.
         """

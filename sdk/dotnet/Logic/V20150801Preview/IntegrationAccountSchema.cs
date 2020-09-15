@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.Logic.V20150801Preview
         /// The content link.
         /// </summary>
         [Output("contentLink")]
-        public Output<Outputs.IntegrationAccountContentLinkResponseResult> ContentLink { get; private set; } = null!;
+        public Output<Outputs.IntegrationAccountContentLinkResponse> ContentLink { get; private set; } = null!;
 
         /// <summary>
         /// The content type.

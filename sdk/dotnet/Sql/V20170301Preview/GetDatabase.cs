@@ -140,7 +140,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
         /// <summary>
         /// The name and tier of the SKU.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Specifies the time that the database was deleted.
         /// </summary>
@@ -206,7 +206,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
 
             string? sampleName,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string? sourceDatabaseDeletionDate,
 

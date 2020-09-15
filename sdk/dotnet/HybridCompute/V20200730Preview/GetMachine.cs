@@ -72,12 +72,12 @@ namespace Pulumi.AzureRM.HybridCompute.V20200730Preview
         /// <summary>
         /// Details about the error state.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorDetailResponseResult> ErrorDetails;
+        public readonly ImmutableArray<Outputs.ErrorDetailResponse> ErrorDetails;
         /// <summary>
         /// Machine Extensions information
         /// </summary>
-        public readonly ImmutableArray<Outputs.MachineExtensionInstanceViewResponseResult> Extensions;
-        public readonly Outputs.MachineResponseIdentityResult? Identity;
+        public readonly ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> Extensions;
+        public readonly Outputs.MachineResponseIdentity? Identity;
         /// <summary>
         /// The time of the last status change.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20200730Preview
         /// <summary>
         /// Metadata pertaining to the geographic location of the resource.
         /// </summary>
-        public readonly Outputs.LocationDataResponseResult? LocationData;
+        public readonly Outputs.LocationDataResponse? LocationData;
         /// <summary>
         /// Specifies the hybrid machine FQDN.
         /// </summary>
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20200730Preview
         /// <summary>
         /// Specifies the operating system settings for the hybrid machine.
         /// </summary>
-        public readonly Outputs.MachinePropertiesResponseOsProfileResult? OsProfile;
+        public readonly Outputs.MachinePropertiesResponseOsProfile? OsProfile;
         /// <summary>
         /// Specifies the Operating System product SKU.
         /// </summary>
@@ -153,17 +153,17 @@ namespace Pulumi.AzureRM.HybridCompute.V20200730Preview
 
             string domainName,
 
-            ImmutableArray<Outputs.ErrorDetailResponseResult> errorDetails,
+            ImmutableArray<Outputs.ErrorDetailResponse> errorDetails,
 
-            ImmutableArray<Outputs.MachineExtensionInstanceViewResponseResult> extensions,
+            ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> extensions,
 
-            Outputs.MachineResponseIdentityResult? identity,
+            Outputs.MachineResponseIdentity? identity,
 
             string lastStatusChange,
 
             string location,
 
-            Outputs.LocationDataResponseResult? locationData,
+            Outputs.LocationDataResponse? locationData,
 
             string machineFqdn,
 
@@ -171,7 +171,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20200730Preview
 
             string osName,
 
-            Outputs.MachinePropertiesResponseOsProfileResult? osProfile,
+            Outputs.MachinePropertiesResponseOsProfile? osProfile,
 
             string osSku,
 

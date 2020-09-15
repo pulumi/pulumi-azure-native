@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -69,8 +69,8 @@ class GetWorkspaceResult:
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        if private_link_count and not isinstance(private_link_count, float):
-            raise TypeError("Expected argument 'private_link_count' to be a float")
+        if private_link_count and not isinstance(private_link_count, int):
+            raise TypeError("Expected argument 'private_link_count' to be a int")
         pulumi.set(__self__, "private_link_count", private_link_count)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -219,7 +219,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
         The list of private endpoint connections in the workspace.
         """
@@ -227,7 +227,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="privateLinkCount")
-    def private_link_count(self) -> float:
+    def private_link_count(self) -> int:
         """
         Count of private connections in the workspace
         """
@@ -251,7 +251,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResources")
-    def shared_private_link_resources(self) -> Optional[List['outputs.SharedPrivateLinkResourceResponse']]:
+    def shared_private_link_resources(self) -> Optional[Sequence['outputs.SharedPrivateLinkResourceResponse']]:
         """
         The list of shared private link resources in this workspace.
         """

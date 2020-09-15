@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -105,7 +105,7 @@ class GetCustomIPPrefixResult:
 
     @property
     @pulumi.getter(name="publicIpPrefixes")
-    def public_ip_prefixes(self) -> List['outputs.SubResourceResponse']:
+    def public_ip_prefixes(self) -> Sequence['outputs.SubResourceResponse']:
         """
         The list of all referenced PublicIpPrefixes.
         """
@@ -137,7 +137,7 @@ class GetCustomIPPrefixResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> Optional[Sequence[str]]:
         """
         A list of availability zones denoting the IP allocated for the resource needs to come from.
         """

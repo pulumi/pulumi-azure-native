@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,11 +18,11 @@ class HubRouteTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_table_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HubRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubRouteArgs']]]]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,11 +33,11 @@ class HubRouteTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[List[pulumi.Input[str]]] labels: List of labels associated with this route table.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[str] route_table_name: The name of the RouteTable.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HubRouteArgs']]]] routes: List of all routes.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubRouteArgs']]]] routes: List of all routes.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         """
         if __name__ is not None:
@@ -103,7 +103,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatedConnections")
-    def associated_connections(self) -> pulumi.Output[List[str]]:
+    def associated_connections(self) -> pulumi.Output[Sequence[str]]:
         """
         List of all connections associated with this route table.
         """
@@ -119,7 +119,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[List[str]]]:
+    def labels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of labels associated with this route table.
         """
@@ -135,7 +135,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propagatingConnections")
-    def propagating_connections(self) -> pulumi.Output[List[str]]:
+    def propagating_connections(self) -> pulumi.Output[Sequence[str]]:
         """
         List of all connections that advertise to this route table.
         """
@@ -151,7 +151,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> pulumi.Output[Optional[List['outputs.HubRouteResponse']]]:
+    def routes(self) -> pulumi.Output[Optional[Sequence['outputs.HubRouteResponse']]]:
         """
         List of all routes.
         """

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Kind of sql server. This is metadata used for the Azure portal experience.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
         /// List of private endpoint connections on a server
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'

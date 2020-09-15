@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['SiteDeployment']
@@ -28,7 +28,7 @@ class SiteDeployment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[float]] = None,
+                 status: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -52,7 +52,7 @@ class SiteDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] resource_group_name: Name of resource group
         :param pulumi.Input[str] start_time: StartTime
-        :param pulumi.Input[float] status: Status
+        :param pulumi.Input[int] status: Status
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
@@ -213,7 +213,7 @@ class SiteDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[float]]:
+    def status(self) -> pulumi.Output[Optional[int]]:
         """
         Status
         """

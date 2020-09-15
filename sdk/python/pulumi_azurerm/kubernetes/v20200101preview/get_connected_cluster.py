@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,8 +48,8 @@ class GetConnectedClusterResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if total_node_count and not isinstance(total_node_count, float):
-            raise TypeError("Expected argument 'total_node_count' to be a float")
+        if total_node_count and not isinstance(total_node_count, int):
+            raise TypeError("Expected argument 'total_node_count' to be a int")
         pulumi.set(__self__, "total_node_count", total_node_count)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -126,7 +126,7 @@ class GetConnectedClusterResult:
 
     @property
     @pulumi.getter(name="totalNodeCount")
-    def total_node_count(self) -> float:
+    def total_node_count(self) -> int:
         """
         Number of nodes present in the connected cluster resource
         """

@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The machine configuration of the run agent.
         /// </summary>
         [Output("agentConfiguration")]
-        public Output<Outputs.AgentPropertiesResponseResult?> AgentConfiguration { get; private set; } = null!;
+        public Output<Outputs.AgentPropertiesResponse?> AgentConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The dedicated agent pool for the task.
@@ -37,13 +37,13 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The properties that describes a set of credentials that will be used when this run is invoked.
         /// </summary>
         [Output("credentials")]
-        public Output<Outputs.CredentialsResponseResult?> Credentials { get; private set; } = null!;
+        public Output<Outputs.CredentialsResponse?> Credentials { get; private set; } = null!;
 
         /// <summary>
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityPropertiesResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The value of this property indicates whether the task resource is system task or not.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The platform properties against which the run has to happen.
         /// </summary>
         [Output("platform")]
-        public Output<Outputs.PlatformPropertiesResponseResult?> Platform { get; private set; } = null!;
+        public Output<Outputs.PlatformPropertiesResponse?> Platform { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the task.
@@ -91,7 +91,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The properties of a task step.
         /// </summary>
         [Output("step")]
-        public Output<Union<Outputs.DockerBuildStepResponseResult, Union<Outputs.EncodedTaskStepResponseResult, Outputs.FileTaskStepResponseResult>>?> Step { get; private set; } = null!;
+        public Output<Union<Outputs.DockerBuildStepResponse, Union<Outputs.EncodedTaskStepResponse, Outputs.FileTaskStepResponse>>?> Step { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -109,7 +109,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The properties that describe all triggers for the task.
         /// </summary>
         [Output("trigger")]
-        public Output<Outputs.TriggerPropertiesResponseResult?> Trigger { get; private set; } = null!;
+        public Output<Outputs.TriggerPropertiesResponse?> Trigger { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

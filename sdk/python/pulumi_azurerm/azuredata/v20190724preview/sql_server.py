@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['SqlServer']
@@ -15,7 +15,7 @@ class SqlServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cores: Optional[pulumi.Input[float]] = None,
+                 cores: Optional[pulumi.Input[int]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  property_bag: Optional[pulumi.Input[str]] = None,
                  registration_id: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class SqlServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] cores: Cores of the Sql Server.
+        :param pulumi.Input[int] cores: Cores of the Sql Server.
         :param pulumi.Input[str] edition: Sql Server Edition.
         :param pulumi.Input[str] property_bag: Sql Server Json Property Bag.
         :param pulumi.Input[str] registration_id: ID for Parent Sql Server Registration.
@@ -101,7 +101,7 @@ class SqlServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cores(self) -> pulumi.Output[Optional[float]]:
+    def cores(self) -> pulumi.Output[Optional[int]]:
         """
         Cores of the Sql Server.
         """

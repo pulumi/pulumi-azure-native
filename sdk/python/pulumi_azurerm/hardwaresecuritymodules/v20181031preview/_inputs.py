@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -66,10 +66,10 @@ class NetworkInterfaceArgs:
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 network_interfaces: Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
                  subnet: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
         :param pulumi.Input['ApiEntityReferenceArgs'] subnet: Specifies the identifier of the subnet.
         """
         if network_interfaces is not None:
@@ -79,14 +79,14 @@ class NetworkProfileArgs:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
         """
         Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @property

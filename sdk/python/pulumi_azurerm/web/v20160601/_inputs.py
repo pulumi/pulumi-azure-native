@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -37,8 +37,8 @@ class ApiConnectionDefinitionPropertiesArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  non_secret_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 statuses: Optional[pulumi.Input[List[pulumi.Input['ConnectionStatusDefinitionArgs']]]] = None,
-                 test_links: Optional[pulumi.Input[List[pulumi.Input['ApiConnectionTestLinkArgs']]]] = None):
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]] = None,
+                 test_links: Optional[pulumi.Input[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]] = None):
         """
         :param pulumi.Input[str] changed_time: Timestamp of last connection change
         :param pulumi.Input[str] created_time: Timestamp of the connection creation
@@ -46,8 +46,8 @@ class ApiConnectionDefinitionPropertiesArgs:
         :param pulumi.Input[str] display_name: Display name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] non_secret_parameter_values: Dictionary of nonsecret parameter values
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_values: Dictionary of parameter values
-        :param pulumi.Input[List[pulumi.Input['ConnectionStatusDefinitionArgs']]] statuses: Status of the connection
-        :param pulumi.Input[List[pulumi.Input['ApiConnectionTestLinkArgs']]] test_links: Links to test the API connection
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]] statuses: Status of the connection
+        :param pulumi.Input[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]] test_links: Links to test the API connection
         """
         if api is not None:
             pulumi.set(__self__, "api", api)
@@ -151,26 +151,26 @@ class ApiConnectionDefinitionPropertiesArgs:
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[pulumi.Input[List[pulumi.Input['ConnectionStatusDefinitionArgs']]]]:
+    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]]:
         """
         Status of the connection
         """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
-    def statuses(self, value: Optional[pulumi.Input[List[pulumi.Input['ConnectionStatusDefinitionArgs']]]]):
+    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]]):
         pulumi.set(self, "statuses", value)
 
     @property
     @pulumi.getter(name="testLinks")
-    def test_links(self) -> Optional[pulumi.Input[List[pulumi.Input['ApiConnectionTestLinkArgs']]]]:
+    def test_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]]:
         """
         Links to test the API connection
         """
         return pulumi.get(self, "test_links")
 
     @test_links.setter
-    def test_links(self, value: Optional[pulumi.Input[List[pulumi.Input['ApiConnectionTestLinkArgs']]]]):
+    def test_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]]):
         pulumi.set(self, "test_links", value)
 
 
@@ -223,7 +223,7 @@ class ApiOAuthSettingsArgs:
                  identity_provider: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         OAuth settings for the connection provider
         :param pulumi.Input[str] client_id: Resource provider client id
@@ -232,7 +232,7 @@ class ApiOAuthSettingsArgs:
         :param pulumi.Input[str] identity_provider: Identity provider
         :param pulumi.Input[Mapping[str, Any]] properties: Read only properties for this oauth setting.
         :param pulumi.Input[str] redirect_url: Url
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: OAuth scopes
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: OAuth scopes
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -323,14 +323,14 @@ class ApiOAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         OAuth scopes
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -682,7 +682,7 @@ class ConnectionGatewayDefinitionPropertiesArgs:
     def __init__(__self__, *,
                  backend_uri: Optional[pulumi.Input[str]] = None,
                  connection_gateway_installation: Optional[pulumi.Input['ConnectionGatewayReferenceArgs']] = None,
-                 contact_information: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 contact_information: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
@@ -690,7 +690,7 @@ class ConnectionGatewayDefinitionPropertiesArgs:
         """
         :param pulumi.Input[str] backend_uri: The URI of the backend
         :param pulumi.Input['ConnectionGatewayReferenceArgs'] connection_gateway_installation: The gateway installation reference
-        :param pulumi.Input[List[pulumi.Input[str]]] contact_information: The gateway admin
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_information: The gateway admin
         :param pulumi.Input[str] description: The gateway description
         :param pulumi.Input[str] display_name: The gateway display name
         :param pulumi.Input[str] machine_name: The machine name of the gateway
@@ -737,14 +737,14 @@ class ConnectionGatewayDefinitionPropertiesArgs:
 
     @property
     @pulumi.getter(name="contactInformation")
-    def contact_information(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def contact_information(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The gateway admin
         """
         return pulumi.get(self, "contact_information")
 
     @contact_information.setter
-    def contact_information(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def contact_information(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "contact_information", value)
 
     @property
@@ -1043,12 +1043,12 @@ class CustomApiPropertiesDefinitionArgs:
                  api_type: Optional[pulumi.Input[str]] = None,
                  backend_service: Optional[pulumi.Input['ApiResourceBackendServiceArgs']] = None,
                  brand_color: Optional[pulumi.Input[str]] = None,
-                 capabilities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ConnectionParameterArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  icon_uri: Optional[pulumi.Input[str]] = None,
-                 runtime_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 runtime_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  swagger: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  wsdl_definition: Optional[pulumi.Input['WsdlDefinitionArgs']] = None):
         """
@@ -1057,12 +1057,12 @@ class CustomApiPropertiesDefinitionArgs:
         :param pulumi.Input[str] api_type: The API type
         :param pulumi.Input['ApiResourceBackendServiceArgs'] backend_service: The API backend service
         :param pulumi.Input[str] brand_color: Brand color
-        :param pulumi.Input[List[pulumi.Input[str]]] capabilities: The custom API capabilities
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: The custom API capabilities
         :param pulumi.Input[Mapping[str, pulumi.Input['ConnectionParameterArgs']]] connection_parameters: Connection parameters
         :param pulumi.Input[str] description: The custom API description
         :param pulumi.Input[str] display_name: The display name
         :param pulumi.Input[str] icon_uri: The icon URI
-        :param pulumi.Input[List[pulumi.Input[str]]] runtime_urls: Runtime URLs
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] runtime_urls: Runtime URLs
         :param pulumi.Input[Mapping[str, Any]] swagger: The JSON representation of the swagger
         :param pulumi.Input['WsdlDefinitionArgs'] wsdl_definition: The WSDL definition
         """
@@ -1141,14 +1141,14 @@ class CustomApiPropertiesDefinitionArgs:
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The custom API capabilities
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "capabilities", value)
 
     @property
@@ -1201,14 +1201,14 @@ class CustomApiPropertiesDefinitionArgs:
 
     @property
     @pulumi.getter(name="runtimeUrls")
-    def runtime_urls(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def runtime_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Runtime URLs
         """
         return pulumi.get(self, "runtime_urls")
 
     @runtime_urls.setter
-    def runtime_urls(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def runtime_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "runtime_urls", value)
 
     @property
@@ -1312,11 +1312,11 @@ class WsdlDefinitionArgs:
 class WsdlServiceArgs:
     def __init__(__self__, *,
                  qualified_name: pulumi.Input[str],
-                 endpoint_qualified_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 endpoint_qualified_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The service with name and endpoint names
         :param pulumi.Input[str] qualified_name: The service's qualified name
-        :param pulumi.Input[List[pulumi.Input[str]]] endpoint_qualified_names: List of the endpoints' qualified names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_qualified_names: List of the endpoints' qualified names
         """
         pulumi.set(__self__, "qualified_name", qualified_name)
         if endpoint_qualified_names is not None:
@@ -1336,14 +1336,14 @@ class WsdlServiceArgs:
 
     @property
     @pulumi.getter(name="endpointQualifiedNames")
-    def endpoint_qualified_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def endpoint_qualified_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of the endpoints' qualified names
         """
         return pulumi.get(self, "endpoint_qualified_names")
 
     @endpoint_qualified_names.setter
-    def endpoint_qualified_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def endpoint_qualified_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "endpoint_qualified_names", value)
 
 

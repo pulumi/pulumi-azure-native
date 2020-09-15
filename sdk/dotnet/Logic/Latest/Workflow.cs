@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Logic.Latest
         /// The access control configuration.
         /// </summary>
         [Output("accessControl")]
-        public Output<Outputs.FlowAccessControlConfigurationResponseResult?> AccessControl { get; private set; } = null!;
+        public Output<Outputs.FlowAccessControlConfigurationResponse?> AccessControl { get; private set; } = null!;
 
         /// <summary>
         /// Gets the access endpoint.
@@ -48,19 +48,19 @@ namespace Pulumi.AzureRM.Logic.Latest
         /// The endpoints configuration.
         /// </summary>
         [Output("endpointsConfiguration")]
-        public Output<Outputs.FlowEndpointsConfigurationResponseResult?> EndpointsConfiguration { get; private set; } = null!;
+        public Output<Outputs.FlowEndpointsConfigurationResponse?> EndpointsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The integration account.
         /// </summary>
         [Output("integrationAccount")]
-        public Output<Outputs.ResourceReferenceResponseResult?> IntegrationAccount { get; private set; } = null!;
+        public Output<Outputs.ResourceReferenceResponse?> IntegrationAccount { get; private set; } = null!;
 
         /// <summary>
         /// The integration service environment.
         /// </summary>
         [Output("integrationServiceEnvironment")]
-        public Output<Outputs.ResourceReferenceResponseResult?> IntegrationServiceEnvironment { get; private set; } = null!;
+        public Output<Outputs.ResourceReferenceResponse?> IntegrationServiceEnvironment { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Logic.Latest
         /// The parameters.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.WorkflowParameterResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Logic.Latest
         /// The sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The state.

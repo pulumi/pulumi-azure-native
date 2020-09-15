@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// The ExpressRoute circuit peering.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPeeringIdResponseResult ExpressRouteCircuitPeering;
+        public readonly Outputs.ExpressRouteCircuitPeeringIdResponse ExpressRouteCircuitPeering;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponseResult? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
         /// <summary>
         /// The routing weight associated to the connection.
         /// </summary>
@@ -80,13 +80,13 @@ namespace Pulumi.AzureRM.Network.Latest
 
             bool? enableInternetSecurity,
 
-            Outputs.ExpressRouteCircuitPeeringIdResponseResult expressRouteCircuitPeering,
+            Outputs.ExpressRouteCircuitPeeringIdResponse expressRouteCircuitPeering,
 
             string name,
 
             string provisioningState,
 
-            Outputs.RoutingConfigurationResponseResult? routingConfiguration,
+            Outputs.RoutingConfigurationResponse? routingConfiguration,
 
             int? routingWeight)
         {

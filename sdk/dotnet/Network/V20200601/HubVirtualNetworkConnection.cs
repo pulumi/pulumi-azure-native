@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// Reference to the remote virtual network.
         /// </summary>
         [Output("remoteVirtualNetwork")]
-        public Output<Outputs.SubResourceResponseResult?> RemoteVirtualNetwork { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> RemoteVirtualNetwork { get; private set; } = null!;
 
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
         [Output("routingConfiguration")]
-        public Output<Outputs.RoutingConfigurationResponseResult?> RoutingConfiguration { get; private set; } = null!;
+        public Output<Outputs.RoutingConfigurationResponse?> RoutingConfiguration { get; private set; } = null!;
 
 
         /// <summary>

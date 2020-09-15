@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Aadiam.Latest
         /// <summary>
         /// The list of logs settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LogSettingsResponseResult> Logs;
+        public readonly ImmutableArray<Outputs.LogSettingsResponse> Logs;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Aadiam.Latest
 
             string? eventHubName,
 
-            ImmutableArray<Outputs.LogSettingsResponseResult> logs,
+            ImmutableArray<Outputs.LogSettingsResponse> logs,
 
             string name,
 

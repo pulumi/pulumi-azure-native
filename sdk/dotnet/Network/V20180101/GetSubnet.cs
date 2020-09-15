@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Network.V20180101
         /// <summary>
         /// Gets an array of references to the network interface IP configurations using subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.IPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Network.V20180101
         /// <summary>
         /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponseResult? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -78,15 +78,15 @@ namespace Pulumi.AzureRM.Network.V20180101
         /// <summary>
         /// Gets an array of references to the external resources using subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> ResourceNavigationLinks;
+        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponse> ResourceNavigationLinks;
         /// <summary>
         /// The reference of the RouteTable resource.
         /// </summary>
-        public readonly Outputs.RouteTableResponseResult? RouteTable;
+        public readonly Outputs.RouteTableResponse? RouteTable;
         /// <summary>
         /// An array of service endpoints.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult> ServiceEndpoints;
+        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> ServiceEndpoints;
 
         [OutputConstructor]
         private GetSubnetResult(
@@ -94,19 +94,19 @@ namespace Pulumi.AzureRM.Network.V20180101
 
             string? etag,
 
-            ImmutableArray<Outputs.IPConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.IPConfigurationResponse> ipConfigurations,
 
             string? name,
 
-            Outputs.NetworkSecurityGroupResponseResult? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
 
             string? provisioningState,
 
-            ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> resourceNavigationLinks,
+            ImmutableArray<Outputs.ResourceNavigationLinkResponse> resourceNavigationLinks,
 
-            Outputs.RouteTableResponseResult? routeTable,
+            Outputs.RouteTableResponse? routeTable,
 
-            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult> serviceEndpoints)
+            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints)
         {
             AddressPrefix = addressPrefix;
             Etag = etag;

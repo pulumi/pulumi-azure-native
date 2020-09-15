@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20180201
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
         /// </summary>
-        public readonly Outputs.PublicIPAddressDnsSettingsResponseResult? DnsSettings;
+        public readonly Outputs.PublicIPAddressDnsSettingsResponse? DnsSettings;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -64,11 +64,11 @@ namespace Pulumi.AzureRM.Network.V20180201
         /// <summary>
         /// The IP configuration associated with the public IP address.
         /// </summary>
-        public readonly Outputs.IPConfigurationResponseResult IpConfiguration;
+        public readonly Outputs.IPConfigurationResponse IpConfiguration;
         /// <summary>
         /// The list of tags associated with the public IP address.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpTagResponseResult> IpTags;
+        public readonly ImmutableArray<Outputs.IpTagResponse> IpTags;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20180201
         /// <summary>
         /// The public IP address SKU.
         /// </summary>
-        public readonly Outputs.PublicIPAddressSkuResponseResult? Sku;
+        public readonly Outputs.PublicIPAddressSkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.Network.V20180201
 
         [OutputConstructor]
         private GetPublicIPAddressResult(
-            Outputs.PublicIPAddressDnsSettingsResponseResult? dnsSettings,
+            Outputs.PublicIPAddressDnsSettingsResponse? dnsSettings,
 
             string? etag,
 
@@ -120,9 +120,9 @@ namespace Pulumi.AzureRM.Network.V20180201
 
             string? ipAddress,
 
-            Outputs.IPConfigurationResponseResult ipConfiguration,
+            Outputs.IPConfigurationResponse ipConfiguration,
 
-            ImmutableArray<Outputs.IpTagResponseResult> ipTags,
+            ImmutableArray<Outputs.IpTagResponse> ipTags,
 
             string? location,
 
@@ -136,7 +136,7 @@ namespace Pulumi.AzureRM.Network.V20180201
 
             string? resourceGuid,
 
-            Outputs.PublicIPAddressSkuResponseResult? sku,
+            Outputs.PublicIPAddressSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

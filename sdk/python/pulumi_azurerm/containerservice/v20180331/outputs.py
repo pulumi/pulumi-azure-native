@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -149,16 +149,16 @@ class ContainerServiceSshConfigurationResponse(dict):
     SSH configuration for Linux-based VMs running on Azure.
     """
     def __init__(__self__, *,
-                 public_keys: List['outputs.ContainerServiceSshPublicKeyResponse']):
+                 public_keys: Sequence['outputs.ContainerServiceSshPublicKeyResponse']):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param List['ContainerServiceSshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        :param Sequence['ContainerServiceSshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> List['outputs.ContainerServiceSshPublicKeyResponse']:
+    def public_keys(self) -> Sequence['outputs.ContainerServiceSshPublicKeyResponse']:
         """
         The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
@@ -332,9 +332,9 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  name: str,
                  storage_profile: str,
                  vm_size: str,
-                 count: Optional[float] = None,
-                 max_pods: Optional[float] = None,
-                 os_disk_size_gb: Optional[float] = None,
+                 count: Optional[int] = None,
+                 max_pods: Optional[int] = None,
+                 os_disk_size_gb: Optional[int] = None,
                  os_type: Optional[str] = None,
                  vnet_subnet_id: Optional[str] = None):
         """
@@ -342,9 +342,9 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param str name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param str storage_profile: Storage profile specifies what kind of storage used. Defaults to ManagedDisks.
         :param str vm_size: Size of agent VMs.
-        :param float count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        :param float max_pods: Maximum number of pods that can run on a node.
-        :param float os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        :param int max_pods: Maximum number of pods that can run on a node.
+        :param int os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param str vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
@@ -388,7 +388,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
@@ -396,7 +396,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[float]:
+    def max_pods(self) -> Optional[int]:
         """
         Maximum number of pods that can run on a node.
         """
@@ -404,7 +404,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[float]:
+    def os_disk_size_gb(self) -> Optional[int]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """

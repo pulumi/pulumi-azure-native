@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,12 +22,12 @@ class VpnConnection(pulumi.CustomResource):
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipsec_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  remote_vpn_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routing_weight: Optional[pulumi.Input[float]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -42,12 +42,12 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_vpn_site: Id of the connected vpn site.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
-        :param pulumi.Input[float] routing_weight: routing weight for vpn connection.
+        :param pulumi.Input[int] routing_weight: routing weight for vpn connection.
         :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
         """
         if __name__ is not None:
@@ -117,7 +117,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionBandwidth")
-    def connection_bandwidth(self) -> pulumi.Output[float]:
+    def connection_bandwidth(self) -> pulumi.Output[int]:
         """
         Expected bandwidth in MBPS.
         """
@@ -133,7 +133,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> pulumi.Output[float]:
+    def egress_bytes_transferred(self) -> pulumi.Output[int]:
         """
         Egress bytes transferred.
         """
@@ -157,7 +157,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> pulumi.Output[float]:
+    def ingress_bytes_transferred(self) -> pulumi.Output[int]:
         """
         Ingress bytes transferred.
         """
@@ -165,7 +165,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> pulumi.Output[Optional[List['outputs.IpsecPolicyResponse']]]:
+    def ipsec_policies(self) -> pulumi.Output[Optional[Sequence['outputs.IpsecPolicyResponse']]]:
         """
         The IPSec Policies to be considered by this connection.
         """
@@ -197,7 +197,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> pulumi.Output[Optional[float]]:
+    def routing_weight(self) -> pulumi.Output[Optional[int]]:
         """
         routing weight for vpn connection.
         """

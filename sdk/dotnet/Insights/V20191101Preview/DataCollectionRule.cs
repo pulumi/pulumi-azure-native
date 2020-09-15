@@ -18,14 +18,14 @@ namespace Pulumi.AzureRM.Insights.V20191101Preview
         /// The specification of data flows.
         /// </summary>
         [Output("dataFlows")]
-        public Output<ImmutableArray<Outputs.DataFlowResponseResult>> DataFlows { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DataFlowResponse>> DataFlows { get; private set; } = null!;
 
         /// <summary>
         /// The specification of data sources. 
         /// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         /// </summary>
         [Output("dataSources")]
-        public Output<Outputs.DataCollectionRuleResponseDataSourcesResult?> DataSources { get; private set; } = null!;
+        public Output<Outputs.DataCollectionRuleResponseDataSources?> DataSources { get; private set; } = null!;
 
         /// <summary>
         /// Description of the data collection rule.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureRM.Insights.V20191101Preview
         /// The specification of destinations.
         /// </summary>
         [Output("destinations")]
-        public Output<Outputs.DataCollectionRuleResponseDestinationsResult> Destinations { get; private set; } = null!;
+        public Output<Outputs.DataCollectionRuleResponseDestinations> Destinations { get; private set; } = null!;
 
         /// <summary>
         /// Resource entity tag (ETag).

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -223,18 +223,18 @@ class AzureDataLakeStoreOutputDataSourceArgs:
 class AzureMachineLearningWebServiceFunctionBindingArgs:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[str]] = None,
-                 batch_size: Optional[pulumi.Input[float]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  inputs: Optional[pulumi.Input['AzureMachineLearningWebServiceInputsArgs']] = None,
-                 outputs: Optional[pulumi.Input[List[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgs']]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The binding to an Azure Machine Learning web service.
         :param pulumi.Input[str] api_key: The API key used to authenticate with Request-Response endpoint.
-        :param pulumi.Input[float] batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+        :param pulumi.Input[int] batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         :param pulumi.Input[str] endpoint: The Request-Response execute endpoint of the Azure Machine Learning web service. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
         :param pulumi.Input['AzureMachineLearningWebServiceInputsArgs'] inputs: The inputs for the Azure Machine Learning web service endpoint.
-        :param pulumi.Input[List[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgs']]] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgs']]] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
         :param pulumi.Input[str] type: Indicates the function binding type.
         """
         if api_key is not None:
@@ -264,14 +264,14 @@ class AzureMachineLearningWebServiceFunctionBindingArgs:
 
     @property
     @pulumi.getter(name="batchSize")
-    def batch_size(self) -> Optional[pulumi.Input[float]]:
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
         """
         Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         """
         return pulumi.get(self, "batch_size")
 
     @batch_size.setter
-    def batch_size(self, value: Optional[pulumi.Input[float]]):
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "batch_size", value)
 
     @property
@@ -300,14 +300,14 @@ class AzureMachineLearningWebServiceFunctionBindingArgs:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[pulumi.Input[List[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgs']]]]:
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgs']]]]:
         """
         A list of outputs from the Azure Machine Learning web service endpoint execution.
         """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
-    def outputs(self, value: Optional[pulumi.Input[List[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgs']]]]):
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgs']]]]):
         pulumi.set(self, "outputs", value)
 
     @property
@@ -327,12 +327,12 @@ class AzureMachineLearningWebServiceFunctionBindingArgs:
 class AzureMachineLearningWebServiceInputColumnArgs:
     def __init__(__self__, *,
                  data_type: Optional[pulumi.Input[str]] = None,
-                 map_to: Optional[pulumi.Input[float]] = None,
+                 map_to: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Describes an input column for the Azure Machine Learning web service endpoint.
         :param pulumi.Input[str] data_type: The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
-        :param pulumi.Input[float] map_to: The zero based index of the function parameter this input maps to.
+        :param pulumi.Input[int] map_to: The zero based index of the function parameter this input maps to.
         :param pulumi.Input[str] name: The name of the input column.
         """
         if data_type is not None:
@@ -356,14 +356,14 @@ class AzureMachineLearningWebServiceInputColumnArgs:
 
     @property
     @pulumi.getter(name="mapTo")
-    def map_to(self) -> Optional[pulumi.Input[float]]:
+    def map_to(self) -> Optional[pulumi.Input[int]]:
         """
         The zero based index of the function parameter this input maps to.
         """
         return pulumi.get(self, "map_to")
 
     @map_to.setter
-    def map_to(self, value: Optional[pulumi.Input[float]]):
+    def map_to(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "map_to", value)
 
     @property
@@ -382,11 +382,11 @@ class AzureMachineLearningWebServiceInputColumnArgs:
 @pulumi.input_type
 class AzureMachineLearningWebServiceInputsArgs:
     def __init__(__self__, *,
-                 column_names: Optional[pulumi.Input[List[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgs']]]] = None,
+                 column_names: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The inputs for the Azure Machine Learning web service endpoint.
-        :param pulumi.Input[List[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgs']]] column_names: A list of input columns for the Azure Machine Learning web service endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgs']]] column_names: A list of input columns for the Azure Machine Learning web service endpoint.
         :param pulumi.Input[str] name: The name of the input. This is the name provided while authoring the endpoint.
         """
         if column_names is not None:
@@ -396,14 +396,14 @@ class AzureMachineLearningWebServiceInputsArgs:
 
     @property
     @pulumi.getter(name="columnNames")
-    def column_names(self) -> Optional[pulumi.Input[List[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgs']]]]:
+    def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgs']]]]:
         """
         A list of input columns for the Azure Machine Learning web service endpoint.
         """
         return pulumi.get(self, "column_names")
 
     @column_names.setter
-    def column_names(self, value: Optional[pulumi.Input[List[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgs']]]]):
+    def column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgs']]]]):
         pulumi.set(self, "column_names", value)
 
     @property
@@ -568,8 +568,8 @@ class AzureTableOutputDataSourceArgs:
     def __init__(__self__, *,
                  account_key: Optional[pulumi.Input[str]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 batch_size: Optional[pulumi.Input[float]] = None,
-                 columns_to_remove: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 columns_to_remove: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  row_key: Optional[pulumi.Input[str]] = None,
                  table: Optional[pulumi.Input[str]] = None,
@@ -578,8 +578,8 @@ class AzureTableOutputDataSourceArgs:
         Describes an Azure Table output data source.
         :param pulumi.Input[str] account_key: The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] account_name: The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[float] batch_size: The number of rows to write to the Azure Table at a time.
-        :param pulumi.Input[List[pulumi.Input[str]]] columns_to_remove: If specified, each item in the array is the name of a column to remove (if present) from output event entities.
+        :param pulumi.Input[int] batch_size: The number of rows to write to the Azure Table at a time.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns_to_remove: If specified, each item in the array is the name of a column to remove (if present) from output event entities.
         :param pulumi.Input[str] partition_key: This element indicates the name of a column from the SELECT statement in the query that will be used as the partition key for the Azure Table. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] row_key: This element indicates the name of a column from the SELECT statement in the query that will be used as the row key for the Azure Table. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] table: The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
@@ -628,26 +628,26 @@ class AzureTableOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="batchSize")
-    def batch_size(self) -> Optional[pulumi.Input[float]]:
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
         """
         The number of rows to write to the Azure Table at a time.
         """
         return pulumi.get(self, "batch_size")
 
     @batch_size.setter
-    def batch_size(self, value: Optional[pulumi.Input[float]]):
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "batch_size", value)
 
     @property
     @pulumi.getter(name="columnsToRemove")
-    def columns_to_remove(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def columns_to_remove(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         If specified, each item in the array is the name of a column to remove (if present) from output event entities.
         """
         return pulumi.get(self, "columns_to_remove")
 
     @columns_to_remove.setter
-    def columns_to_remove(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def columns_to_remove(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "columns_to_remove", value)
 
     @property
@@ -705,7 +705,7 @@ class BlobOutputDataSourceArgs:
                  container: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None,
                  time_format: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -713,7 +713,7 @@ class BlobOutputDataSourceArgs:
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param pulumi.Input[List[pulumi.Input['StorageAccountArgs']]] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
         """
@@ -768,14 +768,14 @@ class BlobOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]]:
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]:
         """
         A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]]):
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @property
@@ -809,7 +809,7 @@ class BlobReferenceInputDataSourceArgs:
                  container: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None,
                  time_format: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -817,7 +817,7 @@ class BlobReferenceInputDataSourceArgs:
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param pulumi.Input[List[pulumi.Input['StorageAccountArgs']]] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param pulumi.Input[str] type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
         """
@@ -872,14 +872,14 @@ class BlobReferenceInputDataSourceArgs:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]]:
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]:
         """
         A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]]):
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @property
@@ -913,8 +913,8 @@ class BlobStreamInputDataSourceArgs:
                  container: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
-                 source_partition_count: Optional[pulumi.Input[float]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]] = None,
+                 source_partition_count: Optional[pulumi.Input[int]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None,
                  time_format: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -922,8 +922,8 @@ class BlobStreamInputDataSourceArgs:
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param pulumi.Input[float] source_partition_count: The partition count of the blob input data source. Range 1 - 256.
-        :param pulumi.Input[List[pulumi.Input['StorageAccountArgs']]] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[int] source_partition_count: The partition count of the blob input data source. Range 1 - 256.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
         """
@@ -980,26 +980,26 @@ class BlobStreamInputDataSourceArgs:
 
     @property
     @pulumi.getter(name="sourcePartitionCount")
-    def source_partition_count(self) -> Optional[pulumi.Input[float]]:
+    def source_partition_count(self) -> Optional[pulumi.Input[int]]:
         """
         The partition count of the blob input data source. Range 1 - 256.
         """
         return pulumi.get(self, "source_partition_count")
 
     @source_partition_count.setter
-    def source_partition_count(self, value: Optional[pulumi.Input[float]]):
+    def source_partition_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "source_partition_count", value)
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]]:
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]:
         """
         A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]]):
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @property
@@ -2007,13 +2007,13 @@ class ReferenceInputPropertiesArgs:
 class ScalarFunctionPropertiesArgs:
     def __init__(__self__, *,
                  binding: Optional[pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgs', 'JavaScriptFunctionBindingArgs']]] = None,
-                 inputs: Optional[pulumi.Input[List[pulumi.Input['FunctionInputArgs']]]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]]] = None,
                  output: Optional[pulumi.Input['FunctionOutputArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The properties that are associated with a scalar function.
         :param pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgs', 'JavaScriptFunctionBindingArgs']] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
-        :param pulumi.Input[List[pulumi.Input['FunctionInputArgs']]] inputs: A list of inputs describing the parameters of the function.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]] inputs: A list of inputs describing the parameters of the function.
         :param pulumi.Input['FunctionOutputArgs'] output: The output of the function.
         :param pulumi.Input[str] type: Indicates the type of function.
         """
@@ -2040,14 +2040,14 @@ class ScalarFunctionPropertiesArgs:
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[List[pulumi.Input['FunctionInputArgs']]]]:
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]]]:
         """
         A list of inputs describing the parameters of the function.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[List[pulumi.Input['FunctionInputArgs']]]]):
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]]]):
         pulumi.set(self, "inputs", value)
 
     @property
@@ -2078,7 +2078,7 @@ class ScalarFunctionPropertiesArgs:
 @pulumi.input_type
 class ServiceBusQueueOutputDataSourceArgs:
     def __init__(__self__, *,
-                 property_columns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
@@ -2086,7 +2086,7 @@ class ServiceBusQueueOutputDataSourceArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Describes a Service Bus Queue output data source.
-        :param pulumi.Input[List[pulumi.Input[str]]] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
@@ -2108,14 +2108,14 @@ class ServiceBusQueueOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="propertyColumns")
-    def property_columns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def property_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         """
         return pulumi.get(self, "property_columns")
 
     @property_columns.setter
-    def property_columns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def property_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "property_columns", value)
 
     @property
@@ -2182,7 +2182,7 @@ class ServiceBusQueueOutputDataSourceArgs:
 @pulumi.input_type
 class ServiceBusTopicOutputDataSourceArgs:
     def __init__(__self__, *,
-                 property_columns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -2190,7 +2190,7 @@ class ServiceBusTopicOutputDataSourceArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Describes a Service Bus Topic output data source.
-        :param pulumi.Input[List[pulumi.Input[str]]] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -2212,14 +2212,14 @@ class ServiceBusTopicOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="propertyColumns")
-    def property_columns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def property_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         """
         return pulumi.get(self, "property_columns")
 
     @property_columns.setter
-    def property_columns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def property_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "property_columns", value)
 
     @property
@@ -2408,12 +2408,12 @@ class TransformationArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
-                 streaming_units: Optional[pulumi.Input[float]] = None):
+                 streaming_units: Optional[pulumi.Input[int]] = None):
         """
         A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[str] query: Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[float] streaming_units: Specifies the number of streaming units that the streaming job uses.
+        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -2448,14 +2448,14 @@ class TransformationArgs:
 
     @property
     @pulumi.getter(name="streamingUnits")
-    def streaming_units(self) -> Optional[pulumi.Input[float]]:
+    def streaming_units(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of streaming units that the streaming job uses.
         """
         return pulumi.get(self, "streaming_units")
 
     @streaming_units.setter
-    def streaming_units(self, value: Optional[pulumi.Input[float]]):
+    def streaming_units(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "streaming_units", value)
 
 

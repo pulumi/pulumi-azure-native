@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class PublicIPAddress(pulumi.CustomResource):
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -41,7 +41,7 @@ class PublicIPAddress(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']] dns_settings: The FQDN of the DNS record associated with the public IP address.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[float] idle_timeout_in_minutes: The idle timeout of the public IP address.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] public_ip_address_version: The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
@@ -132,7 +132,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         The idle timeout of the public IP address.
         """

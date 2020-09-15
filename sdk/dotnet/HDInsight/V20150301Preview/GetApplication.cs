@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.HDInsight.V20150301Preview
         /// <summary>
         /// The properties of the application.
         /// </summary>
-        public readonly Outputs.ApplicationPropertiesResponseResult Properties;
+        public readonly Outputs.ApplicationPropertiesResponse Properties;
         /// <summary>
         /// The tags for the application.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.HDInsight.V20150301Preview
 
             string name,
 
-            Outputs.ApplicationPropertiesResponseResult properties,
+            Outputs.ApplicationPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

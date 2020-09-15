@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,13 +22,13 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  certificates: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['AppServiceCertificateArgs']]]]] = None,
                  csr: Optional[pulumi.Input[str]] = None,
                  distinguished_name: Optional[pulumi.Input[str]] = None,
-                 key_size: Optional[pulumi.Input[float]] = None,
+                 key_size: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  product_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 validity_in_years: Optional[pulumi.Input[float]] = None,
+                 validity_in_years: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -42,13 +42,13 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['AppServiceCertificateArgs']]]] certificates: State of the Key Vault secret.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: Certificate distinguished name.
-        :param pulumi.Input[float] key_size: Certificate key size.
+        :param pulumi.Input[int] key_size: Certificate key size.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] product_type: Certificate product type.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[float] validity_in_years: Duration in years (must be between 1 and 3).
+        :param pulumi.Input[int] validity_in_years: Duration in years (must be between 1 and 3).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -129,7 +129,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServiceCertificateNotRenewableReasons")
-    def app_service_certificate_not_renewable_reasons(self) -> pulumi.Output[List[str]]:
+    def app_service_certificate_not_renewable_reasons(self) -> pulumi.Output[Sequence[str]]:
         """
         Reasons why App Service Certificate is not renewable at the current moment.
         """
@@ -201,7 +201,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> pulumi.Output[Optional[float]]:
+    def key_size(self) -> pulumi.Output[Optional[int]]:
         """
         Certificate key size.
         """
@@ -313,7 +313,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validityInYears")
-    def validity_in_years(self) -> pulumi.Output[Optional[float]]:
+    def validity_in_years(self) -> pulumi.Output[Optional[int]]:
         """
         Duration in years (must be between 1 and 3).
         """

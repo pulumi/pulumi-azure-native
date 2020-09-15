@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -50,7 +50,7 @@ class GetIdentityProviderResult:
 
     @property
     @pulumi.getter(name="allowedTenants")
-    def allowed_tenants(self) -> Optional[List[str]]:
+    def allowed_tenants(self) -> Optional[Sequence[str]]:
         """
         List of Allowed Tenants when configuring Azure Active Directory login.
         """

@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         /// <summary>
         /// Properties of the custom domain resource.
         /// </summary>
-        public readonly Outputs.CustomDomainPropertiesResponseResult Properties;
+        public readonly Outputs.CustomDomainPropertiesResponse Properties;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         private GetCustomDomainResult(
             string name,
 
-            Outputs.CustomDomainPropertiesResponseResult properties,
+            Outputs.CustomDomainPropertiesResponse properties,
 
             string type)
         {

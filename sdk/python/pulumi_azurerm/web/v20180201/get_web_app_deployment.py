@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -50,8 +50,8 @@ class GetWebAppDeploymentResult:
         if start_time and not isinstance(start_time, str):
             raise TypeError("Expected argument 'start_time' to be a str")
         pulumi.set(__self__, "start_time", start_time)
-        if status and not isinstance(status, float):
-            raise TypeError("Expected argument 'status' to be a float")
+        if status and not isinstance(status, int):
+            raise TypeError("Expected argument 'status' to be a int")
         pulumi.set(__self__, "status", status)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -139,7 +139,7 @@ class GetWebAppDeploymentResult:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[float]:
+    def status(self) -> Optional[int]:
         """
         Deployment status.
         """

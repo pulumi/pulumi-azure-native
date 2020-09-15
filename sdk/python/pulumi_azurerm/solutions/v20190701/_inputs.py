@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -145,13 +145,13 @@ class ApplicationJitAccessPolicyArgs:
     def __init__(__self__, *,
                  jit_access_enabled: pulumi.Input[bool],
                  jit_approval_mode: Optional[pulumi.Input[str]] = None,
-                 jit_approvers: Optional[pulumi.Input[List[pulumi.Input['JitApproverDefinitionArgs']]]] = None,
+                 jit_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]] = None,
                  maximum_jit_access_duration: Optional[pulumi.Input[str]] = None):
         """
         Managed application Jit access policy.
         :param pulumi.Input[bool] jit_access_enabled: Whether the JIT access is enabled.
         :param pulumi.Input[str] jit_approval_mode: JIT approval mode.
-        :param pulumi.Input[List[pulumi.Input['JitApproverDefinitionArgs']]] jit_approvers: The JIT approvers
+        :param pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]] jit_approvers: The JIT approvers
         :param pulumi.Input[str] maximum_jit_access_duration: The maximum duration JIT access is granted. This is an ISO8601 time period value.
         """
         pulumi.set(__self__, "jit_access_enabled", jit_access_enabled)
@@ -188,14 +188,14 @@ class ApplicationJitAccessPolicyArgs:
 
     @property
     @pulumi.getter(name="jitApprovers")
-    def jit_approvers(self) -> Optional[pulumi.Input[List[pulumi.Input['JitApproverDefinitionArgs']]]]:
+    def jit_approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]]:
         """
         The JIT approvers
         """
         return pulumi.get(self, "jit_approvers")
 
     @jit_approvers.setter
-    def jit_approvers(self, value: Optional[pulumi.Input[List[pulumi.Input['JitApproverDefinitionArgs']]]]):
+    def jit_approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]]):
         pulumi.set(self, "jit_approvers", value)
 
     @property
@@ -261,47 +261,47 @@ class ApplicationNotificationEndpointArgs:
 @pulumi.input_type
 class ApplicationNotificationPolicyArgs:
     def __init__(__self__, *,
-                 notification_endpoints: pulumi.Input[List[pulumi.Input['ApplicationNotificationEndpointArgs']]]):
+                 notification_endpoints: pulumi.Input[Sequence[pulumi.Input['ApplicationNotificationEndpointArgs']]]):
         """
         Managed application notification policy.
-        :param pulumi.Input[List[pulumi.Input['ApplicationNotificationEndpointArgs']]] notification_endpoints: The managed application notification endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationNotificationEndpointArgs']]] notification_endpoints: The managed application notification endpoint.
         """
         pulumi.set(__self__, "notification_endpoints", notification_endpoints)
 
     @property
     @pulumi.getter(name="notificationEndpoints")
-    def notification_endpoints(self) -> pulumi.Input[List[pulumi.Input['ApplicationNotificationEndpointArgs']]]:
+    def notification_endpoints(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationNotificationEndpointArgs']]]:
         """
         The managed application notification endpoint.
         """
         return pulumi.get(self, "notification_endpoints")
 
     @notification_endpoints.setter
-    def notification_endpoints(self, value: pulumi.Input[List[pulumi.Input['ApplicationNotificationEndpointArgs']]]):
+    def notification_endpoints(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationNotificationEndpointArgs']]]):
         pulumi.set(self, "notification_endpoints", value)
 
 
 @pulumi.input_type
 class ApplicationPackageLockingPolicyDefinitionArgs:
     def __init__(__self__, *,
-                 allowed_actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 allowed_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Managed application locking policy.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_actions: The deny assignment excluded actions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_actions: The deny assignment excluded actions.
         """
         if allowed_actions is not None:
             pulumi.set(__self__, "allowed_actions", allowed_actions)
 
     @property
     @pulumi.getter(name="allowedActions")
-    def allowed_actions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The deny assignment excluded actions.
         """
         return pulumi.get(self, "allowed_actions")
 
     @allowed_actions.setter
-    def allowed_actions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_actions", value)
 
 
@@ -615,7 +615,7 @@ class PlanArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  model: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
@@ -623,7 +623,7 @@ class SkuArgs:
         """
         SKU for the resource.
         :param pulumi.Input[str] name: The SKU name.
-        :param pulumi.Input[float] capacity: The SKU capacity.
+        :param pulumi.Input[int] capacity: The SKU capacity.
         :param pulumi.Input[str] family: The SKU family.
         :param pulumi.Input[str] model: The SKU model.
         :param pulumi.Input[str] size: The SKU size.
@@ -655,14 +655,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The SKU capacity.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

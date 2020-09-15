@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
         /// <summary>
         /// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The disk access resource provisioning state.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 

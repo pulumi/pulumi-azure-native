@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <summary>
         /// The content link.
         /// </summary>
-        public readonly Outputs.ContentLinkResponseResult ContentLink;
+        public readonly Outputs.ContentLinkResponse ContentLink;
         /// <summary>
         /// The content type.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
 
             string? content,
 
-            Outputs.ContentLinkResponseResult contentLink,
+            Outputs.ContentLinkResponse contentLink,
 
             string? contentType,
 

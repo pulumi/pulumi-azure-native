@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.MixedReality.V20200406Preview
         public Output<string> AccountId { get; private set; } = null!;
 
         [Output("identity")]
-        public Output<Outputs.RemoteRenderingAccountResponseIdentityResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.RemoteRenderingAccountResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

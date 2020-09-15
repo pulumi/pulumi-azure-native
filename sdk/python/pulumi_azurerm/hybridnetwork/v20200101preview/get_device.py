@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -115,7 +115,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="virtualNetworkFunctions")
-    def virtual_network_functions(self) -> List['outputs.SubResourceResponse']:
+    def virtual_network_functions(self) -> Sequence['outputs.SubResourceResponse']:
         """
         The list of virtual network functions deployed on the hybrid network device.
         """

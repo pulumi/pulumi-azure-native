@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.BatchAI.Latest
         /// Collection of errors encountered by various compute nodes during node setup.
         /// </summary>
         [Output("errors")]
-        public Output<ImmutableArray<Outputs.BatchAIErrorResponseResult>> Errors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BatchAIErrorResponse>> Errors { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.BatchAI.Latest
         /// Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
         /// </summary>
         [Output("nodeSetup")]
-        public Output<Outputs.NodeSetupResponseResult?> NodeSetup { get; private set; } = null!;
+        public Output<Outputs.NodeSetupResponse?> NodeSetup { get; private set; } = null!;
 
         /// <summary>
         /// Counts of various node states on the cluster.
         /// </summary>
         [Output("nodeStateCounts")]
-        public Output<Outputs.NodeStateCountsResponseResult> NodeStateCounts { get; private set; } = null!;
+        public Output<Outputs.NodeStateCountsResponse> NodeStateCounts { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
@@ -78,13 +78,13 @@ namespace Pulumi.AzureRM.BatchAI.Latest
         /// Scale settings of the cluster.
         /// </summary>
         [Output("scaleSettings")]
-        public Output<Outputs.ScaleSettingsResponseResult?> ScaleSettings { get; private set; } = null!;
+        public Output<Outputs.ScaleSettingsResponse?> ScaleSettings { get; private set; } = null!;
 
         /// <summary>
         /// Virtual network subnet resource ID the cluster nodes belong to.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.ResourceIdResponseResult?> Subnet { get; private set; } = null!;
+        public Output<Outputs.ResourceIdResponse?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -96,13 +96,13 @@ namespace Pulumi.AzureRM.BatchAI.Latest
         /// Administrator user account settings which can be used to SSH to compute nodes.
         /// </summary>
         [Output("userAccountSettings")]
-        public Output<Outputs.UserAccountSettingsResponseResult?> UserAccountSettings { get; private set; } = null!;
+        public Output<Outputs.UserAccountSettingsResponse?> UserAccountSettings { get; private set; } = null!;
 
         /// <summary>
         /// Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
         /// </summary>
         [Output("virtualMachineConfiguration")]
-        public Output<Outputs.VirtualMachineConfigurationResponseResult?> VirtualMachineConfiguration { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineConfigurationResponse?> VirtualMachineConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// VM priority of cluster nodes.

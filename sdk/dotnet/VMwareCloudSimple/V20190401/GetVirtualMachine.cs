@@ -46,15 +46,15 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// <summary>
         /// The list of Virtual Disks' Controllers
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualDiskControllerResponseResult> Controllers;
+        public readonly ImmutableArray<Outputs.VirtualDiskControllerResponse> Controllers;
         /// <summary>
         /// Virtual machine properties
         /// </summary>
-        public readonly Outputs.GuestOSCustomizationResponseResult? Customization;
+        public readonly Outputs.GuestOSCustomizationResponse? Customization;
         /// <summary>
         /// The list of Virtual Disks
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualDiskResponseResult> Disks;
+        public readonly ImmutableArray<Outputs.VirtualDiskResponse> Disks;
         /// <summary>
         /// The DNS name of Virtual Machine in VCenter
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// <summary>
         /// The list of Virtual NICs
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNicResponseResult> Nics;
+        public readonly ImmutableArray<Outputs.VirtualNicResponse> Nics;
         /// <summary>
         /// The number of CPU cores
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// <summary>
         /// Virtual Machines Resource Pool
         /// </summary>
-        public readonly Outputs.ResourcePoolResponseResult? ResourcePool;
+        public readonly Outputs.ResourcePoolResponse? ResourcePool;
         /// <summary>
         /// The status of Virtual machine
         /// </summary>
@@ -148,11 +148,11 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         private GetVirtualMachineResult(
             int amountOfRam,
 
-            ImmutableArray<Outputs.VirtualDiskControllerResponseResult> controllers,
+            ImmutableArray<Outputs.VirtualDiskControllerResponse> controllers,
 
-            Outputs.GuestOSCustomizationResponseResult? customization,
+            Outputs.GuestOSCustomizationResponse? customization,
 
-            ImmutableArray<Outputs.VirtualDiskResponseResult> disks,
+            ImmutableArray<Outputs.VirtualDiskResponse> disks,
 
             string dnsname,
 
@@ -168,7 +168,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
 
             string name,
 
-            ImmutableArray<Outputs.VirtualNicResponseResult> nics,
+            ImmutableArray<Outputs.VirtualNicResponse> nics,
 
             int numberOfCores,
 
@@ -180,7 +180,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
 
             string publicIP,
 
-            Outputs.ResourcePoolResponseResult? resourcePool,
+            Outputs.ResourcePoolResponse? resourcePool,
 
             string status,
 

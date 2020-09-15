@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// An ExpressRoute Circuit
         /// </summary>
         [Output("circuit")]
-        public Output<Outputs.CircuitResponseResult?> Circuit { get; private set; } = null!;
+        public Output<Outputs.CircuitResponse?> Circuit { get; private set; } = null!;
 
         /// <summary>
         /// The endpoints
         /// </summary>
         [Output("endpoints")]
-        public Output<Outputs.EndpointsResponseResult> Endpoints { get; private set; } = null!;
+        public Output<Outputs.EndpointsResponse> Endpoints { get; private set; } = null!;
 
         /// <summary>
         /// vCenter Single Sign On Identity Sources
         /// </summary>
         [Output("identitySources")]
-        public Output<ImmutableArray<Outputs.IdentitySourceResponseResult>> IdentitySources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IdentitySourceResponse>> IdentitySources { get; private set; } = null!;
 
         /// <summary>
         /// Connectivity to internet is enabled or disabled
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// The default cluster used for management
         /// </summary>
         [Output("managementCluster")]
-        public Output<Outputs.ManagementClusterResponseResult> ManagementCluster { get; private set; } = null!;
+        public Output<Outputs.ManagementClusterResponse> ManagementCluster { get; private set; } = null!;
 
         /// <summary>
         /// Network used to access vCenter Server and NSX-T Manager
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// The private cloud SKU
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

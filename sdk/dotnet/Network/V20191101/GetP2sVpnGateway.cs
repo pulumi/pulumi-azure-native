@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// List of all p2s connection configurations of the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.P2SConnectionConfigurationResponseResult> P2SConnectionConfigurations;
+        public readonly ImmutableArray<Outputs.P2SConnectionConfigurationResponse> P2SConnectionConfigurations;
         /// <summary>
         /// The provisioning state of the P2S VPN gateway resource.
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// The VirtualHub to which the gateway belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VirtualHub;
+        public readonly Outputs.SubResourceResponse? VirtualHub;
         /// <summary>
         /// All P2S VPN clients' connection health status.
         /// </summary>
-        public readonly Outputs.VpnClientConnectionHealthResponseResult VpnClientConnectionHealth;
+        public readonly Outputs.VpnClientConnectionHealthResponse VpnClientConnectionHealth;
         /// <summary>
         /// The scale unit for this p2s vpn gateway.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VpnServerConfiguration;
+        public readonly Outputs.SubResourceResponse? VpnServerConfiguration;
 
         [OutputConstructor]
         private GetP2sVpnGatewayResult(
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Network.V20191101
 
             string name,
 
-            ImmutableArray<Outputs.P2SConnectionConfigurationResponseResult> p2SConnectionConfigurations,
+            ImmutableArray<Outputs.P2SConnectionConfigurationResponse> p2SConnectionConfigurations,
 
             string provisioningState,
 
@@ -100,13 +100,13 @@ namespace Pulumi.AzureRM.Network.V20191101
 
             string type,
 
-            Outputs.SubResourceResponseResult? virtualHub,
+            Outputs.SubResourceResponse? virtualHub,
 
-            Outputs.VpnClientConnectionHealthResponseResult vpnClientConnectionHealth,
+            Outputs.VpnClientConnectionHealthResponse vpnClientConnectionHealth,
 
             int? vpnGatewayScaleUnit,
 
-            Outputs.SubResourceResponseResult? vpnServerConfiguration)
+            Outputs.SubResourceResponse? vpnServerConfiguration)
         {
             Etag = etag;
             Location = location;

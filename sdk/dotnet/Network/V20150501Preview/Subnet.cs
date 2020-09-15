@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
         /// Gets array of references to the network interface IP configurations using subnet
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
         /// Gets or sets the reference of the NetworkSecurityGroup resource
         /// </summary>
         [Output("networkSecurityGroup")]
-        public Output<Outputs.SubResourceResponseResult?> NetworkSecurityGroup { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> NetworkSecurityGroup { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
         /// Gets or sets the reference of the RouteTable resource
         /// </summary>
         [Output("routeTable")]
-        public Output<Outputs.SubResourceResponseResult?> RouteTable { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> RouteTable { get; private set; } = null!;
 
 
         /// <summary>

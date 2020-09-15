@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class Cache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
-                 cache_size_gb: Optional[pulumi.Input[float]] = None,
+                 cache_size_gb: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class Cache(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: Name of cache.
-        :param pulumi.Input[float] cache_size_gb: The size of this cache's cache, in GB.
+        :param pulumi.Input[int] cache_size_gb: The size of this cache's cache, in GB.
         :param pulumi.Input[str] location: Region name string.
         :param pulumi.Input[str] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
@@ -104,7 +104,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheSizeGB")
-    def cache_size_gb(self) -> pulumi.Output[Optional[float]]:
+    def cache_size_gb(self) -> pulumi.Output[Optional[int]]:
         """
         The size of this cache's cache, in GB.
         """
@@ -128,7 +128,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountAddresses")
-    def mount_addresses(self) -> pulumi.Output[List[str]]:
+    def mount_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         Array of IP addresses that can be used by clients mounting this Cache.
         """

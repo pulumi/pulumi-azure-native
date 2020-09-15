@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class ManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']]] = None,
                  addon_profiles: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]]] = None,
-                 agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  enable_rbac: Optional[pulumi.Input[bool]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: Profile of Azure Active Directory configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]] addon_profiles: Profile of managed cluster add-on.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster.
         :param pulumi.Input[bool] enable_rbac: Whether to enable Kubernetes Role-Based Access Control.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the managed cluster.
@@ -137,7 +137,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> pulumi.Output[Optional[List['outputs.ManagedClusterAgentPoolProfileResponse']]]:
+    def agent_pool_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.ManagedClusterAgentPoolProfileResponse']]]:
         """
         Properties of the agent pool.
         """

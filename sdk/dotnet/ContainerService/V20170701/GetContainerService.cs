@@ -42,19 +42,19 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         /// <summary>
         /// Properties of the agent pool.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> AgentPoolProfiles;
+        public readonly ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse> AgentPoolProfiles;
         /// <summary>
         /// Properties to configure a custom container service cluster.
         /// </summary>
-        public readonly Outputs.ContainerServiceCustomProfileResponseResult? CustomProfile;
+        public readonly Outputs.ContainerServiceCustomProfileResponse? CustomProfile;
         /// <summary>
         /// Profile for diagnostics in the container service cluster.
         /// </summary>
-        public readonly Outputs.ContainerServiceDiagnosticsProfileResponseResult? DiagnosticsProfile;
+        public readonly Outputs.ContainerServiceDiagnosticsProfileResponse? DiagnosticsProfile;
         /// <summary>
         /// Profile for Linux VMs in the container service cluster.
         /// </summary>
-        public readonly Outputs.ContainerServiceLinuxProfileResponseResult LinuxProfile;
+        public readonly Outputs.ContainerServiceLinuxProfileResponse LinuxProfile;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         /// <summary>
         /// Profile for the container service master.
         /// </summary>
-        public readonly Outputs.ContainerServiceMasterProfileResponseResult MasterProfile;
+        public readonly Outputs.ContainerServiceMasterProfileResponse MasterProfile;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         /// <summary>
         /// Profile for the container service orchestrator.
         /// </summary>
-        public readonly Outputs.ContainerServiceOrchestratorProfileResponseResult OrchestratorProfile;
+        public readonly Outputs.ContainerServiceOrchestratorProfileResponse OrchestratorProfile;
         /// <summary>
         /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
         /// </summary>
-        public readonly Outputs.ContainerServiceServicePrincipalProfileResponseResult? ServicePrincipalProfile;
+        public readonly Outputs.ContainerServiceServicePrincipalProfileResponse? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -90,35 +90,35 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         /// <summary>
         /// Profile for Windows VMs in the container service cluster.
         /// </summary>
-        public readonly Outputs.ContainerServiceWindowsProfileResponseResult? WindowsProfile;
+        public readonly Outputs.ContainerServiceWindowsProfileResponse? WindowsProfile;
 
         [OutputConstructor]
         private GetContainerServiceResult(
-            ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> agentPoolProfiles,
+            ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse> agentPoolProfiles,
 
-            Outputs.ContainerServiceCustomProfileResponseResult? customProfile,
+            Outputs.ContainerServiceCustomProfileResponse? customProfile,
 
-            Outputs.ContainerServiceDiagnosticsProfileResponseResult? diagnosticsProfile,
+            Outputs.ContainerServiceDiagnosticsProfileResponse? diagnosticsProfile,
 
-            Outputs.ContainerServiceLinuxProfileResponseResult linuxProfile,
+            Outputs.ContainerServiceLinuxProfileResponse linuxProfile,
 
             string location,
 
-            Outputs.ContainerServiceMasterProfileResponseResult masterProfile,
+            Outputs.ContainerServiceMasterProfileResponse masterProfile,
 
             string name,
 
-            Outputs.ContainerServiceOrchestratorProfileResponseResult orchestratorProfile,
+            Outputs.ContainerServiceOrchestratorProfileResponse orchestratorProfile,
 
             string provisioningState,
 
-            Outputs.ContainerServiceServicePrincipalProfileResponseResult? servicePrincipalProfile,
+            Outputs.ContainerServiceServicePrincipalProfileResponse? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.ContainerServiceWindowsProfileResponseResult? windowsProfile)
+            Outputs.ContainerServiceWindowsProfileResponse? windowsProfile)
         {
             AgentPoolProfiles = agentPoolProfiles;
             CustomProfile = customProfile;

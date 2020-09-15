@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -36,8 +36,8 @@ class GetServiceResult:
         if network_rule_set and not isinstance(network_rule_set, dict):
             raise TypeError("Expected argument 'network_rule_set' to be a dict")
         pulumi.set(__self__, "network_rule_set", network_rule_set)
-        if partition_count and not isinstance(partition_count, float):
-            raise TypeError("Expected argument 'partition_count' to be a float")
+        if partition_count and not isinstance(partition_count, int):
+            raise TypeError("Expected argument 'partition_count' to be a int")
         pulumi.set(__self__, "partition_count", partition_count)
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
@@ -48,8 +48,8 @@ class GetServiceResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
-        if replica_count and not isinstance(replica_count, float):
-            raise TypeError("Expected argument 'replica_count' to be a float")
+        if replica_count and not isinstance(replica_count, int):
+            raise TypeError("Expected argument 'replica_count' to be a int")
         pulumi.set(__self__, "replica_count", replica_count)
         if shared_private_link_resources and not isinstance(shared_private_link_resources, list):
             raise TypeError("Expected argument 'shared_private_link_resources' to be a list")
@@ -112,7 +112,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[float]:
+    def partition_count(self) -> Optional[int]:
         """
         The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         """
@@ -120,7 +120,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
         The list of private endpoint connections to the Azure Cognitive Search service.
         """
@@ -144,7 +144,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[float]:
+    def replica_count(self) -> Optional[int]:
         """
         The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         """
@@ -152,7 +152,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResources")
-    def shared_private_link_resources(self) -> List['outputs.SharedPrivateLinkResourceResponse']:
+    def shared_private_link_resources(self) -> Sequence['outputs.SharedPrivateLinkResourceResponse']:
         """
         The list of shared private link resources managed by the Azure Cognitive Search service.
         """

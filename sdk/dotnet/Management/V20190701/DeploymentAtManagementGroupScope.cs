@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Management.V20190701
         /// Deployment properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DeploymentPropertiesExtendedResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.DeploymentPropertiesExtendedResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the deployment.

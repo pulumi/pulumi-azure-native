@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -21,13 +21,13 @@ class AdditionalRegionArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  sku_type: pulumi.Input[str],
-                 sku_unit_count: Optional[pulumi.Input[float]] = None,
+                 sku_unit_count: Optional[pulumi.Input[int]] = None,
                  vpnconfiguration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None):
         """
         Description of an additional API Management resource location.
         :param pulumi.Input[str] location: The location name of the additional region among Azure Data center regions.
         :param pulumi.Input[str] sku_type: The SKU type in the location.
-        :param pulumi.Input[float] sku_unit_count: The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
+        :param pulumi.Input[int] sku_unit_count: The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] vpnconfiguration: Virtual network configuration for the location.
         """
         pulumi.set(__self__, "location", location)
@@ -63,14 +63,14 @@ class AdditionalRegionArgs:
 
     @property
     @pulumi.getter(name="skuUnitCount")
-    def sku_unit_count(self) -> Optional[pulumi.Input[float]]:
+    def sku_unit_count(self) -> Optional[pulumi.Input[int]]:
         """
         The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
         """
         return pulumi.get(self, "sku_unit_count")
 
     @sku_unit_count.setter
-    def sku_unit_count(self, value: Optional[pulumi.Input[float]]):
+    def sku_unit_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "sku_unit_count", value)
 
     @property
@@ -90,11 +90,11 @@ class AdditionalRegionArgs:
 class ApiManagementServiceSkuPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None):
+                 capacity: Optional[pulumi.Input[int]] = None):
         """
         API Management service resource SKU properties.
         :param pulumi.Input[str] name: Name of the Sku.
-        :param pulumi.Input[float] capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
+        :param pulumi.Input[int] capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -114,14 +114,14 @@ class ApiManagementServiceSkuPropertiesArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
 

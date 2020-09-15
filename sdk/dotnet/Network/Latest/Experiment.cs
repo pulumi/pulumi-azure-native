@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The endpoint A of an experiment
         /// </summary>
         [Output("endpointA")]
-        public Output<Outputs.EndpointResponseResult?> EndpointA { get; private set; } = null!;
+        public Output<Outputs.EndpointResponse?> EndpointA { get; private set; } = null!;
 
         /// <summary>
         /// The endpoint B of an experiment
         /// </summary>
         [Output("endpointB")]
-        public Output<Outputs.EndpointResponseResult?> EndpointB { get; private set; } = null!;
+        public Output<Outputs.EndpointResponse?> EndpointB { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.

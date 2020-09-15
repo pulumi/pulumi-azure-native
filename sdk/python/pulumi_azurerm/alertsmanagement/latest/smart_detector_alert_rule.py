@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,7 +24,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  frequency: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -44,7 +44,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[List[pulumi.Input[str]]] scope: The alert rule resources scope.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope: The alert rule resources scope.
         :param pulumi.Input[str] severity: The alert rule severity.
         :param pulumi.Input[str] state: The alert rule state.
         :param pulumi.Input[Mapping[str, Any]] tags: The resource tags.
@@ -173,7 +173,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[List[str]]:
+    def scope(self) -> pulumi.Output[Sequence[str]]:
         """
         The alert rule resources scope.
         """

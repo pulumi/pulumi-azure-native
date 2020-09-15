@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// ProtectionIntentResource properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AzureRecoveryServiceVaultProtectionIntentResponseResult, Outputs.AzureResourceProtectionIntentResponseResult>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.AzureRecoveryServiceVaultProtectionIntentResponse, Outputs.AzureResourceProtectionIntentResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

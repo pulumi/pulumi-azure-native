@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// <summary>
         /// DomainSecurity Settings
         /// </summary>
-        public readonly Outputs.DomainSecuritySettingsResponseResult? DomainSecuritySettings;
+        public readonly Outputs.DomainSecuritySettingsResponse? DomainSecuritySettings;
         /// <summary>
         /// Resource etag
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// <summary>
         /// Secure LDAP Settings
         /// </summary>
-        public readonly Outputs.LdapsSettingsResponseResult? LdapsSettings;
+        public readonly Outputs.LdapsSettingsResponse? LdapsSettings;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// <summary>
         /// Notification Settings
         /// </summary>
-        public readonly Outputs.NotificationSettingsResponseResult? NotificationSettings;
+        public readonly Outputs.NotificationSettingsResponse? NotificationSettings;
         /// <summary>
         /// the current deployment or provisioning state, which only appears in the response.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// <summary>
         /// List of ReplicaSets
         /// </summary>
-        public readonly ImmutableArray<Outputs.ReplicaSetResponseResult> ReplicaSets;
+        public readonly ImmutableArray<Outputs.ReplicaSetResponse> ReplicaSets;
         /// <summary>
         /// SyncOwner ReplicaSet Id
         /// </summary>
@@ -110,23 +110,23 @@ namespace Pulumi.AzureRM.Aad.V20200101
 
             string? domainName,
 
-            Outputs.DomainSecuritySettingsResponseResult? domainSecuritySettings,
+            Outputs.DomainSecuritySettingsResponse? domainSecuritySettings,
 
             string? etag,
 
             string? filteredSync,
 
-            Outputs.LdapsSettingsResponseResult? ldapsSettings,
+            Outputs.LdapsSettingsResponse? ldapsSettings,
 
             string? location,
 
             string name,
 
-            Outputs.NotificationSettingsResponseResult? notificationSettings,
+            Outputs.NotificationSettingsResponse? notificationSettings,
 
             string provisioningState,
 
-            ImmutableArray<Outputs.ReplicaSetResponseResult> replicaSets,
+            ImmutableArray<Outputs.ReplicaSetResponse> replicaSets,
 
             string syncOwner,
 

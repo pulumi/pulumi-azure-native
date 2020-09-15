@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -90,7 +90,7 @@ class GetDatabaseAccountResult:
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[List['outputs.CapabilityResponse']]:
+    def capabilities(self) -> Optional[Sequence['outputs.CapabilityResponse']]:
         """
         List of Cosmos DB capabilities for the account
         """
@@ -162,7 +162,7 @@ class GetDatabaseAccountResult:
 
     @property
     @pulumi.getter(name="failoverPolicies")
-    def failover_policies(self) -> List['outputs.FailoverPolicyResponse']:
+    def failover_policies(self) -> Sequence['outputs.FailoverPolicyResponse']:
         """
         An array that contains the regions ordered by their failover priorities.
         """
@@ -202,7 +202,7 @@ class GetDatabaseAccountResult:
 
     @property
     @pulumi.getter
-    def locations(self) -> List['outputs.LocationResponse']:
+    def locations(self) -> Sequence['outputs.LocationResponse']:
         """
         An array that contains all of the locations enabled for the Cosmos DB account.
         """
@@ -226,7 +226,7 @@ class GetDatabaseAccountResult:
 
     @property
     @pulumi.getter(name="readLocations")
-    def read_locations(self) -> List['outputs.LocationResponse']:
+    def read_locations(self) -> Sequence['outputs.LocationResponse']:
         """
         An array that contains of the read locations enabled for the Cosmos DB account.
         """
@@ -250,7 +250,7 @@ class GetDatabaseAccountResult:
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.VirtualNetworkRuleResponse']]:
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
         """
         List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
@@ -258,7 +258,7 @@ class GetDatabaseAccountResult:
 
     @property
     @pulumi.getter(name="writeLocations")
-    def write_locations(self) -> List['outputs.LocationResponse']:
+    def write_locations(self) -> Sequence['outputs.LocationResponse']:
         """
         An array that contains the write location for the Cosmos DB account.
         """

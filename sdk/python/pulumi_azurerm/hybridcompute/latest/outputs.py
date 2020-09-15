@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -111,13 +111,13 @@ class AssignmentReportResourceResponse(dict):
                  compliance_status: str,
                  properties: Mapping[str, Any],
                  resource_id: str,
-                 reasons: Optional[List['outputs.AssignmentReportResourceComplianceReasonResponse']] = None):
+                 reasons: Optional[Sequence['outputs.AssignmentReportResourceComplianceReasonResponse']] = None):
         """
         The guest configuration assignment resource.
         :param str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
         :param Mapping[str, Any] properties: Properties of a guest configuration assignment resource.
         :param str resource_id: Name of the guest configuration assignment resource setting.
-        :param List['AssignmentReportResourceComplianceReasonResponseArgs'] reasons: Compliance reason and reason code for a resource.
+        :param Sequence['AssignmentReportResourceComplianceReasonResponseArgs'] reasons: Compliance reason and reason code for a resource.
         """
         pulumi.set(__self__, "compliance_status", compliance_status)
         pulumi.set(__self__, "properties", properties)
@@ -151,7 +151,7 @@ class AssignmentReportResourceResponse(dict):
 
     @property
     @pulumi.getter
-    def reasons(self) -> Optional[List['outputs.AssignmentReportResourceComplianceReasonResponse']]:
+    def reasons(self) -> Optional[Sequence['outputs.AssignmentReportResourceComplianceReasonResponse']]:
         """
         Compliance reason and reason code for a resource.
         """
@@ -171,7 +171,7 @@ class AssignmentReportResponse(dict):
                  report_id: str,
                  start_time: str,
                  assignment: Optional['outputs.AssignmentInfoResponse'] = None,
-                 resources: Optional[List['outputs.AssignmentReportResourceResponse']] = None,
+                 resources: Optional[Sequence['outputs.AssignmentReportResourceResponse']] = None,
                  vm: Optional['outputs.VMInfoResponse'] = None):
         """
         :param str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
@@ -181,7 +181,7 @@ class AssignmentReportResponse(dict):
         :param str report_id: GUID that identifies the guest configuration assignment report under a subscription, resource group.
         :param str start_time: Start date and time of the guest configuration assignment compliance status check.
         :param 'AssignmentInfoResponseArgs' assignment: Configuration details of the guest configuration assignment.
-        :param List['AssignmentReportResourceResponseArgs'] resources: The list of resources for which guest configuration assignment compliance is checked.
+        :param Sequence['AssignmentReportResourceResponseArgs'] resources: The list of resources for which guest configuration assignment compliance is checked.
         :param 'VMInfoResponseArgs' vm: Information about the VM.
         """
         pulumi.set(__self__, "compliance_status", compliance_status)
@@ -255,7 +255,7 @@ class AssignmentReportResponse(dict):
 
     @property
     @pulumi.getter
-    def resources(self) -> Optional[List['outputs.AssignmentReportResourceResponse']]:
+    def resources(self) -> Optional[Sequence['outputs.AssignmentReportResourceResponse']]:
         """
         The list of resources for which guest configuration assignment compliance is checked.
         """
@@ -438,12 +438,12 @@ class ErrorDetailResponse(dict):
     def __init__(__self__, *,
                  code: str,
                  message: str,
-                 details: Optional[List['outputs.ErrorDetailResponse']] = None,
+                 details: Optional[Sequence['outputs.ErrorDetailResponse']] = None,
                  target: Optional[str] = None):
         """
         :param str code: The error's code.
         :param str message: A human readable error message.
-        :param List['ErrorDetailResponseArgs'] details: Additional error details.
+        :param Sequence['ErrorDetailResponseArgs'] details: Additional error details.
         :param str target: Indicates which property in the request is responsible for the error.
         """
         pulumi.set(__self__, "code", code)
@@ -471,7 +471,7 @@ class ErrorDetailResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[List['outputs.ErrorDetailResponse']]:
+    def details(self) -> Optional[Sequence['outputs.ErrorDetailResponse']]:
         """
         Additional error details.
         """
@@ -613,7 +613,7 @@ class GuestConfigurationNavigationResponse(dict):
     def __init__(__self__, *,
                  content_hash: str,
                  content_uri: str,
-                 configuration_parameter: Optional[List['outputs.ConfigurationParameterResponse']] = None,
+                 configuration_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
                  configuration_setting: Optional['outputs.ConfigurationSettingResponse'] = None,
                  kind: Optional[str] = None,
                  name: Optional[str] = None,
@@ -622,7 +622,7 @@ class GuestConfigurationNavigationResponse(dict):
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
         :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param str content_uri: Uri of the storage where guest configuration package is uploaded.
-        :param List['ConfigurationParameterResponseArgs'] configuration_parameter: The configuration parameters for the guest configuration.
+        :param Sequence['ConfigurationParameterResponseArgs'] configuration_parameter: The configuration parameters for the guest configuration.
         :param 'ConfigurationSettingResponseArgs' configuration_setting: The configuration setting for the guest configuration.
         :param str kind: Kind of the guest configuration. For example:DSC
         :param str name: Name of the guest configuration.
@@ -659,7 +659,7 @@ class GuestConfigurationNavigationResponse(dict):
 
     @property
     @pulumi.getter(name="configurationParameter")
-    def configuration_parameter(self) -> Optional[List['outputs.ConfigurationParameterResponse']]:
+    def configuration_parameter(self) -> Optional[Sequence['outputs.ConfigurationParameterResponse']]:
         """
         The configuration parameters for the guest configuration.
         """

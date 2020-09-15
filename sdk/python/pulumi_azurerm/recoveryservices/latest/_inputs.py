@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -183,8 +183,8 @@ class A2AEnableProtectionInputArgs:
                  recovery_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  recovery_resource_group_id: Optional[pulumi.Input[str]] = None,
                  recovery_subnet_name: Optional[pulumi.Input[str]] = None,
-                 vm_disks: Optional[pulumi.Input[List[pulumi.Input['A2AVmDiskInputDetailsArgs']]]] = None,
-                 vm_managed_disks: Optional[pulumi.Input[List[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]] = None):
+                 vm_disks: Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmDiskInputDetailsArgs']]]] = None,
+                 vm_managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]] = None):
         """
         A2A enable protection input.
         :param pulumi.Input['DiskEncryptionInfoArgs'] disk_encryption_info: The recovery disk encryption information.
@@ -200,8 +200,8 @@ class A2AEnableProtectionInputArgs:
         :param pulumi.Input[str] recovery_proximity_placement_group_id: The recovery proximity placement group Id.
         :param pulumi.Input[str] recovery_resource_group_id: The recovery resource group Id. Valid for V2 scenarios.
         :param pulumi.Input[str] recovery_subnet_name: The recovery subnet name.
-        :param pulumi.Input[List[pulumi.Input['A2AVmDiskInputDetailsArgs']]] vm_disks: The list of vm disk details.
-        :param pulumi.Input[List[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]] vm_managed_disks: The list of vm managed disk details.
+        :param pulumi.Input[Sequence[pulumi.Input['A2AVmDiskInputDetailsArgs']]] vm_disks: The list of vm disk details.
+        :param pulumi.Input[Sequence[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]] vm_managed_disks: The list of vm managed disk details.
         """
         if disk_encryption_info is not None:
             pulumi.set(__self__, "disk_encryption_info", disk_encryption_info)
@@ -392,26 +392,26 @@ class A2AEnableProtectionInputArgs:
 
     @property
     @pulumi.getter(name="vmDisks")
-    def vm_disks(self) -> Optional[pulumi.Input[List[pulumi.Input['A2AVmDiskInputDetailsArgs']]]]:
+    def vm_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmDiskInputDetailsArgs']]]]:
         """
         The list of vm disk details.
         """
         return pulumi.get(self, "vm_disks")
 
     @vm_disks.setter
-    def vm_disks(self, value: Optional[pulumi.Input[List[pulumi.Input['A2AVmDiskInputDetailsArgs']]]]):
+    def vm_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmDiskInputDetailsArgs']]]]):
         pulumi.set(self, "vm_disks", value)
 
     @property
     @pulumi.getter(name="vmManagedDisks")
-    def vm_managed_disks(self) -> Optional[pulumi.Input[List[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]]:
+    def vm_managed_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]]:
         """
         The list of vm managed disk details.
         """
         return pulumi.get(self, "vm_managed_disks")
 
     @vm_managed_disks.setter
-    def vm_managed_disks(self, value: Optional[pulumi.Input[List[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]]):
+    def vm_managed_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]]):
         pulumi.set(self, "vm_managed_disks", value)
 
 
@@ -419,17 +419,17 @@ class A2AEnableProtectionInputArgs:
 class A2APolicyCreationInputArgs:
     def __init__(__self__, *,
                  multi_vm_sync_status: pulumi.Input[str],
-                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
-                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
+                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 recovery_point_history: Optional[pulumi.Input[float]] = None):
+                 recovery_point_history: Optional[pulumi.Input[int]] = None):
         """
         A2A Policy creation input.
         :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-        :param pulumi.Input[float] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
-        :param pulumi.Input[float] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
-        :param pulumi.Input[float] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         """
         pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
         if app_consistent_frequency_in_minutes is not None:
@@ -455,26 +455,26 @@ class A2APolicyCreationInputArgs:
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The app consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "app_consistent_frequency_in_minutes")
 
     @app_consistent_frequency_in_minutes.setter
-    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "app_consistent_frequency_in_minutes", value)
 
     @property
     @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The crash consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "crash_consistent_frequency_in_minutes")
 
     @crash_consistent_frequency_in_minutes.setter
-    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "crash_consistent_frequency_in_minutes", value)
 
     @property
@@ -491,14 +491,14 @@ class A2APolicyCreationInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_history(self) -> Optional[pulumi.Input[int]]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
         return pulumi.get(self, "recovery_point_history")
 
     @recovery_point_history.setter
-    def recovery_point_history(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_history(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history", value)
 
 
@@ -1207,12 +1207,12 @@ class AzureFileshareProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_state: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None):
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
         """
         Additional information about Azure File Share backup item.
         :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this item in the service.
         :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param pulumi.Input[float] recovery_point_count: Number of available backup copies associated with this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of available backup copies associated with this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -1247,14 +1247,14 @@ class AzureFileshareProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of available backup copies associated with this backup item.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
 
@@ -1670,12 +1670,12 @@ class AzureIaaSVMProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_inconsistent: Optional[pulumi.Input[bool]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None):
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
         """
         Additional information on Azure IaaS VM specific backup item.
         :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this backup item.
         :param pulumi.Input[bool] policy_inconsistent: Specifies if backup policy associated with the backup item is inconsistent.
-        :param pulumi.Input[float] recovery_point_count: Number of backup copies available for this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of backup copies available for this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -1710,14 +1710,14 @@ class AzureIaaSVMProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of backup copies available for this backup item.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
 
@@ -1725,13 +1725,13 @@ class AzureIaaSVMProtectedItemExtendedInfoArgs:
 class AzureIaaSVMProtectionPolicyArgs:
     def __init__(__self__, *,
                  backup_management_type: Optional[pulumi.Input[str]] = None,
-                 protected_items_count: Optional[pulumi.Input[float]] = None,
+                 protected_items_count: Optional[pulumi.Input[int]] = None,
                  retention_policy: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]] = None,
                  schedule_policy: Optional[pulumi.Input[Union['LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs']]] = None):
         """
         Azure VM (also known as IaaS VM) workload-specific backup policy.
         :param pulumi.Input[str] backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param pulumi.Input[float] protected_items_count: The number of items associated with this policy.
+        :param pulumi.Input[int] protected_items_count: The number of items associated with this policy.
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: The retention policy with the details on backup copy retention ranges.
         :param pulumi.Input[Union['LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs']] schedule_policy: The backup schedule specified as part of backup policy.
         """
@@ -1758,14 +1758,14 @@ class AzureIaaSVMProtectionPolicyArgs:
 
     @property
     @pulumi.getter(name="protectedItemsCount")
-    def protected_items_count(self) -> Optional[pulumi.Input[float]]:
+    def protected_items_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of items associated with this policy.
         """
         return pulumi.get(self, "protected_items_count")
 
     @protected_items_count.setter
-    def protected_items_count(self, value: Optional[pulumi.Input[float]]):
+    def protected_items_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_items_count", value)
 
     @property
@@ -2395,12 +2395,12 @@ class AzureSqlProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_state: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None):
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
         """
         Additional information on Azure Sql specific protected item.
         :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this item in the service.
         :param pulumi.Input[str] policy_state: State of the backup policy associated with this backup item.
-        :param pulumi.Input[float] recovery_point_count: Number of available backup copies associated with this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of available backup copies associated with this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -2435,14 +2435,14 @@ class AzureSqlProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of available backup copies associated with this backup item.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
 
@@ -2450,12 +2450,12 @@ class AzureSqlProtectedItemExtendedInfoArgs:
 class AzureSqlProtectionPolicyArgs:
     def __init__(__self__, *,
                  backup_management_type: Optional[pulumi.Input[str]] = None,
-                 protected_items_count: Optional[pulumi.Input[float]] = None,
+                 protected_items_count: Optional[pulumi.Input[int]] = None,
                  retention_policy: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]] = None):
         """
          The Azure SQL workload-specific backup policy.
         :param pulumi.Input[str] backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param pulumi.Input[float] protected_items_count: The number of items associated with this policy.
+        :param pulumi.Input[int] protected_items_count: The number of items associated with this policy.
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: The retention policy details.
         """
         if backup_management_type is not None:
@@ -2479,14 +2479,14 @@ class AzureSqlProtectionPolicyArgs:
 
     @property
     @pulumi.getter(name="protectedItemsCount")
-    def protected_items_count(self) -> Optional[pulumi.Input[float]]:
+    def protected_items_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of items associated with this policy.
         """
         return pulumi.get(self, "protected_items_count")
 
     @protected_items_count.setter
-    def protected_items_count(self, value: Optional[pulumi.Input[float]]):
+    def protected_items_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_items_count", value)
 
     @property
@@ -2509,7 +2509,7 @@ class AzureStorageContainerArgs:
                  container_type: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
-                 protected_item_count: Optional[pulumi.Input[float]] = None,
+                 protected_item_count: Optional[pulumi.Input[int]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -2523,7 +2523,7 @@ class AzureStorageContainerArgs:
                Backup is VMAppContainer
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
-        :param pulumi.Input[float] protected_item_count: Number of items backed up in this container.
+        :param pulumi.Input[int] protected_item_count: Number of items backed up in this container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
         :param pulumi.Input[str] resource_group: Resource group name of Recovery Services Vault.
         :param pulumi.Input[str] source_resource_id: Fully qualified ARM url.
@@ -2601,14 +2601,14 @@ class AzureStorageContainerArgs:
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[pulumi.Input[float]]:
+    def protected_item_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of items backed up in this container.
         """
         return pulumi.get(self, "protected_item_count")
 
     @protected_item_count.setter
-    def protected_item_count(self, value: Optional[pulumi.Input[float]]):
+    def protected_item_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_item_count", value)
 
     @property
@@ -3128,12 +3128,12 @@ class AzureVmWorkloadProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_state: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None):
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
         """
         Additional information on Azure Workload for SQL specific backup item.
         :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this backup item.
         :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param pulumi.Input[float] recovery_point_count: Number of backup copies available for this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of backup copies available for this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -3168,14 +3168,14 @@ class AzureVmWorkloadProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of backup copies available for this backup item.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
 
@@ -3358,12 +3358,12 @@ class AzureWorkloadContainerExtendedInfoArgs:
     def __init__(__self__, *,
                  host_server_name: Optional[pulumi.Input[str]] = None,
                  inquiry_info: Optional[pulumi.Input['InquiryInfoArgs']] = None,
-                 nodes_list: Optional[pulumi.Input[List[pulumi.Input['DistributedNodesInfoArgs']]]] = None):
+                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None):
         """
         Extended information of the container.
         :param pulumi.Input[str] host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
         :param pulumi.Input['InquiryInfoArgs'] inquiry_info: Inquiry Status for the container.
-        :param pulumi.Input[List[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
         """
         if host_server_name is not None:
             pulumi.set(__self__, "host_server_name", host_server_name)
@@ -3398,14 +3398,14 @@ class AzureWorkloadContainerExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="nodesList")
-    def nodes_list(self) -> Optional[pulumi.Input[List[pulumi.Input['DistributedNodesInfoArgs']]]]:
+    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
         """
         List of the nodes in case of distributed container.
         """
         return pulumi.get(self, "nodes_list")
 
     @nodes_list.setter
-    def nodes_list(self, value: Optional[pulumi.Input[List[pulumi.Input['DistributedNodesInfoArgs']]]]):
+    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
         pulumi.set(self, "nodes_list", value)
 
 
@@ -3620,18 +3620,18 @@ class CreateProtectionContainerMappingInputPropertiesArgs:
 @pulumi.input_type
 class CreateRecoveryPlanInputPropertiesArgs:
     def __init__(__self__, *,
-                 groups: pulumi.Input[List[pulumi.Input['RecoveryPlanGroupArgs']]],
+                 groups: pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]],
                  primary_fabric_id: pulumi.Input[str],
                  recovery_fabric_id: pulumi.Input[str],
                  failover_deployment_model: Optional[pulumi.Input[str]] = None,
-                 provider_specific_input: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanA2AInputArgs']]]] = None):
+                 provider_specific_input: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanA2AInputArgs']]]] = None):
         """
         Recovery plan creation properties.
-        :param pulumi.Input[List[pulumi.Input['RecoveryPlanGroupArgs']]] groups: The recovery plan groups.
+        :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]] groups: The recovery plan groups.
         :param pulumi.Input[str] primary_fabric_id: The primary fabric Id.
         :param pulumi.Input[str] recovery_fabric_id: The recovery fabric Id.
         :param pulumi.Input[str] failover_deployment_model: The failover deployment model.
-        :param pulumi.Input[List[pulumi.Input['RecoveryPlanA2AInputArgs']]] provider_specific_input: The provider specific input.
+        :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanA2AInputArgs']]] provider_specific_input: The provider specific input.
         """
         pulumi.set(__self__, "groups", groups)
         pulumi.set(__self__, "primary_fabric_id", primary_fabric_id)
@@ -3643,14 +3643,14 @@ class CreateRecoveryPlanInputPropertiesArgs:
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Input[List[pulumi.Input['RecoveryPlanGroupArgs']]]:
+    def groups(self) -> pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]]:
         """
         The recovery plan groups.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: pulumi.Input[List[pulumi.Input['RecoveryPlanGroupArgs']]]):
+    def groups(self, value: pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]]):
         pulumi.set(self, "groups", value)
 
     @property
@@ -3691,14 +3691,14 @@ class CreateRecoveryPlanInputPropertiesArgs:
 
     @property
     @pulumi.getter(name="providerSpecificInput")
-    def provider_specific_input(self) -> Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanA2AInputArgs']]]]:
+    def provider_specific_input(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanA2AInputArgs']]]]:
         """
         The provider specific input.
         """
         return pulumi.get(self, "provider_specific_input")
 
     @provider_specific_input.setter
-    def provider_specific_input(self, value: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanA2AInputArgs']]]]):
+    def provider_specific_input(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanA2AInputArgs']]]]):
         pulumi.set(self, "provider_specific_input", value)
 
 
@@ -4032,11 +4032,11 @@ class DPMProtectedItemExtendedInfoArgs:
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
                  on_premise_latest_recovery_point: Optional[pulumi.Input[str]] = None,
                  on_premise_oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 on_premise_recovery_point_count: Optional[pulumi.Input[float]] = None,
+                 on_premise_recovery_point_count: Optional[pulumi.Input[int]] = None,
                  protectable_object_load_path: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  protected: Optional[pulumi.Input[bool]] = None,
                  protection_group_name: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None,
+                 recovery_point_count: Optional[pulumi.Input[int]] = None,
                  total_disk_storage_size_in_bytes: Optional[pulumi.Input[str]] = None):
         """
         Additional information of DPM Protected item.
@@ -4048,11 +4048,11 @@ class DPMProtectedItemExtendedInfoArgs:
         :param pulumi.Input[str] oldest_recovery_point: Oldest cloud recovery point time.
         :param pulumi.Input[str] on_premise_latest_recovery_point: latest disk recovery point time.
         :param pulumi.Input[str] on_premise_oldest_recovery_point: Oldest disk recovery point time.
-        :param pulumi.Input[float] on_premise_recovery_point_count: disk recovery point count.
+        :param pulumi.Input[int] on_premise_recovery_point_count: disk recovery point count.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] protectable_object_load_path: Attribute to provide information on various DBs.
         :param pulumi.Input[bool] protected: To check if backup item is disk protected.
         :param pulumi.Input[str] protection_group_name: Protection group name of the backup item.
-        :param pulumi.Input[float] recovery_point_count: cloud recovery point count.
+        :param pulumi.Input[int] recovery_point_count: cloud recovery point count.
         :param pulumi.Input[str] total_disk_storage_size_in_bytes: total Disk storage in bytes.
         """
         if disk_storage_used_in_bytes is not None:
@@ -4182,14 +4182,14 @@ class DPMProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="onPremiseRecoveryPointCount")
-    def on_premise_recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def on_premise_recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         disk recovery point count.
         """
         return pulumi.get(self, "on_premise_recovery_point_count")
 
     @on_premise_recovery_point_count.setter
-    def on_premise_recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def on_premise_recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "on_premise_recovery_point_count", value)
 
     @property
@@ -4230,14 +4230,14 @@ class DPMProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         cloud recovery point count.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
     @property
@@ -4256,24 +4256,24 @@ class DPMProtectedItemExtendedInfoArgs:
 @pulumi.input_type
 class DailyRetentionFormatArgs:
     def __init__(__self__, *,
-                 days_of_the_month: Optional[pulumi.Input[List[pulumi.Input['DayArgs']]]] = None):
+                 days_of_the_month: Optional[pulumi.Input[Sequence[pulumi.Input['DayArgs']]]] = None):
         """
         Daily retention format.
-        :param pulumi.Input[List[pulumi.Input['DayArgs']]] days_of_the_month: List of days of the month.
+        :param pulumi.Input[Sequence[pulumi.Input['DayArgs']]] days_of_the_month: List of days of the month.
         """
         if days_of_the_month is not None:
             pulumi.set(__self__, "days_of_the_month", days_of_the_month)
 
     @property
     @pulumi.getter(name="daysOfTheMonth")
-    def days_of_the_month(self) -> Optional[pulumi.Input[List[pulumi.Input['DayArgs']]]]:
+    def days_of_the_month(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayArgs']]]]:
         """
         List of days of the month.
         """
         return pulumi.get(self, "days_of_the_month")
 
     @days_of_the_month.setter
-    def days_of_the_month(self, value: Optional[pulumi.Input[List[pulumi.Input['DayArgs']]]]):
+    def days_of_the_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayArgs']]]]):
         pulumi.set(self, "days_of_the_month", value)
 
 
@@ -4281,11 +4281,11 @@ class DailyRetentionFormatArgs:
 class DailyRetentionScheduleArgs:
     def __init__(__self__, *,
                  retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None,
-                 retention_times: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Daily retention schedule.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: The retention duration of retention policy.
-        :param pulumi.Input[List[pulumi.Input[str]]] retention_times: The retention times of retention policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: The retention times of retention policy.
         """
         if retention_duration is not None:
             pulumi.set(__self__, "retention_duration", retention_duration)
@@ -4306,21 +4306,21 @@ class DailyRetentionScheduleArgs:
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def retention_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The retention times of retention policy.
         """
         return pulumi.get(self, "retention_times")
 
     @retention_times.setter
-    def retention_times(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def retention_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "retention_times", value)
 
 
 @pulumi.input_type
 class DayArgs:
     def __init__(__self__, *,
-                 date: Optional[pulumi.Input[float]] = None,
+                 date: Optional[pulumi.Input[int]] = None,
                  is_last: Optional[pulumi.Input[bool]] = None):
         """
         Day of the week.
@@ -4332,11 +4332,11 @@ class DayArgs:
 
     @property
     @pulumi.getter
-    def date(self) -> Optional[pulumi.Input[float]]:
+    def date(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "date")
 
     @date.setter
-    def date(self, value: Optional[pulumi.Input[float]]):
+    def date(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "date", value)
 
     @property
@@ -4432,10 +4432,10 @@ class DiskEncryptionKeyInfoArgs:
 @pulumi.input_type
 class DiskExclusionPropertiesArgs:
     def __init__(__self__, *,
-                 disk_lun_list: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 disk_lun_list: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  is_inclusion_list: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[float]]] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
         :param pulumi.Input[bool] is_inclusion_list: Flag to indicate whether DiskLunList is to be included/ excluded from backup.
         """
         if disk_lun_list is not None:
@@ -4445,14 +4445,14 @@ class DiskExclusionPropertiesArgs:
 
     @property
     @pulumi.getter(name="diskLunList")
-    def disk_lun_list(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def disk_lun_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
         """
         return pulumi.get(self, "disk_lun_list")
 
     @disk_lun_list.setter
-    def disk_lun_list(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def disk_lun_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "disk_lun_list", value)
 
     @property
@@ -4518,11 +4518,11 @@ class DpmContainerArgs:
                  container_id: Optional[pulumi.Input[str]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
                  dpm_agent_version: Optional[pulumi.Input[str]] = None,
-                 dpm_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 dpm_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extended_info: Optional[pulumi.Input['DPMContainerExtendedInfoArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
-                 protected_item_count: Optional[pulumi.Input[float]] = None,
+                 protected_item_count: Optional[pulumi.Input[int]] = None,
                  protection_status: Optional[pulumi.Input[str]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None,
                  upgrade_available: Optional[pulumi.Input[bool]] = None):
@@ -4536,11 +4536,11 @@ class DpmContainerArgs:
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
         :param pulumi.Input[str] dpm_agent_version: Backup engine Agent version
-        :param pulumi.Input[List[pulumi.Input[str]]] dpm_servers: List of BackupEngines protecting the container
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dpm_servers: List of BackupEngines protecting the container
         :param pulumi.Input['DPMContainerExtendedInfoArgs'] extended_info: Extended Info of the container.
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
-        :param pulumi.Input[float] protected_item_count: Number of protected items in the BackupEngine
+        :param pulumi.Input[int] protected_item_count: Number of protected items in the BackupEngine
         :param pulumi.Input[str] protection_status: Protection status of the container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
         :param pulumi.Input[bool] upgrade_available: To check if upgrade available
@@ -4637,14 +4637,14 @@ class DpmContainerArgs:
 
     @property
     @pulumi.getter(name="dpmServers")
-    def dpm_servers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def dpm_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of BackupEngines protecting the container
         """
         return pulumi.get(self, "dpm_servers")
 
     @dpm_servers.setter
-    def dpm_servers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def dpm_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dpm_servers", value)
 
     @property
@@ -4685,14 +4685,14 @@ class DpmContainerArgs:
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[pulumi.Input[float]]:
+    def protected_item_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of protected items in the BackupEngine
         """
         return pulumi.get(self, "protected_item_count")
 
     @protected_item_count.setter
-    def protected_item_count(self, value: Optional[pulumi.Input[float]]):
+    def protected_item_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_item_count", value)
 
     @property
@@ -5074,7 +5074,7 @@ class GenericProtectedItemArgs:
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policy_state: Optional[pulumi.Input[str]] = None,
-                 protected_item_id: Optional[pulumi.Input[float]] = None,
+                 protected_item_id: Optional[pulumi.Input[int]] = None,
                  protection_state: Optional[pulumi.Input[str]] = None,
                  source_associations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -5096,7 +5096,7 @@ class GenericProtectedItemArgs:
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param pulumi.Input[float] protected_item_id: Data Plane Service ID of the protected item.
+        :param pulumi.Input[int] protected_item_id: Data Plane Service ID of the protected item.
         :param pulumi.Input[str] protection_state: Backup state of this backup item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
@@ -5324,14 +5324,14 @@ class GenericProtectedItemArgs:
 
     @property
     @pulumi.getter(name="protectedItemId")
-    def protected_item_id(self) -> Optional[pulumi.Input[float]]:
+    def protected_item_id(self) -> Optional[pulumi.Input[int]]:
         """
         Data Plane Service ID of the protected item.
         """
         return pulumi.get(self, "protected_item_id")
 
     @protected_item_id.setter
-    def protected_item_id(self, value: Optional[pulumi.Input[float]]):
+    def protected_item_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_item_id", value)
 
     @property
@@ -5386,7 +5386,7 @@ class GenericProtectedItemArgs:
 @pulumi.input_type
 class HyperVReplicaAzureEnableProtectionInputArgs:
     def __init__(__self__, *,
-                 disks_to_include: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_rdp_on_target_option: Optional[pulumi.Input[str]] = None,
                  hv_host_vm_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -5405,7 +5405,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
                  vm_name: Optional[pulumi.Input[str]] = None):
         """
         Azure specific enable protection input.
-        :param pulumi.Input[List[pulumi.Input[str]]] disks_to_include: The list of VHD IDs of disks to be protected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disks_to_include: The list of VHD IDs of disks to be protected.
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param pulumi.Input[str] hv_host_vm_id: The Hyper-V host Vm Id.
         :param pulumi.Input[str] instance_type: The class type.
@@ -5460,14 +5460,14 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
 
     @property
     @pulumi.getter(name="disksToInclude")
-    def disks_to_include(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def disks_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of VHD IDs of disks to be protected.
         """
         return pulumi.get(self, "disks_to_include")
 
     @disks_to_include.setter
-    def disks_to_include(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def disks_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "disks_to_include", value)
 
     @property
@@ -5666,20 +5666,20 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
 @pulumi.input_type
 class HyperVReplicaAzurePolicyInputArgs:
     def __init__(__self__, *,
-                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[float]] = None,
+                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  online_replication_start_time: Optional[pulumi.Input[str]] = None,
-                 recovery_point_history_duration: Optional[pulumi.Input[float]] = None,
-                 replication_interval: Optional[pulumi.Input[float]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 recovery_point_history_duration: Optional[pulumi.Input[int]] = None,
+                 replication_interval: Optional[pulumi.Input[int]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Hyper-V Replica Azure specific input for creating a protection profile.
-        :param pulumi.Input[float] application_consistent_snapshot_frequency_in_hours: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
+        :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] online_replication_start_time: The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
-        :param pulumi.Input[float] recovery_point_history_duration: The duration (in hours) to which point the recovery history needs to be maintained.
-        :param pulumi.Input[float] replication_interval: The replication interval.
-        :param pulumi.Input[List[pulumi.Input[str]]] storage_accounts: The list of storage accounts to which the VMs in the primary cloud can replicate to.
+        :param pulumi.Input[int] recovery_point_history_duration: The duration (in hours) to which point the recovery history needs to be maintained.
+        :param pulumi.Input[int] replication_interval: The replication interval.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_accounts: The list of storage accounts to which the VMs in the primary cloud can replicate to.
         """
         if application_consistent_snapshot_frequency_in_hours is not None:
             pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
@@ -5696,14 +5696,14 @@ class HyperVReplicaAzurePolicyInputArgs:
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[float]]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[int]]:
         """
         The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_hours")
 
     @application_consistent_snapshot_frequency_in_hours.setter
-    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[float]]):
+    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "application_consistent_snapshot_frequency_in_hours", value)
 
     @property
@@ -5732,70 +5732,70 @@ class HyperVReplicaAzurePolicyInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPointHistoryDuration")
-    def recovery_point_history_duration(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_history_duration(self) -> Optional[pulumi.Input[int]]:
         """
         The duration (in hours) to which point the recovery history needs to be maintained.
         """
         return pulumi.get(self, "recovery_point_history_duration")
 
     @recovery_point_history_duration.setter
-    def recovery_point_history_duration(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_history_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history_duration", value)
 
     @property
     @pulumi.getter(name="replicationInterval")
-    def replication_interval(self) -> Optional[pulumi.Input[float]]:
+    def replication_interval(self) -> Optional[pulumi.Input[int]]:
         """
         The replication interval.
         """
         return pulumi.get(self, "replication_interval")
 
     @replication_interval.setter
-    def replication_interval(self, value: Optional[pulumi.Input[float]]):
+    def replication_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replication_interval", value)
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of storage accounts to which the VMs in the primary cloud can replicate to.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "storage_accounts", value)
 
 
 @pulumi.input_type
 class HyperVReplicaBluePolicyInputArgs:
     def __init__(__self__, *,
-                 allowed_authentication_type: Optional[pulumi.Input[float]] = None,
-                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[float]] = None,
+                 allowed_authentication_type: Optional[pulumi.Input[int]] = None,
+                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
                  initial_replication_method: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  offline_replication_export_path: Optional[pulumi.Input[str]] = None,
                  offline_replication_import_path: Optional[pulumi.Input[str]] = None,
                  online_replication_start_time: Optional[pulumi.Input[str]] = None,
-                 recovery_points: Optional[pulumi.Input[float]] = None,
+                 recovery_points: Optional[pulumi.Input[int]] = None,
                  replica_deletion: Optional[pulumi.Input[str]] = None,
-                 replication_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
-                 replication_port: Optional[pulumi.Input[float]] = None):
+                 replication_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+                 replication_port: Optional[pulumi.Input[int]] = None):
         """
         HyperV Replica Blue policy input.
-        :param pulumi.Input[float] allowed_authentication_type: A value indicating the authentication type.
-        :param pulumi.Input[float] application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
+        :param pulumi.Input[int] allowed_authentication_type: A value indicating the authentication type.
+        :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
         :param pulumi.Input[str] compression: A value indicating whether compression has to be enabled.
         :param pulumi.Input[str] initial_replication_method: A value indicating whether IR is online.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] offline_replication_export_path: A value indicating the offline IR export path.
         :param pulumi.Input[str] offline_replication_import_path: A value indicating the offline IR import path.
         :param pulumi.Input[str] online_replication_start_time: A value indicating the online IR start time.
-        :param pulumi.Input[float] recovery_points: A value indicating the number of recovery points.
+        :param pulumi.Input[int] recovery_points: A value indicating the number of recovery points.
         :param pulumi.Input[str] replica_deletion: A value indicating whether the VM has to be auto deleted.
-        :param pulumi.Input[float] replication_frequency_in_seconds: A value indicating the replication interval.
-        :param pulumi.Input[float] replication_port: A value indicating the recovery HTTPS port.
+        :param pulumi.Input[int] replication_frequency_in_seconds: A value indicating the replication interval.
+        :param pulumi.Input[int] replication_port: A value indicating the recovery HTTPS port.
         """
         if allowed_authentication_type is not None:
             pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
@@ -5824,26 +5824,26 @@ class HyperVReplicaBluePolicyInputArgs:
 
     @property
     @pulumi.getter(name="allowedAuthenticationType")
-    def allowed_authentication_type(self) -> Optional[pulumi.Input[float]]:
+    def allowed_authentication_type(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the authentication type.
         """
         return pulumi.get(self, "allowed_authentication_type")
 
     @allowed_authentication_type.setter
-    def allowed_authentication_type(self, value: Optional[pulumi.Input[float]]):
+    def allowed_authentication_type(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "allowed_authentication_type", value)
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[float]]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the application consistent frequency.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_hours")
 
     @application_consistent_snapshot_frequency_in_hours.setter
-    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[float]]):
+    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "application_consistent_snapshot_frequency_in_hours", value)
 
     @property
@@ -5920,14 +5920,14 @@ class HyperVReplicaBluePolicyInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> Optional[pulumi.Input[float]]:
+    def recovery_points(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the number of recovery points.
         """
         return pulumi.get(self, "recovery_points")
 
     @recovery_points.setter
-    def recovery_points(self, value: Optional[pulumi.Input[float]]):
+    def recovery_points(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_points", value)
 
     @property
@@ -5944,56 +5944,56 @@ class HyperVReplicaBluePolicyInputArgs:
 
     @property
     @pulumi.getter(name="replicationFrequencyInSeconds")
-    def replication_frequency_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def replication_frequency_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the replication interval.
         """
         return pulumi.get(self, "replication_frequency_in_seconds")
 
     @replication_frequency_in_seconds.setter
-    def replication_frequency_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def replication_frequency_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replication_frequency_in_seconds", value)
 
     @property
     @pulumi.getter(name="replicationPort")
-    def replication_port(self) -> Optional[pulumi.Input[float]]:
+    def replication_port(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the recovery HTTPS port.
         """
         return pulumi.get(self, "replication_port")
 
     @replication_port.setter
-    def replication_port(self, value: Optional[pulumi.Input[float]]):
+    def replication_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replication_port", value)
 
 
 @pulumi.input_type
 class HyperVReplicaPolicyInputArgs:
     def __init__(__self__, *,
-                 allowed_authentication_type: Optional[pulumi.Input[float]] = None,
-                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[float]] = None,
+                 allowed_authentication_type: Optional[pulumi.Input[int]] = None,
+                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
                  initial_replication_method: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  offline_replication_export_path: Optional[pulumi.Input[str]] = None,
                  offline_replication_import_path: Optional[pulumi.Input[str]] = None,
                  online_replication_start_time: Optional[pulumi.Input[str]] = None,
-                 recovery_points: Optional[pulumi.Input[float]] = None,
+                 recovery_points: Optional[pulumi.Input[int]] = None,
                  replica_deletion: Optional[pulumi.Input[str]] = None,
-                 replication_port: Optional[pulumi.Input[float]] = None):
+                 replication_port: Optional[pulumi.Input[int]] = None):
         """
         Hyper-V Replica specific policy Input.
-        :param pulumi.Input[float] allowed_authentication_type: A value indicating the authentication type.
-        :param pulumi.Input[float] application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
+        :param pulumi.Input[int] allowed_authentication_type: A value indicating the authentication type.
+        :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
         :param pulumi.Input[str] compression: A value indicating whether compression has to be enabled.
         :param pulumi.Input[str] initial_replication_method: A value indicating whether IR is online.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] offline_replication_export_path: A value indicating the offline IR export path.
         :param pulumi.Input[str] offline_replication_import_path: A value indicating the offline IR import path.
         :param pulumi.Input[str] online_replication_start_time: A value indicating the online IR start time.
-        :param pulumi.Input[float] recovery_points: A value indicating the number of recovery points.
+        :param pulumi.Input[int] recovery_points: A value indicating the number of recovery points.
         :param pulumi.Input[str] replica_deletion: A value indicating whether the VM has to be auto deleted.
-        :param pulumi.Input[float] replication_port: A value indicating the recovery HTTPS port.
+        :param pulumi.Input[int] replication_port: A value indicating the recovery HTTPS port.
         """
         if allowed_authentication_type is not None:
             pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
@@ -6020,26 +6020,26 @@ class HyperVReplicaPolicyInputArgs:
 
     @property
     @pulumi.getter(name="allowedAuthenticationType")
-    def allowed_authentication_type(self) -> Optional[pulumi.Input[float]]:
+    def allowed_authentication_type(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the authentication type.
         """
         return pulumi.get(self, "allowed_authentication_type")
 
     @allowed_authentication_type.setter
-    def allowed_authentication_type(self, value: Optional[pulumi.Input[float]]):
+    def allowed_authentication_type(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "allowed_authentication_type", value)
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[float]]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the application consistent frequency.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_hours")
 
     @application_consistent_snapshot_frequency_in_hours.setter
-    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[float]]):
+    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "application_consistent_snapshot_frequency_in_hours", value)
 
     @property
@@ -6116,14 +6116,14 @@ class HyperVReplicaPolicyInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> Optional[pulumi.Input[float]]:
+    def recovery_points(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the number of recovery points.
         """
         return pulumi.get(self, "recovery_points")
 
     @recovery_points.setter
-    def recovery_points(self, value: Optional[pulumi.Input[float]]):
+    def recovery_points(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_points", value)
 
     @property
@@ -6140,14 +6140,14 @@ class HyperVReplicaPolicyInputArgs:
 
     @property
     @pulumi.getter(name="replicationPort")
-    def replication_port(self) -> Optional[pulumi.Input[float]]:
+    def replication_port(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the recovery HTTPS port.
         """
         return pulumi.get(self, "replication_port")
 
     @replication_port.setter
-    def replication_port(self, value: Optional[pulumi.Input[float]]):
+    def replication_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replication_port", value)
 
 
@@ -6476,7 +6476,7 @@ class InMageAzureV2EnableProtectionInputArgs:
     def __init__(__self__, *,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_type: Optional[pulumi.Input[str]] = None,
-                 disks_to_include: Optional[pulumi.Input[List[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]]] = None,
+                 disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]]] = None,
                  enable_rdp_on_target_option: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  log_storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -6497,7 +6497,7 @@ class InMageAzureV2EnableProtectionInputArgs:
         VMware Azure specific enable protection input.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM ID.
         :param pulumi.Input[str] disk_type: The DiskType.
-        :param pulumi.Input[List[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]] disks_to_include: The disks to include list.
+        :param pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] log_storage_account_id: The storage account to be used for logging during replication.
@@ -6580,14 +6580,14 @@ class InMageAzureV2EnableProtectionInputArgs:
 
     @property
     @pulumi.getter(name="disksToInclude")
-    def disks_to_include(self) -> Optional[pulumi.Input[List[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]]]:
+    def disks_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]]]:
         """
         The disks to include list.
         """
         return pulumi.get(self, "disks_to_include")
 
     @disks_to_include.setter
-    def disks_to_include(self, value: Optional[pulumi.Input[List[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]]]):
+    def disks_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]]]):
         pulumi.set(self, "disks_to_include", value)
 
     @property
@@ -6787,19 +6787,19 @@ class InMageAzureV2EnableProtectionInputArgs:
 class InMageAzureV2PolicyInputArgs:
     def __init__(__self__, *,
                  multi_vm_sync_status: pulumi.Input[str],
-                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
-                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
+                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 recovery_point_history: Optional[pulumi.Input[float]] = None,
-                 recovery_point_threshold_in_minutes: Optional[pulumi.Input[float]] = None):
+                 recovery_point_history: Optional[pulumi.Input[int]] = None,
+                 recovery_point_threshold_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         VMWare Azure specific policy Input.
         :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-        :param pulumi.Input[float] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
-        :param pulumi.Input[float] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
-        :param pulumi.Input[float] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
-        :param pulumi.Input[float] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
+        :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param pulumi.Input[int] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
         pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
         if app_consistent_frequency_in_minutes is not None:
@@ -6827,26 +6827,26 @@ class InMageAzureV2PolicyInputArgs:
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The app consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "app_consistent_frequency_in_minutes")
 
     @app_consistent_frequency_in_minutes.setter
-    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "app_consistent_frequency_in_minutes", value)
 
     @property
     @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The crash consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "crash_consistent_frequency_in_minutes")
 
     @crash_consistent_frequency_in_minutes.setter
-    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "crash_consistent_frequency_in_minutes", value)
 
     @property
@@ -6863,38 +6863,38 @@ class InMageAzureV2PolicyInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_history(self) -> Optional[pulumi.Input[int]]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
         return pulumi.get(self, "recovery_point_history")
 
     @recovery_point_history.setter
-    def recovery_point_history(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_history(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history", value)
 
     @property
     @pulumi.getter(name="recoveryPointThresholdInMinutes")
-    def recovery_point_threshold_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_threshold_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The recovery point threshold in minutes.
         """
         return pulumi.get(self, "recovery_point_threshold_in_minutes")
 
     @recovery_point_threshold_in_minutes.setter
-    def recovery_point_threshold_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_threshold_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_threshold_in_minutes", value)
 
 
 @pulumi.input_type
 class InMageDiskExclusionInputArgs:
     def __init__(__self__, *,
-                 disk_signature_options: Optional[pulumi.Input[List[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]] = None,
-                 volume_options: Optional[pulumi.Input[List[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]] = None):
+                 disk_signature_options: Optional[pulumi.Input[Sequence[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]] = None,
+                 volume_options: Optional[pulumi.Input[Sequence[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]] = None):
         """
         DiskExclusionInput when doing enable protection of virtual machine in InMage provider.
-        :param pulumi.Input[List[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]] disk_signature_options: The guest disk signature based option for disk exclusion.
-        :param pulumi.Input[List[pulumi.Input['InMageVolumeExclusionOptionsArgs']]] volume_options: The volume label based option for disk exclusion.
+        :param pulumi.Input[Sequence[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]] disk_signature_options: The guest disk signature based option for disk exclusion.
+        :param pulumi.Input[Sequence[pulumi.Input['InMageVolumeExclusionOptionsArgs']]] volume_options: The volume label based option for disk exclusion.
         """
         if disk_signature_options is not None:
             pulumi.set(__self__, "disk_signature_options", disk_signature_options)
@@ -6903,26 +6903,26 @@ class InMageDiskExclusionInputArgs:
 
     @property
     @pulumi.getter(name="diskSignatureOptions")
-    def disk_signature_options(self) -> Optional[pulumi.Input[List[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]]:
+    def disk_signature_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]]:
         """
         The guest disk signature based option for disk exclusion.
         """
         return pulumi.get(self, "disk_signature_options")
 
     @disk_signature_options.setter
-    def disk_signature_options(self, value: Optional[pulumi.Input[List[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]]):
+    def disk_signature_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]]):
         pulumi.set(self, "disk_signature_options", value)
 
     @property
     @pulumi.getter(name="volumeOptions")
-    def volume_options(self) -> Optional[pulumi.Input[List[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]]:
+    def volume_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]]:
         """
         The volume label based option for disk exclusion.
         """
         return pulumi.get(self, "volume_options")
 
     @volume_options.setter
-    def volume_options(self, value: Optional[pulumi.Input[List[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]]):
+    def volume_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]]):
         pulumi.set(self, "volume_options", value)
 
 
@@ -6960,7 +6960,7 @@ class InMageEnableProtectionInputArgs:
                  retention_drive: pulumi.Input[str],
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  disk_exclusion_input: Optional[pulumi.Input['InMageDiskExclusionInputArgs']] = None,
-                 disks_to_include: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  run_as_account_id: Optional[pulumi.Input[str]] = None,
                  vm_friendly_name: Optional[pulumi.Input[str]] = None):
@@ -6973,7 +6973,7 @@ class InMageEnableProtectionInputArgs:
         :param pulumi.Input[str] retention_drive: The retention drive to use on the MT.
         :param pulumi.Input[str] datastore_name: The target data store name.
         :param pulumi.Input['InMageDiskExclusionInputArgs'] disk_exclusion_input: The enable disk exclusion input.
-        :param pulumi.Input[List[pulumi.Input[str]]] disks_to_include: The disks to include list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] run_as_account_id: The CS account Id.
         :param pulumi.Input[str] vm_friendly_name: The Vm Name.
@@ -7082,14 +7082,14 @@ class InMageEnableProtectionInputArgs:
 
     @property
     @pulumi.getter(name="disksToInclude")
-    def disks_to_include(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def disks_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The disks to include list.
         """
         return pulumi.get(self, "disks_to_include")
 
     @disks_to_include.setter
-    def disks_to_include(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def disks_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "disks_to_include", value)
 
     @property
@@ -7133,17 +7133,17 @@ class InMageEnableProtectionInputArgs:
 class InMagePolicyInputArgs:
     def __init__(__self__, *,
                  multi_vm_sync_status: pulumi.Input[str],
-                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
+                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 recovery_point_history: Optional[pulumi.Input[float]] = None,
-                 recovery_point_threshold_in_minutes: Optional[pulumi.Input[float]] = None):
+                 recovery_point_history: Optional[pulumi.Input[int]] = None,
+                 recovery_point_threshold_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         VMWare Azure specific protection profile Input.
         :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-        :param pulumi.Input[float] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
-        :param pulumi.Input[float] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
-        :param pulumi.Input[float] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
+        :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param pulumi.Input[int] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
         pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
         if app_consistent_frequency_in_minutes is not None:
@@ -7169,14 +7169,14 @@ class InMagePolicyInputArgs:
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The app consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "app_consistent_frequency_in_minutes")
 
     @app_consistent_frequency_in_minutes.setter
-    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "app_consistent_frequency_in_minutes", value)
 
     @property
@@ -7193,26 +7193,26 @@ class InMagePolicyInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_history(self) -> Optional[pulumi.Input[int]]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
         return pulumi.get(self, "recovery_point_history")
 
     @recovery_point_history.setter
-    def recovery_point_history(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_history(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history", value)
 
     @property
     @pulumi.getter(name="recoveryPointThresholdInMinutes")
-    def recovery_point_threshold_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_threshold_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The recovery point threshold in minutes.
         """
         return pulumi.get(self, "recovery_point_threshold_in_minutes")
 
     @recovery_point_threshold_in_minutes.setter
-    def recovery_point_threshold_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_threshold_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_threshold_in_minutes", value)
 
 
@@ -7259,11 +7259,11 @@ class InMageVolumeExclusionOptionsArgs:
 @pulumi.input_type
 class InquiryInfoArgs:
     def __init__(__self__, *,
-                 inquiry_details: Optional[pulumi.Input[List[pulumi.Input['WorkloadInquiryDetailsArgs']]]] = None,
+                 inquiry_details: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInquiryDetailsArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         Details about inquired protectable items under a given container.
-        :param pulumi.Input[List[pulumi.Input['WorkloadInquiryDetailsArgs']]] inquiry_details: Inquiry Details which will have workload specific details.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadInquiryDetailsArgs']]] inquiry_details: Inquiry Details which will have workload specific details.
                For e.g. - For SQL and oracle this will contain different details.
         :param pulumi.Input[str] status: Inquiry Status for this container such as
                InProgress | Failed | Succeeded
@@ -7275,7 +7275,7 @@ class InquiryInfoArgs:
 
     @property
     @pulumi.getter(name="inquiryDetails")
-    def inquiry_details(self) -> Optional[pulumi.Input[List[pulumi.Input['WorkloadInquiryDetailsArgs']]]]:
+    def inquiry_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInquiryDetailsArgs']]]]:
         """
         Inquiry Details which will have workload specific details.
         For e.g. - For SQL and oracle this will contain different details.
@@ -7283,7 +7283,7 @@ class InquiryInfoArgs:
         return pulumi.get(self, "inquiry_details")
 
     @inquiry_details.setter
-    def inquiry_details(self, value: Optional[pulumi.Input[List[pulumi.Input['WorkloadInquiryDetailsArgs']]]]):
+    def inquiry_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInquiryDetailsArgs']]]]):
         pulumi.set(self, "inquiry_details", value)
 
     @property
@@ -7503,15 +7503,15 @@ class LongTermSchedulePolicyArgs:
 @pulumi.input_type
 class MABContainerHealthDetailsArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[float]] = None,
+                 code: Optional[pulumi.Input[int]] = None,
                  message: Optional[pulumi.Input[str]] = None,
-                 recommendations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  title: Optional[pulumi.Input[str]] = None):
         """
         MAB workload-specific Health Details.
-        :param pulumi.Input[float] code: Health Code
+        :param pulumi.Input[int] code: Health Code
         :param pulumi.Input[str] message: Health Message
-        :param pulumi.Input[List[pulumi.Input[str]]] recommendations: Health Recommended Actions
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] recommendations: Health Recommended Actions
         :param pulumi.Input[str] title: Health Title
         """
         if code is not None:
@@ -7525,14 +7525,14 @@ class MABContainerHealthDetailsArgs:
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[float]]:
+    def code(self) -> Optional[pulumi.Input[int]]:
         """
         Health Code
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[float]]):
+    def code(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "code", value)
 
     @property
@@ -7549,14 +7549,14 @@ class MABContainerHealthDetailsArgs:
 
     @property
     @pulumi.getter
-    def recommendations(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def recommendations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Health Recommended Actions
         """
         return pulumi.get(self, "recommendations")
 
     @recommendations.setter
-    def recommendations(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def recommendations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "recommendations", value)
 
     @property
@@ -7579,13 +7579,13 @@ class MabContainerArgs:
                  backup_management_type: Optional[pulumi.Input[str]] = None,
                  can_re_register: Optional[pulumi.Input[bool]] = None,
                  container_health_state: Optional[pulumi.Input[str]] = None,
-                 container_id: Optional[pulumi.Input[float]] = None,
+                 container_id: Optional[pulumi.Input[int]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['MabContainerExtendedInfoArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
-                 mab_container_health_details: Optional[pulumi.Input[List[pulumi.Input['MABContainerHealthDetailsArgs']]]] = None,
-                 protected_item_count: Optional[pulumi.Input[float]] = None,
+                 mab_container_health_details: Optional[pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgs']]]] = None,
+                 protected_item_count: Optional[pulumi.Input[int]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None):
         """
         Container with items backed up using MAB backup engine.
@@ -7593,7 +7593,7 @@ class MabContainerArgs:
         :param pulumi.Input[str] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[bool] can_re_register: Can the container be registered one more time.
         :param pulumi.Input[str] container_health_state: Health state of mab container.
-        :param pulumi.Input[float] container_id: ContainerID represents the container.
+        :param pulumi.Input[int] container_id: ContainerID represents the container.
         :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -7601,8 +7601,8 @@ class MabContainerArgs:
         :param pulumi.Input['MabContainerExtendedInfoArgs'] extended_info: Additional information for this container
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
-        :param pulumi.Input[List[pulumi.Input['MABContainerHealthDetailsArgs']]] mab_container_health_details: Health details on this mab container.
-        :param pulumi.Input[float] protected_item_count: Number of items backed up in this container.
+        :param pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgs']]] mab_container_health_details: Health details on this mab container.
+        :param pulumi.Input[int] protected_item_count: Number of items backed up in this container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         if agent_version is not None:
@@ -7680,14 +7680,14 @@ class MabContainerArgs:
 
     @property
     @pulumi.getter(name="containerId")
-    def container_id(self) -> Optional[pulumi.Input[float]]:
+    def container_id(self) -> Optional[pulumi.Input[int]]:
         """
         ContainerID represents the container.
         """
         return pulumi.get(self, "container_id")
 
     @container_id.setter
-    def container_id(self, value: Optional[pulumi.Input[float]]):
+    def container_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "container_id", value)
 
     @property
@@ -7743,26 +7743,26 @@ class MabContainerArgs:
 
     @property
     @pulumi.getter(name="mabContainerHealthDetails")
-    def mab_container_health_details(self) -> Optional[pulumi.Input[List[pulumi.Input['MABContainerHealthDetailsArgs']]]]:
+    def mab_container_health_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgs']]]]:
         """
         Health details on this mab container.
         """
         return pulumi.get(self, "mab_container_health_details")
 
     @mab_container_health_details.setter
-    def mab_container_health_details(self, value: Optional[pulumi.Input[List[pulumi.Input['MABContainerHealthDetailsArgs']]]]):
+    def mab_container_health_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgs']]]]):
         pulumi.set(self, "mab_container_health_details", value)
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[pulumi.Input[float]]:
+    def protected_item_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of items backed up in this container.
         """
         return pulumi.get(self, "protected_item_count")
 
     @protected_item_count.setter
-    def protected_item_count(self, value: Optional[pulumi.Input[float]]):
+    def protected_item_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_item_count", value)
 
     @property
@@ -7782,14 +7782,14 @@ class MabContainerArgs:
 class MabContainerExtendedInfoArgs:
     def __init__(__self__, *,
                  backup_item_type: Optional[pulumi.Input[str]] = None,
-                 backup_items: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 backup_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  last_backup_status: Optional[pulumi.Input[str]] = None,
                  last_refreshed_at: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None):
         """
         Additional information of the container.
         :param pulumi.Input[str] backup_item_type: Type of backup items associated with this container.
-        :param pulumi.Input[List[pulumi.Input[str]]] backup_items: List of backup items associated with this container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_items: List of backup items associated with this container.
         :param pulumi.Input[str] last_backup_status: Latest backup status of this container.
         :param pulumi.Input[str] last_refreshed_at: Time stamp when this container was refreshed.
         :param pulumi.Input[str] policy_name: Backup policy associated with this container.
@@ -7819,14 +7819,14 @@ class MabContainerExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="backupItems")
-    def backup_items(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def backup_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of backup items associated with this container.
         """
         return pulumi.get(self, "backup_items")
 
     @backup_items.setter
-    def backup_items(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def backup_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "backup_items", value)
 
     @property
@@ -7875,7 +7875,7 @@ class MabFileFolderProtectedItemArgs:
                  computer_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
-                 deferred_delete_sync_time_in_utc: Optional[pulumi.Input[float]] = None,
+                 deferred_delete_sync_time_in_utc: Optional[pulumi.Input[int]] = None,
                  deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
                  deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['MabFileFolderProtectedItemExtendedInfoArgs']] = None,
@@ -7898,7 +7898,7 @@ class MabFileFolderProtectedItemArgs:
         :param pulumi.Input[str] computer_name: Name of the computer associated with this backup item.
         :param pulumi.Input[str] container_name: Unique name of container
         :param pulumi.Input[str] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-        :param pulumi.Input[float] deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
+        :param pulumi.Input[int] deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param pulumi.Input['MabFileFolderProtectedItemExtendedInfoArgs'] extended_info: Additional information with this backup item.
@@ -8030,14 +8030,14 @@ class MabFileFolderProtectedItemArgs:
 
     @property
     @pulumi.getter(name="deferredDeleteSyncTimeInUTC")
-    def deferred_delete_sync_time_in_utc(self) -> Optional[pulumi.Input[float]]:
+    def deferred_delete_sync_time_in_utc(self) -> Optional[pulumi.Input[int]]:
         """
         Sync time for deferred deletion in UTC
         """
         return pulumi.get(self, "deferred_delete_sync_time_in_utc")
 
     @deferred_delete_sync_time_in_utc.setter
-    def deferred_delete_sync_time_in_utc(self, value: Optional[pulumi.Input[float]]):
+    def deferred_delete_sync_time_in_utc(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "deferred_delete_sync_time_in_utc", value)
 
     @property
@@ -8214,12 +8214,12 @@ class MabFileFolderProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
                  last_refreshed_at: Optional[pulumi.Input[str]] = None,
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None):
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
         """
         Additional information on the backed up item.
         :param pulumi.Input[str] last_refreshed_at: Last time when the agent data synced to service.
         :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available.
-        :param pulumi.Input[float] recovery_point_count: Number of backup copies associated with the backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of backup copies associated with the backup item.
         """
         if last_refreshed_at is not None:
             pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
@@ -8254,14 +8254,14 @@ class MabFileFolderProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of backup copies associated with the backup item.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
 
@@ -8269,13 +8269,13 @@ class MabFileFolderProtectedItemExtendedInfoArgs:
 class MabProtectionPolicyArgs:
     def __init__(__self__, *,
                  backup_management_type: Optional[pulumi.Input[str]] = None,
-                 protected_items_count: Optional[pulumi.Input[float]] = None,
+                 protected_items_count: Optional[pulumi.Input[int]] = None,
                  retention_policy: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]] = None,
                  schedule_policy: Optional[pulumi.Input[Union['LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs']]] = None):
         """
         The backup policy for the file or folder container.
         :param pulumi.Input[str] backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param pulumi.Input[float] protected_items_count: The number of items associated with this policy.
+        :param pulumi.Input[int] protected_items_count: The number of items associated with this policy.
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: The details specified in the Retention policy.
         :param pulumi.Input[Union['LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs']] schedule_policy: The schedule specified in the backup policy.
         """
@@ -8302,14 +8302,14 @@ class MabProtectionPolicyArgs:
 
     @property
     @pulumi.getter(name="protectedItemsCount")
-    def protected_items_count(self) -> Optional[pulumi.Input[float]]:
+    def protected_items_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of items associated with this policy.
         """
         return pulumi.get(self, "protected_items_count")
 
     @protected_items_count.setter
-    def protected_items_count(self, value: Optional[pulumi.Input[float]]):
+    def protected_items_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_items_count", value)
 
     @property
@@ -8344,14 +8344,14 @@ class MonthlyRetentionScheduleArgs:
                  retention_schedule_daily: Optional[pulumi.Input['DailyRetentionFormatArgs']] = None,
                  retention_schedule_format_type: Optional[pulumi.Input[str]] = None,
                  retention_schedule_weekly: Optional[pulumi.Input['WeeklyRetentionFormatArgs']] = None,
-                 retention_times: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The monthly retention schedule.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of the retention policy.
         :param pulumi.Input['DailyRetentionFormatArgs'] retention_schedule_daily: Daily retention format for the monthly retention policy.
         :param pulumi.Input[str] retention_schedule_format_type: Retention schedule format type for monthly retention policy.
         :param pulumi.Input['WeeklyRetentionFormatArgs'] retention_schedule_weekly: Weekly retention format for the monthly retention policy.
-        :param pulumi.Input[List[pulumi.Input[str]]] retention_times: Retention times of the retention policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: Retention times of the retention policy.
         """
         if retention_duration is not None:
             pulumi.set(__self__, "retention_duration", retention_duration)
@@ -8414,14 +8414,14 @@ class MonthlyRetentionScheduleArgs:
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def retention_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Retention times of the retention policy.
         """
         return pulumi.get(self, "retention_times")
 
     @retention_times.setter
-    def retention_times(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def retention_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "retention_times", value)
 
 
@@ -8621,13 +8621,13 @@ class RecoveryPlanA2AInputArgs:
 class RecoveryPlanActionArgs:
     def __init__(__self__, *,
                  action_name: pulumi.Input[str],
-                 failover_directions: pulumi.Input[List[pulumi.Input[str]]],
-                 failover_types: pulumi.Input[List[pulumi.Input[str]]]):
+                 failover_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 failover_types: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Recovery plan action details.
         :param pulumi.Input[str] action_name: The action name.
-        :param pulumi.Input[List[pulumi.Input[str]]] failover_directions: The list of failover directions.
-        :param pulumi.Input[List[pulumi.Input[str]]] failover_types: The list of failover types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] failover_directions: The list of failover directions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] failover_types: The list of failover types.
         """
         pulumi.set(__self__, "action_name", action_name)
         pulumi.set(__self__, "failover_directions", failover_directions)
@@ -8647,26 +8647,26 @@ class RecoveryPlanActionArgs:
 
     @property
     @pulumi.getter(name="failoverDirections")
-    def failover_directions(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def failover_directions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The list of failover directions.
         """
         return pulumi.get(self, "failover_directions")
 
     @failover_directions.setter
-    def failover_directions(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def failover_directions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "failover_directions", value)
 
     @property
     @pulumi.getter(name="failoverTypes")
-    def failover_types(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def failover_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The list of failover types.
         """
         return pulumi.get(self, "failover_types")
 
     @failover_types.setter
-    def failover_types(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def failover_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "failover_types", value)
 
 
@@ -8674,15 +8674,15 @@ class RecoveryPlanActionArgs:
 class RecoveryPlanGroupArgs:
     def __init__(__self__, *,
                  group_type: pulumi.Input[str],
-                 end_group_actions: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]] = None,
-                 replication_protected_items: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanProtectedItemArgs']]]] = None,
-                 start_group_actions: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]] = None):
+                 end_group_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]] = None,
+                 replication_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]]] = None,
+                 start_group_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]] = None):
         """
         Recovery plan group details.
         :param pulumi.Input[str] group_type: The group type.
-        :param pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]] end_group_actions: The end group actions.
-        :param pulumi.Input[List[pulumi.Input['RecoveryPlanProtectedItemArgs']]] replication_protected_items: The list of protected items.
-        :param pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]] start_group_actions: The start group actions.
+        :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]] end_group_actions: The end group actions.
+        :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]] replication_protected_items: The list of protected items.
+        :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]] start_group_actions: The start group actions.
         """
         pulumi.set(__self__, "group_type", group_type)
         if end_group_actions is not None:
@@ -8706,38 +8706,38 @@ class RecoveryPlanGroupArgs:
 
     @property
     @pulumi.getter(name="endGroupActions")
-    def end_group_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]]:
+    def end_group_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]]:
         """
         The end group actions.
         """
         return pulumi.get(self, "end_group_actions")
 
     @end_group_actions.setter
-    def end_group_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]]):
+    def end_group_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]]):
         pulumi.set(self, "end_group_actions", value)
 
     @property
     @pulumi.getter(name="replicationProtectedItems")
-    def replication_protected_items(self) -> Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanProtectedItemArgs']]]]:
+    def replication_protected_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]]]:
         """
         The list of protected items.
         """
         return pulumi.get(self, "replication_protected_items")
 
     @replication_protected_items.setter
-    def replication_protected_items(self, value: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanProtectedItemArgs']]]]):
+    def replication_protected_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]]]):
         pulumi.set(self, "replication_protected_items", value)
 
     @property
     @pulumi.getter(name="startGroupActions")
-    def start_group_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]]:
+    def start_group_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]]:
         """
         The start group actions.
         """
         return pulumi.get(self, "start_group_actions")
 
     @start_group_actions.setter
-    def start_group_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]]):
+    def start_group_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]]):
         pulumi.set(self, "start_group_actions", value)
 
 
@@ -8784,11 +8784,11 @@ class RecoveryPlanProtectedItemArgs:
 @pulumi.input_type
 class RetentionDurationArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  duration_type: Optional[pulumi.Input[str]] = None):
         """
         Retention duration.
-        :param pulumi.Input[float] count: Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
+        :param pulumi.Input[int] count: Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
                   For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
         :param pulumi.Input[str] duration_type: The retention duration type of the retention policy.
         """
@@ -8799,7 +8799,7 @@ class RetentionDurationArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
            For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
@@ -8807,7 +8807,7 @@ class RetentionDurationArgs:
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
@@ -8891,17 +8891,17 @@ class SimpleRetentionPolicyArgs:
 class SimpleSchedulePolicyArgs:
     def __init__(__self__, *,
                  schedule_policy_type: Optional[pulumi.Input[str]] = None,
-                 schedule_run_days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 schedule_run_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schedule_run_frequency: Optional[pulumi.Input[str]] = None,
-                 schedule_run_times: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 schedule_weekly_frequency: Optional[pulumi.Input[float]] = None):
+                 schedule_run_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 schedule_weekly_frequency: Optional[pulumi.Input[int]] = None):
         """
         Simple policy schedule.
         :param pulumi.Input[str] schedule_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param pulumi.Input[List[pulumi.Input[str]]] schedule_run_days: This list is the days of the week when the schedule runs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_days: This list is the days of the week when the schedule runs.
         :param pulumi.Input[str] schedule_run_frequency: Defines the frequency interval (daily or weekly) for the schedule policy.
-        :param pulumi.Input[List[pulumi.Input[str]]] schedule_run_times: List of times, during a day, when the schedule runs.
-        :param pulumi.Input[float] schedule_weekly_frequency: The number of times per week the schedule runs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_times: List of times, during a day, when the schedule runs.
+        :param pulumi.Input[int] schedule_weekly_frequency: The number of times per week the schedule runs.
         """
         if schedule_policy_type is not None:
             pulumi.set(__self__, "schedule_policy_type", 'SimpleSchedulePolicy')
@@ -8928,14 +8928,14 @@ class SimpleSchedulePolicyArgs:
 
     @property
     @pulumi.getter(name="scheduleRunDays")
-    def schedule_run_days(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def schedule_run_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         This list is the days of the week when the schedule runs.
         """
         return pulumi.get(self, "schedule_run_days")
 
     @schedule_run_days.setter
-    def schedule_run_days(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def schedule_run_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "schedule_run_days", value)
 
     @property
@@ -8952,26 +8952,26 @@ class SimpleSchedulePolicyArgs:
 
     @property
     @pulumi.getter(name="scheduleRunTimes")
-    def schedule_run_times(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def schedule_run_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of times, during a day, when the schedule runs.
         """
         return pulumi.get(self, "schedule_run_times")
 
     @schedule_run_times.setter
-    def schedule_run_times(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def schedule_run_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "schedule_run_times", value)
 
     @property
     @pulumi.getter(name="scheduleWeeklyFrequency")
-    def schedule_weekly_frequency(self) -> Optional[pulumi.Input[float]]:
+    def schedule_weekly_frequency(self) -> Optional[pulumi.Input[int]]:
         """
         The number of times per week the schedule runs.
         """
         return pulumi.get(self, "schedule_weekly_frequency")
 
     @schedule_weekly_frequency.setter
-    def schedule_weekly_frequency(self, value: Optional[pulumi.Input[float]]):
+    def schedule_weekly_frequency(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "schedule_weekly_frequency", value)
 
 
@@ -9224,7 +9224,7 @@ class VMwareCbtDiskInputArgs:
 class VMwareCbtEnableMigrationInputArgs:
     def __init__(__self__, *,
                  data_mover_run_as_account_id: pulumi.Input[str],
-                 disks_to_include: pulumi.Input[List[pulumi.Input['VMwareCbtDiskInputArgs']]],
+                 disks_to_include: pulumi.Input[Sequence[pulumi.Input['VMwareCbtDiskInputArgs']]],
                  instance_type: pulumi.Input[str],
                  snapshot_run_as_account_id: pulumi.Input[str],
                  target_network_id: pulumi.Input[str],
@@ -9239,7 +9239,7 @@ class VMwareCbtEnableMigrationInputArgs:
         """
         VMwareCbt specific enable migration input.
         :param pulumi.Input[str] data_mover_run_as_account_id: The data mover RunAs account Id.
-        :param pulumi.Input[List[pulumi.Input['VMwareCbtDiskInputArgs']]] disks_to_include: The disks to include list.
+        :param pulumi.Input[Sequence[pulumi.Input['VMwareCbtDiskInputArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] snapshot_run_as_account_id: The snapshot RunAs account Id.
         :param pulumi.Input[str] target_network_id: The target network ARM Id.
@@ -9286,14 +9286,14 @@ class VMwareCbtEnableMigrationInputArgs:
 
     @property
     @pulumi.getter(name="disksToInclude")
-    def disks_to_include(self) -> pulumi.Input[List[pulumi.Input['VMwareCbtDiskInputArgs']]]:
+    def disks_to_include(self) -> pulumi.Input[Sequence[pulumi.Input['VMwareCbtDiskInputArgs']]]:
         """
         The disks to include list.
         """
         return pulumi.get(self, "disks_to_include")
 
     @disks_to_include.setter
-    def disks_to_include(self, value: pulumi.Input[List[pulumi.Input['VMwareCbtDiskInputArgs']]]):
+    def disks_to_include(self, value: pulumi.Input[Sequence[pulumi.Input['VMwareCbtDiskInputArgs']]]):
         pulumi.set(self, "disks_to_include", value)
 
     @property
@@ -9432,16 +9432,16 @@ class VMwareCbtEnableMigrationInputArgs:
 @pulumi.input_type
 class VMwareCbtPolicyCreationInputArgs:
     def __init__(__self__, *,
-                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
-                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
+                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 recovery_point_history_in_minutes: Optional[pulumi.Input[float]] = None):
+                 recovery_point_history_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         VMware Cbt policy creation input.
-        :param pulumi.Input[float] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
-        :param pulumi.Input[float] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
-        :param pulumi.Input[float] recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
+        :param pulumi.Input[int] recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
         if app_consistent_frequency_in_minutes is not None:
             pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
@@ -9454,26 +9454,26 @@ class VMwareCbtPolicyCreationInputArgs:
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The app consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "app_consistent_frequency_in_minutes")
 
     @app_consistent_frequency_in_minutes.setter
-    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "app_consistent_frequency_in_minutes", value)
 
     @property
     @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The crash consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "crash_consistent_frequency_in_minutes")
 
     @crash_consistent_frequency_in_minutes.setter
-    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "crash_consistent_frequency_in_minutes", value)
 
     @property
@@ -9490,14 +9490,14 @@ class VMwareCbtPolicyCreationInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPointHistoryInMinutes")
-    def recovery_point_history_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_history_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
         return pulumi.get(self, "recovery_point_history_in_minutes")
 
     @recovery_point_history_in_minutes.setter
-    def recovery_point_history_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_history_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history_in_minutes", value)
 
 
@@ -9606,12 +9606,12 @@ class VmmToVmmCreateNetworkMappingInputArgs:
 @pulumi.input_type
 class WeeklyRetentionFormatArgs:
     def __init__(__self__, *,
-                 days_of_the_week: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 weeks_of_the_month: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 days_of_the_week: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 weeks_of_the_month: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Weekly retention format.
-        :param pulumi.Input[List[pulumi.Input[str]]] days_of_the_week: List of days of the week.
-        :param pulumi.Input[List[pulumi.Input[str]]] weeks_of_the_month: List of weeks of the month.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_the_week: List of days of the week.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_the_month: List of weeks of the month.
         """
         if days_of_the_week is not None:
             pulumi.set(__self__, "days_of_the_week", days_of_the_week)
@@ -9620,40 +9620,40 @@ class WeeklyRetentionFormatArgs:
 
     @property
     @pulumi.getter(name="daysOfTheWeek")
-    def days_of_the_week(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def days_of_the_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of days of the week.
         """
         return pulumi.get(self, "days_of_the_week")
 
     @days_of_the_week.setter
-    def days_of_the_week(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def days_of_the_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "days_of_the_week", value)
 
     @property
     @pulumi.getter(name="weeksOfTheMonth")
-    def weeks_of_the_month(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def weeks_of_the_month(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of weeks of the month.
         """
         return pulumi.get(self, "weeks_of_the_month")
 
     @weeks_of_the_month.setter
-    def weeks_of_the_month(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def weeks_of_the_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weeks_of_the_month", value)
 
 
 @pulumi.input_type
 class WeeklyRetentionScheduleArgs:
     def __init__(__self__, *,
-                 days_of_the_week: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 days_of_the_week: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None,
-                 retention_times: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Weekly retention schedule.
-        :param pulumi.Input[List[pulumi.Input[str]]] days_of_the_week: List of the days of the week for the weekly retention policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_the_week: List of the days of the week for the weekly retention policy.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of retention policy.
-        :param pulumi.Input[List[pulumi.Input[str]]] retention_times: Retention times of the retention policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: Retention times of the retention policy.
         """
         if days_of_the_week is not None:
             pulumi.set(__self__, "days_of_the_week", days_of_the_week)
@@ -9664,14 +9664,14 @@ class WeeklyRetentionScheduleArgs:
 
     @property
     @pulumi.getter(name="daysOfTheWeek")
-    def days_of_the_week(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def days_of_the_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of the days of the week for the weekly retention policy.
         """
         return pulumi.get(self, "days_of_the_week")
 
     @days_of_the_week.setter
-    def days_of_the_week(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def days_of_the_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "days_of_the_week", value)
 
     @property
@@ -9688,14 +9688,14 @@ class WeeklyRetentionScheduleArgs:
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def retention_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Retention times of the retention policy.
         """
         return pulumi.get(self, "retention_times")
 
     @retention_times.setter
-    def retention_times(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def retention_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "retention_times", value)
 
 
@@ -9703,12 +9703,12 @@ class WeeklyRetentionScheduleArgs:
 class WorkloadInquiryDetailsArgs:
     def __init__(__self__, *,
                  inquiry_validation: Optional[pulumi.Input['InquiryValidationArgs']] = None,
-                 item_count: Optional[pulumi.Input[float]] = None,
+                 item_count: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Details of an inquired protectable item.
         :param pulumi.Input['InquiryValidationArgs'] inquiry_validation: Inquiry validation such as permissions and other backup validations.
-        :param pulumi.Input[float] item_count: Contains the protectable item Count inside this Container.
+        :param pulumi.Input[int] item_count: Contains the protectable item Count inside this Container.
         :param pulumi.Input[str] type: Type of the Workload such as SQL, Oracle etc.
         """
         if inquiry_validation is not None:
@@ -9732,14 +9732,14 @@ class WorkloadInquiryDetailsArgs:
 
     @property
     @pulumi.getter(name="itemCount")
-    def item_count(self) -> Optional[pulumi.Input[float]]:
+    def item_count(self) -> Optional[pulumi.Input[int]]:
         """
         Contains the protectable item Count inside this Container.
         """
         return pulumi.get(self, "item_count")
 
     @item_count.setter
-    def item_count(self, value: Optional[pulumi.Input[float]]):
+    def item_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "item_count", value)
 
     @property
@@ -9758,20 +9758,20 @@ class WorkloadInquiryDetailsArgs:
 @pulumi.input_type
 class YearlyRetentionScheduleArgs:
     def __init__(__self__, *,
-                 months_of_year: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 months_of_year: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None,
                  retention_schedule_daily: Optional[pulumi.Input['DailyRetentionFormatArgs']] = None,
                  retention_schedule_format_type: Optional[pulumi.Input[str]] = None,
                  retention_schedule_weekly: Optional[pulumi.Input['WeeklyRetentionFormatArgs']] = None,
-                 retention_times: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Yearly retention schedule.
-        :param pulumi.Input[List[pulumi.Input[str]]] months_of_year: List of the months of year for the yearly retention policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] months_of_year: List of the months of year for the yearly retention policy.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration for the retention policy.
         :param pulumi.Input['DailyRetentionFormatArgs'] retention_schedule_daily: Daily retention format for the yearly retention policy.
         :param pulumi.Input[str] retention_schedule_format_type: Retention schedule format for the yearly retention policy.
         :param pulumi.Input['WeeklyRetentionFormatArgs'] retention_schedule_weekly: Weekly retention format for the yearly retention policy.
-        :param pulumi.Input[List[pulumi.Input[str]]] retention_times: Retention times for the retention policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: Retention times for the retention policy.
         """
         if months_of_year is not None:
             pulumi.set(__self__, "months_of_year", months_of_year)
@@ -9788,14 +9788,14 @@ class YearlyRetentionScheduleArgs:
 
     @property
     @pulumi.getter(name="monthsOfYear")
-    def months_of_year(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def months_of_year(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of the months of year for the yearly retention policy.
         """
         return pulumi.get(self, "months_of_year")
 
     @months_of_year.setter
-    def months_of_year(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def months_of_year(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "months_of_year", value)
 
     @property
@@ -9848,14 +9848,14 @@ class YearlyRetentionScheduleArgs:
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def retention_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Retention times for the retention policy.
         """
         return pulumi.get(self, "retention_times")
 
     @retention_times.setter
-    def retention_times(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def retention_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "retention_times", value)
 
 

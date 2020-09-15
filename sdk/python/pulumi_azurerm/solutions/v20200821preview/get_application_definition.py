@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -87,7 +87,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[List['outputs.ApplicationDefinitionArtifactResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ApplicationDefinitionArtifactResponse']]:
         """
         The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         """
@@ -95,7 +95,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[List['outputs.ApplicationAuthorizationResponse']]:
+    def authorizations(self) -> Optional[Sequence['outputs.ApplicationAuthorizationResponse']]:
         """
         The managed application provider authorizations.
         """
@@ -215,7 +215,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def policies(self) -> Optional[List['outputs.ApplicationPolicyResponse']]:
+    def policies(self) -> Optional[Sequence['outputs.ApplicationPolicyResponse']]:
         """
         The managed application provider policies.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -21,14 +21,14 @@ class DeepCreatedOriginResponse(dict):
     def __init__(__self__, *,
                  host_name: str,
                  name: str,
-                 http_port: Optional[float] = None,
-                 https_port: Optional[float] = None):
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None):
         """
         Deep created origins within a CDN endpoint.
         :param str host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
         :param str name: Origin name
-        :param float http_port: The value of the HTTP port. Must be between 1 and 65535
-        :param float https_port: The value of the HTTPS port. Must be between 1 and 65535
+        :param int http_port: The value of the HTTP port. Must be between 1 and 65535
+        :param int https_port: The value of the HTTPS port. Must be between 1 and 65535
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "name", name)
@@ -55,7 +55,7 @@ class DeepCreatedOriginResponse(dict):
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[float]:
+    def http_port(self) -> Optional[int]:
         """
         The value of the HTTP port. Must be between 1 and 65535
         """
@@ -63,7 +63,7 @@ class DeepCreatedOriginResponse(dict):
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[float]:
+    def https_port(self) -> Optional[int]:
         """
         The value of the HTTPS port. Must be between 1 and 65535
         """

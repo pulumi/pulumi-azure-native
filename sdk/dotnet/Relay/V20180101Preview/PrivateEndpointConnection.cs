@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Relay.V20180101Preview
         /// Properties of the private endpoint object.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponseResult?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Approval state of the private link connection.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStateResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the private endpoint connection.

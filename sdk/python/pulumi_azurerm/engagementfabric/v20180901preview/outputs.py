@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -21,12 +21,12 @@ class ChannelTypeDescriptionResponseResult(dict):
     """
     def __init__(__self__, *,
                  channel_description: Optional[str] = None,
-                 channel_functions: Optional[List[str]] = None,
+                 channel_functions: Optional[Sequence[str]] = None,
                  channel_type: Optional[str] = None):
         """
         EngagementFabric channel description
         :param str channel_description: Text description for the channel
-        :param List[str] channel_functions: All the available functions for the channel
+        :param Sequence[str] channel_functions: All the available functions for the channel
         :param str channel_type: Channel type
         """
         if channel_description is not None:
@@ -46,7 +46,7 @@ class ChannelTypeDescriptionResponseResult(dict):
 
     @property
     @pulumi.getter(name="channelFunctions")
-    def channel_functions(self) -> Optional[List[str]]:
+    def channel_functions(self) -> Optional[Sequence[str]]:
         """
         All the available functions for the channel
         """

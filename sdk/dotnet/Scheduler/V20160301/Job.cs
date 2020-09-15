@@ -21,7 +21,7 @@ namespace Pulumi.AzureRM.Scheduler.V20160301
         /// Gets or sets the job properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.JobPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.JobPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets the job resource type.

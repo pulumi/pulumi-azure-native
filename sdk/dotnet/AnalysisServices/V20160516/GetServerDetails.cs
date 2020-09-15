@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
         /// <summary>
         /// A collection of AS server administrators
         /// </summary>
-        public readonly Outputs.ServerAdministratorsResponseResult? AsAdministrators;
+        public readonly Outputs.ServerAdministratorsResponse? AsAdministrators;
         /// <summary>
         /// The container URI of backup blob.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
         /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponseResult Sku;
+        public readonly Outputs.ResourceSkuResponse Sku;
         /// <summary>
         /// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
 
         [OutputConstructor]
         private GetServerDetailsResult(
-            Outputs.ServerAdministratorsResponseResult? asAdministrators,
+            Outputs.ServerAdministratorsResponse? asAdministrators,
 
             string? backupBlobContainerUri,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
 
             string serverFullName,
 
-            Outputs.ResourceSkuResponseResult sku,
+            Outputs.ResourceSkuResponse sku,
 
             string state,
 

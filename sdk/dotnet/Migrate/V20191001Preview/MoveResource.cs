@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001Preview
         /// Defines the move resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MoveResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.MoveResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

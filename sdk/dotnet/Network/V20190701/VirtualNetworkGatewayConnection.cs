@@ -72,13 +72,13 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// The IPSec Policies to be considered by this connection.
         /// </summary>
         [Output("ipsecPolicies")]
-        public Output<ImmutableArray<Outputs.IpsecPolicyResponseResult>> IpsecPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IpsecPolicyResponse>> IpsecPolicies { get; private set; } = null!;
 
         /// <summary>
         /// The reference to local network gateway resource.
         /// </summary>
         [Output("localNetworkGateway2")]
-        public Output<Outputs.LocalNetworkGatewayResponseResult?> LocalNetworkGateway2 { get; private set; } = null!;
+        public Output<Outputs.LocalNetworkGatewayResponse?> LocalNetworkGateway2 { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// The reference to peerings resource.
         /// </summary>
         [Output("peer")]
-        public Output<Outputs.SubResourceResponseResult?> Peer { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> Peer { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the virtual network gateway connection resource.
@@ -132,13 +132,13 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// The Traffic Selector Policies to be considered by this connection.
         /// </summary>
         [Output("trafficSelectorPolicies")]
-        public Output<ImmutableArray<Outputs.TrafficSelectorPolicyResponseResult>> TrafficSelectorPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TrafficSelectorPolicyResponse>> TrafficSelectorPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Collection of all tunnels' connection health status.
         /// </summary>
         [Output("tunnelConnectionStatus")]
-        public Output<ImmutableArray<Outputs.TunnelConnectionHealthResponseResult>> TunnelConnectionStatus { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TunnelConnectionHealthResponse>> TunnelConnectionStatus { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -156,13 +156,13 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// The reference to virtual network gateway resource.
         /// </summary>
         [Output("virtualNetworkGateway1")]
-        public Output<Outputs.VirtualNetworkGatewayResponseResult> VirtualNetworkGateway1 { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkGatewayResponse> VirtualNetworkGateway1 { get; private set; } = null!;
 
         /// <summary>
         /// The reference to virtual network gateway resource.
         /// </summary>
         [Output("virtualNetworkGateway2")]
-        public Output<Outputs.VirtualNetworkGatewayResponseResult?> VirtualNetworkGateway2 { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkGatewayResponse?> VirtualNetworkGateway2 { get; private set; } = null!;
 
 
         /// <summary>

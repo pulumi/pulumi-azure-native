@@ -46,11 +46,11 @@ namespace Pulumi.AzureRM.Insights.V20191017Preview
         /// <summary>
         /// Workbook galleries supported by the template.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WorkbookTemplateGalleryResponseResult> Galleries;
+        public readonly ImmutableArray<Outputs.WorkbookTemplateGalleryResponse> Galleries;
         /// <summary>
         /// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponseResult>>? Localized;
+        public readonly ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponse>>? Localized;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -80,9 +80,9 @@ namespace Pulumi.AzureRM.Insights.V20191017Preview
         private GetWorkbookTemplateResult(
             string? author,
 
-            ImmutableArray<Outputs.WorkbookTemplateGalleryResponseResult> galleries,
+            ImmutableArray<Outputs.WorkbookTemplateGalleryResponse> galleries,
 
-            ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponseResult>>? localized,
+            ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponse>>? localized,
 
             string location,
 

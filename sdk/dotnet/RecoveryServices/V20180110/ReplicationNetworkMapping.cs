@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         /// The Network Mapping Properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NetworkMappingPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.NetworkMappingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource Type

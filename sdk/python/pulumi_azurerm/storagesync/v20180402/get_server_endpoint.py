@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -50,8 +50,8 @@ class GetServerEndpointResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volume_free_space_percent and not isinstance(volume_free_space_percent, float):
-            raise TypeError("Expected argument 'volume_free_space_percent' to be a float")
+        if volume_free_space_percent and not isinstance(volume_free_space_percent, int):
+            raise TypeError("Expected argument 'volume_free_space_percent' to be a int")
         pulumi.set(__self__, "volume_free_space_percent", volume_free_space_percent)
 
     @property
@@ -136,7 +136,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="volumeFreeSpacePercent")
-    def volume_free_space_percent(self) -> Optional[float]:
+    def volume_free_space_percent(self) -> Optional[int]:
         """
         Level of free space to be maintained by Cloud Tiering if it is enabled.
         """

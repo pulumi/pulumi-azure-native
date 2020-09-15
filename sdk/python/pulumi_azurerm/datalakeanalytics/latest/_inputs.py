@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -114,15 +114,15 @@ class CreateComputePolicyWithAccountParametersArgs:
                  name: pulumi.Input[str],
                  object_id: pulumi.Input[str],
                  object_type: pulumi.Input[str],
-                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[float]] = None,
-                 min_priority_per_job: Optional[pulumi.Input[float]] = None):
+                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[int]] = None,
+                 min_priority_per_job: Optional[pulumi.Input[int]] = None):
         """
         The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
         :param pulumi.Input[str] name: The unique name of the compute policy to create.
         :param pulumi.Input[str] object_id: The AAD object identifier for the entity to create a policy for.
         :param pulumi.Input[str] object_type: The type of AAD object the object identifier refers to.
-        :param pulumi.Input[float] max_degree_of_parallelism_per_job: The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-        :param pulumi.Input[float] min_priority_per_job: The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
+        :param pulumi.Input[int] max_degree_of_parallelism_per_job: The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+        :param pulumi.Input[int] min_priority_per_job: The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "object_id", object_id)
@@ -170,26 +170,26 @@ class CreateComputePolicyWithAccountParametersArgs:
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> Optional[pulumi.Input[float]]:
+    def max_degree_of_parallelism_per_job(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
         """
         return pulumi.get(self, "max_degree_of_parallelism_per_job")
 
     @max_degree_of_parallelism_per_job.setter
-    def max_degree_of_parallelism_per_job(self, value: Optional[pulumi.Input[float]]):
+    def max_degree_of_parallelism_per_job(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_degree_of_parallelism_per_job", value)
 
     @property
     @pulumi.getter(name="minPriorityPerJob")
-    def min_priority_per_job(self) -> Optional[pulumi.Input[float]]:
+    def min_priority_per_job(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
         """
         return pulumi.get(self, "min_priority_per_job")
 
     @min_priority_per_job.setter
-    def min_priority_per_job(self, value: Optional[pulumi.Input[float]]):
+    def min_priority_per_job(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_priority_per_job", value)
 
 

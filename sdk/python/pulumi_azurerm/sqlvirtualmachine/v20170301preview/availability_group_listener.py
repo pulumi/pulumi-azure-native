@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,8 +20,8 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                  availability_group_listener_name: Optional[pulumi.Input[str]] = None,
                  availability_group_name: Optional[pulumi.Input[str]] = None,
                  create_default_availability_group_if_not_exist: Optional[pulumi.Input[bool]] = None,
-                 load_balancer_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerConfigurationArgs']]]]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 load_balancer_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerConfigurationArgs']]]]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -35,8 +35,8 @@ class AvailabilityGroupListener(pulumi.CustomResource):
         :param pulumi.Input[str] availability_group_listener_name: Name of the availability group listener.
         :param pulumi.Input[str] availability_group_name: Name of the availability group.
         :param pulumi.Input[bool] create_default_availability_group_if_not_exist: Create a default availability group if it does not exist.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerConfigurationArgs']]]] load_balancer_configurations: List of load balancer configurations for an availability group listener.
-        :param pulumi.Input[float] port: Listener port.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerConfigurationArgs']]]] load_balancer_configurations: List of load balancer configurations for an availability group listener.
+        :param pulumi.Input[int] port: Listener port.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] sql_virtual_machine_group_name: Name of the SQL virtual machine group.
         """
@@ -115,7 +115,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerConfigurations")
-    def load_balancer_configurations(self) -> pulumi.Output[Optional[List['outputs.LoadBalancerConfigurationResponse']]]:
+    def load_balancer_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerConfigurationResponse']]]:
         """
         List of load balancer configurations for an availability group listener.
         """
@@ -131,7 +131,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[Optional[float]]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         Listener port.
         """

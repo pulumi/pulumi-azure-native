@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -75,8 +75,8 @@ class GetVirtualHubResult:
         if virtual_hub_route_table_v2s and not isinstance(virtual_hub_route_table_v2s, list):
             raise TypeError("Expected argument 'virtual_hub_route_table_v2s' to be a list")
         pulumi.set(__self__, "virtual_hub_route_table_v2s", virtual_hub_route_table_v2s)
-        if virtual_router_asn and not isinstance(virtual_router_asn, float):
-            raise TypeError("Expected argument 'virtual_router_asn' to be a float")
+        if virtual_router_asn and not isinstance(virtual_router_asn, int):
+            raise TypeError("Expected argument 'virtual_router_asn' to be a int")
         pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
         if virtual_router_ips and not isinstance(virtual_router_ips, list):
             raise TypeError("Expected argument 'virtual_router_ips' to be a list")
@@ -106,7 +106,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="bgpConnections")
-    def bgp_connections(self) -> List['outputs.SubResourceResponse']:
+    def bgp_connections(self) -> Sequence['outputs.SubResourceResponse']:
         """
         List of references to Bgp Connections.
         """
@@ -130,7 +130,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.SubResourceResponse']:
+    def ip_configurations(self) -> Sequence['outputs.SubResourceResponse']:
         """
         List of references to IpConfigurations.
         """
@@ -226,7 +226,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="virtualHubRouteTableV2s")
-    def virtual_hub_route_table_v2s(self) -> Optional[List['outputs.VirtualHubRouteTableV2Response']]:
+    def virtual_hub_route_table_v2s(self) -> Optional[Sequence['outputs.VirtualHubRouteTableV2Response']]:
         """
         List of all virtual hub route table v2s associated with this VirtualHub.
         """
@@ -234,7 +234,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="virtualRouterAsn")
-    def virtual_router_asn(self) -> Optional[float]:
+    def virtual_router_asn(self) -> Optional[int]:
         """
         VirtualRouter ASN.
         """
@@ -242,7 +242,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="virtualRouterIps")
-    def virtual_router_ips(self) -> Optional[List[str]]:
+    def virtual_router_ips(self) -> Optional[Sequence[str]]:
         """
         VirtualRouter IPs.
         """

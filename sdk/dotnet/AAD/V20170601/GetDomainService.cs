@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Aad.V20170601
         /// <summary>
         /// DomainSecurity Settings
         /// </summary>
-        public readonly Outputs.DomainSecuritySettingsResponseResult? DomainSecuritySettings;
+        public readonly Outputs.DomainSecuritySettingsResponse? DomainSecuritySettings;
         /// <summary>
         /// Resource etag
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Aad.V20170601
         /// <summary>
         /// List of Domain Health Alerts
         /// </summary>
-        public readonly ImmutableArray<Outputs.HealthAlertResponseResult> HealthAlerts;
+        public readonly ImmutableArray<Outputs.HealthAlertResponse> HealthAlerts;
         /// <summary>
         /// Last domain evaluation run DateTime
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Aad.V20170601
         /// <summary>
         /// List of Domain Health Monitors
         /// </summary>
-        public readonly ImmutableArray<Outputs.HealthMonitorResponseResult> HealthMonitors;
+        public readonly ImmutableArray<Outputs.HealthMonitorResponse> HealthMonitors;
         /// <summary>
         /// Secure LDAP Settings
         /// </summary>
-        public readonly Outputs.LdapsSettingsResponseResult? LdapsSettings;
+        public readonly Outputs.LdapsSettingsResponse? LdapsSettings;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Aad.V20170601
         /// <summary>
         /// Notification Settings
         /// </summary>
-        public readonly Outputs.NotificationSettingsResponseResult? NotificationSettings;
+        public readonly Outputs.NotificationSettingsResponse? NotificationSettings;
         /// <summary>
         /// the current deployment or provisioning state, which only appears in the response.
         /// </summary>
@@ -122,25 +122,25 @@ namespace Pulumi.AzureRM.Aad.V20170601
 
             string? domainName,
 
-            Outputs.DomainSecuritySettingsResponseResult? domainSecuritySettings,
+            Outputs.DomainSecuritySettingsResponse? domainSecuritySettings,
 
             string? etag,
 
             string? filteredSync,
 
-            ImmutableArray<Outputs.HealthAlertResponseResult> healthAlerts,
+            ImmutableArray<Outputs.HealthAlertResponse> healthAlerts,
 
             string healthLastEvaluated,
 
-            ImmutableArray<Outputs.HealthMonitorResponseResult> healthMonitors,
+            ImmutableArray<Outputs.HealthMonitorResponse> healthMonitors,
 
-            Outputs.LdapsSettingsResponseResult? ldapsSettings,
+            Outputs.LdapsSettingsResponse? ldapsSettings,
 
             string? location,
 
             string name,
 
-            Outputs.NotificationSettingsResponseResult? notificationSettings,
+            Outputs.NotificationSettingsResponse? notificationSettings,
 
             string provisioningState,
 

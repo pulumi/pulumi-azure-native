@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// A list of ids of the vendor skus offered by the vendor.
         /// </summary>
         [Output("skus")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> Skus { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> Skus { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

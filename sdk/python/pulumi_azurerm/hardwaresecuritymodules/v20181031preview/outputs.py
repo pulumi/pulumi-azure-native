@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -82,10 +82,10 @@ class NetworkInterfaceResponse(dict):
 @pulumi.output_type
 class NetworkProfileResponse(dict):
     def __init__(__self__, *,
-                 network_interfaces: Optional[List['outputs.NetworkInterfaceResponse']] = None,
+                 network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
                  subnet: Optional['outputs.ApiEntityReferenceResponse'] = None):
         """
-        :param List['NetworkInterfaceResponseArgs'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
+        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
         :param 'ApiEntityReferenceResponseArgs' subnet: Specifies the identifier of the subnet.
         """
         if network_interfaces is not None:
@@ -95,7 +95,7 @@ class NetworkProfileResponse(dict):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[List['outputs.NetworkInterfaceResponse']]:
+    def network_interfaces(self) -> Optional[Sequence['outputs.NetworkInterfaceResponse']]:
         """
         Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
         """

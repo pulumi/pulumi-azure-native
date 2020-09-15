@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class PrivateCloud(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_sources: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]]] = None,
+                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]]] = None,
                  internet: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_cluster: Optional[pulumi.Input[pulumi.InputType['ManagementClusterArgs']]] = None,
@@ -36,7 +36,7 @@ class PrivateCloud(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]] identity_sources: vCenter Single Sign On Identity Sources
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]] identity_sources: vCenter Single Sign On Identity Sources
         :param pulumi.Input[str] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['ManagementClusterArgs']] management_cluster: The default cluster used for management
@@ -142,7 +142,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identitySources")
-    def identity_sources(self) -> pulumi.Output[Optional[List['outputs.IdentitySourceResponse']]]:
+    def identity_sources(self) -> pulumi.Output[Optional[Sequence['outputs.IdentitySourceResponse']]]:
         """
         vCenter Single Sign On Identity Sources
         """

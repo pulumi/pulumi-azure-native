@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,14 +30,14 @@ class CircuitResponse(dict):
                  express_route_private_peering_id: str,
                  primary_subnet: str,
                  secondary_subnet: str,
-                 authorizations: Optional[List['outputs.ExpressRouteAuthorizationResponse']] = None):
+                 authorizations: Optional[Sequence['outputs.ExpressRouteAuthorizationResponse']] = None):
         """
         An ExpressRoute Circuit
         :param str express_route_id: Identifier of the ExpressRoute (Microsoft Colo only)
         :param str express_route_private_peering_id: ExpressRoute private peering identifier
         :param str primary_subnet: CIDR of primary subnet
         :param str secondary_subnet: CIDR of secondary subnet
-        :param List['ExpressRouteAuthorizationResponseArgs'] authorizations: Authorizations for the ExpressRoute (Microsoft Colo only)
+        :param Sequence['ExpressRouteAuthorizationResponseArgs'] authorizations: Authorizations for the ExpressRoute (Microsoft Colo only)
         """
         pulumi.set(__self__, "express_route_id", express_route_id)
         pulumi.set(__self__, "express_route_private_peering_id", express_route_private_peering_id)
@@ -80,7 +80,7 @@ class CircuitResponse(dict):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[List['outputs.ExpressRouteAuthorizationResponse']]:
+    def authorizations(self) -> Optional[Sequence['outputs.ExpressRouteAuthorizationResponse']]:
         """
         Authorizations for the ExpressRoute (Microsoft Colo only)
         """
@@ -96,16 +96,16 @@ class ClusterPropertiesResponse(dict):
     The properties of a cluster
     """
     def __init__(__self__, *,
-                 cluster_id: float,
-                 hosts: List[str],
+                 cluster_id: int,
+                 hosts: Sequence[str],
                  provisioning_state: str,
-                 cluster_size: Optional[float] = None):
+                 cluster_size: Optional[int] = None):
         """
         The properties of a cluster
-        :param float cluster_id: The identity
-        :param List[str] hosts: The hosts
+        :param int cluster_id: The identity
+        :param Sequence[str] hosts: The hosts
         :param str provisioning_state: The state of the cluster provisioning
-        :param float cluster_size: The cluster size
+        :param int cluster_size: The cluster size
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "hosts", hosts)
@@ -115,7 +115,7 @@ class ClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> float:
+    def cluster_id(self) -> int:
         """
         The identity
         """
@@ -123,7 +123,7 @@ class ClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def hosts(self) -> List[str]:
+    def hosts(self) -> Sequence[str]:
         """
         The hosts
         """
@@ -139,7 +139,7 @@ class ClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> Optional[float]:
+    def cluster_size(self) -> Optional[int]:
         """
         The cluster size
         """
@@ -155,14 +155,14 @@ class DefaultClusterPropertiesResponse(dict):
     The properties of a default cluster
     """
     def __init__(__self__, *,
-                 cluster_id: float,
-                 hosts: List[str],
-                 cluster_size: Optional[float] = None):
+                 cluster_id: int,
+                 hosts: Sequence[str],
+                 cluster_size: Optional[int] = None):
         """
         The properties of a default cluster
-        :param float cluster_id: The identity
-        :param List[str] hosts: The hosts
-        :param float cluster_size: The cluster size
+        :param int cluster_id: The identity
+        :param Sequence[str] hosts: The hosts
+        :param int cluster_size: The cluster size
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "hosts", hosts)
@@ -171,7 +171,7 @@ class DefaultClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> float:
+    def cluster_id(self) -> int:
         """
         The identity
         """
@@ -179,7 +179,7 @@ class DefaultClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def hosts(self) -> List[str]:
+    def hosts(self) -> Sequence[str]:
         """
         The hosts
         """
@@ -187,7 +187,7 @@ class DefaultClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> Optional[float]:
+    def cluster_size(self) -> Optional[int]:
         """
         The cluster size
         """
@@ -421,7 +421,7 @@ class PrivateCloudPropertiesResponse(dict):
     The properties of a private cloud resource
     """
     def __init__(__self__, *,
-                 clusters: List[str],
+                 clusters: Sequence[str],
                  endpoints: 'outputs.EndpointsResponse',
                  management_network: str,
                  nsxt_certificate_thumbprint: str,
@@ -431,14 +431,14 @@ class PrivateCloudPropertiesResponse(dict):
                  vmotion_network: str,
                  circuit: Optional['outputs.CircuitResponse'] = None,
                  cluster: Optional['outputs.DefaultClusterPropertiesResponse'] = None,
-                 identity_sources: Optional[List['outputs.IdentitySourceResponse']] = None,
+                 identity_sources: Optional[Sequence['outputs.IdentitySourceResponse']] = None,
                  internet: Optional[str] = None,
                  network_block: Optional[str] = None,
                  nsxt_password: Optional[str] = None,
                  vcenter_password: Optional[str] = None):
         """
         The properties of a private cloud resource
-        :param List[str] clusters: The clusters
+        :param Sequence[str] clusters: The clusters
         :param 'EndpointsResponseArgs' endpoints: The endpoints
         :param str management_network: Network used to access vCenter Server and NSX-T Manager
         :param str nsxt_certificate_thumbprint: Thumbprint of the NSX-T Manager SSL certificate
@@ -448,7 +448,7 @@ class PrivateCloudPropertiesResponse(dict):
         :param str vmotion_network: Used for live migration of virtual machines
         :param 'CircuitResponseArgs' circuit: An ExpressRoute Circuit
         :param 'DefaultClusterPropertiesResponseArgs' cluster: The default cluster used for management
-        :param List['IdentitySourceResponseArgs'] identity_sources: vCenter Single Sign On Identity Sources
+        :param Sequence['IdentitySourceResponseArgs'] identity_sources: vCenter Single Sign On Identity Sources
         :param str internet: Connectivity to internet is enabled or disabled
         :param str network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
         :param str nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
@@ -479,7 +479,7 @@ class PrivateCloudPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def clusters(self) -> List[str]:
+    def clusters(self) -> Sequence[str]:
         """
         The clusters
         """
@@ -559,7 +559,7 @@ class PrivateCloudPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="identitySources")
-    def identity_sources(self) -> Optional[List['outputs.IdentitySourceResponse']]:
+    def identity_sources(self) -> Optional[Sequence['outputs.IdentitySourceResponse']]:
         """
         vCenter Single Sign On Identity Sources
         """

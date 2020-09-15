@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -33,8 +33,8 @@ class GetBackupScheduleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if retention_count and not isinstance(retention_count, float):
-            raise TypeError("Expected argument 'retention_count' to be a float")
+        if retention_count and not isinstance(retention_count, int):
+            raise TypeError("Expected argument 'retention_count' to be a int")
         pulumi.set(__self__, "retention_count", retention_count)
         if schedule_recurrence and not isinstance(schedule_recurrence, dict):
             raise TypeError("Expected argument 'schedule_recurrence' to be a dict")
@@ -83,7 +83,7 @@ class GetBackupScheduleResult:
 
     @property
     @pulumi.getter(name="retentionCount")
-    def retention_count(self) -> float:
+    def retention_count(self) -> int:
         """
         The number of backups to be retained.
         """

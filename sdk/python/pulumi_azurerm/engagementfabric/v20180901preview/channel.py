@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Channel']
@@ -16,7 +16,7 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 channel_functions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 channel_functions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
                  channel_type: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -30,7 +30,7 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account Name
-        :param pulumi.Input[List[pulumi.Input[str]]] channel_functions: The functions to be enabled for the channel
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_functions: The functions to be enabled for the channel
         :param pulumi.Input[str] channel_name: Channel Name
         :param pulumi.Input[str] channel_type: The channel type
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] credentials: The channel credentials
@@ -95,7 +95,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelFunctions")
-    def channel_functions(self) -> pulumi.Output[Optional[List[str]]]:
+    def channel_functions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The functions to be enabled for the channel
         """

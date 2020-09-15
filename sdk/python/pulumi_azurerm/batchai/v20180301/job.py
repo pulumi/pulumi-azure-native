@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,19 +25,19 @@ class Job(pulumi.CustomResource):
                  constraints: Optional[pulumi.Input[pulumi.InputType['JobBasePropertiesConstraintsArgs']]] = None,
                  container_settings: Optional[pulumi.Input[pulumi.InputType['ContainerSettingsArgs']]] = None,
                  custom_toolkit_settings: Optional[pulumi.Input[pulumi.InputType['CustomToolkitSettingsArgs']]] = None,
-                 environment_variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]]] = None,
                  experiment_name: Optional[pulumi.Input[str]] = None,
-                 input_directories: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InputDirectoryArgs']]]]] = None,
+                 input_directories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputDirectoryArgs']]]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  job_preparation: Optional[pulumi.Input[pulumi.InputType['JobPreparationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mount_volumes: Optional[pulumi.Input[pulumi.InputType['MountVolumesArgs']]] = None,
-                 node_count: Optional[pulumi.Input[float]] = None,
-                 output_directories: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OutputDirectoryArgs']]]]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None,
+                 output_directories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutputDirectoryArgs']]]]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  py_torch_settings: Optional[pulumi.Input[pulumi.InputType['PyTorchSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentVariableWithSecretValueArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableWithSecretValueArgs']]]]] = None,
                  std_out_err_path_prefix: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tensor_flow_settings: Optional[pulumi.Input[pulumi.InputType['TensorFlowSettingsArgs']]] = None,
@@ -57,17 +57,17 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['JobBasePropertiesConstraintsArgs']] constraints: Constraints associated with the Job.
         :param pulumi.Input[pulumi.InputType['ContainerSettingsArgs']] container_settings: If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
         :param pulumi.Input[pulumi.InputType['CustomToolkitSettingsArgs']] custom_toolkit_settings: Specifies the settings for a custom tool kit job.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]] environment_variables: Batch AI will setup these additional environment variables for the job.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]] environment_variables: Batch AI will setup these additional environment variables for the job.
         :param pulumi.Input[str] experiment_name: Describe the experiment information of the job
         :param pulumi.Input[str] job_name: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         :param pulumi.Input[pulumi.InputType['JobPreparationArgs']] job_preparation: The specified actions will run on all the nodes that are part of the job
         :param pulumi.Input[str] location: The region in which to create the job.
         :param pulumi.Input[pulumi.InputType['MountVolumesArgs']] mount_volumes: These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
-        :param pulumi.Input[float] node_count: The job will be gang scheduled on that many compute nodes
-        :param pulumi.Input[float] priority: Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
+        :param pulumi.Input[int] node_count: The job will be gang scheduled on that many compute nodes
+        :param pulumi.Input[int] priority: Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
         :param pulumi.Input[pulumi.InputType['PyTorchSettingsArgs']] py_torch_settings: Specifies the settings for pyTorch job.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentVariableWithSecretValueArgs']]]] secrets: Batch AI will setup these additional environment variables for the job. Server will never report values of these variables back.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableWithSecretValueArgs']]]] secrets: Batch AI will setup these additional environment variables for the job. Server will never report values of these variables back.
         :param pulumi.Input[str] std_out_err_path_prefix: The path where the Batch AI service will upload stdout and stderror of the job.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user specified tags associated with the job.
         :param pulumi.Input[pulumi.InputType['TensorFlowSettingsArgs']] tensor_flow_settings: Specifies the settings for TensorFlow job.
@@ -227,7 +227,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> pulumi.Output[Optional[List['outputs.EnvironmentVariableResponse']]]:
+    def environment_variables(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentVariableResponse']]]:
         """
         Batch AI will setup these additional environment variables for the job.
         """
@@ -267,7 +267,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputDirectories")
-    def input_directories(self) -> pulumi.Output[Optional[List['outputs.InputDirectoryResponse']]]:
+    def input_directories(self) -> pulumi.Output[Optional[Sequence['outputs.InputDirectoryResponse']]]:
         return pulumi.get(self, "input_directories")
 
     @property
@@ -312,7 +312,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> pulumi.Output[Optional[float]]:
+    def node_count(self) -> pulumi.Output[Optional[int]]:
         """
         The job will be gang scheduled on that many compute nodes
         """
@@ -320,12 +320,12 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputDirectories")
-    def output_directories(self) -> pulumi.Output[Optional[List['outputs.OutputDirectoryResponse']]]:
+    def output_directories(self) -> pulumi.Output[Optional[Sequence['outputs.OutputDirectoryResponse']]]:
         return pulumi.get(self, "output_directories")
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
         """
@@ -357,7 +357,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secrets(self) -> pulumi.Output[Optional[List['outputs.EnvironmentVariableWithSecretValueResponse']]]:
+    def secrets(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentVariableWithSecretValueResponse']]]:
         """
         Batch AI will setup these additional environment variables for the job. Server will never report values of these variables back.
         """

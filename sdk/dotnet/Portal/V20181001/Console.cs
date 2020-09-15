@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Portal.V20181001
         /// Cloud shell console properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConsolePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ConsolePropertiesResponse> Properties { get; private set; } = null!;
 
 
         /// <summary>

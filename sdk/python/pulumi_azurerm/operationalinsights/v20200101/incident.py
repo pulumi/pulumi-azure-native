@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,7 +24,7 @@ class Incident(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  first_activity_time_utc: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]]] = None,
                  last_activity_time_utc: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -47,7 +47,7 @@ class Incident(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] first_activity_time_utc: The time of the first activity in the incident
         :param pulumi.Input[str] incident_id: Incident ID
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]] labels: List of labels relevant to this incident
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]] labels: List of labels relevant to this incident
         :param pulumi.Input[str] last_activity_time_utc: The time of the last activity in the incident
         :param pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']] owner: Describes a user that the incident is assigned to
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -200,7 +200,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="incidentNumber")
-    def incident_number(self) -> pulumi.Output[float]:
+    def incident_number(self) -> pulumi.Output[int]:
         """
         A sequential number
         """
@@ -216,7 +216,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[List['outputs.IncidentLabelResponse']]]:
+    def labels(self) -> pulumi.Output[Optional[Sequence['outputs.IncidentLabelResponse']]]:
         """
         List of labels relevant to this incident
         """
@@ -256,7 +256,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relatedAnalyticRuleIds")
-    def related_analytic_rule_ids(self) -> pulumi.Output[List[str]]:
+    def related_analytic_rule_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         List of resource ids of Analytic rules related to the incident
         """

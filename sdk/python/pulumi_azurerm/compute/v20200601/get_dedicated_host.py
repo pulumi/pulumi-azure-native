@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetDedicatedHostResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if platform_fault_domain and not isinstance(platform_fault_domain, float):
-            raise TypeError("Expected argument 'platform_fault_domain' to be a float")
+        if platform_fault_domain and not isinstance(platform_fault_domain, int):
+            raise TypeError("Expected argument 'platform_fault_domain' to be a int")
         pulumi.set(__self__, "platform_fault_domain", platform_fault_domain)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -111,7 +111,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="platformFaultDomain")
-    def platform_fault_domain(self) -> Optional[float]:
+    def platform_fault_domain(self) -> Optional[int]:
         """
         Fault domain of the dedicated host within a dedicated host group.
         """
@@ -159,7 +159,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> List['outputs.SubResourceReadOnlyResponse']:
+    def virtual_machines(self) -> Sequence['outputs.SubResourceReadOnlyResponse']:
         """
         A list of references to all virtual machines in the Dedicated Host.
         """

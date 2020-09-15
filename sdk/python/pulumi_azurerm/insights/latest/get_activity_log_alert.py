@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -99,7 +99,7 @@ class GetActivityLogAlertResult:
 
     @property
     @pulumi.getter
-    def scopes(self) -> List[str]:
+    def scopes(self) -> Sequence[str]:
         """
         A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
         """

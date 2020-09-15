@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -327,15 +327,15 @@ class WorkerProfileResponse(dict):
     WorkerProfile represents a worker profile.
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
-                 disk_size_gb: Optional[float] = None,
+                 count: Optional[int] = None,
+                 disk_size_gb: Optional[int] = None,
                  name: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  vm_size: Optional[str] = None):
         """
         WorkerProfile represents a worker profile.
-        :param float count: The number of worker VMs.  Must be between 3 and 20 (immutable).
-        :param float disk_size_gb: The disk size of the worker VMs.  Must be 128 or greater (immutable).
+        :param int count: The number of worker VMs.  Must be between 3 and 20 (immutable).
+        :param int disk_size_gb: The disk size of the worker VMs.  Must be 128 or greater (immutable).
         :param str name: The worker profile name.  Must be "worker" (immutable).
         :param str subnet_id: The Azure resource ID of the worker subnet (immutable).
         :param str vm_size: The size of the worker VMs (immutable).
@@ -353,7 +353,7 @@ class WorkerProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         The number of worker VMs.  Must be between 3 and 20 (immutable).
         """
@@ -361,7 +361,7 @@ class WorkerProfileResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         The disk size of the worker VMs.  Must be 128 or greater (immutable).
         """

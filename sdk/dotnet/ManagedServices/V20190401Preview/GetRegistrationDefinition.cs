@@ -46,11 +46,11 @@ namespace Pulumi.AzureRM.ManagedServices.V20190401Preview
         /// <summary>
         /// Plan details for the managed services.
         /// </summary>
-        public readonly Outputs.PlanResponseResult? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// Properties of a registration definition.
         /// </summary>
-        public readonly Outputs.RegistrationDefinitionPropertiesResponseResult Properties;
+        public readonly Outputs.RegistrationDefinitionPropertiesResponse Properties;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -60,9 +60,9 @@ namespace Pulumi.AzureRM.ManagedServices.V20190401Preview
         private GetRegistrationDefinitionResult(
             string name,
 
-            Outputs.PlanResponseResult? plan,
+            Outputs.PlanResponse? plan,
 
-            Outputs.RegistrationDefinitionPropertiesResponseResult properties,
+            Outputs.RegistrationDefinitionPropertiesResponse properties,
 
             string type)
         {

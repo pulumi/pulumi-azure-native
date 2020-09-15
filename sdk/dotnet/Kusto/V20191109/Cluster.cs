@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         /// The identity of the cluster, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// KeyVault properties for the cluster encryption.
         /// </summary>
         [Output("keyVaultProperties")]
-        public Output<Outputs.KeyVaultPropertiesResponseResult?> KeyVaultProperties { get; private set; } = null!;
+        public Output<Outputs.KeyVaultPropertiesResponse?> KeyVaultProperties { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         /// Optimized auto scale definition.
         /// </summary>
         [Output("optimizedAutoscale")]
-        public Output<Outputs.OptimizedAutoscaleResponseResult?> OptimizedAutoscale { get; private set; } = null!;
+        public Output<Outputs.OptimizedAutoscaleResponse?> OptimizedAutoscale { get; private set; } = null!;
 
         /// <summary>
         /// The provisioned state of the resource.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         /// The SKU of the cluster.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.AzureSkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.AzureSkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The state of the resource.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         /// The cluster's external tenants.
         /// </summary>
         [Output("trustedExternalTenants")]
-        public Output<ImmutableArray<Outputs.TrustedExternalTenantResponseResult>> TrustedExternalTenants { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TrustedExternalTenantResponse>> TrustedExternalTenants { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         /// Virtual network definition.
         /// </summary>
         [Output("virtualNetworkConfiguration")]
-        public Output<Outputs.VirtualNetworkConfigurationResponseResult?> VirtualNetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkConfigurationResponse?> VirtualNetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The availability zones of the cluster.

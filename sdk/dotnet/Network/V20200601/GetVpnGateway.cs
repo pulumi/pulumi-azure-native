@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// Local network gateway's BGP speaker settings.
         /// </summary>
-        public readonly Outputs.BgpSettingsResponseResult? BgpSettings;
+        public readonly Outputs.BgpSettingsResponse? BgpSettings;
         /// <summary>
         /// List of all vpn connections to the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnConnectionResponseResult> Connections;
+        public readonly ImmutableArray<Outputs.VpnConnectionResponse> Connections;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// List of all IPs configured on the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnGatewayIpConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.VpnGatewayIpConfigurationResponse> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The VirtualHub to which the gateway belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VirtualHub;
+        public readonly Outputs.SubResourceResponse? VirtualHub;
         /// <summary>
         /// The scale unit for this vpn gateway.
         /// </summary>
@@ -86,13 +86,13 @@ namespace Pulumi.AzureRM.Network.V20200601
 
         [OutputConstructor]
         private GetVpnGatewayResult(
-            Outputs.BgpSettingsResponseResult? bgpSettings,
+            Outputs.BgpSettingsResponse? bgpSettings,
 
-            ImmutableArray<Outputs.VpnConnectionResponseResult> connections,
+            ImmutableArray<Outputs.VpnConnectionResponse> connections,
 
             string etag,
 
-            ImmutableArray<Outputs.VpnGatewayIpConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.VpnGatewayIpConfigurationResponse> ipConfigurations,
 
             string location,
 
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.Network.V20200601
 
             string type,
 
-            Outputs.SubResourceResponseResult? virtualHub,
+            Outputs.SubResourceResponse? virtualHub,
 
             int? vpnGatewayScaleUnit)
         {

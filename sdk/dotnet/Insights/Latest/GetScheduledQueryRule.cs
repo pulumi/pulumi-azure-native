@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// <summary>
         /// Action needs to be taken on rule execution.
         /// </summary>
-        public readonly Union<Outputs.AlertingActionResponseResult, Outputs.LogToMetricActionResponseResult> Action;
+        public readonly Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse> Action;
         /// <summary>
         /// The description of the Log Search rule.
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// <summary>
         /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
         /// </summary>
-        public readonly Outputs.ScheduleResponseResult? Schedule;
+        public readonly Outputs.ScheduleResponse? Schedule;
         /// <summary>
         /// Data Source against which rule will Query Data
         /// </summary>
-        public readonly Outputs.SourceResponseResult Source;
+        public readonly Outputs.SourceResponse Source;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Insights.Latest
 
         [OutputConstructor]
         private GetScheduledQueryRuleResult(
-            Union<Outputs.AlertingActionResponseResult, Outputs.LogToMetricActionResponseResult> action,
+            Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse> action,
 
             string? description,
 
@@ -100,9 +100,9 @@ namespace Pulumi.AzureRM.Insights.Latest
 
             string provisioningState,
 
-            Outputs.ScheduleResponseResult? schedule,
+            Outputs.ScheduleResponse? schedule,
 
-            Outputs.SourceResponseResult source,
+            Outputs.SourceResponse source,
 
             ImmutableDictionary<string, string>? tags,
 

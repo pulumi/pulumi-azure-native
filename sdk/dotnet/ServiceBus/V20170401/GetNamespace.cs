@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// <summary>
         /// Properties of Sku
         /// </summary>
-        public readonly Outputs.SBSkuResponseResult? Sku;
+        public readonly Outputs.SBSkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
 
             string serviceBusEndpoint,
 
-            Outputs.SBSkuResponseResult? sku,
+            Outputs.SBSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

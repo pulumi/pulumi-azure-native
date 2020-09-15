@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// The identity of the export pipeline.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityPropertiesResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the export pipeline.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// The target properties of the export pipeline.
         /// </summary>
         [Output("target")]
-        public Output<Outputs.ExportPipelineTargetPropertiesResponseResult> Target { get; private set; } = null!;
+        public Output<Outputs.ExportPipelineTargetPropertiesResponse> Target { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

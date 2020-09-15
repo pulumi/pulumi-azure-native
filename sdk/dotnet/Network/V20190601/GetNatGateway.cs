@@ -68,11 +68,11 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// <summary>
         /// An array of public ip addresses associated with the nat gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> PublicIpAddresses;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIpAddresses;
         /// <summary>
         /// An array of public ip prefixes associated with the nat gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> PublicIpPrefixes;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIpPrefixes;
         /// <summary>
         /// The resource GUID property of the nat gateway resource.
         /// </summary>
@@ -80,11 +80,11 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// <summary>
         /// The nat gateway SKU.
         /// </summary>
-        public readonly Outputs.NatGatewaySkuResponseResult? Sku;
+        public readonly Outputs.NatGatewaySkuResponse? Sku;
         /// <summary>
         /// An array of references to the subnets using this nat gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Subnets;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -110,15 +110,15 @@ namespace Pulumi.AzureRM.Network.V20190601
 
             string? provisioningState,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> publicIpAddresses,
+            ImmutableArray<Outputs.SubResourceResponse> publicIpAddresses,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> publicIpPrefixes,
+            ImmutableArray<Outputs.SubResourceResponse> publicIpPrefixes,
 
             string? resourceGuid,
 
-            Outputs.NatGatewaySkuResponseResult? sku,
+            Outputs.NatGatewaySkuResponse? sku,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> subnets,
+            ImmutableArray<Outputs.SubResourceResponse> subnets,
 
             ImmutableDictionary<string, string>? tags,
 

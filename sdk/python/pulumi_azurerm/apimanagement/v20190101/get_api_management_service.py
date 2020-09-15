@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -108,7 +108,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> Optional[List['outputs.AdditionalLocationResponse']]:
+    def additional_locations(self) -> Optional[Sequence['outputs.AdditionalLocationResponse']]:
         """
         Additional datacenter locations of the API Management service.
         """
@@ -116,7 +116,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[List['outputs.CertificateConfigurationResponse']]:
+    def certificates(self) -> Optional[Sequence['outputs.CertificateConfigurationResponse']]:
         """
         List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         """
@@ -180,7 +180,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> Optional[List['outputs.HostnameConfigurationResponse']]:
+    def hostname_configurations(self) -> Optional[Sequence['outputs.HostnameConfigurationResponse']]:
         """
         Custom hostname configuration of the API Management service.
         """
@@ -236,7 +236,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="privateIPAddresses")
-    def private_ip_addresses(self) -> List[str]:
+    def private_ip_addresses(self) -> Sequence[str]:
         """
         Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
         """
@@ -252,7 +252,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> List[str]:
+    def public_ip_addresses(self) -> Sequence[str]:
         """
         Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
         """

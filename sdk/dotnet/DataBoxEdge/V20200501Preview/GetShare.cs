@@ -52,11 +52,11 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
         /// <summary>
         /// Azure container mapping for the share.
         /// </summary>
-        public readonly Outputs.AzureContainerInfoResponseResult? AzureContainerInfo;
+        public readonly Outputs.AzureContainerInfoResponse? AzureContainerInfo;
         /// <summary>
         /// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClientAccessRightResponseResult> ClientAccessRights;
+        public readonly ImmutableArray<Outputs.ClientAccessRightResponse> ClientAccessRights;
         /// <summary>
         /// Data policy of the share.
         /// </summary>
@@ -76,11 +76,11 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
         /// <summary>
         /// Details of the refresh job on this share.
         /// </summary>
-        public readonly Outputs.RefreshDetailsResponseResult? RefreshDetails;
+        public readonly Outputs.RefreshDetailsResponse? RefreshDetails;
         /// <summary>
         /// Share mount point to the role.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MountPointMapResponseResult> ShareMappings;
+        public readonly ImmutableArray<Outputs.MountPointMapResponse> ShareMappings;
         /// <summary>
         /// Current status of the share.
         /// </summary>
@@ -92,15 +92,15 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
         /// <summary>
         /// Mapping of users and corresponding access rights on the share (required for SMB protocol).
         /// </summary>
-        public readonly ImmutableArray<Outputs.UserAccessRightResponseResult> UserAccessRights;
+        public readonly ImmutableArray<Outputs.UserAccessRightResponse> UserAccessRights;
 
         [OutputConstructor]
         private GetShareResult(
             string accessProtocol,
 
-            Outputs.AzureContainerInfoResponseResult? azureContainerInfo,
+            Outputs.AzureContainerInfoResponse? azureContainerInfo,
 
-            ImmutableArray<Outputs.ClientAccessRightResponseResult> clientAccessRights,
+            ImmutableArray<Outputs.ClientAccessRightResponse> clientAccessRights,
 
             string? dataPolicy,
 
@@ -110,15 +110,15 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
 
             string name,
 
-            Outputs.RefreshDetailsResponseResult? refreshDetails,
+            Outputs.RefreshDetailsResponse? refreshDetails,
 
-            ImmutableArray<Outputs.MountPointMapResponseResult> shareMappings,
+            ImmutableArray<Outputs.MountPointMapResponse> shareMappings,
 
             string shareStatus,
 
             string type,
 
-            ImmutableArray<Outputs.UserAccessRightResponseResult> userAccessRights)
+            ImmutableArray<Outputs.UserAccessRightResponse> userAccessRights)
         {
             AccessProtocol = accessProtocol;
             AzureContainerInfo = azureContainerInfo;

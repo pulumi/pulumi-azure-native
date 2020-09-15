@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,8 +42,8 @@ class GetServerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if replica_capacity and not isinstance(replica_capacity, float):
-            raise TypeError("Expected argument 'replica_capacity' to be a float")
+        if replica_capacity and not isinstance(replica_capacity, int):
+            raise TypeError("Expected argument 'replica_capacity' to be a int")
         pulumi.set(__self__, "replica_capacity", replica_capacity)
         if replication_role and not isinstance(replication_role, str):
             raise TypeError("Expected argument 'replication_role' to be a str")
@@ -128,7 +128,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="replicaCapacity")
-    def replica_capacity(self) -> Optional[float]:
+    def replica_capacity(self) -> Optional[int]:
         """
         The maximum number of replicas that a master server can have.
         """

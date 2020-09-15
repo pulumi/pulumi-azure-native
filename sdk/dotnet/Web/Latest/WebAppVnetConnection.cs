@@ -61,7 +61,7 @@ namespace Pulumi.AzureRM.Web.Latest
         /// The routes that this Virtual Network connection uses.
         /// </summary>
         [Output("routes")]
-        public Output<ImmutableArray<Outputs.VnetRouteResponseResult>> Routes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VnetRouteResponse>> Routes { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// The network rule set for a container registry.
         /// </summary>
         [Output("networkRuleSet")]
-        public Output<Outputs.NetworkRuleSetResponseResult?> NetworkRuleSet { get; private set; } = null!;
+        public Output<Outputs.NetworkRuleSetResponse?> NetworkRuleSet { get; private set; } = null!;
 
         /// <summary>
         /// The policies for a container registry.
         /// </summary>
         [Output("policies")]
-        public Output<Outputs.PoliciesResponseResult?> Policies { get; private set; } = null!;
+        public Output<Outputs.PoliciesResponse?> Policies { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the container registry at the time the operation was called.
@@ -66,19 +66,19 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// The SKU of the container registry.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The status of the container registry at the time the operation was called.
         /// </summary>
         [Output("status")]
-        public Output<Outputs.StatusResponseResult> Status { get; private set; } = null!;
+        public Output<Outputs.StatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
         /// </summary>
         [Output("storageAccount")]
-        public Output<Outputs.StorageAccountPropertiesResponseResult?> StorageAccount { get; private set; } = null!;
+        public Output<Outputs.StorageAccountPropertiesResponse?> StorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

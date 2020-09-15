@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
         /// <summary>
         /// List of activities in pipeline.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ControlActivityResponseResult, Outputs.ExecutionActivityResponseResult>> Activities;
+        public readonly ImmutableArray<Union<Outputs.ControlActivityResponse, Outputs.ExecutionActivityResponse>> Activities;
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
         /// <summary>
         /// List of parameters for pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
 
         [OutputConstructor]
         private GetPipelineResult(
-            ImmutableArray<Union<Outputs.ControlActivityResponseResult, Outputs.ExecutionActivityResponseResult>> activities,
+            ImmutableArray<Union<Outputs.ControlActivityResponse, Outputs.ExecutionActivityResponse>> activities,
 
             ImmutableArray<ImmutableDictionary<string, object>> annotations,
 
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             string type)
         {

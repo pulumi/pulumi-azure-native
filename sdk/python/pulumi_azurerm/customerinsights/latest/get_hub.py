@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetHubResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if tenant_features and not isinstance(tenant_features, float):
-            raise TypeError("Expected argument 'tenant_features' to be a float")
+        if tenant_features and not isinstance(tenant_features, int):
+            raise TypeError("Expected argument 'tenant_features' to be a int")
         pulumi.set(__self__, "tenant_features", tenant_features)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -99,7 +99,7 @@ class GetHubResult:
 
     @property
     @pulumi.getter(name="tenantFeatures")
-    def tenant_features(self) -> Optional[float]:
+    def tenant_features(self) -> Optional[int]:
         """
         The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
         """

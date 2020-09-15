@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionArgs']]]]] = None,
                  criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -26,10 +26,10 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  mute_actions_duration: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  severity: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_resource_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  window_size: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -47,10 +47,10 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param pulumi.Input[str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_name: The name of the rule.
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
         :param pulumi.Input[float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[List[pulumi.Input[str]]] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
         :param pulumi.Input[str] window_size: The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
         """
         if __name__ is not None:
@@ -120,7 +120,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional[List['outputs.ActionResponse']]]:
+    def actions(self) -> pulumi.Output[Optional[Sequence['outputs.ActionResponse']]]:
         return pulumi.get(self, "actions")
 
     @property
@@ -181,7 +181,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Optional[List[str]]]:
+    def scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of resource id's that this scheduled query rule is scoped to.
         """
@@ -205,7 +205,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceTypes")
-    def target_resource_types(self) -> pulumi.Output[Optional[List[str]]]:
+    def target_resource_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['AgentPool']
@@ -16,7 +16,7 @@ class AgentPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class AgentPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
-        :param pulumi.Input[float] count: The count of agent machine
+        :param pulumi.Input[int] count: The count of agent machine
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
         :param pulumi.Input[str] os: The OS of agent machine
         :param pulumi.Input[str] registry_name: The name of the container registry.
@@ -106,7 +106,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Output[Optional[float]]:
+    def count(self) -> pulumi.Output[Optional[int]]:
         """
         The count of agent machine
         """

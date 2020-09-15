@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// <summary>
         /// List of linked private link scope resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult> PrivateLinkScopedResources;
+        public readonly ImmutableArray<Outputs.PrivateLinkScopedResourceResponse> PrivateLinkScopedResources;
         /// <summary>
         /// The provisioning state of the workspace.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// <summary>
         /// The SKU of the workspace.
         /// </summary>
-        public readonly Outputs.WorkspaceSkuResponseResult? Sku;
+        public readonly Outputs.WorkspaceSkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// <summary>
         /// The daily volume cap for ingestion.
         /// </summary>
-        public readonly Outputs.WorkspaceCappingResponseResult? WorkspaceCapping;
+        public readonly Outputs.WorkspaceCappingResponse? WorkspaceCapping;
 
         [OutputConstructor]
         private GetWorkspaceResult(
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
 
             string name,
 
-            ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult> privateLinkScopedResources,
+            ImmutableArray<Outputs.PrivateLinkScopedResourceResponse> privateLinkScopedResources,
 
             string? provisioningState,
 
@@ -112,13 +112,13 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
 
             int? retentionInDays,
 
-            Outputs.WorkspaceSkuResponseResult? sku,
+            Outputs.WorkspaceSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.WorkspaceCappingResponseResult? workspaceCapping)
+            Outputs.WorkspaceCappingResponse? workspaceCapping)
         {
             CustomerId = customerId;
             ETag = eTag;

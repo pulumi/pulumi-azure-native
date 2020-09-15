@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -22,7 +22,7 @@ class IpAllocation(pulumi.CustomResource):
                  ipam_allocation_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
-                 prefix_length: Optional[pulumi.Input[float]] = None,
+                 prefix_length: Optional[pulumi.Input[int]] = None,
                  prefix_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -41,7 +41,7 @@ class IpAllocation(pulumi.CustomResource):
         :param pulumi.Input[str] ipam_allocation_id: The IPAM allocation ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] prefix: The address prefix for the IpAllocation.
-        :param pulumi.Input[float] prefix_length: The address prefix length for the IpAllocation.
+        :param pulumi.Input[int] prefix_length: The address prefix length for the IpAllocation.
         :param pulumi.Input[str] prefix_type: The address prefix Type for the IpAllocation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -159,7 +159,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="prefixLength")
-    def prefix_length(self) -> pulumi.Output[Optional[float]]:
+    def prefix_length(self) -> pulumi.Output[Optional[int]]:
         """
         The address prefix length for the IpAllocation.
         """

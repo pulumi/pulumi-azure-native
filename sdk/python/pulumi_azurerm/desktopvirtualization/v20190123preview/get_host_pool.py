@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,8 +42,8 @@ class GetHostPoolResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_session_limit and not isinstance(max_session_limit, float):
-            raise TypeError("Expected argument 'max_session_limit' to be a float")
+        if max_session_limit and not isinstance(max_session_limit, int):
+            raise TypeError("Expected argument 'max_session_limit' to be a int")
         pulumi.set(__self__, "max_session_limit", max_session_limit)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -57,8 +57,8 @@ class GetHostPoolResult:
         if registration_info and not isinstance(registration_info, dict):
             raise TypeError("Expected argument 'registration_info' to be a dict")
         pulumi.set(__self__, "registration_info", registration_info)
-        if ring and not isinstance(ring, float):
-            raise TypeError("Expected argument 'ring' to be a float")
+        if ring and not isinstance(ring, int):
+            raise TypeError("Expected argument 'ring' to be a int")
         pulumi.set(__self__, "ring", ring)
         if sso_context and not isinstance(sso_context, str):
             raise TypeError("Expected argument 'sso_context' to be a str")
@@ -78,7 +78,7 @@ class GetHostPoolResult:
 
     @property
     @pulumi.getter(name="applicationGroupReferences")
-    def application_group_references(self) -> List[str]:
+    def application_group_references(self) -> Sequence[str]:
         """
         List of applicationGroup links.
         """
@@ -134,7 +134,7 @@ class GetHostPoolResult:
 
     @property
     @pulumi.getter(name="maxSessionLimit")
-    def max_session_limit(self) -> Optional[float]:
+    def max_session_limit(self) -> Optional[int]:
         """
         The max session limit of HostPool.
         """
@@ -174,7 +174,7 @@ class GetHostPoolResult:
 
     @property
     @pulumi.getter
-    def ring(self) -> Optional[float]:
+    def ring(self) -> Optional[int]:
         """
         The ring number of HostPool.
         """

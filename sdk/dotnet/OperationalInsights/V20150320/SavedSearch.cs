@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         /// The tags attached to the saved search.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TagResponseResult>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TagResponse>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the saved search.

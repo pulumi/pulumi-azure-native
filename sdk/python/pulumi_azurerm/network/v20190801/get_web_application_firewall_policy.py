@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -57,7 +57,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="applicationGateways")
-    def application_gateways(self) -> List['outputs.ApplicationGatewayResponse']:
+    def application_gateways(self) -> Sequence['outputs.ApplicationGatewayResponse']:
         """
         A collection of references to application gateways.
         """
@@ -65,7 +65,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[List['outputs.WebApplicationFirewallCustomRuleResponse']]:
+    def custom_rules(self) -> Optional[Sequence['outputs.WebApplicationFirewallCustomRuleResponse']]:
         """
         Describes custom rules inside the policy.
         """

@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// <summary>
         /// Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
         /// </summary>
-        public readonly Outputs.AdditionalCapabilitiesResponseResult? AdditionalCapabilities;
+        public readonly Outputs.AdditionalCapabilitiesResponse? AdditionalCapabilities;
         /// <summary>
         /// Policy for automatic repairs.
         /// </summary>
-        public readonly Outputs.AutomaticRepairsPolicyResponseResult? AutomaticRepairsPolicy;
+        public readonly Outputs.AutomaticRepairsPolicyResponse? AutomaticRepairsPolicy;
         /// <summary>
         /// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// <summary>
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetIdentityResponseResult? Identity;
+        public readonly Outputs.VirtualMachineScaleSetIdentityResponse? Identity;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
-        public readonly Outputs.PlanResponseResult? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// Fault Domain count for each placement group.
         /// </summary>
@@ -82,11 +82,11 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// <summary>
         /// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? ProximityPlacementGroup;
+        public readonly Outputs.SubResourceResponse? ProximityPlacementGroup;
         /// <summary>
         /// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
         /// </summary>
-        public readonly Outputs.ScaleInPolicyResponseResult? ScaleInPolicy;
+        public readonly Outputs.ScaleInPolicyResponse? ScaleInPolicy;
         /// <summary>
         /// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// <summary>
         /// The virtual machine scale set sku.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -110,11 +110,11 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// <summary>
         /// The upgrade policy.
         /// </summary>
-        public readonly Outputs.UpgradePolicyResponseResult? UpgradePolicy;
+        public readonly Outputs.UpgradePolicyResponse? UpgradePolicy;
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetVMProfileResponseResult? VirtualMachineProfile;
+        public readonly Outputs.VirtualMachineScaleSetVMProfileResponse? VirtualMachineProfile;
         /// <summary>
         /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
         /// </summary>
@@ -126,13 +126,13 @@ namespace Pulumi.AzureRM.Compute.V20191201
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
-            Outputs.AdditionalCapabilitiesResponseResult? additionalCapabilities,
+            Outputs.AdditionalCapabilitiesResponse? additionalCapabilities,
 
-            Outputs.AutomaticRepairsPolicyResponseResult? automaticRepairsPolicy,
+            Outputs.AutomaticRepairsPolicyResponse? automaticRepairsPolicy,
 
             bool? doNotRunExtensionsOnOverprovisionedVMs,
 
-            Outputs.VirtualMachineScaleSetIdentityResponseResult? identity,
+            Outputs.VirtualMachineScaleSetIdentityResponse? identity,
 
             string location,
 
@@ -140,19 +140,19 @@ namespace Pulumi.AzureRM.Compute.V20191201
 
             bool? overprovision,
 
-            Outputs.PlanResponseResult? plan,
+            Outputs.PlanResponse? plan,
 
             int? platformFaultDomainCount,
 
             string provisioningState,
 
-            Outputs.SubResourceResponseResult? proximityPlacementGroup,
+            Outputs.SubResourceResponse? proximityPlacementGroup,
 
-            Outputs.ScaleInPolicyResponseResult? scaleInPolicy,
+            Outputs.ScaleInPolicyResponse? scaleInPolicy,
 
             bool? singlePlacementGroup,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -160,9 +160,9 @@ namespace Pulumi.AzureRM.Compute.V20191201
 
             string uniqueId,
 
-            Outputs.UpgradePolicyResponseResult? upgradePolicy,
+            Outputs.UpgradePolicyResponse? upgradePolicy,
 
-            Outputs.VirtualMachineScaleSetVMProfileResponseResult? virtualMachineProfile,
+            Outputs.VirtualMachineScaleSetVMProfileResponse? virtualMachineProfile,
 
             bool? zoneBalance,
 

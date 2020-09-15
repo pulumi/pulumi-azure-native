@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// The service principal that has read access to cloud-init and config blob.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// Network Virtual Appliance SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.VirtualApplianceSkuPropertiesResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.VirtualApplianceSkuPropertiesResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -84,13 +84,13 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
         [Output("virtualApplianceNics")]
-        public Output<ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult>> VirtualApplianceNics { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse>> VirtualApplianceNics { get; private set; } = null!;
 
         /// <summary>
         /// The Virtual Hub where Network Virtual Appliance is being deployed.
         /// </summary>
         [Output("virtualHub")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualHub { get; private set; } = null!;
 
 
         /// <summary>

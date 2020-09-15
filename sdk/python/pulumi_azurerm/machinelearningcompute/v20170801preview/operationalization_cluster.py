@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -198,7 +198,7 @@ class OperationalizationCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> pulumi.Output[List['outputs.ErrorResponseWrapperResponse']]:
+    def provisioning_errors(self) -> pulumi.Output[Sequence['outputs.ErrorResponseWrapperResponse']]:
         """
         List of provisioning errors reported by the resource provider.
         """

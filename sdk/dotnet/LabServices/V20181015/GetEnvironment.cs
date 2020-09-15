@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponseResult LatestOperationResult;
+        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// <summary>
         /// Network details of the environment
         /// </summary>
-        public readonly Outputs.NetworkInterfaceResponseResult NetworkInterface;
+        public readonly Outputs.NetworkInterfaceResponse NetworkInterface;
         /// <summary>
         /// When the password was last reset on the environment.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// <summary>
         /// The set of a VM and the setting id it was created for
         /// </summary>
-        public readonly Outputs.ResourceSetResponseResult? ResourceSets;
+        public readonly Outputs.ResourceSetResponse? ResourceSets;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -140,19 +140,19 @@ namespace Pulumi.AzureRM.LabServices.V20181015
 
             string lastKnownPowerState,
 
-            Outputs.LatestOperationResultResponseResult latestOperationResult,
+            Outputs.LatestOperationResultResponse latestOperationResult,
 
             string? location,
 
             string name,
 
-            Outputs.NetworkInterfaceResponseResult networkInterface,
+            Outputs.NetworkInterfaceResponse networkInterface,
 
             string passwordLastReset,
 
             string? provisioningState,
 
-            Outputs.ResourceSetResponseResult? resourceSets,
+            Outputs.ResourceSetResponse? resourceSets,
 
             ImmutableDictionary<string, string>? tags,
 

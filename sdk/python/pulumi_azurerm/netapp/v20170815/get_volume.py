@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -51,8 +51,8 @@ class GetVolumeResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if usage_threshold and not isinstance(usage_threshold, float):
-            raise TypeError("Expected argument 'usage_threshold' to be a float")
+        if usage_threshold and not isinstance(usage_threshold, int):
+            raise TypeError("Expected argument 'usage_threshold' to be a int")
         pulumi.set(__self__, "usage_threshold", usage_threshold)
 
     @property
@@ -137,7 +137,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="usageThreshold")
-    def usage_threshold(self) -> Optional[float]:
+    def usage_threshold(self) -> Optional[int]:
         """
         Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
         """

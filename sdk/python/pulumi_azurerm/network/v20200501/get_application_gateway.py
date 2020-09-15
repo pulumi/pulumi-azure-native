@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -129,7 +129,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> Optional[List['outputs.ApplicationGatewayAuthenticationCertificateResponse']]:
+    def authentication_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewayAuthenticationCertificateResponse']]:
         """
         Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -145,7 +145,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> Optional[List['outputs.ApplicationGatewayBackendAddressPoolResponse']]:
+    def backend_address_pools(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']]:
         """
         Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -153,7 +153,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="backendHttpSettingsCollection")
-    def backend_http_settings_collection(self) -> Optional[List['outputs.ApplicationGatewayBackendHttpSettingsResponse']]:
+    def backend_http_settings_collection(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingsResponse']]:
         """
         Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -161,7 +161,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="customErrorConfigurations")
-    def custom_error_configurations(self) -> Optional[List['outputs.ApplicationGatewayCustomErrorResponse']]:
+    def custom_error_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayCustomErrorResponse']]:
         """
         Custom error configurations of the application gateway resource.
         """
@@ -209,7 +209,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[List['outputs.ApplicationGatewayFrontendIPConfigurationResponse']]:
+    def frontend_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayFrontendIPConfigurationResponse']]:
         """
         Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -217,7 +217,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="frontendPorts")
-    def frontend_ports(self) -> Optional[List['outputs.ApplicationGatewayFrontendPortResponse']]:
+    def frontend_ports(self) -> Optional[Sequence['outputs.ApplicationGatewayFrontendPortResponse']]:
         """
         Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -225,7 +225,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="gatewayIPConfigurations")
-    def gateway_ip_configurations(self) -> Optional[List['outputs.ApplicationGatewayIPConfigurationResponse']]:
+    def gateway_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']]:
         """
         Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -233,7 +233,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="httpListeners")
-    def http_listeners(self) -> Optional[List['outputs.ApplicationGatewayHttpListenerResponse']]:
+    def http_listeners(self) -> Optional[Sequence['outputs.ApplicationGatewayHttpListenerResponse']]:
         """
         Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -273,7 +273,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.ApplicationGatewayPrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.ApplicationGatewayPrivateEndpointConnectionResponse']:
         """
         Private Endpoint connections on application gateway.
         """
@@ -281,7 +281,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="privateLinkConfigurations")
-    def private_link_configurations(self) -> Optional[List['outputs.ApplicationGatewayPrivateLinkConfigurationResponse']]:
+    def private_link_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayPrivateLinkConfigurationResponse']]:
         """
         PrivateLink configurations on application gateway.
         """
@@ -289,7 +289,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter
-    def probes(self) -> Optional[List['outputs.ApplicationGatewayProbeResponse']]:
+    def probes(self) -> Optional[Sequence['outputs.ApplicationGatewayProbeResponse']]:
         """
         Probes of the application gateway resource.
         """
@@ -305,7 +305,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="redirectConfigurations")
-    def redirect_configurations(self) -> Optional[List['outputs.ApplicationGatewayRedirectConfigurationResponse']]:
+    def redirect_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayRedirectConfigurationResponse']]:
         """
         Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -313,7 +313,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="requestRoutingRules")
-    def request_routing_rules(self) -> Optional[List['outputs.ApplicationGatewayRequestRoutingRuleResponse']]:
+    def request_routing_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayRequestRoutingRuleResponse']]:
         """
         Request routing rules of the application gateway resource.
         """
@@ -329,7 +329,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="rewriteRuleSets")
-    def rewrite_rule_sets(self) -> Optional[List['outputs.ApplicationGatewayRewriteRuleSetResponse']]:
+    def rewrite_rule_sets(self) -> Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetResponse']]:
         """
         Rewrite rules for the application gateway resource.
         """
@@ -345,7 +345,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="sslCertificates")
-    def ssl_certificates(self) -> Optional[List['outputs.ApplicationGatewaySslCertificateResponse']]:
+    def ssl_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewaySslCertificateResponse']]:
         """
         SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -369,7 +369,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="trustedRootCertificates")
-    def trusted_root_certificates(self) -> Optional[List['outputs.ApplicationGatewayTrustedRootCertificateResponse']]:
+    def trusted_root_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewayTrustedRootCertificateResponse']]:
         """
         Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -385,7 +385,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="urlPathMaps")
-    def url_path_maps(self) -> Optional[List['outputs.ApplicationGatewayUrlPathMapResponse']]:
+    def url_path_maps(self) -> Optional[Sequence['outputs.ApplicationGatewayUrlPathMapResponse']]:
         """
         URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
@@ -401,7 +401,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> Optional[Sequence[str]]:
         """
         A list of availability zones denoting where the resource needs to come from.
         """

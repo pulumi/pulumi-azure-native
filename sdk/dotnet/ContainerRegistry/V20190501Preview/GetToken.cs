@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501Preview
         /// <summary>
         /// The credentials that can be used for authenticating the token.
         /// </summary>
-        public readonly Outputs.TokenCredentialsPropertiesResponseResult? Credentials;
+        public readonly Outputs.TokenCredentialsPropertiesResponse? Credentials;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501Preview
         private GetTokenResult(
             string creationDate,
 
-            Outputs.TokenCredentialsPropertiesResponseResult? credentials,
+            Outputs.TokenCredentialsPropertiesResponse? credentials,
 
             string name,
 

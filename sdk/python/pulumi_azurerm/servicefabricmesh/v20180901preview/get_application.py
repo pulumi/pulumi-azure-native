@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -122,7 +122,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="serviceNames")
-    def service_names(self) -> List[str]:
+    def service_names(self) -> Sequence[str]:
         """
         Names of the services in the application.
         """
@@ -130,7 +130,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def services(self) -> Optional[List['outputs.ServiceResourceDescriptionResponse']]:
+    def services(self) -> Optional[Sequence['outputs.ServiceResourceDescriptionResponse']]:
         """
         Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         """

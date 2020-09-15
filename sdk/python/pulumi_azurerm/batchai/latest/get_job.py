@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -81,8 +81,8 @@ class GetJobResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if node_count and not isinstance(node_count, float):
-            raise TypeError("Expected argument 'node_count' to be a float")
+        if node_count and not isinstance(node_count, int):
+            raise TypeError("Expected argument 'node_count' to be a int")
         pulumi.set(__self__, "node_count", node_count)
         if output_directories and not isinstance(output_directories, list):
             raise TypeError("Expected argument 'output_directories' to be a list")
@@ -197,7 +197,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[List['outputs.EnvironmentVariableResponse']]:
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
         """
         A collection of user defined environment variables to be setup for the job.
         """
@@ -237,7 +237,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="inputDirectories")
-    def input_directories(self) -> Optional[List['outputs.InputDirectoryResponse']]:
+    def input_directories(self) -> Optional[Sequence['outputs.InputDirectoryResponse']]:
         """
         A list of input directories for the job.
         """
@@ -277,7 +277,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[float]:
+    def node_count(self) -> Optional[int]:
         """
         The job will be gang scheduled on that many compute nodes
         """
@@ -285,7 +285,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="outputDirectories")
-    def output_directories(self) -> Optional[List['outputs.OutputDirectoryResponse']]:
+    def output_directories(self) -> Optional[Sequence['outputs.OutputDirectoryResponse']]:
         """
         A list of output directories for the job.
         """
@@ -325,7 +325,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[List['outputs.EnvironmentVariableWithSecretValueResponse']]:
+    def secrets(self) -> Optional[Sequence['outputs.EnvironmentVariableWithSecretValueResponse']]:
         """
         A collection of user defined environment variables with secret values to be setup for the job. Server will never report values of these variables back.
         """

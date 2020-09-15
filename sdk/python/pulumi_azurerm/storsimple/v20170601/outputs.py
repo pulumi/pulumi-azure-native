@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -79,14 +79,14 @@ class BandwidthScheduleResponse(dict):
     The schedule for bandwidth setting.
     """
     def __init__(__self__, *,
-                 days: List[str],
-                 rate_in_mbps: float,
+                 days: Sequence[str],
+                 rate_in_mbps: int,
                  start: 'outputs.TimeResponse',
                  stop: 'outputs.TimeResponse'):
         """
         The schedule for bandwidth setting.
-        :param List[str] days: The days of the week when this schedule is applicable.
-        :param float rate_in_mbps: The rate in Mbps.
+        :param Sequence[str] days: The days of the week when this schedule is applicable.
+        :param int rate_in_mbps: The rate in Mbps.
         :param 'TimeResponseArgs' start: The start time of the schedule.
         :param 'TimeResponseArgs' stop: The stop time of the schedule.
         """
@@ -97,7 +97,7 @@ class BandwidthScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> List[str]:
+    def days(self) -> Sequence[str]:
         """
         The days of the week when this schedule is applicable.
         """
@@ -105,7 +105,7 @@ class BandwidthScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="rateInMbps")
-    def rate_in_mbps(self) -> float:
+    def rate_in_mbps(self) -> int:
         """
         The rate in Mbps.
         """
@@ -173,11 +173,11 @@ class FailoverSetResponseResult(dict):
     """
     def __init__(__self__, *,
                  eligibility_result: Optional['outputs.FailoverSetEligibilityResultResponseResult'] = None,
-                 volume_containers: Optional[List['outputs.VolumeContainerFailoverMetadataResponseResult']] = None):
+                 volume_containers: Optional[Sequence['outputs.VolumeContainerFailoverMetadataResponseResult']] = None):
         """
         The failover set on a device.
         :param 'FailoverSetEligibilityResultResponseArgs' eligibility_result: The eligibility result of the failover set, for failover.
-        :param List['VolumeContainerFailoverMetadataResponseArgs'] volume_containers: The list of meta data of volume containers, which are part of the failover set.
+        :param Sequence['VolumeContainerFailoverMetadataResponseArgs'] volume_containers: The list of meta data of volume containers, which are part of the failover set.
         """
         if eligibility_result is not None:
             pulumi.set(__self__, "eligibility_result", eligibility_result)
@@ -194,7 +194,7 @@ class FailoverSetResponseResult(dict):
 
     @property
     @pulumi.getter(name="volumeContainers")
-    def volume_containers(self) -> Optional[List['outputs.VolumeContainerFailoverMetadataResponseResult']]:
+    def volume_containers(self) -> Optional[Sequence['outputs.VolumeContainerFailoverMetadataResponseResult']]:
         """
         The list of meta data of volume containers, which are part of the failover set.
         """
@@ -207,9 +207,9 @@ class FailoverTargetResponseResult(dict):
     Represents the eligibility of a device as a failover target device.
     """
     def __init__(__self__, *,
-                 available_local_storage_in_bytes: Optional[float] = None,
-                 available_tiered_storage_in_bytes: Optional[float] = None,
-                 data_containers_count: Optional[float] = None,
+                 available_local_storage_in_bytes: Optional[int] = None,
+                 available_tiered_storage_in_bytes: Optional[int] = None,
+                 data_containers_count: Optional[int] = None,
                  device_id: Optional[str] = None,
                  device_location: Optional[str] = None,
                  device_software_version: Optional[str] = None,
@@ -217,12 +217,12 @@ class FailoverTargetResponseResult(dict):
                  eligibility_result: Optional['outputs.TargetEligibilityResultResponseResult'] = None,
                  friendly_device_software_version: Optional[str] = None,
                  model_description: Optional[str] = None,
-                 volumes_count: Optional[float] = None):
+                 volumes_count: Optional[int] = None):
         """
         Represents the eligibility of a device as a failover target device.
-        :param float available_local_storage_in_bytes: The amount of free local storage available on the device in bytes.
-        :param float available_tiered_storage_in_bytes: The amount of free tiered storage available for the device in bytes.
-        :param float data_containers_count: The count of data containers on the device.
+        :param int available_local_storage_in_bytes: The amount of free local storage available on the device in bytes.
+        :param int available_tiered_storage_in_bytes: The amount of free tiered storage available for the device in bytes.
+        :param int data_containers_count: The count of data containers on the device.
         :param str device_id: The path ID of the device.
         :param str device_location: The geo location (applicable only for cloud appliances) of the device.
         :param str device_software_version: The software version of the device.
@@ -230,7 +230,7 @@ class FailoverTargetResponseResult(dict):
         :param 'TargetEligibilityResultResponseArgs' eligibility_result: The eligibility result of the device, as a failover target device.
         :param str friendly_device_software_version: The friendly name for the current version of software on the device.
         :param str model_description: The model number of the device.
-        :param float volumes_count: The count of volumes on the device.
+        :param int volumes_count: The count of volumes on the device.
         """
         if available_local_storage_in_bytes is not None:
             pulumi.set(__self__, "available_local_storage_in_bytes", available_local_storage_in_bytes)
@@ -257,7 +257,7 @@ class FailoverTargetResponseResult(dict):
 
     @property
     @pulumi.getter(name="availableLocalStorageInBytes")
-    def available_local_storage_in_bytes(self) -> Optional[float]:
+    def available_local_storage_in_bytes(self) -> Optional[int]:
         """
         The amount of free local storage available on the device in bytes.
         """
@@ -265,7 +265,7 @@ class FailoverTargetResponseResult(dict):
 
     @property
     @pulumi.getter(name="availableTieredStorageInBytes")
-    def available_tiered_storage_in_bytes(self) -> Optional[float]:
+    def available_tiered_storage_in_bytes(self) -> Optional[int]:
         """
         The amount of free tiered storage available for the device in bytes.
         """
@@ -273,7 +273,7 @@ class FailoverTargetResponseResult(dict):
 
     @property
     @pulumi.getter(name="dataContainersCount")
-    def data_containers_count(self) -> Optional[float]:
+    def data_containers_count(self) -> Optional[int]:
         """
         The count of data containers on the device.
         """
@@ -337,7 +337,7 @@ class FailoverTargetResponseResult(dict):
 
     @property
     @pulumi.getter(name="volumesCount")
-    def volumes_count(self) -> Optional[float]:
+    def volumes_count(self) -> Optional[int]:
         """
         The count of volumes on the device.
         """
@@ -401,13 +401,13 @@ class ScheduleRecurrenceResponse(dict):
     """
     def __init__(__self__, *,
                  recurrence_type: str,
-                 recurrence_value: float,
-                 weekly_days_list: Optional[List[str]] = None):
+                 recurrence_value: int,
+                 weekly_days_list: Optional[Sequence[str]] = None):
         """
         The schedule recurrence.
         :param str recurrence_type: The recurrence type.
-        :param float recurrence_value: The recurrence value.
-        :param List[str] weekly_days_list: The week days list. Applicable only for schedules of recurrence type 'weekly'.
+        :param int recurrence_value: The recurrence value.
+        :param Sequence[str] weekly_days_list: The week days list. Applicable only for schedules of recurrence type 'weekly'.
         """
         pulumi.set(__self__, "recurrence_type", recurrence_type)
         pulumi.set(__self__, "recurrence_value", recurrence_value)
@@ -424,7 +424,7 @@ class ScheduleRecurrenceResponse(dict):
 
     @property
     @pulumi.getter(name="recurrenceValue")
-    def recurrence_value(self) -> float:
+    def recurrence_value(self) -> int:
         """
         The recurrence value.
         """
@@ -432,7 +432,7 @@ class ScheduleRecurrenceResponse(dict):
 
     @property
     @pulumi.getter(name="weeklyDaysList")
-    def weekly_days_list(self) -> Optional[List[str]]:
+    def weekly_days_list(self) -> Optional[Sequence[str]]:
         """
         The week days list. Applicable only for schedules of recurrence type 'weekly'.
         """
@@ -496,11 +496,11 @@ class TargetEligibilityResultResponseResult(dict):
     """
     def __init__(__self__, *,
                  eligibility_status: Optional[str] = None,
-                 messages: Optional[List['outputs.TargetEligibilityErrorMessageResponseResult']] = None):
+                 messages: Optional[Sequence['outputs.TargetEligibilityErrorMessageResponseResult']] = None):
         """
         The eligibility result of device, as a failover target device.
         :param str eligibility_status: The eligibility status of device, as a failover target device.
-        :param List['TargetEligibilityErrorMessageResponseArgs'] messages: The list of error messages, if a device does not qualify as a failover target device.
+        :param Sequence['TargetEligibilityErrorMessageResponseArgs'] messages: The list of error messages, if a device does not qualify as a failover target device.
         """
         if eligibility_status is not None:
             pulumi.set(__self__, "eligibility_status", eligibility_status)
@@ -517,7 +517,7 @@ class TargetEligibilityResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def messages(self) -> Optional[List['outputs.TargetEligibilityErrorMessageResponseResult']]:
+    def messages(self) -> Optional[Sequence['outputs.TargetEligibilityErrorMessageResponseResult']]:
         """
         The list of error messages, if a device does not qualify as a failover target device.
         """
@@ -530,14 +530,14 @@ class TimeResponse(dict):
     The time.
     """
     def __init__(__self__, *,
-                 hours: float,
-                 minutes: float,
-                 seconds: float):
+                 hours: int,
+                 minutes: int,
+                 seconds: int):
         """
         The time.
-        :param float hours: The hour.
-        :param float minutes: The minute.
-        :param float seconds: The second.
+        :param int hours: The hour.
+        :param int minutes: The minute.
+        :param int seconds: The second.
         """
         pulumi.set(__self__, "hours", hours)
         pulumi.set(__self__, "minutes", minutes)
@@ -545,7 +545,7 @@ class TimeResponse(dict):
 
     @property
     @pulumi.getter
-    def hours(self) -> float:
+    def hours(self) -> int:
         """
         The hour.
         """
@@ -553,7 +553,7 @@ class TimeResponse(dict):
 
     @property
     @pulumi.getter
-    def minutes(self) -> float:
+    def minutes(self) -> int:
         """
         The minute.
         """
@@ -561,7 +561,7 @@ class TimeResponse(dict):
 
     @property
     @pulumi.getter
-    def seconds(self) -> float:
+    def seconds(self) -> int:
         """
         The second.
         """
@@ -578,11 +578,11 @@ class VolumeContainerFailoverMetadataResponseResult(dict):
     """
     def __init__(__self__, *,
                  volume_container_id: Optional[str] = None,
-                 volumes: Optional[List['outputs.VolumeFailoverMetadataResponseResult']] = None):
+                 volumes: Optional[Sequence['outputs.VolumeFailoverMetadataResponseResult']] = None):
         """
         The metadata of the volume container, that is being considered as part of a failover set.
         :param str volume_container_id: The path ID of the volume container.
-        :param List['VolumeFailoverMetadataResponseArgs'] volumes: The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
+        :param Sequence['VolumeFailoverMetadataResponseArgs'] volumes: The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
         """
         if volume_container_id is not None:
             pulumi.set(__self__, "volume_container_id", volume_container_id)
@@ -599,7 +599,7 @@ class VolumeContainerFailoverMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[List['outputs.VolumeFailoverMetadataResponseResult']]:
+    def volumes(self) -> Optional[Sequence['outputs.VolumeFailoverMetadataResponseResult']]:
         """
         The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
         """
@@ -616,7 +616,7 @@ class VolumeFailoverMetadataResponseResult(dict):
                  backup_element_id: Optional[str] = None,
                  backup_id: Optional[str] = None,
                  backup_policy_id: Optional[str] = None,
-                 size_in_bytes: Optional[float] = None,
+                 size_in_bytes: Optional[int] = None,
                  volume_id: Optional[str] = None,
                  volume_type: Optional[str] = None):
         """
@@ -625,7 +625,7 @@ class VolumeFailoverMetadataResponseResult(dict):
         :param str backup_element_id: The path ID of the backup-element for this volume, inside the backup set.
         :param str backup_id: The path ID of the backup set.
         :param str backup_policy_id: The path ID of the backup policy using which the snapshot was taken.
-        :param float size_in_bytes: The size of the volume in bytes at the time the snapshot was taken.
+        :param int size_in_bytes: The size of the volume in bytes at the time the snapshot was taken.
         :param str volume_id: The path ID of the volume.
         :param str volume_type: The type of the volume.
         """
@@ -678,7 +678,7 @@ class VolumeFailoverMetadataResponseResult(dict):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> Optional[float]:
+    def size_in_bytes(self) -> Optional[int]:
         """
         The size of the volume in bytes at the time the snapshot was taken.
         """

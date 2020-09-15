@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,9 @@ class ApiOperation(pulumi.CustomResource):
                  policies: Optional[pulumi.Input[str]] = None,
                  request: Optional[pulumi.Input[pulumi.InputType['RequestContractArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 responses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResponseContractArgs']]]]] = None,
+                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponseContractArgs']]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 template_parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]]] = None,
+                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]]] = None,
                  url_template: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -45,9 +45,9 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[str] policies: Operation Policies
         :param pulumi.Input[pulumi.InputType['RequestContractArgs']] request: An entity containing request details.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ResponseContractArgs']]]] responses: Array of Operation responses.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponseContractArgs']]]] responses: Array of Operation responses.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]] template_parameters: Collection of URL template parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]] template_parameters: Collection of URL template parameters.
         :param pulumi.Input[str] url_template: Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
         """
         if __name__ is not None:
@@ -171,7 +171,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def responses(self) -> pulumi.Output[Optional[List['outputs.ResponseContractResponse']]]:
+    def responses(self) -> pulumi.Output[Optional[Sequence['outputs.ResponseContractResponse']]]:
         """
         Array of Operation responses.
         """
@@ -179,7 +179,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateParameters")
-    def template_parameters(self) -> pulumi.Output[Optional[List['outputs.ParameterContractResponse']]]:
+    def template_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ParameterContractResponse']]]:
         """
         Collection of URL template parameters.
         """

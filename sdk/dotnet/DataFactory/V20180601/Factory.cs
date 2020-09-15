@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// List of parameters for factory.
         /// </summary>
         [Output("globalParameters")]
-        public Output<ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponseResult>?> GlobalParameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponse>?> GlobalParameters { get; private set; } = null!;
 
         /// <summary>
         /// Managed service identity of the factory.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.FactoryIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.FactoryIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Git repo information of the factory.
         /// </summary>
         [Output("repoConfiguration")]
-        public Output<Union<Outputs.FactoryGitHubConfigurationResponseResult, Outputs.FactoryVSTSConfigurationResponseResult>?> RepoConfiguration { get; private set; } = null!;
+        public Output<Union<Outputs.FactoryGitHubConfigurationResponse, Outputs.FactoryVSTSConfigurationResponse>?> RepoConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

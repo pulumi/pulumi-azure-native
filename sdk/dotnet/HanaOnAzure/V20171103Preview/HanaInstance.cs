@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
         /// Specifies the hardware settings for the HANA instance.
         /// </summary>
         [Output("hardwareProfile")]
-        public Output<Outputs.HardwareProfileResponseResult?> HardwareProfile { get; private set; } = null!;
+        public Output<Outputs.HardwareProfileResponse?> HardwareProfile { get; private set; } = null!;
 
         /// <summary>
         /// Hardware revision of a HANA instance
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
         /// Specifies the network settings for the HANA instance.
         /// </summary>
         [Output("networkProfile")]
-        public Output<Outputs.NetworkProfileResponseResult?> NetworkProfile { get; private set; } = null!;
+        public Output<Outputs.NetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the operating system settings for the HANA instance.
         /// </summary>
         [Output("osProfile")]
-        public Output<Outputs.OSProfileResponseResult?> OsProfile { get; private set; } = null!;
+        public Output<Outputs.OSProfileResponse?> OsProfile { get; private set; } = null!;
 
         /// <summary>
         /// ARM ID of another HanaInstance that will share a network with this HanaInstance
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
         /// Specifies the storage settings for the HANA instance disks.
         /// </summary>
         [Output("storageProfile")]
-        public Output<Outputs.StorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
+        public Output<Outputs.StorageProfileResponse?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

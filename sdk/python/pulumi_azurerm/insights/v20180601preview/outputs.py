@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -22,13 +22,13 @@ __all__ = [
 @pulumi.output_type
 class DataSourceConfigurationResponse(dict):
     def __init__(__self__, *,
-                 event_logs: Optional[List['outputs.EventLogConfigurationResponse']] = None,
-                 perf_counters: Optional[List['outputs.PerformanceCounterConfigurationResponse']] = None,
-                 providers: Optional[List['outputs.EtwProviderConfigurationResponse']] = None):
+                 event_logs: Optional[Sequence['outputs.EventLogConfigurationResponse']] = None,
+                 perf_counters: Optional[Sequence['outputs.PerformanceCounterConfigurationResponse']] = None,
+                 providers: Optional[Sequence['outputs.EtwProviderConfigurationResponse']] = None):
         """
-        :param List['EventLogConfigurationResponseArgs'] event_logs: Windows event logs configuration.
-        :param List['PerformanceCounterConfigurationResponseArgs'] perf_counters: Performance counter configuration
-        :param List['EtwProviderConfigurationResponseArgs'] providers: ETW providers configuration
+        :param Sequence['EventLogConfigurationResponseArgs'] event_logs: Windows event logs configuration.
+        :param Sequence['PerformanceCounterConfigurationResponseArgs'] perf_counters: Performance counter configuration
+        :param Sequence['EtwProviderConfigurationResponseArgs'] providers: ETW providers configuration
         """
         if event_logs is not None:
             pulumi.set(__self__, "event_logs", event_logs)
@@ -39,7 +39,7 @@ class DataSourceConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="eventLogs")
-    def event_logs(self) -> Optional[List['outputs.EventLogConfigurationResponse']]:
+    def event_logs(self) -> Optional[Sequence['outputs.EventLogConfigurationResponse']]:
         """
         Windows event logs configuration.
         """
@@ -47,7 +47,7 @@ class DataSourceConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="perfCounters")
-    def perf_counters(self) -> Optional[List['outputs.PerformanceCounterConfigurationResponse']]:
+    def perf_counters(self) -> Optional[Sequence['outputs.PerformanceCounterConfigurationResponse']]:
         """
         Performance counter configuration
         """
@@ -55,7 +55,7 @@ class DataSourceConfigurationResponse(dict):
 
     @property
     @pulumi.getter
-    def providers(self) -> Optional[List['outputs.EtwProviderConfigurationResponse']]:
+    def providers(self) -> Optional[Sequence['outputs.EtwProviderConfigurationResponse']]:
         """
         ETW providers configuration
         """
@@ -73,7 +73,7 @@ class DataSourceResponse(dict):
     def __init__(__self__, *,
                  configuration: 'outputs.DataSourceConfigurationResponse',
                  kind: str,
-                 sinks: List['outputs.SinkConfigurationResponse']):
+                 sinks: Sequence['outputs.SinkConfigurationResponse']):
         """
         Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
         :param str kind: Datasource kind
@@ -97,7 +97,7 @@ class DataSourceResponse(dict):
 
     @property
     @pulumi.getter
-    def sinks(self) -> List['outputs.SinkConfigurationResponse']:
+    def sinks(self) -> Sequence['outputs.SinkConfigurationResponse']:
         return pulumi.get(self, "sinks")
 
     def _translate_property(self, prop):
@@ -107,7 +107,7 @@ class DataSourceResponse(dict):
 @pulumi.output_type
 class EtwEventConfigurationResponse(dict):
     def __init__(__self__, *,
-                 id: float,
+                 id: int,
                  name: str,
                  filter: Optional[str] = None):
         pulumi.set(__self__, "id", id)
@@ -117,7 +117,7 @@ class EtwEventConfigurationResponse(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> float:
+    def id(self) -> int:
         return pulumi.get(self, "id")
 
     @property
@@ -137,14 +137,14 @@ class EtwEventConfigurationResponse(dict):
 @pulumi.output_type
 class EtwProviderConfigurationResponse(dict):
     def __init__(__self__, *,
-                 events: List['outputs.EtwEventConfigurationResponse'],
+                 events: Sequence['outputs.EtwEventConfigurationResponse'],
                  id: str):
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def events(self) -> List['outputs.EtwEventConfigurationResponse']:
+    def events(self) -> Sequence['outputs.EtwEventConfigurationResponse']:
         return pulumi.get(self, "events")
 
     @property

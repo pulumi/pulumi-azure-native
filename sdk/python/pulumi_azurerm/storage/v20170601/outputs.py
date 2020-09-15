@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -409,14 +409,14 @@ class NetworkRuleSetResponse(dict):
     def __init__(__self__, *,
                  default_action: str,
                  bypass: Optional[str] = None,
-                 ip_rules: Optional[List['outputs.IPRuleResponse']] = None,
-                 virtual_network_rules: Optional[List['outputs.VirtualNetworkRuleResponse']] = None):
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         Network rule set
         :param str default_action: Specifies the default action of allow or deny when no other rules match.
         :param str bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        :param List['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
-        :param List['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
+        :param Sequence['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
+        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
         """
         pulumi.set(__self__, "default_action", default_action)
         if bypass is not None:
@@ -444,7 +444,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List['outputs.IPRuleResponse']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
         """
         Sets the IP ACL rules
         """
@@ -452,7 +452,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.VirtualNetworkRuleResponse']]:
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
         """
         Sets the virtual network rules
         """
@@ -469,12 +469,12 @@ class RestrictionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 values: List[str],
+                 values: Sequence[str],
                  reason_code: Optional[str] = None):
         """
         The restriction because of which SKU cannot be used.
         :param str type: The type of restrictions. As of now only possible value for this is location.
-        :param List[str] values: The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
+        :param Sequence[str] values: The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
         :param str reason_code: The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
         """
         pulumi.set(__self__, "type", type)
@@ -492,7 +492,7 @@ class RestrictionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
         """
@@ -552,22 +552,22 @@ class SkuResponse(dict):
     The SKU of the storage account.
     """
     def __init__(__self__, *,
-                 capabilities: List['outputs.SKUCapabilityResponse'],
+                 capabilities: Sequence['outputs.SKUCapabilityResponse'],
                  kind: str,
-                 locations: List[str],
+                 locations: Sequence[str],
                  name: str,
                  resource_type: str,
                  tier: str,
-                 restrictions: Optional[List['outputs.RestrictionResponse']] = None):
+                 restrictions: Optional[Sequence['outputs.RestrictionResponse']] = None):
         """
         The SKU of the storage account.
-        :param List['SKUCapabilityResponseArgs'] capabilities: The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+        :param Sequence['SKUCapabilityResponseArgs'] capabilities: The capability information in the specified sku, including file encryption, network acls, change notification, etc.
         :param str kind: Indicates the type of storage account.
-        :param List[str] locations: The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
+        :param Sequence[str] locations: The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
         :param str name: Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
         :param str resource_type: The type of the resource, usually it is 'storageAccounts'.
         :param str tier: Gets the sku tier. This is based on the SKU name.
-        :param List['RestrictionResponseArgs'] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
+        :param Sequence['RestrictionResponseArgs'] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
         """
         pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "kind", kind)
@@ -580,7 +580,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> List['outputs.SKUCapabilityResponse']:
+    def capabilities(self) -> Sequence['outputs.SKUCapabilityResponse']:
         """
         The capability information in the specified sku, including file encryption, network acls, change notification, etc.
         """
@@ -596,7 +596,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def locations(self) -> List[str]:
+    def locations(self) -> Sequence[str]:
         """
         The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
         """
@@ -628,7 +628,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def restrictions(self) -> Optional[List['outputs.RestrictionResponse']]:
+    def restrictions(self) -> Optional[Sequence['outputs.RestrictionResponse']]:
         """
         The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
         """

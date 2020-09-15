@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -93,18 +93,18 @@ class NotificationResponse(dict):
     The notification associated with a budget.
     """
     def __init__(__self__, *,
-                 contact_emails: List[str],
+                 contact_emails: Sequence[str],
                  enabled: bool,
                  operator: str,
                  threshold: float,
-                 contact_roles: Optional[List[str]] = None):
+                 contact_roles: Optional[Sequence[str]] = None):
         """
         The notification associated with a budget.
-        :param List[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
         :param bool enabled: The notification is enabled or not.
         :param str operator: The comparison operator.
         :param float threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        :param List[str] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
         pulumi.set(__self__, "enabled", enabled)
@@ -115,7 +115,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactEmails")
-    def contact_emails(self) -> List[str]:
+    def contact_emails(self) -> Sequence[str]:
         """
         Email addresses to send the budget notification to when the threshold is exceeded.
         """
@@ -147,7 +147,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[List[str]]:
+    def contact_roles(self) -> Optional[Sequence[str]]:
         """
         Contact roles to send the budget notification to when the threshold is exceeded.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -316,12 +316,12 @@ class JobCollectionPropertiesArgs:
 @pulumi.input_type
 class JobCollectionQuotaArgs:
     def __init__(__self__, *,
-                 max_job_count: Optional[pulumi.Input[float]] = None,
-                 max_job_occurrence: Optional[pulumi.Input[float]] = None,
+                 max_job_count: Optional[pulumi.Input[int]] = None,
+                 max_job_occurrence: Optional[pulumi.Input[int]] = None,
                  max_recurrence: Optional[pulumi.Input['JobMaxRecurrenceArgs']] = None):
         """
-        :param pulumi.Input[float] max_job_count: Gets or set the maximum job count.
-        :param pulumi.Input[float] max_job_occurrence: Gets or sets the maximum job occurrence.
+        :param pulumi.Input[int] max_job_count: Gets or set the maximum job count.
+        :param pulumi.Input[int] max_job_occurrence: Gets or sets the maximum job occurrence.
         :param pulumi.Input['JobMaxRecurrenceArgs'] max_recurrence: Gets or set the maximum recurrence.
         """
         if max_job_count is not None:
@@ -333,26 +333,26 @@ class JobCollectionQuotaArgs:
 
     @property
     @pulumi.getter(name="maxJobCount")
-    def max_job_count(self) -> Optional[pulumi.Input[float]]:
+    def max_job_count(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or set the maximum job count.
         """
         return pulumi.get(self, "max_job_count")
 
     @max_job_count.setter
-    def max_job_count(self, value: Optional[pulumi.Input[float]]):
+    def max_job_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_job_count", value)
 
     @property
     @pulumi.getter(name="maxJobOccurrence")
-    def max_job_occurrence(self) -> Optional[pulumi.Input[float]]:
+    def max_job_occurrence(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the maximum job occurrence.
         """
         return pulumi.get(self, "max_job_occurrence")
 
     @max_job_occurrence.setter
-    def max_job_occurrence(self, value: Optional[pulumi.Input[float]]):
+    def max_job_occurrence(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_job_occurrence", value)
 
     @property
@@ -475,10 +475,10 @@ class JobErrorActionArgs:
 class JobMaxRecurrenceArgs:
     def __init__(__self__, *,
                  frequency: Optional[pulumi.Input[str]] = None,
-                 interval: Optional[pulumi.Input[float]] = None):
+                 interval: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-        :param pulumi.Input[float] interval: Gets or sets the interval between retries.
+        :param pulumi.Input[int] interval: Gets or sets the interval between retries.
         """
         if frequency is not None:
             pulumi.set(__self__, "frequency", frequency)
@@ -499,14 +499,14 @@ class JobMaxRecurrenceArgs:
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[float]]:
+    def interval(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the interval between retries.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[float]]):
+    def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
 
 
@@ -584,16 +584,16 @@ class JobPropertiesArgs:
 @pulumi.input_type
 class JobRecurrenceArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
-                 interval: Optional[pulumi.Input[float]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
                  schedule: Optional[pulumi.Input['JobRecurrenceScheduleArgs']] = None):
         """
-        :param pulumi.Input[float] count: Gets or sets the maximum number of times that the job should run.
+        :param pulumi.Input[int] count: Gets or sets the maximum number of times that the job should run.
         :param pulumi.Input[str] end_time: Gets or sets the time at which the job will complete.
         :param pulumi.Input[str] frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-        :param pulumi.Input[float] interval: Gets or sets the interval between retries.
+        :param pulumi.Input[int] interval: Gets or sets the interval between retries.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -608,14 +608,14 @@ class JobRecurrenceArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the maximum number of times that the job should run.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
@@ -644,14 +644,14 @@ class JobRecurrenceArgs:
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[float]]:
+    def interval(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the interval between retries.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[float]]):
+    def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
 
     @property
@@ -667,17 +667,17 @@ class JobRecurrenceArgs:
 @pulumi.input_type
 class JobRecurrenceScheduleArgs:
     def __init__(__self__, *,
-                 hours: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-                 minutes: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-                 month_days: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-                 monthly_occurrences: Optional[pulumi.Input[List[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]]] = None,
-                 week_days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]]] = None,
+                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[float]]] hours: Gets or sets the hours of the day that the job should execute at.
-        :param pulumi.Input[List[pulumi.Input[float]]] minutes: Gets or sets the minutes of the hour that the job should execute at.
-        :param pulumi.Input[List[pulumi.Input[float]]] month_days: Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
-        :param pulumi.Input[List[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: Gets or sets the occurrences of days within a month.
-        :param pulumi.Input[List[pulumi.Input[str]]] week_days: Gets or sets the days of the week that the job should execute on.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: Gets or sets the hours of the day that the job should execute at.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: Gets or sets the minutes of the hour that the job should execute at.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] month_days: Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
+        :param pulumi.Input[Sequence[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: Gets or sets the occurrences of days within a month.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: Gets or sets the days of the week that the job should execute on.
         """
         if hours is not None:
             pulumi.set(__self__, "hours", hours)
@@ -692,62 +692,62 @@ class JobRecurrenceScheduleArgs:
 
     @property
     @pulumi.getter
-    def hours(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def hours(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Gets or sets the hours of the day that the job should execute at.
         """
         return pulumi.get(self, "hours")
 
     @hours.setter
-    def hours(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def hours(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "hours", value)
 
     @property
     @pulumi.getter
-    def minutes(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def minutes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Gets or sets the minutes of the hour that the job should execute at.
         """
         return pulumi.get(self, "minutes")
 
     @minutes.setter
-    def minutes(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def minutes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "minutes", value)
 
     @property
     @pulumi.getter(name="monthDays")
-    def month_days(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def month_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
         """
         return pulumi.get(self, "month_days")
 
     @month_days.setter
-    def month_days(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def month_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "month_days", value)
 
     @property
     @pulumi.getter(name="monthlyOccurrences")
-    def monthly_occurrences(self) -> Optional[pulumi.Input[List[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]]]:
+    def monthly_occurrences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]]]:
         """
         Gets or sets the occurrences of days within a month.
         """
         return pulumi.get(self, "monthly_occurrences")
 
     @monthly_occurrences.setter
-    def monthly_occurrences(self, value: Optional[pulumi.Input[List[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]]]):
+    def monthly_occurrences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]]]):
         pulumi.set(self, "monthly_occurrences", value)
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gets or sets the days of the week that the job should execute on.
         """
         return pulumi.get(self, "week_days")
 
     @week_days.setter
-    def week_days(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "week_days", value)
 
 
@@ -755,10 +755,10 @@ class JobRecurrenceScheduleArgs:
 class JobRecurrenceScheduleMonthlyOccurrenceArgs:
     def __init__(__self__, *,
                  day: Optional[pulumi.Input[str]] = None,
-                 occurrence: Optional[pulumi.Input[float]] = None):
+                 occurrence: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] day: Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        :param pulumi.Input[float] occurrence: Gets or sets the occurrence. Must be between -5 and 5.
+        :param pulumi.Input[int] occurrence: Gets or sets the occurrence. Must be between -5 and 5.
         """
         if day is not None:
             pulumi.set(__self__, "day", day)
@@ -779,25 +779,25 @@ class JobRecurrenceScheduleMonthlyOccurrenceArgs:
 
     @property
     @pulumi.getter
-    def occurrence(self) -> Optional[pulumi.Input[float]]:
+    def occurrence(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the occurrence. Must be between -5 and 5.
         """
         return pulumi.get(self, "occurrence")
 
     @occurrence.setter
-    def occurrence(self, value: Optional[pulumi.Input[float]]):
+    def occurrence(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "occurrence", value)
 
 
 @pulumi.input_type
 class RetryPolicyArgs:
     def __init__(__self__, *,
-                 retry_count: Optional[pulumi.Input[float]] = None,
+                 retry_count: Optional[pulumi.Input[int]] = None,
                  retry_interval: Optional[pulumi.Input[str]] = None,
                  retry_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] retry_count: Gets or sets the number of times a retry should be attempted.
+        :param pulumi.Input[int] retry_count: Gets or sets the number of times a retry should be attempted.
         :param pulumi.Input[str] retry_interval: Gets or sets the retry interval between retries.
         :param pulumi.Input[str] retry_type: Gets or sets the retry strategy to be used.
         """
@@ -810,14 +810,14 @@ class RetryPolicyArgs:
 
     @property
     @pulumi.getter(name="retryCount")
-    def retry_count(self) -> Optional[pulumi.Input[float]]:
+    def retry_count(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the number of times a retry should be attempted.
         """
         return pulumi.get(self, "retry_count")
 
     @retry_count.setter
-    def retry_count(self, value: Optional[pulumi.Input[float]]):
+    def retry_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retry_count", value)
 
     @property

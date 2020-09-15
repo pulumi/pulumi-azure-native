@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -148,14 +148,14 @@ class RunbookDraftResponse(dict):
                  draft_content_link: Optional['outputs.ContentLinkResponse'] = None,
                  in_edit: Optional[bool] = None,
                  last_modified_time: Optional[str] = None,
-                 output_types: Optional[List[str]] = None,
+                 output_types: Optional[Sequence[str]] = None,
                  parameters: Optional[Mapping[str, 'outputs.RunbookParameterResponse']] = None):
         """
         :param str creation_time: Gets or sets the creation time of the runbook draft.
         :param 'ContentLinkResponseArgs' draft_content_link: Gets or sets the draft runbook content link.
         :param bool in_edit: Gets or sets whether runbook is in edit mode.
         :param str last_modified_time: Gets or sets the last modified time of the runbook draft.
-        :param List[str] output_types: Gets or sets the runbook output types.
+        :param Sequence[str] output_types: Gets or sets the runbook output types.
         :param Mapping[str, 'RunbookParameterResponseArgs'] parameters: Gets or sets the runbook draft parameters.
         """
         if creation_time is not None:
@@ -205,7 +205,7 @@ class RunbookDraftResponse(dict):
 
     @property
     @pulumi.getter(name="outputTypes")
-    def output_types(self) -> Optional[List[str]]:
+    def output_types(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the runbook output types.
         """
@@ -231,13 +231,13 @@ class RunbookParameterResponse(dict):
     def __init__(__self__, *,
                  default_value: Optional[str] = None,
                  is_mandatory: Optional[bool] = None,
-                 position: Optional[float] = None,
+                 position: Optional[int] = None,
                  type: Optional[str] = None):
         """
         Definition of the runbook parameter type.
         :param str default_value: Gets or sets the default value of parameter.
         :param bool is_mandatory: Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-        :param float position: Get or sets the position of the parameter.
+        :param int position: Get or sets the position of the parameter.
         :param str type: Gets or sets the type of the parameter.
         """
         if default_value is not None:
@@ -267,7 +267,7 @@ class RunbookParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def position(self) -> Optional[float]:
+    def position(self) -> Optional[int]:
         """
         Get or sets the position of the parameter.
         """

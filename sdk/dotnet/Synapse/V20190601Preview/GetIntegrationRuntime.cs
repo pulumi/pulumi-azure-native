@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <summary>
         /// Integration runtime properties.
         /// </summary>
-        public readonly Union<Outputs.ManagedIntegrationRuntimeResponseResult, Outputs.SelfHostedIntegrationRuntimeResponseResult> Properties;
+        public readonly Union<Outputs.ManagedIntegrationRuntimeResponse, Outputs.SelfHostedIntegrationRuntimeResponse> Properties;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 
             string name,
 
-            Union<Outputs.ManagedIntegrationRuntimeResponseResult, Outputs.SelfHostedIntegrationRuntimeResponseResult> properties,
+            Union<Outputs.ManagedIntegrationRuntimeResponse, Outputs.SelfHostedIntegrationRuntimeResponse> properties,
 
             string type)
         {

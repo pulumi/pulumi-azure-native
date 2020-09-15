@@ -58,13 +58,13 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
         /// <summary>
         /// The collection value.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BuildArgumentResponseResult> Value;
+        public readonly ImmutableArray<Outputs.BuildArgumentResponse> Value;
 
         [OutputConstructor]
         private ListBuildStepBuildArgumentsResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.BuildArgumentResponseResult> value)
+            ImmutableArray<Outputs.BuildArgumentResponse> value)
         {
             NextLink = nextLink;
             Value = value;

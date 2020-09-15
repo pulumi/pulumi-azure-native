@@ -24,43 +24,43 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// The collection of managed application artifacts.
         /// </summary>
         [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.ApplicationArtifactResponseResult>> Artifacts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationArtifactResponse>> Artifacts { get; private set; } = null!;
 
         /// <summary>
         /// The  read-only authorizations property that is retrieved from the application package.
         /// </summary>
         [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.ApplicationAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationAuthorizationResponse>> Authorizations { get; private set; } = null!;
 
         /// <summary>
         /// The managed application billing details.
         /// </summary>
         [Output("billingDetails")]
-        public Output<Outputs.ApplicationBillingDetailsDefinitionResponseResult> BillingDetails { get; private set; } = null!;
+        public Output<Outputs.ApplicationBillingDetailsDefinitionResponse> BillingDetails { get; private set; } = null!;
 
         /// <summary>
         /// The client entity that created the JIT request.
         /// </summary>
         [Output("createdBy")]
-        public Output<Outputs.ApplicationClientDetailsResponseResult> CreatedBy { get; private set; } = null!;
+        public Output<Outputs.ApplicationClientDetailsResponse> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// The read-only customer support property that is retrieved from the application package.
         /// </summary>
         [Output("customerSupport")]
-        public Output<Outputs.ApplicationPackageContactResponseResult> CustomerSupport { get; private set; } = null!;
+        public Output<Outputs.ApplicationPackageContactResponse> CustomerSupport { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The managed application Jit access policy.
         /// </summary>
         [Output("jitAccessPolicy")]
-        public Output<Outputs.ApplicationJitAccessPolicyResponseResult?> JitAccessPolicy { get; private set; } = null!;
+        public Output<Outputs.ApplicationJitAccessPolicyResponse?> JitAccessPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// The plan information.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
+        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// The managed application provisioning state.
@@ -132,13 +132,13 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The read-only support URLs property that is retrieved from the application package.
         /// </summary>
         [Output("supportUrls")]
-        public Output<Outputs.ApplicationPackageSupportUrlsResponseResult> SupportUrls { get; private set; } = null!;
+        public Output<Outputs.ApplicationPackageSupportUrlsResponse> SupportUrls { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -156,7 +156,7 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// The client entity that last updated the JIT request.
         /// </summary>
         [Output("updatedBy")]
-        public Output<Outputs.ApplicationClientDetailsResponseResult> UpdatedBy { get; private set; } = null!;
+        public Output<Outputs.ApplicationClientDetailsResponse> UpdatedBy { get; private set; } = null!;
 
 
         /// <summary>

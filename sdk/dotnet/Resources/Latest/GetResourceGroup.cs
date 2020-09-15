@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Resources.Latest
         /// <summary>
         /// The resource group properties.
         /// </summary>
-        public readonly Outputs.ResourceGroupPropertiesResponseResult Properties;
+        public readonly Outputs.ResourceGroupPropertiesResponse Properties;
         /// <summary>
         /// The tags attached to the resource group.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Resources.Latest
 
             string name,
 
-            Outputs.ResourceGroupPropertiesResponseResult properties,
+            Outputs.ResourceGroupPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

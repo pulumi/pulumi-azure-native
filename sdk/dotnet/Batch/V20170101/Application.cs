@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Batch.V20170101
         /// The list of packages under this application.
         /// </summary>
         [Output("packages")]
-        public Output<ImmutableArray<Outputs.ApplicationPackageResponseResult>> Packages { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationPackageResponse>> Packages { get; private set; } = null!;
 
 
         /// <summary>

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
         /// Details of the refresh job on this container.
         /// </summary>
         [Output("refreshDetails")]
-        public Output<Outputs.RefreshDetailsResponseResult> RefreshDetails { get; private set; } = null!;
+        public Output<Outputs.RefreshDetailsResponse> RefreshDetails { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

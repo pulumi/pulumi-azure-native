@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ServiceFabric.Latest
         /// A list that describes the correlation of the service with other services.
         /// </summary>
         [Output("correlationScheme")]
-        public Output<ImmutableArray<Outputs.ServiceCorrelationDescriptionResponseResult>> CorrelationScheme { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceCorrelationDescriptionResponse>> CorrelationScheme { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the move cost for the service.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ServiceFabric.Latest
         /// Describes how the service is partitioned.
         /// </summary>
         [Output("partitionDescription")]
-        public Output<Union<Outputs.NamedPartitionSchemeDescriptionResponseResult, Union<Outputs.SingletonPartitionSchemeDescriptionResponseResult, Outputs.UniformInt64RangePartitionSchemeDescriptionResponseResult>>?> PartitionDescription { get; private set; } = null!;
+        public Output<Union<Outputs.NamedPartitionSchemeDescriptionResponse, Union<Outputs.SingletonPartitionSchemeDescriptionResponse, Outputs.UniformInt64RangePartitionSchemeDescriptionResponse>>?> PartitionDescription { get; private set; } = null!;
 
         /// <summary>
         /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.ServiceFabric.Latest
         /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         /// </summary>
         [Output("serviceLoadMetrics")]
-        public Output<ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponseResult>> ServiceLoadMetrics { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponse>> ServiceLoadMetrics { get; private set; } = null!;
 
         /// <summary>
         /// The activation Mode of the service package
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.ServiceFabric.Latest
         /// A list that describes the correlation of the service with other services.
         /// </summary>
         [Output("servicePlacementPolicies")]
-        public Output<ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponseResult>> ServicePlacementPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponse>> ServicePlacementPolicies { get; private set; } = null!;
 
         /// <summary>
         /// The name of the service type

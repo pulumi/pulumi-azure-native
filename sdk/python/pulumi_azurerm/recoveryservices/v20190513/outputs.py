@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,14 +39,14 @@ class AzureFileshareProtectedItemExtendedInfoResponse(dict):
                  resource_state_sync_time: str,
                  oldest_recovery_point: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 recovery_point_count: Optional[float] = None):
+                 recovery_point_count: Optional[int] = None):
         """
         Additional information about Azure File Share backup item.
         :param str resource_state: Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
         :param str resource_state_sync_time: The resource state sync time for this backup item.
         :param str oldest_recovery_point: The oldest backup copy available for this item in the service.
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param float recovery_point_count: Number of available backup copies associated with this backup item.
+        :param int recovery_point_count: Number of available backup copies associated with this backup item.
         """
         pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "resource_state_sync_time", resource_state_sync_time)
@@ -91,7 +91,7 @@ class AzureFileshareProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         Number of available backup copies associated with this backup item.
         """
@@ -373,15 +373,15 @@ class AzureIaaSVMHealthDetailsResponse(dict):
     Azure IaaS VM workload-specific Health Details.
     """
     def __init__(__self__, *,
-                 code: float,
+                 code: int,
                  message: str,
-                 recommendations: List[str],
+                 recommendations: Sequence[str],
                  title: str):
         """
         Azure IaaS VM workload-specific Health Details.
-        :param float code: Health Code
+        :param int code: Health Code
         :param str message: Health Message
-        :param List[str] recommendations: Health Recommended Actions
+        :param Sequence[str] recommendations: Health Recommended Actions
         :param str title: Health Title
         """
         pulumi.set(__self__, "code", code)
@@ -391,7 +391,7 @@ class AzureIaaSVMHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> float:
+    def code(self) -> int:
         """
         Health Code
         """
@@ -407,7 +407,7 @@ class AzureIaaSVMHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def recommendations(self) -> List[str]:
+    def recommendations(self) -> Sequence[str]:
         """
         Health Recommended Actions
         """
@@ -433,12 +433,12 @@ class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[str] = None,
                  policy_inconsistent: Optional[bool] = None,
-                 recovery_point_count: Optional[float] = None):
+                 recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure IaaS VM specific backup item.
         :param str oldest_recovery_point: The oldest backup copy available for this backup item.
         :param bool policy_inconsistent: Specifies if backup policy associated with the backup item is inconsistent.
-        :param float recovery_point_count: Number of backup copies available for this backup item.
+        :param int recovery_point_count: Number of backup copies available for this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -465,7 +465,7 @@ class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         Number of backup copies available for this backup item.
         """
@@ -490,7 +490,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
                  extended_info: Optional['outputs.AzureIaaSVMProtectedItemExtendedInfoResponse'] = None,
                  extended_properties: Optional['outputs.ExtendedPropertiesResponse'] = None,
                  friendly_name: Optional[str] = None,
-                 health_details: Optional[List['outputs.AzureIaaSVMHealthDetailsResponse']] = None,
+                 health_details: Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']] = None,
                  health_status: Optional[str] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
@@ -517,7 +517,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
         :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param List['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -659,7 +659,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="healthDetails")
-    def health_details(self) -> Optional[List['outputs.AzureIaaSVMHealthDetailsResponse']]:
+    def health_details(self) -> Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']]:
         """
         Health details on this backup item.
         """
@@ -797,12 +797,12 @@ class AzureSqlProtectedItemExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 recovery_point_count: Optional[float] = None):
+                 recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure Sql specific protected item.
         :param str oldest_recovery_point: The oldest backup copy available for this item in the service.
         :param str policy_state: State of the backup policy associated with this backup item.
-        :param float recovery_point_count: Number of available backup copies associated with this backup item.
+        :param int recovery_point_count: Number of available backup copies associated with this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -829,7 +829,7 @@ class AzureSqlProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         Number of available backup copies associated with this backup item.
         """
@@ -1065,12 +1065,12 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 recovery_point_count: Optional[float] = None):
+                 recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure Workload for SQL specific backup item.
         :param str oldest_recovery_point: The oldest backup copy available for this backup item.
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param float recovery_point_count: Number of backup copies available for this backup item.
+        :param int recovery_point_count: Number of backup copies available for this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -1097,7 +1097,7 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         Number of backup copies available for this backup item.
         """
@@ -1447,11 +1447,11 @@ class DPMProtectedItemExtendedInfoResponse(dict):
                  oldest_recovery_point: Optional[str] = None,
                  on_premise_latest_recovery_point: Optional[str] = None,
                  on_premise_oldest_recovery_point: Optional[str] = None,
-                 on_premise_recovery_point_count: Optional[float] = None,
+                 on_premise_recovery_point_count: Optional[int] = None,
                  protectable_object_load_path: Optional[Mapping[str, str]] = None,
                  protected: Optional[bool] = None,
                  protection_group_name: Optional[str] = None,
-                 recovery_point_count: Optional[float] = None,
+                 recovery_point_count: Optional[int] = None,
                  total_disk_storage_size_in_bytes: Optional[str] = None):
         """
         Additional information of DPM Protected item.
@@ -1463,11 +1463,11 @@ class DPMProtectedItemExtendedInfoResponse(dict):
         :param str oldest_recovery_point: Oldest cloud recovery point time.
         :param str on_premise_latest_recovery_point: latest disk recovery point time.
         :param str on_premise_oldest_recovery_point: Oldest disk recovery point time.
-        :param float on_premise_recovery_point_count: disk recovery point count.
+        :param int on_premise_recovery_point_count: disk recovery point count.
         :param Mapping[str, str] protectable_object_load_path: Attribute to provide information on various DBs.
         :param bool protected: To check if backup item is disk protected.
         :param str protection_group_name: Protection group name of the backup item.
-        :param float recovery_point_count: cloud recovery point count.
+        :param int recovery_point_count: cloud recovery point count.
         :param str total_disk_storage_size_in_bytes: total Disk storage in bytes.
         """
         if disk_storage_used_in_bytes is not None:
@@ -1565,7 +1565,7 @@ class DPMProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="onPremiseRecoveryPointCount")
-    def on_premise_recovery_point_count(self) -> Optional[float]:
+    def on_premise_recovery_point_count(self) -> Optional[int]:
         """
         disk recovery point count.
         """
@@ -1597,7 +1597,7 @@ class DPMProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         cloud recovery point count.
         """
@@ -1848,10 +1848,10 @@ class DPMProtectedItemResponse(dict):
 @pulumi.output_type
 class DiskExclusionPropertiesResponse(dict):
     def __init__(__self__, *,
-                 disk_lun_list: Optional[List[float]] = None,
+                 disk_lun_list: Optional[Sequence[int]] = None,
                  is_inclusion_list: Optional[bool] = None):
         """
-        :param List[float] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+        :param Sequence[int] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
         :param bool is_inclusion_list: Flag to indicate whether DiskLunList is to be included/ excluded from backup.
         """
         if disk_lun_list is not None:
@@ -1861,7 +1861,7 @@ class DiskExclusionPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="diskLunList")
-    def disk_lun_list(self) -> Optional[List[float]]:
+    def disk_lun_list(self) -> Optional[Sequence[int]]:
         """
         List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
         """
@@ -1887,12 +1887,12 @@ class ErrorDetailResponse(dict):
     def __init__(__self__, *,
                  code: str,
                  message: str,
-                 recommendations: List[str]):
+                 recommendations: Sequence[str]):
         """
         Error Detail class which encapsulates Code, Message and Recommendations.
         :param str code: Error code.
         :param str message: Error Message related to the Code.
-        :param List[str] recommendations: List of recommendation strings.
+        :param Sequence[str] recommendations: List of recommendation strings.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "message", message)
@@ -1916,7 +1916,7 @@ class ErrorDetailResponse(dict):
 
     @property
     @pulumi.getter
-    def recommendations(self) -> List[str]:
+    def recommendations(self) -> Sequence[str]:
         """
         List of recommendation strings.
         """
@@ -1972,7 +1972,7 @@ class GenericProtectedItemResponse(dict):
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 protected_item_id: Optional[float] = None,
+                 protected_item_id: Optional[int] = None,
                  protected_item_type: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  source_associations: Optional[Mapping[str, str]] = None,
@@ -1994,7 +1994,7 @@ class GenericProtectedItemResponse(dict):
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param float protected_item_id: Data Plane Service ID of the protected item.
+        :param int protected_item_id: Data Plane Service ID of the protected item.
         :param str protected_item_type: backup item type.
         :param str protection_state: Backup state of this backup item.
         :param Mapping[str, str] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
@@ -2156,7 +2156,7 @@ class GenericProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemId")
-    def protected_item_id(self) -> Optional[float]:
+    def protected_item_id(self) -> Optional[int]:
         """
         Data Plane Service ID of the protected item.
         """
@@ -2214,12 +2214,12 @@ class MabFileFolderProtectedItemExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  last_refreshed_at: Optional[str] = None,
                  oldest_recovery_point: Optional[str] = None,
-                 recovery_point_count: Optional[float] = None):
+                 recovery_point_count: Optional[int] = None):
         """
         Additional information on the backed up item.
         :param str last_refreshed_at: Last time when the agent data synced to service.
         :param str oldest_recovery_point: The oldest backup copy available.
-        :param float recovery_point_count: Number of backup copies associated with the backup item.
+        :param int recovery_point_count: Number of backup copies associated with the backup item.
         """
         if last_refreshed_at is not None:
             pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
@@ -2246,7 +2246,7 @@ class MabFileFolderProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         Number of backup copies associated with the backup item.
         """
@@ -2267,7 +2267,7 @@ class MabFileFolderProtectedItemResponse(dict):
                  computer_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
-                 deferred_delete_sync_time_in_utc: Optional[float] = None,
+                 deferred_delete_sync_time_in_utc: Optional[int] = None,
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.MabFileFolderProtectedItemExtendedInfoResponse'] = None,
@@ -2290,7 +2290,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str computer_name: Name of the computer associated with this backup item.
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-        :param float deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
+        :param int deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'MabFileFolderProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
@@ -2392,7 +2392,7 @@ class MabFileFolderProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="deferredDeleteSyncTimeInUTC")
-    def deferred_delete_sync_time_in_utc(self) -> Optional[float]:
+    def deferred_delete_sync_time_in_utc(self) -> Optional[int]:
         """
         Sync time for deferred deletion in UTC
         """

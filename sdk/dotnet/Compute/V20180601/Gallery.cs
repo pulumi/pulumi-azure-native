@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// Describes the gallery unique name.
         /// </summary>
         [Output("identifier")]
-        public Output<Outputs.GalleryIdentifierResponseResult?> Identifier { get; private set; } = null!;
+        public Output<Outputs.GalleryIdentifierResponse?> Identifier { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

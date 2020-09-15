@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview
         /// AppInsights configuration
         /// </summary>
         [Output("appInsights")]
-        public Output<Outputs.AppInsightsCredentialsResponseResult?> AppInsights { get; private set; } = null!;
+        public Output<Outputs.AppInsightsCredentialsResponse?> AppInsights { get; private set; } = null!;
 
         /// <summary>
         /// The cluster type.
@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview
         /// Container Registry properties.
         /// </summary>
         [Output("containerRegistry")]
-        public Output<Outputs.ContainerRegistryPropertiesResponseResult?> ContainerRegistry { get; private set; } = null!;
+        public Output<Outputs.ContainerRegistryPropertiesResponse?> ContainerRegistry { get; private set; } = null!;
 
         /// <summary>
         /// Parameters for the Azure Container Service cluster.
         /// </summary>
         [Output("containerService")]
-        public Output<Outputs.AcsClusterPropertiesResponseResult> ContainerService { get; private set; } = null!;
+        public Output<Outputs.AcsClusterPropertiesResponse> ContainerService { get; private set; } = null!;
 
         /// <summary>
         /// The date and time when the cluster was created.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview
         /// Contains global configuration for the web services in the cluster.
         /// </summary>
         [Output("globalServiceConfiguration")]
-        public Output<Outputs.GlobalServiceConfigurationResponseResult?> GlobalServiceConfiguration { get; private set; } = null!;
+        public Output<Outputs.GlobalServiceConfigurationResponse?> GlobalServiceConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview
         /// Storage Account properties.
         /// </summary>
         [Output("storageAccount")]
-        public Output<Outputs.StorageAccountPropertiesResponseResult?> StorageAccount { get; private set; } = null!;
+        public Output<Outputs.StorageAccountPropertiesResponse?> StorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -68,11 +68,11 @@ class ScheduleResponse(dict):
     """
     def __init__(__self__, *,
                  name: Optional[str] = None,
-                 policy_list: Optional[List[str]] = None):
+                 policy_list: Optional[Sequence[str]] = None):
         """
         Schedule for the job run.
         :param str name: Name of the schedule.
-        :param List[str] policy_list: A list of repetition intervals in ISO 8601 format.
+        :param Sequence[str] policy_list: A list of repetition intervals in ISO 8601 format.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -89,7 +89,7 @@ class ScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="policyList")
-    def policy_list(self) -> Optional[List[str]]:
+    def policy_list(self) -> Optional[Sequence[str]]:
         """
         A list of repetition intervals in ISO 8601 format.
         """

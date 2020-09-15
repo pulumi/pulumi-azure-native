@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview
         /// <summary>
         /// Credentials for Azure AppInsights.
         /// </summary>
-        public readonly Outputs.AppInsightsCredentialsResponseResult? AppInsights;
+        public readonly Outputs.AppInsightsCredentialsResponse? AppInsights;
         /// <summary>
         /// Credentials for Azure Container Registry.
         /// </summary>
@@ -54,11 +54,11 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview
         /// <summary>
         /// Global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
         /// </summary>
-        public readonly Outputs.ServiceAuthConfigurationResponseResult? ServiceAuthConfiguration;
+        public readonly Outputs.ServiceAuthConfigurationResponse? ServiceAuthConfiguration;
         /// <summary>
         /// The SSL configuration for the services.
         /// </summary>
-        public readonly Outputs.SslConfigurationResponseResult? SslConfiguration;
+        public readonly Outputs.SslConfigurationResponse? SslConfiguration;
         /// <summary>
         /// Credentials for the Storage Account.
         /// </summary>
@@ -66,15 +66,15 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview
 
         [OutputConstructor]
         private ListOperationalizationClusterKeysResult(
-            Outputs.AppInsightsCredentialsResponseResult? appInsights,
+            Outputs.AppInsightsCredentialsResponse? appInsights,
 
             Outputs.ContainerRegistryCredentialsResponseResult? containerRegistry,
 
             Outputs.ContainerServiceCredentialsResponseResult? containerService,
 
-            Outputs.ServiceAuthConfigurationResponseResult? serviceAuthConfiguration,
+            Outputs.ServiceAuthConfigurationResponse? serviceAuthConfiguration,
 
-            Outputs.SslConfigurationResponseResult? sslConfiguration,
+            Outputs.SslConfigurationResponse? sslConfiguration,
 
             Outputs.StorageAccountCredentialsResponseResult? storageAccount)
         {

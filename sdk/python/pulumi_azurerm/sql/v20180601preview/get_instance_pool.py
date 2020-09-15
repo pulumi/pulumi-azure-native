@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,8 +42,8 @@ class GetInstancePoolResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if v_cores and not isinstance(v_cores, float):
-            raise TypeError("Expected argument 'v_cores' to be a float")
+        if v_cores and not isinstance(v_cores, int):
+            raise TypeError("Expected argument 'v_cores' to be a int")
         pulumi.set(__self__, "v_cores", v_cores)
 
     @property
@@ -104,7 +104,7 @@ class GetInstancePoolResult:
 
     @property
     @pulumi.getter(name="vCores")
-    def v_cores(self) -> float:
+    def v_cores(self) -> int:
         """
         Count of vCores belonging to this instance pool.
         """

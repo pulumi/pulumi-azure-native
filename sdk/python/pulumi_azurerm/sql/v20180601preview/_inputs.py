@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -104,14 +104,14 @@ class ResourceIdentityArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         An ARM Resource SKU.
         :param pulumi.Input[str] name: The name of the SKU, typically, a letter + Number code, e.g. P3.
-        :param pulumi.Input[float] capacity: Capacity of the particular SKU.
+        :param pulumi.Input[int] capacity: Capacity of the particular SKU.
         :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param pulumi.Input[str] size: Size of the particular SKU
         :param pulumi.Input[str] tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
@@ -140,14 +140,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Capacity of the particular SKU.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -191,12 +191,12 @@ class SkuArgs:
 class VulnerabilityAssessmentRecurringScansPropertiesArgs:
     def __init__(__self__, *,
                  email_subscription_admins: Optional[pulumi.Input[bool]] = None,
-                 emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
         :param pulumi.Input[bool] email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
-        :param pulumi.Input[List[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param pulumi.Input[bool] is_enabled: Recurring scans state.
         """
         if email_subscription_admins is not None:
@@ -220,14 +220,14 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies an array of e-mail addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "emails", value)
 
     @property

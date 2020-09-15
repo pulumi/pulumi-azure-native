@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// The IPSec Policies to be considered by this connection.
         /// </summary>
         [Output("ipsecPolicies")]
-        public Output<ImmutableArray<Outputs.IpsecPolicyResponseResult>> IpsecPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IpsecPolicyResponse>> IpsecPolicies { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// Id of the connected vpn site.
         /// </summary>
         [Output("remoteVpnSite")]
-        public Output<Outputs.SubResourceResponseResult?> RemoteVpnSite { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> RemoteVpnSite { get; private set; } = null!;
 
         /// <summary>
         /// routing weight for vpn connection.

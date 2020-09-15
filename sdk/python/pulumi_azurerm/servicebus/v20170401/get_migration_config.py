@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,8 +26,8 @@ class GetMigrationConfigResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if pending_replication_operations_count and not isinstance(pending_replication_operations_count, float):
-            raise TypeError("Expected argument 'pending_replication_operations_count' to be a float")
+        if pending_replication_operations_count and not isinstance(pending_replication_operations_count, int):
+            raise TypeError("Expected argument 'pending_replication_operations_count' to be a int")
         pulumi.set(__self__, "pending_replication_operations_count", pending_replication_operations_count)
         if post_migration_name and not isinstance(post_migration_name, str):
             raise TypeError("Expected argument 'post_migration_name' to be a str")
@@ -60,7 +60,7 @@ class GetMigrationConfigResult:
 
     @property
     @pulumi.getter(name="pendingReplicationOperationsCount")
-    def pending_replication_operations_count(self) -> float:
+    def pending_replication_operations_count(self) -> int:
         """
         Number of entities pending to be replicated.
         """

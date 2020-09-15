@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Automation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]]] = None,
                  automation_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -25,8 +25,8 @@ class Automation(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutomationScopeArgs']]]]] = None,
-                 sources: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationScopeArgs']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -36,7 +36,7 @@ class Automation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]] actions: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]] actions: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         :param pulumi.Input[str] automation_name: The security automation name.
         :param pulumi.Input[str] description: The security automation description.
         :param pulumi.Input[str] etag: Entity tag is used for comparing two or more entities from the same requested resource.
@@ -44,8 +44,8 @@ class Automation(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutomationScopeArgs']]]] scopes: A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]] sources: A collection of the source event types which evaluate the security automation set of rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationScopeArgs']]]] scopes: A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]] sources: A collection of the source event types which evaluate the security automation set of rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
         """
         if __name__ is not None:
@@ -108,7 +108,7 @@ class Automation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional[List[Any]]]:
+    def actions(self) -> pulumi.Output[Optional[Sequence[Any]]]:
         """
         A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         """
@@ -164,7 +164,7 @@ class Automation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Optional[List['outputs.AutomationScopeResponse']]]:
+    def scopes(self) -> pulumi.Output[Optional[Sequence['outputs.AutomationScopeResponse']]]:
         """
         A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
         """
@@ -172,7 +172,7 @@ class Automation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sources(self) -> pulumi.Output[Optional[List['outputs.AutomationSourceResponse']]]:
+    def sources(self) -> pulumi.Output[Optional[Sequence['outputs.AutomationSourceResponse']]]:
         """
         A collection of the source event types which evaluate the security automation set of rules.
         """

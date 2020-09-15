@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -109,11 +109,11 @@ class ActionRulePropertiesArgs:
 class ConditionArgs:
     def __init__(__self__, *,
                  operator: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         condition to trigger an action rule
         :param pulumi.Input[str] operator: operator for a given condition
-        :param pulumi.Input[List[pulumi.Input[str]]] values: list of values to match for a given condition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of values to match for a given condition.
         """
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
@@ -134,14 +134,14 @@ class ConditionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         list of values to match for a given condition.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -333,11 +333,11 @@ class ConditionsArgs:
 class ScopeArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
         :param pulumi.Input[str] type: type of target scope
-        :param pulumi.Input[List[pulumi.Input[str]]] values: list of ARM IDs of the given scope type which will be the target of the given action rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of ARM IDs of the given scope type which will be the target of the given action rule.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -358,14 +358,14 @@ class ScopeArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         list of ARM IDs of the given scope type which will be the target of the given action rule.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -413,14 +413,14 @@ class SuppressionScheduleArgs:
     def __init__(__self__, *,
                  end_date: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
-                 recurrence_values: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 recurrence_values: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
         Schedule for a given suppression configuration.
         :param pulumi.Input[str] end_date: End date for suppression
         :param pulumi.Input[str] end_time: End date for suppression
-        :param pulumi.Input[List[pulumi.Input[float]]] recurrence_values: Specifies the values for recurrence pattern
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] recurrence_values: Specifies the values for recurrence pattern
         :param pulumi.Input[str] start_date: Start date for suppression
         :param pulumi.Input[str] start_time: Start time for suppression
         """
@@ -461,14 +461,14 @@ class SuppressionScheduleArgs:
 
     @property
     @pulumi.getter(name="recurrenceValues")
-    def recurrence_values(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def recurrence_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Specifies the values for recurrence pattern
         """
         return pulumi.get(self, "recurrence_values")
 
     @recurrence_values.setter
-    def recurrence_values(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def recurrence_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "recurrence_values", value)
 
     @property

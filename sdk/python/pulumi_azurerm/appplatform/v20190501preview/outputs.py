@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -264,7 +264,7 @@ class CertificatePropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  activate_date: str,
-                 dns_names: List[str],
+                 dns_names: Sequence[str],
                  expiration_date: str,
                  issued_date: str,
                  issuer: str,
@@ -276,7 +276,7 @@ class CertificatePropertiesResponse(dict):
         """
         Certificate resource payload.
         :param str activate_date: The activate date of certificate.
-        :param List[str] dns_names: The domain list of certificate.
+        :param Sequence[str] dns_names: The domain list of certificate.
         :param str expiration_date: The expiration date of certificate.
         :param str issued_date: The issue date of certificate.
         :param str issuer: The issuer of certificate.
@@ -308,7 +308,7 @@ class CertificatePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="dnsNames")
-    def dns_names(self) -> List[str]:
+    def dns_names(self) -> Sequence[str]:
         """
         The domain list of certificate.
         """
@@ -390,7 +390,7 @@ class ClusterResourcePropertiesResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: str,
                  service_id: str,
-                 version: float,
+                 version: int,
                  config_server_properties: Optional['outputs.ConfigServerPropertiesResponse'] = None,
                  network_profile: Optional['outputs.NetworkProfileResponse'] = None,
                  trace: Optional['outputs.TracePropertiesResponse'] = None):
@@ -398,7 +398,7 @@ class ClusterResourcePropertiesResponse(dict):
         Service properties payload
         :param str provisioning_state: Provisioning state of the Service
         :param str service_id: ServiceInstanceEntity GUID which uniquely identifies a created resource
-        :param float version: Version of the Service
+        :param int version: Version of the Service
         :param 'ConfigServerPropertiesResponseArgs' config_server_properties: Config server git properties of the Service
         :param 'NetworkProfileResponseArgs' network_profile: Network profile of the Service
         :param 'TracePropertiesResponseArgs' trace: Trace properties of the Service
@@ -431,7 +431,7 @@ class ClusterResourcePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> float:
+    def version(self) -> int:
         """
         Version of the Service
         """
@@ -477,8 +477,8 @@ class ConfigServerGitPropertyResponse(dict):
                  label: Optional[str] = None,
                  password: Optional[str] = None,
                  private_key: Optional[str] = None,
-                 repositories: Optional[List['outputs.GitPatternRepositoryResponse']] = None,
-                 search_paths: Optional[List[str]] = None,
+                 repositories: Optional[Sequence['outputs.GitPatternRepositoryResponse']] = None,
+                 search_paths: Optional[Sequence[str]] = None,
                  strict_host_key_checking: Optional[bool] = None,
                  username: Optional[str] = None):
         """
@@ -489,8 +489,8 @@ class ConfigServerGitPropertyResponse(dict):
         :param str label: Label of the repository
         :param str password: Password of git repository basic auth.
         :param str private_key: Private sshKey algorithm of git repository.
-        :param List['GitPatternRepositoryResponseArgs'] repositories: Repositories of git.
-        :param List[str] search_paths: Searching path of the repository
+        :param Sequence['GitPatternRepositoryResponseArgs'] repositories: Repositories of git.
+        :param Sequence[str] search_paths: Searching path of the repository
         :param bool strict_host_key_checking: Strict host key checking or not.
         :param str username: Username of git repository basic auth.
         """
@@ -564,7 +564,7 @@ class ConfigServerGitPropertyResponse(dict):
 
     @property
     @pulumi.getter
-    def repositories(self) -> Optional[List['outputs.GitPatternRepositoryResponse']]:
+    def repositories(self) -> Optional[Sequence['outputs.GitPatternRepositoryResponse']]:
         """
         Repositories of git.
         """
@@ -572,7 +572,7 @@ class ConfigServerGitPropertyResponse(dict):
 
     @property
     @pulumi.getter(name="searchPaths")
-    def search_paths(self) -> Optional[List[str]]:
+    def search_paths(self) -> Optional[Sequence[str]]:
         """
         Searching path of the repository
         """
@@ -800,7 +800,7 @@ class DeploymentResourcePropertiesResponse(dict):
                  active: bool,
                  app_name: str,
                  created_time: str,
-                 instances: List['outputs.DeploymentInstanceResponse'],
+                 instances: Sequence['outputs.DeploymentInstanceResponse'],
                  provisioning_state: str,
                  status: str,
                  deployment_settings: Optional['outputs.DeploymentSettingsResponse'] = None,
@@ -810,7 +810,7 @@ class DeploymentResourcePropertiesResponse(dict):
         :param bool active: Indicates whether the Deployment is active
         :param str app_name: App name of the deployment
         :param str created_time: Date time when the resource is created
-        :param List['DeploymentInstanceResponseArgs'] instances: Collection of instances belong to the Deployment
+        :param Sequence['DeploymentInstanceResponseArgs'] instances: Collection of instances belong to the Deployment
         :param str provisioning_state: Provisioning state of the Deployment
         :param str status: Status of the Deployment
         :param 'DeploymentSettingsResponseArgs' deployment_settings: Deployment settings of the Deployment
@@ -853,7 +853,7 @@ class DeploymentResourcePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def instances(self) -> List['outputs.DeploymentInstanceResponse']:
+    def instances(self) -> Sequence['outputs.DeploymentInstanceResponse']:
         """
         Collection of instances belong to the Deployment
         """
@@ -901,20 +901,20 @@ class DeploymentSettingsResponse(dict):
     Deployment settings payload
     """
     def __init__(__self__, *,
-                 cpu: Optional[float] = None,
+                 cpu: Optional[int] = None,
                  environment_variables: Optional[Mapping[str, str]] = None,
-                 instance_count: Optional[float] = None,
+                 instance_count: Optional[int] = None,
                  jvm_options: Optional[str] = None,
-                 memory_in_gb: Optional[float] = None,
+                 memory_in_gb: Optional[int] = None,
                  net_core_main_entry_path: Optional[str] = None,
                  runtime_version: Optional[str] = None):
         """
         Deployment settings payload
-        :param float cpu: Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+        :param int cpu: Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
         :param Mapping[str, str] environment_variables: Collection of environment variables
-        :param float instance_count: Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
+        :param int instance_count: Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
         :param str jvm_options: JVM parameter
-        :param float memory_in_gb: Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
+        :param int memory_in_gb: Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
         :param str net_core_main_entry_path: The path to the .NET executable relative to zip root
         :param str runtime_version: Runtime version
         """
@@ -935,7 +935,7 @@ class DeploymentSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def cpu(self) -> Optional[float]:
+    def cpu(self) -> Optional[int]:
         """
         Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
         """
@@ -951,7 +951,7 @@ class DeploymentSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[float]:
+    def instance_count(self) -> Optional[int]:
         """
         Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
         """
@@ -967,7 +967,7 @@ class DeploymentSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="memoryInGB")
-    def memory_in_gb(self) -> Optional[float]:
+    def memory_in_gb(self) -> Optional[int]:
         """
         Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
         """
@@ -1043,9 +1043,9 @@ class GitPatternRepositoryResponse(dict):
                  host_key_algorithm: Optional[str] = None,
                  label: Optional[str] = None,
                  password: Optional[str] = None,
-                 pattern: Optional[List[str]] = None,
+                 pattern: Optional[Sequence[str]] = None,
                  private_key: Optional[str] = None,
-                 search_paths: Optional[List[str]] = None,
+                 search_paths: Optional[Sequence[str]] = None,
                  strict_host_key_checking: Optional[bool] = None,
                  username: Optional[str] = None):
         """
@@ -1056,9 +1056,9 @@ class GitPatternRepositoryResponse(dict):
         :param str host_key_algorithm: SshKey algorithm of git repository.
         :param str label: Label of the repository
         :param str password: Password of git repository basic auth.
-        :param List[str] pattern: Collection of pattern of the repository
+        :param Sequence[str] pattern: Collection of pattern of the repository
         :param str private_key: Private sshKey algorithm of git repository.
-        :param List[str] search_paths: Searching path of the repository
+        :param Sequence[str] search_paths: Searching path of the repository
         :param bool strict_host_key_checking: Strict host key checking or not.
         :param str username: Username of git repository basic auth.
         """
@@ -1133,7 +1133,7 @@ class GitPatternRepositoryResponse(dict):
 
     @property
     @pulumi.getter
-    def pattern(self) -> Optional[List[str]]:
+    def pattern(self) -> Optional[Sequence[str]]:
         """
         Collection of pattern of the repository
         """
@@ -1149,7 +1149,7 @@ class GitPatternRepositoryResponse(dict):
 
     @property
     @pulumi.getter(name="searchPaths")
-    def search_paths(self) -> Optional[List[str]]:
+    def search_paths(self) -> Optional[Sequence[str]]:
         """
         Searching path of the repository
         """
@@ -1304,16 +1304,16 @@ class NetworkProfileResponseOutboundIPs(dict):
     Desired outbound IP resources for Azure Spring Cloud instance.
     """
     def __init__(__self__, *,
-                 public_ips: List[str]):
+                 public_ips: Sequence[str]):
         """
         Desired outbound IP resources for Azure Spring Cloud instance.
-        :param List[str] public_ips: A list of public IP addresses.
+        :param Sequence[str] public_ips: A list of public IP addresses.
         """
         pulumi.set(__self__, "public_ips", public_ips)
 
     @property
     @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> List[str]:
+    def public_ips(self) -> Sequence[str]:
         """
         A list of public IP addresses.
         """
@@ -1329,14 +1329,14 @@ class PersistentDiskResponse(dict):
     Persistent disk payload
     """
     def __init__(__self__, *,
-                 used_in_gb: float,
+                 used_in_gb: int,
                  mount_path: Optional[str] = None,
-                 size_in_gb: Optional[float] = None):
+                 size_in_gb: Optional[int] = None):
         """
         Persistent disk payload
-        :param float used_in_gb: Size of the used persistent disk in GB
+        :param int used_in_gb: Size of the used persistent disk in GB
         :param str mount_path: Mount path of the persistent disk
-        :param float size_in_gb: Size of the persistent disk in GB
+        :param int size_in_gb: Size of the persistent disk in GB
         """
         pulumi.set(__self__, "used_in_gb", used_in_gb)
         if mount_path is not None:
@@ -1346,7 +1346,7 @@ class PersistentDiskResponse(dict):
 
     @property
     @pulumi.getter(name="usedInGB")
-    def used_in_gb(self) -> float:
+    def used_in_gb(self) -> int:
         """
         Size of the used persistent disk in GB
         """
@@ -1362,7 +1362,7 @@ class PersistentDiskResponse(dict):
 
     @property
     @pulumi.getter(name="sizeInGB")
-    def size_in_gb(self) -> Optional[float]:
+    def size_in_gb(self) -> Optional[int]:
         """
         Size of the persistent disk in GB
         """
@@ -1378,12 +1378,12 @@ class SkuResponse(dict):
     Sku of Azure Spring Cloud
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         Sku of Azure Spring Cloud
-        :param float capacity: Current capacity of the target resource
+        :param int capacity: Current capacity of the target resource
         :param str name: Name of the Sku
         :param str tier: Tier of the Sku
         """
@@ -1396,7 +1396,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Current capacity of the target resource
         """
@@ -1429,11 +1429,11 @@ class TemporaryDiskResponse(dict):
     """
     def __init__(__self__, *,
                  mount_path: Optional[str] = None,
-                 size_in_gb: Optional[float] = None):
+                 size_in_gb: Optional[int] = None):
         """
         Temporary disk payload
         :param str mount_path: Mount path of the temporary disk
-        :param float size_in_gb: Size of the temporary disk in GB
+        :param int size_in_gb: Size of the temporary disk in GB
         """
         if mount_path is not None:
             pulumi.set(__self__, "mount_path", mount_path)
@@ -1450,7 +1450,7 @@ class TemporaryDiskResponse(dict):
 
     @property
     @pulumi.getter(name="sizeInGB")
-    def size_in_gb(self) -> Optional[float]:
+    def size_in_gb(self) -> Optional[int]:
         """
         Size of the temporary disk in GB
         """

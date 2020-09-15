@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,17 +30,17 @@ class AddressSpaceResponse(dict):
     AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
     """
     def __init__(__self__, *,
-                 address_prefixes: Optional[List[str]] = None):
+                 address_prefixes: Optional[Sequence[str]] = None):
         """
         AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
-        :param List[str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
+        :param Sequence[str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         """
         if address_prefixes is not None:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[List[str]]:
+    def address_prefixes(self) -> Optional[Sequence[str]]:
         """
         A list of address blocks reserved for this virtual network in CIDR notation.
         """

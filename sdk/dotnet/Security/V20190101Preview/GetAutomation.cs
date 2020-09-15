@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// <summary>
         /// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.AutomationActionEventHubResponseResult, Union<Outputs.AutomationActionLogicAppResponseResult, Outputs.AutomationActionWorkspaceResponseResult>>> Actions;
+        public readonly ImmutableArray<Union<Outputs.AutomationActionEventHubResponse, Union<Outputs.AutomationActionLogicAppResponse, Outputs.AutomationActionWorkspaceResponse>>> Actions;
         /// <summary>
         /// The security automation description.
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// <summary>
         /// A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutomationScopeResponseResult> Scopes;
+        public readonly ImmutableArray<Outputs.AutomationScopeResponse> Scopes;
         /// <summary>
         /// A collection of the source event types which evaluate the security automation set of rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutomationSourceResponseResult> Sources;
+        public readonly ImmutableArray<Outputs.AutomationSourceResponse> Sources;
         /// <summary>
         /// A list of key value pairs that describe the resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
 
         [OutputConstructor]
         private GetAutomationResult(
-            ImmutableArray<Union<Outputs.AutomationActionEventHubResponseResult, Union<Outputs.AutomationActionLogicAppResponseResult, Outputs.AutomationActionWorkspaceResponseResult>>> actions,
+            ImmutableArray<Union<Outputs.AutomationActionEventHubResponse, Union<Outputs.AutomationActionLogicAppResponse, Outputs.AutomationActionWorkspaceResponse>>> actions,
 
             string? description,
 
@@ -100,9 +100,9 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
 
             string name,
 
-            ImmutableArray<Outputs.AutomationScopeResponseResult> scopes,
+            ImmutableArray<Outputs.AutomationScopeResponse> scopes,
 
-            ImmutableArray<Outputs.AutomationSourceResponseResult> sources,
+            ImmutableArray<Outputs.AutomationSourceResponse> sources,
 
             ImmutableDictionary<string, string>? tags,
 

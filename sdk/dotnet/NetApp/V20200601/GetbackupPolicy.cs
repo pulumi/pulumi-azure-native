@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// A list of volumes assigned to this policy
         /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeBackupsResponseResult> VolumeBackups;
+        public readonly ImmutableArray<Outputs.VolumeBackupsResponse> VolumeBackups;
         /// <summary>
         /// Volumes using current backup policy
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
 
             string type,
 
-            ImmutableArray<Outputs.VolumeBackupsResponseResult> volumeBackups,
+            ImmutableArray<Outputs.VolumeBackupsResponse> volumeBackups,
 
             int? volumesAssigned,
 

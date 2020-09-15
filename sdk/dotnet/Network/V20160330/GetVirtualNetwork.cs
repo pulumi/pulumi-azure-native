@@ -48,11 +48,11 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
         /// </summary>
-        public readonly Outputs.AddressSpaceResponseResult? AddressSpace;
+        public readonly Outputs.AddressSpaceResponse? AddressSpace;
         /// <summary>
         /// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
         /// </summary>
-        public readonly Outputs.DhcpOptionsResponseResult? DhcpOptions;
+        public readonly Outputs.DhcpOptionsResponse? DhcpOptions;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets or sets List of subnets in a VirtualNetwork
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetResponseResult> Subnets;
+        public readonly ImmutableArray<Outputs.SubnetResponse> Subnets;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -88,9 +88,9 @@ namespace Pulumi.AzureRM.Network.V20160330
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
-            Outputs.AddressSpaceResponseResult? addressSpace,
+            Outputs.AddressSpaceResponse? addressSpace,
 
-            Outputs.DhcpOptionsResponseResult? dhcpOptions,
+            Outputs.DhcpOptionsResponse? dhcpOptions,
 
             string? etag,
 
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Network.V20160330
 
             string? resourceGuid,
 
-            ImmutableArray<Outputs.SubnetResponseResult> subnets,
+            ImmutableArray<Outputs.SubnetResponse> subnets,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// <summary>
         /// The suppression conditions
         /// </summary>
-        public readonly Outputs.SuppressionAlertsScopeResponseResult? SuppressionAlertsScope;
+        public readonly Outputs.SuppressionAlertsScopeResponse? SuppressionAlertsScope;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
 
             string state,
 
-            Outputs.SuppressionAlertsScopeResponseResult? suppressionAlertsScope,
+            Outputs.SuppressionAlertsScopeResponse? suppressionAlertsScope,
 
             string type)
         {

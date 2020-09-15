@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.NetApp.V20191001
         /// DataProtection type volumes include an object containing details of the replication
         /// </summary>
         [Output("dataProtection")]
-        public Output<Outputs.VolumePropertiesResponseDataProtectionResult?> DataProtection { get; private set; } = null!;
+        public Output<Outputs.VolumePropertiesResponseDataProtection?> DataProtection { get; private set; } = null!;
 
         /// <summary>
         /// Set of export policy rules
         /// </summary>
         [Output("exportPolicy")]
-        public Output<Outputs.VolumePropertiesResponseExportPolicyResult?> ExportPolicy { get; private set; } = null!;
+        public Output<Outputs.VolumePropertiesResponseExportPolicy?> ExportPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Unique FileSystem Identifier.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.NetApp.V20191001
         /// List of mount targets
         /// </summary>
         [Output("mountTargets")]
-        public Output<ImmutableArray<Outputs.MountTargetPropertiesResponseResult>> MountTargets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MountTargetPropertiesResponse>> MountTargets { get; private set; } = null!;
 
         /// <summary>
         /// Resource name

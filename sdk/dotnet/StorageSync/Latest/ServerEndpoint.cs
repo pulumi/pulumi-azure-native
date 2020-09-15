@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StorageSync.Latest
         /// Cloud tiering status. Only populated if cloud tiering is enabled.
         /// </summary>
         [Output("cloudTieringStatus")]
-        public Output<Outputs.ServerEndpointCloudTieringStatusResponseResult> CloudTieringStatus { get; private set; } = null!;
+        public Output<Outputs.ServerEndpointCloudTieringStatusResponse> CloudTieringStatus { get; private set; } = null!;
 
         /// <summary>
         /// Friendly Name
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.StorageSync.Latest
         /// Recall status. Only populated if cloud tiering is enabled.
         /// </summary>
         [Output("recallStatus")]
-        public Output<Outputs.ServerEndpointRecallStatusResponseResult> RecallStatus { get; private set; } = null!;
+        public Output<Outputs.ServerEndpointRecallStatusResponse> RecallStatus { get; private set; } = null!;
 
         /// <summary>
         /// Server Local path.
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.StorageSync.Latest
         /// Server Endpoint sync status
         /// </summary>
         [Output("syncStatus")]
-        public Output<Outputs.ServerEndpointSyncStatusResponseResult> SyncStatus { get; private set; } = null!;
+        public Output<Outputs.ServerEndpointSyncStatusResponse> SyncStatus { get; private set; } = null!;
 
         /// <summary>
         /// Tier files older than days.

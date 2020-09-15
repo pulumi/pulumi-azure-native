@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,8 +27,8 @@ class Queue(pulumi.CustomResource):
                  is_anonymous_accessible: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[float]] = None,
-                 max_size_in_megabytes: Optional[pulumi.Input[float]] = None,
+                 max_delivery_count: Optional[pulumi.Input[int]] = None,
+                 max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
@@ -56,8 +56,8 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[bool] is_anonymous_accessible: A value that indicates whether the message is accessible anonymously.
         :param pulumi.Input[str] location: location of the resource.
         :param pulumi.Input[str] lock_duration: The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
-        :param pulumi.Input[float] max_delivery_count: The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
-        :param pulumi.Input[float] max_size_in_megabytes: The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
+        :param pulumi.Input[int] max_delivery_count: The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
+        :param pulumi.Input[int] max_size_in_megabytes: The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
         :param pulumi.Input[str] name: Queue name.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] queue_name: The queue name.
@@ -260,7 +260,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> pulumi.Output[Optional[float]]:
+    def max_delivery_count(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
         """
@@ -268,7 +268,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> pulumi.Output[Optional[float]]:
+    def max_size_in_megabytes(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
         """
@@ -276,7 +276,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> pulumi.Output[float]:
+    def message_count(self) -> pulumi.Output[int]:
         """
         The number of messages in the queue.
         """
@@ -308,7 +308,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> pulumi.Output[float]:
+    def size_in_bytes(self) -> pulumi.Output[int]:
         """
         The size of the queue, in bytes.
         """

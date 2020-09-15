@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -45,8 +45,8 @@ class GetVirtualMachineScaleSetResult:
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         pulumi.set(__self__, "plan", plan)
-        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, float):
-            raise TypeError("Expected argument 'platform_fault_domain_count' to be a float")
+        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, int):
+            raise TypeError("Expected argument 'platform_fault_domain_count' to be a int")
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -151,7 +151,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> Optional[float]:
+    def platform_fault_domain_count(self) -> Optional[int]:
         """
         Fault Domain count for each placement group.
         """
@@ -247,7 +247,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> Optional[Sequence[str]]:
         """
         The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
         """

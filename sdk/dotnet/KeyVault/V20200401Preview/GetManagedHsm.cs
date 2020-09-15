@@ -50,11 +50,11 @@ namespace Pulumi.AzureRM.KeyVault.V20200401Preview
         /// <summary>
         /// Properties of the managed HSM
         /// </summary>
-        public readonly Outputs.ManagedHsmPropertiesResponseResult Properties;
+        public readonly Outputs.ManagedHsmPropertiesResponse Properties;
         /// <summary>
         /// SKU details
         /// </summary>
-        public readonly Outputs.ManagedHsmSkuResponseResult? Sku;
+        public readonly Outputs.ManagedHsmSkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -70,9 +70,9 @@ namespace Pulumi.AzureRM.KeyVault.V20200401Preview
 
             string name,
 
-            Outputs.ManagedHsmPropertiesResponseResult properties,
+            Outputs.ManagedHsmPropertiesResponse properties,
 
-            Outputs.ManagedHsmSkuResponseResult? sku,
+            Outputs.ManagedHsmSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

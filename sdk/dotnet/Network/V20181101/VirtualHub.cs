@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// The expressRouteGateway associated with this VirtualHub
         /// </summary>
         [Output("expressRouteGateway")]
-        public Output<Outputs.SubResourceResponseResult?> ExpressRouteGateway { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> ExpressRouteGateway { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// The P2SVpnGateway associated with this VirtualHub
         /// </summary>
         [Output("p2SVpnGateway")]
-        public Output<Outputs.SubResourceResponseResult?> P2SVpnGateway { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> P2SVpnGateway { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// The routeTable associated with this virtual hub.
         /// </summary>
         [Output("routeTable")]
-        public Output<Outputs.VirtualHubRouteTableResponseResult?> RouteTable { get; private set; } = null!;
+        public Output<Outputs.VirtualHubRouteTableResponse?> RouteTable { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -78,19 +78,19 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// list of all vnet connections with this VirtualHub.
         /// </summary>
         [Output("virtualNetworkConnections")]
-        public Output<ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult>> VirtualNetworkConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse>> VirtualNetworkConnections { get; private set; } = null!;
 
         /// <summary>
         /// The VirtualWAN to which the VirtualHub belongs
         /// </summary>
         [Output("virtualWan")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualWan { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualWan { get; private set; } = null!;
 
         /// <summary>
         /// The VpnGateway associated with this VirtualHub
         /// </summary>
         [Output("vpnGateway")]
-        public Output<Outputs.SubResourceResponseResult?> VpnGateway { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VpnGateway { get; private set; } = null!;
 
 
         /// <summary>

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,8 +26,8 @@ class GetMultipleActivationKeyResult:
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
-        if installed_server_number and not isinstance(installed_server_number, float):
-            raise TypeError("Expected argument 'installed_server_number' to be a float")
+        if installed_server_number and not isinstance(installed_server_number, int):
+            raise TypeError("Expected argument 'installed_server_number' to be a int")
         pulumi.set(__self__, "installed_server_number", installed_server_number)
         if is_eligible and not isinstance(is_eligible, bool):
             raise TypeError("Expected argument 'is_eligible' to be a bool")
@@ -75,7 +75,7 @@ class GetMultipleActivationKeyResult:
 
     @property
     @pulumi.getter(name="installedServerNumber")
-    def installed_server_number(self) -> Optional[float]:
+    def installed_server_number(self) -> Optional[int]:
         """
         Number of activations/servers using the MAK key.
         """

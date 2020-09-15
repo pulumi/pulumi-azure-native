@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -103,7 +103,7 @@ class ListSiteAuthSettingsResult:
 
     @property
     @pulumi.getter(name="additionalLoginParams")
-    def additional_login_params(self) -> Optional[List[str]]:
+    def additional_login_params(self) -> Optional[Sequence[str]]:
         """
         Gets or sets a list of login parameters to send to the OpenID Connect authorization endpoint when
                     a user logs in. Each parameter must be in the form "key=value".
@@ -112,7 +112,7 @@ class ListSiteAuthSettingsResult:
 
     @property
     @pulumi.getter(name="allowedAudiences")
-    def allowed_audiences(self) -> Optional[List[str]]:
+    def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
         Gets or sets a list of allowed audience values to consider when validating JWTs issued by 
                     Azure Active Directory. Note that the {Microsoft.Web.Hosting.Administration.SiteAuthSettings.ClientId} value is always considered an
@@ -122,7 +122,7 @@ class ListSiteAuthSettingsResult:
 
     @property
     @pulumi.getter(name="allowedExternalRedirectUrls")
-    def allowed_external_redirect_urls(self) -> Optional[List[str]]:
+    def allowed_external_redirect_urls(self) -> Optional[Sequence[str]]:
         """
         Gets or sets a collection of external URLs that can be redirected to as part of logging in
                     or logging out of the web app. Note that the query string part of the URL is ignored.
@@ -193,7 +193,7 @@ class ListSiteAuthSettingsResult:
 
     @property
     @pulumi.getter(name="facebookOAuthScopes")
-    def facebook_o_auth_scopes(self) -> Optional[List[str]]:
+    def facebook_o_auth_scopes(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.
                     This setting is optional.
@@ -223,7 +223,7 @@ class ListSiteAuthSettingsResult:
 
     @property
     @pulumi.getter(name="googleOAuthScopes")
-    def google_o_auth_scopes(self) -> Optional[List[str]]:
+    def google_o_auth_scopes(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
                     This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
@@ -273,7 +273,7 @@ class ListSiteAuthSettingsResult:
 
     @property
     @pulumi.getter(name="microsoftAccountOAuthScopes")
-    def microsoft_account_o_auth_scopes(self) -> Optional[List[str]]:
+    def microsoft_account_o_auth_scopes(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
                     This setting is optional. If not specified, "wl.basic" is used as the default scope.

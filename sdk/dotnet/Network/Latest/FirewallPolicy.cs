@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The parent firewall policy from which rules are inherited.
         /// </summary>
         [Output("basePolicy")]
-        public Output<Outputs.SubResourceResponseResult?> BasePolicy { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> BasePolicy { get; private set; } = null!;
 
         /// <summary>
         /// List of references to Child Firewall Policies.
         /// </summary>
         [Output("childPolicies")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> ChildPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> ChildPolicies { get; private set; } = null!;
 
         /// <summary>
         /// DNS Proxy Settings definition.
         /// </summary>
         [Output("dnsSettings")]
-        public Output<Outputs.DnsSettingsResponseResult?> DnsSettings { get; private set; } = null!;
+        public Output<Outputs.DnsSettingsResponse?> DnsSettings { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// List of references to Azure Firewalls that this Firewall Policy is associated with.
         /// </summary>
         [Output("firewalls")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> Firewalls { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> Firewalls { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// List of references to FirewallPolicyRuleCollectionGroups.
         /// </summary>
         [Output("ruleCollectionGroups")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> RuleCollectionGroups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> RuleCollectionGroups { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// ThreatIntel Whitelist for Firewall Policy.
         /// </summary>
         [Output("threatIntelWhitelist")]
-        public Output<Outputs.FirewallPolicyThreatIntelWhitelistResponseResult?> ThreatIntelWhitelist { get; private set; } = null!;
+        public Output<Outputs.FirewallPolicyThreatIntelWhitelistResponse?> ThreatIntelWhitelist { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

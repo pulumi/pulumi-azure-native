@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
         /// List of activities in pipeline.
         /// </summary>
         [Output("activities")]
-        public Output<ImmutableArray<Union<Outputs.ControlActivityResponseResult, Outputs.ExecutionActivityResponseResult>>> Activities { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.ControlActivityResponse, Outputs.ExecutionActivityResponse>>> Activities { get; private set; } = null!;
 
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
         /// List of parameters for pipeline.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

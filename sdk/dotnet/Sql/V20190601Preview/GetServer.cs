@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponseResult? Identity;
+        public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
         /// Kind of sql server. This is metadata used for the Azure portal experience.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
         /// <summary>
         /// List of private endpoint connections on a server
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
 
             string fullyQualifiedDomainName,
 
-            Outputs.ResourceIdentityResponseResult? identity,
+            Outputs.ResourceIdentityResponse? identity,
 
             string kind,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
 
             string name,
 
-            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string? publicNetworkAccess,
 

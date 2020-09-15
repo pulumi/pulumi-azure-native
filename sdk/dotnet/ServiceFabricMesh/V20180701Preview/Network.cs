@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
         /// Configuration for public connectivity for this network.
         /// </summary>
         [Output("ingressConfig")]
-        public Output<Outputs.IngressConfigResponseResult?> IngressConfig { get; private set; } = null!;
+        public Output<Outputs.IngressConfigResponse?> IngressConfig { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

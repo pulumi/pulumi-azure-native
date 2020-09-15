@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
         /// Details of provisioning error
         /// </summary>
         [Output("error")]
-        public Output<Outputs.ErrorResponseResponseResult?> Error { get; private set; } = null!;
+        public Output<Outputs.ErrorResponseResponse?> Error { get; private set; } = null!;
 
         /// <summary>
         /// LastModifiedBy property, which only appears in the response.
@@ -60,13 +60,13 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
         /// Schedule information for the Software update configuration
         /// </summary>
         [Output("scheduleInfo")]
-        public Output<Outputs.SchedulePropertiesResponseResult> ScheduleInfo { get; private set; } = null!;
+        public Output<Outputs.SchedulePropertiesResponse> ScheduleInfo { get; private set; } = null!;
 
         /// <summary>
         /// Tasks information for the Software update configuration.
         /// </summary>
         [Output("tasks")]
-        public Output<Outputs.SoftwareUpdateConfigurationTasksResponseResult?> Tasks { get; private set; } = null!;
+        public Output<Outputs.SoftwareUpdateConfigurationTasksResponse?> Tasks { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
         /// update specific properties for the Software update configuration
         /// </summary>
         [Output("updateConfiguration")]
-        public Output<Outputs.UpdateConfigurationResponseResult> UpdateConfiguration { get; private set; } = null!;
+        public Output<Outputs.UpdateConfigurationResponse> UpdateConfiguration { get; private set; } = null!;
 
 
         /// <summary>

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -272,13 +272,13 @@ class ApplicationJitAccessPolicyResponse(dict):
     def __init__(__self__, *,
                  jit_access_enabled: bool,
                  jit_approval_mode: Optional[str] = None,
-                 jit_approvers: Optional[List['outputs.JitApproverDefinitionResponse']] = None,
+                 jit_approvers: Optional[Sequence['outputs.JitApproverDefinitionResponse']] = None,
                  maximum_jit_access_duration: Optional[str] = None):
         """
         Managed application Jit access policy.
         :param bool jit_access_enabled: Whether the JIT access is enabled.
         :param str jit_approval_mode: JIT approval mode.
-        :param List['JitApproverDefinitionResponseArgs'] jit_approvers: The JIT approvers
+        :param Sequence['JitApproverDefinitionResponseArgs'] jit_approvers: The JIT approvers
         :param str maximum_jit_access_duration: The maximum duration JIT access is granted. This is an ISO8601 time period value.
         """
         pulumi.set(__self__, "jit_access_enabled", jit_access_enabled)
@@ -307,7 +307,7 @@ class ApplicationJitAccessPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="jitApprovers")
-    def jit_approvers(self) -> Optional[List['outputs.JitApproverDefinitionResponse']]:
+    def jit_approvers(self) -> Optional[Sequence['outputs.JitApproverDefinitionResponse']]:
         """
         The JIT approvers
         """
@@ -382,16 +382,16 @@ class ApplicationNotificationPolicyResponse(dict):
     Managed application notification policy.
     """
     def __init__(__self__, *,
-                 notification_endpoints: List['outputs.ApplicationNotificationEndpointResponse']):
+                 notification_endpoints: Sequence['outputs.ApplicationNotificationEndpointResponse']):
         """
         Managed application notification policy.
-        :param List['ApplicationNotificationEndpointResponseArgs'] notification_endpoints: The managed application notification endpoint.
+        :param Sequence['ApplicationNotificationEndpointResponseArgs'] notification_endpoints: The managed application notification endpoint.
         """
         pulumi.set(__self__, "notification_endpoints", notification_endpoints)
 
     @property
     @pulumi.getter(name="notificationEndpoints")
-    def notification_endpoints(self) -> List['outputs.ApplicationNotificationEndpointResponse']:
+    def notification_endpoints(self) -> Sequence['outputs.ApplicationNotificationEndpointResponse']:
         """
         The managed application notification endpoint.
         """
@@ -455,17 +455,17 @@ class ApplicationPackageLockingPolicyDefinitionResponse(dict):
     Managed application locking policy.
     """
     def __init__(__self__, *,
-                 allowed_actions: Optional[List[str]] = None):
+                 allowed_actions: Optional[Sequence[str]] = None):
         """
         Managed application locking policy.
-        :param List[str] allowed_actions: The deny assignment excluded actions.
+        :param Sequence[str] allowed_actions: The deny assignment excluded actions.
         """
         if allowed_actions is not None:
             pulumi.set(__self__, "allowed_actions", allowed_actions)
 
     @property
     @pulumi.getter(name="allowedActions")
-    def allowed_actions(self) -> Optional[List[str]]:
+    def allowed_actions(self) -> Optional[Sequence[str]]:
         """
         The deny assignment excluded actions.
         """
@@ -828,7 +828,7 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  model: Optional[str] = None,
                  size: Optional[str] = None,
@@ -836,7 +836,7 @@ class SkuResponse(dict):
         """
         SKU for the resource.
         :param str name: The SKU name.
-        :param float capacity: The SKU capacity.
+        :param int capacity: The SKU capacity.
         :param str family: The SKU family.
         :param str model: The SKU model.
         :param str size: The SKU size.
@@ -864,7 +864,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The SKU capacity.
         """

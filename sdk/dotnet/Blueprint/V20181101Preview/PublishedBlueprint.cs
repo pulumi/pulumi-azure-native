@@ -48,19 +48,19 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// Parameters required by this blueprint definition.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterDefinitionResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Resource group placeholders defined by this blueprint definition.
         /// </summary>
         [Output("resourceGroups")]
-        public Output<ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponseResult>?> ResourceGroups { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>?> ResourceGroups { get; private set; } = null!;
 
         /// <summary>
         /// Status of the blueprint. This field is readonly.
         /// </summary>
         [Output("status")]
-        public Output<Outputs.BlueprintStatusResponseResult> Status { get; private set; } = null!;
+        public Output<Outputs.BlueprintStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// The scope where this blueprint definition can be assigned.

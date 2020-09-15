@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -123,12 +123,12 @@ class CloudToDevicePropertiesResponse(dict):
     def __init__(__self__, *,
                  default_ttl_as_iso8601: Optional[str] = None,
                  feedback: Optional['outputs.FeedbackPropertiesResponse'] = None,
-                 max_delivery_count: Optional[float] = None):
+                 max_delivery_count: Optional[int] = None):
         """
         The IoT hub cloud-to-device messaging properties.
         :param str default_ttl_as_iso8601: The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         :param 'FeedbackPropertiesResponseArgs' feedback: The properties of the feedback queue for cloud-to-device messages.
-        :param float max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        :param int max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         if default_ttl_as_iso8601 is not None:
             pulumi.set(__self__, "default_ttl_as_iso8601", default_ttl_as_iso8601)
@@ -155,7 +155,7 @@ class CloudToDevicePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> Optional[int]:
         """
         The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
@@ -172,17 +172,17 @@ class EventHubPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  endpoint: str,
-                 partition_ids: List[str],
+                 partition_ids: Sequence[str],
                  path: str,
-                 partition_count: Optional[float] = None,
-                 retention_time_in_days: Optional[float] = None):
+                 partition_count: Optional[int] = None,
+                 retention_time_in_days: Optional[int] = None):
         """
         The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
         :param str endpoint: The Event Hub-compatible endpoint.
-        :param List[str] partition_ids: The partition ids in the Event Hub-compatible endpoint.
+        :param Sequence[str] partition_ids: The partition ids in the Event Hub-compatible endpoint.
         :param str path: The Event Hub-compatible name.
-        :param float partition_count: The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
-        :param float retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+        :param int partition_count: The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+        :param int retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "partition_ids", partition_ids)
@@ -202,7 +202,7 @@ class EventHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="partitionIds")
-    def partition_ids(self) -> List[str]:
+    def partition_ids(self) -> Sequence[str]:
         """
         The partition ids in the Event Hub-compatible endpoint.
         """
@@ -218,7 +218,7 @@ class EventHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[float]:
+    def partition_count(self) -> Optional[int]:
         """
         The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
         """
@@ -226,7 +226,7 @@ class EventHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimeInDays")
-    def retention_time_in_days(self) -> Optional[float]:
+    def retention_time_in_days(self) -> Optional[int]:
         """
         The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
@@ -242,14 +242,14 @@ class FallbackRoutePropertiesResponse(dict):
     The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
     """
     def __init__(__self__, *,
-                 endpoint_names: List[str],
+                 endpoint_names: Sequence[str],
                  is_enabled: bool,
                  source: str,
                  condition: Optional[str] = None,
                  name: Optional[str] = None):
         """
         The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
-        :param List[str] endpoint_names: The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
+        :param Sequence[str] endpoint_names: The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
         :param bool is_enabled: Used to specify whether the fallback route is enabled.
         :param str source: The source to which the routing rule is to be applied to. For example, DeviceMessages
         :param str condition: The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
@@ -265,7 +265,7 @@ class FallbackRoutePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="endpointNames")
-    def endpoint_names(self) -> List[str]:
+    def endpoint_names(self) -> Sequence[str]:
         """
         The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
         """
@@ -314,12 +314,12 @@ class FeedbackPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  lock_duration_as_iso8601: Optional[str] = None,
-                 max_delivery_count: Optional[float] = None,
+                 max_delivery_count: Optional[int] = None,
                  ttl_as_iso8601: Optional[str] = None):
         """
         The properties of the feedback queue for cloud-to-device messages.
         :param str lock_duration_as_iso8601: The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-        :param float max_delivery_count: The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        :param int max_delivery_count: The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         :param str ttl_as_iso8601: The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         if lock_duration_as_iso8601 is not None:
@@ -339,7 +339,7 @@ class FeedbackPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> Optional[int]:
         """
         The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
@@ -367,8 +367,8 @@ class IotDpsPropertiesDescriptionResponse(dict):
                  id_scope: str,
                  service_operations_host_name: str,
                  allocation_policy: Optional[str] = None,
-                 authorization_policies: Optional[List['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']] = None,
-                 iot_hubs: Optional[List['outputs.IotHubDefinitionDescriptionResponse']] = None,
+                 authorization_policies: Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']] = None,
+                 iot_hubs: Optional[Sequence['outputs.IotHubDefinitionDescriptionResponse']] = None,
                  provisioning_state: Optional[str] = None,
                  state: Optional[str] = None):
         """
@@ -377,8 +377,8 @@ class IotDpsPropertiesDescriptionResponse(dict):
         :param str id_scope: Unique identifier of this provisioning service.
         :param str service_operations_host_name: Service endpoint for provisioning service.
         :param str allocation_policy: Allocation policy to be used by this provisioning service.
-        :param List['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
-        :param List['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
+        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
+        :param Sequence['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
         :param str provisioning_state: The ARM provisioning state of the provisioning service.
         :param str state: Current state of the provisioning service.
         """
@@ -430,7 +430,7 @@ class IotDpsPropertiesDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="authorizationPolicies")
-    def authorization_policies(self) -> Optional[List['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']]:
+    def authorization_policies(self) -> Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']]:
         """
         List of authorization keys for a provisioning service.
         """
@@ -438,7 +438,7 @@ class IotDpsPropertiesDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="iotHubs")
-    def iot_hubs(self) -> Optional[List['outputs.IotHubDefinitionDescriptionResponse']]:
+    def iot_hubs(self) -> Optional[Sequence['outputs.IotHubDefinitionDescriptionResponse']]:
         """
         List of IoT hubs associated with this provisioning service.
         """
@@ -471,12 +471,12 @@ class IotDpsSkuInfoResponse(dict):
     """
     def __init__(__self__, *,
                  tier: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None):
         """
         List of possible provisioning service SKUs.
         :param str tier: Pricing tier name of the provisioning service.
-        :param float capacity: The number of units to provision
+        :param int capacity: The number of units to provision
         :param str name: Sku name.
         """
         pulumi.set(__self__, "tier", tier)
@@ -495,7 +495,7 @@ class IotDpsSkuInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The number of units to provision
         """
@@ -522,14 +522,14 @@ class IotHubDefinitionDescriptionResponse(dict):
                  connection_string: str,
                  location: str,
                  name: str,
-                 allocation_weight: Optional[float] = None,
+                 allocation_weight: Optional[int] = None,
                  apply_allocation_policy: Optional[bool] = None):
         """
         Description of the IoT hub.
         :param str connection_string: Connection string og the IoT hub.
         :param str location: ARM region of the IoT hub.
         :param str name: Host name of the IoT hub.
-        :param float allocation_weight: weight to apply for a given iot h.
+        :param int allocation_weight: weight to apply for a given iot h.
         :param bool apply_allocation_policy: flag for applying allocationPolicy or not for a given iot hub.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -566,7 +566,7 @@ class IotHubDefinitionDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="allocationWeight")
-    def allocation_weight(self) -> Optional[float]:
+    def allocation_weight(self) -> Optional[int]:
         """
         weight to apply for a given iot h.
         """
@@ -593,13 +593,13 @@ class IotHubPropertiesResponse(dict):
                  host_name: str,
                  provisioning_state: str,
                  state: str,
-                 authorization_policies: Optional[List['outputs.SharedAccessSignatureAuthorizationRuleResponse']] = None,
+                 authorization_policies: Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleResponse']] = None,
                  cloud_to_device: Optional['outputs.CloudToDevicePropertiesResponse'] = None,
                  comments: Optional[str] = None,
                  enable_file_upload_notifications: Optional[bool] = None,
                  event_hub_endpoints: Optional[Mapping[str, 'outputs.EventHubPropertiesResponse']] = None,
                  features: Optional[str] = None,
-                 ip_filter_rules: Optional[List['outputs.IpFilterRuleResponse']] = None,
+                 ip_filter_rules: Optional[Sequence['outputs.IpFilterRuleResponse']] = None,
                  messaging_endpoints: Optional[Mapping[str, 'outputs.MessagingEndpointPropertiesResponse']] = None,
                  operations_monitoring_properties: Optional['outputs.OperationsMonitoringPropertiesResponse'] = None,
                  routing: Optional['outputs.RoutingPropertiesResponse'] = None,
@@ -609,13 +609,13 @@ class IotHubPropertiesResponse(dict):
         :param str host_name: The name of the host.
         :param str provisioning_state: The provisioning state.
         :param str state: The hub state.
-        :param List['SharedAccessSignatureAuthorizationRuleResponseArgs'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
+        :param Sequence['SharedAccessSignatureAuthorizationRuleResponseArgs'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
         :param 'CloudToDevicePropertiesResponseArgs' cloud_to_device: The IoT hub cloud-to-device messaging properties.
         :param str comments: IoT hub comments.
         :param bool enable_file_upload_notifications: If True, file upload notifications are enabled.
         :param Mapping[str, 'EventHubPropertiesResponseArgs'] event_hub_endpoints: The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
         :param str features: The capabilities and features enabled for the IoT hub.
-        :param List['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
+        :param Sequence['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
         :param Mapping[str, 'MessagingEndpointPropertiesResponseArgs'] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param 'OperationsMonitoringPropertiesResponseArgs' operations_monitoring_properties: The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations, Routes, D2CTwinOperations, C2DTwinOperations, TwinQueries, JobsOperations, DirectMethods.
         :param 'RoutingPropertiesResponseArgs' routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
@@ -673,7 +673,7 @@ class IotHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="authorizationPolicies")
-    def authorization_policies(self) -> Optional[List['outputs.SharedAccessSignatureAuthorizationRuleResponse']]:
+    def authorization_policies(self) -> Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleResponse']]:
         """
         The shared access policies you can use to secure a connection to the IoT hub.
         """
@@ -721,7 +721,7 @@ class IotHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="ipFilterRules")
-    def ip_filter_rules(self) -> Optional[List['outputs.IpFilterRuleResponse']]:
+    def ip_filter_rules(self) -> Optional[Sequence['outputs.IpFilterRuleResponse']]:
         """
         The IP filter rules.
         """
@@ -771,12 +771,12 @@ class IotHubSkuInfoResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  tier: str,
-                 capacity: Optional[float] = None):
+                 capacity: Optional[int] = None):
         """
         Information about the SKU of the IoT hub.
         :param str name: The name of the SKU.
         :param str tier: The billing tier for the IoT hub.
-        :param float capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
+        :param int capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -801,7 +801,7 @@ class IotHubSkuInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """
@@ -865,12 +865,12 @@ class MessagingEndpointPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  lock_duration_as_iso8601: Optional[str] = None,
-                 max_delivery_count: Optional[float] = None,
+                 max_delivery_count: Optional[int] = None,
                  ttl_as_iso8601: Optional[str] = None):
         """
         The properties of the messaging endpoints used by this IoT hub.
         :param str lock_duration_as_iso8601: The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
-        :param float max_delivery_count: The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+        :param int max_delivery_count: The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         :param str ttl_as_iso8601: The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         """
         if lock_duration_as_iso8601 is not None:
@@ -890,7 +890,7 @@ class MessagingEndpointPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> Optional[int]:
         """
         The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         """
@@ -936,14 +936,14 @@ class RoutePropertiesResponse(dict):
     The properties of a routing rule that your IoT hub uses to route messages to endpoints.
     """
     def __init__(__self__, *,
-                 endpoint_names: List[str],
+                 endpoint_names: Sequence[str],
                  is_enabled: bool,
                  name: str,
                  source: str,
                  condition: Optional[str] = None):
         """
         The properties of a routing rule that your IoT hub uses to route messages to endpoints.
-        :param List[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
+        :param Sequence[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param bool is_enabled: Used to specify whether a route is enabled.
         :param str name: The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
         :param str source: The source that the routing rule is to be applied to, such as DeviceMessages.
@@ -958,7 +958,7 @@ class RoutePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="endpointNames")
-    def endpoint_names(self) -> List[str]:
+    def endpoint_names(self) -> Sequence[str]:
         """
         The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         """
@@ -1006,16 +1006,16 @@ class RoutingEndpointsResponse(dict):
     The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
     """
     def __init__(__self__, *,
-                 event_hubs: Optional[List['outputs.RoutingEventHubPropertiesResponse']] = None,
-                 service_bus_queues: Optional[List['outputs.RoutingServiceBusQueueEndpointPropertiesResponse']] = None,
-                 service_bus_topics: Optional[List['outputs.RoutingServiceBusTopicEndpointPropertiesResponse']] = None,
-                 storage_containers: Optional[List['outputs.RoutingStorageContainerPropertiesResponse']] = None):
+                 event_hubs: Optional[Sequence['outputs.RoutingEventHubPropertiesResponse']] = None,
+                 service_bus_queues: Optional[Sequence['outputs.RoutingServiceBusQueueEndpointPropertiesResponse']] = None,
+                 service_bus_topics: Optional[Sequence['outputs.RoutingServiceBusTopicEndpointPropertiesResponse']] = None,
+                 storage_containers: Optional[Sequence['outputs.RoutingStorageContainerPropertiesResponse']] = None):
         """
         The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-        :param List['RoutingEventHubPropertiesResponseArgs'] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
-        :param List['RoutingServiceBusQueueEndpointPropertiesResponseArgs'] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
-        :param List['RoutingServiceBusTopicEndpointPropertiesResponseArgs'] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
-        :param List['RoutingStorageContainerPropertiesResponseArgs'] storage_containers: The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
+        :param Sequence['RoutingEventHubPropertiesResponseArgs'] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
+        :param Sequence['RoutingServiceBusQueueEndpointPropertiesResponseArgs'] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
+        :param Sequence['RoutingServiceBusTopicEndpointPropertiesResponseArgs'] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
+        :param Sequence['RoutingStorageContainerPropertiesResponseArgs'] storage_containers: The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
         """
         if event_hubs is not None:
             pulumi.set(__self__, "event_hubs", event_hubs)
@@ -1028,7 +1028,7 @@ class RoutingEndpointsResponse(dict):
 
     @property
     @pulumi.getter(name="eventHubs")
-    def event_hubs(self) -> Optional[List['outputs.RoutingEventHubPropertiesResponse']]:
+    def event_hubs(self) -> Optional[Sequence['outputs.RoutingEventHubPropertiesResponse']]:
         """
         The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
         """
@@ -1036,7 +1036,7 @@ class RoutingEndpointsResponse(dict):
 
     @property
     @pulumi.getter(name="serviceBusQueues")
-    def service_bus_queues(self) -> Optional[List['outputs.RoutingServiceBusQueueEndpointPropertiesResponse']]:
+    def service_bus_queues(self) -> Optional[Sequence['outputs.RoutingServiceBusQueueEndpointPropertiesResponse']]:
         """
         The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
         """
@@ -1044,7 +1044,7 @@ class RoutingEndpointsResponse(dict):
 
     @property
     @pulumi.getter(name="serviceBusTopics")
-    def service_bus_topics(self) -> Optional[List['outputs.RoutingServiceBusTopicEndpointPropertiesResponse']]:
+    def service_bus_topics(self) -> Optional[Sequence['outputs.RoutingServiceBusTopicEndpointPropertiesResponse']]:
         """
         The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
         """
@@ -1052,7 +1052,7 @@ class RoutingEndpointsResponse(dict):
 
     @property
     @pulumi.getter(name="storageContainers")
-    def storage_containers(self) -> Optional[List['outputs.RoutingStorageContainerPropertiesResponse']]:
+    def storage_containers(self) -> Optional[Sequence['outputs.RoutingStorageContainerPropertiesResponse']]:
         """
         The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
         """
@@ -1130,12 +1130,12 @@ class RoutingPropertiesResponse(dict):
     def __init__(__self__, *,
                  endpoints: Optional['outputs.RoutingEndpointsResponse'] = None,
                  fallback_route: Optional['outputs.FallbackRoutePropertiesResponse'] = None,
-                 routes: Optional[List['outputs.RoutePropertiesResponse']] = None):
+                 routes: Optional[Sequence['outputs.RoutePropertiesResponse']] = None):
         """
         The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         :param 'RoutingEndpointsResponseArgs' endpoints: The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
         :param 'FallbackRoutePropertiesResponseArgs' fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
-        :param List['RoutePropertiesResponseArgs'] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
+        :param Sequence['RoutePropertiesResponseArgs'] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
         """
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
@@ -1162,7 +1162,7 @@ class RoutingPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[List['outputs.RoutePropertiesResponse']]:
+    def routes(self) -> Optional[Sequence['outputs.RoutePropertiesResponse']]:
         """
         The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
         """
@@ -1301,10 +1301,10 @@ class RoutingStorageContainerPropertiesResponse(dict):
                  connection_string: str,
                  container_name: str,
                  name: str,
-                 batch_frequency_in_seconds: Optional[float] = None,
+                 batch_frequency_in_seconds: Optional[int] = None,
                  encoding: Optional[str] = None,
                  file_name_format: Optional[str] = None,
-                 max_chunk_size_in_bytes: Optional[float] = None,
+                 max_chunk_size_in_bytes: Optional[int] = None,
                  resource_group: Optional[str] = None,
                  subscription_id: Optional[str] = None):
         """
@@ -1312,10 +1312,10 @@ class RoutingStorageContainerPropertiesResponse(dict):
         :param str connection_string: The connection string of the storage account.
         :param str container_name: The name of storage container in the storage account.
         :param str name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, operationsMonitoringEvents, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-        :param float batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
+        :param int batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         :param str encoding: Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avroDeflate'. Default value is 'avro'.
         :param str file_name_format: File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
-        :param float max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
+        :param int max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param str resource_group: The name of the resource group of the storage account.
         :param str subscription_id: The subscription identifier of the storage account.
         """
@@ -1361,7 +1361,7 @@ class RoutingStorageContainerPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="batchFrequencyInSeconds")
-    def batch_frequency_in_seconds(self) -> Optional[float]:
+    def batch_frequency_in_seconds(self) -> Optional[int]:
         """
         Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         """
@@ -1385,7 +1385,7 @@ class RoutingStorageContainerPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxChunkSizeInBytes")
-    def max_chunk_size_in_bytes(self) -> Optional[float]:
+    def max_chunk_size_in_bytes(self) -> Optional[int]:
         """
         Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         """

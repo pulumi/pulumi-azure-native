@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,12 +24,12 @@ class HostPool(pulumi.CustomResource):
                  host_pool_type: Optional[pulumi.Input[str]] = None,
                  load_balancer_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_session_limit: Optional[pulumi.Input[float]] = None,
+                 max_session_limit: Optional[pulumi.Input[int]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[str]] = None,
                  registration_info: Optional[pulumi.Input[pulumi.InputType['RegistrationInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ring: Optional[pulumi.Input[float]] = None,
+                 ring: Optional[pulumi.Input[int]] = None,
                  sso_context: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validation_environment: Optional[pulumi.Input[bool]] = None,
@@ -49,12 +49,12 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[str] host_pool_type: HostPool type for desktop.
         :param pulumi.Input[str] load_balancer_type: The type of the load balancer.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[float] max_session_limit: The max session limit of HostPool.
+        :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
         :param pulumi.Input[str] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
         :param pulumi.Input[str] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
         :param pulumi.Input[pulumi.InputType['RegistrationInfoArgs']] registration_info: The registration info of HostPool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[float] ring: The ring number of HostPool.
+        :param pulumi.Input[int] ring: The ring number of HostPool.
         :param pulumi.Input[str] sso_context: Path to keyvault containing ssoContext secret.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] validation_environment: Is validation environment.
@@ -137,7 +137,7 @@ class HostPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationGroupReferences")
-    def application_group_references(self) -> pulumi.Output[List[str]]:
+    def application_group_references(self) -> pulumi.Output[Sequence[str]]:
         """
         List of applicationGroup links.
         """
@@ -193,7 +193,7 @@ class HostPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSessionLimit")
-    def max_session_limit(self) -> pulumi.Output[Optional[float]]:
+    def max_session_limit(self) -> pulumi.Output[Optional[int]]:
         """
         The max session limit of HostPool.
         """
@@ -233,7 +233,7 @@ class HostPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ring(self) -> pulumi.Output[Optional[float]]:
+    def ring(self) -> pulumi.Output[Optional[int]]:
         """
         The ring number of HostPool.
         """

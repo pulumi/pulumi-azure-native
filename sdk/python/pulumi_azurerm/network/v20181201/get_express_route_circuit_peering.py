@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetExpressRouteCircuitPeeringResult:
     Peering in an ExpressRouteCircuit resource.
     """
     def __init__(__self__, azure_asn=None, connections=None, etag=None, express_route_connection=None, gateway_manager_etag=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peered_connections=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, route_filter=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None):
-        if azure_asn and not isinstance(azure_asn, float):
-            raise TypeError("Expected argument 'azure_asn' to be a float")
+        if azure_asn and not isinstance(azure_asn, int):
+            raise TypeError("Expected argument 'azure_asn' to be a int")
         pulumi.set(__self__, "azure_asn", azure_asn)
         if connections and not isinstance(connections, list):
             raise TypeError("Expected argument 'connections' to be a list")
@@ -48,8 +48,8 @@ class GetExpressRouteCircuitPeeringResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if peer_asn and not isinstance(peer_asn, float):
-            raise TypeError("Expected argument 'peer_asn' to be a float")
+        if peer_asn and not isinstance(peer_asn, int):
+            raise TypeError("Expected argument 'peer_asn' to be a int")
         pulumi.set(__self__, "peer_asn", peer_asn)
         if peered_connections and not isinstance(peered_connections, list):
             raise TypeError("Expected argument 'peered_connections' to be a list")
@@ -84,13 +84,13 @@ class GetExpressRouteCircuitPeeringResult:
         if stats and not isinstance(stats, dict):
             raise TypeError("Expected argument 'stats' to be a dict")
         pulumi.set(__self__, "stats", stats)
-        if vlan_id and not isinstance(vlan_id, float):
-            raise TypeError("Expected argument 'vlan_id' to be a float")
+        if vlan_id and not isinstance(vlan_id, int):
+            raise TypeError("Expected argument 'vlan_id' to be a int")
         pulumi.set(__self__, "vlan_id", vlan_id)
 
     @property
     @pulumi.getter(name="azureASN")
-    def azure_asn(self) -> Optional[float]:
+    def azure_asn(self) -> Optional[int]:
         """
         The Azure ASN.
         """
@@ -98,7 +98,7 @@ class GetExpressRouteCircuitPeeringResult:
 
     @property
     @pulumi.getter
-    def connections(self) -> Optional[List['outputs.ExpressRouteCircuitConnectionResponse']]:
+    def connections(self) -> Optional[Sequence['outputs.ExpressRouteCircuitConnectionResponse']]:
         """
         The list of circuit connections associated with Azure Private Peering for this circuit.
         """
@@ -162,7 +162,7 @@ class GetExpressRouteCircuitPeeringResult:
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> Optional[float]:
+    def peer_asn(self) -> Optional[int]:
         """
         The peer ASN.
         """
@@ -170,7 +170,7 @@ class GetExpressRouteCircuitPeeringResult:
 
     @property
     @pulumi.getter(name="peeredConnections")
-    def peered_connections(self) -> List['outputs.PeerExpressRouteCircuitConnectionResponse']:
+    def peered_connections(self) -> Sequence['outputs.PeerExpressRouteCircuitConnectionResponse']:
         """
         The list of peered circuit connections associated with Azure Private Peering for this circuit.
         """
@@ -258,7 +258,7 @@ class GetExpressRouteCircuitPeeringResult:
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> Optional[float]:
+    def vlan_id(self) -> Optional[int]:
         """
         The VLAN ID.
         """

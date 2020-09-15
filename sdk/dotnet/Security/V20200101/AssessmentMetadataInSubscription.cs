@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// Describes the partner that created the assessment
         /// </summary>
         [Output("partnerData")]
-        public Output<Outputs.SecurityAssessmentMetadataPartnerDataResponseResult?> PartnerData { get; private set; } = null!;
+        public Output<Outputs.SecurityAssessmentMetadataPartnerDataResponse?> PartnerData { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource ID of the policy definition that turns this assessment calculation on

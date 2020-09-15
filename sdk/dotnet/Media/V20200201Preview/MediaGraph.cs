@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.Media.V20200201Preview
         /// Media Graph sinks.
         /// </summary>
         [Output("sinks")]
-        public Output<ImmutableArray<Outputs.MediaGraphAssetSinkResponseResult>> Sinks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MediaGraphAssetSinkResponse>> Sinks { get; private set; } = null!;
 
         /// <summary>
         /// Media Graph sources.
         /// </summary>
         [Output("sources")]
-        public Output<ImmutableArray<Outputs.MediaGraphRtspSourceResponseResult>> Sources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MediaGraphRtspSourceResponse>> Sources { get; private set; } = null!;
 
         /// <summary>
         /// Media Graph state which indicates the resource allocation status for running the media graph pipeline.

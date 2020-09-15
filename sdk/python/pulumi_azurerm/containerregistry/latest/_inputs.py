@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -38,24 +38,24 @@ __all__ = [
 @pulumi.input_type
 class AgentPropertiesArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[float]] = None):
+                 cpu: Optional[pulumi.Input[int]] = None):
         """
         The properties that determine the run agent configuration.
-        :param pulumi.Input[float] cpu: The CPU configuration in terms of number of cores required for the run.
+        :param pulumi.Input[int] cpu: The CPU configuration in terms of number of cores required for the run.
         """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
 
     @property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[float]]:
+    def cpu(self) -> Optional[pulumi.Input[int]]:
         """
         The CPU configuration in terms of number of cores required for the run.
         """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[float]]):
+    def cpu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cpu", value)
 
 
@@ -64,14 +64,14 @@ class AuthInfoArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str],
                  token_type: pulumi.Input[str],
-                 expires_in: Optional[pulumi.Input[float]] = None,
+                 expires_in: Optional[pulumi.Input[int]] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None):
         """
         The authorization properties for accessing the source code repository.
         :param pulumi.Input[str] token: The access token used to access the source control provider.
         :param pulumi.Input[str] token_type: The type of Auth token.
-        :param pulumi.Input[float] expires_in: Time in seconds that the token remains valid
+        :param pulumi.Input[int] expires_in: Time in seconds that the token remains valid
         :param pulumi.Input[str] refresh_token: The refresh token used to refresh the access token.
         :param pulumi.Input[str] scope: The scope of the access token.
         """
@@ -110,14 +110,14 @@ class AuthInfoArgs:
 
     @property
     @pulumi.getter(name="expiresIn")
-    def expires_in(self) -> Optional[pulumi.Input[float]]:
+    def expires_in(self) -> Optional[pulumi.Input[int]]:
         """
         Time in seconds that the token remains valid
         """
         return pulumi.get(self, "expires_in")
 
     @expires_in.setter
-    def expires_in(self, value: Optional[pulumi.Input[float]]):
+    def expires_in(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expires_in", value)
 
     @property
@@ -430,13 +430,13 @@ class IdentityPropertiesArgs:
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         The network rule set for a container registry.
         :param pulumi.Input[str] default_action: The default action of allow or deny when no other rules match.
-        :param pulumi.Input[List[pulumi.Input['IPRuleArgs']]] ip_rules: The IP ACL rules.
-        :param pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The virtual network rules.
+        :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: The IP ACL rules.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The virtual network rules.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -458,26 +458,26 @@ class NetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]:
         """
         The IP ACL rules.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['IPRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
         """
         The virtual network rules.
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -619,11 +619,11 @@ class QuarantinePolicyArgs:
 @pulumi.input_type
 class RetentionPolicyArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[float]] = None,
+                 days: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         The retention policy for a container registry.
-        :param pulumi.Input[float] days: The number of days to retain an untagged manifest after which it gets purged.
+        :param pulumi.Input[int] days: The number of days to retain an untagged manifest after which it gets purged.
         :param pulumi.Input[str] status: The value that indicates whether the policy is enabled or not.
         """
         if days is not None:
@@ -633,14 +633,14 @@ class RetentionPolicyArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[float]]:
+    def days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days to retain an untagged manifest after which it gets purged.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[float]]):
+    def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
 
     @property
@@ -830,13 +830,13 @@ class SourceTriggerArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  source_repository: pulumi.Input['SourcePropertiesArgs'],
-                 source_trigger_events: pulumi.Input[List[pulumi.Input[str]]],
+                 source_trigger_events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  status: Optional[pulumi.Input[str]] = None):
         """
         The properties of a source based trigger.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input['SourcePropertiesArgs'] source_repository: The properties that describes the source(code) for the task.
-        :param pulumi.Input[List[pulumi.Input[str]]] source_trigger_events: The source event corresponding to the trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_trigger_events: The source event corresponding to the trigger.
         :param pulumi.Input[str] status: The current status of trigger.
         """
         pulumi.set(__self__, "name", name)
@@ -871,14 +871,14 @@ class SourceTriggerArgs:
 
     @property
     @pulumi.getter(name="sourceTriggerEvents")
-    def source_trigger_events(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def source_trigger_events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The source event corresponding to the trigger.
         """
         return pulumi.get(self, "source_trigger_events")
 
     @source_trigger_events.setter
-    def source_trigger_events(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def source_trigger_events(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "source_trigger_events", value)
 
     @property
@@ -1015,13 +1015,13 @@ class TimerTriggerArgs:
 class TriggerPropertiesArgs:
     def __init__(__self__, *,
                  base_image_trigger: Optional[pulumi.Input['BaseImageTriggerArgs']] = None,
-                 source_triggers: Optional[pulumi.Input[List[pulumi.Input['SourceTriggerArgs']]]] = None,
-                 timer_triggers: Optional[pulumi.Input[List[pulumi.Input['TimerTriggerArgs']]]] = None):
+                 source_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['SourceTriggerArgs']]]] = None,
+                 timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['TimerTriggerArgs']]]] = None):
         """
         The properties of a trigger.
         :param pulumi.Input['BaseImageTriggerArgs'] base_image_trigger: The trigger based on base image dependencies.
-        :param pulumi.Input[List[pulumi.Input['SourceTriggerArgs']]] source_triggers: The collection of triggers based on source code repository.
-        :param pulumi.Input[List[pulumi.Input['TimerTriggerArgs']]] timer_triggers: The collection of timer triggers.
+        :param pulumi.Input[Sequence[pulumi.Input['SourceTriggerArgs']]] source_triggers: The collection of triggers based on source code repository.
+        :param pulumi.Input[Sequence[pulumi.Input['TimerTriggerArgs']]] timer_triggers: The collection of timer triggers.
         """
         if base_image_trigger is not None:
             pulumi.set(__self__, "base_image_trigger", base_image_trigger)
@@ -1044,26 +1044,26 @@ class TriggerPropertiesArgs:
 
     @property
     @pulumi.getter(name="sourceTriggers")
-    def source_triggers(self) -> Optional[pulumi.Input[List[pulumi.Input['SourceTriggerArgs']]]]:
+    def source_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SourceTriggerArgs']]]]:
         """
         The collection of triggers based on source code repository.
         """
         return pulumi.get(self, "source_triggers")
 
     @source_triggers.setter
-    def source_triggers(self, value: Optional[pulumi.Input[List[pulumi.Input['SourceTriggerArgs']]]]):
+    def source_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SourceTriggerArgs']]]]):
         pulumi.set(self, "source_triggers", value)
 
     @property
     @pulumi.getter(name="timerTriggers")
-    def timer_triggers(self) -> Optional[pulumi.Input[List[pulumi.Input['TimerTriggerArgs']]]]:
+    def timer_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimerTriggerArgs']]]]:
         """
         The collection of timer triggers.
         """
         return pulumi.get(self, "timer_triggers")
 
     @timer_triggers.setter
-    def timer_triggers(self, value: Optional[pulumi.Input[List[pulumi.Input['TimerTriggerArgs']]]]):
+    def timer_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimerTriggerArgs']]]]):
         pulumi.set(self, "timer_triggers", value)
 
 

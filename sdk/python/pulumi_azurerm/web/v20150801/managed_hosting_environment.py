@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,25 +20,25 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
                  allowed_multi_sizes: Optional[pulumi.Input[str]] = None,
                  allowed_worker_sizes: Optional[pulumi.Input[str]] = None,
                  api_management_account_id: Optional[pulumi.Input[str]] = None,
-                 cluster_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
                  database_edition: Optional[pulumi.Input[str]] = None,
                  database_service_objective: Optional[pulumi.Input[str]] = None,
                  dns_suffix: Optional[pulumi.Input[str]] = None,
-                 environment_capacities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StampCapacityArgs']]]]] = None,
+                 environment_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StampCapacityArgs']]]]] = None,
                  environment_is_healthy: Optional[pulumi.Input[bool]] = None,
                  environment_status: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
-                 ipssl_address_count: Optional[pulumi.Input[float]] = None,
+                 ipssl_address_count: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  last_action: Optional[pulumi.Input[str]] = None,
                  last_action_result: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maximum_number_of_machines: Optional[pulumi.Input[float]] = None,
-                 multi_role_count: Optional[pulumi.Input[float]] = None,
+                 maximum_number_of_machines: Optional[pulumi.Input[int]] = None,
+                 multi_role_count: Optional[pulumi.Input[int]] = None,
                  multi_size: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_access_control_list: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]]] = None,
+                 network_access_control_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -47,13 +47,13 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
                  suspended: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 upgrade_domains: Optional[pulumi.Input[float]] = None,
-                 vip_mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualIPMappingArgs']]]]] = None,
+                 upgrade_domains: Optional[pulumi.Input[int]] = None,
+                 vip_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualIPMappingArgs']]]]] = None,
                  virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
                  vnet_name: Optional[pulumi.Input[str]] = None,
                  vnet_resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_name: Optional[pulumi.Input[str]] = None,
-                 worker_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]]] = None,
+                 worker_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -65,25 +65,25 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] allowed_multi_sizes: List of comma separated strings describing which VM sizes are allowed for front-ends
         :param pulumi.Input[str] allowed_worker_sizes: List of comma separated strings describing which VM sizes are allowed for workers
         :param pulumi.Input[str] api_management_account_id: Api Management Account associated with this Hosting Environment
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]] cluster_settings: Custom settings for changing the behavior of the hosting environment
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]] cluster_settings: Custom settings for changing the behavior of the hosting environment
         :param pulumi.Input[str] database_edition: Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
         :param pulumi.Input[str] database_service_objective: Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
         :param pulumi.Input[str] dns_suffix: DNS suffix of the hostingEnvironment (App Service Environment)
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StampCapacityArgs']]]] environment_capacities: Current total, used, and available worker capacities
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StampCapacityArgs']]]] environment_capacities: Current total, used, and available worker capacities
         :param pulumi.Input[bool] environment_is_healthy: True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
         :param pulumi.Input[str] environment_status: Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-        :param pulumi.Input[float] ipssl_address_count: Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
+        :param pulumi.Input[int] ipssl_address_count: Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] last_action: Last deployment action on this hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] last_action_result: Result of the last deployment action on this hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[float] maximum_number_of_machines: Maximum number of VMs in this hostingEnvironment (App Service Environment)
-        :param pulumi.Input[float] multi_role_count: Number of front-end instances
+        :param pulumi.Input[int] maximum_number_of_machines: Maximum number of VMs in this hostingEnvironment (App Service Environment)
+        :param pulumi.Input[int] multi_role_count: Number of front-end instances
         :param pulumi.Input[str] multi_size: Front-end VM size, e.g. "Medium", "Large"
         :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]] network_access_control_list: Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]] network_access_control_list: Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] provisioning_state: Provisioning state of the hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] resource_group: Resource group of the hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] resource_group_name: Name of resource group
@@ -93,13 +93,13 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
                            (most likely because NSG blocked the incoming traffic)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
-        :param pulumi.Input[float] upgrade_domains: Number of upgrade domains of this hostingEnvironment (App Service Environment)
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualIPMappingArgs']]]] vip_mappings: Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
+        :param pulumi.Input[int] upgrade_domains: Number of upgrade domains of this hostingEnvironment (App Service Environment)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualIPMappingArgs']]]] vip_mappings: Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
         :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network: Description of the hostingEnvironment's (App Service Environment) virtual network
         :param pulumi.Input[str] vnet_name: Name of the hostingEnvironment's (App Service Environment) virtual network
         :param pulumi.Input[str] vnet_resource_group_name: Resource group of the hostingEnvironment's (App Service Environment) virtual network
         :param pulumi.Input[str] vnet_subnet_name: Subnet of the hostingEnvironment's (App Service Environment) virtual network
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]] worker_pools: Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]] worker_pools: Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -215,7 +215,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> pulumi.Output[Optional[List['outputs.NameValuePairResponse']]]:
+    def cluster_settings(self) -> pulumi.Output[Optional[Sequence['outputs.NameValuePairResponse']]]:
         """
         Custom settings for changing the behavior of the hosting environment
         """
@@ -247,7 +247,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentCapacities")
-    def environment_capacities(self) -> pulumi.Output[Optional[List['outputs.StampCapacityResponse']]]:
+    def environment_capacities(self) -> pulumi.Output[Optional[Sequence['outputs.StampCapacityResponse']]]:
         """
         Current total, used, and available worker capacities
         """
@@ -279,7 +279,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipsslAddressCount")
-    def ipssl_address_count(self) -> pulumi.Output[Optional[float]]:
+    def ipssl_address_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
         """
@@ -319,7 +319,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumNumberOfMachines")
-    def maximum_number_of_machines(self) -> pulumi.Output[Optional[float]]:
+    def maximum_number_of_machines(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of VMs in this hostingEnvironment (App Service Environment)
         """
@@ -327,7 +327,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multiRoleCount")
-    def multi_role_count(self) -> pulumi.Output[Optional[float]]:
+    def multi_role_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of front-end instances
         """
@@ -351,7 +351,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkAccessControlList")
-    def network_access_control_list(self) -> pulumi.Output[Optional[List['outputs.NetworkAccessControlEntryResponse']]]:
+    def network_access_control_list(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkAccessControlEntryResponse']]]:
         """
         Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
         """
@@ -416,7 +416,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="upgradeDomains")
-    def upgrade_domains(self) -> pulumi.Output[Optional[float]]:
+    def upgrade_domains(self) -> pulumi.Output[Optional[int]]:
         """
         Number of upgrade domains of this hostingEnvironment (App Service Environment)
         """
@@ -424,7 +424,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vipMappings")
-    def vip_mappings(self) -> pulumi.Output[Optional[List['outputs.VirtualIPMappingResponse']]]:
+    def vip_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualIPMappingResponse']]]:
         """
         Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
         """
@@ -464,7 +464,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workerPools")
-    def worker_pools(self) -> pulumi.Output[Optional[List['outputs.WorkerPoolResponse']]]:
+    def worker_pools(self) -> pulumi.Output[Optional[Sequence['outputs.WorkerPoolResponse']]]:
         """
         Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -615,7 +615,7 @@ class NotificationHubPropertiesArgs:
     def __init__(__self__, *,
                  adm_credential: Optional[pulumi.Input['AdmCredentialArgs']] = None,
                  apns_credential: Optional[pulumi.Input['ApnsCredentialArgs']] = None,
-                 authorization_rules: Optional[pulumi.Input[List[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]]] = None,
+                 authorization_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]]] = None,
                  baidu_credential: Optional[pulumi.Input['BaiduCredentialArgs']] = None,
                  gcm_credential: Optional[pulumi.Input['GcmCredentialArgs']] = None,
                  mpns_credential: Optional[pulumi.Input['MpnsCredentialArgs']] = None,
@@ -626,7 +626,7 @@ class NotificationHubPropertiesArgs:
         NotificationHub properties.
         :param pulumi.Input['AdmCredentialArgs'] adm_credential: The AdmCredential of the created NotificationHub
         :param pulumi.Input['ApnsCredentialArgs'] apns_credential: The ApnsCredential of the created NotificationHub
-        :param pulumi.Input[List[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]] authorization_rules: The AuthorizationRules of the created NotificationHub
+        :param pulumi.Input[Sequence[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]] authorization_rules: The AuthorizationRules of the created NotificationHub
         :param pulumi.Input['BaiduCredentialArgs'] baidu_credential: The BaiduCredential of the created NotificationHub
         :param pulumi.Input['GcmCredentialArgs'] gcm_credential: The GcmCredential of the created NotificationHub
         :param pulumi.Input['MpnsCredentialArgs'] mpns_credential: The MpnsCredential of the created NotificationHub
@@ -679,14 +679,14 @@ class NotificationHubPropertiesArgs:
 
     @property
     @pulumi.getter(name="authorizationRules")
-    def authorization_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]]]:
+    def authorization_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]]]:
         """
         The AuthorizationRules of the created NotificationHub
         """
         return pulumi.get(self, "authorization_rules")
 
     @authorization_rules.setter
-    def authorization_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]]]):
+    def authorization_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]]]):
         pulumi.set(self, "authorization_rules", value)
 
     @property
@@ -771,8 +771,8 @@ class SharedAccessAuthorizationRulePropertiesArgs:
                  key_name: Optional[pulumi.Input[str]] = None,
                  modified_time: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
-                 revision: Optional[pulumi.Input[float]] = None,
-                 rights: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 revision: Optional[pulumi.Input[int]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None):
         """
         SharedAccessAuthorizationRule properties.
@@ -782,8 +782,8 @@ class SharedAccessAuthorizationRulePropertiesArgs:
         :param pulumi.Input[str] key_name: The name of the key that was used.
         :param pulumi.Input[str] modified_time: The most recent time the rule was updated.
         :param pulumi.Input[str] primary_key: The primary key that was used.
-        :param pulumi.Input[float] revision: The revision number for the rule.
-        :param pulumi.Input[List[pulumi.Input[str]]] rights: The rights associated with the rule.
+        :param pulumi.Input[int] revision: The revision number for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rights: The rights associated with the rule.
         :param pulumi.Input[str] secondary_key: The secondary key that was used.
         """
         if claim_type is not None:
@@ -879,26 +879,26 @@ class SharedAccessAuthorizationRulePropertiesArgs:
 
     @property
     @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[float]]:
+    def revision(self) -> Optional[pulumi.Input[int]]:
         """
         The revision number for the rule.
         """
         return pulumi.get(self, "revision")
 
     @revision.setter
-    def revision(self, value: Optional[pulumi.Input[float]]):
+    def revision(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "revision", value)
 
     @property
     @pulumi.getter
-    def rights(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The rights associated with the rule.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "rights", value)
 
     @property

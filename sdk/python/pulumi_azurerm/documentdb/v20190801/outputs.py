@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -159,14 +159,14 @@ class CassandraSchemaResponse(dict):
     Cosmos DB Cassandra table schema
     """
     def __init__(__self__, *,
-                 cluster_keys: Optional[List['outputs.ClusterKeyResponse']] = None,
-                 columns: Optional[List['outputs.ColumnResponse']] = None,
-                 partition_keys: Optional[List['outputs.CassandraPartitionKeyResponse']] = None):
+                 cluster_keys: Optional[Sequence['outputs.ClusterKeyResponse']] = None,
+                 columns: Optional[Sequence['outputs.ColumnResponse']] = None,
+                 partition_keys: Optional[Sequence['outputs.CassandraPartitionKeyResponse']] = None):
         """
         Cosmos DB Cassandra table schema
-        :param List['ClusterKeyResponseArgs'] cluster_keys: List of cluster key.
-        :param List['ColumnResponseArgs'] columns: List of Cassandra table columns.
-        :param List['CassandraPartitionKeyResponseArgs'] partition_keys: List of partition key.
+        :param Sequence['ClusterKeyResponseArgs'] cluster_keys: List of cluster key.
+        :param Sequence['ColumnResponseArgs'] columns: List of Cassandra table columns.
+        :param Sequence['CassandraPartitionKeyResponseArgs'] partition_keys: List of partition key.
         """
         if cluster_keys is not None:
             pulumi.set(__self__, "cluster_keys", cluster_keys)
@@ -177,7 +177,7 @@ class CassandraSchemaResponse(dict):
 
     @property
     @pulumi.getter(name="clusterKeys")
-    def cluster_keys(self) -> Optional[List['outputs.ClusterKeyResponse']]:
+    def cluster_keys(self) -> Optional[Sequence['outputs.ClusterKeyResponse']]:
         """
         List of cluster key.
         """
@@ -185,7 +185,7 @@ class CassandraSchemaResponse(dict):
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[List['outputs.ColumnResponse']]:
+    def columns(self) -> Optional[Sequence['outputs.ColumnResponse']]:
         """
         List of Cassandra table columns.
         """
@@ -193,7 +193,7 @@ class CassandraSchemaResponse(dict):
 
     @property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[List['outputs.CassandraPartitionKeyResponse']]:
+    def partition_keys(self) -> Optional[Sequence['outputs.CassandraPartitionKeyResponse']]:
         """
         List of partition key.
         """
@@ -210,14 +210,14 @@ class CassandraTableGetPropertiesResponseResource(dict):
                  id: str,
                  rid: str,
                  ts: Mapping[str, Any],
-                 default_ttl: Optional[float] = None,
+                 default_ttl: Optional[int] = None,
                  schema: Optional['outputs.CassandraSchemaResponse'] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB Cassandra table
         :param str rid: A system generated property. A unique identifier.
         :param Mapping[str, Any] ts: A system generated property that denotes the last updated timestamp of the resource.
-        :param float default_ttl: Time to live of the Cosmos DB Cassandra table
+        :param int default_ttl: Time to live of the Cosmos DB Cassandra table
         :param 'CassandraSchemaResponseArgs' schema: Schema of the Cosmos DB Cassandra table
         """
         pulumi.set(__self__, "etag", etag)
@@ -263,7 +263,7 @@ class CassandraTableGetPropertiesResponseResource(dict):
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[float]:
+    def default_ttl(self) -> Optional[int]:
         """
         Time to live of the Cosmos DB Cassandra table
         """
@@ -448,13 +448,13 @@ class ConsistencyPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  default_consistency_level: str,
-                 max_interval_in_seconds: Optional[float] = None,
-                 max_staleness_prefix: Optional[float] = None):
+                 max_interval_in_seconds: Optional[int] = None,
+                 max_staleness_prefix: Optional[int] = None):
         """
         The consistency policy for the Cosmos DB database account.
         :param str default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
-        :param float max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        :param float max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        :param int max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        :param int max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
         pulumi.set(__self__, "default_consistency_level", default_consistency_level)
         if max_interval_in_seconds is not None:
@@ -472,7 +472,7 @@ class ConsistencyPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxIntervalInSeconds")
-    def max_interval_in_seconds(self) -> Optional[float]:
+    def max_interval_in_seconds(self) -> Optional[int]:
         """
         When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
@@ -480,7 +480,7 @@ class ConsistencyPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxStalenessPrefix")
-    def max_staleness_prefix(self) -> Optional[float]:
+    def max_staleness_prefix(self) -> Optional[int]:
         """
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
@@ -497,13 +497,13 @@ class ContainerPartitionKeyResponse(dict):
     """
     def __init__(__self__, *,
                  kind: Optional[str] = None,
-                 paths: Optional[List[str]] = None,
-                 version: Optional[float] = None):
+                 paths: Optional[Sequence[str]] = None,
+                 version: Optional[int] = None):
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
         :param str kind: Indicates the kind of algorithm used for partitioning
-        :param List[str] paths: List of paths using which data within the container can be partitioned
-        :param float version: Indicates the version of the partition key definition
+        :param Sequence[str] paths: List of paths using which data within the container can be partitioned
+        :param int version: Indicates the version of the partition key definition
         """
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -522,7 +522,7 @@ class ContainerPartitionKeyResponse(dict):
 
     @property
     @pulumi.getter
-    def paths(self) -> Optional[List[str]]:
+    def paths(self) -> Optional[Sequence[str]]:
         """
         List of paths using which data within the container can be partitioned
         """
@@ -530,7 +530,7 @@ class ContainerPartitionKeyResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[float]:
+    def version(self) -> Optional[int]:
         """
         Indicates the version of the partition key definition
         """
@@ -602,12 +602,12 @@ class FailoverPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  id: str,
-                 failover_priority: Optional[float] = None,
+                 failover_priority: Optional[int] = None,
                  location_name: Optional[str] = None):
         """
         The failover policy for a given region of a database account.
         :param str id: The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-        :param float failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        :param int failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         :param str location_name: The name of the region in which the database account exists.
         """
         pulumi.set(__self__, "id", id)
@@ -626,7 +626,7 @@ class FailoverPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="failoverPriority")
-    def failover_priority(self) -> Optional[float]:
+    def failover_priority(self) -> Optional[int]:
         """
         The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         """
@@ -706,7 +706,7 @@ class GremlinGraphGetPropertiesResponseResource(dict):
                  rid: str,
                  ts: Mapping[str, Any],
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
-                 default_ttl: Optional[float] = None,
+                 default_ttl: Optional[int] = None,
                  indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
                  partition_key: Optional['outputs.ContainerPartitionKeyResponse'] = None,
                  unique_key_policy: Optional['outputs.UniqueKeyPolicyResponse'] = None):
@@ -716,7 +716,7 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         :param str rid: A system generated property. A unique identifier.
         :param Mapping[str, Any] ts: A system generated property that denotes the last updated timestamp of the resource.
         :param 'ConflictResolutionPolicyResponseArgs' conflict_resolution_policy: The conflict resolution policy for the graph.
-        :param float default_ttl: Default time to live
+        :param int default_ttl: Default time to live
         :param 'IndexingPolicyResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
         :param 'ContainerPartitionKeyResponseArgs' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
         :param 'UniqueKeyPolicyResponseArgs' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -778,7 +778,7 @@ class GremlinGraphGetPropertiesResponseResource(dict):
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[float]:
+    def default_ttl(self) -> Optional[int]:
         """
         Default time to live
         """
@@ -818,11 +818,11 @@ class IncludedPathResponse(dict):
     The paths that are included in indexing
     """
     def __init__(__self__, *,
-                 indexes: Optional[List['outputs.IndexesResponse']] = None,
+                 indexes: Optional[Sequence['outputs.IndexesResponse']] = None,
                  path: Optional[str] = None):
         """
         The paths that are included in indexing
-        :param List['IndexesResponseArgs'] indexes: List of indexes for this path
+        :param Sequence['IndexesResponseArgs'] indexes: List of indexes for this path
         :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
         if indexes is not None:
@@ -832,7 +832,7 @@ class IncludedPathResponse(dict):
 
     @property
     @pulumi.getter
-    def indexes(self) -> Optional[List['outputs.IndexesResponse']]:
+    def indexes(self) -> Optional[Sequence['outputs.IndexesResponse']]:
         """
         List of indexes for this path
         """
@@ -858,12 +858,12 @@ class IndexesResponse(dict):
     def __init__(__self__, *,
                  data_type: Optional[str] = None,
                  kind: Optional[str] = None,
-                 precision: Optional[float] = None):
+                 precision: Optional[int] = None):
         """
         The indexes for the path.
         :param str data_type: The datatype for which the indexing behavior is applied to.
         :param str kind: Indicates the type of index.
-        :param float precision: The precision of the index. -1 is maximum precision.
+        :param int precision: The precision of the index. -1 is maximum precision.
         """
         if data_type is not None:
             pulumi.set(__self__, "data_type", data_type)
@@ -890,7 +890,7 @@ class IndexesResponse(dict):
 
     @property
     @pulumi.getter
-    def precision(self) -> Optional[float]:
+    def precision(self) -> Optional[int]:
         """
         The precision of the index. -1 is maximum precision.
         """
@@ -907,19 +907,19 @@ class IndexingPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  automatic: Optional[bool] = None,
-                 composite_indexes: Optional[List[List['outputs.CompositePathResponse']]] = None,
-                 excluded_paths: Optional[List['outputs.ExcludedPathResponse']] = None,
-                 included_paths: Optional[List['outputs.IncludedPathResponse']] = None,
+                 composite_indexes: Optional[Sequence[Sequence['outputs.CompositePathResponse']]] = None,
+                 excluded_paths: Optional[Sequence['outputs.ExcludedPathResponse']] = None,
+                 included_paths: Optional[Sequence['outputs.IncludedPathResponse']] = None,
                  indexing_mode: Optional[str] = None,
-                 spatial_indexes: Optional[List['outputs.SpatialSpecResponse']] = None):
+                 spatial_indexes: Optional[Sequence['outputs.SpatialSpecResponse']] = None):
         """
         Cosmos DB indexing policy
         :param bool automatic: Indicates if the indexing policy is automatic
-        :param List[List['CompositePathResponseArgs']] composite_indexes: List of composite path list
-        :param List['ExcludedPathResponseArgs'] excluded_paths: List of paths to exclude from indexing
-        :param List['IncludedPathResponseArgs'] included_paths: List of paths to include in the indexing
+        :param Sequence[Sequence['CompositePathResponseArgs']] composite_indexes: List of composite path list
+        :param Sequence['ExcludedPathResponseArgs'] excluded_paths: List of paths to exclude from indexing
+        :param Sequence['IncludedPathResponseArgs'] included_paths: List of paths to include in the indexing
         :param str indexing_mode: Indicates the indexing mode.
-        :param List['SpatialSpecResponseArgs'] spatial_indexes: List of spatial specifics
+        :param Sequence['SpatialSpecResponseArgs'] spatial_indexes: List of spatial specifics
         """
         if automatic is not None:
             pulumi.set(__self__, "automatic", automatic)
@@ -944,7 +944,7 @@ class IndexingPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="compositeIndexes")
-    def composite_indexes(self) -> Optional[List[List['outputs.CompositePathResponse']]]:
+    def composite_indexes(self) -> Optional[Sequence[Sequence['outputs.CompositePathResponse']]]:
         """
         List of composite path list
         """
@@ -952,7 +952,7 @@ class IndexingPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="excludedPaths")
-    def excluded_paths(self) -> Optional[List['outputs.ExcludedPathResponse']]:
+    def excluded_paths(self) -> Optional[Sequence['outputs.ExcludedPathResponse']]:
         """
         List of paths to exclude from indexing
         """
@@ -960,7 +960,7 @@ class IndexingPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="includedPaths")
-    def included_paths(self) -> Optional[List['outputs.IncludedPathResponse']]:
+    def included_paths(self) -> Optional[Sequence['outputs.IncludedPathResponse']]:
         """
         List of paths to include in the indexing
         """
@@ -976,7 +976,7 @@ class IndexingPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="spatialIndexes")
-    def spatial_indexes(self) -> Optional[List['outputs.SpatialSpecResponse']]:
+    def spatial_indexes(self) -> Optional[Sequence['outputs.SpatialSpecResponse']]:
         """
         List of spatial specifics
         """
@@ -994,7 +994,7 @@ class LocationResponse(dict):
     def __init__(__self__, *,
                  document_endpoint: str,
                  id: str,
-                 failover_priority: Optional[float] = None,
+                 failover_priority: Optional[int] = None,
                  is_zone_redundant: Optional[bool] = None,
                  location_name: Optional[str] = None,
                  provisioning_state: Optional[str] = None):
@@ -1002,7 +1002,7 @@ class LocationResponse(dict):
         A region in which the Azure Cosmos DB database account is deployed.
         :param str document_endpoint: The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
         :param str id: The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-        :param float failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        :param int failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         :param bool is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
         :param str location_name: The name of the region.
         :param str provisioning_state: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
@@ -1036,7 +1036,7 @@ class LocationResponse(dict):
 
     @property
     @pulumi.getter(name="failoverPriority")
-    def failover_priority(self) -> Optional[float]:
+    def failover_priority(self) -> Optional[int]:
         """
         The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         """
@@ -1077,14 +1077,14 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
                  id: str,
                  rid: str,
                  ts: Mapping[str, Any],
-                 indexes: Optional[List['outputs.MongoIndexResponse']] = None,
+                 indexes: Optional[Sequence['outputs.MongoIndexResponse']] = None,
                  shard_key: Optional[Mapping[str, str]] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB MongoDB collection
         :param str rid: A system generated property. A unique identifier.
         :param Mapping[str, Any] ts: A system generated property that denotes the last updated timestamp of the resource.
-        :param List['MongoIndexResponseArgs'] indexes: List of index keys
+        :param Sequence['MongoIndexResponseArgs'] indexes: List of index keys
         :param Mapping[str, str] shard_key: A key-value pair of shard keys to be applied for the request.
         """
         pulumi.set(__self__, "etag", etag)
@@ -1130,7 +1130,7 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
 
     @property
     @pulumi.getter
-    def indexes(self) -> Optional[List['outputs.MongoIndexResponse']]:
+    def indexes(self) -> Optional[Sequence['outputs.MongoIndexResponse']]:
         """
         List of index keys
         """
@@ -1208,17 +1208,17 @@ class MongoIndexKeysResponse(dict):
     Cosmos DB MongoDB collection resource object
     """
     def __init__(__self__, *,
-                 keys: Optional[List[str]] = None):
+                 keys: Optional[Sequence[str]] = None):
         """
         Cosmos DB MongoDB collection resource object
-        :param List[str] keys: List of keys for each MongoDB collection in the Azure Cosmos DB service
+        :param Sequence[str] keys: List of keys for each MongoDB collection in the Azure Cosmos DB service
         """
         if keys is not None:
             pulumi.set(__self__, "keys", keys)
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[List[str]]:
+    def keys(self) -> Optional[Sequence[str]]:
         """
         List of keys for each MongoDB collection in the Azure Cosmos DB service
         """
@@ -1234,11 +1234,11 @@ class MongoIndexOptionsResponse(dict):
     Cosmos DB MongoDB collection index options
     """
     def __init__(__self__, *,
-                 expire_after_seconds: Optional[float] = None,
+                 expire_after_seconds: Optional[int] = None,
                  unique: Optional[bool] = None):
         """
         Cosmos DB MongoDB collection index options
-        :param float expire_after_seconds: Expire after seconds
+        :param int expire_after_seconds: Expire after seconds
         :param bool unique: Is unique or not
         """
         if expire_after_seconds is not None:
@@ -1248,7 +1248,7 @@ class MongoIndexOptionsResponse(dict):
 
     @property
     @pulumi.getter(name="expireAfterSeconds")
-    def expire_after_seconds(self) -> Optional[float]:
+    def expire_after_seconds(self) -> Optional[int]:
         """
         Expire after seconds
         """
@@ -1308,10 +1308,10 @@ class MongoIndexResponse(dict):
 class SpatialSpecResponse(dict):
     def __init__(__self__, *,
                  path: Optional[str] = None,
-                 types: Optional[List[str]] = None):
+                 types: Optional[Sequence[str]] = None):
         """
         :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-        :param List[str] types: List of path's spatial type
+        :param Sequence[str] types: List of path's spatial type
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -1328,7 +1328,7 @@ class SpatialSpecResponse(dict):
 
     @property
     @pulumi.getter
-    def types(self) -> Optional[List[str]]:
+    def types(self) -> Optional[Sequence[str]]:
         """
         List of path's spatial type
         """
@@ -1346,7 +1346,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
                  rid: str,
                  ts: Mapping[str, Any],
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
-                 default_ttl: Optional[float] = None,
+                 default_ttl: Optional[int] = None,
                  indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
                  partition_key: Optional['outputs.ContainerPartitionKeyResponse'] = None,
                  unique_key_policy: Optional['outputs.UniqueKeyPolicyResponse'] = None):
@@ -1356,7 +1356,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
         :param str rid: A system generated property. A unique identifier.
         :param Mapping[str, Any] ts: A system generated property that denotes the last updated timestamp of the resource.
         :param 'ConflictResolutionPolicyResponseArgs' conflict_resolution_policy: The conflict resolution policy for the container.
-        :param float default_ttl: Default time to live
+        :param int default_ttl: Default time to live
         :param 'IndexingPolicyResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         :param 'ContainerPartitionKeyResponseArgs' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
         :param 'UniqueKeyPolicyResponseArgs' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -1418,7 +1418,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[float]:
+    def default_ttl(self) -> Optional[int]:
         """
         Default time to live
         """
@@ -1812,17 +1812,17 @@ class UniqueKeyPolicyResponse(dict):
     The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
     """
     def __init__(__self__, *,
-                 unique_keys: Optional[List['outputs.UniqueKeyResponse']] = None):
+                 unique_keys: Optional[Sequence['outputs.UniqueKeyResponse']] = None):
         """
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-        :param List['UniqueKeyResponseArgs'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        :param Sequence['UniqueKeyResponseArgs'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
         """
         if unique_keys is not None:
             pulumi.set(__self__, "unique_keys", unique_keys)
 
     @property
     @pulumi.getter(name="uniqueKeys")
-    def unique_keys(self) -> Optional[List['outputs.UniqueKeyResponse']]:
+    def unique_keys(self) -> Optional[Sequence['outputs.UniqueKeyResponse']]:
         """
         List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
         """
@@ -1838,17 +1838,17 @@ class UniqueKeyResponse(dict):
     The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
     """
     def __init__(__self__, *,
-                 paths: Optional[List[str]] = None):
+                 paths: Optional[Sequence[str]] = None):
         """
         The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
-        :param List[str] paths: List of paths must be unique for each document in the Azure Cosmos DB service
+        :param Sequence[str] paths: List of paths must be unique for each document in the Azure Cosmos DB service
         """
         if paths is not None:
             pulumi.set(__self__, "paths", paths)
 
     @property
     @pulumi.getter
-    def paths(self) -> Optional[List[str]]:
+    def paths(self) -> Optional[Sequence[str]]:
         """
         List of paths must be unique for each document in the Azure Cosmos DB service
         """

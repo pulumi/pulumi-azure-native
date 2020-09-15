@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic.V20180701Preview
         /// The assembly properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AssemblyPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.AssemblyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -74,14 +74,14 @@ class AsymmetricEncryptedSecretArgs:
 @pulumi.input_type
 class BandwidthScheduleArgs:
     def __init__(__self__, *,
-                 days: pulumi.Input[List[pulumi.Input[str]]],
-                 rate_in_mbps: pulumi.Input[float],
+                 days: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 rate_in_mbps: pulumi.Input[int],
                  start: pulumi.Input['TimeArgs'],
                  stop: pulumi.Input['TimeArgs']):
         """
         The schedule for bandwidth setting.
-        :param pulumi.Input[List[pulumi.Input[str]]] days: The days of the week when this schedule is applicable.
-        :param pulumi.Input[float] rate_in_mbps: The rate in Mbps.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: The days of the week when this schedule is applicable.
+        :param pulumi.Input[int] rate_in_mbps: The rate in Mbps.
         :param pulumi.Input['TimeArgs'] start: The start time of the schedule.
         :param pulumi.Input['TimeArgs'] stop: The stop time of the schedule.
         """
@@ -92,26 +92,26 @@ class BandwidthScheduleArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def days(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The days of the week when this schedule is applicable.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def days(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "days", value)
 
     @property
     @pulumi.getter(name="rateInMbps")
-    def rate_in_mbps(self) -> pulumi.Input[float]:
+    def rate_in_mbps(self) -> pulumi.Input[int]:
         """
         The rate in Mbps.
         """
         return pulumi.get(self, "rate_in_mbps")
 
     @rate_in_mbps.setter
-    def rate_in_mbps(self, value: pulumi.Input[float]):
+    def rate_in_mbps(self, value: pulumi.Input[int]):
         pulumi.set(self, "rate_in_mbps", value)
 
     @property
@@ -189,13 +189,13 @@ class ManagerSkuArgs:
 class ScheduleRecurrenceArgs:
     def __init__(__self__, *,
                  recurrence_type: pulumi.Input[str],
-                 recurrence_value: pulumi.Input[float],
-                 weekly_days_list: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 recurrence_value: pulumi.Input[int],
+                 weekly_days_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The schedule recurrence.
         :param pulumi.Input[str] recurrence_type: The recurrence type.
-        :param pulumi.Input[float] recurrence_value: The recurrence value.
-        :param pulumi.Input[List[pulumi.Input[str]]] weekly_days_list: The week days list. Applicable only for schedules of recurrence type 'weekly'.
+        :param pulumi.Input[int] recurrence_value: The recurrence value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekly_days_list: The week days list. Applicable only for schedules of recurrence type 'weekly'.
         """
         pulumi.set(__self__, "recurrence_type", recurrence_type)
         pulumi.set(__self__, "recurrence_value", recurrence_value)
@@ -216,40 +216,40 @@ class ScheduleRecurrenceArgs:
 
     @property
     @pulumi.getter(name="recurrenceValue")
-    def recurrence_value(self) -> pulumi.Input[float]:
+    def recurrence_value(self) -> pulumi.Input[int]:
         """
         The recurrence value.
         """
         return pulumi.get(self, "recurrence_value")
 
     @recurrence_value.setter
-    def recurrence_value(self, value: pulumi.Input[float]):
+    def recurrence_value(self, value: pulumi.Input[int]):
         pulumi.set(self, "recurrence_value", value)
 
     @property
     @pulumi.getter(name="weeklyDaysList")
-    def weekly_days_list(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def weekly_days_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The week days list. Applicable only for schedules of recurrence type 'weekly'.
         """
         return pulumi.get(self, "weekly_days_list")
 
     @weekly_days_list.setter
-    def weekly_days_list(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def weekly_days_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weekly_days_list", value)
 
 
 @pulumi.input_type
 class TimeArgs:
     def __init__(__self__, *,
-                 hours: pulumi.Input[float],
-                 minutes: pulumi.Input[float],
-                 seconds: pulumi.Input[float]):
+                 hours: pulumi.Input[int],
+                 minutes: pulumi.Input[int],
+                 seconds: pulumi.Input[int]):
         """
         The time.
-        :param pulumi.Input[float] hours: The hour.
-        :param pulumi.Input[float] minutes: The minute.
-        :param pulumi.Input[float] seconds: The second.
+        :param pulumi.Input[int] hours: The hour.
+        :param pulumi.Input[int] minutes: The minute.
+        :param pulumi.Input[int] seconds: The second.
         """
         pulumi.set(__self__, "hours", hours)
         pulumi.set(__self__, "minutes", minutes)
@@ -257,38 +257,38 @@ class TimeArgs:
 
     @property
     @pulumi.getter
-    def hours(self) -> pulumi.Input[float]:
+    def hours(self) -> pulumi.Input[int]:
         """
         The hour.
         """
         return pulumi.get(self, "hours")
 
     @hours.setter
-    def hours(self, value: pulumi.Input[float]):
+    def hours(self, value: pulumi.Input[int]):
         pulumi.set(self, "hours", value)
 
     @property
     @pulumi.getter
-    def minutes(self) -> pulumi.Input[float]:
+    def minutes(self) -> pulumi.Input[int]:
         """
         The minute.
         """
         return pulumi.get(self, "minutes")
 
     @minutes.setter
-    def minutes(self, value: pulumi.Input[float]):
+    def minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "minutes", value)
 
     @property
     @pulumi.getter
-    def seconds(self) -> pulumi.Input[float]:
+    def seconds(self) -> pulumi.Input[int]:
         """
         The second.
         """
         return pulumi.get(self, "seconds")
 
     @seconds.setter
-    def seconds(self, value: pulumi.Input[float]):
+    def seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "seconds", value)
 
 

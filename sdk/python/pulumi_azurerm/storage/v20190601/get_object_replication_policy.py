@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -77,7 +77,7 @@ class GetObjectReplicationPolicyResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.ObjectReplicationPolicyRuleResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.ObjectReplicationPolicyRuleResponse']]:
         """
         The storage account object replication rules.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -20,13 +20,13 @@ class ListAgentPoolQueueStatusResult:
     The QueueStatus of Agent Pool
     """
     def __init__(__self__, count=None):
-        if count and not isinstance(count, float):
-            raise TypeError("Expected argument 'count' to be a float")
+        if count and not isinstance(count, int):
+            raise TypeError("Expected argument 'count' to be a int")
         pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         The number of pending runs in the queue
         """

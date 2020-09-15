@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -157,7 +157,7 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter(name="streamOptions")
-    def stream_options(self) -> Optional[List[str]]:
+    def stream_options(self) -> Optional[Sequence[str]]:
         """
         The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
         """

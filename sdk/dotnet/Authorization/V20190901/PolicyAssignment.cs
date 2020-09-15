@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         /// The managed identity associated with the policy assignment.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the policy assignment. Only required when utilizing managed identity.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         /// The parameter values for the assigned policy rule. The keys are the parameter names.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterValuesValueResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ParameterValuesValueResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the policy definition or policy set definition being assigned.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         /// The policy sku. This property is optional, obsolete, and will be ignored.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.PolicySkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.PolicySkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The type of the policy assignment.

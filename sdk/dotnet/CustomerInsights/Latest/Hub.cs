@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// Billing settings of the hub.
         /// </summary>
         [Output("hubBillingInfo")]
-        public Output<Outputs.HubBillingInfoFormatResponseResult?> HubBillingInfo { get; private set; } = null!;
+        public Output<Outputs.HubBillingInfoFormatResponse?> HubBillingInfo { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.

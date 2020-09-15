@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
         /// <summary>
         /// The DeadLetter destination of the event subscription.
         /// </summary>
-        public readonly Outputs.StorageBlobDeadLetterDestinationResponseResult? DeadLetterDestination;
+        public readonly Outputs.StorageBlobDeadLetterDestinationResponse? DeadLetterDestination;
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
-        public readonly Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>? Destination;
+        public readonly Union<Outputs.EventHubEventSubscriptionDestinationResponse, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponse, Union<Outputs.StorageQueueEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>>>? Destination;
         /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
-        public readonly Outputs.EventSubscriptionFilterResponseResult? Filter;
+        public readonly Outputs.EventSubscriptionFilterResponse? Filter;
         /// <summary>
         /// List of user defined labels.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
         /// <summary>
         /// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         /// </summary>
-        public readonly Outputs.RetryPolicyResponseResult? RetryPolicy;
+        public readonly Outputs.RetryPolicyResponse? RetryPolicy;
         /// <summary>
         /// Name of the topic of the event subscription.
         /// </summary>
@@ -78,11 +78,11 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
-            Outputs.StorageBlobDeadLetterDestinationResponseResult? deadLetterDestination,
+            Outputs.StorageBlobDeadLetterDestinationResponse? deadLetterDestination,
 
-            Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>? destination,
+            Union<Outputs.EventHubEventSubscriptionDestinationResponse, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponse, Union<Outputs.StorageQueueEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>>>? destination,
 
-            Outputs.EventSubscriptionFilterResponseResult? filter,
+            Outputs.EventSubscriptionFilterResponse? filter,
 
             ImmutableArray<string> labels,
 
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
 
             string provisioningState,
 
-            Outputs.RetryPolicyResponseResult? retryPolicy,
+            Outputs.RetryPolicyResponse? retryPolicy,
 
             string topic,
 

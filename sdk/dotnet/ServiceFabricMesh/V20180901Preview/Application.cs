@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// Describes the diagnostics definition and usage for an application resource.
         /// </summary>
         [Output("diagnostics")]
-        public Output<Outputs.DiagnosticsDescriptionResponseResult?> Diagnostics { get; private set; } = null!;
+        public Output<Outputs.DiagnosticsDescriptionResponse?> Diagnostics { get; private set; } = null!;
 
         /// <summary>
         /// Describes the health state of an application resource.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         /// </summary>
         [Output("services")]
-        public Output<ImmutableArray<Outputs.ServiceResourceDescriptionResponseResult>> Services { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceResourceDescriptionResponse>> Services { get; private set; } = null!;
 
         /// <summary>
         /// Status of the application.

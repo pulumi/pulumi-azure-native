@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
         /// </summary>
         [Output("virtualNetworks")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualNetworks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualNetworks { get; private set; } = null!;
 
 
         /// <summary>

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -95,7 +95,7 @@ class GetRelationshipLinkResult:
 
     @property
     @pulumi.getter
-    def mappings(self) -> Optional[List['outputs.RelationshipLinkFieldMappingResponse']]:
+    def mappings(self) -> Optional[Sequence['outputs.RelationshipLinkFieldMappingResponse']]:
         """
         The mappings between Interaction and Relationship fields.
         """
@@ -111,7 +111,7 @@ class GetRelationshipLinkResult:
 
     @property
     @pulumi.getter(name="profilePropertyReferences")
-    def profile_property_references(self) -> List['outputs.ParticipantProfilePropertyReferenceResponse']:
+    def profile_property_references(self) -> Sequence['outputs.ParticipantProfilePropertyReferenceResponse']:
         """
         The property references for the Profile of the Relationship.
         """
@@ -127,7 +127,7 @@ class GetRelationshipLinkResult:
 
     @property
     @pulumi.getter(name="relatedProfilePropertyReferences")
-    def related_profile_property_references(self) -> List['outputs.ParticipantProfilePropertyReferenceResponse']:
+    def related_profile_property_references(self) -> Sequence['outputs.ParticipantProfilePropertyReferenceResponse']:
         """
         The property references for the Related Profile of the Relationship.
         """

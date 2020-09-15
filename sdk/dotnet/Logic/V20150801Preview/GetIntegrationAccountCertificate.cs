@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Logic.V20150801Preview
         /// <summary>
         /// The key details in the key vault.
         /// </summary>
-        public readonly Outputs.KeyVaultKeyReferenceResponseResult? Key;
+        public readonly Outputs.KeyVaultKeyReferenceResponse? Key;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Logic.V20150801Preview
 
             string createdTime,
 
-            Outputs.KeyVaultKeyReferenceResponseResult? key,
+            Outputs.KeyVaultKeyReferenceResponse? key,
 
             string? location,
 

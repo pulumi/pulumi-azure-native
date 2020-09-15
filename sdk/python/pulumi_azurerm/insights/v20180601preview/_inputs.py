@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,7 +23,7 @@ class DataSourceArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['DataSourceConfigurationArgs'],
                  kind: pulumi.Input[str],
-                 sinks: pulumi.Input[List[pulumi.Input['SinkConfigurationArgs']]]):
+                 sinks: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]):
         """
         Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
         :param pulumi.Input[str] kind: Datasource kind
@@ -55,24 +55,24 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter
-    def sinks(self) -> pulumi.Input[List[pulumi.Input['SinkConfigurationArgs']]]:
+    def sinks(self) -> pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]:
         return pulumi.get(self, "sinks")
 
     @sinks.setter
-    def sinks(self, value: pulumi.Input[List[pulumi.Input['SinkConfigurationArgs']]]):
+    def sinks(self, value: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]):
         pulumi.set(self, "sinks", value)
 
 
 @pulumi.input_type
 class DataSourceConfigurationArgs:
     def __init__(__self__, *,
-                 event_logs: Optional[pulumi.Input[List[pulumi.Input['EventLogConfigurationArgs']]]] = None,
-                 perf_counters: Optional[pulumi.Input[List[pulumi.Input['PerformanceCounterConfigurationArgs']]]] = None,
-                 providers: Optional[pulumi.Input[List[pulumi.Input['EtwProviderConfigurationArgs']]]] = None):
+                 event_logs: Optional[pulumi.Input[Sequence[pulumi.Input['EventLogConfigurationArgs']]]] = None,
+                 perf_counters: Optional[pulumi.Input[Sequence[pulumi.Input['PerformanceCounterConfigurationArgs']]]] = None,
+                 providers: Optional[pulumi.Input[Sequence[pulumi.Input['EtwProviderConfigurationArgs']]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['EventLogConfigurationArgs']]] event_logs: Windows event logs configuration.
-        :param pulumi.Input[List[pulumi.Input['PerformanceCounterConfigurationArgs']]] perf_counters: Performance counter configuration
-        :param pulumi.Input[List[pulumi.Input['EtwProviderConfigurationArgs']]] providers: ETW providers configuration
+        :param pulumi.Input[Sequence[pulumi.Input['EventLogConfigurationArgs']]] event_logs: Windows event logs configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['PerformanceCounterConfigurationArgs']]] perf_counters: Performance counter configuration
+        :param pulumi.Input[Sequence[pulumi.Input['EtwProviderConfigurationArgs']]] providers: ETW providers configuration
         """
         if event_logs is not None:
             pulumi.set(__self__, "event_logs", event_logs)
@@ -83,45 +83,45 @@ class DataSourceConfigurationArgs:
 
     @property
     @pulumi.getter(name="eventLogs")
-    def event_logs(self) -> Optional[pulumi.Input[List[pulumi.Input['EventLogConfigurationArgs']]]]:
+    def event_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventLogConfigurationArgs']]]]:
         """
         Windows event logs configuration.
         """
         return pulumi.get(self, "event_logs")
 
     @event_logs.setter
-    def event_logs(self, value: Optional[pulumi.Input[List[pulumi.Input['EventLogConfigurationArgs']]]]):
+    def event_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventLogConfigurationArgs']]]]):
         pulumi.set(self, "event_logs", value)
 
     @property
     @pulumi.getter(name="perfCounters")
-    def perf_counters(self) -> Optional[pulumi.Input[List[pulumi.Input['PerformanceCounterConfigurationArgs']]]]:
+    def perf_counters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PerformanceCounterConfigurationArgs']]]]:
         """
         Performance counter configuration
         """
         return pulumi.get(self, "perf_counters")
 
     @perf_counters.setter
-    def perf_counters(self, value: Optional[pulumi.Input[List[pulumi.Input['PerformanceCounterConfigurationArgs']]]]):
+    def perf_counters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PerformanceCounterConfigurationArgs']]]]):
         pulumi.set(self, "perf_counters", value)
 
     @property
     @pulumi.getter
-    def providers(self) -> Optional[pulumi.Input[List[pulumi.Input['EtwProviderConfigurationArgs']]]]:
+    def providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EtwProviderConfigurationArgs']]]]:
         """
         ETW providers configuration
         """
         return pulumi.get(self, "providers")
 
     @providers.setter
-    def providers(self, value: Optional[pulumi.Input[List[pulumi.Input['EtwProviderConfigurationArgs']]]]):
+    def providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EtwProviderConfigurationArgs']]]]):
         pulumi.set(self, "providers", value)
 
 
 @pulumi.input_type
 class EtwEventConfigurationArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[float],
+                 id: pulumi.Input[int],
                  name: pulumi.Input[str],
                  filter: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "id", id)
@@ -131,11 +131,11 @@ class EtwEventConfigurationArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[float]:
+    def id(self) -> pulumi.Input[int]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[float]):
+    def id(self, value: pulumi.Input[int]):
         pulumi.set(self, "id", value)
 
     @property
@@ -160,18 +160,18 @@ class EtwEventConfigurationArgs:
 @pulumi.input_type
 class EtwProviderConfigurationArgs:
     def __init__(__self__, *,
-                 events: pulumi.Input[List[pulumi.Input['EtwEventConfigurationArgs']]],
+                 events: pulumi.Input[Sequence[pulumi.Input['EtwEventConfigurationArgs']]],
                  id: pulumi.Input[str]):
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def events(self) -> pulumi.Input[List[pulumi.Input['EtwEventConfigurationArgs']]]:
+    def events(self) -> pulumi.Input[Sequence[pulumi.Input['EtwEventConfigurationArgs']]]:
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: pulumi.Input[List[pulumi.Input['EtwEventConfigurationArgs']]]):
+    def events(self, value: pulumi.Input[Sequence[pulumi.Input['EtwEventConfigurationArgs']]]):
         pulumi.set(self, "events", value)
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -27,14 +27,14 @@ class AlertingActionArgs:
                  severity: pulumi.Input[str],
                  trigger: pulumi.Input['TriggerConditionArgs'],
                  azns_action: Optional[pulumi.Input['AzNsActionGroupArgs']] = None,
-                 throttling_in_min: Optional[pulumi.Input[float]] = None):
+                 throttling_in_min: Optional[pulumi.Input[int]] = None):
         """
         Specify action need to be taken when rule type is Alert
         :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
         :param pulumi.Input[str] severity: Severity of the alert
         :param pulumi.Input['TriggerConditionArgs'] trigger: The trigger condition that results in the alert rule being.
         :param pulumi.Input['AzNsActionGroupArgs'] azns_action: Azure action group reference.
-        :param pulumi.Input[float] throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
+        :param pulumi.Input[int] throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
         pulumi.set(__self__, "severity", severity)
@@ -94,26 +94,26 @@ class AlertingActionArgs:
 
     @property
     @pulumi.getter(name="throttlingInMin")
-    def throttling_in_min(self) -> Optional[pulumi.Input[float]]:
+    def throttling_in_min(self) -> Optional[pulumi.Input[int]]:
         """
         time (in minutes) for which Alerts should be throttled or suppressed.
         """
         return pulumi.get(self, "throttling_in_min")
 
     @throttling_in_min.setter
-    def throttling_in_min(self, value: Optional[pulumi.Input[float]]):
+    def throttling_in_min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "throttling_in_min", value)
 
 
 @pulumi.input_type
 class AzNsActionGroupArgs:
     def __init__(__self__, *,
-                 action_group: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 action_group: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_webhook_payload: Optional[pulumi.Input[str]] = None,
                  email_subject: Optional[pulumi.Input[str]] = None):
         """
         Azure action group
-        :param pulumi.Input[List[pulumi.Input[str]]] action_group: Azure Action Group reference.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_group: Azure Action Group reference.
         :param pulumi.Input[str] custom_webhook_payload: Custom payload to be sent for all webhook URI in Azure action group
         :param pulumi.Input[str] email_subject: Custom subject override for all email ids in Azure action group
         """
@@ -126,14 +126,14 @@ class AzNsActionGroupArgs:
 
     @property
     @pulumi.getter(name="actionGroup")
-    def action_group(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def action_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Azure Action Group reference.
         """
         return pulumi.get(self, "action_group")
 
     @action_group.setter
-    def action_group(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def action_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "action_group", value)
 
     @property
@@ -165,11 +165,11 @@ class AzNsActionGroupArgs:
 class CriteriaArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[str],
-                 dimensions: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]] = None):
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]] = None):
         """
         Specifies the criteria for converting log to metric.
         :param pulumi.Input[str] metric_name: Name of the metric
-        :param pulumi.Input[List[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions for creating metric
+        :param pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions for creating metric
         """
         pulumi.set(__self__, "metric_name", metric_name)
         if dimensions is not None:
@@ -189,14 +189,14 @@ class CriteriaArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]]:
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]:
         """
         List of Dimensions for creating metric
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]]):
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
 
@@ -205,12 +205,12 @@ class DimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Specifies the criteria for converting log to metric.
         :param pulumi.Input[str] name: Name of the dimension
         :param pulumi.Input[str] operator: Operator for dimension values
-        :param pulumi.Input[List[pulumi.Input[str]]] values: List of dimension values
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -242,14 +242,14 @@ class DimensionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of dimension values
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
@@ -328,11 +328,11 @@ class LogMetricTriggerArgs:
 @pulumi.input_type
 class LogToMetricActionArgs:
     def __init__(__self__, *,
-                 criteria: pulumi.Input[List[pulumi.Input['CriteriaArgs']]],
+                 criteria: pulumi.Input[Sequence[pulumi.Input['CriteriaArgs']]],
                  odata_type: pulumi.Input[str]):
         """
         Specify action need to be taken when rule type is converting log to metric
-        :param pulumi.Input[List[pulumi.Input['CriteriaArgs']]] criteria: Criteria of Metric
+        :param pulumi.Input[Sequence[pulumi.Input['CriteriaArgs']]] criteria: Criteria of Metric
         :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
         """
         pulumi.set(__self__, "criteria", criteria)
@@ -340,14 +340,14 @@ class LogToMetricActionArgs:
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Input[List[pulumi.Input['CriteriaArgs']]]:
+    def criteria(self) -> pulumi.Input[Sequence[pulumi.Input['CriteriaArgs']]]:
         """
         Criteria of Metric
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: pulumi.Input[List[pulumi.Input['CriteriaArgs']]]):
+    def criteria(self, value: pulumi.Input[Sequence[pulumi.Input['CriteriaArgs']]]):
         pulumi.set(self, "criteria", value)
 
     @property
@@ -366,38 +366,38 @@ class LogToMetricActionArgs:
 @pulumi.input_type
 class ScheduleArgs:
     def __init__(__self__, *,
-                 frequency_in_minutes: pulumi.Input[float],
-                 time_window_in_minutes: pulumi.Input[float]):
+                 frequency_in_minutes: pulumi.Input[int],
+                 time_window_in_minutes: pulumi.Input[int]):
         """
         Defines how often to run the search and the time interval.
-        :param pulumi.Input[float] frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
-        :param pulumi.Input[float] time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+        :param pulumi.Input[int] frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
+        :param pulumi.Input[int] time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
         """
         pulumi.set(__self__, "frequency_in_minutes", frequency_in_minutes)
         pulumi.set(__self__, "time_window_in_minutes", time_window_in_minutes)
 
     @property
     @pulumi.getter(name="frequencyInMinutes")
-    def frequency_in_minutes(self) -> pulumi.Input[float]:
+    def frequency_in_minutes(self) -> pulumi.Input[int]:
         """
         frequency (in minutes) at which rule condition should be evaluated.
         """
         return pulumi.get(self, "frequency_in_minutes")
 
     @frequency_in_minutes.setter
-    def frequency_in_minutes(self, value: pulumi.Input[float]):
+    def frequency_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "frequency_in_minutes", value)
 
     @property
     @pulumi.getter(name="timeWindowInMinutes")
-    def time_window_in_minutes(self) -> pulumi.Input[float]:
+    def time_window_in_minutes(self) -> pulumi.Input[int]:
         """
         Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
         """
         return pulumi.get(self, "time_window_in_minutes")
 
     @time_window_in_minutes.setter
-    def time_window_in_minutes(self, value: pulumi.Input[float]):
+    def time_window_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "time_window_in_minutes", value)
 
 
@@ -405,13 +405,13 @@ class ScheduleArgs:
 class SourceArgs:
     def __init__(__self__, *,
                  data_source_id: pulumi.Input[str],
-                 authorized_resources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 authorized_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  query_type: Optional[pulumi.Input[str]] = None):
         """
         Specifies the log search query.
         :param pulumi.Input[str] data_source_id: The resource uri over which log search query is to be run.
-        :param pulumi.Input[List[pulumi.Input[str]]] authorized_resources: List of  Resource referred into query
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resources: List of  Resource referred into query
         :param pulumi.Input[str] query: Log search query. Required for action type - AlertingAction
         :param pulumi.Input[str] query_type: Set value to 'ResultCount' .
         """
@@ -437,14 +437,14 @@ class SourceArgs:
 
     @property
     @pulumi.getter(name="authorizedResources")
-    def authorized_resources(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def authorized_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of  Resource referred into query
         """
         return pulumi.get(self, "authorized_resources")
 
     @authorized_resources.setter
-    def authorized_resources(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def authorized_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "authorized_resources", value)
 
     @property

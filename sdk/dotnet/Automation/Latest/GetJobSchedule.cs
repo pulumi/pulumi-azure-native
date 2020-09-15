@@ -64,11 +64,11 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// <summary>
         /// Gets or sets the runbook.
         /// </summary>
-        public readonly Outputs.RunbookAssociationPropertyResponseResult? Runbook;
+        public readonly Outputs.RunbookAssociationPropertyResponse? Runbook;
         /// <summary>
         /// Gets or sets the schedule.
         /// </summary>
-        public readonly Outputs.ScheduleAssociationPropertyResponseResult? Schedule;
+        public readonly Outputs.ScheduleAssociationPropertyResponse? Schedule;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -84,9 +84,9 @@ namespace Pulumi.AzureRM.Automation.Latest
 
             string? runOn,
 
-            Outputs.RunbookAssociationPropertyResponseResult? runbook,
+            Outputs.RunbookAssociationPropertyResponse? runbook,
 
-            Outputs.ScheduleAssociationPropertyResponseResult? schedule,
+            Outputs.ScheduleAssociationPropertyResponse? schedule,
 
             string type)
         {

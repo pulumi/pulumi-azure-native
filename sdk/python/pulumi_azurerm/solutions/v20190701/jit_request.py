@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class JitRequest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_resource_id: Optional[pulumi.Input[str]] = None,
-                 jit_authorization_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JitAuthorizationPoliciesArgs']]]]] = None,
+                 jit_authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitAuthorizationPoliciesArgs']]]]] = None,
                  jit_request_name: Optional[pulumi.Input[str]] = None,
                  jit_scheduling_policy: Optional[pulumi.Input[pulumi.InputType['JitSchedulingPolicyArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class JitRequest(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_resource_id: The parent application id.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JitAuthorizationPoliciesArgs']]]] jit_authorization_policies: The JIT authorization policies.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitAuthorizationPoliciesArgs']]]] jit_authorization_policies: The JIT authorization policies.
         :param pulumi.Input[str] jit_request_name: The name of the JIT request.
         :param pulumi.Input[pulumi.InputType['JitSchedulingPolicyArgs']] jit_scheduling_policy: The JIT request properties.
         :param pulumi.Input[str] location: Resource location
@@ -125,7 +125,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jitAuthorizationPolicies")
-    def jit_authorization_policies(self) -> pulumi.Output[List['outputs.JitAuthorizationPoliciesResponse']]:
+    def jit_authorization_policies(self) -> pulumi.Output[Sequence['outputs.JitAuthorizationPoliciesResponse']]:
         """
         The JIT authorization policies.
         """

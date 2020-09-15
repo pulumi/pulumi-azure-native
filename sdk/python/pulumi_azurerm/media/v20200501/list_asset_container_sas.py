@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,7 +26,7 @@ class ListAssetContainerSasResult:
 
     @property
     @pulumi.getter(name="assetContainerSasUrls")
-    def asset_container_sas_urls(self) -> Optional[List[str]]:
+    def asset_container_sas_urls(self) -> Optional[Sequence[str]]:
         """
         The list of Asset container SAS URLs.
         """

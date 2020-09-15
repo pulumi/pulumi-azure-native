@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -80,7 +80,7 @@ class GetDiskEncryptionSetResult:
 
     @property
     @pulumi.getter(name="previousKeys")
-    def previous_keys(self) -> List['outputs.KeyVaultAndKeyReferenceResponse']:
+    def previous_keys(self) -> Sequence['outputs.KeyVaultAndKeyReferenceResponse']:
         """
         A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
         """

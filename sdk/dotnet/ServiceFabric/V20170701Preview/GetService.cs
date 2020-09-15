@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
         /// <summary>
         /// A list that describes the correlation of the service with other services.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceCorrelationDescriptionResponseResult> CorrelationScheme;
+        public readonly ImmutableArray<Outputs.ServiceCorrelationDescriptionResponse> CorrelationScheme;
         /// <summary>
         /// Specifies the move cost for the service.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
         /// <summary>
         /// Describes how the service is partitioned.
         /// </summary>
-        public readonly Union<Outputs.NamedPartitionSchemeDescriptionResponseResult, Union<Outputs.SingletonPartitionSchemeDescriptionResponseResult, Outputs.UniformInt64RangePartitionSchemeDescriptionResponseResult>>? PartitionDescription;
+        public readonly Union<Outputs.NamedPartitionSchemeDescriptionResponse, Union<Outputs.SingletonPartitionSchemeDescriptionResponse, Outputs.UniformInt64RangePartitionSchemeDescriptionResponse>>? PartitionDescription;
         /// <summary>
         /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
         /// <summary>
         /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponseResult> ServiceLoadMetrics;
+        public readonly ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponse> ServiceLoadMetrics;
         /// <summary>
         /// A list that describes the correlation of the service with other services.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponseResult> ServicePlacementPolicies;
+        public readonly ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponse> ServicePlacementPolicies;
         /// <summary>
         /// The name of the service type
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
 
         [OutputConstructor]
         private GetServiceResult(
-            ImmutableArray<Outputs.ServiceCorrelationDescriptionResponseResult> correlationScheme,
+            ImmutableArray<Outputs.ServiceCorrelationDescriptionResponse> correlationScheme,
 
             string? defaultMoveCost,
 
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
 
             string name,
 
-            Union<Outputs.NamedPartitionSchemeDescriptionResponseResult, Union<Outputs.SingletonPartitionSchemeDescriptionResponseResult, Outputs.UniformInt64RangePartitionSchemeDescriptionResponseResult>>? partitionDescription,
+            Union<Outputs.NamedPartitionSchemeDescriptionResponse, Union<Outputs.SingletonPartitionSchemeDescriptionResponse, Outputs.UniformInt64RangePartitionSchemeDescriptionResponse>>? partitionDescription,
 
             string? placementConstraints,
 
@@ -118,9 +118,9 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
 
             string serviceKind,
 
-            ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponseResult> serviceLoadMetrics,
+            ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponse> serviceLoadMetrics,
 
-            ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponseResult> servicePlacementPolicies,
+            ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponse> servicePlacementPolicies,
 
             string? serviceTypeName,
 

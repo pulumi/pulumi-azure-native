@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -67,7 +67,7 @@ class GetOrderResult:
 
     @property
     @pulumi.getter(name="deliveryTrackingInfo")
-    def delivery_tracking_info(self) -> List['outputs.TrackingInfoResponse']:
+    def delivery_tracking_info(self) -> Sequence['outputs.TrackingInfoResponse']:
         """
         Tracking information for the package delivered to the customer whether it has an original or a replacement device.
         """
@@ -83,7 +83,7 @@ class GetOrderResult:
 
     @property
     @pulumi.getter(name="orderHistory")
-    def order_history(self) -> List['outputs.OrderStatusResponse']:
+    def order_history(self) -> Sequence['outputs.OrderStatusResponse']:
         """
         List of status changes in the order.
         """
@@ -91,7 +91,7 @@ class GetOrderResult:
 
     @property
     @pulumi.getter(name="returnTrackingInfo")
-    def return_tracking_info(self) -> List['outputs.TrackingInfoResponse']:
+    def return_tracking_info(self) -> Sequence['outputs.TrackingInfoResponse']:
         """
         Tracking information for the package returned from the customer whether it has an original or a replacement device.
         """

@@ -43,7 +43,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// <summary>
         /// Settings for the data disk which would be created for the File Server.
         /// </summary>
-        public readonly Outputs.DataDisksResponseResult? DataDisks;
+        public readonly Outputs.DataDisksResponse? DataDisks;
         /// <summary>
         /// The location of the resource
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// <summary>
         /// Details of the File Server.
         /// </summary>
-        public readonly Outputs.MountSettingsResponseResult MountSettings;
+        public readonly Outputs.MountSettingsResponse MountSettings;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -64,11 +64,11 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// <summary>
         /// SSH configuration settings for the VM
         /// </summary>
-        public readonly Outputs.SshConfigurationResponseResult? SshConfiguration;
+        public readonly Outputs.SshConfigurationResponse? SshConfiguration;
         /// <summary>
         /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         /// </summary>
-        public readonly Outputs.ResourceIdResponseResult? Subnet;
+        public readonly Outputs.ResourceIdResponse? Subnet;
         /// <summary>
         /// The tags of the resource
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         private GetFileServerResult(
             string creationTime,
 
-            Outputs.DataDisksResponseResult? dataDisks,
+            Outputs.DataDisksResponse? dataDisks,
 
             string location,
 
-            Outputs.MountSettingsResponseResult mountSettings,
+            Outputs.MountSettingsResponse mountSettings,
 
             string name,
 
@@ -98,9 +98,9 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
 
             string provisioningStateTransitionTime,
 
-            Outputs.SshConfigurationResponseResult? sshConfiguration,
+            Outputs.SshConfigurationResponse? sshConfiguration,
 
-            Outputs.ResourceIdResponseResult? subnet,
+            Outputs.ResourceIdResponse? subnet,
 
             ImmutableDictionary<string, string> tags,
 

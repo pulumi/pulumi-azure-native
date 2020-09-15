@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -33,8 +33,8 @@ class GetManagedHostingEnvironmentResult:
         if environment_status and not isinstance(environment_status, str):
             raise TypeError("Expected argument 'environment_status' to be a str")
         pulumi.set(__self__, "environment_status", environment_status)
-        if ipssl_address_count and not isinstance(ipssl_address_count, float):
-            raise TypeError("Expected argument 'ipssl_address_count' to be a float")
+        if ipssl_address_count and not isinstance(ipssl_address_count, int):
+            raise TypeError("Expected argument 'ipssl_address_count' to be a int")
         pulumi.set(__self__, "ipssl_address_count", ipssl_address_count)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
@@ -101,7 +101,7 @@ class GetManagedHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="ipsslAddressCount")
-    def ipssl_address_count(self) -> Optional[float]:
+    def ipssl_address_count(self) -> Optional[int]:
         """
         Number of ip ssl addresses reserved for the managed hosting environment
         """

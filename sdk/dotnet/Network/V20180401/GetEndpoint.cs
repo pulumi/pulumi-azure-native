@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// <summary>
         /// List of custom headers.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeadersResult> CustomHeaders;
+        public readonly ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeaders> CustomHeaders;
         /// <summary>
         /// Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// <summary>
         /// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EndpointPropertiesResponseSubnetsResult> Subnets;
+        public readonly ImmutableArray<Outputs.EndpointPropertiesResponseSubnets> Subnets;
         /// <summary>
         /// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.Network.V20180401
 
         [OutputConstructor]
         private GetEndpointResult(
-            ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeadersResult> customHeaders,
+            ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeaders> customHeaders,
 
             string? endpointLocation,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.Network.V20180401
 
             int? priority,
 
-            ImmutableArray<Outputs.EndpointPropertiesResponseSubnetsResult> subnets,
+            ImmutableArray<Outputs.EndpointPropertiesResponseSubnets> subnets,
 
             string? target,
 

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// The dedicated host instance view.
         /// </summary>
         [Output("instanceView")]
-        public Output<Outputs.DedicatedHostInstanceViewResponseResult> InstanceView { get; private set; } = null!;
+        public Output<Outputs.DedicatedHostInstanceViewResponse> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// A list of references to all virtual machines in the Dedicated Host.
         /// </summary>
         [Output("virtualMachines")]
-        public Output<ImmutableArray<Outputs.SubResourceReadOnlyResponseResult>> VirtualMachines { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceReadOnlyResponse>> VirtualMachines { get; private set; } = null!;
 
 
         /// <summary>

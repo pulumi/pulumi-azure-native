@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -218,7 +218,7 @@ class DynamicMetricCriteriaResponse(dict):
                  name: str,
                  operator: str,
                  time_aggregation: Mapping[str, Any],
-                 dimensions: Optional[List['outputs.MetricDimensionResponse']] = None,
+                 dimensions: Optional[Sequence['outputs.MetricDimensionResponse']] = None,
                  ignore_data_before: Optional[str] = None,
                  metric_namespace: Optional[str] = None,
                  skip_metric_validation: Optional[bool] = None):
@@ -231,7 +231,7 @@ class DynamicMetricCriteriaResponse(dict):
         :param str name: Name of the criteria.
         :param str operator: The operator used to compare the metric value against the threshold.
         :param Mapping[str, Any] time_aggregation: the criteria time aggregation types.
-        :param List['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
+        :param Sequence['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
         :param str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -310,7 +310,7 @@ class DynamicMetricCriteriaResponse(dict):
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[List['outputs.MetricDimensionResponse']]:
+    def dimensions(self) -> Optional[Sequence['outputs.MetricDimensionResponse']]:
         """
         List of dimension conditions.
         """
@@ -588,11 +588,11 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
     """
     def __init__(__self__, *,
                  odata_type: str,
-                 all_of: Optional[List[Any]] = None):
+                 all_of: Optional[Sequence[Any]] = None):
         """
         Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
         :param str odata_type: specifies the type of the alert criteria.
-        :param List[Union['DynamicMetricCriteriaResponseArgs', 'MetricCriteriaResponseArgs']] all_of: the list of multiple metric criteria for this 'all of' operation. 
+        :param Sequence[Union['DynamicMetricCriteriaResponseArgs', 'MetricCriteriaResponseArgs']] all_of: the list of multiple metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -608,7 +608,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[List[Any]]:
+    def all_of(self) -> Optional[Sequence[Any]]:
         """
         the list of multiple metric criteria for this 'all of' operation. 
         """
@@ -625,11 +625,11 @@ class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
     """
     def __init__(__self__, *,
                  odata_type: str,
-                 all_of: Optional[List['outputs.MetricCriteriaResponse']] = None):
+                 all_of: Optional[Sequence['outputs.MetricCriteriaResponse']] = None):
         """
         Specifies the metric alert criteria for a single resource that has multiple metric criteria.
         :param str odata_type: specifies the type of the alert criteria.
-        :param List['MetricCriteriaResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
+        :param Sequence['MetricCriteriaResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -645,7 +645,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[List['outputs.MetricCriteriaResponse']]:
+    def all_of(self) -> Optional[Sequence['outputs.MetricCriteriaResponse']]:
         """
         The list of metric criteria for this 'all of' operation. 
         """
@@ -667,7 +667,7 @@ class MetricCriteriaResponse(dict):
                  operator: str,
                  threshold: float,
                  time_aggregation: Mapping[str, Any],
-                 dimensions: Optional[List['outputs.MetricDimensionResponse']] = None,
+                 dimensions: Optional[Sequence['outputs.MetricDimensionResponse']] = None,
                  metric_namespace: Optional[str] = None,
                  skip_metric_validation: Optional[bool] = None):
         """
@@ -678,7 +678,7 @@ class MetricCriteriaResponse(dict):
         :param str operator: the criteria operator.
         :param float threshold: the criteria threshold value that activates the alert.
         :param Mapping[str, Any] time_aggregation: the criteria time aggregation types.
-        :param List['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
+        :param Sequence['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
@@ -745,7 +745,7 @@ class MetricCriteriaResponse(dict):
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[List['outputs.MetricDimensionResponse']]:
+    def dimensions(self) -> Optional[Sequence['outputs.MetricDimensionResponse']]:
         """
         List of dimension conditions.
         """
@@ -779,12 +779,12 @@ class MetricDimensionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         Specifies a metric dimension.
         :param str name: Name of the dimension.
         :param str operator: the dimension operator. Only 'Include' and 'Exclude' are supported
-        :param List[str] values: list of dimension values.
+        :param Sequence[str] values: list of dimension values.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -808,7 +808,7 @@ class MetricDimensionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         list of dimension values.
         """

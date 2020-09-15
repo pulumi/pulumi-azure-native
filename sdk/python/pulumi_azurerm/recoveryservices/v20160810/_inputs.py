@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -51,8 +51,8 @@ class A2AEnableProtectionInputArgs:
                  recovery_cloud_service_id: Optional[pulumi.Input[str]] = None,
                  recovery_container_id: Optional[pulumi.Input[str]] = None,
                  recovery_resource_group_id: Optional[pulumi.Input[str]] = None,
-                 vm_disks: Optional[pulumi.Input[List[pulumi.Input['A2AVmDiskInputDetailsArgs']]]] = None,
-                 vm_managed_disks: Optional[pulumi.Input[List[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]] = None):
+                 vm_disks: Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmDiskInputDetailsArgs']]]] = None,
+                 vm_managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]] = None):
         """
         A2A enable protection input.
         :param pulumi.Input[str] fabric_object_id: The fabric specific object Id of the virtual machine.
@@ -61,8 +61,8 @@ class A2AEnableProtectionInputArgs:
         :param pulumi.Input[str] recovery_cloud_service_id: The recovery cloud service Id. Valid for V1 scenarios.
         :param pulumi.Input[str] recovery_container_id: The recovery container Id.
         :param pulumi.Input[str] recovery_resource_group_id: The recovery resource group Id. Valid for V2 scenarios.
-        :param pulumi.Input[List[pulumi.Input['A2AVmDiskInputDetailsArgs']]] vm_disks: The list of vm disk details.
-        :param pulumi.Input[List[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]] vm_managed_disks: The list of vm managed disk details.
+        :param pulumi.Input[Sequence[pulumi.Input['A2AVmDiskInputDetailsArgs']]] vm_disks: The list of vm disk details.
+        :param pulumi.Input[Sequence[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]] vm_managed_disks: The list of vm managed disk details.
         """
         if fabric_object_id is not None:
             pulumi.set(__self__, "fabric_object_id", fabric_object_id)
@@ -155,26 +155,26 @@ class A2AEnableProtectionInputArgs:
 
     @property
     @pulumi.getter(name="vmDisks")
-    def vm_disks(self) -> Optional[pulumi.Input[List[pulumi.Input['A2AVmDiskInputDetailsArgs']]]]:
+    def vm_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmDiskInputDetailsArgs']]]]:
         """
         The list of vm disk details.
         """
         return pulumi.get(self, "vm_disks")
 
     @vm_disks.setter
-    def vm_disks(self, value: Optional[pulumi.Input[List[pulumi.Input['A2AVmDiskInputDetailsArgs']]]]):
+    def vm_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmDiskInputDetailsArgs']]]]):
         pulumi.set(self, "vm_disks", value)
 
     @property
     @pulumi.getter(name="vmManagedDisks")
-    def vm_managed_disks(self) -> Optional[pulumi.Input[List[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]]:
+    def vm_managed_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]]:
         """
         The list of vm managed disk details.
         """
         return pulumi.get(self, "vm_managed_disks")
 
     @vm_managed_disks.setter
-    def vm_managed_disks(self, value: Optional[pulumi.Input[List[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]]):
+    def vm_managed_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]]):
         pulumi.set(self, "vm_managed_disks", value)
 
 
@@ -182,17 +182,17 @@ class A2AEnableProtectionInputArgs:
 class A2APolicyCreationInputArgs:
     def __init__(__self__, *,
                  multi_vm_sync_status: pulumi.Input[str],
-                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
-                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
+                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 recovery_point_history: Optional[pulumi.Input[float]] = None):
+                 recovery_point_history: Optional[pulumi.Input[int]] = None):
         """
         A2A Policy creation input.
         :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-        :param pulumi.Input[float] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
-        :param pulumi.Input[float] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
-        :param pulumi.Input[float] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         """
         pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
         if app_consistent_frequency_in_minutes is not None:
@@ -218,26 +218,26 @@ class A2APolicyCreationInputArgs:
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The app consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "app_consistent_frequency_in_minutes")
 
     @app_consistent_frequency_in_minutes.setter
-    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "app_consistent_frequency_in_minutes", value)
 
     @property
     @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The crash consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "crash_consistent_frequency_in_minutes")
 
     @crash_consistent_frequency_in_minutes.setter
-    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "crash_consistent_frequency_in_minutes", value)
 
     @property
@@ -254,14 +254,14 @@ class A2APolicyCreationInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_history(self) -> Optional[pulumi.Input[int]]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
         return pulumi.get(self, "recovery_point_history")
 
     @recovery_point_history.setter
-    def recovery_point_history(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_history(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history", value)
 
 
@@ -644,13 +644,13 @@ class CreateProtectionContainerMappingInputPropertiesArgs:
 @pulumi.input_type
 class CreateRecoveryPlanInputPropertiesArgs:
     def __init__(__self__, *,
-                 groups: pulumi.Input[List[pulumi.Input['RecoveryPlanGroupArgs']]],
+                 groups: pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]],
                  primary_fabric_id: pulumi.Input[str],
                  recovery_fabric_id: pulumi.Input[str],
                  failover_deployment_model: Optional[pulumi.Input[str]] = None):
         """
         Recovery plan creation properties.
-        :param pulumi.Input[List[pulumi.Input['RecoveryPlanGroupArgs']]] groups: The recovery plan groups.
+        :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]] groups: The recovery plan groups.
         :param pulumi.Input[str] primary_fabric_id: The primary fabric Id.
         :param pulumi.Input[str] recovery_fabric_id: The recovery fabric Id.
         :param pulumi.Input[str] failover_deployment_model: The failover deployment model.
@@ -663,14 +663,14 @@ class CreateRecoveryPlanInputPropertiesArgs:
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Input[List[pulumi.Input['RecoveryPlanGroupArgs']]]:
+    def groups(self) -> pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]]:
         """
         The recovery plan groups.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: pulumi.Input[List[pulumi.Input['RecoveryPlanGroupArgs']]]):
+    def groups(self, value: pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]]):
         pulumi.set(self, "groups", value)
 
     @property
@@ -769,7 +769,7 @@ class EnableProtectionInputPropertiesArgs:
 @pulumi.input_type
 class HyperVReplicaAzureEnableProtectionInputArgs:
     def __init__(__self__, *,
-                 disks_to_include: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_rdp_on_target_option: Optional[pulumi.Input[str]] = None,
                  hv_host_vm_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -786,7 +786,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
                  vm_name: Optional[pulumi.Input[str]] = None):
         """
         Azure specific enable protection input.
-        :param pulumi.Input[List[pulumi.Input[str]]] disks_to_include: The list of VHD IDs of disks to be protected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disks_to_include: The list of VHD IDs of disks to be protected.
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param pulumi.Input[str] hv_host_vm_id: The Hyper-V host Vm Id.
         :param pulumi.Input[str] instance_type: The class type.
@@ -835,14 +835,14 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
 
     @property
     @pulumi.getter(name="disksToInclude")
-    def disks_to_include(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def disks_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of VHD IDs of disks to be protected.
         """
         return pulumi.get(self, "disks_to_include")
 
     @disks_to_include.setter
-    def disks_to_include(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def disks_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "disks_to_include", value)
 
     @property
@@ -1017,22 +1017,22 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
 @pulumi.input_type
 class HyperVReplicaAzurePolicyInputArgs:
     def __init__(__self__, *,
-                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[float]] = None,
+                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
                  encryption: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  online_replication_start_time: Optional[pulumi.Input[str]] = None,
-                 recovery_point_history_duration: Optional[pulumi.Input[float]] = None,
-                 replication_interval: Optional[pulumi.Input[float]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 recovery_point_history_duration: Optional[pulumi.Input[int]] = None,
+                 replication_interval: Optional[pulumi.Input[int]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Hyper-V Replica Azure specific input for creating a protection profile.
-        :param pulumi.Input[float] application_consistent_snapshot_frequency_in_hours: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
+        :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
         :param pulumi.Input[str] encryption: A value indicating whether encryption needs to be enabled for Vms in this cloud.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] online_replication_start_time: The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
-        :param pulumi.Input[float] recovery_point_history_duration: The duration (in hours) to which point the recovery history needs to be maintained.
-        :param pulumi.Input[float] replication_interval: The replication interval.
-        :param pulumi.Input[List[pulumi.Input[str]]] storage_accounts: The list of storage accounts to which the VMs in the primary cloud can replicate to.
+        :param pulumi.Input[int] recovery_point_history_duration: The duration (in hours) to which point the recovery history needs to be maintained.
+        :param pulumi.Input[int] replication_interval: The replication interval.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_accounts: The list of storage accounts to which the VMs in the primary cloud can replicate to.
         """
         if application_consistent_snapshot_frequency_in_hours is not None:
             pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
@@ -1051,14 +1051,14 @@ class HyperVReplicaAzurePolicyInputArgs:
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[float]]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[int]]:
         """
         The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_hours")
 
     @application_consistent_snapshot_frequency_in_hours.setter
-    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[float]]):
+    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "application_consistent_snapshot_frequency_in_hours", value)
 
     @property
@@ -1099,70 +1099,70 @@ class HyperVReplicaAzurePolicyInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPointHistoryDuration")
-    def recovery_point_history_duration(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_history_duration(self) -> Optional[pulumi.Input[int]]:
         """
         The duration (in hours) to which point the recovery history needs to be maintained.
         """
         return pulumi.get(self, "recovery_point_history_duration")
 
     @recovery_point_history_duration.setter
-    def recovery_point_history_duration(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_history_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history_duration", value)
 
     @property
     @pulumi.getter(name="replicationInterval")
-    def replication_interval(self) -> Optional[pulumi.Input[float]]:
+    def replication_interval(self) -> Optional[pulumi.Input[int]]:
         """
         The replication interval.
         """
         return pulumi.get(self, "replication_interval")
 
     @replication_interval.setter
-    def replication_interval(self, value: Optional[pulumi.Input[float]]):
+    def replication_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replication_interval", value)
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of storage accounts to which the VMs in the primary cloud can replicate to.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "storage_accounts", value)
 
 
 @pulumi.input_type
 class HyperVReplicaBluePolicyInputArgs:
     def __init__(__self__, *,
-                 allowed_authentication_type: Optional[pulumi.Input[float]] = None,
-                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[float]] = None,
+                 allowed_authentication_type: Optional[pulumi.Input[int]] = None,
+                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
                  initial_replication_method: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  offline_replication_export_path: Optional[pulumi.Input[str]] = None,
                  offline_replication_import_path: Optional[pulumi.Input[str]] = None,
                  online_replication_start_time: Optional[pulumi.Input[str]] = None,
-                 recovery_points: Optional[pulumi.Input[float]] = None,
+                 recovery_points: Optional[pulumi.Input[int]] = None,
                  replica_deletion: Optional[pulumi.Input[str]] = None,
-                 replication_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
-                 replication_port: Optional[pulumi.Input[float]] = None):
+                 replication_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+                 replication_port: Optional[pulumi.Input[int]] = None):
         """
         HyperV Replica Blue policy input.
-        :param pulumi.Input[float] allowed_authentication_type: A value indicating the authentication type.
-        :param pulumi.Input[float] application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
+        :param pulumi.Input[int] allowed_authentication_type: A value indicating the authentication type.
+        :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
         :param pulumi.Input[str] compression: A value indicating whether compression has to be enabled.
         :param pulumi.Input[str] initial_replication_method: A value indicating whether IR is online.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] offline_replication_export_path: A value indicating the offline IR export path.
         :param pulumi.Input[str] offline_replication_import_path: A value indicating the offline IR import path.
         :param pulumi.Input[str] online_replication_start_time: A value indicating the online IR start time.
-        :param pulumi.Input[float] recovery_points: A value indicating the number of recovery points.
+        :param pulumi.Input[int] recovery_points: A value indicating the number of recovery points.
         :param pulumi.Input[str] replica_deletion: A value indicating whether the VM has to be auto deleted.
-        :param pulumi.Input[float] replication_frequency_in_seconds: A value indicating the replication interval.
-        :param pulumi.Input[float] replication_port: A value indicating the recovery HTTPS port.
+        :param pulumi.Input[int] replication_frequency_in_seconds: A value indicating the replication interval.
+        :param pulumi.Input[int] replication_port: A value indicating the recovery HTTPS port.
         """
         if allowed_authentication_type is not None:
             pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
@@ -1191,26 +1191,26 @@ class HyperVReplicaBluePolicyInputArgs:
 
     @property
     @pulumi.getter(name="allowedAuthenticationType")
-    def allowed_authentication_type(self) -> Optional[pulumi.Input[float]]:
+    def allowed_authentication_type(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the authentication type.
         """
         return pulumi.get(self, "allowed_authentication_type")
 
     @allowed_authentication_type.setter
-    def allowed_authentication_type(self, value: Optional[pulumi.Input[float]]):
+    def allowed_authentication_type(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "allowed_authentication_type", value)
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[float]]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the application consistent frequency.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_hours")
 
     @application_consistent_snapshot_frequency_in_hours.setter
-    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[float]]):
+    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "application_consistent_snapshot_frequency_in_hours", value)
 
     @property
@@ -1287,14 +1287,14 @@ class HyperVReplicaBluePolicyInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> Optional[pulumi.Input[float]]:
+    def recovery_points(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the number of recovery points.
         """
         return pulumi.get(self, "recovery_points")
 
     @recovery_points.setter
-    def recovery_points(self, value: Optional[pulumi.Input[float]]):
+    def recovery_points(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_points", value)
 
     @property
@@ -1311,56 +1311,56 @@ class HyperVReplicaBluePolicyInputArgs:
 
     @property
     @pulumi.getter(name="replicationFrequencyInSeconds")
-    def replication_frequency_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def replication_frequency_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the replication interval.
         """
         return pulumi.get(self, "replication_frequency_in_seconds")
 
     @replication_frequency_in_seconds.setter
-    def replication_frequency_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def replication_frequency_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replication_frequency_in_seconds", value)
 
     @property
     @pulumi.getter(name="replicationPort")
-    def replication_port(self) -> Optional[pulumi.Input[float]]:
+    def replication_port(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the recovery HTTPS port.
         """
         return pulumi.get(self, "replication_port")
 
     @replication_port.setter
-    def replication_port(self, value: Optional[pulumi.Input[float]]):
+    def replication_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replication_port", value)
 
 
 @pulumi.input_type
 class HyperVReplicaPolicyInputArgs:
     def __init__(__self__, *,
-                 allowed_authentication_type: Optional[pulumi.Input[float]] = None,
-                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[float]] = None,
+                 allowed_authentication_type: Optional[pulumi.Input[int]] = None,
+                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
                  initial_replication_method: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  offline_replication_export_path: Optional[pulumi.Input[str]] = None,
                  offline_replication_import_path: Optional[pulumi.Input[str]] = None,
                  online_replication_start_time: Optional[pulumi.Input[str]] = None,
-                 recovery_points: Optional[pulumi.Input[float]] = None,
+                 recovery_points: Optional[pulumi.Input[int]] = None,
                  replica_deletion: Optional[pulumi.Input[str]] = None,
-                 replication_port: Optional[pulumi.Input[float]] = None):
+                 replication_port: Optional[pulumi.Input[int]] = None):
         """
         Hyper-V Replica specific protection profile Input.
-        :param pulumi.Input[float] allowed_authentication_type: A value indicating the authentication type.
-        :param pulumi.Input[float] application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
+        :param pulumi.Input[int] allowed_authentication_type: A value indicating the authentication type.
+        :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
         :param pulumi.Input[str] compression: A value indicating whether compression has to be enabled.
         :param pulumi.Input[str] initial_replication_method: A value indicating whether IR is online.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] offline_replication_export_path: A value indicating the offline IR export path.
         :param pulumi.Input[str] offline_replication_import_path: A value indicating the offline IR import path.
         :param pulumi.Input[str] online_replication_start_time: A value indicating the online IR start time.
-        :param pulumi.Input[float] recovery_points: A value indicating the number of recovery points.
+        :param pulumi.Input[int] recovery_points: A value indicating the number of recovery points.
         :param pulumi.Input[str] replica_deletion: A value indicating whether the VM has to be auto deleted.
-        :param pulumi.Input[float] replication_port: A value indicating the recovery HTTPS port.
+        :param pulumi.Input[int] replication_port: A value indicating the recovery HTTPS port.
         """
         if allowed_authentication_type is not None:
             pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
@@ -1387,26 +1387,26 @@ class HyperVReplicaPolicyInputArgs:
 
     @property
     @pulumi.getter(name="allowedAuthenticationType")
-    def allowed_authentication_type(self) -> Optional[pulumi.Input[float]]:
+    def allowed_authentication_type(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the authentication type.
         """
         return pulumi.get(self, "allowed_authentication_type")
 
     @allowed_authentication_type.setter
-    def allowed_authentication_type(self, value: Optional[pulumi.Input[float]]):
+    def allowed_authentication_type(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "allowed_authentication_type", value)
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[float]]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the application consistent frequency.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_hours")
 
     @application_consistent_snapshot_frequency_in_hours.setter
-    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[float]]):
+    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "application_consistent_snapshot_frequency_in_hours", value)
 
     @property
@@ -1483,14 +1483,14 @@ class HyperVReplicaPolicyInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> Optional[pulumi.Input[float]]:
+    def recovery_points(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the number of recovery points.
         """
         return pulumi.get(self, "recovery_points")
 
     @recovery_points.setter
-    def recovery_points(self, value: Optional[pulumi.Input[float]]):
+    def recovery_points(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_points", value)
 
     @property
@@ -1507,14 +1507,14 @@ class HyperVReplicaPolicyInputArgs:
 
     @property
     @pulumi.getter(name="replicationPort")
-    def replication_port(self) -> Optional[pulumi.Input[float]]:
+    def replication_port(self) -> Optional[pulumi.Input[int]]:
         """
         A value indicating the recovery HTTPS port.
         """
         return pulumi.get(self, "replication_port")
 
     @replication_port.setter
-    def replication_port(self, value: Optional[pulumi.Input[float]]):
+    def replication_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replication_port", value)
 
 
@@ -1522,7 +1522,7 @@ class HyperVReplicaPolicyInputArgs:
 class InMageAzureV2EnableProtectionInputArgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[str],
-                 disks_to_include: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_rdp_on_target_option: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  log_storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -1540,7 +1540,7 @@ class InMageAzureV2EnableProtectionInputArgs:
         """
         VMware Azure specific enable protection input.
         :param pulumi.Input[str] storage_account_id: The storage account name.
-        :param pulumi.Input[List[pulumi.Input[str]]] disks_to_include: The disks to include list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] log_storage_account_id: The storage account to be used for logging during replication.
@@ -1602,14 +1602,14 @@ class InMageAzureV2EnableProtectionInputArgs:
 
     @property
     @pulumi.getter(name="disksToInclude")
-    def disks_to_include(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def disks_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The disks to include list.
         """
         return pulumi.get(self, "disks_to_include")
 
     @disks_to_include.setter
-    def disks_to_include(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def disks_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "disks_to_include", value)
 
     @property
@@ -1785,19 +1785,19 @@ class InMageAzureV2EnableProtectionInputArgs:
 class InMageAzureV2PolicyInputArgs:
     def __init__(__self__, *,
                  multi_vm_sync_status: pulumi.Input[str],
-                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
-                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
+                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 recovery_point_history: Optional[pulumi.Input[float]] = None,
-                 recovery_point_threshold_in_minutes: Optional[pulumi.Input[float]] = None):
+                 recovery_point_history: Optional[pulumi.Input[int]] = None,
+                 recovery_point_threshold_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         VMWare Azure specific protection profile Input.
         :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-        :param pulumi.Input[float] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
-        :param pulumi.Input[float] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
-        :param pulumi.Input[float] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
-        :param pulumi.Input[float] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
+        :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param pulumi.Input[int] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
         pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
         if app_consistent_frequency_in_minutes is not None:
@@ -1825,26 +1825,26 @@ class InMageAzureV2PolicyInputArgs:
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The app consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "app_consistent_frequency_in_minutes")
 
     @app_consistent_frequency_in_minutes.setter
-    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "app_consistent_frequency_in_minutes", value)
 
     @property
     @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The crash consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "crash_consistent_frequency_in_minutes")
 
     @crash_consistent_frequency_in_minutes.setter
-    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "crash_consistent_frequency_in_minutes", value)
 
     @property
@@ -1861,38 +1861,38 @@ class InMageAzureV2PolicyInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_history(self) -> Optional[pulumi.Input[int]]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
         return pulumi.get(self, "recovery_point_history")
 
     @recovery_point_history.setter
-    def recovery_point_history(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_history(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history", value)
 
     @property
     @pulumi.getter(name="recoveryPointThresholdInMinutes")
-    def recovery_point_threshold_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_threshold_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The recovery point threshold in minutes.
         """
         return pulumi.get(self, "recovery_point_threshold_in_minutes")
 
     @recovery_point_threshold_in_minutes.setter
-    def recovery_point_threshold_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_threshold_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_threshold_in_minutes", value)
 
 
 @pulumi.input_type
 class InMageDiskExclusionInputArgs:
     def __init__(__self__, *,
-                 disk_signature_options: Optional[pulumi.Input[List[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]] = None,
-                 volume_options: Optional[pulumi.Input[List[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]] = None):
+                 disk_signature_options: Optional[pulumi.Input[Sequence[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]] = None,
+                 volume_options: Optional[pulumi.Input[Sequence[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]] = None):
         """
         DiskExclusionInput when doing enable protection of virtual machine in InMage provider.
-        :param pulumi.Input[List[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]] disk_signature_options: The guest disk signature based option for disk exclusion.
-        :param pulumi.Input[List[pulumi.Input['InMageVolumeExclusionOptionsArgs']]] volume_options: The volume label based option for disk exclusion.
+        :param pulumi.Input[Sequence[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]] disk_signature_options: The guest disk signature based option for disk exclusion.
+        :param pulumi.Input[Sequence[pulumi.Input['InMageVolumeExclusionOptionsArgs']]] volume_options: The volume label based option for disk exclusion.
         """
         if disk_signature_options is not None:
             pulumi.set(__self__, "disk_signature_options", disk_signature_options)
@@ -1901,26 +1901,26 @@ class InMageDiskExclusionInputArgs:
 
     @property
     @pulumi.getter(name="diskSignatureOptions")
-    def disk_signature_options(self) -> Optional[pulumi.Input[List[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]]:
+    def disk_signature_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]]:
         """
         The guest disk signature based option for disk exclusion.
         """
         return pulumi.get(self, "disk_signature_options")
 
     @disk_signature_options.setter
-    def disk_signature_options(self, value: Optional[pulumi.Input[List[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]]):
+    def disk_signature_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]]):
         pulumi.set(self, "disk_signature_options", value)
 
     @property
     @pulumi.getter(name="volumeOptions")
-    def volume_options(self) -> Optional[pulumi.Input[List[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]]:
+    def volume_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]]:
         """
         The volume label based option for disk exclusion.
         """
         return pulumi.get(self, "volume_options")
 
     @volume_options.setter
-    def volume_options(self, value: Optional[pulumi.Input[List[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]]):
+    def volume_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]]):
         pulumi.set(self, "volume_options", value)
 
 
@@ -1958,7 +1958,7 @@ class InMageEnableProtectionInputArgs:
                  retention_drive: pulumi.Input[str],
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  disk_exclusion_input: Optional[pulumi.Input['InMageDiskExclusionInputArgs']] = None,
-                 disks_to_include: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  run_as_account_id: Optional[pulumi.Input[str]] = None,
                  vm_friendly_name: Optional[pulumi.Input[str]] = None):
@@ -1971,7 +1971,7 @@ class InMageEnableProtectionInputArgs:
         :param pulumi.Input[str] retention_drive: The retention drive to use on the MT.
         :param pulumi.Input[str] datastore_name: The target data store name.
         :param pulumi.Input['InMageDiskExclusionInputArgs'] disk_exclusion_input: The enable disk exclusion input.
-        :param pulumi.Input[List[pulumi.Input[str]]] disks_to_include: The disks to include list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[str] run_as_account_id: The CS account Id.
         :param pulumi.Input[str] vm_friendly_name: The Vm Name.
@@ -2080,14 +2080,14 @@ class InMageEnableProtectionInputArgs:
 
     @property
     @pulumi.getter(name="disksToInclude")
-    def disks_to_include(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def disks_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The disks to include list.
         """
         return pulumi.get(self, "disks_to_include")
 
     @disks_to_include.setter
-    def disks_to_include(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def disks_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "disks_to_include", value)
 
     @property
@@ -2131,17 +2131,17 @@ class InMageEnableProtectionInputArgs:
 class InMagePolicyInputArgs:
     def __init__(__self__, *,
                  multi_vm_sync_status: pulumi.Input[str],
-                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
+                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 recovery_point_history: Optional[pulumi.Input[float]] = None,
-                 recovery_point_threshold_in_minutes: Optional[pulumi.Input[float]] = None):
+                 recovery_point_history: Optional[pulumi.Input[int]] = None,
+                 recovery_point_threshold_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         VMWare Azure specific protection profile Input.
         :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-        :param pulumi.Input[float] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
-        :param pulumi.Input[float] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
-        :param pulumi.Input[float] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
+        :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param pulumi.Input[int] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
         pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
         if app_consistent_frequency_in_minutes is not None:
@@ -2167,14 +2167,14 @@ class InMagePolicyInputArgs:
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The app consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "app_consistent_frequency_in_minutes")
 
     @app_consistent_frequency_in_minutes.setter
-    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "app_consistent_frequency_in_minutes", value)
 
     @property
@@ -2191,26 +2191,26 @@ class InMagePolicyInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_history(self) -> Optional[pulumi.Input[int]]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
         return pulumi.get(self, "recovery_point_history")
 
     @recovery_point_history.setter
-    def recovery_point_history(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_history(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history", value)
 
     @property
     @pulumi.getter(name="recoveryPointThresholdInMinutes")
-    def recovery_point_threshold_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_threshold_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The recovery point threshold in minutes.
         """
         return pulumi.get(self, "recovery_point_threshold_in_minutes")
 
     @recovery_point_threshold_in_minutes.setter
-    def recovery_point_threshold_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_threshold_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_threshold_in_minutes", value)
 
 
@@ -2258,13 +2258,13 @@ class InMageVolumeExclusionOptionsArgs:
 class RecoveryPlanActionArgs:
     def __init__(__self__, *,
                  action_name: pulumi.Input[str],
-                 failover_directions: pulumi.Input[List[pulumi.Input[str]]],
-                 failover_types: pulumi.Input[List[pulumi.Input[str]]]):
+                 failover_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 failover_types: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Recovery plan action details.
         :param pulumi.Input[str] action_name: The action name.
-        :param pulumi.Input[List[pulumi.Input[str]]] failover_directions: The list of failover directions.
-        :param pulumi.Input[List[pulumi.Input[str]]] failover_types: The list of failover types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] failover_directions: The list of failover directions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] failover_types: The list of failover types.
         """
         pulumi.set(__self__, "action_name", action_name)
         pulumi.set(__self__, "failover_directions", failover_directions)
@@ -2284,26 +2284,26 @@ class RecoveryPlanActionArgs:
 
     @property
     @pulumi.getter(name="failoverDirections")
-    def failover_directions(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def failover_directions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The list of failover directions.
         """
         return pulumi.get(self, "failover_directions")
 
     @failover_directions.setter
-    def failover_directions(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def failover_directions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "failover_directions", value)
 
     @property
     @pulumi.getter(name="failoverTypes")
-    def failover_types(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def failover_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The list of failover types.
         """
         return pulumi.get(self, "failover_types")
 
     @failover_types.setter
-    def failover_types(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def failover_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "failover_types", value)
 
 
@@ -2311,15 +2311,15 @@ class RecoveryPlanActionArgs:
 class RecoveryPlanGroupArgs:
     def __init__(__self__, *,
                  group_type: pulumi.Input[str],
-                 end_group_actions: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]] = None,
-                 replication_protected_items: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanProtectedItemArgs']]]] = None,
-                 start_group_actions: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]] = None):
+                 end_group_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]] = None,
+                 replication_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]]] = None,
+                 start_group_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]] = None):
         """
         Recovery plan group details.
         :param pulumi.Input[str] group_type: The group type.
-        :param pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]] end_group_actions: The end group actions.
-        :param pulumi.Input[List[pulumi.Input['RecoveryPlanProtectedItemArgs']]] replication_protected_items: The list of protected items.
-        :param pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]] start_group_actions: The start group actions.
+        :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]] end_group_actions: The end group actions.
+        :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]] replication_protected_items: The list of protected items.
+        :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]] start_group_actions: The start group actions.
         """
         pulumi.set(__self__, "group_type", group_type)
         if end_group_actions is not None:
@@ -2343,38 +2343,38 @@ class RecoveryPlanGroupArgs:
 
     @property
     @pulumi.getter(name="endGroupActions")
-    def end_group_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]]:
+    def end_group_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]]:
         """
         The end group actions.
         """
         return pulumi.get(self, "end_group_actions")
 
     @end_group_actions.setter
-    def end_group_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]]):
+    def end_group_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]]):
         pulumi.set(self, "end_group_actions", value)
 
     @property
     @pulumi.getter(name="replicationProtectedItems")
-    def replication_protected_items(self) -> Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanProtectedItemArgs']]]]:
+    def replication_protected_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]]]:
         """
         The list of protected items.
         """
         return pulumi.get(self, "replication_protected_items")
 
     @replication_protected_items.setter
-    def replication_protected_items(self, value: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanProtectedItemArgs']]]]):
+    def replication_protected_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]]]):
         pulumi.set(self, "replication_protected_items", value)
 
     @property
     @pulumi.getter(name="startGroupActions")
-    def start_group_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]]:
+    def start_group_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]]:
         """
         The start group actions.
         """
         return pulumi.get(self, "start_group_actions")
 
     @start_group_actions.setter
-    def start_group_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['RecoveryPlanActionArgs']]]]):
+    def start_group_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]]):
         pulumi.set(self, "start_group_actions", value)
 
 
@@ -2493,16 +2493,16 @@ class StorageMappingInputPropertiesArgs:
 @pulumi.input_type
 class VMwareCbtPolicyCreationInputArgs:
     def __init__(__self__, *,
-                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
-                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
+                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 recovery_point_history: Optional[pulumi.Input[float]] = None):
+                 recovery_point_history: Optional[pulumi.Input[int]] = None):
         """
         VMware Cbt Policy creation input.
-        :param pulumi.Input[float] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
-        :param pulumi.Input[float] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
-        :param pulumi.Input[float] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         """
         if app_consistent_frequency_in_minutes is not None:
             pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
@@ -2515,26 +2515,26 @@ class VMwareCbtPolicyCreationInputArgs:
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The app consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "app_consistent_frequency_in_minutes")
 
     @app_consistent_frequency_in_minutes.setter
-    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "app_consistent_frequency_in_minutes", value)
 
     @property
     @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The crash consistent snapshot frequency (in minutes).
         """
         return pulumi.get(self, "crash_consistent_frequency_in_minutes")
 
     @crash_consistent_frequency_in_minutes.setter
-    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "crash_consistent_frequency_in_minutes", value)
 
     @property
@@ -2551,14 +2551,14 @@ class VMwareCbtPolicyCreationInputArgs:
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_history(self) -> Optional[pulumi.Input[int]]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
         return pulumi.get(self, "recovery_point_history")
 
     @recovery_point_history.setter
-    def recovery_point_history(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_history(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history", value)
 
 

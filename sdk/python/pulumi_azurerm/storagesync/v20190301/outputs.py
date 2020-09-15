@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -22,14 +22,14 @@ class FilesNotSyncingErrorResponse(dict):
     Files not syncing error object
     """
     def __init__(__self__, *,
-                 error_code: float,
-                 persistent_count: float,
-                 transient_count: float):
+                 error_code: int,
+                 persistent_count: int,
+                 transient_count: int):
         """
         Files not syncing error object
-        :param float error_code: Error code (HResult)
-        :param float persistent_count: Count of persistent files not syncing with the specified error code
-        :param float transient_count: Count of transient files not syncing with the specified error code
+        :param int error_code: Error code (HResult)
+        :param int persistent_count: Count of persistent files not syncing with the specified error code
+        :param int transient_count: Count of transient files not syncing with the specified error code
         """
         pulumi.set(__self__, "error_code", error_code)
         pulumi.set(__self__, "persistent_count", persistent_count)
@@ -37,7 +37,7 @@ class FilesNotSyncingErrorResponse(dict):
 
     @property
     @pulumi.getter(name="errorCode")
-    def error_code(self) -> float:
+    def error_code(self) -> int:
         """
         Error code (HResult)
         """
@@ -45,7 +45,7 @@ class FilesNotSyncingErrorResponse(dict):
 
     @property
     @pulumi.getter(name="persistentCount")
-    def persistent_count(self) -> float:
+    def persistent_count(self) -> int:
         """
         Count of persistent files not syncing with the specified error code
         """
@@ -53,7 +53,7 @@ class FilesNotSyncingErrorResponse(dict):
 
     @property
     @pulumi.getter(name="transientCount")
-    def transient_count(self) -> float:
+    def transient_count(self) -> int:
         """
         Count of transient files not syncing with the specified error code
         """
@@ -76,7 +76,7 @@ class ServerEndpointSyncStatusResponse(dict):
                  last_updated_timestamp: str,
                  offline_data_transfer_status: str,
                  sync_activity: str,
-                 total_persistent_files_not_syncing_count: float,
+                 total_persistent_files_not_syncing_count: int,
                  upload_activity: 'outputs.SyncActivityStatusResponse',
                  upload_health: str,
                  upload_status: 'outputs.SyncSessionStatusResponse'):
@@ -89,7 +89,7 @@ class ServerEndpointSyncStatusResponse(dict):
         :param str last_updated_timestamp: Last Updated Timestamp
         :param str offline_data_transfer_status: Offline Data Transfer State
         :param str sync_activity: Sync activity
-        :param float total_persistent_files_not_syncing_count: Total count of persistent files not syncing (combined upload + download). Reserved for future use.
+        :param int total_persistent_files_not_syncing_count: Total count of persistent files not syncing (combined upload + download). Reserved for future use.
         :param 'SyncActivityStatusResponseArgs' upload_activity: Upload sync activity
         :param str upload_health: Upload Health Status.
         :param 'SyncSessionStatusResponseArgs' upload_status: Upload Status
@@ -164,7 +164,7 @@ class ServerEndpointSyncStatusResponse(dict):
 
     @property
     @pulumi.getter(name="totalPersistentFilesNotSyncingCount")
-    def total_persistent_files_not_syncing_count(self) -> float:
+    def total_persistent_files_not_syncing_count(self) -> int:
         """
         Total count of persistent files not syncing (combined upload + download). Reserved for future use.
         """
@@ -204,20 +204,20 @@ class SyncActivityStatusResponse(dict):
     Sync Session status object.
     """
     def __init__(__self__, *,
-                 applied_bytes: float,
-                 applied_item_count: float,
-                 per_item_error_count: float,
+                 applied_bytes: int,
+                 applied_item_count: int,
+                 per_item_error_count: int,
                  timestamp: str,
-                 total_bytes: float,
-                 total_item_count: float):
+                 total_bytes: int,
+                 total_item_count: int):
         """
         Sync Session status object.
-        :param float applied_bytes: Applied bytes
-        :param float applied_item_count: Applied item count.
-        :param float per_item_error_count: Per item error count
+        :param int applied_bytes: Applied bytes
+        :param int applied_item_count: Applied item count.
+        :param int per_item_error_count: Per item error count
         :param str timestamp: Timestamp when properties were updated
-        :param float total_bytes: Total bytes (if available)
-        :param float total_item_count: Total item count (if available)
+        :param int total_bytes: Total bytes (if available)
+        :param int total_item_count: Total item count (if available)
         """
         pulumi.set(__self__, "applied_bytes", applied_bytes)
         pulumi.set(__self__, "applied_item_count", applied_item_count)
@@ -228,7 +228,7 @@ class SyncActivityStatusResponse(dict):
 
     @property
     @pulumi.getter(name="appliedBytes")
-    def applied_bytes(self) -> float:
+    def applied_bytes(self) -> int:
         """
         Applied bytes
         """
@@ -236,7 +236,7 @@ class SyncActivityStatusResponse(dict):
 
     @property
     @pulumi.getter(name="appliedItemCount")
-    def applied_item_count(self) -> float:
+    def applied_item_count(self) -> int:
         """
         Applied item count.
         """
@@ -244,7 +244,7 @@ class SyncActivityStatusResponse(dict):
 
     @property
     @pulumi.getter(name="perItemErrorCount")
-    def per_item_error_count(self) -> float:
+    def per_item_error_count(self) -> int:
         """
         Per item error count
         """
@@ -260,7 +260,7 @@ class SyncActivityStatusResponse(dict):
 
     @property
     @pulumi.getter(name="totalBytes")
-    def total_bytes(self) -> float:
+    def total_bytes(self) -> int:
         """
         Total bytes (if available)
         """
@@ -268,7 +268,7 @@ class SyncActivityStatusResponse(dict):
 
     @property
     @pulumi.getter(name="totalItemCount")
-    def total_item_count(self) -> float:
+    def total_item_count(self) -> int:
         """
         Total item count (if available)
         """
@@ -284,22 +284,22 @@ class SyncSessionStatusResponse(dict):
     Sync Session status object.
     """
     def __init__(__self__, *,
-                 files_not_syncing_errors: List['outputs.FilesNotSyncingErrorResponse'],
-                 last_sync_per_item_error_count: float,
-                 last_sync_result: float,
+                 files_not_syncing_errors: Sequence['outputs.FilesNotSyncingErrorResponse'],
+                 last_sync_per_item_error_count: int,
+                 last_sync_result: int,
                  last_sync_success_timestamp: str,
                  last_sync_timestamp: str,
-                 persistent_files_not_syncing_count: float,
-                 transient_files_not_syncing_count: float):
+                 persistent_files_not_syncing_count: int,
+                 transient_files_not_syncing_count: int):
         """
         Sync Session status object.
-        :param List['FilesNotSyncingErrorResponseArgs'] files_not_syncing_errors: Array of per-item errors coming from the last sync session. Reserved for future use.
-        :param float last_sync_per_item_error_count: Last sync per item error count.
-        :param float last_sync_result: Last sync result (HResult)
+        :param Sequence['FilesNotSyncingErrorResponseArgs'] files_not_syncing_errors: Array of per-item errors coming from the last sync session. Reserved for future use.
+        :param int last_sync_per_item_error_count: Last sync per item error count.
+        :param int last_sync_result: Last sync result (HResult)
         :param str last_sync_success_timestamp: Last sync success timestamp
         :param str last_sync_timestamp: Last sync timestamp
-        :param float persistent_files_not_syncing_count: Count of persistent files not syncing. Reserved for future use.
-        :param float transient_files_not_syncing_count: Count of transient files not syncing. Reserved for future use.
+        :param int persistent_files_not_syncing_count: Count of persistent files not syncing. Reserved for future use.
+        :param int transient_files_not_syncing_count: Count of transient files not syncing. Reserved for future use.
         """
         pulumi.set(__self__, "files_not_syncing_errors", files_not_syncing_errors)
         pulumi.set(__self__, "last_sync_per_item_error_count", last_sync_per_item_error_count)
@@ -311,7 +311,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="filesNotSyncingErrors")
-    def files_not_syncing_errors(self) -> List['outputs.FilesNotSyncingErrorResponse']:
+    def files_not_syncing_errors(self) -> Sequence['outputs.FilesNotSyncingErrorResponse']:
         """
         Array of per-item errors coming from the last sync session. Reserved for future use.
         """
@@ -319,7 +319,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="lastSyncPerItemErrorCount")
-    def last_sync_per_item_error_count(self) -> float:
+    def last_sync_per_item_error_count(self) -> int:
         """
         Last sync per item error count.
         """
@@ -327,7 +327,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="lastSyncResult")
-    def last_sync_result(self) -> float:
+    def last_sync_result(self) -> int:
         """
         Last sync result (HResult)
         """
@@ -351,7 +351,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="persistentFilesNotSyncingCount")
-    def persistent_files_not_syncing_count(self) -> float:
+    def persistent_files_not_syncing_count(self) -> int:
         """
         Count of persistent files not syncing. Reserved for future use.
         """
@@ -359,7 +359,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="transientFilesNotSyncingCount")
-    def transient_files_not_syncing_count(self) -> float:
+    def transient_files_not_syncing_count(self) -> int:
         """
         Count of transient files not syncing. Reserved for future use.
         """

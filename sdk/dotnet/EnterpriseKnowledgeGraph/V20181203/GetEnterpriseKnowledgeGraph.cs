@@ -50,11 +50,11 @@ namespace Pulumi.AzureRM.EnterpriseKnowledgeGraph.V20181203
         /// <summary>
         /// The set of properties specific to EnterpriseKnowledgeGraph resource
         /// </summary>
-        public readonly Outputs.EnterpriseKnowledgeGraphPropertiesResponseResult Properties;
+        public readonly Outputs.EnterpriseKnowledgeGraphPropertiesResponse Properties;
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -70,9 +70,9 @@ namespace Pulumi.AzureRM.EnterpriseKnowledgeGraph.V20181203
 
             string name,
 
-            Outputs.EnterpriseKnowledgeGraphPropertiesResponseResult properties,
+            Outputs.EnterpriseKnowledgeGraphPropertiesResponse properties,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

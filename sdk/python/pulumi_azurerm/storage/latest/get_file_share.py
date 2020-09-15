@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -50,17 +50,17 @@ class GetFileShareResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if remaining_retention_days and not isinstance(remaining_retention_days, float):
-            raise TypeError("Expected argument 'remaining_retention_days' to be a float")
+        if remaining_retention_days and not isinstance(remaining_retention_days, int):
+            raise TypeError("Expected argument 'remaining_retention_days' to be a int")
         pulumi.set(__self__, "remaining_retention_days", remaining_retention_days)
         if root_squash and not isinstance(root_squash, str):
             raise TypeError("Expected argument 'root_squash' to be a str")
         pulumi.set(__self__, "root_squash", root_squash)
-        if share_quota and not isinstance(share_quota, float):
-            raise TypeError("Expected argument 'share_quota' to be a float")
+        if share_quota and not isinstance(share_quota, int):
+            raise TypeError("Expected argument 'share_quota' to be a int")
         pulumi.set(__self__, "share_quota", share_quota)
-        if share_usage_bytes and not isinstance(share_usage_bytes, float):
-            raise TypeError("Expected argument 'share_usage_bytes' to be a float")
+        if share_usage_bytes and not isinstance(share_usage_bytes, int):
+            raise TypeError("Expected argument 'share_usage_bytes' to be a int")
         pulumi.set(__self__, "share_usage_bytes", share_usage_bytes)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -151,7 +151,7 @@ class GetFileShareResult:
 
     @property
     @pulumi.getter(name="remainingRetentionDays")
-    def remaining_retention_days(self) -> float:
+    def remaining_retention_days(self) -> int:
         """
         Remaining retention days for share that was soft deleted.
         """
@@ -167,7 +167,7 @@ class GetFileShareResult:
 
     @property
     @pulumi.getter(name="shareQuota")
-    def share_quota(self) -> Optional[float]:
+    def share_quota(self) -> Optional[int]:
         """
         The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
         """
@@ -175,7 +175,7 @@ class GetFileShareResult:
 
     @property
     @pulumi.getter(name="shareUsageBytes")
-    def share_usage_bytes(self) -> float:
+    def share_usage_bytes(self) -> int:
         """
         The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         """

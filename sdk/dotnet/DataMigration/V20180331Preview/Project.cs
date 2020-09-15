@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180331Preview
         /// List of DatabaseInfo
         /// </summary>
         [Output("databasesInfo")]
-        public Output<ImmutableArray<Outputs.DatabaseInfoResponseResult>> DatabasesInfo { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DatabaseInfoResponse>> DatabasesInfo { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180331Preview
         /// Information for connecting to source
         /// </summary>
         [Output("sourceConnectionInfo")]
-        public Output<Outputs.SqlConnectionInfoResponseResult?> SourceConnectionInfo { get; private set; } = null!;
+        public Output<Outputs.SqlConnectionInfoResponse?> SourceConnectionInfo { get; private set; } = null!;
 
         /// <summary>
         /// Source platform for the project
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180331Preview
         /// Information for connecting to target
         /// </summary>
         [Output("targetConnectionInfo")]
-        public Output<Outputs.SqlConnectionInfoResponseResult?> TargetConnectionInfo { get; private set; } = null!;
+        public Output<Outputs.SqlConnectionInfoResponse?> TargetConnectionInfo { get; private set; } = null!;
 
         /// <summary>
         /// Target platform for the project

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -226,19 +226,19 @@ class ClusterHealthPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  application_health_policies: Optional[Mapping[str, 'outputs.ApplicationHealthPolicyResponse']] = None,
-                 max_percent_unhealthy_applications: Optional[float] = None,
-                 max_percent_unhealthy_nodes: Optional[float] = None):
+                 max_percent_unhealthy_applications: Optional[int] = None,
+                 max_percent_unhealthy_nodes: Optional[int] = None):
         """
         Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 
         :param Mapping[str, 'ApplicationHealthPolicyResponseArgs'] application_health_policies: Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-        :param float max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+        :param int max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
                
                The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
                If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
                This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
                The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-        :param float max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+        :param int max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
                
                The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
                If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
@@ -264,7 +264,7 @@ class ClusterHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyApplications")
-    def max_percent_unhealthy_applications(self) -> Optional[float]:
+    def max_percent_unhealthy_applications(self) -> Optional[int]:
         """
         The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 
@@ -277,7 +277,7 @@ class ClusterHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyNodes")
-    def max_percent_unhealthy_nodes(self) -> Optional[float]:
+    def max_percent_unhealthy_nodes(self) -> Optional[int]:
         """
         The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
 
@@ -300,19 +300,19 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
     Describes the delta health policies for the cluster upgrade.
     """
     def __init__(__self__, *,
-                 max_percent_delta_unhealthy_applications: float,
-                 max_percent_delta_unhealthy_nodes: float,
-                 max_percent_upgrade_domain_delta_unhealthy_nodes: float,
+                 max_percent_delta_unhealthy_applications: int,
+                 max_percent_delta_unhealthy_nodes: int,
+                 max_percent_upgrade_domain_delta_unhealthy_nodes: int,
                  application_delta_health_policies: Optional[Mapping[str, 'outputs.ApplicationDeltaHealthPolicyResponse']] = None):
         """
         Describes the delta health policies for the cluster upgrade.
-        :param float max_percent_delta_unhealthy_applications: The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+        :param int max_percent_delta_unhealthy_applications: The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
                The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-        :param float max_percent_delta_unhealthy_nodes: The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+        :param int max_percent_delta_unhealthy_nodes: The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
                The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-        :param float max_percent_upgrade_domain_delta_unhealthy_nodes: The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+        :param int max_percent_upgrade_domain_delta_unhealthy_nodes: The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
                The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
         :param Mapping[str, 'ApplicationDeltaHealthPolicyResponseArgs'] application_delta_health_policies: Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
@@ -325,7 +325,7 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyApplications")
-    def max_percent_delta_unhealthy_applications(self) -> float:
+    def max_percent_delta_unhealthy_applications(self) -> int:
         """
         The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
         The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
@@ -335,7 +335,7 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyNodes")
-    def max_percent_delta_unhealthy_nodes(self) -> float:
+    def max_percent_delta_unhealthy_nodes(self) -> int:
         """
         The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
         The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
@@ -345,7 +345,7 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentUpgradeDomainDeltaUnhealthyNodes")
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> float:
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> int:
         """
         The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
         The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
@@ -486,19 +486,19 @@ class EndpointRangeDescriptionResponse(dict):
     Port range details
     """
     def __init__(__self__, *,
-                 end_port: float,
-                 start_port: float):
+                 end_port: int,
+                 start_port: int):
         """
         Port range details
-        :param float end_port: End port of a range of ports
-        :param float start_port: Starting port of a range of ports
+        :param int end_port: End port of a range of ports
+        :param int start_port: Starting port of a range of ports
         """
         pulumi.set(__self__, "end_port", end_port)
         pulumi.set(__self__, "start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
-    def end_port(self) -> float:
+    def end_port(self) -> int:
         """
         End port of a range of ports
         """
@@ -506,7 +506,7 @@ class EndpointRangeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="startPort")
-    def start_port(self) -> float:
+    def start_port(self) -> int:
         """
         Starting port of a range of ports
         """
@@ -522,15 +522,15 @@ class LoadBalancingRuleResponse(dict):
     Describes a load balancing rule.
     """
     def __init__(__self__, *,
-                 backend_port: float,
-                 frontend_port: float,
+                 backend_port: int,
+                 frontend_port: int,
                  probe_protocol: str,
                  protocol: str,
                  probe_request_path: Optional[str] = None):
         """
         Describes a load balancing rule.
-        :param float backend_port: The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
-        :param float frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+        :param int backend_port: The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+        :param int frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
         :param str probe_protocol: the reference to the load balancer probe used by the load balancing rule.
         :param str protocol: The reference to the transport protocol used by the load balancing rule.
         :param str probe_request_path: The probe request path. Only supported for HTTP/HTTPS probes.
@@ -544,7 +544,7 @@ class LoadBalancingRuleResponse(dict):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> float:
+    def backend_port(self) -> int:
         """
         The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
         """
@@ -552,7 +552,7 @@ class LoadBalancingRuleResponse(dict):
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> float:
+    def frontend_port(self) -> int:
         """
         The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
         """
@@ -592,11 +592,11 @@ class ServiceTypeDeltaHealthPolicyResponse(dict):
     Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
     """
     def __init__(__self__, *,
-                 max_percent_delta_unhealthy_services: Optional[float] = None):
+                 max_percent_delta_unhealthy_services: Optional[int] = None):
         """
         Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
 
-        :param float max_percent_delta_unhealthy_services: The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+        :param int max_percent_delta_unhealthy_services: The maximum allowed percentage of services health degradation allowed during cluster upgrades.
                The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
         """
@@ -605,7 +605,7 @@ class ServiceTypeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyServices")
-    def max_percent_delta_unhealthy_services(self) -> Optional[float]:
+    def max_percent_delta_unhealthy_services(self) -> Optional[int]:
         """
         The maximum allowed percentage of services health degradation allowed during cluster upgrades.
         The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
@@ -623,18 +623,18 @@ class ServiceTypeHealthPolicyResponse(dict):
     Represents the health policy used to evaluate the health of services belonging to a service type.
     """
     def __init__(__self__, *,
-                 max_percent_unhealthy_services: Optional[float] = None):
+                 max_percent_unhealthy_services: Optional[int] = None):
         """
         Represents the health policy used to evaluate the health of services belonging to a service type.
 
-        :param float max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+        :param int max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
         """
         if max_percent_unhealthy_services is not None:
             pulumi.set(__self__, "max_percent_unhealthy_services", max_percent_unhealthy_services)
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyServices")
-    def max_percent_unhealthy_services(self) -> Optional[float]:
+    def max_percent_unhealthy_services(self) -> Optional[int]:
         """
         The maximum percentage of services allowed to be unhealthy before your application is considered in error.
         """
@@ -687,11 +687,11 @@ class SettingsSectionDescriptionResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 parameters: List['outputs.SettingsParameterDescriptionResponse']):
+                 parameters: Sequence['outputs.SettingsParameterDescriptionResponse']):
         """
         Describes a section in the fabric settings of the cluster.
         :param str name: The section name of the fabric settings.
-        :param List['SettingsParameterDescriptionResponseArgs'] parameters: The collection of parameters in the section.
+        :param Sequence['SettingsParameterDescriptionResponseArgs'] parameters: The collection of parameters in the section.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parameters", parameters)
@@ -706,7 +706,7 @@ class SettingsSectionDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> List['outputs.SettingsParameterDescriptionResponse']:
+    def parameters(self) -> Sequence['outputs.SettingsParameterDescriptionResponse']:
         """
         The collection of parameters in the section.
         """
@@ -781,7 +781,7 @@ class VMSSExtensionResponse(dict):
                  auto_upgrade_minor_version: Optional[bool] = None,
                  force_update_tag: Optional[str] = None,
                  protected_settings: Optional[Mapping[str, Any]] = None,
-                 provision_after_extensions: Optional[List[str]] = None,
+                 provision_after_extensions: Optional[Sequence[str]] = None,
                  settings: Optional[Mapping[str, Any]] = None):
         """
         Specifies set of extensions that should be installed onto the virtual machines.
@@ -793,7 +793,7 @@ class VMSSExtensionResponse(dict):
         :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param str force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         :param Mapping[str, Any] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-        :param List[str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
+        :param Sequence[str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param Mapping[str, Any] settings: Json formatted public settings for the extension.
         """
         pulumi.set(__self__, "name", name)
@@ -878,7 +878,7 @@ class VMSSExtensionResponse(dict):
 
     @property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[List[str]]:
+    def provision_after_extensions(self) -> Optional[Sequence[str]]:
         """
         Collection of extension names after which this extension needs to be provisioned.
         """
@@ -939,11 +939,11 @@ class VaultSecretGroupResponse(dict):
     """
     def __init__(__self__, *,
                  source_vault: 'outputs.SubResourceResponse',
-                 vault_certificates: List['outputs.VaultCertificateResponse']):
+                 vault_certificates: Sequence['outputs.VaultCertificateResponse']):
         """
         Specifies set of certificates that should be installed onto the virtual machines.
         :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        :param List['VaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        :param Sequence['VaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
         pulumi.set(__self__, "source_vault", source_vault)
         pulumi.set(__self__, "vault_certificates", vault_certificates)
@@ -958,7 +958,7 @@ class VaultSecretGroupResponse(dict):
 
     @property
     @pulumi.getter(name="vaultCertificates")
-    def vault_certificates(self) -> List['outputs.VaultCertificateResponse']:
+    def vault_certificates(self) -> Sequence['outputs.VaultCertificateResponse']:
         """
         The list of key vault references in SourceVault which contain certificates.
         """

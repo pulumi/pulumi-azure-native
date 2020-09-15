@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -69,12 +69,12 @@ class StorageProfileResponse(dict):
     The storage profile of the user settings.
     """
     def __init__(__self__, *,
-                 disk_size_in_gb: Optional[float] = None,
+                 disk_size_in_gb: Optional[int] = None,
                  file_share_name: Optional[str] = None,
                  storage_account_resource_id: Optional[str] = None):
         """
         The storage profile of the user settings.
-        :param float disk_size_in_gb: Size of file share
+        :param int disk_size_in_gb: Size of file share
         :param str file_share_name: Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
         :param str storage_account_resource_id: Full resource ID of storage account.
         """
@@ -87,7 +87,7 @@ class StorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeInGB")
-    def disk_size_in_gb(self) -> Optional[float]:
+    def disk_size_in_gb(self) -> Optional[int]:
         """
         Size of file share
         """

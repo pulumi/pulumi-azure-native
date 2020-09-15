@@ -60,10 +60,10 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// List of VirtualHubs in the VirtualWAN.
         /// </summary>
         [Output("virtualHubs")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualHubs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualHubs { get; private set; } = null!;
 
         [Output("vpnSites")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VpnSites { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VpnSites { get; private set; } = null!;
 
 
         /// <summary>

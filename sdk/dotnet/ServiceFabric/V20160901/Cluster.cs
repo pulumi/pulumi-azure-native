@@ -18,31 +18,31 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
         /// </summary>
         [Output("availableClusterVersions")]
-        public Output<ImmutableArray<Outputs.ClusterVersionDetailsResponseResult>> AvailableClusterVersions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterVersionDetailsResponse>> AvailableClusterVersions { get; private set; } = null!;
 
         /// <summary>
         /// The settings to enable AAD authentication on the cluster
         /// </summary>
         [Output("azureActiveDirectory")]
-        public Output<Outputs.AzureActiveDirectoryResponseResult?> AzureActiveDirectory { get; private set; } = null!;
+        public Output<Outputs.AzureActiveDirectoryResponse?> AzureActiveDirectory { get; private set; } = null!;
 
         /// <summary>
         /// This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
         /// </summary>
         [Output("certificate")]
-        public Output<Outputs.CertificateDescriptionResponseResult?> Certificate { get; private set; } = null!;
+        public Output<Outputs.CertificateDescriptionResponse?> Certificate { get; private set; } = null!;
 
         /// <summary>
         ///  List of client certificates to whitelist based on common names
         /// </summary>
         [Output("clientCertificateCommonNames")]
-        public Output<ImmutableArray<Outputs.ClientCertificateCommonNameResponseResult>> ClientCertificateCommonNames { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClientCertificateCommonNameResponse>> ClientCertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
         /// The client thumbprint details ,it is used for client access for cluster operation
         /// </summary>
         [Output("clientCertificateThumbprints")]
-        public Output<ImmutableArray<Outputs.ClientCertificateThumbprintResponseResult>> ClientCertificateThumbprints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClientCertificateThumbprintResponse>> ClientCertificateThumbprints { get; private set; } = null!;
 
         /// <summary>
         /// The ServiceFabric code version running in your cluster
@@ -72,13 +72,13 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// The storage diagnostics account configuration details
         /// </summary>
         [Output("diagnosticsStorageAccountConfig")]
-        public Output<Outputs.DiagnosticsStorageAccountConfigResponseResult?> DiagnosticsStorageAccountConfig { get; private set; } = null!;
+        public Output<Outputs.DiagnosticsStorageAccountConfigResponse?> DiagnosticsStorageAccountConfig { get; private set; } = null!;
 
         /// <summary>
         /// List of custom fabric settings to configure the cluster.
         /// </summary>
         [Output("fabricSettings")]
-        public Output<ImmutableArray<Outputs.SettingsSectionDescriptionResponseResult>> FabricSettings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SettingsSectionDescriptionResponse>> FabricSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// The list of node types that make up the cluster
         /// </summary>
         [Output("nodeTypes")]
-        public Output<ImmutableArray<Outputs.NodeTypeDescriptionResponseResult>> NodeTypes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NodeTypeDescriptionResponse>> NodeTypes { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the cluster resource
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// The server certificate used by reverse proxy
         /// </summary>
         [Output("reverseProxyCertificate")]
-        public Output<Outputs.CertificateDescriptionResponseResult?> ReverseProxyCertificate { get; private set; } = null!;
+        public Output<Outputs.CertificateDescriptionResponse?> ReverseProxyCertificate { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -138,7 +138,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// The policy to use when upgrading the cluster.
         /// </summary>
         [Output("upgradeDescription")]
-        public Output<Outputs.ClusterUpgradePolicyResponseResult?> UpgradeDescription { get; private set; } = null!;
+        public Output<Outputs.ClusterUpgradePolicyResponse?> UpgradeDescription { get; private set; } = null!;
 
         /// <summary>
         /// Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not

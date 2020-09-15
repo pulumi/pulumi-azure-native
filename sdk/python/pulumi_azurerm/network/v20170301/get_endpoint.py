@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -32,14 +32,14 @@ class GetEndpointResult:
         if geo_mapping and not isinstance(geo_mapping, list):
             raise TypeError("Expected argument 'geo_mapping' to be a list")
         pulumi.set(__self__, "geo_mapping", geo_mapping)
-        if min_child_endpoints and not isinstance(min_child_endpoints, float):
-            raise TypeError("Expected argument 'min_child_endpoints' to be a float")
+        if min_child_endpoints and not isinstance(min_child_endpoints, int):
+            raise TypeError("Expected argument 'min_child_endpoints' to be a int")
         pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if priority and not isinstance(priority, float):
-            raise TypeError("Expected argument 'priority' to be a float")
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
         if target and not isinstance(target, str):
             raise TypeError("Expected argument 'target' to be a str")
@@ -50,8 +50,8 @@ class GetEndpointResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if weight and not isinstance(weight, float):
-            raise TypeError("Expected argument 'weight' to be a float")
+        if weight and not isinstance(weight, int):
+            raise TypeError("Expected argument 'weight' to be a int")
         pulumi.set(__self__, "weight", weight)
 
     @property
@@ -80,7 +80,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="geoMapping")
-    def geo_mapping(self) -> Optional[List[str]]:
+    def geo_mapping(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         """
@@ -88,7 +88,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[float]:
+    def min_child_endpoints(self) -> Optional[int]:
         """
         Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
@@ -104,7 +104,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
@@ -136,7 +136,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[float]:
+    def weight(self) -> Optional[int]:
         """
         Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """

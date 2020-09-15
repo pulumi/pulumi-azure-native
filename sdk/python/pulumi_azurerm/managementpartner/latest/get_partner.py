@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetPartnerResult:
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
-        if etag and not isinstance(etag, float):
-            raise TypeError("Expected argument 'etag' to be a float")
+        if etag and not isinstance(etag, int):
+            raise TypeError("Expected argument 'etag' to be a int")
         pulumi.set(__self__, "etag", etag)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -47,8 +47,8 @@ class GetPartnerResult:
         if updated_time and not isinstance(updated_time, str):
             raise TypeError("Expected argument 'updated_time' to be a str")
         pulumi.set(__self__, "updated_time", updated_time)
-        if version and not isinstance(version, float):
-            raise TypeError("Expected argument 'version' to be a float")
+        if version and not isinstance(version, int):
+            raise TypeError("Expected argument 'version' to be a int")
         pulumi.set(__self__, "version", version)
 
     @property
@@ -61,7 +61,7 @@ class GetPartnerResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[float]:
+    def etag(self) -> Optional[int]:
         """
         Type of the partner
         """
@@ -125,7 +125,7 @@ class GetPartnerResult:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[float]:
+    def version(self) -> Optional[int]:
         """
         This is the version.
         """

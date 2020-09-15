@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets Routes in a Route Table
         /// </summary>
         [Output("routes")]
-        public Output<ImmutableArray<Outputs.RouteResponseResult>> Routes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RouteResponse>> Routes { get; private set; } = null!;
 
         /// <summary>
         /// Gets collection of references to subnets
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubnetResponse>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

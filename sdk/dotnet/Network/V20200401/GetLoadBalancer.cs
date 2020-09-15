@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// Collection of backend address pools used by a load balancer.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BackendAddressPoolResponseResult> BackendAddressPools;
+        public readonly ImmutableArray<Outputs.BackendAddressPoolResponse> BackendAddressPools;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -56,19 +56,19 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// Object representing the frontend IPs to be used for the load balancer.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontendIPConfigurationResponseResult> FrontendIPConfigurations;
+        public readonly ImmutableArray<Outputs.FrontendIPConfigurationResponse> FrontendIPConfigurations;
         /// <summary>
         /// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InboundNatPoolResponseResult> InboundNatPools;
+        public readonly ImmutableArray<Outputs.InboundNatPoolResponse> InboundNatPools;
         /// <summary>
         /// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InboundNatRuleResponseResult> InboundNatRules;
+        public readonly ImmutableArray<Outputs.InboundNatRuleResponse> InboundNatRules;
         /// <summary>
         /// Object collection representing the load balancing rules Gets the provisioning.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoadBalancingRuleResponseResult> LoadBalancingRules;
+        public readonly ImmutableArray<Outputs.LoadBalancingRuleResponse> LoadBalancingRules;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -80,11 +80,11 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// The outbound rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OutboundRuleResponseResult> OutboundRules;
+        public readonly ImmutableArray<Outputs.OutboundRuleResponse> OutboundRules;
         /// <summary>
         /// Collection of probe objects used in the load balancer.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProbeResponseResult> Probes;
+        public readonly ImmutableArray<Outputs.ProbeResponse> Probes;
         /// <summary>
         /// The provisioning state of the load balancer resource.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// The load balancer SKU.
         /// </summary>
-        public readonly Outputs.LoadBalancerSkuResponseResult? Sku;
+        public readonly Outputs.LoadBalancerSkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -108,31 +108,31 @@ namespace Pulumi.AzureRM.Network.V20200401
 
         [OutputConstructor]
         private GetLoadBalancerResult(
-            ImmutableArray<Outputs.BackendAddressPoolResponseResult> backendAddressPools,
+            ImmutableArray<Outputs.BackendAddressPoolResponse> backendAddressPools,
 
             string etag,
 
-            ImmutableArray<Outputs.FrontendIPConfigurationResponseResult> frontendIPConfigurations,
+            ImmutableArray<Outputs.FrontendIPConfigurationResponse> frontendIPConfigurations,
 
-            ImmutableArray<Outputs.InboundNatPoolResponseResult> inboundNatPools,
+            ImmutableArray<Outputs.InboundNatPoolResponse> inboundNatPools,
 
-            ImmutableArray<Outputs.InboundNatRuleResponseResult> inboundNatRules,
+            ImmutableArray<Outputs.InboundNatRuleResponse> inboundNatRules,
 
-            ImmutableArray<Outputs.LoadBalancingRuleResponseResult> loadBalancingRules,
+            ImmutableArray<Outputs.LoadBalancingRuleResponse> loadBalancingRules,
 
             string? location,
 
             string name,
 
-            ImmutableArray<Outputs.OutboundRuleResponseResult> outboundRules,
+            ImmutableArray<Outputs.OutboundRuleResponse> outboundRules,
 
-            ImmutableArray<Outputs.ProbeResponseResult> probes,
+            ImmutableArray<Outputs.ProbeResponse> probes,
 
             string provisioningState,
 
             string resourceGuid,
 
-            Outputs.LoadBalancerSkuResponseResult? sku,
+            Outputs.LoadBalancerSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -178,7 +178,7 @@ class ConnectedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalNodeCount")
-    def total_node_count(self) -> pulumi.Output[float]:
+    def total_node_count(self) -> pulumi.Output[int]:
         """
         Number of nodes present in the connected cluster resource
         """

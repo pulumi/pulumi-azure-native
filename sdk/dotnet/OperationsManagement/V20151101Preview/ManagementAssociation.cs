@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
         /// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagementAssociationPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ManagementAssociationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

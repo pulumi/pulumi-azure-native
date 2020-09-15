@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// Workspace default data lake storage account details
         /// </summary>
         [Output("defaultDataLakeStorage")]
-        public Output<Outputs.DataLakeStorageAccountDetailsResponseResult?> DefaultDataLakeStorage { get; private set; } = null!;
+        public Output<Outputs.DataLakeStorageAccountDetailsResponse?> DefaultDataLakeStorage { get; private set; } = null!;
 
         /// <summary>
         /// Workspace level configs and feature flags
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// Identity of the workspace
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// Private endpoint connections to the workspace
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Resource provisioning state
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// Virtual Network profile
         /// </summary>
         [Output("virtualNetworkProfile")]
-        public Output<Outputs.VirtualNetworkProfileResponseResult?> VirtualNetworkProfile { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkProfileResponse?> VirtualNetworkProfile { get; private set; } = null!;
 
 
         /// <summary>

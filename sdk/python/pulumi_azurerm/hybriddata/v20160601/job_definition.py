@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class JobDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]]] = None,
+                 customer_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]]] = None,
                  data_manager_name: Optional[pulumi.Input[str]] = None,
                  data_service_input: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  data_service_name: Optional[pulumi.Input[str]] = None,
@@ -27,7 +27,7 @@ class JobDefinition(pulumi.CustomResource):
                  last_modified_time: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_location: Optional[pulumi.Input[str]] = None,
-                 schedules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleArgs']]]]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleArgs']]]]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  user_confirmation: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -38,7 +38,7 @@ class JobDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[Mapping[str, Any]] data_service_input: A generic json used differently by each data service type.
         :param pulumi.Input[str] data_service_name: The data service type of the job definition.
@@ -48,7 +48,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_time: Last modified time of the job definition.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input[str] run_location: This is the preferred geo location for the job to run.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleArgs']]]] schedules: Schedule for running the job definition
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleArgs']]]] schedules: Schedule for running the job definition
         :param pulumi.Input[str] state: State of the job definition.
         :param pulumi.Input[str] user_confirmation: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         """
@@ -126,7 +126,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerSecrets")
-    def customer_secrets(self) -> pulumi.Output[Optional[List['outputs.CustomerSecretResponse']]]:
+    def customer_secrets(self) -> pulumi.Output[Optional[Sequence['outputs.CustomerSecretResponse']]]:
         """
         List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         """
@@ -182,7 +182,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedules(self) -> pulumi.Output[Optional[List['outputs.ScheduleResponse']]]:
+    def schedules(self) -> pulumi.Output[Optional[Sequence['outputs.ScheduleResponse']]]:
         """
         Schedule for running the job definition
         """

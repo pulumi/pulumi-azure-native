@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// <summary>
         /// The tags attached to the saved search.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TagResponseResult> Tags;
+        public readonly ImmutableArray<Outputs.TagResponse> Tags;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
 
             string query,
 
-            ImmutableArray<Outputs.TagResponseResult> tags,
+            ImmutableArray<Outputs.TagResponse> tags,
 
             string type,
 

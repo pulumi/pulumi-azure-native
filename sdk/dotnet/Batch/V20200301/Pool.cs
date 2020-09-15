@@ -30,19 +30,19 @@ namespace Pulumi.AzureRM.Batch.V20200301
         /// Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
         /// </summary>
         [Output("applicationPackages")]
-        public Output<ImmutableArray<Outputs.ApplicationPackageReferenceResponseResult>> ApplicationPackages { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationPackageReferenceResponse>> ApplicationPackages { get; private set; } = null!;
 
         /// <summary>
         /// This property is set only if the pool automatically scales, i.e. autoScaleSettings are used.
         /// </summary>
         [Output("autoScaleRun")]
-        public Output<Outputs.AutoScaleRunResponseResult> AutoScaleRun { get; private set; } = null!;
+        public Output<Outputs.AutoScaleRunResponse> AutoScaleRun { get; private set; } = null!;
 
         /// <summary>
         /// For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         /// </summary>
         [Output("certificates")]
-        public Output<ImmutableArray<Outputs.CertificateReferenceResponseResult>> Certificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CertificateReferenceResponse>> Certificates { get; private set; } = null!;
 
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.AzureRM.Batch.V20200301
         /// Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         /// </summary>
         [Output("deploymentConfiguration")]
-        public Output<Outputs.DeploymentConfigurationResponseResult?> DeploymentConfiguration { get; private set; } = null!;
+        public Output<Outputs.DeploymentConfigurationResponse?> DeploymentConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
@@ -93,13 +93,13 @@ namespace Pulumi.AzureRM.Batch.V20200301
         /// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableArray<Outputs.MetadataItemResponseResult>> Metadata { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MetadataItemResponse>> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
         /// </summary>
         [Output("mountConfiguration")]
-        public Output<ImmutableArray<Outputs.MountConfigurationResponseResult>> MountConfiguration { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MountConfigurationResponse>> MountConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.Batch.V20200301
         /// The network configuration for a pool.
         /// </summary>
         [Output("networkConfiguration")]
-        public Output<Outputs.NetworkConfigurationResponseResult?> NetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.NetworkConfigurationResponse?> NetworkConfiguration { get; private set; } = null!;
 
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -123,25 +123,25 @@ namespace Pulumi.AzureRM.Batch.V20200301
         /// Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
         /// </summary>
         [Output("resizeOperationStatus")]
-        public Output<Outputs.ResizeOperationStatusResponseResult> ResizeOperationStatus { get; private set; } = null!;
+        public Output<Outputs.ResizeOperationStatusResponse> ResizeOperationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         /// </summary>
         [Output("scaleSettings")]
-        public Output<Outputs.ScaleSettingsResponseResult?> ScaleSettings { get; private set; } = null!;
+        public Output<Outputs.ScaleSettingsResponse?> ScaleSettings { get; private set; } = null!;
 
         /// <summary>
         /// In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         /// </summary>
         [Output("startTask")]
-        public Output<Outputs.StartTaskResponseResult?> StartTask { get; private set; } = null!;
+        public Output<Outputs.StartTaskResponse?> StartTask { get; private set; } = null!;
 
         /// <summary>
         /// If not specified, the default is spread.
         /// </summary>
         [Output("taskSchedulingPolicy")]
-        public Output<Outputs.TaskSchedulingPolicyResponseResult?> TaskSchedulingPolicy { get; private set; } = null!;
+        public Output<Outputs.TaskSchedulingPolicyResponse?> TaskSchedulingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -150,7 +150,7 @@ namespace Pulumi.AzureRM.Batch.V20200301
         public Output<string> Type { get; private set; } = null!;
 
         [Output("userAccounts")]
-        public Output<ImmutableArray<Outputs.UserAccountResponseResult>> UserAccounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.UserAccountResponse>> UserAccounts { get; private set; } = null!;
 
         /// <summary>
         /// For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).

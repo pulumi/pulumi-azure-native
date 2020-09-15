@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -101,11 +101,11 @@ class NetworkRuleSetResponse(dict):
     """
     def __init__(__self__, *,
                  endpoint_access: Optional[str] = None,
-                 ip_rules: Optional[List['outputs.IpRuleResponse']] = None):
+                 ip_rules: Optional[Sequence['outputs.IpRuleResponse']] = None):
         """
         Network specific rules that determine how the Azure Cognitive Search service may be reached.
         :param str endpoint_access: The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
-        :param List['IpRuleResponseArgs'] ip_rules: A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
+        :param Sequence['IpRuleResponseArgs'] ip_rules: A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
         """
         if endpoint_access is not None:
             pulumi.set(__self__, "endpoint_access", endpoint_access)
@@ -122,7 +122,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List['outputs.IpRuleResponse']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.IpRuleResponse']]:
         """
         A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
         """

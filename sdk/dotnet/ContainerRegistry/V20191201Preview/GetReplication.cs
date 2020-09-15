@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The status of the replication at the time the operation was called.
         /// </summary>
-        public readonly Outputs.StatusResponseResult Status;
+        public readonly Outputs.StatusResponse Status;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 
             bool? regionEndpointEnabled,
 
-            Outputs.StatusResponseResult status,
+            Outputs.StatusResponse status,
 
             ImmutableDictionary<string, string>? tags,
 

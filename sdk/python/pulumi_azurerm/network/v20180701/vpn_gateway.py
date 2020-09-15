@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class VpnGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]]] = None,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class VpnGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]] connections: list of all vpn connections to the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]] connections: list of all vpn connections to the gateway.
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
@@ -118,7 +118,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def connections(self) -> pulumi.Output[Optional[List['outputs.VpnConnectionResponse']]]:
+    def connections(self) -> pulumi.Output[Optional[Sequence['outputs.VpnConnectionResponse']]]:
         """
         list of all vpn connections to the gateway.
         """

@@ -60,10 +60,10 @@ namespace Pulumi.AzureRM.Web.Latest
         /// <summary>
         /// Collection of WSDL interfaces
         /// </summary>
-        public readonly ImmutableArray<Outputs.WsdlServiceResponseResult> Value;
+        public readonly ImmutableArray<Outputs.WsdlServiceResponse> Value;
 
         [OutputConstructor]
-        private ListCustomApiWsdlInterfacesResult(ImmutableArray<Outputs.WsdlServiceResponseResult> value)
+        private ListCustomApiWsdlInterfacesResult(ImmutableArray<Outputs.WsdlServiceResponse> value)
         {
             Value = value;
         }

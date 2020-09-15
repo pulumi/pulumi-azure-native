@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.EventHub.Latest
         /// <summary>
         /// Properties of sku resource
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.EventHub.Latest
 
             string serviceBusEndpoint,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

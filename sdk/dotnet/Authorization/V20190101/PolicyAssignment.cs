@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Authorization.V20190101
         /// The managed identity associated with the policy assignment.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the policy assignment. Only required when utilizing managed identity.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Authorization.V20190101
         /// The policy sku. This property is optional, obsolete, and will be ignored.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.PolicySkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.PolicySkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The type of the policy assignment.

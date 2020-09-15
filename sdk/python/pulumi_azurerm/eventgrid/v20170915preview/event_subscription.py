@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class EventSubscription(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[Union[pulumi.InputType['EventHubEventSubscriptionDestinationArgs'], pulumi.InputType['WebHookEventSubscriptionDestinationArgs']]]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']]] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,7 +33,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[Union[pulumi.InputType['EventHubEventSubscriptionDestinationArgs'], pulumi.InputType['WebHookEventSubscriptionDestinationArgs']]] destination: Information about the destination where events have to be delivered for the event subscription.
         :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']] filter: Information about the filter for the event subscription.
-        :param pulumi.Input[List[pulumi.Input[str]]] labels: List of user defined labels.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of user defined labels.
         :param pulumi.Input[str] scope: The scope of the resource to which the event subscription needs to be created. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
         """
         if __name__ is not None:
@@ -110,7 +110,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[List[str]]]:
+    def labels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of user defined labels.
         """

@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Web.Latest
         /// PrivateEndpoint of a remote private endpoint connection
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.ArmIdWrapperResponseResult?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.ArmIdWrapperResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The state of a private link connection
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkConnectionStateResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkConnectionStateResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

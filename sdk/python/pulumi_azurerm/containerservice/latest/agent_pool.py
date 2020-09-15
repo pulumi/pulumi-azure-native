@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,18 +18,18 @@ class AgentPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
-                 availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 count: Optional[pulumi.Input[float]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
-                 max_count: Optional[pulumi.Input[float]] = None,
-                 max_pods: Optional[pulumi.Input[float]] = None,
-                 min_count: Optional[pulumi.Input[float]] = None,
+                 max_count: Optional[pulumi.Input[int]] = None,
+                 max_pods: Optional[pulumi.Input[int]] = None,
+                 min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 node_taints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
@@ -52,18 +52,18 @@ class AgentPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
-        :param pulumi.Input[List[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-        :param pulumi.Input[float] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
-        :param pulumi.Input[float] max_count: Maximum number of nodes for auto-scaling
-        :param pulumi.Input[float] max_pods: Maximum number of pods that can run on a node.
-        :param pulumi.Input[float] min_count: Minimum number of nodes for auto-scaling
+        :param pulumi.Input[int] max_count: Maximum number of nodes for auto-scaling
+        :param pulumi.Input[int] max_pods: Maximum number of pods that can run on a node.
+        :param pulumi.Input[int] min_count: Minimum number of nodes for auto-scaling
         :param pulumi.Input[str] mode: AgentPoolMode represents mode of an agent pool
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: Agent pool node labels to be persisted across all nodes in agent pool.
-        :param pulumi.Input[List[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
-        :param pulumi.Input[float] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[str] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
@@ -159,7 +159,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         """
@@ -167,7 +167,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Output[Optional[float]]:
+    def count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         """
@@ -191,7 +191,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> pulumi.Output[Optional[float]]:
+    def max_count(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of nodes for auto-scaling
         """
@@ -199,7 +199,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> pulumi.Output[Optional[float]]:
+    def max_pods(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of pods that can run on a node.
         """
@@ -207,7 +207,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> pulumi.Output[Optional[float]]:
+    def min_count(self) -> pulumi.Output[Optional[int]]:
         """
         Minimum number of nodes for auto-scaling
         """
@@ -247,7 +247,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> pulumi.Output[Optional[List[str]]]:
+    def node_taints(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         """
@@ -263,7 +263,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> pulumi.Output[Optional[float]]:
+    def os_disk_size_gb(self) -> pulumi.Output[Optional[int]]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """

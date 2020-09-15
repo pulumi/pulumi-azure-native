@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.ResourceGraph.V20200401Preview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponseResult SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.ResourceGraph.V20200401Preview
 
             string resultKind,
 
-            Outputs.SystemDataResponseResult systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

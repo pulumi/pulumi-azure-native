@@ -30,31 +30,31 @@ namespace Pulumi.AzureRM.Network.Latest
         /// List of references to P2SVpnGateways.
         /// </summary>
         [Output("p2SVpnGateways")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> P2SVpnGateways { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> P2SVpnGateways { get; private set; } = null!;
 
         /// <summary>
         /// Radius client root certificate of P2SVpnServerConfiguration.
         /// </summary>
         [Output("p2SVpnServerConfigRadiusClientRootCertificates")]
-        public Output<ImmutableArray<Outputs.P2SVpnServerConfigRadiusClientRootCertificateResponseResult>> P2SVpnServerConfigRadiusClientRootCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse>> P2SVpnServerConfigRadiusClientRootCertificates { get; private set; } = null!;
 
         /// <summary>
         /// Radius Server root certificate of P2SVpnServerConfiguration.
         /// </summary>
         [Output("p2SVpnServerConfigRadiusServerRootCertificates")]
-        public Output<ImmutableArray<Outputs.P2SVpnServerConfigRadiusServerRootCertificateResponseResult>> P2SVpnServerConfigRadiusServerRootCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse>> P2SVpnServerConfigRadiusServerRootCertificates { get; private set; } = null!;
 
         /// <summary>
         /// VPN client revoked certificate of P2SVpnServerConfiguration.
         /// </summary>
         [Output("p2SVpnServerConfigVpnClientRevokedCertificates")]
-        public Output<ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponseResult>> P2SVpnServerConfigVpnClientRevokedCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse>> P2SVpnServerConfigVpnClientRevokedCertificates { get; private set; } = null!;
 
         /// <summary>
         /// VPN client root certificate of P2SVpnServerConfiguration.
         /// </summary>
         [Output("p2SVpnServerConfigVpnClientRootCertificates")]
-        public Output<ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRootCertificateResponseResult>> P2SVpnServerConfigVpnClientRootCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRootCertificateResponse>> P2SVpnServerConfigVpnClientRootCertificates { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the P2S VPN server configuration resource.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         /// </summary>
         [Output("vpnClientIpsecPolicies")]
-        public Output<ImmutableArray<Outputs.IpsecPolicyResponseResult>> VpnClientIpsecPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IpsecPolicyResponse>> VpnClientIpsecPolicies { get; private set; } = null!;
 
         /// <summary>
         /// VPN protocols for the P2SVpnServerConfiguration.

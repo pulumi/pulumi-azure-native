@@ -54,11 +54,11 @@ namespace Pulumi.AzureRM.Devices.V20180122
         /// <summary>
         /// The properties of an IoT hub.
         /// </summary>
-        public readonly Outputs.IotHubPropertiesResponseResult Properties;
+        public readonly Outputs.IotHubPropertiesResponse Properties;
         /// <summary>
         /// Information about the SKU of the IoT hub.
         /// </summary>
-        public readonly Outputs.IotHubSkuInfoResponseResult Sku;
+        public readonly Outputs.IotHubSkuInfoResponse Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureRM.Devices.V20180122
 
             string name,
 
-            Outputs.IotHubPropertiesResponseResult properties,
+            Outputs.IotHubPropertiesResponse properties,
 
-            Outputs.IotHubSkuInfoResponseResult sku,
+            Outputs.IotHubSkuInfoResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 

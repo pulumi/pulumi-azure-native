@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -37,14 +37,14 @@ __all__ = [
 @pulumi.input_type
 class AzureFileFilterDetailsArgs:
     def __init__(__self__, *,
-                 file_path_list: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 file_prefix_list: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 file_share_list: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 file_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 file_prefix_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 file_share_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Filter details to transfer Azure files
-        :param pulumi.Input[List[pulumi.Input[str]]] file_path_list: List of full path of the files to be transferred.
-        :param pulumi.Input[List[pulumi.Input[str]]] file_prefix_list: Prefix list of the Azure files to be transferred.
-        :param pulumi.Input[List[pulumi.Input[str]]] file_share_list: List of file shares to be transferred.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_path_list: List of full path of the files to be transferred.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_prefix_list: Prefix list of the Azure files to be transferred.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_share_list: List of file shares to be transferred.
         """
         if file_path_list is not None:
             pulumi.set(__self__, "file_path_list", file_path_list)
@@ -55,52 +55,52 @@ class AzureFileFilterDetailsArgs:
 
     @property
     @pulumi.getter(name="filePathList")
-    def file_path_list(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def file_path_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of full path of the files to be transferred.
         """
         return pulumi.get(self, "file_path_list")
 
     @file_path_list.setter
-    def file_path_list(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def file_path_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "file_path_list", value)
 
     @property
     @pulumi.getter(name="filePrefixList")
-    def file_prefix_list(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def file_prefix_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Prefix list of the Azure files to be transferred.
         """
         return pulumi.get(self, "file_prefix_list")
 
     @file_prefix_list.setter
-    def file_prefix_list(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def file_prefix_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "file_prefix_list", value)
 
     @property
     @pulumi.getter(name="fileShareList")
-    def file_share_list(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def file_share_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of file shares to be transferred.
         """
         return pulumi.get(self, "file_share_list")
 
     @file_share_list.setter
-    def file_share_list(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def file_share_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "file_share_list", value)
 
 
 @pulumi.input_type
 class BlobFilterDetailsArgs:
     def __init__(__self__, *,
-                 blob_path_list: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 blob_prefix_list: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 container_list: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 blob_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 blob_prefix_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 container_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Filter details to transfer Azure Blobs
-        :param pulumi.Input[List[pulumi.Input[str]]] blob_path_list: List of full path of the blobs to be transferred.
-        :param pulumi.Input[List[pulumi.Input[str]]] blob_prefix_list: Prefix list of the Azure blobs to be transferred.
-        :param pulumi.Input[List[pulumi.Input[str]]] container_list: List of blob containers to be transferred.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_path_list: List of full path of the blobs to be transferred.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_prefix_list: Prefix list of the Azure blobs to be transferred.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_list: List of blob containers to be transferred.
         """
         if blob_path_list is not None:
             pulumi.set(__self__, "blob_path_list", blob_path_list)
@@ -111,38 +111,38 @@ class BlobFilterDetailsArgs:
 
     @property
     @pulumi.getter(name="blobPathList")
-    def blob_path_list(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def blob_path_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of full path of the blobs to be transferred.
         """
         return pulumi.get(self, "blob_path_list")
 
     @blob_path_list.setter
-    def blob_path_list(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def blob_path_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "blob_path_list", value)
 
     @property
     @pulumi.getter(name="blobPrefixList")
-    def blob_prefix_list(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def blob_prefix_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Prefix list of the Azure blobs to be transferred.
         """
         return pulumi.get(self, "blob_prefix_list")
 
     @blob_prefix_list.setter
-    def blob_prefix_list(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def blob_prefix_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "blob_prefix_list", value)
 
     @property
     @pulumi.getter(name="containerList")
-    def container_list(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def container_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of blob containers to be transferred.
         """
         return pulumi.get(self, "container_list")
 
     @container_list.setter
-    def container_list(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def container_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "container_list", value)
 
 
@@ -150,18 +150,18 @@ class BlobFilterDetailsArgs:
 class ContactDetailsArgs:
     def __init__(__self__, *,
                  contact_name: pulumi.Input[str],
-                 email_list: pulumi.Input[List[pulumi.Input[str]]],
+                 email_list: pulumi.Input[Sequence[pulumi.Input[str]]],
                  phone: pulumi.Input[str],
                  mobile: Optional[pulumi.Input[str]] = None,
-                 notification_preference: Optional[pulumi.Input[List[pulumi.Input['NotificationPreferenceArgs']]]] = None,
+                 notification_preference: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]] = None,
                  phone_extension: Optional[pulumi.Input[str]] = None):
         """
         Contact Details.
         :param pulumi.Input[str] contact_name: Contact name of the person.
-        :param pulumi.Input[List[pulumi.Input[str]]] email_list: List of Email-ids to be notified about job progress.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_list: List of Email-ids to be notified about job progress.
         :param pulumi.Input[str] phone: Phone number of the contact person.
         :param pulumi.Input[str] mobile: Mobile number of the contact person.
-        :param pulumi.Input[List[pulumi.Input['NotificationPreferenceArgs']]] notification_preference: Notification preference for a job stage.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]] notification_preference: Notification preference for a job stage.
         :param pulumi.Input[str] phone_extension: Phone extension number of the contact person.
         """
         pulumi.set(__self__, "contact_name", contact_name)
@@ -188,14 +188,14 @@ class ContactDetailsArgs:
 
     @property
     @pulumi.getter(name="emailList")
-    def email_list(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def email_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of Email-ids to be notified about job progress.
         """
         return pulumi.get(self, "email_list")
 
     @email_list.setter
-    def email_list(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def email_list(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "email_list", value)
 
     @property
@@ -224,14 +224,14 @@ class ContactDetailsArgs:
 
     @property
     @pulumi.getter(name="notificationPreference")
-    def notification_preference(self) -> Optional[pulumi.Input[List[pulumi.Input['NotificationPreferenceArgs']]]]:
+    def notification_preference(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]]:
         """
         Notification preference for a job stage.
         """
         return pulumi.get(self, "notification_preference")
 
     @notification_preference.setter
-    def notification_preference(self, value: Optional[pulumi.Input[List[pulumi.Input['NotificationPreferenceArgs']]]]):
+    def notification_preference(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]]):
         pulumi.set(self, "notification_preference", value)
 
     @property
@@ -252,23 +252,23 @@ class DataBoxDiskJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
                  job_details_type: pulumi.Input[str],
-                 data_export_details: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]] = None,
-                 data_import_details: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[float]] = None,
+                 data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
                  passkey: Optional[pulumi.Input[str]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
-                 preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]] = None,
+                 preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         DataBox Disk Job Details.
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
-        :param pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
-        :param pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
-        :param pulumi.Input[float] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
+        :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
+        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input[str] passkey: User entered passkey for DataBox Disk job.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
-        :param pulumi.Input[Mapping[str, pulumi.Input[float]]] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+        :param pulumi.Input[Mapping[str, pulumi.Input[int]]] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
         pulumi.set(__self__, "contact_details", contact_details)
@@ -314,38 +314,38 @@ class DataBoxDiskJobDetailsArgs:
 
     @property
     @pulumi.getter(name="dataExportDetails")
-    def data_export_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]:
+    def data_export_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
         """
         Details of the data to be exported from azure.
         """
         return pulumi.get(self, "data_export_details")
 
     @data_export_details.setter
-    def data_export_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]):
+    def data_export_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
         pulumi.set(self, "data_export_details", value)
 
     @property
     @pulumi.getter(name="dataImportDetails")
-    def data_import_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]:
+    def data_import_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
         """
         Details of the data to be imported into azure.
         """
         return pulumi.get(self, "data_import_details")
 
     @data_import_details.setter
-    def data_import_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]):
+    def data_import_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
         pulumi.set(self, "data_import_details", value)
 
     @property
     @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[float]]:
+    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_terabytes")
 
     @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[float]]):
+    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expected_data_size_in_terabytes", value)
 
     @property
@@ -374,14 +374,14 @@ class DataBoxDiskJobDetailsArgs:
 
     @property
     @pulumi.getter(name="preferredDisks")
-    def preferred_disks(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]:
+    def preferred_disks(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]]:
         """
         User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
         """
         return pulumi.get(self, "preferred_disks")
 
     @preferred_disks.setter
-    def preferred_disks(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]):
+    def preferred_disks(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]]):
         pulumi.set(self, "preferred_disks", value)
 
     @property
@@ -402,20 +402,20 @@ class DataBoxHeavyJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
                  job_details_type: pulumi.Input[str],
-                 data_export_details: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]] = None,
-                 data_import_details: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
                  device_password: Optional[pulumi.Input[str]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[float]] = None,
+                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         Databox Heavy Device Job Details
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
-        :param pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
-        :param pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
+        :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
+        :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-        :param pulumi.Input[float] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
@@ -460,26 +460,26 @@ class DataBoxHeavyJobDetailsArgs:
 
     @property
     @pulumi.getter(name="dataExportDetails")
-    def data_export_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]:
+    def data_export_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
         """
         Details of the data to be exported from azure.
         """
         return pulumi.get(self, "data_export_details")
 
     @data_export_details.setter
-    def data_export_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]):
+    def data_export_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
         pulumi.set(self, "data_export_details", value)
 
     @property
     @pulumi.getter(name="dataImportDetails")
-    def data_import_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]:
+    def data_import_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
         """
         Details of the data to be imported into azure.
         """
         return pulumi.get(self, "data_import_details")
 
     @data_import_details.setter
-    def data_import_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]):
+    def data_import_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
         pulumi.set(self, "data_import_details", value)
 
     @property
@@ -496,14 +496,14 @@ class DataBoxHeavyJobDetailsArgs:
 
     @property
     @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[float]]:
+    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_terabytes")
 
     @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[float]]):
+    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expected_data_size_in_terabytes", value)
 
     @property
@@ -536,20 +536,20 @@ class DataBoxJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
                  job_details_type: pulumi.Input[str],
-                 data_export_details: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]] = None,
-                 data_import_details: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
                  device_password: Optional[pulumi.Input[str]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[float]] = None,
+                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         Databox Job Details
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
-        :param pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
-        :param pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
+        :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
+        :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-        :param pulumi.Input[float] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
@@ -594,26 +594,26 @@ class DataBoxJobDetailsArgs:
 
     @property
     @pulumi.getter(name="dataExportDetails")
-    def data_export_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]:
+    def data_export_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
         """
         Details of the data to be exported from azure.
         """
         return pulumi.get(self, "data_export_details")
 
     @data_export_details.setter
-    def data_export_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]):
+    def data_export_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
         pulumi.set(self, "data_export_details", value)
 
     @property
     @pulumi.getter(name="dataImportDetails")
-    def data_import_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]:
+    def data_import_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
         """
         Details of the data to be imported into azure.
         """
         return pulumi.get(self, "data_import_details")
 
     @data_import_details.setter
-    def data_import_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]):
+    def data_import_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
         pulumi.set(self, "data_import_details", value)
 
     @property
@@ -630,14 +630,14 @@ class DataBoxJobDetailsArgs:
 
     @property
     @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[float]]:
+    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
         return pulumi.get(self, "expected_data_size_in_terabytes")
 
     @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[float]]):
+    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expected_data_size_in_terabytes", value)
 
     @property
@@ -914,11 +914,11 @@ class NotificationPreferenceArgs:
 @pulumi.input_type
 class PreferencesArgs:
     def __init__(__self__, *,
-                 preferred_data_center_region: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 preferred_data_center_region: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None):
         """
         Preferences related to the order
-        :param pulumi.Input[List[pulumi.Input[str]]] preferred_data_center_region: Preferred data center region.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_data_center_region: Preferred data center region.
         :param pulumi.Input['TransportPreferencesArgs'] transport_preferences: Preferences related to the shipment logistics of the sku.
         """
         if preferred_data_center_region is not None:
@@ -928,14 +928,14 @@ class PreferencesArgs:
 
     @property
     @pulumi.getter(name="preferredDataCenterRegion")
-    def preferred_data_center_region(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def preferred_data_center_region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Preferred data center region.
         """
         return pulumi.get(self, "preferred_data_center_region")
 
     @preferred_data_center_region.setter
-    def preferred_data_center_region(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def preferred_data_center_region(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "preferred_data_center_region", value)
 
     @property
@@ -1413,13 +1413,13 @@ class TransferFilterDetailsArgs:
                  data_account_type: pulumi.Input[str],
                  azure_file_filter_details: Optional[pulumi.Input['AzureFileFilterDetailsArgs']] = None,
                  blob_filter_details: Optional[pulumi.Input['BlobFilterDetailsArgs']] = None,
-                 filter_file_details: Optional[pulumi.Input[List[pulumi.Input['FilterFileDetailsArgs']]]] = None):
+                 filter_file_details: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]]] = None):
         """
         Details of the filtering the transfer of data.
         :param pulumi.Input[str] data_account_type: Type of the account of data.
         :param pulumi.Input['AzureFileFilterDetailsArgs'] azure_file_filter_details: Filter details to transfer Azure files.
         :param pulumi.Input['BlobFilterDetailsArgs'] blob_filter_details: Filter details to transfer blobs.
-        :param pulumi.Input[List[pulumi.Input['FilterFileDetailsArgs']]] filter_file_details: Details of the filter files to be used for data transfer.
+        :param pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]] filter_file_details: Details of the filter files to be used for data transfer.
         """
         pulumi.set(__self__, "data_account_type", data_account_type)
         if azure_file_filter_details is not None:
@@ -1467,14 +1467,14 @@ class TransferFilterDetailsArgs:
 
     @property
     @pulumi.getter(name="filterFileDetails")
-    def filter_file_details(self) -> Optional[pulumi.Input[List[pulumi.Input['FilterFileDetailsArgs']]]]:
+    def filter_file_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]]]:
         """
         Details of the filter files to be used for data transfer.
         """
         return pulumi.get(self, "filter_file_details")
 
     @filter_file_details.setter
-    def filter_file_details(self, value: Optional[pulumi.Input[List[pulumi.Input['FilterFileDetailsArgs']]]]):
+    def filter_file_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]]]):
         pulumi.set(self, "filter_file_details", value)
 
 

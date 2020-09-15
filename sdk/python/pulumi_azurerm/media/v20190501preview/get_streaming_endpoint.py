@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -60,8 +60,8 @@ class GetStreamingEndpointResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_cache_age and not isinstance(max_cache_age, float):
-            raise TypeError("Expected argument 'max_cache_age' to be a float")
+        if max_cache_age and not isinstance(max_cache_age, int):
+            raise TypeError("Expected argument 'max_cache_age' to be a int")
         pulumi.set(__self__, "max_cache_age", max_cache_age)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -72,8 +72,8 @@ class GetStreamingEndpointResult:
         if resource_state and not isinstance(resource_state, str):
             raise TypeError("Expected argument 'resource_state' to be a str")
         pulumi.set(__self__, "resource_state", resource_state)
-        if scale_units and not isinstance(scale_units, float):
-            raise TypeError("Expected argument 'scale_units' to be a float")
+        if scale_units and not isinstance(scale_units, int):
+            raise TypeError("Expected argument 'scale_units' to be a int")
         pulumi.set(__self__, "scale_units", scale_units)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -140,7 +140,7 @@ class GetStreamingEndpointResult:
 
     @property
     @pulumi.getter(name="customHostNames")
-    def custom_host_names(self) -> Optional[List[str]]:
+    def custom_host_names(self) -> Optional[Sequence[str]]:
         """
         The custom host names of the StreamingEndpoint
         """
@@ -188,7 +188,7 @@ class GetStreamingEndpointResult:
 
     @property
     @pulumi.getter(name="maxCacheAge")
-    def max_cache_age(self) -> Optional[float]:
+    def max_cache_age(self) -> Optional[int]:
         """
         Max cache age
         """
@@ -220,7 +220,7 @@ class GetStreamingEndpointResult:
 
     @property
     @pulumi.getter(name="scaleUnits")
-    def scale_units(self) -> float:
+    def scale_units(self) -> int:
         """
         The number of scale units.  Use the Scale operation to adjust this value.
         """

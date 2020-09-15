@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Disk']
@@ -16,7 +16,7 @@ class Disk(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disk_blob_name: Optional[pulumi.Input[str]] = None,
-                 disk_size_gi_b: Optional[pulumi.Input[float]] = None,
+                 disk_size_gi_b: Optional[pulumi.Input[int]] = None,
                  disk_type: Optional[pulumi.Input[str]] = None,
                  disk_uri: Optional[pulumi.Input[str]] = None,
                  host_caching: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class Disk(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_blob_name: When backed by a blob, the name of the VHD blob without extension.
-        :param pulumi.Input[float] disk_size_gi_b: The size of the disk in Gibibytes.
+        :param pulumi.Input[int] disk_size_gi_b: The size of the disk in Gibibytes.
         :param pulumi.Input[str] disk_type: The storage type for the disk (i.e. Standard, Premium).
         :param pulumi.Input[str] disk_uri: When backed by a blob, the URI of underlying blob.
         :param pulumi.Input[str] host_caching: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
@@ -140,7 +140,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeGiB")
-    def disk_size_gi_b(self) -> pulumi.Output[Optional[float]]:
+    def disk_size_gi_b(self) -> pulumi.Output[Optional[int]]:
         """
         The size of the disk in Gibibytes.
         """

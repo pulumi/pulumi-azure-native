@@ -48,11 +48,11 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The DDoS protection custom policy associated with the public IP address.
         /// </summary>
-        public readonly Outputs.DdosSettingsResponseResult? DdosSettings;
+        public readonly Outputs.DdosSettingsResponse? DdosSettings;
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
         /// </summary>
-        public readonly Outputs.PublicIPAddressDnsSettingsResponseResult? DnsSettings;
+        public readonly Outputs.PublicIPAddressDnsSettingsResponse? DnsSettings;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The IP configuration associated with the public IP address.
         /// </summary>
-        public readonly Outputs.IPConfigurationResponseResult IpConfiguration;
+        public readonly Outputs.IPConfigurationResponse IpConfiguration;
         /// <summary>
         /// The list of tags associated with the public IP address.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpTagResponseResult> IpTags;
+        public readonly ImmutableArray<Outputs.IpTagResponse> IpTags;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The Public IP Prefix this Public IP Address should be allocated from.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? PublicIPPrefix;
+        public readonly Outputs.SubResourceResponse? PublicIPPrefix;
         /// <summary>
         /// The resource GUID property of the public IP address resource.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The public IP address SKU.
         /// </summary>
-        public readonly Outputs.PublicIPAddressSkuResponseResult? Sku;
+        public readonly Outputs.PublicIPAddressSkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -120,9 +120,9 @@ namespace Pulumi.AzureRM.Network.V20200501
 
         [OutputConstructor]
         private GetPublicIPAddressResult(
-            Outputs.DdosSettingsResponseResult? ddosSettings,
+            Outputs.DdosSettingsResponse? ddosSettings,
 
-            Outputs.PublicIPAddressDnsSettingsResponseResult? dnsSettings,
+            Outputs.PublicIPAddressDnsSettingsResponse? dnsSettings,
 
             string etag,
 
@@ -130,9 +130,9 @@ namespace Pulumi.AzureRM.Network.V20200501
 
             string? ipAddress,
 
-            Outputs.IPConfigurationResponseResult ipConfiguration,
+            Outputs.IPConfigurationResponse ipConfiguration,
 
-            ImmutableArray<Outputs.IpTagResponseResult> ipTags,
+            ImmutableArray<Outputs.IpTagResponse> ipTags,
 
             string? location,
 
@@ -144,11 +144,11 @@ namespace Pulumi.AzureRM.Network.V20200501
 
             string? publicIPAllocationMethod,
 
-            Outputs.SubResourceResponseResult? publicIPPrefix,
+            Outputs.SubResourceResponse? publicIPPrefix,
 
             string resourceGuid,
 
-            Outputs.PublicIPAddressSkuResponseResult? sku,
+            Outputs.PublicIPAddressSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

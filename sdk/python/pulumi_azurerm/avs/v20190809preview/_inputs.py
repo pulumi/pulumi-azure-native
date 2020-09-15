@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -21,72 +21,72 @@ __all__ = [
 @pulumi.input_type
 class CircuitArgs:
     def __init__(__self__, *,
-                 authorizations: Optional[pulumi.Input[List[pulumi.Input['ExpressRouteAuthorizationArgs']]]] = None):
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteAuthorizationArgs']]]] = None):
         """
         An ExpressRoute Circuit
-        :param pulumi.Input[List[pulumi.Input['ExpressRouteAuthorizationArgs']]] authorizations: Authorizations for the ExpressRoute (Microsoft Colo only)
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteAuthorizationArgs']]] authorizations: Authorizations for the ExpressRoute (Microsoft Colo only)
         """
         if authorizations is not None:
             pulumi.set(__self__, "authorizations", authorizations)
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[pulumi.Input[List[pulumi.Input['ExpressRouteAuthorizationArgs']]]]:
+    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteAuthorizationArgs']]]]:
         """
         Authorizations for the ExpressRoute (Microsoft Colo only)
         """
         return pulumi.get(self, "authorizations")
 
     @authorizations.setter
-    def authorizations(self, value: Optional[pulumi.Input[List[pulumi.Input['ExpressRouteAuthorizationArgs']]]]):
+    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteAuthorizationArgs']]]]):
         pulumi.set(self, "authorizations", value)
 
 
 @pulumi.input_type
 class ClusterPropertiesArgs:
     def __init__(__self__, *,
-                 cluster_size: Optional[pulumi.Input[float]] = None):
+                 cluster_size: Optional[pulumi.Input[int]] = None):
         """
         The properties of a cluster
-        :param pulumi.Input[float] cluster_size: The cluster size
+        :param pulumi.Input[int] cluster_size: The cluster size
         """
         if cluster_size is not None:
             pulumi.set(__self__, "cluster_size", cluster_size)
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> Optional[pulumi.Input[float]]:
+    def cluster_size(self) -> Optional[pulumi.Input[int]]:
         """
         The cluster size
         """
         return pulumi.get(self, "cluster_size")
 
     @cluster_size.setter
-    def cluster_size(self, value: Optional[pulumi.Input[float]]):
+    def cluster_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cluster_size", value)
 
 
 @pulumi.input_type
 class DefaultClusterPropertiesArgs:
     def __init__(__self__, *,
-                 cluster_size: Optional[pulumi.Input[float]] = None):
+                 cluster_size: Optional[pulumi.Input[int]] = None):
         """
         The properties of a default cluster
-        :param pulumi.Input[float] cluster_size: The cluster size
+        :param pulumi.Input[int] cluster_size: The cluster size
         """
         if cluster_size is not None:
             pulumi.set(__self__, "cluster_size", cluster_size)
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> Optional[pulumi.Input[float]]:
+    def cluster_size(self) -> Optional[pulumi.Input[int]]:
         """
         The cluster size
         """
         return pulumi.get(self, "cluster_size")
 
     @cluster_size.setter
-    def cluster_size(self, value: Optional[pulumi.Input[float]]):
+    def cluster_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cluster_size", value)
 
 
@@ -287,7 +287,7 @@ class PrivateCloudPropertiesArgs:
     def __init__(__self__, *,
                  circuit: Optional[pulumi.Input['CircuitArgs']] = None,
                  cluster: Optional[pulumi.Input['DefaultClusterPropertiesArgs']] = None,
-                 identity_sources: Optional[pulumi.Input[List[pulumi.Input['IdentitySourceArgs']]]] = None,
+                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]] = None,
                  internet: Optional[pulumi.Input[str]] = None,
                  network_block: Optional[pulumi.Input[str]] = None,
                  nsxt_password: Optional[pulumi.Input[str]] = None,
@@ -296,7 +296,7 @@ class PrivateCloudPropertiesArgs:
         The properties of a private cloud resource
         :param pulumi.Input['CircuitArgs'] circuit: An ExpressRoute Circuit
         :param pulumi.Input['DefaultClusterPropertiesArgs'] cluster: The default cluster used for management
-        :param pulumi.Input[List[pulumi.Input['IdentitySourceArgs']]] identity_sources: vCenter Single Sign On Identity Sources
+        :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]] identity_sources: vCenter Single Sign On Identity Sources
         :param pulumi.Input[str] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
         :param pulumi.Input[str] nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
@@ -343,14 +343,14 @@ class PrivateCloudPropertiesArgs:
 
     @property
     @pulumi.getter(name="identitySources")
-    def identity_sources(self) -> Optional[pulumi.Input[List[pulumi.Input['IdentitySourceArgs']]]]:
+    def identity_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]]:
         """
         vCenter Single Sign On Identity Sources
         """
         return pulumi.get(self, "identity_sources")
 
     @identity_sources.setter
-    def identity_sources(self, value: Optional[pulumi.Input[List[pulumi.Input['IdentitySourceArgs']]]]):
+    def identity_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]]):
         pulumi.set(self, "identity_sources", value)
 
     @property

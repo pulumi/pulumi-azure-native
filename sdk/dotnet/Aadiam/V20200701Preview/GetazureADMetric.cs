@@ -47,7 +47,7 @@ namespace Pulumi.AzureRM.Aadiam.V20200701Preview
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.AzureADMetricsPropertiesFormatResponseResult Properties;
+        public readonly Outputs.AzureADMetricsPropertiesFormatResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.Aadiam.V20200701Preview
 
             string name,
 
-            Outputs.AzureADMetricsPropertiesFormatResponseResult properties,
+            Outputs.AzureADMetricsPropertiesFormatResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

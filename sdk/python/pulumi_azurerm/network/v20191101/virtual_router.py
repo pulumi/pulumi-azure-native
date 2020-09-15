@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,8 @@ class VirtualRouter(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_router_asn: Optional[pulumi.Input[float]] = None,
-                 virtual_router_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 virtual_router_asn: Optional[pulumi.Input[int]] = None,
+                 virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -40,8 +40,8 @@ class VirtualRouter(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[float] virtual_router_asn: VirtualRouter ASN.
-        :param pulumi.Input[List[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.
+        :param pulumi.Input[int] virtual_router_asn: VirtualRouter ASN.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.
         :param pulumi.Input[str] virtual_router_name: The name of the Virtual Router.
         """
         if __name__ is not None:
@@ -147,7 +147,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def peerings(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def peerings(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         List of references to VirtualRouterPeerings.
         """
@@ -179,7 +179,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualRouterAsn")
-    def virtual_router_asn(self) -> pulumi.Output[Optional[float]]:
+    def virtual_router_asn(self) -> pulumi.Output[Optional[int]]:
         """
         VirtualRouter ASN.
         """
@@ -187,7 +187,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualRouterIps")
-    def virtual_router_ips(self) -> pulumi.Output[Optional[List[str]]]:
+    def virtual_router_ips(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         VirtualRouter IPs.
         """

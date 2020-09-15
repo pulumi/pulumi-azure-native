@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,7 +27,7 @@ class ListDatabaseAccountConnectionStringsResult:
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[List['outputs.DatabaseAccountConnectionStringResponseResult']]:
+    def connection_strings(self) -> Optional[Sequence['outputs.DatabaseAccountConnectionStringResponseResult']]:
         """
         An array that contains the connection strings for the Cosmos DB account.
         """

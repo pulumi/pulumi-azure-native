@@ -56,11 +56,11 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// The endpoint A of an experiment
         /// </summary>
-        public readonly Outputs.EndpointResponseResult? EndpointA;
+        public readonly Outputs.EndpointResponse? EndpointA;
         /// <summary>
         /// The endpoint B of an experiment
         /// </summary>
-        public readonly Outputs.EndpointResponseResult? EndpointB;
+        public readonly Outputs.EndpointResponse? EndpointB;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -96,9 +96,9 @@ namespace Pulumi.AzureRM.Network.V20191101
 
             string? enabledState,
 
-            Outputs.EndpointResponseResult? endpointA,
+            Outputs.EndpointResponse? endpointA,
 
-            Outputs.EndpointResponseResult? endpointB,
+            Outputs.EndpointResponse? endpointB,
 
             string? location,
 

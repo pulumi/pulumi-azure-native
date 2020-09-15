@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// An XML configuration specification for a WebTest.
         /// </summary>
         [Output("configuration")]
-        public Output<Outputs.WebTestPropertiesResponseConfigurationResult?> Configuration { get; private set; } = null!;
+        public Output<Outputs.WebTestPropertiesResponseConfiguration?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// Purpose/user defined descriptive test for this WebTest.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// A list of where to physically run the tests from to give global coverage for accessibility of your application.
         /// </summary>
         [Output("locations")]
-        public Output<ImmutableArray<Outputs.WebTestGeolocationResponseResult>> Locations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WebTestGeolocationResponse>> Locations { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name

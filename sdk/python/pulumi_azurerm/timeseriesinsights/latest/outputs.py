@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -57,11 +57,11 @@ class SkuResponse(dict):
     The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
     """
     def __init__(__self__, *,
-                 capacity: float,
+                 capacity: int,
                  name: str):
         """
         The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-        :param float capacity: The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
+        :param int capacity: The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
         :param str name: The name of this SKU.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -69,7 +69,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
         """

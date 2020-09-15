@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// The template definition of the virtual network function.
         /// </summary>
         [Output("virtualNetworkFunctionTemplate")]
-        public Output<Outputs.VirtualNetworkFunctionTemplateResponseResult?> VirtualNetworkFunctionTemplate { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkFunctionTemplateResponse?> VirtualNetworkFunctionTemplate { get; private set; } = null!;
 
 
         /// <summary>

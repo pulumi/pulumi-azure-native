@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -88,7 +88,7 @@ class GetServiceEndpointPolicyResult:
 
     @property
     @pulumi.getter(name="serviceEndpointPolicyDefinitions")
-    def service_endpoint_policy_definitions(self) -> Optional[List['outputs.ServiceEndpointPolicyDefinitionResponse']]:
+    def service_endpoint_policy_definitions(self) -> Optional[Sequence['outputs.ServiceEndpointPolicyDefinitionResponse']]:
         """
         A collection of service endpoint policy definitions of the service endpoint policy.
         """

@@ -144,7 +144,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// <summary>
         /// The recommended indices for this database.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RecommendedIndexResponseResult> RecommendedIndex;
+        public readonly ImmutableArray<Outputs.RecommendedIndexResponse> RecommendedIndex;
         /// <summary>
         /// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
         /// </summary>
@@ -184,7 +184,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// <summary>
         /// The list of service tier advisors for this database. Expanded property
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceTierAdvisorResponseResult> ServiceTierAdvisors;
+        public readonly ImmutableArray<Outputs.ServiceTierAdvisorResponse> ServiceTierAdvisors;
         /// <summary>
         /// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
         /// </summary>
@@ -204,7 +204,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// <summary>
         /// The transparent data encryption info for this database.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TransparentDataEncryptionResponseResult> TransparentDataEncryption;
+        public readonly ImmutableArray<Outputs.TransparentDataEncryptionResponse> TransparentDataEncryption;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -248,7 +248,7 @@ namespace Pulumi.AzureRM.Sql.Latest
 
             string? readScale,
 
-            ImmutableArray<Outputs.RecommendedIndexResponseResult> recommendedIndex,
+            ImmutableArray<Outputs.RecommendedIndexResponse> recommendedIndex,
 
             string? recoveryServicesRecoveryPointResourceId,
 
@@ -262,7 +262,7 @@ namespace Pulumi.AzureRM.Sql.Latest
 
             string serviceLevelObjective,
 
-            ImmutableArray<Outputs.ServiceTierAdvisorResponseResult> serviceTierAdvisors,
+            ImmutableArray<Outputs.ServiceTierAdvisorResponse> serviceTierAdvisors,
 
             string? sourceDatabaseDeletionDate,
 
@@ -272,7 +272,7 @@ namespace Pulumi.AzureRM.Sql.Latest
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TransparentDataEncryptionResponseResult> transparentDataEncryption,
+            ImmutableArray<Outputs.TransparentDataEncryptionResponse> transparentDataEncryption,
 
             string type,
 

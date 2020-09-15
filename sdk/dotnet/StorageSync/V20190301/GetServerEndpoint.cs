@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.StorageSync.V20190301
         /// <summary>
         /// Server Endpoint sync status
         /// </summary>
-        public readonly Outputs.ServerEndpointSyncStatusResponseResult SyncStatus;
+        public readonly Outputs.ServerEndpointSyncStatusResponse SyncStatus;
         /// <summary>
         /// Tier files older than days.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureRM.StorageSync.V20190301
 
             string? serverResourceId,
 
-            Outputs.ServerEndpointSyncStatusResponseResult syncStatus,
+            Outputs.ServerEndpointSyncStatusResponse syncStatus,
 
             int? tierFilesOlderThanDays,
 

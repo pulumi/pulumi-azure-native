@@ -48,11 +48,11 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <summary>
         /// Auto-pausing properties
         /// </summary>
-        public readonly Outputs.AutoPausePropertiesResponseResult? AutoPause;
+        public readonly Outputs.AutoPausePropertiesResponse? AutoPause;
         /// <summary>
         /// Auto-scaling properties
         /// </summary>
-        public readonly Outputs.AutoScalePropertiesResponseResult? AutoScale;
+        public readonly Outputs.AutoScalePropertiesResponse? AutoScale;
         /// <summary>
         /// The time when the Big Data pool was created.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <summary>
         /// Library version requirements
         /// </summary>
-        public readonly Outputs.LibraryRequirementsResponseResult? LibraryRequirements;
+        public readonly Outputs.LibraryRequirementsResponse? LibraryRequirements;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -112,9 +112,9 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 
         [OutputConstructor]
         private GetBigDataPoolResult(
-            Outputs.AutoPausePropertiesResponseResult? autoPause,
+            Outputs.AutoPausePropertiesResponse? autoPause,
 
-            Outputs.AutoScalePropertiesResponseResult? autoScale,
+            Outputs.AutoScalePropertiesResponse? autoScale,
 
             string? creationDate,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 
             bool? isComputeIsolationEnabled,
 
-            Outputs.LibraryRequirementsResponseResult? libraryRequirements,
+            Outputs.LibraryRequirementsResponse? libraryRequirements,
 
             string location,
 

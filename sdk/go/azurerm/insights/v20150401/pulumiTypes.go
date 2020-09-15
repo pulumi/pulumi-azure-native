@@ -79,56 +79,6 @@ func (i AutoscaleNotificationArray) ToAutoscaleNotificationArrayOutputWithContex
 }
 
 // Autoscale notification.
-type AutoscaleNotificationOutput struct{ *pulumi.OutputState }
-
-func (AutoscaleNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleNotification)(nil)).Elem()
-}
-
-func (o AutoscaleNotificationOutput) ToAutoscaleNotificationOutput() AutoscaleNotificationOutput {
-	return o
-}
-
-func (o AutoscaleNotificationOutput) ToAutoscaleNotificationOutputWithContext(ctx context.Context) AutoscaleNotificationOutput {
-	return o
-}
-
-// the email notification.
-func (o AutoscaleNotificationOutput) Email() EmailNotificationPtrOutput {
-	return o.ApplyT(func(v AutoscaleNotification) *EmailNotification { return v.Email }).(EmailNotificationPtrOutput)
-}
-
-// the operation associated with the notification and its value must be "scale"
-func (o AutoscaleNotificationOutput) Operation() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoscaleNotification) string { return v.Operation }).(pulumi.StringOutput)
-}
-
-// the collection of webhook notifications.
-func (o AutoscaleNotificationOutput) Webhooks() WebhookNotificationArrayOutput {
-	return o.ApplyT(func(v AutoscaleNotification) []WebhookNotification { return v.Webhooks }).(WebhookNotificationArrayOutput)
-}
-
-type AutoscaleNotificationArrayOutput struct{ *pulumi.OutputState }
-
-func (AutoscaleNotificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoscaleNotification)(nil)).Elem()
-}
-
-func (o AutoscaleNotificationArrayOutput) ToAutoscaleNotificationArrayOutput() AutoscaleNotificationArrayOutput {
-	return o
-}
-
-func (o AutoscaleNotificationArrayOutput) ToAutoscaleNotificationArrayOutputWithContext(ctx context.Context) AutoscaleNotificationArrayOutput {
-	return o
-}
-
-func (o AutoscaleNotificationArrayOutput) Index(i pulumi.IntInput) AutoscaleNotificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoscaleNotification {
-		return vs[0].([]AutoscaleNotification)[vs[1].(int)]
-	}).(AutoscaleNotificationOutput)
-}
-
-// Autoscale notification.
 type AutoscaleNotificationResponse struct {
 	// the email notification.
 	Email *EmailNotificationResponse `pulumi:"email"`
@@ -136,64 +86,6 @@ type AutoscaleNotificationResponse struct {
 	Operation string `pulumi:"operation"`
 	// the collection of webhook notifications.
 	Webhooks []WebhookNotificationResponse `pulumi:"webhooks"`
-}
-
-// AutoscaleNotificationResponseInput is an input type that accepts AutoscaleNotificationResponseArgs and AutoscaleNotificationResponseOutput values.
-// You can construct a concrete instance of `AutoscaleNotificationResponseInput` via:
-//
-//          AutoscaleNotificationResponseArgs{...}
-type AutoscaleNotificationResponseInput interface {
-	pulumi.Input
-
-	ToAutoscaleNotificationResponseOutput() AutoscaleNotificationResponseOutput
-	ToAutoscaleNotificationResponseOutputWithContext(context.Context) AutoscaleNotificationResponseOutput
-}
-
-// Autoscale notification.
-type AutoscaleNotificationResponseArgs struct {
-	// the email notification.
-	Email EmailNotificationResponsePtrInput `pulumi:"email"`
-	// the operation associated with the notification and its value must be "scale"
-	Operation pulumi.StringInput `pulumi:"operation"`
-	// the collection of webhook notifications.
-	Webhooks WebhookNotificationResponseArrayInput `pulumi:"webhooks"`
-}
-
-func (AutoscaleNotificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleNotificationResponse)(nil)).Elem()
-}
-
-func (i AutoscaleNotificationResponseArgs) ToAutoscaleNotificationResponseOutput() AutoscaleNotificationResponseOutput {
-	return i.ToAutoscaleNotificationResponseOutputWithContext(context.Background())
-}
-
-func (i AutoscaleNotificationResponseArgs) ToAutoscaleNotificationResponseOutputWithContext(ctx context.Context) AutoscaleNotificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleNotificationResponseOutput)
-}
-
-// AutoscaleNotificationResponseArrayInput is an input type that accepts AutoscaleNotificationResponseArray and AutoscaleNotificationResponseArrayOutput values.
-// You can construct a concrete instance of `AutoscaleNotificationResponseArrayInput` via:
-//
-//          AutoscaleNotificationResponseArray{ AutoscaleNotificationResponseArgs{...} }
-type AutoscaleNotificationResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutoscaleNotificationResponseArrayOutput() AutoscaleNotificationResponseArrayOutput
-	ToAutoscaleNotificationResponseArrayOutputWithContext(context.Context) AutoscaleNotificationResponseArrayOutput
-}
-
-type AutoscaleNotificationResponseArray []AutoscaleNotificationResponseInput
-
-func (AutoscaleNotificationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoscaleNotificationResponse)(nil)).Elem()
-}
-
-func (i AutoscaleNotificationResponseArray) ToAutoscaleNotificationResponseArrayOutput() AutoscaleNotificationResponseArrayOutput {
-	return i.ToAutoscaleNotificationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutoscaleNotificationResponseArray) ToAutoscaleNotificationResponseArrayOutputWithContext(ctx context.Context) AutoscaleNotificationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleNotificationResponseArrayOutput)
 }
 
 // Autoscale notification.
@@ -323,66 +215,6 @@ func (i AutoscaleProfileArray) ToAutoscaleProfileArrayOutputWithContext(ctx cont
 }
 
 // Autoscale profile.
-type AutoscaleProfileOutput struct{ *pulumi.OutputState }
-
-func (AutoscaleProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleProfile)(nil)).Elem()
-}
-
-func (o AutoscaleProfileOutput) ToAutoscaleProfileOutput() AutoscaleProfileOutput {
-	return o
-}
-
-func (o AutoscaleProfileOutput) ToAutoscaleProfileOutputWithContext(ctx context.Context) AutoscaleProfileOutput {
-	return o
-}
-
-// the number of instances that can be used during this profile.
-func (o AutoscaleProfileOutput) Capacity() ScaleCapacityOutput {
-	return o.ApplyT(func(v AutoscaleProfile) ScaleCapacity { return v.Capacity }).(ScaleCapacityOutput)
-}
-
-// the specific date-time for the profile. This element is not used if the Recurrence element is used.
-func (o AutoscaleProfileOutput) FixedDate() TimeWindowPtrOutput {
-	return o.ApplyT(func(v AutoscaleProfile) *TimeWindow { return v.FixedDate }).(TimeWindowPtrOutput)
-}
-
-// the name of the profile.
-func (o AutoscaleProfileOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoscaleProfile) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-func (o AutoscaleProfileOutput) Recurrence() RecurrencePtrOutput {
-	return o.ApplyT(func(v AutoscaleProfile) *Recurrence { return v.Recurrence }).(RecurrencePtrOutput)
-}
-
-// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-func (o AutoscaleProfileOutput) Rules() ScaleRuleArrayOutput {
-	return o.ApplyT(func(v AutoscaleProfile) []ScaleRule { return v.Rules }).(ScaleRuleArrayOutput)
-}
-
-type AutoscaleProfileArrayOutput struct{ *pulumi.OutputState }
-
-func (AutoscaleProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoscaleProfile)(nil)).Elem()
-}
-
-func (o AutoscaleProfileArrayOutput) ToAutoscaleProfileArrayOutput() AutoscaleProfileArrayOutput {
-	return o
-}
-
-func (o AutoscaleProfileArrayOutput) ToAutoscaleProfileArrayOutputWithContext(ctx context.Context) AutoscaleProfileArrayOutput {
-	return o
-}
-
-func (o AutoscaleProfileArrayOutput) Index(i pulumi.IntInput) AutoscaleProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoscaleProfile {
-		return vs[0].([]AutoscaleProfile)[vs[1].(int)]
-	}).(AutoscaleProfileOutput)
-}
-
-// Autoscale profile.
 type AutoscaleProfileResponse struct {
 	// the number of instances that can be used during this profile.
 	Capacity ScaleCapacityResponse `pulumi:"capacity"`
@@ -394,68 +226,6 @@ type AutoscaleProfileResponse struct {
 	Recurrence *RecurrenceResponse `pulumi:"recurrence"`
 	// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
 	Rules []ScaleRuleResponse `pulumi:"rules"`
-}
-
-// AutoscaleProfileResponseInput is an input type that accepts AutoscaleProfileResponseArgs and AutoscaleProfileResponseOutput values.
-// You can construct a concrete instance of `AutoscaleProfileResponseInput` via:
-//
-//          AutoscaleProfileResponseArgs{...}
-type AutoscaleProfileResponseInput interface {
-	pulumi.Input
-
-	ToAutoscaleProfileResponseOutput() AutoscaleProfileResponseOutput
-	ToAutoscaleProfileResponseOutputWithContext(context.Context) AutoscaleProfileResponseOutput
-}
-
-// Autoscale profile.
-type AutoscaleProfileResponseArgs struct {
-	// the number of instances that can be used during this profile.
-	Capacity ScaleCapacityResponseInput `pulumi:"capacity"`
-	// the specific date-time for the profile. This element is not used if the Recurrence element is used.
-	FixedDate TimeWindowResponsePtrInput `pulumi:"fixedDate"`
-	// the name of the profile.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-	Recurrence RecurrenceResponsePtrInput `pulumi:"recurrence"`
-	// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-	Rules ScaleRuleResponseArrayInput `pulumi:"rules"`
-}
-
-func (AutoscaleProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleProfileResponse)(nil)).Elem()
-}
-
-func (i AutoscaleProfileResponseArgs) ToAutoscaleProfileResponseOutput() AutoscaleProfileResponseOutput {
-	return i.ToAutoscaleProfileResponseOutputWithContext(context.Background())
-}
-
-func (i AutoscaleProfileResponseArgs) ToAutoscaleProfileResponseOutputWithContext(ctx context.Context) AutoscaleProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleProfileResponseOutput)
-}
-
-// AutoscaleProfileResponseArrayInput is an input type that accepts AutoscaleProfileResponseArray and AutoscaleProfileResponseArrayOutput values.
-// You can construct a concrete instance of `AutoscaleProfileResponseArrayInput` via:
-//
-//          AutoscaleProfileResponseArray{ AutoscaleProfileResponseArgs{...} }
-type AutoscaleProfileResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutoscaleProfileResponseArrayOutput() AutoscaleProfileResponseArrayOutput
-	ToAutoscaleProfileResponseArrayOutputWithContext(context.Context) AutoscaleProfileResponseArrayOutput
-}
-
-type AutoscaleProfileResponseArray []AutoscaleProfileResponseInput
-
-func (AutoscaleProfileResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoscaleProfileResponse)(nil)).Elem()
-}
-
-func (i AutoscaleProfileResponseArray) ToAutoscaleProfileResponseArrayOutput() AutoscaleProfileResponseArrayOutput {
-	return i.ToAutoscaleProfileResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutoscaleProfileResponseArray) ToAutoscaleProfileResponseArrayOutputWithContext(ctx context.Context) AutoscaleProfileResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleProfileResponseArrayOutput)
 }
 
 // Autoscale profile.
@@ -603,94 +373,6 @@ func (i *emailNotificationPtrType) ToEmailNotificationPtrOutputWithContext(ctx c
 }
 
 // Email notification of an autoscale event.
-type EmailNotificationOutput struct{ *pulumi.OutputState }
-
-func (EmailNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailNotification)(nil)).Elem()
-}
-
-func (o EmailNotificationOutput) ToEmailNotificationOutput() EmailNotificationOutput {
-	return o
-}
-
-func (o EmailNotificationOutput) ToEmailNotificationOutputWithContext(ctx context.Context) EmailNotificationOutput {
-	return o
-}
-
-func (o EmailNotificationOutput) ToEmailNotificationPtrOutput() EmailNotificationPtrOutput {
-	return o.ToEmailNotificationPtrOutputWithContext(context.Background())
-}
-
-func (o EmailNotificationOutput) ToEmailNotificationPtrOutputWithContext(ctx context.Context) EmailNotificationPtrOutput {
-	return o.ApplyT(func(v EmailNotification) *EmailNotification {
-		return &v
-	}).(EmailNotificationPtrOutput)
-}
-
-// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-func (o EmailNotificationOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EmailNotification) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
-}
-
-// a value indicating whether to send email to subscription administrator.
-func (o EmailNotificationOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EmailNotification) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
-}
-
-// a value indicating whether to send email to subscription co-administrators.
-func (o EmailNotificationOutput) SendToSubscriptionCoAdministrators() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EmailNotification) *bool { return v.SendToSubscriptionCoAdministrators }).(pulumi.BoolPtrOutput)
-}
-
-type EmailNotificationPtrOutput struct{ *pulumi.OutputState }
-
-func (EmailNotificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmailNotification)(nil)).Elem()
-}
-
-func (o EmailNotificationPtrOutput) ToEmailNotificationPtrOutput() EmailNotificationPtrOutput {
-	return o
-}
-
-func (o EmailNotificationPtrOutput) ToEmailNotificationPtrOutputWithContext(ctx context.Context) EmailNotificationPtrOutput {
-	return o
-}
-
-func (o EmailNotificationPtrOutput) Elem() EmailNotificationOutput {
-	return o.ApplyT(func(v *EmailNotification) EmailNotification { return *v }).(EmailNotificationOutput)
-}
-
-// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-func (o EmailNotificationPtrOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EmailNotification) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomEmails
-	}).(pulumi.StringArrayOutput)
-}
-
-// a value indicating whether to send email to subscription administrator.
-func (o EmailNotificationPtrOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EmailNotification) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SendToSubscriptionAdministrator
-	}).(pulumi.BoolPtrOutput)
-}
-
-// a value indicating whether to send email to subscription co-administrators.
-func (o EmailNotificationPtrOutput) SendToSubscriptionCoAdministrators() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EmailNotification) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SendToSubscriptionCoAdministrators
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Email notification of an autoscale event.
 type EmailNotificationResponse struct {
 	// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
 	CustomEmails []string `pulumi:"customEmails"`
@@ -698,80 +380,6 @@ type EmailNotificationResponse struct {
 	SendToSubscriptionAdministrator *bool `pulumi:"sendToSubscriptionAdministrator"`
 	// a value indicating whether to send email to subscription co-administrators.
 	SendToSubscriptionCoAdministrators *bool `pulumi:"sendToSubscriptionCoAdministrators"`
-}
-
-// EmailNotificationResponseInput is an input type that accepts EmailNotificationResponseArgs and EmailNotificationResponseOutput values.
-// You can construct a concrete instance of `EmailNotificationResponseInput` via:
-//
-//          EmailNotificationResponseArgs{...}
-type EmailNotificationResponseInput interface {
-	pulumi.Input
-
-	ToEmailNotificationResponseOutput() EmailNotificationResponseOutput
-	ToEmailNotificationResponseOutputWithContext(context.Context) EmailNotificationResponseOutput
-}
-
-// Email notification of an autoscale event.
-type EmailNotificationResponseArgs struct {
-	// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
-	// a value indicating whether to send email to subscription administrator.
-	SendToSubscriptionAdministrator pulumi.BoolPtrInput `pulumi:"sendToSubscriptionAdministrator"`
-	// a value indicating whether to send email to subscription co-administrators.
-	SendToSubscriptionCoAdministrators pulumi.BoolPtrInput `pulumi:"sendToSubscriptionCoAdministrators"`
-}
-
-func (EmailNotificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailNotificationResponse)(nil)).Elem()
-}
-
-func (i EmailNotificationResponseArgs) ToEmailNotificationResponseOutput() EmailNotificationResponseOutput {
-	return i.ToEmailNotificationResponseOutputWithContext(context.Background())
-}
-
-func (i EmailNotificationResponseArgs) ToEmailNotificationResponseOutputWithContext(ctx context.Context) EmailNotificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailNotificationResponseOutput)
-}
-
-func (i EmailNotificationResponseArgs) ToEmailNotificationResponsePtrOutput() EmailNotificationResponsePtrOutput {
-	return i.ToEmailNotificationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EmailNotificationResponseArgs) ToEmailNotificationResponsePtrOutputWithContext(ctx context.Context) EmailNotificationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailNotificationResponseOutput).ToEmailNotificationResponsePtrOutputWithContext(ctx)
-}
-
-// EmailNotificationResponsePtrInput is an input type that accepts EmailNotificationResponseArgs, EmailNotificationResponsePtr and EmailNotificationResponsePtrOutput values.
-// You can construct a concrete instance of `EmailNotificationResponsePtrInput` via:
-//
-//          EmailNotificationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type EmailNotificationResponsePtrInput interface {
-	pulumi.Input
-
-	ToEmailNotificationResponsePtrOutput() EmailNotificationResponsePtrOutput
-	ToEmailNotificationResponsePtrOutputWithContext(context.Context) EmailNotificationResponsePtrOutput
-}
-
-type emailNotificationResponsePtrType EmailNotificationResponseArgs
-
-func EmailNotificationResponsePtr(v *EmailNotificationResponseArgs) EmailNotificationResponsePtrInput {
-	return (*emailNotificationResponsePtrType)(v)
-}
-
-func (*emailNotificationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmailNotificationResponse)(nil)).Elem()
-}
-
-func (i *emailNotificationResponsePtrType) ToEmailNotificationResponsePtrOutput() EmailNotificationResponsePtrOutput {
-	return i.ToEmailNotificationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *emailNotificationResponsePtrType) ToEmailNotificationResponsePtrOutputWithContext(ctx context.Context) EmailNotificationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailNotificationResponsePtrOutput)
 }
 
 // Email notification of an autoscale event.
@@ -934,71 +542,6 @@ func (i MetricTriggerArgs) ToMetricTriggerOutputWithContext(ctx context.Context)
 }
 
 // The trigger that results in a scaling action.
-type MetricTriggerOutput struct{ *pulumi.OutputState }
-
-func (MetricTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricTrigger)(nil)).Elem()
-}
-
-func (o MetricTriggerOutput) ToMetricTriggerOutput() MetricTriggerOutput {
-	return o
-}
-
-func (o MetricTriggerOutput) ToMetricTriggerOutputWithContext(ctx context.Context) MetricTriggerOutput {
-	return o
-}
-
-// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-func (o MetricTriggerOutput) Dimensions() ScaleRuleMetricDimensionArrayOutput {
-	return o.ApplyT(func(v MetricTrigger) []ScaleRuleMetricDimension { return v.Dimensions }).(ScaleRuleMetricDimensionArrayOutput)
-}
-
-// the name of the metric that defines what the rule monitors.
-func (o MetricTriggerOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.MetricName }).(pulumi.StringOutput)
-}
-
-// the namespace of the metric that defines what the rule monitors.
-func (o MetricTriggerOutput) MetricNamespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MetricTrigger) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
-}
-
-// the resource identifier of the resource the rule monitors.
-func (o MetricTriggerOutput) MetricResourceUri() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.MetricResourceUri }).(pulumi.StringOutput)
-}
-
-// the operator that is used to compare the metric data and the threshold.
-func (o MetricTriggerOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
-}
-
-// the metric statistic type. How the metrics from multiple instances are combined.
-func (o MetricTriggerOutput) Statistic() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.Statistic }).(pulumi.StringOutput)
-}
-
-// the threshold of the metric that triggers the scale action.
-func (o MetricTriggerOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v MetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
-}
-
-// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-func (o MetricTriggerOutput) TimeAggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.TimeAggregation }).(pulumi.StringOutput)
-}
-
-// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-func (o MetricTriggerOutput) TimeGrain() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.TimeGrain }).(pulumi.StringOutput)
-}
-
-// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-func (o MetricTriggerOutput) TimeWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.TimeWindow }).(pulumi.StringOutput)
-}
-
-// The trigger that results in a scaling action.
 type MetricTriggerResponse struct {
 	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
 	Dimensions []ScaleRuleMetricDimensionResponse `pulumi:"dimensions"`
@@ -1020,53 +563,6 @@ type MetricTriggerResponse struct {
 	TimeGrain string `pulumi:"timeGrain"`
 	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
 	TimeWindow string `pulumi:"timeWindow"`
-}
-
-// MetricTriggerResponseInput is an input type that accepts MetricTriggerResponseArgs and MetricTriggerResponseOutput values.
-// You can construct a concrete instance of `MetricTriggerResponseInput` via:
-//
-//          MetricTriggerResponseArgs{...}
-type MetricTriggerResponseInput interface {
-	pulumi.Input
-
-	ToMetricTriggerResponseOutput() MetricTriggerResponseOutput
-	ToMetricTriggerResponseOutputWithContext(context.Context) MetricTriggerResponseOutput
-}
-
-// The trigger that results in a scaling action.
-type MetricTriggerResponseArgs struct {
-	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-	Dimensions ScaleRuleMetricDimensionResponseArrayInput `pulumi:"dimensions"`
-	// the name of the metric that defines what the rule monitors.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// the namespace of the metric that defines what the rule monitors.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// the resource identifier of the resource the rule monitors.
-	MetricResourceUri pulumi.StringInput `pulumi:"metricResourceUri"`
-	// the operator that is used to compare the metric data and the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic pulumi.StringInput `pulumi:"statistic"`
-	// the threshold of the metric that triggers the scale action.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
-	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
-	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-	TimeWindow pulumi.StringInput `pulumi:"timeWindow"`
-}
-
-func (MetricTriggerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricTriggerResponse)(nil)).Elem()
-}
-
-func (i MetricTriggerResponseArgs) ToMetricTriggerResponseOutput() MetricTriggerResponseOutput {
-	return i.ToMetricTriggerResponseOutputWithContext(context.Background())
-}
-
-func (i MetricTriggerResponseArgs) ToMetricTriggerResponseOutputWithContext(ctx context.Context) MetricTriggerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricTriggerResponseOutput)
 }
 
 // The trigger that results in a scaling action.
@@ -1215,156 +711,11 @@ func (i *recurrencePtrType) ToRecurrencePtrOutputWithContext(ctx context.Context
 }
 
 // The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-type RecurrenceOutput struct{ *pulumi.OutputState }
-
-func (RecurrenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Recurrence)(nil)).Elem()
-}
-
-func (o RecurrenceOutput) ToRecurrenceOutput() RecurrenceOutput {
-	return o
-}
-
-func (o RecurrenceOutput) ToRecurrenceOutputWithContext(ctx context.Context) RecurrenceOutput {
-	return o
-}
-
-func (o RecurrenceOutput) ToRecurrencePtrOutput() RecurrencePtrOutput {
-	return o.ToRecurrencePtrOutputWithContext(context.Background())
-}
-
-func (o RecurrenceOutput) ToRecurrencePtrOutputWithContext(ctx context.Context) RecurrencePtrOutput {
-	return o.ApplyT(func(v Recurrence) *Recurrence {
-		return &v
-	}).(RecurrencePtrOutput)
-}
-
-// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-func (o RecurrenceOutput) Frequency() pulumi.StringOutput {
-	return o.ApplyT(func(v Recurrence) string { return v.Frequency }).(pulumi.StringOutput)
-}
-
-// the scheduling constraints for when the profile begins.
-func (o RecurrenceOutput) Schedule() RecurrentScheduleOutput {
-	return o.ApplyT(func(v Recurrence) RecurrentSchedule { return v.Schedule }).(RecurrentScheduleOutput)
-}
-
-type RecurrencePtrOutput struct{ *pulumi.OutputState }
-
-func (RecurrencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Recurrence)(nil)).Elem()
-}
-
-func (o RecurrencePtrOutput) ToRecurrencePtrOutput() RecurrencePtrOutput {
-	return o
-}
-
-func (o RecurrencePtrOutput) ToRecurrencePtrOutputWithContext(ctx context.Context) RecurrencePtrOutput {
-	return o
-}
-
-func (o RecurrencePtrOutput) Elem() RecurrenceOutput {
-	return o.ApplyT(func(v *Recurrence) Recurrence { return *v }).(RecurrenceOutput)
-}
-
-// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-func (o RecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Recurrence) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Frequency
-	}).(pulumi.StringPtrOutput)
-}
-
-// the scheduling constraints for when the profile begins.
-func (o RecurrencePtrOutput) Schedule() RecurrentSchedulePtrOutput {
-	return o.ApplyT(func(v *Recurrence) *RecurrentSchedule {
-		if v == nil {
-			return nil
-		}
-		return &v.Schedule
-	}).(RecurrentSchedulePtrOutput)
-}
-
-// The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
 type RecurrenceResponse struct {
 	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
 	Frequency string `pulumi:"frequency"`
 	// the scheduling constraints for when the profile begins.
 	Schedule RecurrentScheduleResponse `pulumi:"schedule"`
-}
-
-// RecurrenceResponseInput is an input type that accepts RecurrenceResponseArgs and RecurrenceResponseOutput values.
-// You can construct a concrete instance of `RecurrenceResponseInput` via:
-//
-//          RecurrenceResponseArgs{...}
-type RecurrenceResponseInput interface {
-	pulumi.Input
-
-	ToRecurrenceResponseOutput() RecurrenceResponseOutput
-	ToRecurrenceResponseOutputWithContext(context.Context) RecurrenceResponseOutput
-}
-
-// The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-type RecurrenceResponseArgs struct {
-	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-	Frequency pulumi.StringInput `pulumi:"frequency"`
-	// the scheduling constraints for when the profile begins.
-	Schedule RecurrentScheduleResponseInput `pulumi:"schedule"`
-}
-
-func (RecurrenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecurrenceResponse)(nil)).Elem()
-}
-
-func (i RecurrenceResponseArgs) ToRecurrenceResponseOutput() RecurrenceResponseOutput {
-	return i.ToRecurrenceResponseOutputWithContext(context.Background())
-}
-
-func (i RecurrenceResponseArgs) ToRecurrenceResponseOutputWithContext(ctx context.Context) RecurrenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceResponseOutput)
-}
-
-func (i RecurrenceResponseArgs) ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput {
-	return i.ToRecurrenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RecurrenceResponseArgs) ToRecurrenceResponsePtrOutputWithContext(ctx context.Context) RecurrenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceResponseOutput).ToRecurrenceResponsePtrOutputWithContext(ctx)
-}
-
-// RecurrenceResponsePtrInput is an input type that accepts RecurrenceResponseArgs, RecurrenceResponsePtr and RecurrenceResponsePtrOutput values.
-// You can construct a concrete instance of `RecurrenceResponsePtrInput` via:
-//
-//          RecurrenceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RecurrenceResponsePtrInput interface {
-	pulumi.Input
-
-	ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput
-	ToRecurrenceResponsePtrOutputWithContext(context.Context) RecurrenceResponsePtrOutput
-}
-
-type recurrenceResponsePtrType RecurrenceResponseArgs
-
-func RecurrenceResponsePtr(v *RecurrenceResponseArgs) RecurrenceResponsePtrInput {
-	return (*recurrenceResponsePtrType)(v)
-}
-
-func (*recurrenceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecurrenceResponse)(nil)).Elem()
-}
-
-func (i *recurrenceResponsePtrType) ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput {
-	return i.ToRecurrenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *recurrenceResponsePtrType) ToRecurrenceResponsePtrOutputWithContext(ctx context.Context) RecurrenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceResponsePtrOutput)
 }
 
 // The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
@@ -1529,109 +880,6 @@ func (i *recurrentSchedulePtrType) ToRecurrentSchedulePtrOutputWithContext(ctx c
 }
 
 // The scheduling constraints for when the profile begins.
-type RecurrentScheduleOutput struct{ *pulumi.OutputState }
-
-func (RecurrentScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecurrentSchedule)(nil)).Elem()
-}
-
-func (o RecurrentScheduleOutput) ToRecurrentScheduleOutput() RecurrentScheduleOutput {
-	return o
-}
-
-func (o RecurrentScheduleOutput) ToRecurrentScheduleOutputWithContext(ctx context.Context) RecurrentScheduleOutput {
-	return o
-}
-
-func (o RecurrentScheduleOutput) ToRecurrentSchedulePtrOutput() RecurrentSchedulePtrOutput {
-	return o.ToRecurrentSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o RecurrentScheduleOutput) ToRecurrentSchedulePtrOutputWithContext(ctx context.Context) RecurrentSchedulePtrOutput {
-	return o.ApplyT(func(v RecurrentSchedule) *RecurrentSchedule {
-		return &v
-	}).(RecurrentSchedulePtrOutput)
-}
-
-// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-func (o RecurrentScheduleOutput) Days() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecurrentSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
-}
-
-// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-func (o RecurrentScheduleOutput) Hours() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v RecurrentSchedule) []int { return v.Hours }).(pulumi.IntArrayOutput)
-}
-
-// A collection of minutes at which the profile takes effect at.
-func (o RecurrentScheduleOutput) Minutes() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v RecurrentSchedule) []int { return v.Minutes }).(pulumi.IntArrayOutput)
-}
-
-// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-func (o RecurrentScheduleOutput) TimeZone() pulumi.StringOutput {
-	return o.ApplyT(func(v RecurrentSchedule) string { return v.TimeZone }).(pulumi.StringOutput)
-}
-
-type RecurrentSchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (RecurrentSchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecurrentSchedule)(nil)).Elem()
-}
-
-func (o RecurrentSchedulePtrOutput) ToRecurrentSchedulePtrOutput() RecurrentSchedulePtrOutput {
-	return o
-}
-
-func (o RecurrentSchedulePtrOutput) ToRecurrentSchedulePtrOutputWithContext(ctx context.Context) RecurrentSchedulePtrOutput {
-	return o
-}
-
-func (o RecurrentSchedulePtrOutput) Elem() RecurrentScheduleOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) RecurrentSchedule { return *v }).(RecurrentScheduleOutput)
-}
-
-// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-func (o RecurrentSchedulePtrOutput) Days() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Days
-	}).(pulumi.StringArrayOutput)
-}
-
-// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-func (o RecurrentSchedulePtrOutput) Hours() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) []int {
-		if v == nil {
-			return nil
-		}
-		return v.Hours
-	}).(pulumi.IntArrayOutput)
-}
-
-// A collection of minutes at which the profile takes effect at.
-func (o RecurrentSchedulePtrOutput) Minutes() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) []int {
-		if v == nil {
-			return nil
-		}
-		return v.Minutes
-	}).(pulumi.IntArrayOutput)
-}
-
-// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-func (o RecurrentSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TimeZone
-	}).(pulumi.StringPtrOutput)
-}
-
-// The scheduling constraints for when the profile begins.
 type RecurrentScheduleResponse struct {
 	// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
 	Days []string `pulumi:"days"`
@@ -1641,82 +889,6 @@ type RecurrentScheduleResponse struct {
 	Minutes []int `pulumi:"minutes"`
 	// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 	TimeZone string `pulumi:"timeZone"`
-}
-
-// RecurrentScheduleResponseInput is an input type that accepts RecurrentScheduleResponseArgs and RecurrentScheduleResponseOutput values.
-// You can construct a concrete instance of `RecurrentScheduleResponseInput` via:
-//
-//          RecurrentScheduleResponseArgs{...}
-type RecurrentScheduleResponseInput interface {
-	pulumi.Input
-
-	ToRecurrentScheduleResponseOutput() RecurrentScheduleResponseOutput
-	ToRecurrentScheduleResponseOutputWithContext(context.Context) RecurrentScheduleResponseOutput
-}
-
-// The scheduling constraints for when the profile begins.
-type RecurrentScheduleResponseArgs struct {
-	// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-	Days pulumi.StringArrayInput `pulumi:"days"`
-	// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-	Hours pulumi.IntArrayInput `pulumi:"hours"`
-	// A collection of minutes at which the profile takes effect at.
-	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
-	// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-	TimeZone pulumi.StringInput `pulumi:"timeZone"`
-}
-
-func (RecurrentScheduleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecurrentScheduleResponse)(nil)).Elem()
-}
-
-func (i RecurrentScheduleResponseArgs) ToRecurrentScheduleResponseOutput() RecurrentScheduleResponseOutput {
-	return i.ToRecurrentScheduleResponseOutputWithContext(context.Background())
-}
-
-func (i RecurrentScheduleResponseArgs) ToRecurrentScheduleResponseOutputWithContext(ctx context.Context) RecurrentScheduleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrentScheduleResponseOutput)
-}
-
-func (i RecurrentScheduleResponseArgs) ToRecurrentScheduleResponsePtrOutput() RecurrentScheduleResponsePtrOutput {
-	return i.ToRecurrentScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RecurrentScheduleResponseArgs) ToRecurrentScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrentScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrentScheduleResponseOutput).ToRecurrentScheduleResponsePtrOutputWithContext(ctx)
-}
-
-// RecurrentScheduleResponsePtrInput is an input type that accepts RecurrentScheduleResponseArgs, RecurrentScheduleResponsePtr and RecurrentScheduleResponsePtrOutput values.
-// You can construct a concrete instance of `RecurrentScheduleResponsePtrInput` via:
-//
-//          RecurrentScheduleResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RecurrentScheduleResponsePtrInput interface {
-	pulumi.Input
-
-	ToRecurrentScheduleResponsePtrOutput() RecurrentScheduleResponsePtrOutput
-	ToRecurrentScheduleResponsePtrOutputWithContext(context.Context) RecurrentScheduleResponsePtrOutput
-}
-
-type recurrentScheduleResponsePtrType RecurrentScheduleResponseArgs
-
-func RecurrentScheduleResponsePtr(v *RecurrentScheduleResponseArgs) RecurrentScheduleResponsePtrInput {
-	return (*recurrentScheduleResponsePtrType)(v)
-}
-
-func (*recurrentScheduleResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecurrentScheduleResponse)(nil)).Elem()
-}
-
-func (i *recurrentScheduleResponsePtrType) ToRecurrentScheduleResponsePtrOutput() RecurrentScheduleResponsePtrOutput {
-	return i.ToRecurrentScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *recurrentScheduleResponsePtrType) ToRecurrentScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrentScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrentScheduleResponsePtrOutput)
 }
 
 // The scheduling constraints for when the profile begins.
@@ -1870,41 +1042,6 @@ func (i ScaleActionArgs) ToScaleActionOutputWithContext(ctx context.Context) Sca
 }
 
 // The parameters for the scaling action.
-type ScaleActionOutput struct{ *pulumi.OutputState }
-
-func (ScaleActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleAction)(nil)).Elem()
-}
-
-func (o ScaleActionOutput) ToScaleActionOutput() ScaleActionOutput {
-	return o
-}
-
-func (o ScaleActionOutput) ToScaleActionOutputWithContext(ctx context.Context) ScaleActionOutput {
-	return o
-}
-
-// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-func (o ScaleActionOutput) Cooldown() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleAction) string { return v.Cooldown }).(pulumi.StringOutput)
-}
-
-// the scale direction. Whether the scaling action increases or decreases the number of instances.
-func (o ScaleActionOutput) Direction() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleAction) string { return v.Direction }).(pulumi.StringOutput)
-}
-
-// the type of action that should occur when the scale rule fires.
-func (o ScaleActionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleAction) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
-func (o ScaleActionOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScaleAction) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-// The parameters for the scaling action.
 type ScaleActionResponse struct {
 	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
 	Cooldown string `pulumi:"cooldown"`
@@ -1914,41 +1051,6 @@ type ScaleActionResponse struct {
 	Type string `pulumi:"type"`
 	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
 	Value *string `pulumi:"value"`
-}
-
-// ScaleActionResponseInput is an input type that accepts ScaleActionResponseArgs and ScaleActionResponseOutput values.
-// You can construct a concrete instance of `ScaleActionResponseInput` via:
-//
-//          ScaleActionResponseArgs{...}
-type ScaleActionResponseInput interface {
-	pulumi.Input
-
-	ToScaleActionResponseOutput() ScaleActionResponseOutput
-	ToScaleActionResponseOutputWithContext(context.Context) ScaleActionResponseOutput
-}
-
-// The parameters for the scaling action.
-type ScaleActionResponseArgs struct {
-	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-	Cooldown pulumi.StringInput `pulumi:"cooldown"`
-	// the scale direction. Whether the scaling action increases or decreases the number of instances.
-	Direction pulumi.StringInput `pulumi:"direction"`
-	// the type of action that should occur when the scale rule fires.
-	Type pulumi.StringInput `pulumi:"type"`
-	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ScaleActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleActionResponse)(nil)).Elem()
-}
-
-func (i ScaleActionResponseArgs) ToScaleActionResponseOutput() ScaleActionResponseOutput {
-	return i.ToScaleActionResponseOutputWithContext(context.Background())
-}
-
-func (i ScaleActionResponseArgs) ToScaleActionResponseOutputWithContext(ctx context.Context) ScaleActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleActionResponseOutput)
 }
 
 // The parameters for the scaling action.
@@ -2030,36 +1132,6 @@ func (i ScaleCapacityArgs) ToScaleCapacityOutputWithContext(ctx context.Context)
 }
 
 // The number of instances that can be used during this profile.
-type ScaleCapacityOutput struct{ *pulumi.OutputState }
-
-func (ScaleCapacityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleCapacity)(nil)).Elem()
-}
-
-func (o ScaleCapacityOutput) ToScaleCapacityOutput() ScaleCapacityOutput {
-	return o
-}
-
-func (o ScaleCapacityOutput) ToScaleCapacityOutputWithContext(ctx context.Context) ScaleCapacityOutput {
-	return o
-}
-
-// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
-func (o ScaleCapacityOutput) Default() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleCapacity) string { return v.Default }).(pulumi.StringOutput)
-}
-
-// the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
-func (o ScaleCapacityOutput) Maximum() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleCapacity) string { return v.Maximum }).(pulumi.StringOutput)
-}
-
-// the minimum number of instances for the resource.
-func (o ScaleCapacityOutput) Minimum() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleCapacity) string { return v.Minimum }).(pulumi.StringOutput)
-}
-
-// The number of instances that can be used during this profile.
 type ScaleCapacityResponse struct {
 	// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
 	Default string `pulumi:"default"`
@@ -2067,39 +1139,6 @@ type ScaleCapacityResponse struct {
 	Maximum string `pulumi:"maximum"`
 	// the minimum number of instances for the resource.
 	Minimum string `pulumi:"minimum"`
-}
-
-// ScaleCapacityResponseInput is an input type that accepts ScaleCapacityResponseArgs and ScaleCapacityResponseOutput values.
-// You can construct a concrete instance of `ScaleCapacityResponseInput` via:
-//
-//          ScaleCapacityResponseArgs{...}
-type ScaleCapacityResponseInput interface {
-	pulumi.Input
-
-	ToScaleCapacityResponseOutput() ScaleCapacityResponseOutput
-	ToScaleCapacityResponseOutputWithContext(context.Context) ScaleCapacityResponseOutput
-}
-
-// The number of instances that can be used during this profile.
-type ScaleCapacityResponseArgs struct {
-	// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
-	Default pulumi.StringInput `pulumi:"default"`
-	// the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
-	Maximum pulumi.StringInput `pulumi:"maximum"`
-	// the minimum number of instances for the resource.
-	Minimum pulumi.StringInput `pulumi:"minimum"`
-}
-
-func (ScaleCapacityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleCapacityResponse)(nil)).Elem()
-}
-
-func (i ScaleCapacityResponseArgs) ToScaleCapacityResponseOutput() ScaleCapacityResponseOutput {
-	return i.ToScaleCapacityResponseOutputWithContext(context.Background())
-}
-
-func (i ScaleCapacityResponseArgs) ToScaleCapacityResponseOutputWithContext(ctx context.Context) ScaleCapacityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleCapacityResponseOutput)
 }
 
 // The number of instances that can be used during this profile.
@@ -2196,51 +1235,6 @@ func (i ScaleRuleArray) ToScaleRuleArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleRuleArrayOutput)
 }
 
-// A rule that provide the triggers and parameters for the scaling action.
-type ScaleRuleOutput struct{ *pulumi.OutputState }
-
-func (ScaleRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleRule)(nil)).Elem()
-}
-
-func (o ScaleRuleOutput) ToScaleRuleOutput() ScaleRuleOutput {
-	return o
-}
-
-func (o ScaleRuleOutput) ToScaleRuleOutputWithContext(ctx context.Context) ScaleRuleOutput {
-	return o
-}
-
-// the trigger that results in a scaling action.
-func (o ScaleRuleOutput) MetricTrigger() MetricTriggerOutput {
-	return o.ApplyT(func(v ScaleRule) MetricTrigger { return v.MetricTrigger }).(MetricTriggerOutput)
-}
-
-// the parameters for the scaling action.
-func (o ScaleRuleOutput) ScaleAction() ScaleActionOutput {
-	return o.ApplyT(func(v ScaleRule) ScaleAction { return v.ScaleAction }).(ScaleActionOutput)
-}
-
-type ScaleRuleArrayOutput struct{ *pulumi.OutputState }
-
-func (ScaleRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScaleRule)(nil)).Elem()
-}
-
-func (o ScaleRuleArrayOutput) ToScaleRuleArrayOutput() ScaleRuleArrayOutput {
-	return o
-}
-
-func (o ScaleRuleArrayOutput) ToScaleRuleArrayOutputWithContext(ctx context.Context) ScaleRuleArrayOutput {
-	return o
-}
-
-func (o ScaleRuleArrayOutput) Index(i pulumi.IntInput) ScaleRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleRule {
-		return vs[0].([]ScaleRule)[vs[1].(int)]
-	}).(ScaleRuleOutput)
-}
-
 // Specifies an auto scale rule metric dimension.
 type ScaleRuleMetricDimension struct {
 	// Name of the dimension.
@@ -2310,56 +1304,6 @@ func (i ScaleRuleMetricDimensionArray) ToScaleRuleMetricDimensionArrayOutputWith
 }
 
 // Specifies an auto scale rule metric dimension.
-type ScaleRuleMetricDimensionOutput struct{ *pulumi.OutputState }
-
-func (ScaleRuleMetricDimensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleRuleMetricDimension)(nil)).Elem()
-}
-
-func (o ScaleRuleMetricDimensionOutput) ToScaleRuleMetricDimensionOutput() ScaleRuleMetricDimensionOutput {
-	return o
-}
-
-func (o ScaleRuleMetricDimensionOutput) ToScaleRuleMetricDimensionOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionOutput {
-	return o
-}
-
-// Name of the dimension.
-func (o ScaleRuleMetricDimensionOutput) DimensionName() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleRuleMetricDimension) string { return v.DimensionName }).(pulumi.StringOutput)
-}
-
-// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-func (o ScaleRuleMetricDimensionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleRuleMetricDimension) string { return v.Operator }).(pulumi.StringOutput)
-}
-
-// list of dimension values. For example: ["App1","App2"].
-func (o ScaleRuleMetricDimensionOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ScaleRuleMetricDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type ScaleRuleMetricDimensionArrayOutput struct{ *pulumi.OutputState }
-
-func (ScaleRuleMetricDimensionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScaleRuleMetricDimension)(nil)).Elem()
-}
-
-func (o ScaleRuleMetricDimensionArrayOutput) ToScaleRuleMetricDimensionArrayOutput() ScaleRuleMetricDimensionArrayOutput {
-	return o
-}
-
-func (o ScaleRuleMetricDimensionArrayOutput) ToScaleRuleMetricDimensionArrayOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionArrayOutput {
-	return o
-}
-
-func (o ScaleRuleMetricDimensionArrayOutput) Index(i pulumi.IntInput) ScaleRuleMetricDimensionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleRuleMetricDimension {
-		return vs[0].([]ScaleRuleMetricDimension)[vs[1].(int)]
-	}).(ScaleRuleMetricDimensionOutput)
-}
-
-// Specifies an auto scale rule metric dimension.
 type ScaleRuleMetricDimensionResponse struct {
 	// Name of the dimension.
 	DimensionName string `pulumi:"dimensionName"`
@@ -2367,64 +1311,6 @@ type ScaleRuleMetricDimensionResponse struct {
 	Operator string `pulumi:"operator"`
 	// list of dimension values. For example: ["App1","App2"].
 	Values []string `pulumi:"values"`
-}
-
-// ScaleRuleMetricDimensionResponseInput is an input type that accepts ScaleRuleMetricDimensionResponseArgs and ScaleRuleMetricDimensionResponseOutput values.
-// You can construct a concrete instance of `ScaleRuleMetricDimensionResponseInput` via:
-//
-//          ScaleRuleMetricDimensionResponseArgs{...}
-type ScaleRuleMetricDimensionResponseInput interface {
-	pulumi.Input
-
-	ToScaleRuleMetricDimensionResponseOutput() ScaleRuleMetricDimensionResponseOutput
-	ToScaleRuleMetricDimensionResponseOutputWithContext(context.Context) ScaleRuleMetricDimensionResponseOutput
-}
-
-// Specifies an auto scale rule metric dimension.
-type ScaleRuleMetricDimensionResponseArgs struct {
-	// Name of the dimension.
-	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
-	// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// list of dimension values. For example: ["App1","App2"].
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (ScaleRuleMetricDimensionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleRuleMetricDimensionResponse)(nil)).Elem()
-}
-
-func (i ScaleRuleMetricDimensionResponseArgs) ToScaleRuleMetricDimensionResponseOutput() ScaleRuleMetricDimensionResponseOutput {
-	return i.ToScaleRuleMetricDimensionResponseOutputWithContext(context.Background())
-}
-
-func (i ScaleRuleMetricDimensionResponseArgs) ToScaleRuleMetricDimensionResponseOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleRuleMetricDimensionResponseOutput)
-}
-
-// ScaleRuleMetricDimensionResponseArrayInput is an input type that accepts ScaleRuleMetricDimensionResponseArray and ScaleRuleMetricDimensionResponseArrayOutput values.
-// You can construct a concrete instance of `ScaleRuleMetricDimensionResponseArrayInput` via:
-//
-//          ScaleRuleMetricDimensionResponseArray{ ScaleRuleMetricDimensionResponseArgs{...} }
-type ScaleRuleMetricDimensionResponseArrayInput interface {
-	pulumi.Input
-
-	ToScaleRuleMetricDimensionResponseArrayOutput() ScaleRuleMetricDimensionResponseArrayOutput
-	ToScaleRuleMetricDimensionResponseArrayOutputWithContext(context.Context) ScaleRuleMetricDimensionResponseArrayOutput
-}
-
-type ScaleRuleMetricDimensionResponseArray []ScaleRuleMetricDimensionResponseInput
-
-func (ScaleRuleMetricDimensionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScaleRuleMetricDimensionResponse)(nil)).Elem()
-}
-
-func (i ScaleRuleMetricDimensionResponseArray) ToScaleRuleMetricDimensionResponseArrayOutput() ScaleRuleMetricDimensionResponseArrayOutput {
-	return i.ToScaleRuleMetricDimensionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ScaleRuleMetricDimensionResponseArray) ToScaleRuleMetricDimensionResponseArrayOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleRuleMetricDimensionResponseArrayOutput)
 }
 
 // Specifies an auto scale rule metric dimension.
@@ -2483,62 +1369,6 @@ type ScaleRuleResponse struct {
 	MetricTrigger MetricTriggerResponse `pulumi:"metricTrigger"`
 	// the parameters for the scaling action.
 	ScaleAction ScaleActionResponse `pulumi:"scaleAction"`
-}
-
-// ScaleRuleResponseInput is an input type that accepts ScaleRuleResponseArgs and ScaleRuleResponseOutput values.
-// You can construct a concrete instance of `ScaleRuleResponseInput` via:
-//
-//          ScaleRuleResponseArgs{...}
-type ScaleRuleResponseInput interface {
-	pulumi.Input
-
-	ToScaleRuleResponseOutput() ScaleRuleResponseOutput
-	ToScaleRuleResponseOutputWithContext(context.Context) ScaleRuleResponseOutput
-}
-
-// A rule that provide the triggers and parameters for the scaling action.
-type ScaleRuleResponseArgs struct {
-	// the trigger that results in a scaling action.
-	MetricTrigger MetricTriggerResponseInput `pulumi:"metricTrigger"`
-	// the parameters for the scaling action.
-	ScaleAction ScaleActionResponseInput `pulumi:"scaleAction"`
-}
-
-func (ScaleRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleRuleResponse)(nil)).Elem()
-}
-
-func (i ScaleRuleResponseArgs) ToScaleRuleResponseOutput() ScaleRuleResponseOutput {
-	return i.ToScaleRuleResponseOutputWithContext(context.Background())
-}
-
-func (i ScaleRuleResponseArgs) ToScaleRuleResponseOutputWithContext(ctx context.Context) ScaleRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleRuleResponseOutput)
-}
-
-// ScaleRuleResponseArrayInput is an input type that accepts ScaleRuleResponseArray and ScaleRuleResponseArrayOutput values.
-// You can construct a concrete instance of `ScaleRuleResponseArrayInput` via:
-//
-//          ScaleRuleResponseArray{ ScaleRuleResponseArgs{...} }
-type ScaleRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToScaleRuleResponseArrayOutput() ScaleRuleResponseArrayOutput
-	ToScaleRuleResponseArrayOutputWithContext(context.Context) ScaleRuleResponseArrayOutput
-}
-
-type ScaleRuleResponseArray []ScaleRuleResponseInput
-
-func (ScaleRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScaleRuleResponse)(nil)).Elem()
-}
-
-func (i ScaleRuleResponseArray) ToScaleRuleResponseArrayOutput() ScaleRuleResponseArrayOutput {
-	return i.ToScaleRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ScaleRuleResponseArray) ToScaleRuleResponseArrayOutputWithContext(ctx context.Context) ScaleRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleRuleResponseArrayOutput)
 }
 
 // A rule that provide the triggers and parameters for the scaling action.
@@ -2671,94 +1501,6 @@ func (i *timeWindowPtrType) ToTimeWindowPtrOutputWithContext(ctx context.Context
 }
 
 // A specific date-time for the profile.
-type TimeWindowOutput struct{ *pulumi.OutputState }
-
-func (TimeWindowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeWindow)(nil)).Elem()
-}
-
-func (o TimeWindowOutput) ToTimeWindowOutput() TimeWindowOutput {
-	return o
-}
-
-func (o TimeWindowOutput) ToTimeWindowOutputWithContext(ctx context.Context) TimeWindowOutput {
-	return o
-}
-
-func (o TimeWindowOutput) ToTimeWindowPtrOutput() TimeWindowPtrOutput {
-	return o.ToTimeWindowPtrOutputWithContext(context.Background())
-}
-
-func (o TimeWindowOutput) ToTimeWindowPtrOutputWithContext(ctx context.Context) TimeWindowPtrOutput {
-	return o.ApplyT(func(v TimeWindow) *TimeWindow {
-		return &v
-	}).(TimeWindowPtrOutput)
-}
-
-// the end time for the profile in ISO 8601 format.
-func (o TimeWindowOutput) End() pulumi.StringOutput {
-	return o.ApplyT(func(v TimeWindow) string { return v.End }).(pulumi.StringOutput)
-}
-
-// the start time for the profile in ISO 8601 format.
-func (o TimeWindowOutput) Start() pulumi.StringOutput {
-	return o.ApplyT(func(v TimeWindow) string { return v.Start }).(pulumi.StringOutput)
-}
-
-// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-func (o TimeWindowOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TimeWindow) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
-}
-
-type TimeWindowPtrOutput struct{ *pulumi.OutputState }
-
-func (TimeWindowPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeWindow)(nil)).Elem()
-}
-
-func (o TimeWindowPtrOutput) ToTimeWindowPtrOutput() TimeWindowPtrOutput {
-	return o
-}
-
-func (o TimeWindowPtrOutput) ToTimeWindowPtrOutputWithContext(ctx context.Context) TimeWindowPtrOutput {
-	return o
-}
-
-func (o TimeWindowPtrOutput) Elem() TimeWindowOutput {
-	return o.ApplyT(func(v *TimeWindow) TimeWindow { return *v }).(TimeWindowOutput)
-}
-
-// the end time for the profile in ISO 8601 format.
-func (o TimeWindowPtrOutput) End() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TimeWindow) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.End
-	}).(pulumi.StringPtrOutput)
-}
-
-// the start time for the profile in ISO 8601 format.
-func (o TimeWindowPtrOutput) Start() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TimeWindow) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Start
-	}).(pulumi.StringPtrOutput)
-}
-
-// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-func (o TimeWindowPtrOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TimeWindow) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeZone
-	}).(pulumi.StringPtrOutput)
-}
-
-// A specific date-time for the profile.
 type TimeWindowResponse struct {
 	// the end time for the profile in ISO 8601 format.
 	End string `pulumi:"end"`
@@ -2766,80 +1508,6 @@ type TimeWindowResponse struct {
 	Start string `pulumi:"start"`
 	// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 	TimeZone *string `pulumi:"timeZone"`
-}
-
-// TimeWindowResponseInput is an input type that accepts TimeWindowResponseArgs and TimeWindowResponseOutput values.
-// You can construct a concrete instance of `TimeWindowResponseInput` via:
-//
-//          TimeWindowResponseArgs{...}
-type TimeWindowResponseInput interface {
-	pulumi.Input
-
-	ToTimeWindowResponseOutput() TimeWindowResponseOutput
-	ToTimeWindowResponseOutputWithContext(context.Context) TimeWindowResponseOutput
-}
-
-// A specific date-time for the profile.
-type TimeWindowResponseArgs struct {
-	// the end time for the profile in ISO 8601 format.
-	End pulumi.StringInput `pulumi:"end"`
-	// the start time for the profile in ISO 8601 format.
-	Start pulumi.StringInput `pulumi:"start"`
-	// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
-}
-
-func (TimeWindowResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeWindowResponse)(nil)).Elem()
-}
-
-func (i TimeWindowResponseArgs) ToTimeWindowResponseOutput() TimeWindowResponseOutput {
-	return i.ToTimeWindowResponseOutputWithContext(context.Background())
-}
-
-func (i TimeWindowResponseArgs) ToTimeWindowResponseOutputWithContext(ctx context.Context) TimeWindowResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowResponseOutput)
-}
-
-func (i TimeWindowResponseArgs) ToTimeWindowResponsePtrOutput() TimeWindowResponsePtrOutput {
-	return i.ToTimeWindowResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TimeWindowResponseArgs) ToTimeWindowResponsePtrOutputWithContext(ctx context.Context) TimeWindowResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowResponseOutput).ToTimeWindowResponsePtrOutputWithContext(ctx)
-}
-
-// TimeWindowResponsePtrInput is an input type that accepts TimeWindowResponseArgs, TimeWindowResponsePtr and TimeWindowResponsePtrOutput values.
-// You can construct a concrete instance of `TimeWindowResponsePtrInput` via:
-//
-//          TimeWindowResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type TimeWindowResponsePtrInput interface {
-	pulumi.Input
-
-	ToTimeWindowResponsePtrOutput() TimeWindowResponsePtrOutput
-	ToTimeWindowResponsePtrOutputWithContext(context.Context) TimeWindowResponsePtrOutput
-}
-
-type timeWindowResponsePtrType TimeWindowResponseArgs
-
-func TimeWindowResponsePtr(v *TimeWindowResponseArgs) TimeWindowResponsePtrInput {
-	return (*timeWindowResponsePtrType)(v)
-}
-
-func (*timeWindowResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeWindowResponse)(nil)).Elem()
-}
-
-func (i *timeWindowResponsePtrType) ToTimeWindowResponsePtrOutput() TimeWindowResponsePtrOutput {
-	return i.ToTimeWindowResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *timeWindowResponsePtrType) ToTimeWindowResponsePtrOutputWithContext(ctx context.Context) TimeWindowResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowResponsePtrOutput)
 }
 
 // A specific date-time for the profile.
@@ -2995,112 +1663,11 @@ func (i WebhookNotificationArray) ToWebhookNotificationArrayOutputWithContext(ct
 }
 
 // Webhook notification of an autoscale event.
-type WebhookNotificationOutput struct{ *pulumi.OutputState }
-
-func (WebhookNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookNotification)(nil)).Elem()
-}
-
-func (o WebhookNotificationOutput) ToWebhookNotificationOutput() WebhookNotificationOutput {
-	return o
-}
-
-func (o WebhookNotificationOutput) ToWebhookNotificationOutputWithContext(ctx context.Context) WebhookNotificationOutput {
-	return o
-}
-
-// a property bag of settings. This value can be empty.
-func (o WebhookNotificationOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WebhookNotification) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// the service address to receive the notification.
-func (o WebhookNotificationOutput) ServiceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookNotification) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
-}
-
-type WebhookNotificationArrayOutput struct{ *pulumi.OutputState }
-
-func (WebhookNotificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookNotification)(nil)).Elem()
-}
-
-func (o WebhookNotificationArrayOutput) ToWebhookNotificationArrayOutput() WebhookNotificationArrayOutput {
-	return o
-}
-
-func (o WebhookNotificationArrayOutput) ToWebhookNotificationArrayOutputWithContext(ctx context.Context) WebhookNotificationArrayOutput {
-	return o
-}
-
-func (o WebhookNotificationArrayOutput) Index(i pulumi.IntInput) WebhookNotificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookNotification {
-		return vs[0].([]WebhookNotification)[vs[1].(int)]
-	}).(WebhookNotificationOutput)
-}
-
-// Webhook notification of an autoscale event.
 type WebhookNotificationResponse struct {
 	// a property bag of settings. This value can be empty.
 	Properties map[string]string `pulumi:"properties"`
 	// the service address to receive the notification.
 	ServiceUri *string `pulumi:"serviceUri"`
-}
-
-// WebhookNotificationResponseInput is an input type that accepts WebhookNotificationResponseArgs and WebhookNotificationResponseOutput values.
-// You can construct a concrete instance of `WebhookNotificationResponseInput` via:
-//
-//          WebhookNotificationResponseArgs{...}
-type WebhookNotificationResponseInput interface {
-	pulumi.Input
-
-	ToWebhookNotificationResponseOutput() WebhookNotificationResponseOutput
-	ToWebhookNotificationResponseOutputWithContext(context.Context) WebhookNotificationResponseOutput
-}
-
-// Webhook notification of an autoscale event.
-type WebhookNotificationResponseArgs struct {
-	// a property bag of settings. This value can be empty.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// the service address to receive the notification.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-}
-
-func (WebhookNotificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookNotificationResponse)(nil)).Elem()
-}
-
-func (i WebhookNotificationResponseArgs) ToWebhookNotificationResponseOutput() WebhookNotificationResponseOutput {
-	return i.ToWebhookNotificationResponseOutputWithContext(context.Background())
-}
-
-func (i WebhookNotificationResponseArgs) ToWebhookNotificationResponseOutputWithContext(ctx context.Context) WebhookNotificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookNotificationResponseOutput)
-}
-
-// WebhookNotificationResponseArrayInput is an input type that accepts WebhookNotificationResponseArray and WebhookNotificationResponseArrayOutput values.
-// You can construct a concrete instance of `WebhookNotificationResponseArrayInput` via:
-//
-//          WebhookNotificationResponseArray{ WebhookNotificationResponseArgs{...} }
-type WebhookNotificationResponseArrayInput interface {
-	pulumi.Input
-
-	ToWebhookNotificationResponseArrayOutput() WebhookNotificationResponseArrayOutput
-	ToWebhookNotificationResponseArrayOutputWithContext(context.Context) WebhookNotificationResponseArrayOutput
-}
-
-type WebhookNotificationResponseArray []WebhookNotificationResponseInput
-
-func (WebhookNotificationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookNotificationResponse)(nil)).Elem()
-}
-
-func (i WebhookNotificationResponseArray) ToWebhookNotificationResponseArrayOutput() WebhookNotificationResponseArrayOutput {
-	return i.ToWebhookNotificationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WebhookNotificationResponseArray) ToWebhookNotificationResponseArrayOutputWithContext(ctx context.Context) WebhookNotificationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookNotificationResponseArrayOutput)
 }
 
 // Webhook notification of an autoscale event.

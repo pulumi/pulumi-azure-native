@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -112,7 +112,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> pulumi.Output[List['outputs.ShareAccessRightResponse']]:
+    def share_access_rights(self) -> pulumi.Output[Sequence['outputs.ShareAccessRightResponse']]:
         """
         List of shares that the user has rights on. This field should not be specified during user creation.
         """

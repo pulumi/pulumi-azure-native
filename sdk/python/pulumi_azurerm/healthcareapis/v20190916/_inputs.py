@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -125,17 +125,17 @@ class ServiceAuthenticationConfigurationInfoArgs:
 class ServiceCorsConfigurationInfoArgs:
     def __init__(__self__, *,
                  allow_credentials: Optional[pulumi.Input[bool]] = None,
-                 headers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 max_age: Optional[pulumi.Input[float]] = None,
-                 methods: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 origins: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_age: Optional[pulumi.Input[int]] = None,
+                 methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The settings for the CORS configuration of the service instance.
         :param pulumi.Input[bool] allow_credentials: If credentials are allowed via CORS.
-        :param pulumi.Input[List[pulumi.Input[str]]] headers: The headers to be allowed via CORS.
-        :param pulumi.Input[float] max_age: The max age to be allowed via CORS.
-        :param pulumi.Input[List[pulumi.Input[str]]] methods: The methods to be allowed via CORS.
-        :param pulumi.Input[List[pulumi.Input[str]]] origins: The origins to be allowed via CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: The headers to be allowed via CORS.
+        :param pulumi.Input[int] max_age: The max age to be allowed via CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] methods: The methods to be allowed via CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] origins: The origins to be allowed via CORS.
         """
         if allow_credentials is not None:
             pulumi.set(__self__, "allow_credentials", allow_credentials)
@@ -162,74 +162,74 @@ class ServiceCorsConfigurationInfoArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The headers to be allowed via CORS.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="maxAge")
-    def max_age(self) -> Optional[pulumi.Input[float]]:
+    def max_age(self) -> Optional[pulumi.Input[int]]:
         """
         The max age to be allowed via CORS.
         """
         return pulumi.get(self, "max_age")
 
     @max_age.setter
-    def max_age(self, value: Optional[pulumi.Input[float]]):
+    def max_age(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_age", value)
 
     @property
     @pulumi.getter
-    def methods(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The methods to be allowed via CORS.
         """
         return pulumi.get(self, "methods")
 
     @methods.setter
-    def methods(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "methods", value)
 
     @property
     @pulumi.getter
-    def origins(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The origins to be allowed via CORS.
         """
         return pulumi.get(self, "origins")
 
     @origins.setter
-    def origins(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "origins", value)
 
 
 @pulumi.input_type
 class ServiceCosmosDbConfigurationInfoArgs:
     def __init__(__self__, *,
-                 offer_throughput: Optional[pulumi.Input[float]] = None):
+                 offer_throughput: Optional[pulumi.Input[int]] = None):
         """
         The settings for the Cosmos DB database backing the service.
-        :param pulumi.Input[float] offer_throughput: The provisioned throughput for the backing database.
+        :param pulumi.Input[int] offer_throughput: The provisioned throughput for the backing database.
         """
         if offer_throughput is not None:
             pulumi.set(__self__, "offer_throughput", offer_throughput)
 
     @property
     @pulumi.getter(name="offerThroughput")
-    def offer_throughput(self) -> Optional[pulumi.Input[float]]:
+    def offer_throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The provisioned throughput for the backing database.
         """
         return pulumi.get(self, "offer_throughput")
 
     @offer_throughput.setter
-    def offer_throughput(self, value: Optional[pulumi.Input[float]]):
+    def offer_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "offer_throughput", value)
 
 
@@ -260,14 +260,14 @@ class ServiceExportConfigurationInfoArgs:
 @pulumi.input_type
 class ServicesPropertiesArgs:
     def __init__(__self__, *,
-                 access_policies: Optional[pulumi.Input[List[pulumi.Input['ServiceAccessPolicyEntryArgs']]]] = None,
+                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]]] = None,
                  authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationInfoArgs']] = None,
                  cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationInfoArgs']] = None,
                  cosmos_db_configuration: Optional[pulumi.Input['ServiceCosmosDbConfigurationInfoArgs']] = None,
                  export_configuration: Optional[pulumi.Input['ServiceExportConfigurationInfoArgs']] = None):
         """
         The properties of a service instance.
-        :param pulumi.Input[List[pulumi.Input['ServiceAccessPolicyEntryArgs']]] access_policies: The access policies of the service instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]] access_policies: The access policies of the service instance.
         :param pulumi.Input['ServiceAuthenticationConfigurationInfoArgs'] authentication_configuration: The authentication configuration for the service instance.
         :param pulumi.Input['ServiceCorsConfigurationInfoArgs'] cors_configuration: The settings for the CORS configuration of the service instance.
         :param pulumi.Input['ServiceCosmosDbConfigurationInfoArgs'] cosmos_db_configuration: The settings for the Cosmos DB database backing the service.
@@ -286,14 +286,14 @@ class ServicesPropertiesArgs:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[List[pulumi.Input['ServiceAccessPolicyEntryArgs']]]]:
+    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]]]:
         """
         The access policies of the service instance.
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[List[pulumi.Input['ServiceAccessPolicyEntryArgs']]]]):
+    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]]]):
         pulumi.set(self, "access_policies", value)
 
     @property

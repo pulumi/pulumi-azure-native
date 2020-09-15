@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.NetApp.V20170815
         /// Export policy rule
         /// </summary>
         [Output("exportPolicy")]
-        public Output<Outputs.VolumePropertiesResponseExportPolicyResult?> ExportPolicy { get; private set; } = null!;
+        public Output<Outputs.VolumePropertiesResponseExportPolicy?> ExportPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Unique FileSystem Identifier.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -73,24 +73,24 @@ class CacheIdentityArgs:
 @pulumi.input_type
 class CacheNetworkSettingsArgs:
     def __init__(__self__, *,
-                 mtu: Optional[pulumi.Input[float]] = None):
+                 mtu: Optional[pulumi.Input[int]] = None):
         """
         Cache network settings.
-        :param pulumi.Input[float] mtu: The IPv4 maximum transmission unit configured for the subnet.
+        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet.
         """
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
 
     @property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[float]]:
+    def mtu(self) -> Optional[pulumi.Input[int]]:
         """
         The IPv4 maximum transmission unit configured for the subnet.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[float]]):
+    def mtu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "mtu", value)
 
 

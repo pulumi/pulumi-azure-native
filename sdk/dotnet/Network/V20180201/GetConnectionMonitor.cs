@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Network.V20180201
         /// <summary>
         /// Describes the destination of connection monitor.
         /// </summary>
-        public readonly Outputs.ConnectionMonitorDestinationResponseResult Destination;
+        public readonly Outputs.ConnectionMonitorDestinationResponse Destination;
         public readonly string? Etag;
         /// <summary>
         /// Connection monitor location.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureRM.Network.V20180201
         /// <summary>
         /// Describes the source of connection monitor.
         /// </summary>
-        public readonly Outputs.ConnectionMonitorSourceResponseResult Source;
+        public readonly Outputs.ConnectionMonitorSourceResponse Source;
         /// <summary>
         /// The date and time when the connection monitor was started.
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AzureRM.Network.V20180201
         private GetConnectionMonitorResult(
             bool? autoStart,
 
-            Outputs.ConnectionMonitorDestinationResponseResult destination,
+            Outputs.ConnectionMonitorDestinationResponse destination,
 
             string? etag,
 
@@ -109,7 +109,7 @@ namespace Pulumi.AzureRM.Network.V20180201
 
             string? provisioningState,
 
-            Outputs.ConnectionMonitorSourceResponseResult source,
+            Outputs.ConnectionMonitorSourceResponse source,
 
             string? startTime,
 

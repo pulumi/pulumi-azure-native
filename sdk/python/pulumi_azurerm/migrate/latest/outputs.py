@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -31,7 +31,7 @@ class AssessmentPropertiesResponse(dict):
                  azure_offer_code: str,
                  azure_pricing_tier: str,
                  azure_storage_redundancy: str,
-                 azure_vm_families: List[str],
+                 azure_vm_families: Sequence[str],
                  confidence_rating_in_percentage: float,
                  created_timestamp: str,
                  currency: str,
@@ -42,7 +42,7 @@ class AssessmentPropertiesResponse(dict):
                  monthly_premium_storage_cost: float,
                  monthly_standard_ssd_storage_cost: float,
                  monthly_storage_cost: float,
-                 number_of_machines: float,
+                 number_of_machines: int,
                  percentile: str,
                  perf_data_end_time: str,
                  perf_data_start_time: str,
@@ -63,7 +63,7 @@ class AssessmentPropertiesResponse(dict):
         :param str azure_offer_code: Offer code according to which cost estimation is done.
         :param str azure_pricing_tier: Pricing tier for Size evaluation.
         :param str azure_storage_redundancy: Storage Redundancy type offered by Azure.
-        :param List[str] azure_vm_families: List of azure VM families.
+        :param Sequence[str] azure_vm_families: List of azure VM families.
         :param float confidence_rating_in_percentage: Confidence rating percentage for assessment. Can be in the range [0, 100].
         :param str created_timestamp: Time when this project was created. Date-Time represented in ISO-8601 format.
         :param str currency: Currency to report prices in.
@@ -74,7 +74,7 @@ class AssessmentPropertiesResponse(dict):
         :param float monthly_premium_storage_cost: Monthly premium storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
         :param float monthly_standard_ssd_storage_cost: Monthly standard SSD storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
         :param float monthly_storage_cost: Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-        :param float number_of_machines: Number of assessed machines part of this assessment.
+        :param int number_of_machines: Number of assessed machines part of this assessment.
         :param str percentile: Percentile of performance data used to recommend Azure size.
         :param str perf_data_end_time: End time to consider performance data for assessment
         :param str perf_data_start_time: Start time to consider performance data for assessment
@@ -169,7 +169,7 @@ class AssessmentPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="azureVmFamilies")
-    def azure_vm_families(self) -> List[str]:
+    def azure_vm_families(self) -> Sequence[str]:
         """
         List of azure VM families.
         """
@@ -257,7 +257,7 @@ class AssessmentPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfMachines")
-    def number_of_machines(self) -> float:
+    def number_of_machines(self) -> int:
         """
         Number of assessed machines part of this assessment.
         """
@@ -529,18 +529,18 @@ class GroupPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  are_assessments_running: bool,
-                 assessments: List[str],
+                 assessments: Sequence[str],
                  created_timestamp: str,
                  group_status: str,
-                 machine_count: float,
+                 machine_count: int,
                  updated_timestamp: str):
         """
         Properties of group resource.
         :param bool are_assessments_running: If the assessments are in running state.
-        :param List[str] assessments: List of References to Assessments created on this group.
+        :param Sequence[str] assessments: List of References to Assessments created on this group.
         :param str created_timestamp: Time when this group was created. Date-Time represented in ISO-8601 format.
         :param str group_status: Whether the group has been created and is valid.
-        :param float machine_count: Number of machines part of this group.
+        :param int machine_count: Number of machines part of this group.
         :param str updated_timestamp: Time when this group was last updated. Date-Time represented in ISO-8601 format.
         """
         pulumi.set(__self__, "are_assessments_running", are_assessments_running)
@@ -560,7 +560,7 @@ class GroupPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def assessments(self) -> List[str]:
+    def assessments(self) -> Sequence[str]:
         """
         List of References to Assessments created on this group.
         """
@@ -584,7 +584,7 @@ class GroupPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="machineCount")
-    def machine_count(self) -> float:
+    def machine_count(self) -> int:
         """
         Number of machines part of this group.
         """
@@ -610,9 +610,9 @@ class ProjectPropertiesResponse(dict):
     def __init__(__self__, *,
                  created_timestamp: str,
                  last_assessment_timestamp: str,
-                 number_of_assessments: float,
-                 number_of_groups: float,
-                 number_of_machines: float,
+                 number_of_assessments: int,
+                 number_of_groups: int,
+                 number_of_machines: int,
                  provisioning_state: str,
                  service_endpoint: str,
                  updated_timestamp: str,
@@ -624,9 +624,9 @@ class ProjectPropertiesResponse(dict):
         Properties of a project.
         :param str created_timestamp: Time when this project was created. Date-Time represented in ISO-8601 format.
         :param str last_assessment_timestamp: Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
-        :param float number_of_assessments: Number of assessments created in the project.
-        :param float number_of_groups: Number of groups created in the project.
-        :param float number_of_machines: Number of machines in the project.
+        :param int number_of_assessments: Number of assessments created in the project.
+        :param int number_of_groups: Number of groups created in the project.
+        :param int number_of_machines: Number of machines in the project.
         :param str provisioning_state: Provisioning state of the project.
         :param str service_endpoint: Endpoint at which the collector agent can call agent REST API.
         :param str updated_timestamp: Time when this project was last updated. Date-Time represented in ISO-8601 format.
@@ -670,7 +670,7 @@ class ProjectPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfAssessments")
-    def number_of_assessments(self) -> float:
+    def number_of_assessments(self) -> int:
         """
         Number of assessments created in the project.
         """
@@ -678,7 +678,7 @@ class ProjectPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfGroups")
-    def number_of_groups(self) -> float:
+    def number_of_groups(self) -> int:
         """
         Number of groups created in the project.
         """
@@ -686,7 +686,7 @@ class ProjectPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfMachines")
-    def number_of_machines(self) -> float:
+    def number_of_machines(self) -> int:
         """
         Number of machines in the project.
         """

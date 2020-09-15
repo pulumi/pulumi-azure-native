@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -57,7 +57,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[List['outputs.ContainerServiceAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> Optional[Sequence['outputs.ContainerServiceAgentPoolProfileResponse']]:
         """
         Properties of the agent pool.
         """

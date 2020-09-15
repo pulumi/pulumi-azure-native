@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Cdn.V20170402
         /// <summary>
         /// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         /// </summary>
-        public readonly ImmutableArray<Outputs.GeoFilterResponseResult> GeoFilters;
+        public readonly ImmutableArray<Outputs.GeoFilterResponse> GeoFilters;
         /// <summary>
         /// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Cdn.V20170402
         /// <summary>
         /// The source of the content being delivered via CDN.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeepCreatedOriginResponseResult> Origins;
+        public readonly ImmutableArray<Outputs.DeepCreatedOriginResponse> Origins;
         /// <summary>
         /// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.Cdn.V20170402
         private GetEndpointResult(
             ImmutableArray<string> contentTypesToCompress,
 
-            ImmutableArray<Outputs.GeoFilterResponseResult> geoFilters,
+            ImmutableArray<Outputs.GeoFilterResponse> geoFilters,
 
             string hostName,
 
@@ -142,7 +142,7 @@ namespace Pulumi.AzureRM.Cdn.V20170402
 
             string? originPath,
 
-            ImmutableArray<Outputs.DeepCreatedOriginResponseResult> origins,
+            ImmutableArray<Outputs.DeepCreatedOriginResponse> origins,
 
             string? probePath,
 

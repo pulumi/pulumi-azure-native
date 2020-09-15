@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -100,7 +100,7 @@ class HybridUseBenefit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[float]:
+    def etag(self) -> pulumi.Output[int]:
         """
         Indicates the revision of the hybrid use benefit
         """

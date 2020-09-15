@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.BatchAI.Latest
         /// Information about disks attached to File Server VM.
         /// </summary>
         [Output("dataDisks")]
-        public Output<Outputs.DataDisksResponseResult?> DataDisks { get; private set; } = null!;
+        public Output<Outputs.DataDisksResponse?> DataDisks { get; private set; } = null!;
 
         /// <summary>
         /// File Server mount settings.
         /// </summary>
         [Output("mountSettings")]
-        public Output<Outputs.MountSettingsResponseResult> MountSettings { get; private set; } = null!;
+        public Output<Outputs.MountSettingsResponse> MountSettings { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.BatchAI.Latest
         /// SSH configuration for accessing the File Server node.
         /// </summary>
         [Output("sshConfiguration")]
-        public Output<Outputs.SshConfigurationResponseResult?> SshConfiguration { get; private set; } = null!;
+        public Output<Outputs.SshConfigurationResponse?> SshConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// File Server virtual network subnet resource ID.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.ResourceIdResponseResult?> Subnet { get; private set; } = null!;
+        public Output<Outputs.ResourceIdResponse?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

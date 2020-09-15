@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// If the schedule will occur once each day of the week, specify the daily recurrence.
         /// </summary>
-        public readonly Outputs.DayDetailsResponseResult? DailyRecurrence;
+        public readonly Outputs.DayDetailsResponse? DailyRecurrence;
         /// <summary>
         /// If the schedule will occur multiple times a day, specify the hourly recurrence.
         /// </summary>
-        public readonly Outputs.HourDetailsResponseResult? HourlyRecurrence;
+        public readonly Outputs.HourDetailsResponse? HourlyRecurrence;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// Notification settings.
         /// </summary>
-        public readonly Outputs.NotificationSettingsResponseResult? NotificationSettings;
+        public readonly Outputs.NotificationSettingsResponse? NotificationSettings;
         /// <summary>
         /// The provisioning status of the resource.
         /// </summary>
@@ -122,21 +122,21 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// If the schedule will occur only some days of the week, specify the weekly recurrence.
         /// </summary>
-        public readonly Outputs.WeekDetailsResponseResult? WeeklyRecurrence;
+        public readonly Outputs.WeekDetailsResponse? WeeklyRecurrence;
 
         [OutputConstructor]
         private GetServiceFabricScheduleResult(
             string createdDate,
 
-            Outputs.DayDetailsResponseResult? dailyRecurrence,
+            Outputs.DayDetailsResponse? dailyRecurrence,
 
-            Outputs.HourDetailsResponseResult? hourlyRecurrence,
+            Outputs.HourDetailsResponse? hourlyRecurrence,
 
             string? location,
 
             string name,
 
-            Outputs.NotificationSettingsResponseResult? notificationSettings,
+            Outputs.NotificationSettingsResponse? notificationSettings,
 
             string provisioningState,
 
@@ -154,7 +154,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
 
             string uniqueIdentifier,
 
-            Outputs.WeekDetailsResponseResult? weeklyRecurrence)
+            Outputs.WeekDetailsResponse? weeklyRecurrence)
         {
             CreatedDate = createdDate;
             DailyRecurrence = dailyRecurrence;

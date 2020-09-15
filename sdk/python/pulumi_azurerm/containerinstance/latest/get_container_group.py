@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -81,7 +81,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter
-    def containers(self) -> List['outputs.ContainerResponse']:
+    def containers(self) -> Sequence['outputs.ContainerResponse']:
         """
         The containers within the container group.
         """
@@ -121,7 +121,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter(name="imageRegistryCredentials")
-    def image_registry_credentials(self) -> Optional[List['outputs.ImageRegistryCredentialResponse']]:
+    def image_registry_credentials(self) -> Optional[Sequence['outputs.ImageRegistryCredentialResponse']]:
         """
         The image registry credentials by which the container group is created from.
         """
@@ -129,7 +129,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter(name="initContainers")
-    def init_containers(self) -> Optional[List['outputs.InitContainerDefinitionResponse']]:
+    def init_containers(self) -> Optional[Sequence['outputs.InitContainerDefinitionResponse']]:
         """
         The init containers for a container group.
         """
@@ -228,7 +228,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[List['outputs.VolumeResponse']]:
+    def volumes(self) -> Optional[Sequence['outputs.VolumeResponse']]:
         """
         The list of volumes that can be mounted by containers in this container group.
         """

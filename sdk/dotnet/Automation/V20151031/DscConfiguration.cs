@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// Gets or sets the configuration parameters.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.DscConfigurationParameterResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.DscConfigurationParameterResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the provisioning state of the configuration.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// Gets or sets the source.
         /// </summary>
         [Output("source")]
-        public Output<Outputs.ContentSourceResponseResult?> Source { get; private set; } = null!;
+        public Output<Outputs.ContentSourceResponse?> Source { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the state of the configuration.

@@ -78,13 +78,13 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// The VHD from which the image is to be created.
         /// </summary>
         [Output("vhd")]
-        public Output<Outputs.CustomImagePropertiesCustomResponseResult?> Vhd { get; private set; } = null!;
+        public Output<Outputs.CustomImagePropertiesCustomResponse?> Vhd { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine from which the image is to be created.
         /// </summary>
         [Output("vm")]
-        public Output<Outputs.CustomImagePropertiesFromVmResponseResult?> Vm { get; private set; } = null!;
+        public Output<Outputs.CustomImagePropertiesFromVmResponse?> Vm { get; private set; } = null!;
 
 
         /// <summary>

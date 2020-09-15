@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -108,7 +108,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionReferenceResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionReferenceResponse']:
         """
         The list of private endpoint connections that are set up for this resource.
         """

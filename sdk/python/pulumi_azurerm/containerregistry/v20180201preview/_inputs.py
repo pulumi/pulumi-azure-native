@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -18,11 +18,11 @@ __all__ = [
 class PlatformPropertiesArgs:
     def __init__(__self__, *,
                  os_type: pulumi.Input[str],
-                 cpu: Optional[pulumi.Input[float]] = None):
+                 cpu: Optional[pulumi.Input[int]] = None):
         """
         The platform properties against which the build has to happen.
         :param pulumi.Input[str] os_type: The operating system type required for the build.
-        :param pulumi.Input[float] cpu: The CPU configuration in terms of number of cores required for the build.
+        :param pulumi.Input[int] cpu: The CPU configuration in terms of number of cores required for the build.
         """
         pulumi.set(__self__, "os_type", os_type)
         if cpu is not None:
@@ -42,14 +42,14 @@ class PlatformPropertiesArgs:
 
     @property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[float]]:
+    def cpu(self) -> Optional[pulumi.Input[int]]:
         """
         The CPU configuration in terms of number of cores required for the build.
         """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[float]]):
+    def cpu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cpu", value)
 
 
@@ -57,14 +57,14 @@ class PlatformPropertiesArgs:
 class SourceControlAuthInfoArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str],
-                 expires_in: Optional[pulumi.Input[float]] = None,
+                 expires_in: Optional[pulumi.Input[int]] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  token_type: Optional[pulumi.Input[str]] = None):
         """
         The authorization properties for accessing the source code repository.
         :param pulumi.Input[str] token: The access token used to access the source control provider.
-        :param pulumi.Input[float] expires_in: Time in seconds that the token remains valid
+        :param pulumi.Input[int] expires_in: Time in seconds that the token remains valid
         :param pulumi.Input[str] refresh_token: The refresh token used to refresh the access token.
         :param pulumi.Input[str] scope: The scope of the access token.
         :param pulumi.Input[str] token_type: The type of Auth token.
@@ -93,14 +93,14 @@ class SourceControlAuthInfoArgs:
 
     @property
     @pulumi.getter(name="expiresIn")
-    def expires_in(self) -> Optional[pulumi.Input[float]]:
+    def expires_in(self) -> Optional[pulumi.Input[int]]:
         """
         Time in seconds that the token remains valid
         """
         return pulumi.get(self, "expires_in")
 
     @expires_in.setter
-    def expires_in(self, value: Optional[pulumi.Input[float]]):
+    def expires_in(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expires_in", value)
 
     @property

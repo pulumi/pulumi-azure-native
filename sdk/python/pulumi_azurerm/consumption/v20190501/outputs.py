@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -94,16 +94,16 @@ class FiltersResponse(dict):
     May be used to filter budgets by resource group, resource, or meter.
     """
     def __init__(__self__, *,
-                 meters: Optional[List[str]] = None,
-                 resource_groups: Optional[List[str]] = None,
-                 resources: Optional[List[str]] = None,
-                 tags: Optional[Mapping[str, List[str]]] = None):
+                 meters: Optional[Sequence[str]] = None,
+                 resource_groups: Optional[Sequence[str]] = None,
+                 resources: Optional[Sequence[str]] = None,
+                 tags: Optional[Mapping[str, Sequence[str]]] = None):
         """
         May be used to filter budgets by resource group, resource, or meter.
-        :param List[str] meters: The list of filters on meters (GUID), mandatory for budgets of usage category. 
-        :param List[str] resource_groups: The list of filters on resource groups, allowed at subscription level only.
-        :param List[str] resources: The list of filters on resources.
-        :param Mapping[str, List[str]] tags: The dictionary of filters on tags.
+        :param Sequence[str] meters: The list of filters on meters (GUID), mandatory for budgets of usage category. 
+        :param Sequence[str] resource_groups: The list of filters on resource groups, allowed at subscription level only.
+        :param Sequence[str] resources: The list of filters on resources.
+        :param Mapping[str, Sequence[str]] tags: The dictionary of filters on tags.
         """
         if meters is not None:
             pulumi.set(__self__, "meters", meters)
@@ -116,7 +116,7 @@ class FiltersResponse(dict):
 
     @property
     @pulumi.getter
-    def meters(self) -> Optional[List[str]]:
+    def meters(self) -> Optional[Sequence[str]]:
         """
         The list of filters on meters (GUID), mandatory for budgets of usage category. 
         """
@@ -124,7 +124,7 @@ class FiltersResponse(dict):
 
     @property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[List[str]]:
+    def resource_groups(self) -> Optional[Sequence[str]]:
         """
         The list of filters on resource groups, allowed at subscription level only.
         """
@@ -132,7 +132,7 @@ class FiltersResponse(dict):
 
     @property
     @pulumi.getter
-    def resources(self) -> Optional[List[str]]:
+    def resources(self) -> Optional[Sequence[str]]:
         """
         The list of filters on resources.
         """
@@ -140,7 +140,7 @@ class FiltersResponse(dict):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, List[str]]]:
+    def tags(self) -> Optional[Mapping[str, Sequence[str]]]:
         """
         The dictionary of filters on tags.
         """
@@ -156,20 +156,20 @@ class NotificationResponse(dict):
     The notification associated with a budget.
     """
     def __init__(__self__, *,
-                 contact_emails: List[str],
+                 contact_emails: Sequence[str],
                  enabled: bool,
                  operator: str,
                  threshold: float,
-                 contact_groups: Optional[List[str]] = None,
-                 contact_roles: Optional[List[str]] = None):
+                 contact_groups: Optional[Sequence[str]] = None,
+                 contact_roles: Optional[Sequence[str]] = None):
         """
         The notification associated with a budget.
-        :param List[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
         :param bool enabled: The notification is enabled or not.
         :param str operator: The comparison operator.
         :param float threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        :param List[str] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
-        :param List[str] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
         pulumi.set(__self__, "enabled", enabled)
@@ -182,7 +182,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactEmails")
-    def contact_emails(self) -> List[str]:
+    def contact_emails(self) -> Sequence[str]:
         """
         Email addresses to send the budget notification to when the threshold is exceeded.
         """
@@ -214,7 +214,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[List[str]]:
+    def contact_groups(self) -> Optional[Sequence[str]]:
         """
         Action groups to send the budget notification to when the threshold is exceeded.
         """
@@ -222,7 +222,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[List[str]]:
+    def contact_roles(self) -> Optional[Sequence[str]]:
         """
         Contact roles to send the budget notification to when the threshold is exceeded.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -251,7 +251,7 @@ class AutomationRuleSetResponse(dict):
     A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
     """
     def __init__(__self__, *,
-                 rules: Optional[List['outputs.AutomationTriggeringRuleResponse']] = None):
+                 rules: Optional[Sequence['outputs.AutomationTriggeringRuleResponse']] = None):
         """
         A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
         """
@@ -260,7 +260,7 @@ class AutomationRuleSetResponse(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.AutomationTriggeringRuleResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.AutomationTriggeringRuleResponse']]:
         return pulumi.get(self, "rules")
 
     def _translate_property(self, prop):
@@ -312,11 +312,11 @@ class AutomationSourceResponse(dict):
     """
     def __init__(__self__, *,
                  event_source: Optional[str] = None,
-                 rule_sets: Optional[List['outputs.AutomationRuleSetResponse']] = None):
+                 rule_sets: Optional[Sequence['outputs.AutomationRuleSetResponse']] = None):
         """
         The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
         :param str event_source: A valid event source type.
-        :param List['AutomationRuleSetResponseArgs'] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+        :param Sequence['AutomationRuleSetResponseArgs'] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
         """
         if event_source is not None:
             pulumi.set(__self__, "event_source", event_source)
@@ -333,7 +333,7 @@ class AutomationSourceResponse(dict):
 
     @property
     @pulumi.getter(name="ruleSets")
-    def rule_sets(self) -> Optional[List['outputs.AutomationRuleSetResponse']]:
+    def rule_sets(self) -> Optional[Sequence['outputs.AutomationRuleSetResponse']]:
         """
         A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
         """
@@ -539,15 +539,15 @@ class ScopeElementResponse(dict):
 @pulumi.output_type
 class SuppressionAlertsScopeResponse(dict):
     def __init__(__self__, *,
-                 all_of: List['outputs.ScopeElementResponse']):
+                 all_of: Sequence['outputs.ScopeElementResponse']):
         """
-        :param List['ScopeElementResponseArgs'] all_of: All the conditions inside need to be true in order to suppress the alert
+        :param Sequence['ScopeElementResponseArgs'] all_of: All the conditions inside need to be true in order to suppress the alert
         """
         pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> List['outputs.ScopeElementResponse']:
+    def all_of(self) -> Sequence['outputs.ScopeElementResponse']:
         """
         All the conditions inside need to be true in order to suppress the alert
         """

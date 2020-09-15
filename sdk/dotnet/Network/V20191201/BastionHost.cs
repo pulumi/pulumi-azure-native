@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// IP configuration of the Bastion Host resource.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.BastionHostIPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BastionHostIPConfigurationResponse>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.

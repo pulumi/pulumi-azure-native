@@ -51,11 +51,11 @@ namespace Pulumi.AzureRM.Devices.V20170821Preview
         /// The resource name.
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.IotDpsPropertiesDescriptionResponseResult Properties;
+        public readonly Outputs.IotDpsPropertiesDescriptionResponse Properties;
         /// <summary>
         /// List of possible provisioning service SKUs.
         /// </summary>
-        public readonly Outputs.IotDpsSkuInfoResponseResult Sku;
+        public readonly Outputs.IotDpsSkuInfoResponse Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -73,9 +73,9 @@ namespace Pulumi.AzureRM.Devices.V20170821Preview
 
             string name,
 
-            Outputs.IotDpsPropertiesDescriptionResponseResult properties,
+            Outputs.IotDpsPropertiesDescriptionResponse properties,
 
-            Outputs.IotDpsSkuInfoResponseResult sku,
+            Outputs.IotDpsSkuInfoResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 

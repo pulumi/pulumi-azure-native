@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.EnterpriseKnowledgeGraph.Latest
         /// The set of properties specific to EnterpriseKnowledgeGraph resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.EnterpriseKnowledgeGraphPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.EnterpriseKnowledgeGraphPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.

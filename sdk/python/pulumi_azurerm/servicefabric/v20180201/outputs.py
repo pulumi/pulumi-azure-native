@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -298,19 +298,19 @@ class ClusterHealthPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  application_health_policies: Optional[Mapping[str, 'outputs.ApplicationHealthPolicyResponse']] = None,
-                 max_percent_unhealthy_applications: Optional[float] = None,
-                 max_percent_unhealthy_nodes: Optional[float] = None):
+                 max_percent_unhealthy_applications: Optional[int] = None,
+                 max_percent_unhealthy_nodes: Optional[int] = None):
         """
         Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 
         :param Mapping[str, 'ApplicationHealthPolicyResponseArgs'] application_health_policies: Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-        :param float max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+        :param int max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
                
                The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
                If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
                This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
                The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-        :param float max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+        :param int max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
                
                The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
                If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
@@ -336,7 +336,7 @@ class ClusterHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyApplications")
-    def max_percent_unhealthy_applications(self) -> Optional[float]:
+    def max_percent_unhealthy_applications(self) -> Optional[int]:
         """
         The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 
@@ -349,7 +349,7 @@ class ClusterHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyNodes")
-    def max_percent_unhealthy_nodes(self) -> Optional[float]:
+    def max_percent_unhealthy_nodes(self) -> Optional[int]:
         """
         The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
 
@@ -372,19 +372,19 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
     Describes the delta health policies for the cluster upgrade.
     """
     def __init__(__self__, *,
-                 max_percent_delta_unhealthy_applications: float,
-                 max_percent_delta_unhealthy_nodes: float,
-                 max_percent_upgrade_domain_delta_unhealthy_nodes: float,
+                 max_percent_delta_unhealthy_applications: int,
+                 max_percent_delta_unhealthy_nodes: int,
+                 max_percent_upgrade_domain_delta_unhealthy_nodes: int,
                  application_delta_health_policies: Optional[Mapping[str, 'outputs.ApplicationDeltaHealthPolicyResponse']] = None):
         """
         Describes the delta health policies for the cluster upgrade.
-        :param float max_percent_delta_unhealthy_applications: The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+        :param int max_percent_delta_unhealthy_applications: The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
                The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-        :param float max_percent_delta_unhealthy_nodes: The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+        :param int max_percent_delta_unhealthy_nodes: The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
                The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-        :param float max_percent_upgrade_domain_delta_unhealthy_nodes: The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+        :param int max_percent_upgrade_domain_delta_unhealthy_nodes: The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
                The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
         :param Mapping[str, 'ApplicationDeltaHealthPolicyResponseArgs'] application_delta_health_policies: Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
@@ -397,7 +397,7 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyApplications")
-    def max_percent_delta_unhealthy_applications(self) -> float:
+    def max_percent_delta_unhealthy_applications(self) -> int:
         """
         The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
         The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
@@ -407,7 +407,7 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyNodes")
-    def max_percent_delta_unhealthy_nodes(self) -> float:
+    def max_percent_delta_unhealthy_nodes(self) -> int:
         """
         The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
         The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
@@ -417,7 +417,7 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentUpgradeDomainDeltaUnhealthyNodes")
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> float:
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> int:
         """
         The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
         The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
@@ -677,19 +677,19 @@ class EndpointRangeDescriptionResponse(dict):
     Port range details
     """
     def __init__(__self__, *,
-                 end_port: float,
-                 start_port: float):
+                 end_port: int,
+                 start_port: int):
         """
         Port range details
-        :param float end_port: End port of a range of ports
-        :param float start_port: Starting port of a range of ports
+        :param int end_port: End port of a range of ports
+        :param int start_port: Starting port of a range of ports
         """
         pulumi.set(__self__, "end_port", end_port)
         pulumi.set(__self__, "start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
-    def end_port(self) -> float:
+    def end_port(self) -> int:
         """
         End port of a range of ports
         """
@@ -697,7 +697,7 @@ class EndpointRangeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="startPort")
-    def start_port(self) -> float:
+    def start_port(self) -> int:
         """
         Starting port of a range of ports
         """
@@ -713,24 +713,24 @@ class NodeTypeDescriptionResponse(dict):
     Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     """
     def __init__(__self__, *,
-                 client_connection_endpoint_port: float,
-                 http_gateway_endpoint_port: float,
+                 client_connection_endpoint_port: int,
+                 http_gateway_endpoint_port: int,
                  is_primary: bool,
                  name: str,
-                 vm_instance_count: float,
+                 vm_instance_count: int,
                  application_ports: Optional['outputs.EndpointRangeDescriptionResponse'] = None,
                  capacities: Optional[Mapping[str, str]] = None,
                  durability_level: Optional[str] = None,
                  ephemeral_ports: Optional['outputs.EndpointRangeDescriptionResponse'] = None,
                  placement_properties: Optional[Mapping[str, str]] = None,
-                 reverse_proxy_endpoint_port: Optional[float] = None):
+                 reverse_proxy_endpoint_port: Optional[int] = None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-        :param float client_connection_endpoint_port: The TCP cluster management endpoint port.
-        :param float http_gateway_endpoint_port: The HTTP cluster management endpoint port.
+        :param int client_connection_endpoint_port: The TCP cluster management endpoint port.
+        :param int http_gateway_endpoint_port: The HTTP cluster management endpoint port.
         :param bool is_primary: The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
         :param str name: The name of the node type.
-        :param float vm_instance_count: The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+        :param int vm_instance_count: The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
         :param 'EndpointRangeDescriptionResponseArgs' application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param Mapping[str, str] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param str durability_level: The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
@@ -740,7 +740,7 @@ class NodeTypeDescriptionResponse(dict):
                  - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM SKUs like D15_V2, G5 etc.
         :param 'EndpointRangeDescriptionResponseArgs' ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
         :param Mapping[str, str] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-        :param float reverse_proxy_endpoint_port: The endpoint used by reverse proxy.
+        :param int reverse_proxy_endpoint_port: The endpoint used by reverse proxy.
         """
         pulumi.set(__self__, "client_connection_endpoint_port", client_connection_endpoint_port)
         pulumi.set(__self__, "http_gateway_endpoint_port", http_gateway_endpoint_port)
@@ -762,7 +762,7 @@ class NodeTypeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="clientConnectionEndpointPort")
-    def client_connection_endpoint_port(self) -> float:
+    def client_connection_endpoint_port(self) -> int:
         """
         The TCP cluster management endpoint port.
         """
@@ -770,7 +770,7 @@ class NodeTypeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="httpGatewayEndpointPort")
-    def http_gateway_endpoint_port(self) -> float:
+    def http_gateway_endpoint_port(self) -> int:
         """
         The HTTP cluster management endpoint port.
         """
@@ -794,7 +794,7 @@ class NodeTypeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="vmInstanceCount")
-    def vm_instance_count(self) -> float:
+    def vm_instance_count(self) -> int:
         """
         The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
         """
@@ -846,7 +846,7 @@ class NodeTypeDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="reverseProxyEndpointPort")
-    def reverse_proxy_endpoint_port(self) -> Optional[float]:
+    def reverse_proxy_endpoint_port(self) -> Optional[int]:
         """
         The endpoint used by reverse proxy.
         """
@@ -898,11 +898,11 @@ class ServerCertificateCommonNamesResponse(dict):
     Describes a list of server certificates referenced by common name that are used to secure the cluster.
     """
     def __init__(__self__, *,
-                 common_names: Optional[List['outputs.ServerCertificateCommonNameResponse']] = None,
+                 common_names: Optional[Sequence['outputs.ServerCertificateCommonNameResponse']] = None,
                  x509_store_name: Optional[str] = None):
         """
         Describes a list of server certificates referenced by common name that are used to secure the cluster.
-        :param List['ServerCertificateCommonNameResponseArgs'] common_names: The list of server certificates referenced by common name that are used to secure the cluster.
+        :param Sequence['ServerCertificateCommonNameResponseArgs'] common_names: The list of server certificates referenced by common name that are used to secure the cluster.
         :param str x509_store_name: The local certificate store location.
         """
         if common_names is not None:
@@ -912,7 +912,7 @@ class ServerCertificateCommonNamesResponse(dict):
 
     @property
     @pulumi.getter(name="commonNames")
-    def common_names(self) -> Optional[List['outputs.ServerCertificateCommonNameResponse']]:
+    def common_names(self) -> Optional[Sequence['outputs.ServerCertificateCommonNameResponse']]:
         """
         The list of server certificates referenced by common name that are used to secure the cluster.
         """
@@ -936,11 +936,11 @@ class ServiceTypeDeltaHealthPolicyResponse(dict):
     Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
     """
     def __init__(__self__, *,
-                 max_percent_delta_unhealthy_services: Optional[float] = None):
+                 max_percent_delta_unhealthy_services: Optional[int] = None):
         """
         Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
 
-        :param float max_percent_delta_unhealthy_services: The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+        :param int max_percent_delta_unhealthy_services: The maximum allowed percentage of services health degradation allowed during cluster upgrades.
                The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
         """
@@ -949,7 +949,7 @@ class ServiceTypeDeltaHealthPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyServices")
-    def max_percent_delta_unhealthy_services(self) -> Optional[float]:
+    def max_percent_delta_unhealthy_services(self) -> Optional[int]:
         """
         The maximum allowed percentage of services health degradation allowed during cluster upgrades.
         The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
@@ -967,18 +967,18 @@ class ServiceTypeHealthPolicyResponse(dict):
     Represents the health policy used to evaluate the health of services belonging to a service type.
     """
     def __init__(__self__, *,
-                 max_percent_unhealthy_services: Optional[float] = None):
+                 max_percent_unhealthy_services: Optional[int] = None):
         """
         Represents the health policy used to evaluate the health of services belonging to a service type.
 
-        :param float max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+        :param int max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
         """
         if max_percent_unhealthy_services is not None:
             pulumi.set(__self__, "max_percent_unhealthy_services", max_percent_unhealthy_services)
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyServices")
-    def max_percent_unhealthy_services(self) -> Optional[float]:
+    def max_percent_unhealthy_services(self) -> Optional[int]:
         """
         The maximum percentage of services allowed to be unhealthy before your application is considered in error.
         """
@@ -1031,11 +1031,11 @@ class SettingsSectionDescriptionResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 parameters: List['outputs.SettingsParameterDescriptionResponse']):
+                 parameters: Sequence['outputs.SettingsParameterDescriptionResponse']):
         """
         Describes a section in the fabric settings of the cluster.
         :param str name: The section name of the fabric settings.
-        :param List['SettingsParameterDescriptionResponseArgs'] parameters: The collection of parameters in the section.
+        :param Sequence['SettingsParameterDescriptionResponseArgs'] parameters: The collection of parameters in the section.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parameters", parameters)
@@ -1050,7 +1050,7 @@ class SettingsSectionDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> List['outputs.SettingsParameterDescriptionResponse']:
+    def parameters(self) -> Sequence['outputs.SettingsParameterDescriptionResponse']:
         """
         The collection of parameters in the section.
         """

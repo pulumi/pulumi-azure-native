@@ -39,7 +39,7 @@ namespace Pulumi.AzureRM.Kubernetes.V20200101Preview
     [OutputType]
     public sealed class GetConnectedClusterResult
     {
-        public readonly Outputs.ConnectedClusterAADProfileResponseResult AadProfile;
+        public readonly Outputs.ConnectedClusterAADProfileResponse AadProfile;
         /// <summary>
         /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.Kubernetes.V20200101Preview
         /// <summary>
         /// The identity of the connected cluster.
         /// </summary>
-        public readonly Outputs.ConnectedClusterIdentityResponseResult Identity;
+        public readonly Outputs.ConnectedClusterIdentityResponse Identity;
         /// <summary>
         /// The Kubernetes version of the connected cluster resource
         /// </summary>
@@ -83,13 +83,13 @@ namespace Pulumi.AzureRM.Kubernetes.V20200101Preview
 
         [OutputConstructor]
         private GetConnectedClusterResult(
-            Outputs.ConnectedClusterAADProfileResponseResult aadProfile,
+            Outputs.ConnectedClusterAADProfileResponse aadProfile,
 
             string agentPublicKeyCertificate,
 
             string agentVersion,
 
-            Outputs.ConnectedClusterIdentityResponseResult identity,
+            Outputs.ConnectedClusterIdentityResponse identity,
 
             string kubernetesVersion,
 

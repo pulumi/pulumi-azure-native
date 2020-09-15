@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -174,11 +174,11 @@ class CertificateReferenceArgs:
                  id: pulumi.Input[str],
                  store_location: Optional[pulumi.Input[str]] = None,
                  store_name: Optional[pulumi.Input[str]] = None,
-                 visibility: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 visibility: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] store_location: The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         :param pulumi.Input[str] store_name: This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
-        :param pulumi.Input[List[pulumi.Input[str]]] visibility: Values are:
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] visibility: Values are:
                
                 starttask - The user account under which the start task is run.
                 task - The accounts under which job tasks are run.
@@ -229,7 +229,7 @@ class CertificateReferenceArgs:
 
     @property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def visibility(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Values are:
 
@@ -242,7 +242,7 @@ class CertificateReferenceArgs:
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def visibility(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "visibility", value)
 
 
@@ -303,13 +303,13 @@ class CloudServiceConfigurationArgs:
 @pulumi.input_type
 class DataDiskArgs:
     def __init__(__self__, *,
-                 disk_size_gb: pulumi.Input[float],
-                 lun: pulumi.Input[float],
+                 disk_size_gb: pulumi.Input[int],
+                 lun: pulumi.Input[int],
                  caching: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None):
         """
         Data Disk settings which will be used by the data disks associated to Compute Nodes in the pool.
-        :param pulumi.Input[float] lun: The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
+        :param pulumi.Input[int] lun: The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
         :param pulumi.Input[str] caching: Values are:
                
                 none - The caching mode for the disk is not enabled.
@@ -331,23 +331,23 @@ class DataDiskArgs:
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> pulumi.Input[float]:
+    def disk_size_gb(self) -> pulumi.Input[int]:
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: pulumi.Input[float]):
+    def disk_size_gb(self, value: pulumi.Input[int]):
         pulumi.set(self, "disk_size_gb", value)
 
     @property
     @pulumi.getter
-    def lun(self) -> pulumi.Input[float]:
+    def lun(self) -> pulumi.Input[int]:
         """
         The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
         """
         return pulumi.get(self, "lun")
 
     @lun.setter
-    def lun(self, value: pulumi.Input[float]):
+    def lun(self, value: pulumi.Input[int]):
         pulumi.set(self, "lun", value)
 
     @property
@@ -456,13 +456,13 @@ class FixedScaleSettingsArgs:
     def __init__(__self__, *,
                  node_deallocation_option: Optional[pulumi.Input[str]] = None,
                  resize_timeout: Optional[pulumi.Input[str]] = None,
-                 target_dedicated_nodes: Optional[pulumi.Input[float]] = None,
-                 target_low_priority_nodes: Optional[pulumi.Input[float]] = None):
+                 target_dedicated_nodes: Optional[pulumi.Input[int]] = None,
+                 target_low_priority_nodes: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] node_deallocation_option: If omitted, the default value is Requeue.
         :param pulumi.Input[str] resize_timeout: The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
-        :param pulumi.Input[float] target_dedicated_nodes: At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
-        :param pulumi.Input[float] target_low_priority_nodes: At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
+        :param pulumi.Input[int] target_dedicated_nodes: At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
+        :param pulumi.Input[int] target_low_priority_nodes: At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
         """
         if node_deallocation_option is not None:
             pulumi.set(__self__, "node_deallocation_option", node_deallocation_option)
@@ -499,26 +499,26 @@ class FixedScaleSettingsArgs:
 
     @property
     @pulumi.getter(name="targetDedicatedNodes")
-    def target_dedicated_nodes(self) -> Optional[pulumi.Input[float]]:
+    def target_dedicated_nodes(self) -> Optional[pulumi.Input[int]]:
         """
         At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
         """
         return pulumi.get(self, "target_dedicated_nodes")
 
     @target_dedicated_nodes.setter
-    def target_dedicated_nodes(self, value: Optional[pulumi.Input[float]]):
+    def target_dedicated_nodes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_dedicated_nodes", value)
 
     @property
     @pulumi.getter(name="targetLowPriorityNodes")
-    def target_low_priority_nodes(self) -> Optional[pulumi.Input[float]]:
+    def target_low_priority_nodes(self) -> Optional[pulumi.Input[int]]:
         """
         At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
         """
         return pulumi.get(self, "target_low_priority_nodes")
 
     @target_low_priority_nodes.setter
-    def target_low_priority_nodes(self, value: Optional[pulumi.Input[float]]):
+    def target_low_priority_nodes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_low_priority_nodes", value)
 
 
@@ -612,18 +612,18 @@ class ImageReferenceArgs:
 @pulumi.input_type
 class InboundNatPoolArgs:
     def __init__(__self__, *,
-                 backend_port: pulumi.Input[float],
-                 frontend_port_range_end: pulumi.Input[float],
-                 frontend_port_range_start: pulumi.Input[float],
+                 backend_port: pulumi.Input[int],
+                 frontend_port_range_end: pulumi.Input[int],
+                 frontend_port_range_start: pulumi.Input[int],
                  name: pulumi.Input[str],
                  protocol: pulumi.Input[str],
-                 network_security_group_rules: Optional[pulumi.Input[List[pulumi.Input['NetworkSecurityGroupRuleArgs']]]] = None):
+                 network_security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupRuleArgs']]]] = None):
         """
-        :param pulumi.Input[float] backend_port: This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
-        :param pulumi.Input[float] frontend_port_range_end: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
-        :param pulumi.Input[float] frontend_port_range_start: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
+        :param pulumi.Input[int] backend_port: This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
+        :param pulumi.Input[int] frontend_port_range_end: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
+        :param pulumi.Input[int] frontend_port_range_start: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
         :param pulumi.Input[str] name: The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400.
-        :param pulumi.Input[List[pulumi.Input['NetworkSecurityGroupRuleArgs']]] network_security_group_rules: The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupRuleArgs']]] network_security_group_rules: The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "frontend_port_range_end", frontend_port_range_end)
@@ -635,38 +635,38 @@ class InboundNatPoolArgs:
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> pulumi.Input[float]:
+    def backend_port(self) -> pulumi.Input[int]:
         """
         This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: pulumi.Input[float]):
+    def backend_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "backend_port", value)
 
     @property
     @pulumi.getter(name="frontendPortRangeEnd")
-    def frontend_port_range_end(self) -> pulumi.Input[float]:
+    def frontend_port_range_end(self) -> pulumi.Input[int]:
         """
         Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
         """
         return pulumi.get(self, "frontend_port_range_end")
 
     @frontend_port_range_end.setter
-    def frontend_port_range_end(self, value: pulumi.Input[float]):
+    def frontend_port_range_end(self, value: pulumi.Input[int]):
         pulumi.set(self, "frontend_port_range_end", value)
 
     @property
     @pulumi.getter(name="frontendPortRangeStart")
-    def frontend_port_range_start(self) -> pulumi.Input[float]:
+    def frontend_port_range_start(self) -> pulumi.Input[int]:
         """
         Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
         """
         return pulumi.get(self, "frontend_port_range_start")
 
     @frontend_port_range_start.setter
-    def frontend_port_range_start(self, value: pulumi.Input[float]):
+    def frontend_port_range_start(self, value: pulumi.Input[int]):
         pulumi.set(self, "frontend_port_range_start", value)
 
     @property
@@ -692,14 +692,14 @@ class InboundNatPoolArgs:
 
     @property
     @pulumi.getter(name="networkSecurityGroupRules")
-    def network_security_group_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['NetworkSecurityGroupRuleArgs']]]]:
+    def network_security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupRuleArgs']]]]:
         """
         The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
         """
         return pulumi.get(self, "network_security_group_rules")
 
     @network_security_group_rules.setter
-    def network_security_group_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['NetworkSecurityGroupRuleArgs']]]]):
+    def network_security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupRuleArgs']]]]):
         pulumi.set(self, "network_security_group_rules", value)
 
 
@@ -744,13 +744,13 @@ class KeyVaultReferenceArgs:
 @pulumi.input_type
 class LinuxUserConfigurationArgs:
     def __init__(__self__, *,
-                 gid: Optional[pulumi.Input[float]] = None,
+                 gid: Optional[pulumi.Input[int]] = None,
                  ssh_private_key: Optional[pulumi.Input[str]] = None,
-                 uid: Optional[pulumi.Input[float]] = None):
+                 uid: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] gid: The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
+        :param pulumi.Input[int] gid: The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
         :param pulumi.Input[str] ssh_private_key: The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
-        :param pulumi.Input[float] uid: The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+        :param pulumi.Input[int] uid: The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
         """
         if gid is not None:
             pulumi.set(__self__, "gid", gid)
@@ -761,14 +761,14 @@ class LinuxUserConfigurationArgs:
 
     @property
     @pulumi.getter
-    def gid(self) -> Optional[pulumi.Input[float]]:
+    def gid(self) -> Optional[pulumi.Input[int]]:
         """
         The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
         """
         return pulumi.get(self, "gid")
 
     @gid.setter
-    def gid(self, value: Optional[pulumi.Input[float]]):
+    def gid(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "gid", value)
 
     @property
@@ -785,14 +785,14 @@ class LinuxUserConfigurationArgs:
 
     @property
     @pulumi.getter
-    def uid(self) -> Optional[pulumi.Input[float]]:
+    def uid(self) -> Optional[pulumi.Input[int]]:
         """
         The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
         """
         return pulumi.get(self, "uid")
 
     @uid.setter
-    def uid(self, value: Optional[pulumi.Input[float]]):
+    def uid(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "uid", value)
 
 
@@ -870,10 +870,10 @@ class NetworkConfigurationArgs:
 class NetworkSecurityGroupRuleArgs:
     def __init__(__self__, *,
                  access: pulumi.Input[str],
-                 priority: pulumi.Input[float],
+                 priority: pulumi.Input[int],
                  source_address_prefix: pulumi.Input[str]):
         """
-        :param pulumi.Input[float] priority: Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 3500. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
+        :param pulumi.Input[int] priority: Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 3500. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
         :param pulumi.Input[str] source_address_prefix: Valid values are a single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), default tag, or * (for all addresses).  If any other values are provided the request fails with HTTP status code 400.
         """
         pulumi.set(__self__, "access", access)
@@ -891,14 +891,14 @@ class NetworkSecurityGroupRuleArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Input[float]:
+    def priority(self) -> pulumi.Input[int]:
         """
         Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 3500. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: pulumi.Input[float]):
+    def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -940,22 +940,22 @@ class OSDiskArgs:
 @pulumi.input_type
 class PoolEndpointConfigurationArgs:
     def __init__(__self__, *,
-                 inbound_nat_pools: pulumi.Input[List[pulumi.Input['InboundNatPoolArgs']]]):
+                 inbound_nat_pools: pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]]):
         """
-        :param pulumi.Input[List[pulumi.Input['InboundNatPoolArgs']]] inbound_nat_pools: The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+        :param pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]] inbound_nat_pools: The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
         """
         pulumi.set(__self__, "inbound_nat_pools", inbound_nat_pools)
 
     @property
     @pulumi.getter(name="inboundNatPools")
-    def inbound_nat_pools(self) -> pulumi.Input[List[pulumi.Input['InboundNatPoolArgs']]]:
+    def inbound_nat_pools(self) -> pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]]:
         """
         The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
         """
         return pulumi.get(self, "inbound_nat_pools")
 
     @inbound_nat_pools.setter
-    def inbound_nat_pools(self, value: pulumi.Input[List[pulumi.Input['InboundNatPoolArgs']]]):
+    def inbound_nat_pools(self, value: pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]]):
         pulumi.set(self, "inbound_nat_pools", value)
 
 
@@ -1052,14 +1052,14 @@ class ScaleSettingsArgs:
 class StartTaskArgs:
     def __init__(__self__, *,
                  command_line: Optional[pulumi.Input[str]] = None,
-                 environment_settings: Optional[pulumi.Input[List[pulumi.Input['EnvironmentSettingArgs']]]] = None,
-                 max_task_retry_count: Optional[pulumi.Input[float]] = None,
-                 resource_files: Optional[pulumi.Input[List[pulumi.Input['ResourceFileArgs']]]] = None,
+                 environment_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]]] = None,
+                 max_task_retry_count: Optional[pulumi.Input[int]] = None,
+                 resource_files: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceFileArgs']]]] = None,
                  user_identity: Optional[pulumi.Input['UserIdentityArgs']] = None,
                  wait_for_success: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] command_line: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
-        :param pulumi.Input[float] max_task_retry_count: The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit.
+        :param pulumi.Input[int] max_task_retry_count: The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit.
         :param pulumi.Input['UserIdentityArgs'] user_identity: If omitted, the task runs as a non-administrative user unique to the task.
         :param pulumi.Input[bool] wait_for_success: If true and the start task fails on a compute node, the Batch service retries the start task up to its maximum retry count (maxTaskRetryCount). If the task has still not completed successfully after all retries, then the Batch service marks the compute node unusable, and will not schedule tasks to it. This condition can be detected via the node state and scheduling error detail. If false, the Batch service will not wait for the start task to complete. In this case, other tasks can start executing on the compute node while the start task is still running; and even if the start task fails, new tasks will continue to be scheduled on the node. The default is false.
         """
@@ -1090,32 +1090,32 @@ class StartTaskArgs:
 
     @property
     @pulumi.getter(name="environmentSettings")
-    def environment_settings(self) -> Optional[pulumi.Input[List[pulumi.Input['EnvironmentSettingArgs']]]]:
+    def environment_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]]]:
         return pulumi.get(self, "environment_settings")
 
     @environment_settings.setter
-    def environment_settings(self, value: Optional[pulumi.Input[List[pulumi.Input['EnvironmentSettingArgs']]]]):
+    def environment_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]]]):
         pulumi.set(self, "environment_settings", value)
 
     @property
     @pulumi.getter(name="maxTaskRetryCount")
-    def max_task_retry_count(self) -> Optional[pulumi.Input[float]]:
+    def max_task_retry_count(self) -> Optional[pulumi.Input[int]]:
         """
         The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit.
         """
         return pulumi.get(self, "max_task_retry_count")
 
     @max_task_retry_count.setter
-    def max_task_retry_count(self, value: Optional[pulumi.Input[float]]):
+    def max_task_retry_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_task_retry_count", value)
 
     @property
     @pulumi.getter(name="resourceFiles")
-    def resource_files(self) -> Optional[pulumi.Input[List[pulumi.Input['ResourceFileArgs']]]]:
+    def resource_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceFileArgs']]]]:
         return pulumi.get(self, "resource_files")
 
     @resource_files.setter
-    def resource_files(self, value: Optional[pulumi.Input[List[pulumi.Input['ResourceFileArgs']]]]):
+    def resource_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceFileArgs']]]]):
         pulumi.set(self, "resource_files", value)
 
     @property
@@ -1265,13 +1265,13 @@ class VirtualMachineConfigurationArgs:
     def __init__(__self__, *,
                  image_reference: pulumi.Input['ImageReferenceArgs'],
                  node_agent_sku_id: pulumi.Input[str],
-                 data_disks: Optional[pulumi.Input[List[pulumi.Input['DataDiskArgs']]]] = None,
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  os_disk: Optional[pulumi.Input['OSDiskArgs']] = None,
                  windows_configuration: Optional[pulumi.Input['WindowsConfigurationArgs']] = None):
         """
         :param pulumi.Input[str] node_agent_sku_id: The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
-        :param pulumi.Input[List[pulumi.Input['DataDiskArgs']]] data_disks: This property must be specified if the compute nodes in the pool need to have empty data disks attached to them.
+        :param pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]] data_disks: This property must be specified if the compute nodes in the pool need to have empty data disks attached to them.
         :param pulumi.Input[str] license_type: This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
                
                 Windows_Server - The on-premises license is for Windows Server.
@@ -1312,14 +1312,14 @@ class VirtualMachineConfigurationArgs:
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[List[pulumi.Input['DataDiskArgs']]]]:
+    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]]:
         """
         This property must be specified if the compute nodes in the pool need to have empty data disks attached to them.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[List[pulumi.Input['DataDiskArgs']]]]):
+    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @property

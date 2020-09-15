@@ -49,11 +49,11 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// <summary>
         /// The resource of private end point.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponseResult? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
@@ -67,9 +67,9 @@ namespace Pulumi.AzureRM.Media.V20200501
         private GetPrivateEndpointConnectionResult(
             string name,
 
-            Outputs.PrivateEndpointResponseResult? privateEndpoint,
+            Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponseResult privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
             string? provisioningState,
 

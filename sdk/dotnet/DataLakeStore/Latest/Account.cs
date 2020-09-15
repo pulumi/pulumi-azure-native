@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.DataLakeStore.Latest
         /// The Key Vault encryption configuration.
         /// </summary>
         [Output("encryptionConfig")]
-        public Output<Outputs.EncryptionConfigResponseResult> EncryptionConfig { get; private set; } = null!;
+        public Output<Outputs.EncryptionConfigResponse> EncryptionConfig { get; private set; } = null!;
 
         /// <summary>
         /// The current state of encryption provisioning for this Data Lake Store account.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.DataLakeStore.Latest
         /// The list of firewall rules associated with this Data Lake Store account.
         /// </summary>
         [Output("firewallRules")]
-        public Output<ImmutableArray<Outputs.FirewallRuleResponseResult>> FirewallRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallRuleResponse>> FirewallRules { get; private set; } = null!;
 
         /// <summary>
         /// The current state of the IP address firewall for this Data Lake Store account.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.DataLakeStore.Latest
         /// The Key Vault encryption identity, if any.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.EncryptionIdentityResponseResult> Identity { get; private set; } = null!;
+        public Output<Outputs.EncryptionIdentityResponse> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The account last modified time.
@@ -138,7 +138,7 @@ namespace Pulumi.AzureRM.DataLakeStore.Latest
         /// The list of trusted identity providers associated with this Data Lake Store account.
         /// </summary>
         [Output("trustedIdProviders")]
-        public Output<ImmutableArray<Outputs.TrustedIdProviderResponseResult>> TrustedIdProviders { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TrustedIdProviderResponse>> TrustedIdProviders { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -150,7 +150,7 @@ namespace Pulumi.AzureRM.DataLakeStore.Latest
         /// The list of virtual network rules associated with this Data Lake Store account.
         /// </summary>
         [Output("virtualNetworkRules")]
-        public Output<ImmutableArray<Outputs.VirtualNetworkRuleResponseResult>> VirtualNetworkRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualNetworkRuleResponse>> VirtualNetworkRules { get; private set; } = null!;
 
 
         /// <summary>

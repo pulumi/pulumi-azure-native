@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,8 +30,8 @@ class GetDscConfigurationResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if job_count and not isinstance(job_count, float):
-            raise TypeError("Expected argument 'job_count' to be a float")
+        if job_count and not isinstance(job_count, int):
+            raise TypeError("Expected argument 'job_count' to be a int")
         pulumi.set(__self__, "job_count", job_count)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
@@ -45,8 +45,8 @@ class GetDscConfigurationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if node_configuration_count and not isinstance(node_configuration_count, float):
-            raise TypeError("Expected argument 'node_configuration_count' to be a float")
+        if node_configuration_count and not isinstance(node_configuration_count, int):
+            raise TypeError("Expected argument 'node_configuration_count' to be a int")
         pulumi.set(__self__, "node_configuration_count", node_configuration_count)
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
@@ -93,7 +93,7 @@ class GetDscConfigurationResult:
 
     @property
     @pulumi.getter(name="jobCount")
-    def job_count(self) -> Optional[float]:
+    def job_count(self) -> Optional[int]:
         """
         Gets or sets the job count of the configuration.
         """
@@ -133,7 +133,7 @@ class GetDscConfigurationResult:
 
     @property
     @pulumi.getter(name="nodeConfigurationCount")
-    def node_configuration_count(self) -> Optional[float]:
+    def node_configuration_count(self) -> Optional[int]:
         """
         Gets the number of compiled node configurations.
         """

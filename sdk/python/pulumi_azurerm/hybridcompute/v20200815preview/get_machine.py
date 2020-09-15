@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -147,7 +147,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> List['outputs.ErrorDetailResponse']:
+    def error_details(self) -> Sequence['outputs.ErrorDetailResponse']:
         """
         Details about the error state.
         """
@@ -155,7 +155,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[List['outputs.MachineExtensionInstanceViewResponse']]:
+    def extensions(self) -> Optional[Sequence['outputs.MachineExtensionInstanceViewResponse']]:
         """
         Machine Extensions information
         """
@@ -240,7 +240,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter(name="privateLinkScopedResources")
-    def private_link_scoped_resources(self) -> List[str]:
+    def private_link_scoped_resources(self) -> Sequence[str]:
         """
         List of private link scoped resources associated with this machine.
         """

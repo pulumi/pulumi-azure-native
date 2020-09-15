@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -31,7 +31,7 @@ class Task(pulumi.CustomResource):
                  step: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
-                 timeout: Optional[pulumi.Input[float]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  trigger: Optional[pulumi.Input[pulumi.InputType['TriggerPropertiesArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -56,7 +56,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]] step: The properties of a task step.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] task_name: The name of the container registry task.
-        :param pulumi.Input[float] timeout: Run timeout in seconds.
+        :param pulumi.Input[int] timeout: Run timeout in seconds.
         :param pulumi.Input[pulumi.InputType['TriggerPropertiesArgs']] trigger: The properties that describe all triggers for the task.
         """
         if __name__ is not None:
@@ -244,7 +244,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Output[Optional[float]]:
+    def timeout(self) -> pulumi.Output[Optional[int]]:
         """
         Run timeout in seconds.
         """

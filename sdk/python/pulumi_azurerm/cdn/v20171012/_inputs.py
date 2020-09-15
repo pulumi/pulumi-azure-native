@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -92,14 +92,14 @@ class DeepCreatedOriginArgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 http_port: Optional[pulumi.Input[float]] = None,
-                 https_port: Optional[pulumi.Input[float]] = None):
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None):
         """
         The main origin of CDN content which is added when creating a CDN endpoint.
         :param pulumi.Input[str] host_name: The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
         :param pulumi.Input[str] name: Origin name
-        :param pulumi.Input[float] http_port: The value of the HTTP port. Must be between 1 and 65535
-        :param pulumi.Input[float] https_port: The value of the HTTPS port. Must be between 1 and 65535
+        :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535
+        :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "name", name)
@@ -134,40 +134,40 @@ class DeepCreatedOriginArgs:
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[pulumi.Input[float]]:
+    def http_port(self) -> Optional[pulumi.Input[int]]:
         """
         The value of the HTTP port. Must be between 1 and 65535
         """
         return pulumi.get(self, "http_port")
 
     @http_port.setter
-    def http_port(self, value: Optional[pulumi.Input[float]]):
+    def http_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "http_port", value)
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[pulumi.Input[float]]:
+    def https_port(self) -> Optional[pulumi.Input[int]]:
         """
         The value of the HTTPS port. Must be between 1 and 65535
         """
         return pulumi.get(self, "https_port")
 
     @https_port.setter
-    def https_port(self, value: Optional[pulumi.Input[float]]):
+    def https_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "https_port", value)
 
 
 @pulumi.input_type
 class DeliveryRuleArgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input[List[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]],
-                 order: pulumi.Input[float],
-                 conditions: Optional[pulumi.Input[List[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None):
+                 actions: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]],
+                 order: pulumi.Input[int],
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None):
         """
         A rule that specifies a set of actions and conditions
-        :param pulumi.Input[List[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
-        :param pulumi.Input[float] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param pulumi.Input[List[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
+        :param pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param pulumi.Input[int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "order", order)
@@ -176,38 +176,38 @@ class DeliveryRuleArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input[List[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]]:
         """
         A list of actions that are executed when all the conditions of a rule are satisfied.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input[List[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]]):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter
-    def order(self) -> pulumi.Input[float]:
+    def order(self) -> pulumi.Input[int]:
         """
         The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: pulumi.Input[float]):
+    def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[List[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
         """
         A list of conditions that must be matched for the actions to be executed
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[List[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
         pulumi.set(self, "conditions", value)
 
 
@@ -328,11 +328,11 @@ class DeliveryRuleUrlPathConditionArgs:
 @pulumi.input_type
 class EndpointPropertiesUpdateParametersDeliveryPolicyArgs:
     def __init__(__self__, *,
-                 rules: pulumi.Input[List[pulumi.Input['DeliveryRuleArgs']]],
+                 rules: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]],
                  description: Optional[pulumi.Input[str]] = None):
         """
         A policy that specifies the delivery rules to be used for an endpoint.
-        :param pulumi.Input[List[pulumi.Input['DeliveryRuleArgs']]] rules: A list of the delivery rules.
+        :param pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]] rules: A list of the delivery rules.
         :param pulumi.Input[str] description: User-friendly description of the policy.
         """
         pulumi.set(__self__, "rules", rules)
@@ -341,14 +341,14 @@ class EndpointPropertiesUpdateParametersDeliveryPolicyArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[List[pulumi.Input['DeliveryRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]]:
         """
         A list of the delivery rules.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[List[pulumi.Input['DeliveryRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -368,12 +368,12 @@ class EndpointPropertiesUpdateParametersDeliveryPolicyArgs:
 class GeoFilterArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
-                 country_codes: pulumi.Input[List[pulumi.Input[str]]],
+                 country_codes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  relative_path: pulumi.Input[str]):
         """
         Rules defining user's geo access within a CDN endpoint.
         :param pulumi.Input[str] action: Action of the geo filter, i.e. allow or block access.
-        :param pulumi.Input[List[pulumi.Input[str]]] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         :param pulumi.Input[str] relative_path: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
         """
         pulumi.set(__self__, "action", action)
@@ -394,14 +394,14 @@ class GeoFilterArgs:
 
     @property
     @pulumi.getter(name="countryCodes")
-    def country_codes(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def country_codes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         """
         return pulumi.get(self, "country_codes")
 
     @country_codes.setter
-    def country_codes(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def country_codes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "country_codes", value)
 
     @property
@@ -444,25 +444,25 @@ class SkuArgs:
 @pulumi.input_type
 class UrlFileExtensionConditionParametersArgs:
     def __init__(__self__, *,
-                 extensions: pulumi.Input[List[pulumi.Input[str]]],
+                 extensions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str]):
         """
         Defines the parameters for the URL file extension condition.
-        :param pulumi.Input[List[pulumi.Input[str]]] extensions: A list of extensions for the condition of the delivery rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extensions: A list of extensions for the condition of the delivery rule.
         """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "odata_type", odata_type)
 
     @property
     @pulumi.getter
-    def extensions(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def extensions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of extensions for the condition of the delivery rule.
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def extensions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "extensions", value)
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -131,22 +131,22 @@ class SyncProgressStatusResponse(dict):
     Sync Session status object.
     """
     def __init__(__self__, *,
-                 applied_bytes: Optional[float] = None,
-                 applied_item_count: Optional[float] = None,
-                 per_item_error_count: Optional[float] = None,
+                 applied_bytes: Optional[int] = None,
+                 applied_item_count: Optional[int] = None,
+                 per_item_error_count: Optional[int] = None,
                  progress_timestamp: Optional[str] = None,
                  sync_direction: Optional[str] = None,
-                 total_bytes: Optional[float] = None,
-                 total_item_count: Optional[float] = None):
+                 total_bytes: Optional[int] = None,
+                 total_item_count: Optional[int] = None):
         """
         Sync Session status object.
-        :param float applied_bytes: Applied bytes
-        :param float applied_item_count: Applied item count.
-        :param float per_item_error_count: Per item error count
+        :param int applied_bytes: Applied bytes
+        :param int applied_item_count: Applied item count.
+        :param int per_item_error_count: Per item error count
         :param str progress_timestamp: Progress timestamp
         :param str sync_direction: Sync direction.
-        :param float total_bytes: Total bytes
-        :param float total_item_count: Total item count
+        :param int total_bytes: Total bytes
+        :param int total_item_count: Total item count
         """
         if applied_bytes is not None:
             pulumi.set(__self__, "applied_bytes", applied_bytes)
@@ -165,7 +165,7 @@ class SyncProgressStatusResponse(dict):
 
     @property
     @pulumi.getter(name="appliedBytes")
-    def applied_bytes(self) -> Optional[float]:
+    def applied_bytes(self) -> Optional[int]:
         """
         Applied bytes
         """
@@ -173,7 +173,7 @@ class SyncProgressStatusResponse(dict):
 
     @property
     @pulumi.getter(name="appliedItemCount")
-    def applied_item_count(self) -> Optional[float]:
+    def applied_item_count(self) -> Optional[int]:
         """
         Applied item count.
         """
@@ -181,7 +181,7 @@ class SyncProgressStatusResponse(dict):
 
     @property
     @pulumi.getter(name="perItemErrorCount")
-    def per_item_error_count(self) -> Optional[float]:
+    def per_item_error_count(self) -> Optional[int]:
         """
         Per item error count
         """
@@ -205,7 +205,7 @@ class SyncProgressStatusResponse(dict):
 
     @property
     @pulumi.getter(name="totalBytes")
-    def total_bytes(self) -> Optional[float]:
+    def total_bytes(self) -> Optional[int]:
         """
         Total bytes
         """
@@ -213,7 +213,7 @@ class SyncProgressStatusResponse(dict):
 
     @property
     @pulumi.getter(name="totalItemCount")
-    def total_item_count(self) -> Optional[float]:
+    def total_item_count(self) -> Optional[int]:
         """
         Total item count
         """
@@ -229,14 +229,14 @@ class SyncSessionStatusResponse(dict):
     Sync Session status object.
     """
     def __init__(__self__, *,
-                 last_sync_per_item_error_count: Optional[float] = None,
-                 last_sync_result: Optional[float] = None,
+                 last_sync_per_item_error_count: Optional[int] = None,
+                 last_sync_result: Optional[int] = None,
                  last_sync_success_timestamp: Optional[str] = None,
                  last_sync_timestamp: Optional[str] = None):
         """
         Sync Session status object.
-        :param float last_sync_per_item_error_count: Last sync per item error count.
-        :param float last_sync_result: Last sync status
+        :param int last_sync_per_item_error_count: Last sync per item error count.
+        :param int last_sync_result: Last sync status
         :param str last_sync_success_timestamp: Last sync success timestamp
         :param str last_sync_timestamp: Last sync timestamp
         """
@@ -251,7 +251,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="lastSyncPerItemErrorCount")
-    def last_sync_per_item_error_count(self) -> Optional[float]:
+    def last_sync_per_item_error_count(self) -> Optional[int]:
         """
         Last sync per item error count.
         """
@@ -259,7 +259,7 @@ class SyncSessionStatusResponse(dict):
 
     @property
     @pulumi.getter(name="lastSyncResult")
-    def last_sync_result(self) -> Optional[float]:
+    def last_sync_result(self) -> Optional[int]:
         """
         Last sync status
         """

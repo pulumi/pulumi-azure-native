@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// Group of Firewall Policy rule collections.
         /// </summary>
         [Output("ruleCollections")]
-        public Output<ImmutableArray<Union<Outputs.FirewallPolicyFilterRuleCollectionResponseResult, Outputs.FirewallPolicyNatRuleCollectionResponseResult>>> RuleCollections { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.FirewallPolicyFilterRuleCollectionResponse, Outputs.FirewallPolicyNatRuleCollectionResponse>>> RuleCollections { get; private set; } = null!;
 
         /// <summary>
         /// Rule Group type.

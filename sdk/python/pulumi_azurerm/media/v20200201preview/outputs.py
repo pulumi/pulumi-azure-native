@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -26,13 +26,13 @@ class MediaGraphAssetSinkResponse(dict):
     """
     def __init__(__self__, *,
                  asset_name: str,
-                 inputs: List[str],
+                 inputs: Sequence[str],
                  name: str,
                  odata_type: str):
         """
         Asset sink.
         :param str asset_name: Asset name.
-        :param List[str] inputs: Sink inputs.
+        :param Sequence[str] inputs: Sink inputs.
         :param str name: Sink name.
         :param str odata_type: The discriminator for derived types.
         """
@@ -51,7 +51,7 @@ class MediaGraphAssetSinkResponse(dict):
 
     @property
     @pulumi.getter
-    def inputs(self) -> List[str]:
+    def inputs(self) -> Sequence[str]:
         """
         Sink inputs.
         """
@@ -131,11 +131,11 @@ class MediaGraphPemCertificateListResponse(dict):
     A list of PEM formatted certificates.
     """
     def __init__(__self__, *,
-                 certificates: List[str],
+                 certificates: Sequence[str],
                  odata_type: str):
         """
         A list of PEM formatted certificates.
-        :param List[str] certificates: PEM formatted public certificates, one per entry.
+        :param Sequence[str] certificates: PEM formatted public certificates, one per entry.
         :param str odata_type: The discriminator for derived types.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -143,7 +143,7 @@ class MediaGraphPemCertificateListResponse(dict):
 
     @property
     @pulumi.getter
-    def certificates(self) -> List[str]:
+    def certificates(self) -> Sequence[str]:
         """
         PEM formatted public certificates, one per entry.
         """

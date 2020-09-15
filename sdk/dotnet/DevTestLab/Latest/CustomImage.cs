@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// Storage information about the plan related to this custom image
         /// </summary>
         [Output("customImagePlan")]
-        public Output<Outputs.CustomImagePropertiesFromPlanResponseResult?> CustomImagePlan { get; private set; } = null!;
+        public Output<Outputs.CustomImagePropertiesFromPlanResponse?> CustomImagePlan { get; private set; } = null!;
 
         /// <summary>
         /// Storage information about the data disks present in the custom image
         /// </summary>
         [Output("dataDiskStorageInfo")]
-        public Output<ImmutableArray<Outputs.DataDiskStorageTypeInfoResponseResult>> DataDiskStorageInfo { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DataDiskStorageTypeInfoResponse>> DataDiskStorageInfo { get; private set; } = null!;
 
         /// <summary>
         /// The description of the custom image.
@@ -102,13 +102,13 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// The VHD from which the image is to be created.
         /// </summary>
         [Output("vhd")]
-        public Output<Outputs.CustomImagePropertiesCustomResponseResult?> Vhd { get; private set; } = null!;
+        public Output<Outputs.CustomImagePropertiesCustomResponse?> Vhd { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine from which the image is to be created.
         /// </summary>
         [Output("vm")]
-        public Output<Outputs.CustomImagePropertiesFromVmResponseResult?> Vm { get; private set; } = null!;
+        public Output<Outputs.CustomImagePropertiesFromVmResponse?> Vm { get; private set; } = null!;
 
 
         /// <summary>

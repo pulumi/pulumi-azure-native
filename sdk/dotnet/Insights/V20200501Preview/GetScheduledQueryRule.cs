@@ -39,11 +39,11 @@ namespace Pulumi.AzureRM.Insights.V20200501Preview
     [OutputType]
     public sealed class GetScheduledQueryRuleResult
     {
-        public readonly ImmutableArray<Outputs.ActionResponseResult> Actions;
+        public readonly ImmutableArray<Outputs.ActionResponse> Actions;
         /// <summary>
         /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
-        public readonly Outputs.ScheduledQueryRuleCriteriaResponseResult? Criteria;
+        public readonly Outputs.ScheduledQueryRuleCriteriaResponse? Criteria;
         /// <summary>
         /// The description of the scheduled query rule.
         /// </summary>
@@ -95,9 +95,9 @@ namespace Pulumi.AzureRM.Insights.V20200501Preview
 
         [OutputConstructor]
         private GetScheduledQueryRuleResult(
-            ImmutableArray<Outputs.ActionResponseResult> actions,
+            ImmutableArray<Outputs.ActionResponse> actions,
 
-            Outputs.ScheduledQueryRuleCriteriaResponseResult? criteria,
+            Outputs.ScheduledQueryRuleCriteriaResponse? criteria,
 
             string? description,
 

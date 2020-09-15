@@ -58,15 +58,15 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// The applicable schedule for the virtual machine.
         /// </summary>
-        public readonly Outputs.ApplicableScheduleResponseResult ApplicableSchedule;
+        public readonly Outputs.ApplicableScheduleResponse ApplicableSchedule;
         /// <summary>
         /// The artifact deployment status for the virtual machine.
         /// </summary>
-        public readonly Outputs.ArtifactDeploymentStatusPropertiesResponseResult? ArtifactDeploymentStatus;
+        public readonly Outputs.ArtifactDeploymentStatusPropertiesResponse? ArtifactDeploymentStatus;
         /// <summary>
         /// The artifacts to be installed on the virtual machine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ArtifactInstallPropertiesResponseResult> Artifacts;
+        public readonly ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> Artifacts;
         /// <summary>
         /// The resource identifier (Microsoft.Compute) of the virtual machine.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// The compute virtual machine properties.
         /// </summary>
-        public readonly Outputs.ComputeVmPropertiesResponseResult ComputeVm;
+        public readonly Outputs.ComputeVmPropertiesResponse ComputeVm;
         /// <summary>
         /// The email address of creator of the virtual machine.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// New or existing data disks to attach to the virtual machine after creation
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataDiskPropertiesResponseResult> DataDiskParameters;
+        public readonly ImmutableArray<Outputs.DataDiskPropertiesResponse> DataDiskParameters;
         /// <summary>
         /// Indicates whether the virtual machine is to be created without a public IP address.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// The Microsoft Azure Marketplace image reference of the virtual machine.
         /// </summary>
-        public readonly Outputs.GalleryImageReferenceResponseResult? GalleryImageReference;
+        public readonly Outputs.GalleryImageReferenceResponse? GalleryImageReference;
         /// <summary>
         /// Indicates whether this virtual machine uses an SSH key for authentication.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// The network interface properties.
         /// </summary>
-        public readonly Outputs.NetworkInterfacePropertiesResponseResult? NetworkInterface;
+        public readonly Outputs.NetworkInterfacePropertiesResponse? NetworkInterface;
         /// <summary>
         /// The notes of the virtual machine.
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// Virtual Machine schedules to be created
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScheduleCreationParameterResponseResult> ScheduleParameters;
+        public readonly ImmutableArray<Outputs.ScheduleCreationParameterResponse> ScheduleParameters;
         /// <summary>
         /// The size of the virtual machine.
         /// </summary>
@@ -212,15 +212,15 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         private GetVirtualMachineResult(
             bool? allowClaim,
 
-            Outputs.ApplicableScheduleResponseResult applicableSchedule,
+            Outputs.ApplicableScheduleResponse applicableSchedule,
 
-            Outputs.ArtifactDeploymentStatusPropertiesResponseResult? artifactDeploymentStatus,
+            Outputs.ArtifactDeploymentStatusPropertiesResponse? artifactDeploymentStatus,
 
-            ImmutableArray<Outputs.ArtifactInstallPropertiesResponseResult> artifacts,
+            ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> artifacts,
 
             string? computeId,
 
-            Outputs.ComputeVmPropertiesResponseResult computeVm,
+            Outputs.ComputeVmPropertiesResponse computeVm,
 
             string? createdByUser,
 
@@ -230,7 +230,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
 
             string? customImageId,
 
-            ImmutableArray<Outputs.DataDiskPropertiesResponseResult> dataDiskParameters,
+            ImmutableArray<Outputs.DataDiskPropertiesResponse> dataDiskParameters,
 
             bool? disallowPublicIpAddress,
 
@@ -240,7 +240,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
 
             string? fqdn,
 
-            Outputs.GalleryImageReferenceResponseResult? galleryImageReference,
+            Outputs.GalleryImageReferenceResponse? galleryImageReference,
 
             bool? isAuthenticationWithSshKey,
 
@@ -254,7 +254,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
 
             string name,
 
-            Outputs.NetworkInterfacePropertiesResponseResult? networkInterface,
+            Outputs.NetworkInterfacePropertiesResponse? networkInterface,
 
             string? notes,
 
@@ -270,7 +270,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
 
             string provisioningState,
 
-            ImmutableArray<Outputs.ScheduleCreationParameterResponseResult> scheduleParameters,
+            ImmutableArray<Outputs.ScheduleCreationParameterResponse> scheduleParameters,
 
             string? size,
 

@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001Preview
         /// <summary>
         /// Defines the move resource properties.
         /// </summary>
-        public readonly Outputs.MoveResourcePropertiesResponseResult Properties;
+        public readonly Outputs.MoveResourcePropertiesResponse Properties;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001Preview
         private GetMoveResourceResult(
             string name,
 
-            Outputs.MoveResourcePropertiesResponseResult properties,
+            Outputs.MoveResourcePropertiesResponse properties,
 
             string type)
         {

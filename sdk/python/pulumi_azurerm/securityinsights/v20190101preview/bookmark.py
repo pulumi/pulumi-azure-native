@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class Bookmark(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  incident_info: Optional[pulumi.Input[pulumi.InputType['IncidentInfoArgs']]] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -46,7 +46,7 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the bookmark
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[pulumi.InputType['IncidentInfoArgs']] incident_info: Describes an incident that relates to bookmark
-        :param pulumi.Input[List[pulumi.Input[str]]] labels: List of labels relevant to this bookmark
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this bookmark
         :param pulumi.Input[str] notes: The notes of the bookmark
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] query: The query of the bookmark.
@@ -168,7 +168,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[List[str]]]:
+    def labels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of labels relevant to this bookmark
         """

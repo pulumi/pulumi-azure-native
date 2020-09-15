@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,7 +48,7 @@ class GetCustomResourceProviderResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.CustomRPActionRouteDefinitionResponse']]:
+    def actions(self) -> Optional[Sequence['outputs.CustomRPActionRouteDefinitionResponse']]:
         """
         A list of actions that the custom resource provider implements.
         """
@@ -80,7 +80,7 @@ class GetCustomResourceProviderResult:
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[List['outputs.CustomRPResourceTypeRouteDefinitionResponse']]:
+    def resource_types(self) -> Optional[Sequence['outputs.CustomRPResourceTypeRouteDefinitionResponse']]:
         """
         A list of resource types that the custom resource provider implements.
         """
@@ -104,7 +104,7 @@ class GetCustomResourceProviderResult:
 
     @property
     @pulumi.getter
-    def validations(self) -> Optional[List['outputs.CustomRPValidationsResponse']]:
+    def validations(self) -> Optional[Sequence['outputs.CustomRPValidationsResponse']]:
         """
         A list of validations to run on the custom resource provider's requests.
         """

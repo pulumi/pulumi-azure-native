@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// Gets the field definitions of the connection type.
         /// </summary>
         [Output("fieldDefinitions")]
-        public Output<ImmutableDictionary<string, Outputs.FieldDefinitionResponseResult>> FieldDefinitions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.FieldDefinitionResponse>> FieldDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets a Boolean value to indicate if the connection type is global.

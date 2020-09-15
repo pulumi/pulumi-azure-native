@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Origin']
@@ -17,8 +17,8 @@ class Origin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
-                 http_port: Optional[pulumi.Input[float]] = None,
-                 https_port: Optional[pulumi.Input[float]] = None,
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None,
                  origin_name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,8 +32,8 @@ class Origin(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint within the CDN profile.
         :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-        :param pulumi.Input[float] http_port: The value of the HTTP port. Must be between 1 and 65535.
-        :param pulumi.Input[float] https_port: The value of the HTTPS port. Must be between 1 and 65535.
+        :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535.
+        :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
         :param pulumi.Input[str] origin_name: Name of the origin, an arbitrary value but it needs to be unique under endpoint
         :param pulumi.Input[str] profile_name: Name of the CDN profile within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
@@ -112,7 +112,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> pulumi.Output[Optional[float]]:
+    def http_port(self) -> pulumi.Output[Optional[int]]:
         """
         The value of the HTTP port. Must be between 1 and 65535.
         """
@@ -120,7 +120,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> pulumi.Output[Optional[float]]:
+    def https_port(self) -> pulumi.Output[Optional[int]]:
         """
         The value of the https port. Must be between 1 and 65535.
         """

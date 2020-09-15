@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// This is only valid for web app creation. If specified, web app is cloned from 
         ///             a source web app
         /// </summary>
-        public readonly Outputs.CloningInfoResponseResult? CloningInfo;
+        public readonly Outputs.CloningInfoResponse? CloningInfo;
         /// <summary>
         /// Size of a function container
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <summary>
         /// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HostNameSslStateResponseResult> HostNameSslStates;
+        public readonly ImmutableArray<Outputs.HostNameSslStateResponse> HostNameSslStates;
         /// <summary>
         /// Hostnames associated with web app
         /// </summary>
@@ -101,7 +101,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <summary>
         /// Specification for the hosting environment (App Service Environment) to use for the web app
         /// </summary>
-        public readonly Outputs.HostingEnvironmentProfileResponseResult? HostingEnvironmentProfile;
+        public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
         /// <summary>
         /// Site is a default container
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <summary>
         /// Configuration of web app
         /// </summary>
-        public readonly Outputs.SiteConfigResponseResult? SiteConfig;
+        public readonly Outputs.SiteConfigResponse? SiteConfig;
         /// <summary>
         /// State of the web app
         /// </summary>
@@ -186,7 +186,7 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             bool? clientCertEnabled,
 
-            Outputs.CloningInfoResponseResult? cloningInfo,
+            Outputs.CloningInfoResponse? cloningInfo,
 
             int? containerSize,
 
@@ -198,13 +198,13 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             string? gatewaySiteName,
 
-            ImmutableArray<Outputs.HostNameSslStateResponseResult> hostNameSslStates,
+            ImmutableArray<Outputs.HostNameSslStateResponse> hostNameSslStates,
 
             ImmutableArray<string> hostNames,
 
             bool? hostNamesDisabled,
 
-            Outputs.HostingEnvironmentProfileResponseResult? hostingEnvironmentProfile,
+            Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
 
             bool isDefaultContainer,
 
@@ -232,7 +232,7 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             string? serverFarmId,
 
-            Outputs.SiteConfigResponseResult? siteConfig,
+            Outputs.SiteConfigResponse? siteConfig,
 
             string state,
 

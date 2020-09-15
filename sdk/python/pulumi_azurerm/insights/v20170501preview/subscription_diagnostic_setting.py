@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
                  event_hub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubscriptionLogSettingsArgs']]]]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionLogSettingsArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[str] location: Location of the resource
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubscriptionLogSettingsArgs']]]] logs: The list of logs settings.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionLogSettingsArgs']]]] logs: The list of logs settings.
         :param pulumi.Input[str] name: The name of the diagnostic setting.
         :param pulumi.Input[str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
@@ -120,7 +120,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logs(self) -> pulumi.Output[Optional[List['outputs.SubscriptionLogSettingsResponse']]]:
+    def logs(self) -> pulumi.Output[Optional[Sequence['outputs.SubscriptionLogSettingsResponse']]]:
         """
         The list of logs settings.
         """

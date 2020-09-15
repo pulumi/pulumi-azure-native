@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -152,30 +152,30 @@ class ContainerCodePackagePropertiesResponse(dict):
                  instance_view: 'outputs.ContainerInstanceViewResponse',
                  name: str,
                  resources: 'outputs.ResourceRequirementsResponse',
-                 commands: Optional[List[str]] = None,
+                 commands: Optional[Sequence[str]] = None,
                  diagnostics: Optional['outputs.DiagnosticsRefResponse'] = None,
-                 endpoints: Optional[List['outputs.EndpointPropertiesResponse']] = None,
+                 endpoints: Optional[Sequence['outputs.EndpointPropertiesResponse']] = None,
                  entrypoint: Optional[str] = None,
-                 environment_variables: Optional[List['outputs.EnvironmentVariableResponse']] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
                  image_registry_credential: Optional['outputs.ImageRegistryCredentialResponse'] = None,
-                 labels: Optional[List['outputs.ContainerLabelResponse']] = None,
-                 settings: Optional[List['outputs.SettingResponse']] = None,
-                 volume_refs: Optional[List['outputs.ContainerVolumeResponse']] = None):
+                 labels: Optional[Sequence['outputs.ContainerLabelResponse']] = None,
+                 settings: Optional[Sequence['outputs.SettingResponse']] = None,
+                 volume_refs: Optional[Sequence['outputs.ContainerVolumeResponse']] = None):
         """
         Describes a container and its runtime properties.
         :param str image: The Container image to use.
         :param 'ContainerInstanceViewResponseArgs' instance_view: Runtime information of a container instance.
         :param str name: The name of the code package.
         :param 'ResourceRequirementsResponseArgs' resources: This type describes the resource requirements for a container or a service.
-        :param List[str] commands: Command array to execute within the container in exec form.
+        :param Sequence[str] commands: Command array to execute within the container in exec form.
         :param 'DiagnosticsRefResponseArgs' diagnostics: Reference to sinks in DiagnosticsDescription.
-        :param List['EndpointPropertiesResponseArgs'] endpoints: The endpoints exposed by this container.
+        :param Sequence['EndpointPropertiesResponseArgs'] endpoints: The endpoints exposed by this container.
         :param str entrypoint: Override for the default entry point in the container.
-        :param List['EnvironmentVariableResponseArgs'] environment_variables: The environment variables to set in this container
+        :param Sequence['EnvironmentVariableResponseArgs'] environment_variables: The environment variables to set in this container
         :param 'ImageRegistryCredentialResponseArgs' image_registry_credential: Image registry credential.
-        :param List['ContainerLabelResponseArgs'] labels: The labels to set in this container.
-        :param List['SettingResponseArgs'] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
-        :param List['ContainerVolumeResponseArgs'] volume_refs: The volumes to be attached to the container.
+        :param Sequence['ContainerLabelResponseArgs'] labels: The labels to set in this container.
+        :param Sequence['SettingResponseArgs'] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
+        :param Sequence['ContainerVolumeResponseArgs'] volume_refs: The volumes to be attached to the container.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "instance_view", instance_view)
@@ -234,7 +234,7 @@ class ContainerCodePackagePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def commands(self) -> Optional[List[str]]:
+    def commands(self) -> Optional[Sequence[str]]:
         """
         Command array to execute within the container in exec form.
         """
@@ -250,7 +250,7 @@ class ContainerCodePackagePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[List['outputs.EndpointPropertiesResponse']]:
+    def endpoints(self) -> Optional[Sequence['outputs.EndpointPropertiesResponse']]:
         """
         The endpoints exposed by this container.
         """
@@ -266,7 +266,7 @@ class ContainerCodePackagePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[List['outputs.EnvironmentVariableResponse']]:
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
         """
         The environment variables to set in this container
         """
@@ -282,7 +282,7 @@ class ContainerCodePackagePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List['outputs.ContainerLabelResponse']]:
+    def labels(self) -> Optional[Sequence['outputs.ContainerLabelResponse']]:
         """
         The labels to set in this container.
         """
@@ -290,7 +290,7 @@ class ContainerCodePackagePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[List['outputs.SettingResponse']]:
+    def settings(self) -> Optional[Sequence['outputs.SettingResponse']]:
         """
         The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
         """
@@ -298,7 +298,7 @@ class ContainerCodePackagePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="volumeRefs")
-    def volume_refs(self) -> Optional[List['outputs.ContainerVolumeResponse']]:
+    def volume_refs(self) -> Optional[Sequence['outputs.ContainerVolumeResponse']]:
         """
         The volumes to be attached to the container.
         """
@@ -314,7 +314,7 @@ class ContainerEventResponse(dict):
     A container event.
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  first_timestamp: Optional[str] = None,
                  last_timestamp: Optional[str] = None,
                  message: Optional[str] = None,
@@ -322,7 +322,7 @@ class ContainerEventResponse(dict):
                  type: Optional[str] = None):
         """
         A container event.
-        :param float count: The count of the event.
+        :param int count: The count of the event.
         :param str first_timestamp: Date/time of the first event.
         :param str last_timestamp: Date/time of the last event.
         :param str message: The event message
@@ -344,7 +344,7 @@ class ContainerEventResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         The count of the event.
         """
@@ -401,15 +401,15 @@ class ContainerInstanceViewResponse(dict):
     """
     def __init__(__self__, *,
                  current_state: Optional['outputs.ContainerStateResponse'] = None,
-                 events: Optional[List['outputs.ContainerEventResponse']] = None,
+                 events: Optional[Sequence['outputs.ContainerEventResponse']] = None,
                  previous_state: Optional['outputs.ContainerStateResponse'] = None,
-                 restart_count: Optional[float] = None):
+                 restart_count: Optional[int] = None):
         """
         Runtime information of a container instance.
         :param 'ContainerStateResponseArgs' current_state: Current container instance state.
-        :param List['ContainerEventResponseArgs'] events: The events of this container instance.
+        :param Sequence['ContainerEventResponseArgs'] events: The events of this container instance.
         :param 'ContainerStateResponseArgs' previous_state: Previous container instance state.
-        :param float restart_count: The number of times the container has been restarted.
+        :param int restart_count: The number of times the container has been restarted.
         """
         if current_state is not None:
             pulumi.set(__self__, "current_state", current_state)
@@ -430,7 +430,7 @@ class ContainerInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[List['outputs.ContainerEventResponse']]:
+    def events(self) -> Optional[Sequence['outputs.ContainerEventResponse']]:
         """
         The events of this container instance.
         """
@@ -446,7 +446,7 @@ class ContainerInstanceViewResponse(dict):
 
     @property
     @pulumi.getter(name="restartCount")
-    def restart_count(self) -> Optional[float]:
+    def restart_count(self) -> Optional[int]:
         """
         The number of times the container has been restarted.
         """
@@ -620,14 +620,14 @@ class DiagnosticsDescriptionResponse(dict):
     Describes the diagnostics options available
     """
     def __init__(__self__, *,
-                 default_sink_refs: Optional[List[str]] = None,
+                 default_sink_refs: Optional[Sequence[str]] = None,
                  enabled: Optional[bool] = None,
-                 sinks: Optional[List['outputs.AzureInternalMonitoringPipelineSinkDescriptionResponse']] = None):
+                 sinks: Optional[Sequence['outputs.AzureInternalMonitoringPipelineSinkDescriptionResponse']] = None):
         """
         Describes the diagnostics options available
-        :param List[str] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
+        :param Sequence[str] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param bool enabled: Status of whether or not sinks are enabled.
-        :param List['AzureInternalMonitoringPipelineSinkDescriptionResponseArgs'] sinks: List of supported sinks that can be referenced.
+        :param Sequence['AzureInternalMonitoringPipelineSinkDescriptionResponseArgs'] sinks: List of supported sinks that can be referenced.
         """
         if default_sink_refs is not None:
             pulumi.set(__self__, "default_sink_refs", default_sink_refs)
@@ -638,7 +638,7 @@ class DiagnosticsDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="defaultSinkRefs")
-    def default_sink_refs(self) -> Optional[List[str]]:
+    def default_sink_refs(self) -> Optional[Sequence[str]]:
         """
         The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         """
@@ -654,7 +654,7 @@ class DiagnosticsDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def sinks(self) -> Optional[List['outputs.AzureInternalMonitoringPipelineSinkDescriptionResponse']]:
+    def sinks(self) -> Optional[Sequence['outputs.AzureInternalMonitoringPipelineSinkDescriptionResponse']]:
         """
         List of supported sinks that can be referenced.
         """
@@ -671,11 +671,11 @@ class DiagnosticsRefResponse(dict):
     """
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
-                 sink_refs: Optional[List[str]] = None):
+                 sink_refs: Optional[Sequence[str]] = None):
         """
         Reference to sinks in DiagnosticsDescription.
         :param bool enabled: Status of whether or not sinks are enabled.
-        :param List[str] sink_refs: List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
+        :param Sequence[str] sink_refs: List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -692,7 +692,7 @@ class DiagnosticsRefResponse(dict):
 
     @property
     @pulumi.getter(name="sinkRefs")
-    def sink_refs(self) -> Optional[List[str]]:
+    def sink_refs(self) -> Optional[Sequence[str]]:
         """
         List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
@@ -709,11 +709,11 @@ class EndpointPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 port: Optional[float] = None):
+                 port: Optional[int] = None):
         """
         Describes a container endpoint.
         :param str name: The name of the endpoint.
-        :param float port: Port used by the container.
+        :param int port: Port used by the container.
         """
         pulumi.set(__self__, "name", name)
         if port is not None:
@@ -729,7 +729,7 @@ class EndpointPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         Port used by the container.
         """
@@ -832,12 +832,12 @@ class IngressConfigResponse(dict):
     """
     def __init__(__self__, *,
                  public_ip_address: str,
-                 layer4: Optional[List['outputs.Layer4IngressConfigResponse']] = None,
+                 layer4: Optional[Sequence['outputs.Layer4IngressConfigResponse']] = None,
                  qos_level: Optional[str] = None):
         """
         Describes public connectivity configuration for the network.
         :param str public_ip_address: The public IP address for reaching this network.
-        :param List['Layer4IngressConfigResponseArgs'] layer4: Configuration for layer4 public connectivity for this network.
+        :param Sequence['Layer4IngressConfigResponseArgs'] layer4: Configuration for layer4 public connectivity for this network.
         :param str qos_level: The QoS tier for ingress.
         """
         pulumi.set(__self__, "public_ip_address", public_ip_address)
@@ -856,7 +856,7 @@ class IngressConfigResponse(dict):
 
     @property
     @pulumi.getter
-    def layer4(self) -> Optional[List['outputs.Layer4IngressConfigResponse']]:
+    def layer4(self) -> Optional[Sequence['outputs.Layer4IngressConfigResponse']]:
         """
         Configuration for layer4 public connectivity for this network.
         """
@@ -883,14 +883,14 @@ class Layer4IngressConfigResponse(dict):
                  application_name: Optional[str] = None,
                  endpoint_name: Optional[str] = None,
                  name: Optional[str] = None,
-                 public_port: Optional[float] = None,
+                 public_port: Optional[int] = None,
                  service_name: Optional[str] = None):
         """
         Describes the layer4 configuration for public connectivity for this network.
         :param str application_name: The application name which contains the service to be exposed.
         :param str endpoint_name: The service endpoint that needs to be exposed.
         :param str name: Layer4 ingress config name.
-        :param float public_port: Specifies the public port at which the service endpoint below needs to be exposed.
+        :param int public_port: Specifies the public port at which the service endpoint below needs to be exposed.
         :param str service_name: The service whose endpoint needs to be exposed at the public port.
         """
         if application_name is not None:
@@ -930,7 +930,7 @@ class Layer4IngressConfigResponse(dict):
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[float]:
+    def public_port(self) -> Optional[int]:
         """
         Specifies the public port at which the service endpoint below needs to be exposed.
         """
@@ -1092,7 +1092,7 @@ class ServiceResourceDescriptionResponse(dict):
     This type describes a service resource.
     """
     def __init__(__self__, *,
-                 code_packages: List['outputs.ContainerCodePackagePropertiesResponse'],
+                 code_packages: Sequence['outputs.ContainerCodePackagePropertiesResponse'],
                  id: str,
                  os_type: str,
                  status: str,
@@ -1101,11 +1101,11 @@ class ServiceResourceDescriptionResponse(dict):
                  diagnostics: Optional['outputs.DiagnosticsRefResponse'] = None,
                  health_state: Optional[str] = None,
                  name: Optional[str] = None,
-                 network_refs: Optional[List['outputs.NetworkRefResponse']] = None,
-                 replica_count: Optional[float] = None):
+                 network_refs: Optional[Sequence['outputs.NetworkRefResponse']] = None,
+                 replica_count: Optional[int] = None):
         """
         This type describes a service resource.
-        :param List['ContainerCodePackagePropertiesResponseArgs'] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
+        :param Sequence['ContainerCodePackagePropertiesResponseArgs'] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         :param str id: Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str os_type: The Operating system type required by the code in service.
         :param str status: Represents the status of the service.
@@ -1114,8 +1114,8 @@ class ServiceResourceDescriptionResponse(dict):
         :param 'DiagnosticsRefResponseArgs' diagnostics: Reference to sinks in DiagnosticsDescription.
         :param str health_state: The health state of a resource such as Application, Service, or Network.
         :param str name: The name of the resource
-        :param List['NetworkRefResponseArgs'] network_refs: The names of the private networks that this service needs to be part of.
-        :param float replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
+        :param Sequence['NetworkRefResponseArgs'] network_refs: The names of the private networks that this service needs to be part of.
+        :param int replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
         """
         pulumi.set(__self__, "code_packages", code_packages)
         pulumi.set(__self__, "id", id)
@@ -1137,7 +1137,7 @@ class ServiceResourceDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="codePackages")
-    def code_packages(self) -> List['outputs.ContainerCodePackagePropertiesResponse']:
+    def code_packages(self) -> Sequence['outputs.ContainerCodePackagePropertiesResponse']:
         """
         Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         """
@@ -1209,7 +1209,7 @@ class ServiceResourceDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="networkRefs")
-    def network_refs(self) -> Optional[List['outputs.NetworkRefResponse']]:
+    def network_refs(self) -> Optional[Sequence['outputs.NetworkRefResponse']]:
         """
         The names of the private networks that this service needs to be part of.
         """
@@ -1217,7 +1217,7 @@ class ServiceResourceDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[float]:
+    def replica_count(self) -> Optional[int]:
         """
         The number of replicas of the service to create. Defaults to 1 if not specified.
         """

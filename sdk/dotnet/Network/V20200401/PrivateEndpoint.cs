@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// An array of custom dns configurations.
         /// </summary>
         [Output("customDnsConfigs")]
-        public Output<ImmutableArray<Outputs.CustomDnsConfigPropertiesFormatResponseResult>> CustomDnsConfigs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CustomDnsConfigPropertiesFormatResponse>> CustomDnsConfigs { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         /// </summary>
         [Output("manualPrivateLinkServiceConnections")]
-        public Output<ImmutableArray<Outputs.PrivateLinkServiceConnectionResponseResult>> ManualPrivateLinkServiceConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse>> ManualPrivateLinkServiceConnections { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// An array of references to the network interfaces created for this private endpoint.
         /// </summary>
         [Output("networkInterfaces")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceResponseResult>> NetworkInterfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceResponse>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// A grouping of information about the connection to the remote resource.
         /// </summary>
         [Output("privateLinkServiceConnections")]
-        public Output<ImmutableArray<Outputs.PrivateLinkServiceConnectionResponseResult>> PrivateLinkServiceConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse>> PrivateLinkServiceConnections { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the private endpoint resource.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.SubnetResponseResult?> Subnet { get; private set; } = null!;
+        public Output<Outputs.SubnetResponse?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

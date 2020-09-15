@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Billing.V20200301Preview
         /// Cost allocation rule properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CostAllocationRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.CostAllocationRulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.

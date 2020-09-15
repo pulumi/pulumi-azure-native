@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -227,7 +227,7 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  model: Optional[str] = None,
                  size: Optional[str] = None,
@@ -235,7 +235,7 @@ class SkuResponse(dict):
         """
         SKU for the resource.
         :param str name: The SKU name.
-        :param float capacity: The SKU capacity.
+        :param int capacity: The SKU capacity.
         :param str family: The SKU family.
         :param str model: The SKU model.
         :param str size: The SKU size.
@@ -263,7 +263,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The SKU capacity.
         """

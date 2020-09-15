@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -15,14 +15,14 @@ __all__ = [
 @pulumi.input_type
 class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
     def __init__(__self__, *,
-                 categories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 resource_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 solutions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 solutions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The related metadata items for the function.
-        :param pulumi.Input[List[pulumi.Input[str]]] categories: The related categories for the function.
-        :param pulumi.Input[List[pulumi.Input[str]]] resource_types: The related resource types for the function.
-        :param pulumi.Input[List[pulumi.Input[str]]] solutions: The related Log Analytics solutions for the function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: The related categories for the function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: The related resource types for the function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] solutions: The related Log Analytics solutions for the function.
         """
         if categories is not None:
             pulumi.set(__self__, "categories", categories)
@@ -33,38 +33,38 @@ class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
 
     @property
     @pulumi.getter
-    def categories(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The related categories for the function.
         """
         return pulumi.get(self, "categories")
 
     @categories.setter
-    def categories(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "categories", value)
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The related resource types for the function.
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_types", value)
 
     @property
     @pulumi.getter
-    def solutions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def solutions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The related Log Analytics solutions for the function.
         """
         return pulumi.get(self, "solutions")
 
     @solutions.setter
-    def solutions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def solutions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "solutions", value)
 
 

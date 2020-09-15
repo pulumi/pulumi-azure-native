@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -107,7 +107,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeJobAndJobScheduleQuota")
-    def active_job_and_job_schedule_quota(self) -> pulumi.Output[float]:
+    def active_job_and_job_schedule_quota(self) -> pulumi.Output[int]:
         """
         The active job and job schedule quota for this Batch account.
         """
@@ -123,7 +123,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreQuota")
-    def core_quota(self) -> pulumi.Output[float]:
+    def core_quota(self) -> pulumi.Output[int]:
         """
         The core quota for this Batch account.
         """
@@ -147,7 +147,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolQuota")
-    def pool_quota(self) -> pulumi.Output[float]:
+    def pool_quota(self) -> pulumi.Output[int]:
         """
         The pool quota for this Batch account.
         """

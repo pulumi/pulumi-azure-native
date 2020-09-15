@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -60,17 +60,17 @@ class HealthAlertCriteriaResponse(dict):
     Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
     """
     def __init__(__self__, *,
-                 all_of: Optional[List['outputs.VmGuestHealthAlertCriterionResponse']] = None):
+                 all_of: Optional[Sequence['outputs.VmGuestHealthAlertCriterionResponse']] = None):
         """
         Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
-        :param List['VmGuestHealthAlertCriterionResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
+        :param Sequence['VmGuestHealthAlertCriterionResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
         """
         if all_of is not None:
             pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[List['outputs.VmGuestHealthAlertCriterionResponse']]:
+    def all_of(self) -> Optional[Sequence['outputs.VmGuestHealthAlertCriterionResponse']]:
         """
         The list of metric criteria for this 'all of' operation. 
         """
@@ -124,12 +124,12 @@ class VmGuestHealthAlertCriterionResponse(dict):
     def __init__(__self__, *,
                  health_monitor_name: str,
                  namespace: str,
-                 health_states: Optional[List['outputs.HealthStateResponse']] = None):
+                 health_states: Optional[Sequence['outputs.HealthStateResponse']] = None):
         """
         Specifies the health alert criteria to alert on.
         :param str health_monitor_name: Name of health monitor on which to define alert
         :param str namespace: specifies the type of the alert criterion.
-        :param List['HealthStateResponseArgs'] health_states: Health states to alert on
+        :param Sequence['HealthStateResponseArgs'] health_states: Health states to alert on
         """
         pulumi.set(__self__, "health_monitor_name", health_monitor_name)
         pulumi.set(__self__, "namespace", 'VmGuestHealth')
@@ -154,7 +154,7 @@ class VmGuestHealthAlertCriterionResponse(dict):
 
     @property
     @pulumi.getter(name="healthStates")
-    def health_states(self) -> Optional[List['outputs.HealthStateResponse']]:
+    def health_states(self) -> Optional[Sequence['outputs.HealthStateResponse']]:
         """
         Health states to alert on
         """

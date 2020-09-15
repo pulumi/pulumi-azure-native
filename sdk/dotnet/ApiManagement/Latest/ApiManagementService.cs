@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         /// Additional datacenter locations of the API Management service.
         /// </summary>
         [Output("additionalLocations")]
-        public Output<ImmutableArray<Outputs.AdditionalLocationResponseResult>> AdditionalLocations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AdditionalLocationResponse>> AdditionalLocations { get; private set; } = null!;
 
         /// <summary>
         /// Control Plane Apis version constraint for the API Management service.
         /// </summary>
         [Output("apiVersionConstraint")]
-        public Output<Outputs.ApiVersionConstraintResponseResult?> ApiVersionConstraint { get; private set; } = null!;
+        public Output<Outputs.ApiVersionConstraintResponse?> ApiVersionConstraint { get; private set; } = null!;
 
         /// <summary>
         /// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         /// </summary>
         [Output("certificates")]
-        public Output<ImmutableArray<Outputs.CertificateConfigurationResponseResult>> Certificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CertificateConfigurationResponse>> Certificates { get; private set; } = null!;
 
         /// <summary>
         /// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -84,13 +84,13 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         /// Custom hostname configuration of the API Management service.
         /// </summary>
         [Output("hostnameConfigurations")]
-        public Output<ImmutableArray<Outputs.HostnameConfigurationResponseResult>> HostnameConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HostnameConfigurationResponse>> HostnameConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Managed service identity of the Api Management service.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ApiManagementServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ApiManagementServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -162,7 +162,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         /// SKU properties of the API Management service.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ApiManagementServiceSkuPropertiesResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.ApiManagementServiceSkuPropertiesResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -186,7 +186,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         /// Virtual network configuration of the API Management service.
         /// </summary>
         [Output("virtualNetworkConfiguration")]
-        public Output<Outputs.VirtualNetworkConfigurationResponseResult?> VirtualNetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkConfigurationResponse?> VirtualNetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.

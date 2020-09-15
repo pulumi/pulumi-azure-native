@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
         /// <summary>
         /// The network rule set for a container registry.
         /// </summary>
-        public readonly Outputs.NetworkRuleSetResponseResult? NetworkRuleSet;
+        public readonly Outputs.NetworkRuleSetResponse? NetworkRuleSet;
         /// <summary>
         /// The provisioning state of the container registry at the time the operation was called.
         /// </summary>
@@ -70,15 +70,15 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
         /// <summary>
         /// The SKU of the container registry.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// The status of the container registry at the time the operation was called.
         /// </summary>
-        public readonly Outputs.StatusResponseResult Status;
+        public readonly Outputs.StatusResponse Status;
         /// <summary>
         /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponseResult? StorageAccount;
+        public readonly Outputs.StorageAccountPropertiesResponse? StorageAccount;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -100,15 +100,15 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
 
             string name,
 
-            Outputs.NetworkRuleSetResponseResult? networkRuleSet,
+            Outputs.NetworkRuleSetResponse? networkRuleSet,
 
             string provisioningState,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
-            Outputs.StatusResponseResult status,
+            Outputs.StatusResponse status,
 
-            Outputs.StorageAccountPropertiesResponseResult? storageAccount,
+            Outputs.StorageAccountPropertiesResponse? storageAccount,
 
             ImmutableDictionary<string, string>? tags,
 

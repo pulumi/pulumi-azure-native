@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Migrate.V20180901Preview
         /// <summary>
         /// Gets or sets the properties of the solution.
         /// </summary>
-        public readonly Outputs.SolutionPropertiesResponseResult Properties;
+        public readonly Outputs.SolutionPropertiesResponse Properties;
         /// <summary>
         /// Gets the type of this REST resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Migrate.V20180901Preview
 
             string name,
 
-            Outputs.SolutionPropertiesResponseResult properties,
+            Outputs.SolutionPropertiesResponse properties,
 
             string type)
         {

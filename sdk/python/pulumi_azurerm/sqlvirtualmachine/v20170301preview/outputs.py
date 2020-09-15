@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -64,11 +64,11 @@ class AutoBackupSettingsResponse(dict):
                  enable: Optional[bool] = None,
                  enable_encryption: Optional[bool] = None,
                  full_backup_frequency: Optional[str] = None,
-                 full_backup_start_time: Optional[float] = None,
-                 full_backup_window_hours: Optional[float] = None,
-                 log_backup_frequency: Optional[float] = None,
+                 full_backup_start_time: Optional[int] = None,
+                 full_backup_window_hours: Optional[int] = None,
+                 log_backup_frequency: Optional[int] = None,
                  password: Optional[str] = None,
-                 retention_period: Optional[float] = None,
+                 retention_period: Optional[int] = None,
                  storage_access_key: Optional[str] = None,
                  storage_account_url: Optional[str] = None):
         """
@@ -78,11 +78,11 @@ class AutoBackupSettingsResponse(dict):
         :param bool enable: Enable or disable autobackup on SQL virtual machine.
         :param bool enable_encryption: Enable or disable encryption for backup on SQL virtual machine.
         :param str full_backup_frequency: Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
-        :param float full_backup_start_time: Start time of a given day during which full backups can take place. 0-23 hours.
-        :param float full_backup_window_hours: Duration of the time window of a given day during which full backups can take place. 1-23 hours.
-        :param float log_backup_frequency: Frequency of log backups. 5-60 minutes.
+        :param int full_backup_start_time: Start time of a given day during which full backups can take place. 0-23 hours.
+        :param int full_backup_window_hours: Duration of the time window of a given day during which full backups can take place. 1-23 hours.
+        :param int log_backup_frequency: Frequency of log backups. 5-60 minutes.
         :param str password: Password for encryption on backup.
-        :param float retention_period: Retention period of backup: 1-30 days.
+        :param int retention_period: Retention period of backup: 1-30 days.
         :param str storage_access_key: Storage account key where backup will be taken to.
         :param str storage_account_url: Storage account url where backup will be taken to.
         """
@@ -153,7 +153,7 @@ class AutoBackupSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="fullBackupStartTime")
-    def full_backup_start_time(self) -> Optional[float]:
+    def full_backup_start_time(self) -> Optional[int]:
         """
         Start time of a given day during which full backups can take place. 0-23 hours.
         """
@@ -161,7 +161,7 @@ class AutoBackupSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="fullBackupWindowHours")
-    def full_backup_window_hours(self) -> Optional[float]:
+    def full_backup_window_hours(self) -> Optional[int]:
         """
         Duration of the time window of a given day during which full backups can take place. 1-23 hours.
         """
@@ -169,7 +169,7 @@ class AutoBackupSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="logBackupFrequency")
-    def log_backup_frequency(self) -> Optional[float]:
+    def log_backup_frequency(self) -> Optional[int]:
         """
         Frequency of log backups. 5-60 minutes.
         """
@@ -185,7 +185,7 @@ class AutoBackupSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[float]:
+    def retention_period(self) -> Optional[int]:
         """
         Retention period of backup: 1-30 days.
         """
@@ -219,14 +219,14 @@ class AutoPatchingSettingsResponse(dict):
     def __init__(__self__, *,
                  day_of_week: Optional[str] = None,
                  enable: Optional[bool] = None,
-                 maintenance_window_duration: Optional[float] = None,
-                 maintenance_window_starting_hour: Optional[float] = None):
+                 maintenance_window_duration: Optional[int] = None,
+                 maintenance_window_starting_hour: Optional[int] = None):
         """
         Set a patching window during which Windows and SQL patches will be applied.
         :param str day_of_week: Day of week to apply the patch on.
         :param bool enable: Enable or disable autopatching on SQL virtual machine.
-        :param float maintenance_window_duration: Duration of patching.
-        :param float maintenance_window_starting_hour: Hour of the day when patching is initiated. Local VM time.
+        :param int maintenance_window_duration: Duration of patching.
+        :param int maintenance_window_starting_hour: Hour of the day when patching is initiated. Local VM time.
         """
         if day_of_week is not None:
             pulumi.set(__self__, "day_of_week", day_of_week)
@@ -255,7 +255,7 @@ class AutoPatchingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="maintenanceWindowDuration")
-    def maintenance_window_duration(self) -> Optional[float]:
+    def maintenance_window_duration(self) -> Optional[int]:
         """
         Duration of patching.
         """
@@ -263,7 +263,7 @@ class AutoPatchingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="maintenanceWindowStartingHour")
-    def maintenance_window_starting_hour(self) -> Optional[float]:
+    def maintenance_window_starting_hour(self) -> Optional[int]:
         """
         Hour of the day when patching is initiated. Local VM time.
         """
@@ -355,16 +355,16 @@ class LoadBalancerConfigurationResponse(dict):
     def __init__(__self__, *,
                  load_balancer_resource_id: Optional[str] = None,
                  private_ip_address: Optional['outputs.PrivateIPAddressResponse'] = None,
-                 probe_port: Optional[float] = None,
+                 probe_port: Optional[int] = None,
                  public_ip_address_resource_id: Optional[str] = None,
-                 sql_virtual_machine_instances: Optional[List[str]] = None):
+                 sql_virtual_machine_instances: Optional[Sequence[str]] = None):
         """
         A load balancer configuration for an availability group listener.
         :param str load_balancer_resource_id: Resource id of the load balancer.
         :param 'PrivateIPAddressResponseArgs' private_ip_address: Private IP address.
-        :param float probe_port: Probe port.
+        :param int probe_port: Probe port.
         :param str public_ip_address_resource_id: Resource id of the public IP.
-        :param List[str] sql_virtual_machine_instances: List of the SQL virtual machine instance resource id's that are enrolled into the availability group listener.
+        :param Sequence[str] sql_virtual_machine_instances: List of the SQL virtual machine instance resource id's that are enrolled into the availability group listener.
         """
         if load_balancer_resource_id is not None:
             pulumi.set(__self__, "load_balancer_resource_id", load_balancer_resource_id)
@@ -395,7 +395,7 @@ class LoadBalancerConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="probePort")
-    def probe_port(self) -> Optional[float]:
+    def probe_port(self) -> Optional[int]:
         """
         Probe port.
         """
@@ -411,7 +411,7 @@ class LoadBalancerConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="sqlVirtualMachineInstances")
-    def sql_virtual_machine_instances(self) -> Optional[List[str]]:
+    def sql_virtual_machine_instances(self) -> Optional[Sequence[str]]:
         """
         List of the SQL virtual machine instance resource id's that are enrolled into the availability group listener.
         """
@@ -514,11 +514,11 @@ class SQLStorageSettingsResponse(dict):
     """
     def __init__(__self__, *,
                  default_file_path: Optional[str] = None,
-                 luns: Optional[List[float]] = None):
+                 luns: Optional[Sequence[int]] = None):
         """
         Set disk storage settings for SQL Server.
         :param str default_file_path: SQL Server default file path
-        :param List[float] luns: Logical Unit Numbers for the disks.
+        :param Sequence[int] luns: Logical Unit Numbers for the disks.
         """
         if default_file_path is not None:
             pulumi.set(__self__, "default_file_path", default_file_path)
@@ -535,7 +535,7 @@ class SQLStorageSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def luns(self) -> Optional[List[float]]:
+    def luns(self) -> Optional[Sequence[int]]:
         """
         Logical Unit Numbers for the disks.
         """
@@ -614,13 +614,13 @@ class SqlConnectivityUpdateSettingsResponse(dict):
     """
     def __init__(__self__, *,
                  connectivity_type: Optional[str] = None,
-                 port: Optional[float] = None,
+                 port: Optional[int] = None,
                  sql_auth_update_password: Optional[str] = None,
                  sql_auth_update_user_name: Optional[str] = None):
         """
         Set the access level and network port settings for SQL Server.
         :param str connectivity_type: SQL Server connectivity option.
-        :param float port: SQL Server port.
+        :param int port: SQL Server port.
         :param str sql_auth_update_password: SQL Server sysadmin login password.
         :param str sql_auth_update_user_name: SQL Server sysadmin login to create.
         """
@@ -643,7 +643,7 @@ class SqlConnectivityUpdateSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         SQL Server port.
         """
@@ -676,13 +676,13 @@ class SqlStorageUpdateSettingsResponse(dict):
     """
     def __init__(__self__, *,
                  disk_configuration_type: Optional[str] = None,
-                 disk_count: Optional[float] = None,
-                 starting_device_id: Optional[float] = None):
+                 disk_count: Optional[int] = None,
+                 starting_device_id: Optional[int] = None):
         """
         Set disk storage settings for SQL Server.
         :param str disk_configuration_type: Disk configuration to apply to SQL Server.
-        :param float disk_count: Virtual machine disk count.
-        :param float starting_device_id: Device id of the first disk to be updated.
+        :param int disk_count: Virtual machine disk count.
+        :param int starting_device_id: Device id of the first disk to be updated.
         """
         if disk_configuration_type is not None:
             pulumi.set(__self__, "disk_configuration_type", disk_configuration_type)
@@ -701,7 +701,7 @@ class SqlStorageUpdateSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="diskCount")
-    def disk_count(self) -> Optional[float]:
+    def disk_count(self) -> Optional[int]:
         """
         Virtual machine disk count.
         """
@@ -709,7 +709,7 @@ class SqlStorageUpdateSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="startingDeviceId")
-    def starting_device_id(self) -> Optional[float]:
+    def starting_device_id(self) -> Optional[int]:
         """
         Device id of the first disk to be updated.
         """

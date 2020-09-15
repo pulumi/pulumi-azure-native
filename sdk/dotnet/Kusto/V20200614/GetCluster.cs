@@ -62,15 +62,15 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// KeyVault properties for the cluster encryption.
         /// </summary>
-        public readonly Outputs.KeyVaultPropertiesResponseResult? KeyVaultProperties;
+        public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
         /// <summary>
         /// List of the cluster's language extensions.
         /// </summary>
-        public readonly Outputs.LanguageExtensionsListResponseResult LanguageExtensions;
+        public readonly Outputs.LanguageExtensionsListResponse LanguageExtensions;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         /// <summary>
         /// Optimized auto scale definition.
         /// </summary>
-        public readonly Outputs.OptimizedAutoscaleResponseResult? OptimizedAutoscale;
+        public readonly Outputs.OptimizedAutoscaleResponse? OptimizedAutoscale;
         /// <summary>
         /// The provisioned state of the resource.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         /// <summary>
         /// The SKU of the cluster.
         /// </summary>
-        public readonly Outputs.AzureSkuResponseResult Sku;
+        public readonly Outputs.AzureSkuResponse Sku;
         /// <summary>
         /// The state of the resource.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         /// <summary>
         /// The cluster's external tenants.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrustedExternalTenantResponseResult> TrustedExternalTenants;
+        public readonly ImmutableArray<Outputs.TrustedExternalTenantResponse> TrustedExternalTenants;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         /// <summary>
         /// Virtual network definition.
         /// </summary>
-        public readonly Outputs.VirtualNetworkConfigurationResponseResult? VirtualNetworkConfiguration;
+        public readonly Outputs.VirtualNetworkConfigurationResponse? VirtualNetworkConfiguration;
         /// <summary>
         /// The availability zones of the cluster.
         /// </summary>
@@ -136,21 +136,21 @@ namespace Pulumi.AzureRM.Kusto.V20200614
 
             bool? enableStreamingIngest,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
-            Outputs.KeyVaultPropertiesResponseResult? keyVaultProperties,
+            Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
 
-            Outputs.LanguageExtensionsListResponseResult languageExtensions,
+            Outputs.LanguageExtensionsListResponse languageExtensions,
 
             string location,
 
             string name,
 
-            Outputs.OptimizedAutoscaleResponseResult? optimizedAutoscale,
+            Outputs.OptimizedAutoscaleResponse? optimizedAutoscale,
 
             string provisioningState,
 
-            Outputs.AzureSkuResponseResult sku,
+            Outputs.AzureSkuResponse sku,
 
             string state,
 
@@ -158,13 +158,13 @@ namespace Pulumi.AzureRM.Kusto.V20200614
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TrustedExternalTenantResponseResult> trustedExternalTenants,
+            ImmutableArray<Outputs.TrustedExternalTenantResponse> trustedExternalTenants,
 
             string type,
 
             string uri,
 
-            Outputs.VirtualNetworkConfigurationResponseResult? virtualNetworkConfiguration,
+            Outputs.VirtualNetworkConfigurationResponse? virtualNetworkConfiguration,
 
             ImmutableArray<string> zones)
         {

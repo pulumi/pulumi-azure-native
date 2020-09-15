@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetbackupPolicyResult:
     Backup policy information
     """
     def __init__(__self__, daily_backups_to_keep=None, enabled=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None, yearly_backups_to_keep=None):
-        if daily_backups_to_keep and not isinstance(daily_backups_to_keep, float):
-            raise TypeError("Expected argument 'daily_backups_to_keep' to be a float")
+        if daily_backups_to_keep and not isinstance(daily_backups_to_keep, int):
+            raise TypeError("Expected argument 'daily_backups_to_keep' to be a int")
         pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
@@ -30,8 +30,8 @@ class GetbackupPolicyResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if monthly_backups_to_keep and not isinstance(monthly_backups_to_keep, float):
-            raise TypeError("Expected argument 'monthly_backups_to_keep' to be a float")
+        if monthly_backups_to_keep and not isinstance(monthly_backups_to_keep, int):
+            raise TypeError("Expected argument 'monthly_backups_to_keep' to be a int")
         pulumi.set(__self__, "monthly_backups_to_keep", monthly_backups_to_keep)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -48,19 +48,19 @@ class GetbackupPolicyResult:
         if volume_backups and not isinstance(volume_backups, list):
             raise TypeError("Expected argument 'volume_backups' to be a list")
         pulumi.set(__self__, "volume_backups", volume_backups)
-        if volumes_assigned and not isinstance(volumes_assigned, float):
-            raise TypeError("Expected argument 'volumes_assigned' to be a float")
+        if volumes_assigned and not isinstance(volumes_assigned, int):
+            raise TypeError("Expected argument 'volumes_assigned' to be a int")
         pulumi.set(__self__, "volumes_assigned", volumes_assigned)
-        if weekly_backups_to_keep and not isinstance(weekly_backups_to_keep, float):
-            raise TypeError("Expected argument 'weekly_backups_to_keep' to be a float")
+        if weekly_backups_to_keep and not isinstance(weekly_backups_to_keep, int):
+            raise TypeError("Expected argument 'weekly_backups_to_keep' to be a int")
         pulumi.set(__self__, "weekly_backups_to_keep", weekly_backups_to_keep)
-        if yearly_backups_to_keep and not isinstance(yearly_backups_to_keep, float):
-            raise TypeError("Expected argument 'yearly_backups_to_keep' to be a float")
+        if yearly_backups_to_keep and not isinstance(yearly_backups_to_keep, int):
+            raise TypeError("Expected argument 'yearly_backups_to_keep' to be a int")
         pulumi.set(__self__, "yearly_backups_to_keep", yearly_backups_to_keep)
 
     @property
     @pulumi.getter(name="dailyBackupsToKeep")
-    def daily_backups_to_keep(self) -> Optional[float]:
+    def daily_backups_to_keep(self) -> Optional[int]:
         """
         Daily backups count to keep
         """
@@ -84,7 +84,7 @@ class GetbackupPolicyResult:
 
     @property
     @pulumi.getter(name="monthlyBackupsToKeep")
-    def monthly_backups_to_keep(self) -> Optional[float]:
+    def monthly_backups_to_keep(self) -> Optional[int]:
         """
         Monthly backups count to keep
         """
@@ -124,7 +124,7 @@ class GetbackupPolicyResult:
 
     @property
     @pulumi.getter(name="volumeBackups")
-    def volume_backups(self) -> Optional[List['outputs.VolumeBackupsResponse']]:
+    def volume_backups(self) -> Optional[Sequence['outputs.VolumeBackupsResponse']]:
         """
         A list of volumes assigned to this policy
         """
@@ -132,7 +132,7 @@ class GetbackupPolicyResult:
 
     @property
     @pulumi.getter(name="volumesAssigned")
-    def volumes_assigned(self) -> Optional[float]:
+    def volumes_assigned(self) -> Optional[int]:
         """
         Volumes using current backup policy
         """
@@ -140,7 +140,7 @@ class GetbackupPolicyResult:
 
     @property
     @pulumi.getter(name="weeklyBackupsToKeep")
-    def weekly_backups_to_keep(self) -> Optional[float]:
+    def weekly_backups_to_keep(self) -> Optional[int]:
         """
         Weekly backups count to keep
         """
@@ -148,7 +148,7 @@ class GetbackupPolicyResult:
 
     @property
     @pulumi.getter(name="yearlyBackupsToKeep")
-    def yearly_backups_to_keep(self) -> Optional[float]:
+    def yearly_backups_to_keep(self) -> Optional[int]:
         """
         Yearly backups count to keep
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -22,12 +22,12 @@ class ActionResponse(dict):
     Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
     """
     def __init__(__self__, *,
-                 compatibility_level: Optional[float] = None,
+                 compatibility_level: Optional[int] = None,
                  requires_preprocessing: Optional[bool] = None,
                  sql_expression: Optional[str] = None):
         """
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
-        :param float compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+        :param int compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         :param bool requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param str sql_expression: SQL expression. e.g. MyProperty='ABC'
         """
@@ -40,7 +40,7 @@ class ActionResponse(dict):
 
     @property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[float]:
+    def compatibility_level(self) -> Optional[int]:
         """
         This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         """
@@ -206,18 +206,18 @@ class MessageCountDetailsResponse(dict):
     Message Count Details.
     """
     def __init__(__self__, *,
-                 active_message_count: float,
-                 dead_letter_message_count: float,
-                 scheduled_message_count: float,
-                 transfer_dead_letter_message_count: float,
-                 transfer_message_count: float):
+                 active_message_count: int,
+                 dead_letter_message_count: int,
+                 scheduled_message_count: int,
+                 transfer_dead_letter_message_count: int,
+                 transfer_message_count: int):
         """
         Message Count Details.
-        :param float active_message_count: Number of active messages in the queue, topic, or subscription.
-        :param float dead_letter_message_count: Number of messages that are dead lettered.
-        :param float scheduled_message_count: Number of scheduled messages.
-        :param float transfer_dead_letter_message_count: Number of messages transferred into dead letters.
-        :param float transfer_message_count: Number of messages transferred to another queue, topic, or subscription.
+        :param int active_message_count: Number of active messages in the queue, topic, or subscription.
+        :param int dead_letter_message_count: Number of messages that are dead lettered.
+        :param int scheduled_message_count: Number of scheduled messages.
+        :param int transfer_dead_letter_message_count: Number of messages transferred into dead letters.
+        :param int transfer_message_count: Number of messages transferred to another queue, topic, or subscription.
         """
         pulumi.set(__self__, "active_message_count", active_message_count)
         pulumi.set(__self__, "dead_letter_message_count", dead_letter_message_count)
@@ -227,7 +227,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="activeMessageCount")
-    def active_message_count(self) -> float:
+    def active_message_count(self) -> int:
         """
         Number of active messages in the queue, topic, or subscription.
         """
@@ -235,7 +235,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="deadLetterMessageCount")
-    def dead_letter_message_count(self) -> float:
+    def dead_letter_message_count(self) -> int:
         """
         Number of messages that are dead lettered.
         """
@@ -243,7 +243,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="scheduledMessageCount")
-    def scheduled_message_count(self) -> float:
+    def scheduled_message_count(self) -> int:
         """
         Number of scheduled messages.
         """
@@ -251,7 +251,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="transferDeadLetterMessageCount")
-    def transfer_dead_letter_message_count(self) -> float:
+    def transfer_dead_letter_message_count(self) -> int:
         """
         Number of messages transferred into dead letters.
         """
@@ -259,7 +259,7 @@ class MessageCountDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="transferMessageCount")
-    def transfer_message_count(self) -> float:
+    def transfer_message_count(self) -> int:
         """
         Number of messages transferred to another queue, topic, or subscription.
         """
@@ -276,12 +276,12 @@ class SBSkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  tier: Optional[str] = None):
         """
         SKU of the namespace.
         :param str name: Name of this SKU.
-        :param float capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+        :param int capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
         :param str tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -300,7 +300,7 @@ class SBSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
         """
@@ -324,12 +324,12 @@ class SqlFilterResponse(dict):
     Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
     """
     def __init__(__self__, *,
-                 compatibility_level: Optional[float] = None,
+                 compatibility_level: Optional[int] = None,
                  requires_preprocessing: Optional[bool] = None,
                  sql_expression: Optional[str] = None):
         """
         Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
-        :param float compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+        :param int compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         :param bool requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param str sql_expression: The SQL expression. e.g. MyProperty='ABC'
         """
@@ -342,7 +342,7 @@ class SqlFilterResponse(dict):
 
     @property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[float]:
+    def compatibility_level(self) -> Optional[int]:
         """
         This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         """

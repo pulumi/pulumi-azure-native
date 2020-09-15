@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// <summary>
         /// List of all routes.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualHubRouteV2ResponseResult> Routes;
+        public readonly ImmutableArray<Outputs.VirtualHubRouteV2Response> Routes;
 
         [OutputConstructor]
         private GetVirtualHubRouteTableV2Result(
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Network.V20190901
 
             string provisioningState,
 
-            ImmutableArray<Outputs.VirtualHubRouteV2ResponseResult> routes)
+            ImmutableArray<Outputs.VirtualHubRouteV2Response> routes)
         {
             AttachedConnections = attachedConnections;
             Etag = etag;

@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
         /// <summary>
         /// The name and tier of the SKU.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// The state of the job agent.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
 
             string name,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string state,
 

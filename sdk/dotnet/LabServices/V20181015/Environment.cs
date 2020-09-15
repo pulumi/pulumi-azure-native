@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// The details of the latest operation. ex: status, error
         /// </summary>
         [Output("latestOperationResult")]
-        public Output<Outputs.LatestOperationResultResponseResult> LatestOperationResult { get; private set; } = null!;
+        public Output<Outputs.LatestOperationResultResponse> LatestOperationResult { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// Network details of the environment
         /// </summary>
         [Output("networkInterface")]
-        public Output<Outputs.NetworkInterfaceResponseResult> NetworkInterface { get; private set; } = null!;
+        public Output<Outputs.NetworkInterfaceResponse> NetworkInterface { get; private set; } = null!;
 
         /// <summary>
         /// When the password was last reset on the environment.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// The set of a VM and the setting id it was created for
         /// </summary>
         [Output("resourceSets")]
-        public Output<Outputs.ResourceSetResponseResult?> ResourceSets { get; private set; } = null!;
+        public Output<Outputs.ResourceSetResponse?> ResourceSets { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

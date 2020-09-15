@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -208,16 +208,16 @@ class AutoHealRulesArgs:
 @pulumi.input_type
 class AutoHealTriggersArgs:
     def __init__(__self__, *,
-                 private_bytes_in_kb: Optional[pulumi.Input[float]] = None,
+                 private_bytes_in_kb: Optional[pulumi.Input[int]] = None,
                  requests: Optional[pulumi.Input['RequestsBasedTriggerArgs']] = None,
                  slow_requests: Optional[pulumi.Input['SlowRequestsBasedTriggerArgs']] = None,
-                 status_codes: Optional[pulumi.Input[List[pulumi.Input['StatusCodesBasedTriggerArgs']]]] = None):
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]] = None):
         """
         AutoHealTriggers - describes the triggers for auto-heal.
-        :param pulumi.Input[float] private_bytes_in_kb: PrivateBytesInKB - Defines a rule based on private bytes
+        :param pulumi.Input[int] private_bytes_in_kb: PrivateBytesInKB - Defines a rule based on private bytes
         :param pulumi.Input['RequestsBasedTriggerArgs'] requests: Requests - Defines a rule based on total requests
         :param pulumi.Input['SlowRequestsBasedTriggerArgs'] slow_requests: SlowRequests - Defines a rule based on request execution time
-        :param pulumi.Input[List[pulumi.Input['StatusCodesBasedTriggerArgs']]] status_codes: StatusCodes - Defines a rule based on status codes
+        :param pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]] status_codes: StatusCodes - Defines a rule based on status codes
         """
         if private_bytes_in_kb is not None:
             pulumi.set(__self__, "private_bytes_in_kb", private_bytes_in_kb)
@@ -230,14 +230,14 @@ class AutoHealTriggersArgs:
 
     @property
     @pulumi.getter(name="privateBytesInKB")
-    def private_bytes_in_kb(self) -> Optional[pulumi.Input[float]]:
+    def private_bytes_in_kb(self) -> Optional[pulumi.Input[int]]:
         """
         PrivateBytesInKB - Defines a rule based on private bytes
         """
         return pulumi.get(self, "private_bytes_in_kb")
 
     @private_bytes_in_kb.setter
-    def private_bytes_in_kb(self, value: Optional[pulumi.Input[float]]):
+    def private_bytes_in_kb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "private_bytes_in_kb", value)
 
     @property
@@ -266,14 +266,14 @@ class AutoHealTriggersArgs:
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[pulumi.Input[List[pulumi.Input['StatusCodesBasedTriggerArgs']]]]:
+    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]]:
         """
         StatusCodes - Defines a rule based on status codes
         """
         return pulumi.get(self, "status_codes")
 
     @status_codes.setter
-    def status_codes(self, value: Optional[pulumi.Input[List[pulumi.Input['StatusCodesBasedTriggerArgs']]]]):
+    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]]):
         pulumi.set(self, "status_codes", value)
 
 
@@ -281,18 +281,18 @@ class AutoHealTriggersArgs:
 class BackupScheduleArgs:
     def __init__(__self__, *,
                  frequency_unit: str,
-                 frequency_interval: Optional[float] = None,
+                 frequency_interval: Optional[int] = None,
                  keep_at_least_one_backup: Optional[bool] = None,
                  last_execution_time: Optional[str] = None,
-                 retention_period_in_days: Optional[float] = None,
+                 retention_period_in_days: Optional[int] = None,
                  start_time: Optional[str] = None):
         """
         Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
         :param str frequency_unit: How often should be the backup executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-        :param float frequency_interval: How often should be the backup executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+        :param int frequency_interval: How often should be the backup executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
         :param bool keep_at_least_one_backup: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
         :param str last_execution_time: The last time when this schedule was triggered
-        :param float retention_period_in_days: After how many days backups should be deleted
+        :param int retention_period_in_days: After how many days backups should be deleted
         :param str start_time: When the schedule should start working
         """
         pulumi.set(__self__, "frequency_unit", frequency_unit)
@@ -321,14 +321,14 @@ class BackupScheduleArgs:
 
     @property
     @pulumi.getter(name="frequencyInterval")
-    def frequency_interval(self) -> Optional[float]:
+    def frequency_interval(self) -> Optional[int]:
         """
         How often should be the backup executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
         """
         return pulumi.get(self, "frequency_interval")
 
     @frequency_interval.setter
-    def frequency_interval(self, value: Optional[float]):
+    def frequency_interval(self, value: Optional[int]):
         pulumi.set(self, "frequency_interval", value)
 
     @property
@@ -357,14 +357,14 @@ class BackupScheduleArgs:
 
     @property
     @pulumi.getter(name="retentionPeriodInDays")
-    def retention_period_in_days(self) -> Optional[float]:
+    def retention_period_in_days(self) -> Optional[int]:
         """
         After how many days backups should be deleted
         """
         return pulumi.get(self, "retention_period_in_days")
 
     @retention_period_in_days.setter
-    def retention_period_in_days(self, value: Optional[float]):
+    def retention_period_in_days(self, value: Optional[int]):
         pulumi.set(self, "retention_period_in_days", value)
 
     @property
@@ -616,10 +616,10 @@ class ConnStringInfoArgs:
 @pulumi.input_type
 class CorsSettingsArgs:
     def __init__(__self__, *,
-                 allowed_origins: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Cross-Origin Resource Sharing (CORS) settings for the web app.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
                            calls (for example: http://example.com:12345). Use "*" to allow all.
         """
         if allowed_origins is not None:
@@ -627,7 +627,7 @@ class CorsSettingsArgs:
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gets or sets the list of origins that should be allowed to make cross-origin
                     calls (for example: http://example.com:12345). Use "*" to allow all.
@@ -635,7 +635,7 @@ class CorsSettingsArgs:
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
 
@@ -714,24 +714,24 @@ class DatabaseBackupSettingArgs:
 @pulumi.input_type
 class ExperimentsArgs:
     def __init__(__self__, *,
-                 ramp_up_rules: Optional[pulumi.Input[List[pulumi.Input['RampUpRuleArgs']]]] = None):
+                 ramp_up_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]] = None):
         """
         Class containing Routing in production experiments
-        :param pulumi.Input[List[pulumi.Input['RampUpRuleArgs']]] ramp_up_rules: List of {Microsoft.Web.Hosting.Administration.RampUpRule} objects.
+        :param pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]] ramp_up_rules: List of {Microsoft.Web.Hosting.Administration.RampUpRule} objects.
         """
         if ramp_up_rules is not None:
             pulumi.set(__self__, "ramp_up_rules", ramp_up_rules)
 
     @property
     @pulumi.getter(name="rampUpRules")
-    def ramp_up_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['RampUpRuleArgs']]]]:
+    def ramp_up_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]]:
         """
         List of {Microsoft.Web.Hosting.Administration.RampUpRule} objects.
         """
         return pulumi.get(self, "ramp_up_rules")
 
     @ramp_up_rules.setter
-    def ramp_up_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['RampUpRuleArgs']]]]):
+    def ramp_up_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]]):
         pulumi.set(self, "ramp_up_rules", value)
 
 
@@ -1020,7 +1020,7 @@ class NetworkAccessControlEntryArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[float]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
                  remote_subnet: Optional[pulumi.Input[str]] = None):
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -1051,11 +1051,11 @@ class NetworkAccessControlEntryArgs:
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[float]]:
+    def order(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[float]]):
+    def order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "order", value)
 
     @property
@@ -1073,7 +1073,7 @@ class RampUpRuleArgs:
     def __init__(__self__, *,
                  action_host_name: Optional[pulumi.Input[str]] = None,
                  change_decision_callback_url: Optional[pulumi.Input[str]] = None,
-                 change_interval_in_minutes: Optional[pulumi.Input[float]] = None,
+                 change_interval_in_minutes: Optional[pulumi.Input[int]] = None,
                  change_step: Optional[pulumi.Input[float]] = None,
                  max_reroute_percentage: Optional[pulumi.Input[float]] = None,
                  min_reroute_percentage: Optional[pulumi.Input[float]] = None,
@@ -1084,7 +1084,7 @@ class RampUpRuleArgs:
         :param pulumi.Input[str] action_host_name: Hostname of a slot to which the traffic will be redirected if decided to. E.g. mysite-stage.azurewebsites.net
         :param pulumi.Input[str] change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified. See TiPCallback site extension for the scaffold and contracts.
                            https://www.siteextensions.net/packages/TiPCallback/
-        :param pulumi.Input[float] change_interval_in_minutes: [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
+        :param pulumi.Input[int] change_interval_in_minutes: [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
         :param pulumi.Input[float] change_step: [Optional] In auto ramp up scenario this is the step to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches 
                            {Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.
                            Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}
@@ -1137,14 +1137,14 @@ class RampUpRuleArgs:
 
     @property
     @pulumi.getter(name="changeIntervalInMinutes")
-    def change_interval_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def change_interval_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
         """
         return pulumi.get(self, "change_interval_in_minutes")
 
     @change_interval_in_minutes.setter
-    def change_interval_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def change_interval_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "change_interval_in_minutes", value)
 
     @property
@@ -1213,11 +1213,11 @@ class RampUpRuleArgs:
 @pulumi.input_type
 class RequestsBasedTriggerArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  time_interval: Optional[pulumi.Input[str]] = None):
         """
         RequestsBasedTrigger
-        :param pulumi.Input[float] count: Count
+        :param pulumi.Input[int] count: Count
         :param pulumi.Input[str] time_interval: TimeInterval
         """
         if count is not None:
@@ -1227,14 +1227,14 @@ class RequestsBasedTriggerArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Count
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
@@ -1257,20 +1257,20 @@ class SiteConfigArgs:
                  always_on: Optional[pulumi.Input[bool]] = None,
                  api_definition: Optional[pulumi.Input['ApiDefinitionInfoArgs']] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
-                 app_settings: Optional[pulumi.Input[List[pulumi.Input['NameValuePairArgs']]]] = None,
+                 app_settings: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
                  auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
                  auto_heal_rules: Optional[pulumi.Input['AutoHealRulesArgs']] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[List[pulumi.Input['ConnStringInfoArgs']]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]]] = None,
                  cors: Optional[pulumi.Input['CorsSettingsArgs']] = None,
-                 default_documents: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  document_root: Optional[pulumi.Input[str]] = None,
                  experiments: Optional[pulumi.Input['ExperimentsArgs']] = None,
-                 handler_mappings: Optional[pulumi.Input[List[pulumi.Input['HandlerMappingArgs']]]] = None,
+                 handler_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]]] = None,
                  http_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_security_restrictions: Optional[pulumi.Input[List[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
+                 ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
                  java_container: Optional[pulumi.Input[str]] = None,
                  java_container_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
@@ -1278,13 +1278,13 @@ class SiteConfigArgs:
                  limits: Optional[pulumi.Input['SiteLimitsArgs']] = None,
                  load_balancing: Optional[pulumi.Input[str]] = None,
                  local_my_sql_enabled: Optional[pulumi.Input[bool]] = None,
-                 logs_directory_size_limit: Optional[pulumi.Input[float]] = None,
+                 logs_directory_size_limit: Optional[pulumi.Input[int]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[List[pulumi.Input['NameValuePairArgs']]]] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  net_framework_version: Optional[pulumi.Input[str]] = None,
                  node_version: Optional[pulumi.Input[str]] = None,
-                 number_of_workers: Optional[pulumi.Input[float]] = None,
+                 number_of_workers: Optional[pulumi.Input[int]] = None,
                  php_version: Optional[pulumi.Input[str]] = None,
                  publishing_password: Optional[pulumi.Input[str]] = None,
                  publishing_username: Optional[pulumi.Input[str]] = None,
@@ -1298,7 +1298,7 @@ class SiteConfigArgs:
                  tracing_options: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
-                 virtual_applications: Optional[pulumi.Input[List[pulumi.Input['VirtualApplicationArgs']]]] = None,
+                 virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]]] = None,
                  vnet_name: Optional[pulumi.Input[str]] = None,
                  web_sockets_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -1307,20 +1307,20 @@ class SiteConfigArgs:
         :param pulumi.Input[bool] always_on: Always On
         :param pulumi.Input['ApiDefinitionInfoArgs'] api_definition: Information about the formal API definition for the web app.
         :param pulumi.Input[str] app_command_line: App Command Line to launch
-        :param pulumi.Input[List[pulumi.Input['NameValuePairArgs']]] app_settings: Application Settings
+        :param pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]] app_settings: Application Settings
         :param pulumi.Input[bool] auto_heal_enabled: Auto heal enabled
         :param pulumi.Input['AutoHealRulesArgs'] auto_heal_rules: Auto heal rules
         :param pulumi.Input[str] auto_swap_slot_name: Auto swap slot name
-        :param pulumi.Input[List[pulumi.Input['ConnStringInfoArgs']]] connection_strings: Connection strings
+        :param pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]] connection_strings: Connection strings
         :param pulumi.Input['CorsSettingsArgs'] cors: Cross-Origin Resource Sharing (CORS) settings.
-        :param pulumi.Input[List[pulumi.Input[str]]] default_documents: Default documents
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Default documents
         :param pulumi.Input[bool] detailed_error_logging_enabled: Detailed error logging enabled
         :param pulumi.Input[str] document_root: Document root
         :param pulumi.Input['ExperimentsArgs'] experiments: This is work around for polymorphic types
-        :param pulumi.Input[List[pulumi.Input['HandlerMappingArgs']]] handler_mappings: Handler mappings
+        :param pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]] handler_mappings: Handler mappings
         :param pulumi.Input[bool] http_logging_enabled: HTTP logging Enabled
         :param pulumi.Input[str] id: Resource Id
-        :param pulumi.Input[List[pulumi.Input['IpSecurityRestrictionArgs']]] ip_security_restrictions: Ip Security restrictions
+        :param pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]] ip_security_restrictions: Ip Security restrictions
         :param pulumi.Input[str] java_container: Java container
         :param pulumi.Input[str] java_container_version: Java container version
         :param pulumi.Input[str] java_version: Java version
@@ -1328,13 +1328,13 @@ class SiteConfigArgs:
         :param pulumi.Input['SiteLimitsArgs'] limits: Site limits
         :param pulumi.Input[str] load_balancing: Site load balancing
         :param pulumi.Input[bool] local_my_sql_enabled: Local mysql enabled
-        :param pulumi.Input[float] logs_directory_size_limit: HTTP Logs Directory size limit
+        :param pulumi.Input[int] logs_directory_size_limit: HTTP Logs Directory size limit
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode
-        :param pulumi.Input[List[pulumi.Input['NameValuePairArgs']]] metadata: Site Metadata
+        :param pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]] metadata: Site Metadata
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] net_framework_version: Net Framework Version
         :param pulumi.Input[str] node_version: Version of Node
-        :param pulumi.Input[float] number_of_workers: Number of workers
+        :param pulumi.Input[int] number_of_workers: Number of workers
         :param pulumi.Input[str] php_version: Version of PHP
         :param pulumi.Input[str] publishing_password: Publishing password
         :param pulumi.Input[str] publishing_username: Publishing user name
@@ -1348,7 +1348,7 @@ class SiteConfigArgs:
         :param pulumi.Input[str] tracing_options: Tracing options
         :param pulumi.Input[str] type: Resource type
         :param pulumi.Input[bool] use32_bit_worker_process: Use 32 bit worker process
-        :param pulumi.Input[List[pulumi.Input['VirtualApplicationArgs']]] virtual_applications: Virtual applications
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]] virtual_applications: Virtual applications
         :param pulumi.Input[str] vnet_name: Vnet name
         :param pulumi.Input[bool] web_sockets_enabled: Web socket enabled.
         """
@@ -1498,14 +1498,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[List[pulumi.Input['NameValuePairArgs']]]]:
+    def app_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]:
         """
         Application Settings
         """
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[List[pulumi.Input['NameValuePairArgs']]]]):
+    def app_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]):
         pulumi.set(self, "app_settings", value)
 
     @property
@@ -1546,14 +1546,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[List[pulumi.Input['ConnStringInfoArgs']]]]:
+    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]]]:
         """
         Connection strings
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[List[pulumi.Input['ConnStringInfoArgs']]]]):
+    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @property
@@ -1570,14 +1570,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="defaultDocuments")
-    def default_documents(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Default documents
         """
         return pulumi.get(self, "default_documents")
 
     @default_documents.setter
-    def default_documents(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "default_documents", value)
 
     @property
@@ -1618,14 +1618,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="handlerMappings")
-    def handler_mappings(self) -> Optional[pulumi.Input[List[pulumi.Input['HandlerMappingArgs']]]]:
+    def handler_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]]]:
         """
         Handler mappings
         """
         return pulumi.get(self, "handler_mappings")
 
     @handler_mappings.setter
-    def handler_mappings(self, value: Optional[pulumi.Input[List[pulumi.Input['HandlerMappingArgs']]]]):
+    def handler_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]]]):
         pulumi.set(self, "handler_mappings", value)
 
     @property
@@ -1654,14 +1654,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipSecurityRestrictions")
-    def ip_security_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['IpSecurityRestrictionArgs']]]]:
+    def ip_security_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]:
         """
         Ip Security restrictions
         """
         return pulumi.get(self, "ip_security_restrictions")
 
     @ip_security_restrictions.setter
-    def ip_security_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['IpSecurityRestrictionArgs']]]]):
+    def ip_security_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]):
         pulumi.set(self, "ip_security_restrictions", value)
 
     @property
@@ -1750,14 +1750,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="logsDirectorySizeLimit")
-    def logs_directory_size_limit(self) -> Optional[pulumi.Input[float]]:
+    def logs_directory_size_limit(self) -> Optional[pulumi.Input[int]]:
         """
         HTTP Logs Directory size limit
         """
         return pulumi.get(self, "logs_directory_size_limit")
 
     @logs_directory_size_limit.setter
-    def logs_directory_size_limit(self, value: Optional[pulumi.Input[float]]):
+    def logs_directory_size_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "logs_directory_size_limit", value)
 
     @property
@@ -1774,14 +1774,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[List[pulumi.Input['NameValuePairArgs']]]]:
+    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]:
         """
         Site Metadata
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[List[pulumi.Input['NameValuePairArgs']]]]):
+    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]):
         pulumi.set(self, "metadata", value)
 
     @property
@@ -1822,14 +1822,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="numberOfWorkers")
-    def number_of_workers(self) -> Optional[pulumi.Input[float]]:
+    def number_of_workers(self) -> Optional[pulumi.Input[int]]:
         """
         Number of workers
         """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
-    def number_of_workers(self, value: Optional[pulumi.Input[float]]):
+    def number_of_workers(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_workers", value)
 
     @property
@@ -1990,14 +1990,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="virtualApplications")
-    def virtual_applications(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualApplicationArgs']]]]:
+    def virtual_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]]]:
         """
         Virtual applications
         """
         return pulumi.get(self, "virtual_applications")
 
     @virtual_applications.setter
-    def virtual_applications(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualApplicationArgs']]]]):
+    def virtual_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]]]):
         pulumi.set(self, "virtual_applications", value)
 
     @property
@@ -2028,13 +2028,13 @@ class SiteConfigArgs:
 @pulumi.input_type
 class SiteLimitsArgs:
     def __init__(__self__, *,
-                 max_disk_size_in_mb: Optional[pulumi.Input[float]] = None,
-                 max_memory_in_mb: Optional[pulumi.Input[float]] = None,
+                 max_disk_size_in_mb: Optional[pulumi.Input[int]] = None,
+                 max_memory_in_mb: Optional[pulumi.Input[int]] = None,
                  max_percentage_cpu: Optional[pulumi.Input[float]] = None):
         """
         Represents metric limits set on a web app.
-        :param pulumi.Input[float] max_disk_size_in_mb: Maximum allowed disk size usage in MB
-        :param pulumi.Input[float] max_memory_in_mb: Maximum allowed memory usage in MB
+        :param pulumi.Input[int] max_disk_size_in_mb: Maximum allowed disk size usage in MB
+        :param pulumi.Input[int] max_memory_in_mb: Maximum allowed memory usage in MB
         :param pulumi.Input[float] max_percentage_cpu: Maximum allowed CPU usage percentage
         """
         if max_disk_size_in_mb is not None:
@@ -2046,26 +2046,26 @@ class SiteLimitsArgs:
 
     @property
     @pulumi.getter(name="maxDiskSizeInMb")
-    def max_disk_size_in_mb(self) -> Optional[pulumi.Input[float]]:
+    def max_disk_size_in_mb(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum allowed disk size usage in MB
         """
         return pulumi.get(self, "max_disk_size_in_mb")
 
     @max_disk_size_in_mb.setter
-    def max_disk_size_in_mb(self, value: Optional[pulumi.Input[float]]):
+    def max_disk_size_in_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_disk_size_in_mb", value)
 
     @property
     @pulumi.getter(name="maxMemoryInMb")
-    def max_memory_in_mb(self) -> Optional[pulumi.Input[float]]:
+    def max_memory_in_mb(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum allowed memory usage in MB
         """
         return pulumi.get(self, "max_memory_in_mb")
 
     @max_memory_in_mb.setter
-    def max_memory_in_mb(self, value: Optional[pulumi.Input[float]]):
+    def max_memory_in_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_memory_in_mb", value)
 
     @property
@@ -2084,14 +2084,14 @@ class SiteLimitsArgs:
 @pulumi.input_type
 class SkuDescriptionArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Describes a sku for a scalable resource
-        :param pulumi.Input[float] capacity: Current number of instances assigned to the resource
+        :param pulumi.Input[int] capacity: Current number of instances assigned to the resource
         :param pulumi.Input[str] family: Family code of the resource sku
         :param pulumi.Input[str] name: Name of the resource sku
         :param pulumi.Input[str] size: Size specifier of the resource sku
@@ -2110,14 +2110,14 @@ class SkuDescriptionArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Current number of instances assigned to the resource
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -2172,12 +2172,12 @@ class SkuDescriptionArgs:
 @pulumi.input_type
 class SlowRequestsBasedTriggerArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  time_interval: Optional[pulumi.Input[str]] = None,
                  time_taken: Optional[pulumi.Input[str]] = None):
         """
         SlowRequestsBasedTrigger
-        :param pulumi.Input[float] count: Count
+        :param pulumi.Input[int] count: Count
         :param pulumi.Input[str] time_interval: TimeInterval
         :param pulumi.Input[str] time_taken: TimeTaken
         """
@@ -2190,14 +2190,14 @@ class SlowRequestsBasedTriggerArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Count
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
@@ -2228,29 +2228,29 @@ class SlowRequestsBasedTriggerArgs:
 @pulumi.input_type
 class StampCapacityArgs:
     def __init__(__self__, *,
-                 available_capacity: Optional[pulumi.Input[float]] = None,
+                 available_capacity: Optional[pulumi.Input[int]] = None,
                  compute_mode: Optional[pulumi.Input[str]] = None,
                  exclude_from_capacity_allocation: Optional[pulumi.Input[bool]] = None,
                  is_applicable_for_all_compute_modes: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  site_mode: Optional[pulumi.Input[str]] = None,
-                 total_capacity: Optional[pulumi.Input[float]] = None,
+                 total_capacity: Optional[pulumi.Input[int]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  worker_size: Optional[pulumi.Input[str]] = None,
-                 worker_size_id: Optional[pulumi.Input[float]] = None):
+                 worker_size_id: Optional[pulumi.Input[int]] = None):
         """
         Class containing stamp capacity information
-        :param pulumi.Input[float] available_capacity: Available capacity (# of machines, bytes of storage etc...)
+        :param pulumi.Input[int] available_capacity: Available capacity (# of machines, bytes of storage etc...)
         :param pulumi.Input[str] compute_mode: Shared/Dedicated workers
         :param pulumi.Input[bool] exclude_from_capacity_allocation: If true it includes basic sites
                            Basic sites are not used for capacity allocation.
         :param pulumi.Input[bool] is_applicable_for_all_compute_modes: Is capacity applicable for all sites?
         :param pulumi.Input[str] name: Name of the stamp
         :param pulumi.Input[str] site_mode: Shared or Dedicated
-        :param pulumi.Input[float] total_capacity: Total capacity (# of machines, bytes of storage etc...)
+        :param pulumi.Input[int] total_capacity: Total capacity (# of machines, bytes of storage etc...)
         :param pulumi.Input[str] unit: Name of the unit
         :param pulumi.Input[str] worker_size: Size of the machines
-        :param pulumi.Input[float] worker_size_id: Size Id of machines: 
+        :param pulumi.Input[int] worker_size_id: Size Id of machines: 
                            0 - Small
                            1 - Medium
                            2 - Large
@@ -2278,14 +2278,14 @@ class StampCapacityArgs:
 
     @property
     @pulumi.getter(name="availableCapacity")
-    def available_capacity(self) -> Optional[pulumi.Input[float]]:
+    def available_capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Available capacity (# of machines, bytes of storage etc...)
         """
         return pulumi.get(self, "available_capacity")
 
     @available_capacity.setter
-    def available_capacity(self, value: Optional[pulumi.Input[float]]):
+    def available_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "available_capacity", value)
 
     @property
@@ -2351,14 +2351,14 @@ class StampCapacityArgs:
 
     @property
     @pulumi.getter(name="totalCapacity")
-    def total_capacity(self) -> Optional[pulumi.Input[float]]:
+    def total_capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Total capacity (# of machines, bytes of storage etc...)
         """
         return pulumi.get(self, "total_capacity")
 
     @total_capacity.setter
-    def total_capacity(self, value: Optional[pulumi.Input[float]]):
+    def total_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "total_capacity", value)
 
     @property
@@ -2387,7 +2387,7 @@ class StampCapacityArgs:
 
     @property
     @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[pulumi.Input[float]]:
+    def worker_size_id(self) -> Optional[pulumi.Input[int]]:
         """
         Size Id of machines: 
                     0 - Small
@@ -2397,25 +2397,25 @@ class StampCapacityArgs:
         return pulumi.get(self, "worker_size_id")
 
     @worker_size_id.setter
-    def worker_size_id(self, value: Optional[pulumi.Input[float]]):
+    def worker_size_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "worker_size_id", value)
 
 
 @pulumi.input_type
 class StatusCodesBasedTriggerArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[float]] = None,
-                 status: Optional[pulumi.Input[float]] = None,
-                 sub_status: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[int]] = None,
+                 sub_status: Optional[pulumi.Input[int]] = None,
                  time_interval: Optional[pulumi.Input[str]] = None,
-                 win32_status: Optional[pulumi.Input[float]] = None):
+                 win32_status: Optional[pulumi.Input[int]] = None):
         """
         StatusCodeBasedTrigger
-        :param pulumi.Input[float] count: Count
-        :param pulumi.Input[float] status: HTTP status code
-        :param pulumi.Input[float] sub_status: SubStatus
+        :param pulumi.Input[int] count: Count
+        :param pulumi.Input[int] status: HTTP status code
+        :param pulumi.Input[int] sub_status: SubStatus
         :param pulumi.Input[str] time_interval: TimeInterval
-        :param pulumi.Input[float] win32_status: Win32 error code
+        :param pulumi.Input[int] win32_status: Win32 error code
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -2430,38 +2430,38 @@ class StatusCodesBasedTriggerArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Count
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[float]]:
+    def status(self) -> Optional[pulumi.Input[int]]:
         """
         HTTP status code
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[float]]):
+    def status(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter(name="subStatus")
-    def sub_status(self) -> Optional[pulumi.Input[float]]:
+    def sub_status(self) -> Optional[pulumi.Input[int]]:
         """
         SubStatus
         """
         return pulumi.get(self, "sub_status")
 
     @sub_status.setter
-    def sub_status(self, value: Optional[pulumi.Input[float]]):
+    def sub_status(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "sub_status", value)
 
     @property
@@ -2478,14 +2478,14 @@ class StatusCodesBasedTriggerArgs:
 
     @property
     @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[pulumi.Input[float]]:
+    def win32_status(self) -> Optional[pulumi.Input[int]]:
         """
         Win32 error code
         """
         return pulumi.get(self, "win32_status")
 
     @win32_status.setter
-    def win32_status(self, value: Optional[pulumi.Input[float]]):
+    def win32_status(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "win32_status", value)
 
 
@@ -2494,7 +2494,7 @@ class VirtualApplicationArgs:
     def __init__(__self__, *,
                  physical_path: Optional[pulumi.Input[str]] = None,
                  preload_enabled: Optional[pulumi.Input[bool]] = None,
-                 virtual_directories: Optional[pulumi.Input[List[pulumi.Input['VirtualDirectoryArgs']]]] = None,
+                 virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgs']]]] = None,
                  virtual_path: Optional[pulumi.Input[str]] = None):
         if physical_path is not None:
             pulumi.set(__self__, "physical_path", physical_path)
@@ -2525,11 +2525,11 @@ class VirtualApplicationArgs:
 
     @property
     @pulumi.getter(name="virtualDirectories")
-    def virtual_directories(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualDirectoryArgs']]]]:
+    def virtual_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgs']]]]:
         return pulumi.get(self, "virtual_directories")
 
     @virtual_directories.setter
-    def virtual_directories(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualDirectoryArgs']]]]):
+    def virtual_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgs']]]]):
         pulumi.set(self, "virtual_directories", value)
 
     @property
@@ -2575,14 +2575,14 @@ class VirtualDirectoryArgs:
 class VirtualIPMappingArgs:
     def __init__(__self__, *,
                  in_use: Optional[pulumi.Input[bool]] = None,
-                 internal_http_port: Optional[pulumi.Input[float]] = None,
-                 internal_https_port: Optional[pulumi.Input[float]] = None,
+                 internal_http_port: Optional[pulumi.Input[int]] = None,
+                 internal_https_port: Optional[pulumi.Input[int]] = None,
                  virtual_ip: Optional[pulumi.Input[str]] = None):
         """
         Class that represents a VIP mapping
         :param pulumi.Input[bool] in_use: Is VIP mapping in use
-        :param pulumi.Input[float] internal_http_port: Internal HTTP port
-        :param pulumi.Input[float] internal_https_port: Internal HTTPS port
+        :param pulumi.Input[int] internal_http_port: Internal HTTP port
+        :param pulumi.Input[int] internal_https_port: Internal HTTPS port
         :param pulumi.Input[str] virtual_ip: Virtual IP address
         """
         if in_use is not None:
@@ -2608,26 +2608,26 @@ class VirtualIPMappingArgs:
 
     @property
     @pulumi.getter(name="internalHttpPort")
-    def internal_http_port(self) -> Optional[pulumi.Input[float]]:
+    def internal_http_port(self) -> Optional[pulumi.Input[int]]:
         """
         Internal HTTP port
         """
         return pulumi.get(self, "internal_http_port")
 
     @internal_http_port.setter
-    def internal_http_port(self, value: Optional[pulumi.Input[float]]):
+    def internal_http_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "internal_http_port", value)
 
     @property
     @pulumi.getter(name="internalHttpsPort")
-    def internal_https_port(self) -> Optional[pulumi.Input[float]]:
+    def internal_https_port(self) -> Optional[pulumi.Input[int]]:
         """
         Internal HTTPS port
         """
         return pulumi.get(self, "internal_https_port")
 
     @internal_https_port.setter
-    def internal_https_port(self, value: Optional[pulumi.Input[float]]):
+    def internal_https_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "internal_https_port", value)
 
     @property
@@ -2884,29 +2884,29 @@ class WorkerPoolArgs:
                  location: pulumi.Input[str],
                  compute_mode: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 instance_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 instance_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuDescriptionArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 worker_count: Optional[pulumi.Input[float]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None,
                  worker_size: Optional[pulumi.Input[str]] = None,
-                 worker_size_id: Optional[pulumi.Input[float]] = None):
+                 worker_size_id: Optional[pulumi.Input[int]] = None):
         """
         Worker pool of a hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] compute_mode: Shared or dedicated web app hosting
         :param pulumi.Input[str] id: Resource Id
-        :param pulumi.Input[List[pulumi.Input[str]]] instance_names: Names of all instances in the worker pool (read only)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_names: Names of all instances in the worker pool (read only)
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input['SkuDescriptionArgs'] sku: Describes a sku for a scalable resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
-        :param pulumi.Input[float] worker_count: Number of instances in the worker pool
+        :param pulumi.Input[int] worker_count: Number of instances in the worker pool
         :param pulumi.Input[str] worker_size: VM size of the worker pool instances
-        :param pulumi.Input[float] worker_size_id: Worker size id for referencing this worker pool
+        :param pulumi.Input[int] worker_size_id: Worker size id for referencing this worker pool
         """
         pulumi.set(__self__, "location", location)
         if compute_mode is not None:
@@ -2970,14 +2970,14 @@ class WorkerPoolArgs:
 
     @property
     @pulumi.getter(name="instanceNames")
-    def instance_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def instance_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Names of all instances in the worker pool (read only)
         """
         return pulumi.get(self, "instance_names")
 
     @instance_names.setter
-    def instance_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def instance_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "instance_names", value)
 
     @property
@@ -3042,14 +3042,14 @@ class WorkerPoolArgs:
 
     @property
     @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[pulumi.Input[float]]:
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of instances in the worker pool
         """
         return pulumi.get(self, "worker_count")
 
     @worker_count.setter
-    def worker_count(self, value: Optional[pulumi.Input[float]]):
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "worker_count", value)
 
     @property
@@ -3066,14 +3066,14 @@ class WorkerPoolArgs:
 
     @property
     @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[pulumi.Input[float]]:
+    def worker_size_id(self) -> Optional[pulumi.Input[int]]:
         """
         Worker size id for referencing this worker pool
         """
         return pulumi.get(self, "worker_size_id")
 
     @worker_size_id.setter
-    def worker_size_id(self, value: Optional[pulumi.Input[float]]):
+    def worker_size_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "worker_size_id", value)
 
 

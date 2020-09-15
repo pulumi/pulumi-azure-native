@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
         /// The key vault key which is currently used by this disk encryption set.
         /// </summary>
         [Output("activeKey")]
-        public Output<Outputs.KeyVaultAndKeyReferenceResponseResult?> ActiveKey { get; private set; } = null!;
+        public Output<Outputs.KeyVaultAndKeyReferenceResponse?> ActiveKey { get; private set; } = null!;
 
         /// <summary>
         /// The type of key used to encrypt the data of the disk.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.EncryptionSetIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.EncryptionSetIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
         /// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
         /// </summary>
         [Output("previousKeys")]
-        public Output<ImmutableArray<Outputs.KeyVaultAndKeyReferenceResponseResult>> PreviousKeys { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KeyVaultAndKeyReferenceResponse>> PreviousKeys { get; private set; } = null!;
 
         /// <summary>
         /// The disk encryption set provisioning state.

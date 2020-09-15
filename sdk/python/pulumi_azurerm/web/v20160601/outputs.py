@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,8 +38,8 @@ class ApiConnectionDefinitionResponseProperties(dict):
                  display_name: Optional[str] = None,
                  non_secret_parameter_values: Optional[Mapping[str, str]] = None,
                  parameter_values: Optional[Mapping[str, str]] = None,
-                 statuses: Optional[List['outputs.ConnectionStatusDefinitionResponse']] = None,
-                 test_links: Optional[List['outputs.ApiConnectionTestLinkResponse']] = None):
+                 statuses: Optional[Sequence['outputs.ConnectionStatusDefinitionResponse']] = None,
+                 test_links: Optional[Sequence['outputs.ApiConnectionTestLinkResponse']] = None):
         """
         :param str changed_time: Timestamp of last connection change
         :param str created_time: Timestamp of the connection creation
@@ -47,8 +47,8 @@ class ApiConnectionDefinitionResponseProperties(dict):
         :param str display_name: Display name
         :param Mapping[str, str] non_secret_parameter_values: Dictionary of nonsecret parameter values
         :param Mapping[str, str] parameter_values: Dictionary of parameter values
-        :param List['ConnectionStatusDefinitionResponseArgs'] statuses: Status of the connection
-        :param List['ApiConnectionTestLinkResponseArgs'] test_links: Links to test the API connection
+        :param Sequence['ConnectionStatusDefinitionResponseArgs'] statuses: Status of the connection
+        :param Sequence['ApiConnectionTestLinkResponseArgs'] test_links: Links to test the API connection
         """
         if api is not None:
             pulumi.set(__self__, "api", api)
@@ -124,7 +124,7 @@ class ApiConnectionDefinitionResponseProperties(dict):
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.ConnectionStatusDefinitionResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.ConnectionStatusDefinitionResponse']]:
         """
         Status of the connection
         """
@@ -132,7 +132,7 @@ class ApiConnectionDefinitionResponseProperties(dict):
 
     @property
     @pulumi.getter(name="testLinks")
-    def test_links(self) -> Optional[List['outputs.ApiConnectionTestLinkResponse']]:
+    def test_links(self) -> Optional[Sequence['outputs.ApiConnectionTestLinkResponse']]:
         """
         Links to test the API connection
         """
@@ -242,7 +242,7 @@ class ApiOAuthSettingsResponse(dict):
                  identity_provider: Optional[str] = None,
                  properties: Optional[Mapping[str, Any]] = None,
                  redirect_url: Optional[str] = None,
-                 scopes: Optional[List[str]] = None):
+                 scopes: Optional[Sequence[str]] = None):
         """
         OAuth settings for the connection provider
         :param str client_id: Resource provider client id
@@ -251,7 +251,7 @@ class ApiOAuthSettingsResponse(dict):
         :param str identity_provider: Identity provider
         :param Mapping[str, Any] properties: Read only properties for this oauth setting.
         :param str redirect_url: Url
-        :param List[str] scopes: OAuth scopes
+        :param Sequence[str] scopes: OAuth scopes
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -318,7 +318,7 @@ class ApiOAuthSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> Optional[Sequence[str]]:
         """
         OAuth scopes
         """
@@ -610,7 +610,7 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
     def __init__(__self__, *,
                  backend_uri: Optional[str] = None,
                  connection_gateway_installation: Optional['outputs.ConnectionGatewayReferenceResponse'] = None,
-                 contact_information: Optional[List[str]] = None,
+                 contact_information: Optional[Sequence[str]] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  machine_name: Optional[str] = None,
@@ -618,7 +618,7 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
         """
         :param str backend_uri: The URI of the backend
         :param 'ConnectionGatewayReferenceResponseArgs' connection_gateway_installation: The gateway installation reference
-        :param List[str] contact_information: The gateway admin
+        :param Sequence[str] contact_information: The gateway admin
         :param str description: The gateway description
         :param str display_name: The gateway display name
         :param str machine_name: The machine name of the gateway
@@ -657,7 +657,7 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
 
     @property
     @pulumi.getter(name="contactInformation")
-    def contact_information(self) -> Optional[List[str]]:
+    def contact_information(self) -> Optional[Sequence[str]]:
         """
         The gateway admin
         """
@@ -918,12 +918,12 @@ class CustomApiPropertiesDefinitionResponse(dict):
                  api_type: Optional[str] = None,
                  backend_service: Optional['outputs.ApiResourceBackendServiceResponse'] = None,
                  brand_color: Optional[str] = None,
-                 capabilities: Optional[List[str]] = None,
+                 capabilities: Optional[Sequence[str]] = None,
                  connection_parameters: Optional[Mapping[str, 'outputs.ConnectionParameterResponse']] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  icon_uri: Optional[str] = None,
-                 runtime_urls: Optional[List[str]] = None,
+                 runtime_urls: Optional[Sequence[str]] = None,
                  swagger: Optional[Mapping[str, Any]] = None,
                  wsdl_definition: Optional['outputs.WsdlDefinitionResponse'] = None):
         """
@@ -932,12 +932,12 @@ class CustomApiPropertiesDefinitionResponse(dict):
         :param str api_type: The API type
         :param 'ApiResourceBackendServiceResponseArgs' backend_service: The API backend service
         :param str brand_color: Brand color
-        :param List[str] capabilities: The custom API capabilities
+        :param Sequence[str] capabilities: The custom API capabilities
         :param Mapping[str, 'ConnectionParameterResponseArgs'] connection_parameters: Connection parameters
         :param str description: The custom API description
         :param str display_name: The display name
         :param str icon_uri: The icon URI
-        :param List[str] runtime_urls: Runtime URLs
+        :param Sequence[str] runtime_urls: Runtime URLs
         :param Mapping[str, Any] swagger: The JSON representation of the swagger
         :param 'WsdlDefinitionResponseArgs' wsdl_definition: The WSDL definition
         """
@@ -1000,7 +1000,7 @@ class CustomApiPropertiesDefinitionResponse(dict):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[List[str]]:
+    def capabilities(self) -> Optional[Sequence[str]]:
         """
         The custom API capabilities
         """
@@ -1040,7 +1040,7 @@ class CustomApiPropertiesDefinitionResponse(dict):
 
     @property
     @pulumi.getter(name="runtimeUrls")
-    def runtime_urls(self) -> Optional[List[str]]:
+    def runtime_urls(self) -> Optional[Sequence[str]]:
         """
         Runtime URLs
         """
@@ -1135,11 +1135,11 @@ class WsdlServiceResponse(dict):
     """
     def __init__(__self__, *,
                  qualified_name: str,
-                 endpoint_qualified_names: Optional[List[str]] = None):
+                 endpoint_qualified_names: Optional[Sequence[str]] = None):
         """
         The service with name and endpoint names
         :param str qualified_name: The service's qualified name
-        :param List[str] endpoint_qualified_names: List of the endpoints' qualified names
+        :param Sequence[str] endpoint_qualified_names: List of the endpoints' qualified names
         """
         pulumi.set(__self__, "qualified_name", qualified_name)
         if endpoint_qualified_names is not None:
@@ -1155,7 +1155,7 @@ class WsdlServiceResponse(dict):
 
     @property
     @pulumi.getter(name="endpointQualifiedNames")
-    def endpoint_qualified_names(self) -> Optional[List[str]]:
+    def endpoint_qualified_names(self) -> Optional[Sequence[str]]:
         """
         List of the endpoints' qualified names
         """

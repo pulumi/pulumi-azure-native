@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// <summary>
         /// Gets or sets the SKU of account.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Gets status of account.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.Automation.Latest
 
             string name,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string state,
 

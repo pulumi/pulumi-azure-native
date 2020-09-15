@@ -42,19 +42,19 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster API server profile.
         /// </summary>
-        public readonly Outputs.APIServerProfileResponseResult? ApiserverProfile;
+        public readonly Outputs.APIServerProfileResponse? ApiserverProfile;
         /// <summary>
         /// The cluster profile.
         /// </summary>
-        public readonly Outputs.ClusterProfileResponseResult? ClusterProfile;
+        public readonly Outputs.ClusterProfileResponse? ClusterProfile;
         /// <summary>
         /// The console profile.
         /// </summary>
-        public readonly Outputs.ConsoleProfileResponseResult? ConsoleProfile;
+        public readonly Outputs.ConsoleProfileResponse? ConsoleProfile;
         /// <summary>
         /// The cluster ingress profiles.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IngressProfileResponseResult> IngressProfiles;
+        public readonly ImmutableArray<Outputs.IngressProfileResponse> IngressProfiles;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster master profile.
         /// </summary>
-        public readonly Outputs.MasterProfileResponseResult? MasterProfile;
+        public readonly Outputs.MasterProfileResponse? MasterProfile;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster network profile.
         /// </summary>
-        public readonly Outputs.NetworkProfileResponseResult? NetworkProfile;
+        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
         /// <summary>
         /// The cluster provisioning state (immutable).
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster service principal profile.
         /// </summary>
-        public readonly Outputs.ServicePrincipalProfileResponseResult? ServicePrincipalProfile;
+        public readonly Outputs.ServicePrincipalProfileResponse? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -90,35 +90,35 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster worker profiles.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WorkerProfileResponseResult> WorkerProfiles;
+        public readonly ImmutableArray<Outputs.WorkerProfileResponse> WorkerProfiles;
 
         [OutputConstructor]
         private GetOpenShiftClusterResult(
-            Outputs.APIServerProfileResponseResult? apiserverProfile,
+            Outputs.APIServerProfileResponse? apiserverProfile,
 
-            Outputs.ClusterProfileResponseResult? clusterProfile,
+            Outputs.ClusterProfileResponse? clusterProfile,
 
-            Outputs.ConsoleProfileResponseResult? consoleProfile,
+            Outputs.ConsoleProfileResponse? consoleProfile,
 
-            ImmutableArray<Outputs.IngressProfileResponseResult> ingressProfiles,
+            ImmutableArray<Outputs.IngressProfileResponse> ingressProfiles,
 
             string location,
 
-            Outputs.MasterProfileResponseResult? masterProfile,
+            Outputs.MasterProfileResponse? masterProfile,
 
             string name,
 
-            Outputs.NetworkProfileResponseResult? networkProfile,
+            Outputs.NetworkProfileResponse? networkProfile,
 
             string? provisioningState,
 
-            Outputs.ServicePrincipalProfileResponseResult? servicePrincipalProfile,
+            Outputs.ServicePrincipalProfileResponse? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.WorkerProfileResponseResult> workerProfiles)
+            ImmutableArray<Outputs.WorkerProfileResponse> workerProfiles)
         {
             ApiserverProfile = apiserverProfile;
             ClusterProfile = clusterProfile;

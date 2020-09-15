@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
         /// <summary>
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetIdentityResponseResult? Identity;
+        public readonly Outputs.VirtualMachineScaleSetIdentityResponse? Identity;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
         /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
-        public readonly Outputs.PlanResponseResult? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// Fault Domain count for each placement group.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
         /// <summary>
         /// The virtual machine scale set sku.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -90,11 +90,11 @@ namespace Pulumi.AzureRM.Compute.V20171201
         /// <summary>
         /// The upgrade policy.
         /// </summary>
-        public readonly Outputs.UpgradePolicyResponseResult? UpgradePolicy;
+        public readonly Outputs.UpgradePolicyResponse? UpgradePolicy;
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetVMProfileResponseResult? VirtualMachineProfile;
+        public readonly Outputs.VirtualMachineScaleSetVMProfileResponse? VirtualMachineProfile;
         /// <summary>
         /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
-            Outputs.VirtualMachineScaleSetIdentityResponseResult? identity,
+            Outputs.VirtualMachineScaleSetIdentityResponse? identity,
 
             string location,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
 
             bool? overprovision,
 
-            Outputs.PlanResponseResult? plan,
+            Outputs.PlanResponse? plan,
 
             int? platformFaultDomainCount,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
 
             bool? singlePlacementGroup,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -130,9 +130,9 @@ namespace Pulumi.AzureRM.Compute.V20171201
 
             string uniqueId,
 
-            Outputs.UpgradePolicyResponseResult? upgradePolicy,
+            Outputs.UpgradePolicyResponse? upgradePolicy,
 
-            Outputs.VirtualMachineScaleSetVMProfileResponseResult? virtualMachineProfile,
+            Outputs.VirtualMachineScaleSetVMProfileResponse? virtualMachineProfile,
 
             bool? zoneBalance,
 

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Aad.V20170601
         /// The list of container accounts
         /// </summary>
         [Output("accounts")]
-        public Output<ImmutableArray<Outputs.ContainerAccountResponseResult>> Accounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContainerAccountResponse>> Accounts { get; private set; } = null!;
 
         /// <summary>
         /// The OuContainer name

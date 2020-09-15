@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801beta
         /// <summary>
         /// A collection of AS server administrators
         /// </summary>
-        public readonly Outputs.ServerAdministratorsResponseResult? AsAdministrators;
+        public readonly Outputs.ServerAdministratorsResponse? AsAdministrators;
         /// <summary>
         /// The SAS container URI to the backup container.
         /// </summary>
@@ -50,11 +50,11 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801beta
         /// <summary>
         /// The gateway details configured for the AS server.
         /// </summary>
-        public readonly Outputs.GatewayDetailsResponseResult? GatewayDetails;
+        public readonly Outputs.GatewayDetailsResponse? GatewayDetails;
         /// <summary>
         /// The firewall settings for the AS server.
         /// </summary>
-        public readonly Outputs.IPv4FirewallSettingsResponseResult? IpV4FirewallSettings;
+        public readonly Outputs.IPv4FirewallSettingsResponse? IpV4FirewallSettings;
         /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801beta
         /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponseResult Sku;
+        public readonly Outputs.ResourceSkuResponse Sku;
         /// <summary>
         /// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
         /// </summary>
@@ -94,13 +94,13 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801beta
 
         [OutputConstructor]
         private GetServerDetailsResult(
-            Outputs.ServerAdministratorsResponseResult? asAdministrators,
+            Outputs.ServerAdministratorsResponse? asAdministrators,
 
             string? backupBlobContainerUri,
 
-            Outputs.GatewayDetailsResponseResult? gatewayDetails,
+            Outputs.GatewayDetailsResponse? gatewayDetails,
 
-            Outputs.IPv4FirewallSettingsResponseResult? ipV4FirewallSettings,
+            Outputs.IPv4FirewallSettingsResponse? ipV4FirewallSettings,
 
             string location,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801beta
 
             string serverFullName,
 
-            Outputs.ResourceSkuResponseResult sku,
+            Outputs.ResourceSkuResponse sku,
 
             string state,
 

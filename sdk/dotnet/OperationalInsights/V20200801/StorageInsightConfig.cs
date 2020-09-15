@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// The status of the storage insight
         /// </summary>
         [Output("status")]
-        public Output<Outputs.StorageInsightStatusResponseResult> Status { get; private set; } = null!;
+        public Output<Outputs.StorageInsightStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// The storage account connection details
         /// </summary>
         [Output("storageAccount")]
-        public Output<Outputs.StorageAccountResponseResult> StorageAccount { get; private set; } = null!;
+        public Output<Outputs.StorageAccountResponse> StorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// The names of the Azure tables that the workspace should read

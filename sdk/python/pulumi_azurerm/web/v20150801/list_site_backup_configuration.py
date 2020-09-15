@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -59,7 +59,7 @@ class ListSiteBackupConfigurationResult:
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[List['outputs.DatabaseBackupSettingResponseResult']]:
+    def databases(self) -> Optional[Sequence['outputs.DatabaseBackupSettingResponseResult']]:
         """
         Databases included in the backup
         """

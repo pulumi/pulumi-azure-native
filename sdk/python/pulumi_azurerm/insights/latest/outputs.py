@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -112,17 +112,17 @@ class ActivityLogAlertActionListResponse(dict):
     A list of activity log alert actions.
     """
     def __init__(__self__, *,
-                 action_groups: Optional[List['outputs.ActivityLogAlertActionGroupResponse']] = None):
+                 action_groups: Optional[Sequence['outputs.ActivityLogAlertActionGroupResponse']] = None):
         """
         A list of activity log alert actions.
-        :param List['ActivityLogAlertActionGroupResponseArgs'] action_groups: The list of activity log alerts.
+        :param Sequence['ActivityLogAlertActionGroupResponseArgs'] action_groups: The list of activity log alerts.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
 
     @property
     @pulumi.getter(name="actionGroups")
-    def action_groups(self) -> Optional[List['outputs.ActivityLogAlertActionGroupResponse']]:
+    def action_groups(self) -> Optional[Sequence['outputs.ActivityLogAlertActionGroupResponse']]:
         """
         The list of activity log alerts.
         """
@@ -138,16 +138,16 @@ class ActivityLogAlertAllOfConditionResponse(dict):
     An Activity Log alert condition that is met when all its member conditions are met.
     """
     def __init__(__self__, *,
-                 all_of: List['outputs.ActivityLogAlertLeafConditionResponse']):
+                 all_of: Sequence['outputs.ActivityLogAlertLeafConditionResponse']):
         """
         An Activity Log alert condition that is met when all its member conditions are met.
-        :param List['ActivityLogAlertLeafConditionResponseArgs'] all_of: The list of activity log alert conditions.
+        :param Sequence['ActivityLogAlertLeafConditionResponseArgs'] all_of: The list of activity log alert conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> List['outputs.ActivityLogAlertLeafConditionResponse']:
+    def all_of(self) -> Sequence['outputs.ActivityLogAlertLeafConditionResponse']:
         """
         The list of activity log alert conditions.
         """
@@ -203,14 +203,14 @@ class AlertingActionResponse(dict):
                  severity: str,
                  trigger: 'outputs.TriggerConditionResponse',
                  azns_action: Optional['outputs.AzNsActionGroupResponse'] = None,
-                 throttling_in_min: Optional[float] = None):
+                 throttling_in_min: Optional[int] = None):
         """
         Specify action need to be taken when rule type is Alert
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
         :param str severity: Severity of the alert
         :param 'TriggerConditionResponseArgs' trigger: The trigger condition that results in the alert rule being.
         :param 'AzNsActionGroupResponseArgs' azns_action: Azure action group reference.
-        :param float throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
+        :param int throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
         pulumi.set(__self__, "severity", severity)
@@ -254,7 +254,7 @@ class AlertingActionResponse(dict):
 
     @property
     @pulumi.getter(name="throttlingInMin")
-    def throttling_in_min(self) -> Optional[float]:
+    def throttling_in_min(self) -> Optional[int]:
         """
         time (in minutes) for which Alerts should be throttled or suppressed.
         """
@@ -438,12 +438,12 @@ class AutoscaleNotificationResponse(dict):
     def __init__(__self__, *,
                  operation: str,
                  email: Optional['outputs.EmailNotificationResponse'] = None,
-                 webhooks: Optional[List['outputs.WebhookNotificationResponse']] = None):
+                 webhooks: Optional[Sequence['outputs.WebhookNotificationResponse']] = None):
         """
         Autoscale notification.
         :param str operation: the operation associated with the notification and its value must be "scale"
         :param 'EmailNotificationResponseArgs' email: the email notification.
-        :param List['WebhookNotificationResponseArgs'] webhooks: the collection of webhook notifications.
+        :param Sequence['WebhookNotificationResponseArgs'] webhooks: the collection of webhook notifications.
         """
         pulumi.set(__self__, "operation", operation)
         if email is not None:
@@ -469,7 +469,7 @@ class AutoscaleNotificationResponse(dict):
 
     @property
     @pulumi.getter
-    def webhooks(self) -> Optional[List['outputs.WebhookNotificationResponse']]:
+    def webhooks(self) -> Optional[Sequence['outputs.WebhookNotificationResponse']]:
         """
         the collection of webhook notifications.
         """
@@ -487,14 +487,14 @@ class AutoscaleProfileResponse(dict):
     def __init__(__self__, *,
                  capacity: 'outputs.ScaleCapacityResponse',
                  name: str,
-                 rules: List['outputs.ScaleRuleResponse'],
+                 rules: Sequence['outputs.ScaleRuleResponse'],
                  fixed_date: Optional['outputs.TimeWindowResponse'] = None,
                  recurrence: Optional['outputs.RecurrenceResponse'] = None):
         """
         Autoscale profile.
         :param 'ScaleCapacityResponseArgs' capacity: the number of instances that can be used during this profile.
         :param str name: the name of the profile.
-        :param List['ScaleRuleResponseArgs'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+        :param Sequence['ScaleRuleResponseArgs'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
         :param 'TimeWindowResponseArgs' fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
         :param 'RecurrenceResponseArgs' recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
@@ -524,7 +524,7 @@ class AutoscaleProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.ScaleRuleResponse']:
+    def rules(self) -> Sequence['outputs.ScaleRuleResponse']:
         """
         the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
         """
@@ -556,12 +556,12 @@ class AzNsActionGroupResponse(dict):
     Azure action group
     """
     def __init__(__self__, *,
-                 action_group: Optional[List[str]] = None,
+                 action_group: Optional[Sequence[str]] = None,
                  custom_webhook_payload: Optional[str] = None,
                  email_subject: Optional[str] = None):
         """
         Azure action group
-        :param List[str] action_group: Azure Action Group reference.
+        :param Sequence[str] action_group: Azure Action Group reference.
         :param str custom_webhook_payload: Custom payload to be sent for all webhook URI in Azure action group
         :param str email_subject: Custom subject override for all email ids in Azure action group
         """
@@ -574,7 +574,7 @@ class AzNsActionGroupResponse(dict):
 
     @property
     @pulumi.getter(name="actionGroup")
-    def action_group(self) -> Optional[List[str]]:
+    def action_group(self) -> Optional[Sequence[str]]:
         """
         Azure Action Group reference.
         """
@@ -712,11 +712,11 @@ class CriteriaResponse(dict):
     """
     def __init__(__self__, *,
                  metric_name: str,
-                 dimensions: Optional[List['outputs.DimensionResponse']] = None):
+                 dimensions: Optional[Sequence['outputs.DimensionResponse']] = None):
         """
         Specifies the criteria for converting log to metric.
         :param str metric_name: Name of the metric
-        :param List['DimensionResponseArgs'] dimensions: List of Dimensions for creating metric
+        :param Sequence['DimensionResponseArgs'] dimensions: List of Dimensions for creating metric
         """
         pulumi.set(__self__, "metric_name", metric_name)
         if dimensions is not None:
@@ -732,7 +732,7 @@ class CriteriaResponse(dict):
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[List['outputs.DimensionResponse']]:
+    def dimensions(self) -> Optional[Sequence['outputs.DimensionResponse']]:
         """
         List of Dimensions for creating metric
         """
@@ -750,12 +750,12 @@ class DimensionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         Specifies the criteria for converting log to metric.
         :param str name: Name of the dimension
         :param str operator: Operator for dimension values
-        :param List[str] values: List of dimension values
+        :param Sequence[str] values: List of dimension values
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -779,7 +779,7 @@ class DimensionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         List of dimension values
         """
@@ -802,7 +802,7 @@ class DynamicMetricCriteriaResponse(dict):
                  name: str,
                  operator: str,
                  time_aggregation: Mapping[str, Any],
-                 dimensions: Optional[List['outputs.MetricDimensionResponse']] = None,
+                 dimensions: Optional[Sequence['outputs.MetricDimensionResponse']] = None,
                  ignore_data_before: Optional[str] = None,
                  metric_namespace: Optional[str] = None,
                  skip_metric_validation: Optional[bool] = None):
@@ -815,7 +815,7 @@ class DynamicMetricCriteriaResponse(dict):
         :param str name: Name of the criteria.
         :param str operator: The operator used to compare the metric value against the threshold.
         :param Mapping[str, Any] time_aggregation: the criteria time aggregation types.
-        :param List['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
+        :param Sequence['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
         :param str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -894,7 +894,7 @@ class DynamicMetricCriteriaResponse(dict):
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[List['outputs.MetricDimensionResponse']]:
+    def dimensions(self) -> Optional[Sequence['outputs.MetricDimensionResponse']]:
         """
         List of dimension conditions.
         """
@@ -970,12 +970,12 @@ class EmailNotificationResponse(dict):
     Email notification of an autoscale event.
     """
     def __init__(__self__, *,
-                 custom_emails: Optional[List[str]] = None,
+                 custom_emails: Optional[Sequence[str]] = None,
                  send_to_subscription_administrator: Optional[bool] = None,
                  send_to_subscription_co_administrators: Optional[bool] = None):
         """
         Email notification of an autoscale event.
-        :param List[str] custom_emails: the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
+        :param Sequence[str] custom_emails: the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         :param bool send_to_subscription_administrator: a value indicating whether to send email to subscription administrator.
         :param bool send_to_subscription_co_administrators: a value indicating whether to send email to subscription co-administrators.
         """
@@ -988,7 +988,7 @@ class EmailNotificationResponse(dict):
 
     @property
     @pulumi.getter(name="customEmails")
-    def custom_emails(self) -> Optional[List[str]]:
+    def custom_emails(self) -> Optional[Sequence[str]]:
         """
         the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         """
@@ -1147,13 +1147,13 @@ class LocationThresholdRuleConditionResponse(dict):
     A rule condition based on a certain number of locations failing.
     """
     def __init__(__self__, *,
-                 failed_location_count: float,
+                 failed_location_count: int,
                  odata_type: str,
                  data_source: Optional[Any] = None,
                  window_size: Optional[str] = None):
         """
         A rule condition based on a certain number of locations failing.
-        :param float failed_location_count: the number of locations that must fail to activate the alert.
+        :param int failed_location_count: the number of locations that must fail to activate the alert.
         :param str odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
         :param Union['RuleManagementEventDataSourceResponseArgs', 'RuleMetricDataSourceResponseArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param str window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -1167,7 +1167,7 @@ class LocationThresholdRuleConditionResponse(dict):
 
     @property
     @pulumi.getter(name="failedLocationCount")
-    def failed_location_count(self) -> float:
+    def failed_location_count(self) -> int:
         """
         the number of locations that must fail to activate the alert.
         """
@@ -1269,11 +1269,11 @@ class LogToMetricActionResponse(dict):
     Specify action need to be taken when rule type is converting log to metric
     """
     def __init__(__self__, *,
-                 criteria: List['outputs.CriteriaResponse'],
+                 criteria: Sequence['outputs.CriteriaResponse'],
                  odata_type: str):
         """
         Specify action need to be taken when rule type is converting log to metric
-        :param List['CriteriaResponseArgs'] criteria: Criteria of Metric
+        :param Sequence['CriteriaResponseArgs'] criteria: Criteria of Metric
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
         """
         pulumi.set(__self__, "criteria", criteria)
@@ -1281,7 +1281,7 @@ class LogToMetricActionResponse(dict):
 
     @property
     @pulumi.getter
-    def criteria(self) -> List['outputs.CriteriaResponse']:
+    def criteria(self) -> Sequence['outputs.CriteriaResponse']:
         """
         Criteria of Metric
         """
@@ -1501,11 +1501,11 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
     """
     def __init__(__self__, *,
                  odata_type: str,
-                 all_of: Optional[List[Any]] = None):
+                 all_of: Optional[Sequence[Any]] = None):
         """
         Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
         :param str odata_type: specifies the type of the alert criteria.
-        :param List[Union['DynamicMetricCriteriaResponseArgs', 'MetricCriteriaResponseArgs']] all_of: the list of multiple metric criteria for this 'all of' operation. 
+        :param Sequence[Union['DynamicMetricCriteriaResponseArgs', 'MetricCriteriaResponseArgs']] all_of: the list of multiple metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -1521,7 +1521,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[List[Any]]:
+    def all_of(self) -> Optional[Sequence[Any]]:
         """
         the list of multiple metric criteria for this 'all of' operation. 
         """
@@ -1538,11 +1538,11 @@ class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
     """
     def __init__(__self__, *,
                  odata_type: str,
-                 all_of: Optional[List['outputs.MetricCriteriaResponse']] = None):
+                 all_of: Optional[Sequence['outputs.MetricCriteriaResponse']] = None):
         """
         Specifies the metric alert criteria for a single resource that has multiple metric criteria.
         :param str odata_type: specifies the type of the alert criteria.
-        :param List['MetricCriteriaResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
+        :param Sequence['MetricCriteriaResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -1558,7 +1558,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[List['outputs.MetricCriteriaResponse']]:
+    def all_of(self) -> Optional[Sequence['outputs.MetricCriteriaResponse']]:
         """
         The list of metric criteria for this 'all of' operation. 
         """
@@ -1580,7 +1580,7 @@ class MetricCriteriaResponse(dict):
                  operator: str,
                  threshold: float,
                  time_aggregation: Mapping[str, Any],
-                 dimensions: Optional[List['outputs.MetricDimensionResponse']] = None,
+                 dimensions: Optional[Sequence['outputs.MetricDimensionResponse']] = None,
                  metric_namespace: Optional[str] = None,
                  skip_metric_validation: Optional[bool] = None):
         """
@@ -1591,7 +1591,7 @@ class MetricCriteriaResponse(dict):
         :param str operator: the criteria operator.
         :param float threshold: the criteria threshold value that activates the alert.
         :param Mapping[str, Any] time_aggregation: the criteria time aggregation types.
-        :param List['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
+        :param Sequence['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
@@ -1658,7 +1658,7 @@ class MetricCriteriaResponse(dict):
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[List['outputs.MetricDimensionResponse']]:
+    def dimensions(self) -> Optional[Sequence['outputs.MetricDimensionResponse']]:
         """
         List of dimension conditions.
         """
@@ -1692,12 +1692,12 @@ class MetricDimensionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         Specifies a metric dimension.
         :param str name: Name of the dimension.
         :param str operator: the dimension operator. Only 'Include' and 'Exclude' are supported
-        :param List[str] values: list of dimension values.
+        :param Sequence[str] values: list of dimension values.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -1721,7 +1721,7 @@ class MetricDimensionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         list of dimension values.
         """
@@ -1745,7 +1745,7 @@ class MetricTriggerResponse(dict):
                  time_aggregation: str,
                  time_grain: str,
                  time_window: str,
-                 dimensions: Optional[List['outputs.ScaleRuleMetricDimensionResponse']] = None,
+                 dimensions: Optional[Sequence['outputs.ScaleRuleMetricDimensionResponse']] = None,
                  metric_namespace: Optional[str] = None):
         """
         The trigger that results in a scaling action.
@@ -1757,7 +1757,7 @@ class MetricTriggerResponse(dict):
         :param str time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         :param str time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param str time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-        :param List['ScaleRuleMetricDimensionResponseArgs'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+        :param Sequence['ScaleRuleMetricDimensionResponseArgs'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         :param str metric_namespace: the namespace of the metric that defines what the rule monitors.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -1839,7 +1839,7 @@ class MetricTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[List['outputs.ScaleRuleMetricDimensionResponse']]:
+    def dimensions(self) -> Optional[Sequence['outputs.ScaleRuleMetricDimensionResponse']]:
         """
         List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         """
@@ -1937,15 +1937,15 @@ class RecurrentScheduleResponse(dict):
     The scheduling constraints for when the profile begins.
     """
     def __init__(__self__, *,
-                 days: List[str],
-                 hours: List[float],
-                 minutes: List[float],
+                 days: Sequence[str],
+                 hours: Sequence[int],
+                 minutes: Sequence[int],
                  time_zone: str):
         """
         The scheduling constraints for when the profile begins.
-        :param List[str] days: the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-        :param List[float] hours: A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-        :param List[float] minutes: A collection of minutes at which the profile takes effect at.
+        :param Sequence[str] days: the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
+        :param Sequence[int] hours: A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
+        :param Sequence[int] minutes: A collection of minutes at which the profile takes effect at.
         :param str time_zone: the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
         pulumi.set(__self__, "days", days)
@@ -1955,7 +1955,7 @@ class RecurrentScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> List[str]:
+    def days(self) -> Sequence[str]:
         """
         the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
         """
@@ -1963,7 +1963,7 @@ class RecurrentScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def hours(self) -> List[float]:
+    def hours(self) -> Sequence[int]:
         """
         A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
         """
@@ -1971,7 +1971,7 @@ class RecurrentScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def minutes(self) -> List[float]:
+    def minutes(self) -> Sequence[int]:
         """
         A collection of minutes at which the profile takes effect at.
         """
@@ -1995,11 +1995,11 @@ class RetentionPolicyResponse(dict):
     Specifies the retention policy for the log.
     """
     def __init__(__self__, *,
-                 days: float,
+                 days: int,
                  enabled: bool):
         """
         Specifies the retention policy for the log.
-        :param float days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        :param int days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param bool enabled: a value indicating whether the retention policy is enabled.
         """
         pulumi.set(__self__, "days", days)
@@ -2007,7 +2007,7 @@ class RetentionPolicyResponse(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> float:
+    def days(self) -> int:
         """
         the number of days for the retention in days. A value of 0 will retain the events indefinitely.
         """
@@ -2032,12 +2032,12 @@ class RuleEmailActionResponse(dict):
     """
     def __init__(__self__, *,
                  odata_type: str,
-                 custom_emails: Optional[List[str]] = None,
+                 custom_emails: Optional[Sequence[str]] = None,
                  send_to_service_owners: Optional[bool] = None):
         """
         Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
         :param str odata_type: specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-        :param List[str] custom_emails: the list of administrator's custom email addresses to notify of the activation of the alert.
+        :param Sequence[str] custom_emails: the list of administrator's custom email addresses to notify of the activation of the alert.
         :param bool send_to_service_owners: Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction')
@@ -2056,7 +2056,7 @@ class RuleEmailActionResponse(dict):
 
     @property
     @pulumi.getter(name="customEmails")
-    def custom_emails(self) -> Optional[List[str]]:
+    def custom_emails(self) -> Optional[Sequence[str]]:
         """
         the list of administrator's custom email addresses to notify of the activation of the alert.
         """
@@ -2457,12 +2457,12 @@ class ScaleRuleMetricDimensionResponse(dict):
     def __init__(__self__, *,
                  dimension_name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         Specifies an auto scale rule metric dimension.
         :param str dimension_name: Name of the dimension.
         :param str operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-        :param List[str] values: list of dimension values. For example: ["App1","App2"].
+        :param Sequence[str] values: list of dimension values. For example: ["App1","App2"].
         """
         pulumi.set(__self__, "dimension_name", dimension_name)
         pulumi.set(__self__, "operator", operator)
@@ -2486,7 +2486,7 @@ class ScaleRuleMetricDimensionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         list of dimension values. For example: ["App1","App2"].
         """
@@ -2538,19 +2538,19 @@ class ScheduleResponse(dict):
     Defines how often to run the search and the time interval.
     """
     def __init__(__self__, *,
-                 frequency_in_minutes: float,
-                 time_window_in_minutes: float):
+                 frequency_in_minutes: int,
+                 time_window_in_minutes: int):
         """
         Defines how often to run the search and the time interval.
-        :param float frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
-        :param float time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+        :param int frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
+        :param int time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
         """
         pulumi.set(__self__, "frequency_in_minutes", frequency_in_minutes)
         pulumi.set(__self__, "time_window_in_minutes", time_window_in_minutes)
 
     @property
     @pulumi.getter(name="frequencyInMinutes")
-    def frequency_in_minutes(self) -> float:
+    def frequency_in_minutes(self) -> int:
         """
         frequency (in minutes) at which rule condition should be evaluated.
         """
@@ -2558,7 +2558,7 @@ class ScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="timeWindowInMinutes")
-    def time_window_in_minutes(self) -> float:
+    def time_window_in_minutes(self) -> int:
         """
         Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
         """
@@ -2633,13 +2633,13 @@ class SourceResponse(dict):
     """
     def __init__(__self__, *,
                  data_source_id: str,
-                 authorized_resources: Optional[List[str]] = None,
+                 authorized_resources: Optional[Sequence[str]] = None,
                  query: Optional[str] = None,
                  query_type: Optional[str] = None):
         """
         Specifies the log search query.
         :param str data_source_id: The resource uri over which log search query is to be run.
-        :param List[str] authorized_resources: List of  Resource referred into query
+        :param Sequence[str] authorized_resources: List of  Resource referred into query
         :param str query: Log search query. Required for action type - AlertingAction
         :param str query_type: Set value to 'ResultCount' .
         """
@@ -2661,7 +2661,7 @@ class SourceResponse(dict):
 
     @property
     @pulumi.getter(name="authorizedResources")
-    def authorized_resources(self) -> Optional[List[str]]:
+    def authorized_resources(self) -> Optional[Sequence[str]]:
         """
         List of  Resource referred into query
         """

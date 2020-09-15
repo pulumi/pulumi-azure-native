@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,8 +30,8 @@ class GetDedicatedHostGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, float):
-            raise TypeError("Expected argument 'platform_fault_domain_count' to be a float")
+        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, int):
+            raise TypeError("Expected argument 'platform_fault_domain_count' to be a int")
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -45,7 +45,7 @@ class GetDedicatedHostGroupResult:
 
     @property
     @pulumi.getter
-    def hosts(self) -> List['outputs.SubResourceReadOnlyResponse']:
+    def hosts(self) -> Sequence['outputs.SubResourceReadOnlyResponse']:
         """
         A list of references to all dedicated hosts in the dedicated host group.
         """
@@ -69,7 +69,7 @@ class GetDedicatedHostGroupResult:
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> float:
+    def platform_fault_domain_count(self) -> int:
         """
         Number of fault domains that the host group can span.
         """
@@ -93,7 +93,7 @@ class GetDedicatedHostGroupResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> Optional[Sequence[str]]:
         """
         Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """

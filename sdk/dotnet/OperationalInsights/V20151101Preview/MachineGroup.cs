@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20151101Preview
         /// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
         /// </summary>
         [Output("machines")]
-        public Output<ImmutableArray<Outputs.MachineReferenceWithHintsResponseResult>> Machines { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MachineReferenceWithHintsResponse>> Machines { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,12 +17,12 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_connections: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 attached_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_table_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualHubRouteV2Args']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteV2Args']]]]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -32,12 +32,12 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] attached_connections: List of all connections attached to this route table v2.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] attached_connections: List of all connections attached to this route table v2.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[str] route_table_name: The name of the VirtualHubRouteTableV2.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualHubRouteV2Args']]]] routes: List of all routes.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteV2Args']]]] routes: List of all routes.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         """
         if __name__ is not None:
@@ -100,7 +100,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attachedConnections")
-    def attached_connections(self) -> pulumi.Output[Optional[List[str]]]:
+    def attached_connections(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of all connections attached to this route table v2.
         """
@@ -132,7 +132,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> pulumi.Output[Optional[List['outputs.VirtualHubRouteV2Response']]]:
+    def routes(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualHubRouteV2Response']]]:
         """
         List of all routes.
         """

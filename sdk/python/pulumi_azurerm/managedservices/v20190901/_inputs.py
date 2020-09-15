@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -147,13 +147,13 @@ class RegistrationAssignmentPropertiesArgs:
 @pulumi.input_type
 class RegistrationDefinitionPropertiesArgs:
     def __init__(__self__, *,
-                 authorizations: pulumi.Input[List[pulumi.Input['AuthorizationArgs']]],
+                 authorizations: pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]],
                  managed_by_tenant_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  registration_definition_name: Optional[pulumi.Input[str]] = None):
         """
         Properties of a registration definition.
-        :param pulumi.Input[List[pulumi.Input['AuthorizationArgs']]] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         :param pulumi.Input[str] managed_by_tenant_id: Id of the managedBy tenant.
         :param pulumi.Input[str] description: Description of the registration definition.
         :param pulumi.Input[str] registration_definition_name: Name of the registration definition.
@@ -167,14 +167,14 @@ class RegistrationDefinitionPropertiesArgs:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> pulumi.Input[List[pulumi.Input['AuthorizationArgs']]]:
+    def authorizations(self) -> pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]]:
         """
         Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         """
         return pulumi.get(self, "authorizations")
 
     @authorizations.setter
-    def authorizations(self, value: pulumi.Input[List[pulumi.Input['AuthorizationArgs']]]):
+    def authorizations(self, value: pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]]):
         pulumi.set(self, "authorizations", value)
 
     @property

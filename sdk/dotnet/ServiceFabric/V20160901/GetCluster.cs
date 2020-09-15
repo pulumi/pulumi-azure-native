@@ -42,23 +42,23 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// <summary>
         /// The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClusterVersionDetailsResponseResult> AvailableClusterVersions;
+        public readonly ImmutableArray<Outputs.ClusterVersionDetailsResponse> AvailableClusterVersions;
         /// <summary>
         /// The settings to enable AAD authentication on the cluster
         /// </summary>
-        public readonly Outputs.AzureActiveDirectoryResponseResult? AzureActiveDirectory;
+        public readonly Outputs.AzureActiveDirectoryResponse? AzureActiveDirectory;
         /// <summary>
         /// This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
         /// </summary>
-        public readonly Outputs.CertificateDescriptionResponseResult? Certificate;
+        public readonly Outputs.CertificateDescriptionResponse? Certificate;
         /// <summary>
         ///  List of client certificates to whitelist based on common names
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClientCertificateCommonNameResponseResult> ClientCertificateCommonNames;
+        public readonly ImmutableArray<Outputs.ClientCertificateCommonNameResponse> ClientCertificateCommonNames;
         /// <summary>
         /// The client thumbprint details ,it is used for client access for cluster operation
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClientCertificateThumbprintResponseResult> ClientCertificateThumbprints;
+        public readonly ImmutableArray<Outputs.ClientCertificateThumbprintResponse> ClientCertificateThumbprints;
         /// <summary>
         /// The ServiceFabric code version running in your cluster
         /// </summary>
@@ -78,11 +78,11 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// <summary>
         /// The storage diagnostics account configuration details
         /// </summary>
-        public readonly Outputs.DiagnosticsStorageAccountConfigResponseResult? DiagnosticsStorageAccountConfig;
+        public readonly Outputs.DiagnosticsStorageAccountConfigResponse? DiagnosticsStorageAccountConfig;
         /// <summary>
         /// List of custom fabric settings to configure the cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SettingsSectionDescriptionResponseResult> FabricSettings;
+        public readonly ImmutableArray<Outputs.SettingsSectionDescriptionResponse> FabricSettings;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// <summary>
         /// The list of node types that make up the cluster
         /// </summary>
-        public readonly ImmutableArray<Outputs.NodeTypeDescriptionResponseResult> NodeTypes;
+        public readonly ImmutableArray<Outputs.NodeTypeDescriptionResponse> NodeTypes;
         /// <summary>
         /// The provisioning state of the cluster resource
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// <summary>
         /// The server certificate used by reverse proxy
         /// </summary>
-        public readonly Outputs.CertificateDescriptionResponseResult? ReverseProxyCertificate;
+        public readonly Outputs.CertificateDescriptionResponse? ReverseProxyCertificate;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// <summary>
         /// The policy to use when upgrading the cluster.
         /// </summary>
-        public readonly Outputs.ClusterUpgradePolicyResponseResult? UpgradeDescription;
+        public readonly Outputs.ClusterUpgradePolicyResponse? UpgradeDescription;
         /// <summary>
         /// Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
         /// </summary>
@@ -134,15 +134,15 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
 
         [OutputConstructor]
         private GetClusterResult(
-            ImmutableArray<Outputs.ClusterVersionDetailsResponseResult> availableClusterVersions,
+            ImmutableArray<Outputs.ClusterVersionDetailsResponse> availableClusterVersions,
 
-            Outputs.AzureActiveDirectoryResponseResult? azureActiveDirectory,
+            Outputs.AzureActiveDirectoryResponse? azureActiveDirectory,
 
-            Outputs.CertificateDescriptionResponseResult? certificate,
+            Outputs.CertificateDescriptionResponse? certificate,
 
-            ImmutableArray<Outputs.ClientCertificateCommonNameResponseResult> clientCertificateCommonNames,
+            ImmutableArray<Outputs.ClientCertificateCommonNameResponse> clientCertificateCommonNames,
 
-            ImmutableArray<Outputs.ClientCertificateThumbprintResponseResult> clientCertificateThumbprints,
+            ImmutableArray<Outputs.ClientCertificateThumbprintResponse> clientCertificateThumbprints,
 
             string? clusterCodeVersion,
 
@@ -152,9 +152,9 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
 
             string clusterState,
 
-            Outputs.DiagnosticsStorageAccountConfigResponseResult? diagnosticsStorageAccountConfig,
+            Outputs.DiagnosticsStorageAccountConfigResponse? diagnosticsStorageAccountConfig,
 
-            ImmutableArray<Outputs.SettingsSectionDescriptionResponseResult> fabricSettings,
+            ImmutableArray<Outputs.SettingsSectionDescriptionResponse> fabricSettings,
 
             string location,
 
@@ -162,19 +162,19 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
 
             string name,
 
-            ImmutableArray<Outputs.NodeTypeDescriptionResponseResult> nodeTypes,
+            ImmutableArray<Outputs.NodeTypeDescriptionResponse> nodeTypes,
 
             string provisioningState,
 
             string? reliabilityLevel,
 
-            Outputs.CertificateDescriptionResponseResult? reverseProxyCertificate,
+            Outputs.CertificateDescriptionResponse? reverseProxyCertificate,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.ClusterUpgradePolicyResponseResult? upgradeDescription,
+            Outputs.ClusterUpgradePolicyResponse? upgradeDescription,
 
             string? upgradeMode,
 

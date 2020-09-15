@@ -48,27 +48,27 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// Specifies additional capabilities enabled or disabled on the virtual machine.
         /// </summary>
-        public readonly Outputs.AdditionalCapabilitiesResponseResult? AdditionalCapabilities;
+        public readonly Outputs.AdditionalCapabilitiesResponse? AdditionalCapabilities;
         /// <summary>
         /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? AvailabilitySet;
+        public readonly Outputs.SubResourceResponse? AvailabilitySet;
         /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
         /// </summary>
-        public readonly Outputs.DiagnosticsProfileResponseResult? DiagnosticsProfile;
+        public readonly Outputs.DiagnosticsProfileResponse? DiagnosticsProfile;
         /// <summary>
         /// Specifies the hardware settings for the virtual machine.
         /// </summary>
-        public readonly Outputs.HardwareProfileResponseResult? HardwareProfile;
+        public readonly Outputs.HardwareProfileResponse? HardwareProfile;
         /// <summary>
         /// The identity of the virtual machine, if configured.
         /// </summary>
-        public readonly Outputs.VirtualMachineIdentityResponseResult? Identity;
+        public readonly Outputs.VirtualMachineIdentityResponse? Identity;
         /// <summary>
         /// The virtual machine instance view.
         /// </summary>
-        public readonly Outputs.VirtualMachineInstanceViewResponseResult InstanceView;
+        public readonly Outputs.VirtualMachineInstanceViewResponse InstanceView;
         /// <summary>
         /// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; Windows_Client &lt;br&gt;&lt;br&gt; Windows_Server &lt;br&gt;&lt;br&gt; If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. &lt;br&gt;&lt;br&gt; For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) &lt;br&gt;&lt;br&gt; Minimum api-version: 2015-06-15
         /// </summary>
@@ -84,15 +84,15 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// Specifies the network interfaces of the virtual machine.
         /// </summary>
-        public readonly Outputs.NetworkProfileResponseResult? NetworkProfile;
+        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
         /// <summary>
         /// Specifies the operating system settings for the virtual machine.
         /// </summary>
-        public readonly Outputs.OSProfileResponseResult? OsProfile;
+        public readonly Outputs.OSProfileResponse? OsProfile;
         /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
-        public readonly Outputs.PlanResponseResult? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
@@ -100,15 +100,15 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// Specifies information about the proximity placement group that the virtual machine should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? ProximityPlacementGroup;
+        public readonly Outputs.SubResourceResponse? ProximityPlacementGroup;
         /// <summary>
         /// The virtual machine child extension resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualMachineExtensionResponseResult> Resources;
+        public readonly ImmutableArray<Outputs.VirtualMachineExtensionResponse> Resources;
         /// <summary>
         /// Specifies the storage settings for the virtual machine disks.
         /// </summary>
-        public readonly Outputs.StorageProfileResponseResult? StorageProfile;
+        public readonly Outputs.StorageProfileResponse? StorageProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -128,17 +128,17 @@ namespace Pulumi.AzureRM.Compute.V20180601
 
         [OutputConstructor]
         private GetVirtualMachineResult(
-            Outputs.AdditionalCapabilitiesResponseResult? additionalCapabilities,
+            Outputs.AdditionalCapabilitiesResponse? additionalCapabilities,
 
-            Outputs.SubResourceResponseResult? availabilitySet,
+            Outputs.SubResourceResponse? availabilitySet,
 
-            Outputs.DiagnosticsProfileResponseResult? diagnosticsProfile,
+            Outputs.DiagnosticsProfileResponse? diagnosticsProfile,
 
-            Outputs.HardwareProfileResponseResult? hardwareProfile,
+            Outputs.HardwareProfileResponse? hardwareProfile,
 
-            Outputs.VirtualMachineIdentityResponseResult? identity,
+            Outputs.VirtualMachineIdentityResponse? identity,
 
-            Outputs.VirtualMachineInstanceViewResponseResult instanceView,
+            Outputs.VirtualMachineInstanceViewResponse instanceView,
 
             string? licenseType,
 
@@ -146,19 +146,19 @@ namespace Pulumi.AzureRM.Compute.V20180601
 
             string name,
 
-            Outputs.NetworkProfileResponseResult? networkProfile,
+            Outputs.NetworkProfileResponse? networkProfile,
 
-            Outputs.OSProfileResponseResult? osProfile,
+            Outputs.OSProfileResponse? osProfile,
 
-            Outputs.PlanResponseResult? plan,
+            Outputs.PlanResponse? plan,
 
             string provisioningState,
 
-            Outputs.SubResourceResponseResult? proximityPlacementGroup,
+            Outputs.SubResourceResponse? proximityPlacementGroup,
 
-            ImmutableArray<Outputs.VirtualMachineExtensionResponseResult> resources,
+            ImmutableArray<Outputs.VirtualMachineExtensionResponse> resources,
 
-            Outputs.StorageProfileResponseResult? storageProfile,
+            Outputs.StorageProfileResponse? storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 

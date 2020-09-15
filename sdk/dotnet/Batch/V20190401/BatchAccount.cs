@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.Batch.V20190401
         /// Contains information about the auto-storage account associated with a Batch account.
         /// </summary>
         [Output("autoStorage")]
-        public Output<Outputs.AutoStoragePropertiesResponseResult> AutoStorage { get; private set; } = null!;
+        public Output<Outputs.AutoStoragePropertiesResponse> AutoStorage { get; private set; } = null!;
 
         /// <summary>
         /// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
@@ -39,7 +39,7 @@ namespace Pulumi.AzureRM.Batch.V20190401
         /// A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         /// </summary>
         [Output("dedicatedCoreQuotaPerVMFamily")]
-        public Output<ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponseResult>> DedicatedCoreQuotaPerVMFamily { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponse>> DedicatedCoreQuotaPerVMFamily { get; private set; } = null!;
 
         /// <summary>
         /// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.Batch.V20190401
         /// Identifies the Azure key vault associated with a Batch account.
         /// </summary>
         [Output("keyVaultReference")]
-        public Output<Outputs.KeyVaultReferenceResponseResult> KeyVaultReference { get; private set; } = null!;
+        public Output<Outputs.KeyVaultReferenceResponse> KeyVaultReference { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.

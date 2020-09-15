@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -88,15 +88,15 @@ class DatabasesSolutionSummaryResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 database_instances_assessed_count: Optional[float] = None,
-                 databases_assessed_count: Optional[float] = None,
-                 migration_ready_count: Optional[float] = None):
+                 database_instances_assessed_count: Optional[int] = None,
+                 databases_assessed_count: Optional[int] = None,
+                 migration_ready_count: Optional[int] = None):
         """
         Class representing the databases solution summary.
         :param str instance_type: Gets the Instance type.
-        :param float database_instances_assessed_count: Gets or sets the count of database instances assessed.
-        :param float databases_assessed_count: Gets or sets the count of databases assessed.
-        :param float migration_ready_count: Gets or sets the count of databases ready for migration.
+        :param int database_instances_assessed_count: Gets or sets the count of database instances assessed.
+        :param int databases_assessed_count: Gets or sets the count of databases assessed.
+        :param int migration_ready_count: Gets or sets the count of databases ready for migration.
         """
         pulumi.set(__self__, "instance_type", 'Databases')
         if database_instances_assessed_count is not None:
@@ -116,7 +116,7 @@ class DatabasesSolutionSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="databaseInstancesAssessedCount")
-    def database_instances_assessed_count(self) -> Optional[float]:
+    def database_instances_assessed_count(self) -> Optional[int]:
         """
         Gets or sets the count of database instances assessed.
         """
@@ -124,7 +124,7 @@ class DatabasesSolutionSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="databasesAssessedCount")
-    def databases_assessed_count(self) -> Optional[float]:
+    def databases_assessed_count(self) -> Optional[int]:
         """
         Gets or sets the count of databases assessed.
         """
@@ -132,7 +132,7 @@ class DatabasesSolutionSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="migrationReadyCount")
-    def migration_ready_count(self) -> Optional[float]:
+    def migration_ready_count(self) -> Optional[int]:
         """
         Gets or sets the count of databases ready for migration.
         """
@@ -152,14 +152,14 @@ class MigrateProjectPropertiesResponse(dict):
                  refresh_summary_state: str,
                  summary: Mapping[str, Any],
                  provisioning_state: Optional[str] = None,
-                 registered_tools: Optional[List[str]] = None):
+                 registered_tools: Optional[Sequence[str]] = None):
         """
         Class for migrate project properties.
         :param str last_summary_refreshed_time: Gets the last time the project summary was refreshed.
         :param str refresh_summary_state: Gets the refresh summary state.
         :param Mapping[str, Union['DatabaseProjectSummaryResponseArgs', 'ServersProjectSummaryResponseArgs']] summary: Gets the summary of the migrate project.
         :param str provisioning_state: Provisioning state of the migrate project.
-        :param List[str] registered_tools: Gets or sets the list of tools registered with the migrate project.
+        :param Sequence[str] registered_tools: Gets or sets the list of tools registered with the migrate project.
         """
         pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
         pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
@@ -203,7 +203,7 @@ class MigrateProjectPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="registeredTools")
-    def registered_tools(self) -> Optional[List[str]]:
+    def registered_tools(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the list of tools registered with the migrate project.
         """
@@ -242,25 +242,25 @@ class ServersProjectSummaryResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 assessed_count: Optional[float] = None,
-                 discovered_count: Optional[float] = None,
+                 assessed_count: Optional[int] = None,
+                 discovered_count: Optional[int] = None,
                  extended_summary: Optional[Mapping[str, str]] = None,
                  last_summary_refreshed_time: Optional[str] = None,
-                 migrated_count: Optional[float] = None,
+                 migrated_count: Optional[int] = None,
                  refresh_summary_state: Optional[str] = None,
-                 replicating_count: Optional[float] = None,
-                 test_migrated_count: Optional[float] = None):
+                 replicating_count: Optional[int] = None,
+                 test_migrated_count: Optional[int] = None):
         """
         Class representing the servers project summary.
         :param str instance_type: Gets the Instance type.
-        :param float assessed_count: Gets or sets the count of entities assessed.
-        :param float discovered_count: Gets or sets the count of entities discovered.
+        :param int assessed_count: Gets or sets the count of entities assessed.
+        :param int discovered_count: Gets or sets the count of entities discovered.
         :param Mapping[str, str] extended_summary: Gets or sets the extended summary.
         :param str last_summary_refreshed_time: Gets or sets the time when summary was last refreshed.
-        :param float migrated_count: Gets or sets the count of entities migrated.
+        :param int migrated_count: Gets or sets the count of entities migrated.
         :param str refresh_summary_state: Gets or sets the state of refresh summary.
-        :param float replicating_count: Gets or sets the count of entities being replicated.
-        :param float test_migrated_count: Gets or sets the count of entities test migrated.
+        :param int replicating_count: Gets or sets the count of entities being replicated.
+        :param int test_migrated_count: Gets or sets the count of entities test migrated.
         """
         pulumi.set(__self__, "instance_type", 'Servers')
         if assessed_count is not None:
@@ -290,7 +290,7 @@ class ServersProjectSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="assessedCount")
-    def assessed_count(self) -> Optional[float]:
+    def assessed_count(self) -> Optional[int]:
         """
         Gets or sets the count of entities assessed.
         """
@@ -298,7 +298,7 @@ class ServersProjectSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="discoveredCount")
-    def discovered_count(self) -> Optional[float]:
+    def discovered_count(self) -> Optional[int]:
         """
         Gets or sets the count of entities discovered.
         """
@@ -322,7 +322,7 @@ class ServersProjectSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="migratedCount")
-    def migrated_count(self) -> Optional[float]:
+    def migrated_count(self) -> Optional[int]:
         """
         Gets or sets the count of entities migrated.
         """
@@ -338,7 +338,7 @@ class ServersProjectSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="replicatingCount")
-    def replicating_count(self) -> Optional[float]:
+    def replicating_count(self) -> Optional[int]:
         """
         Gets or sets the count of entities being replicated.
         """
@@ -346,7 +346,7 @@ class ServersProjectSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="testMigratedCount")
-    def test_migrated_count(self) -> Optional[float]:
+    def test_migrated_count(self) -> Optional[int]:
         """
         Gets or sets the count of entities test migrated.
         """
@@ -363,19 +363,19 @@ class ServersSolutionSummaryResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 assessed_count: Optional[float] = None,
-                 discovered_count: Optional[float] = None,
-                 migrated_count: Optional[float] = None,
-                 replicating_count: Optional[float] = None,
-                 test_migrated_count: Optional[float] = None):
+                 assessed_count: Optional[int] = None,
+                 discovered_count: Optional[int] = None,
+                 migrated_count: Optional[int] = None,
+                 replicating_count: Optional[int] = None,
+                 test_migrated_count: Optional[int] = None):
         """
         Class representing the servers solution summary.
         :param str instance_type: Gets the Instance type.
-        :param float assessed_count: Gets or sets the count of servers assessed.
-        :param float discovered_count: Gets or sets the count of servers discovered.
-        :param float migrated_count: Gets or sets the count of servers migrated.
-        :param float replicating_count: Gets or sets the count of servers being replicated.
-        :param float test_migrated_count: Gets or sets the count of servers test migrated.
+        :param int assessed_count: Gets or sets the count of servers assessed.
+        :param int discovered_count: Gets or sets the count of servers discovered.
+        :param int migrated_count: Gets or sets the count of servers migrated.
+        :param int replicating_count: Gets or sets the count of servers being replicated.
+        :param int test_migrated_count: Gets or sets the count of servers test migrated.
         """
         pulumi.set(__self__, "instance_type", 'Servers')
         if assessed_count is not None:
@@ -399,7 +399,7 @@ class ServersSolutionSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="assessedCount")
-    def assessed_count(self) -> Optional[float]:
+    def assessed_count(self) -> Optional[int]:
         """
         Gets or sets the count of servers assessed.
         """
@@ -407,7 +407,7 @@ class ServersSolutionSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="discoveredCount")
-    def discovered_count(self) -> Optional[float]:
+    def discovered_count(self) -> Optional[int]:
         """
         Gets or sets the count of servers discovered.
         """
@@ -415,7 +415,7 @@ class ServersSolutionSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="migratedCount")
-    def migrated_count(self) -> Optional[float]:
+    def migrated_count(self) -> Optional[int]:
         """
         Gets or sets the count of servers migrated.
         """
@@ -423,7 +423,7 @@ class ServersSolutionSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="replicatingCount")
-    def replicating_count(self) -> Optional[float]:
+    def replicating_count(self) -> Optional[int]:
         """
         Gets or sets the count of servers being replicated.
         """
@@ -431,7 +431,7 @@ class ServersSolutionSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="testMigratedCount")
-    def test_migrated_count(self) -> Optional[float]:
+    def test_migrated_count(self) -> Optional[int]:
         """
         Gets or sets the count of servers test migrated.
         """
@@ -447,14 +447,14 @@ class SolutionDetailsResponse(dict):
     Class representing the details of the solution.
     """
     def __init__(__self__, *,
-                 assessment_count: Optional[float] = None,
+                 assessment_count: Optional[int] = None,
                  extended_details: Optional[Mapping[str, str]] = None,
-                 group_count: Optional[float] = None):
+                 group_count: Optional[int] = None):
         """
         Class representing the details of the solution.
-        :param float assessment_count: Gets or sets the count of assessments reported by the solution.
+        :param int assessment_count: Gets or sets the count of assessments reported by the solution.
         :param Mapping[str, str] extended_details: Gets or sets the extended details reported by the solution.
-        :param float group_count: Gets or sets the count of groups reported by the solution.
+        :param int group_count: Gets or sets the count of groups reported by the solution.
         """
         if assessment_count is not None:
             pulumi.set(__self__, "assessment_count", assessment_count)
@@ -465,7 +465,7 @@ class SolutionDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="assessmentCount")
-    def assessment_count(self) -> Optional[float]:
+    def assessment_count(self) -> Optional[int]:
         """
         Gets or sets the count of assessments reported by the solution.
         """
@@ -481,7 +481,7 @@ class SolutionDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="groupCount")
-    def group_count(self) -> Optional[float]:
+    def group_count(self) -> Optional[int]:
         """
         Gets or sets the count of groups reported by the solution.
         """

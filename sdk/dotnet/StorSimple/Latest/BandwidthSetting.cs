@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StorSimple.Latest
         /// The schedules.
         /// </summary>
         [Output("schedules")]
-        public Output<ImmutableArray<Outputs.BandwidthScheduleResponseResult>> Schedules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BandwidthScheduleResponse>> Schedules { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

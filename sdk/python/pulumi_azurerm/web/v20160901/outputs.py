@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -166,13 +166,13 @@ class NetworkAccessControlEntryResponse(dict):
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  description: Optional[str] = None,
-                 order: Optional[float] = None,
+                 order: Optional[int] = None,
                  remote_subnet: Optional[str] = None):
         """
         Network access control entry.
         :param str action: Action object.
         :param str description: Description of network access control entry.
-        :param float order: Order of precedence.
+        :param int order: Order of precedence.
         :param str remote_subnet: Remote subnet.
         """
         if action is not None:
@@ -202,7 +202,7 @@ class NetworkAccessControlEntryResponse(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[float]:
+    def order(self) -> Optional[int]:
         """
         Order of precedence.
         """
@@ -226,15 +226,15 @@ class SkuCapacityResponse(dict):
     Description of the App Service plan scale options.
     """
     def __init__(__self__, *,
-                 default: Optional[float] = None,
-                 maximum: Optional[float] = None,
-                 minimum: Optional[float] = None,
+                 default: Optional[int] = None,
+                 maximum: Optional[int] = None,
+                 minimum: Optional[int] = None,
                  scale_type: Optional[str] = None):
         """
         Description of the App Service plan scale options.
-        :param float default: Default number of workers for this App Service plan SKU.
-        :param float maximum: Maximum number of workers for this App Service plan SKU.
-        :param float minimum: Minimum number of workers for this App Service plan SKU.
+        :param int default: Default number of workers for this App Service plan SKU.
+        :param int maximum: Maximum number of workers for this App Service plan SKU.
+        :param int minimum: Minimum number of workers for this App Service plan SKU.
         :param str scale_type: Available scale configurations for an App Service plan.
         """
         if default is not None:
@@ -248,7 +248,7 @@ class SkuCapacityResponse(dict):
 
     @property
     @pulumi.getter
-    def default(self) -> Optional[float]:
+    def default(self) -> Optional[int]:
         """
         Default number of workers for this App Service plan SKU.
         """
@@ -256,7 +256,7 @@ class SkuCapacityResponse(dict):
 
     @property
     @pulumi.getter
-    def maximum(self) -> Optional[float]:
+    def maximum(self) -> Optional[int]:
         """
         Maximum number of workers for this App Service plan SKU.
         """
@@ -264,7 +264,7 @@ class SkuCapacityResponse(dict):
 
     @property
     @pulumi.getter
-    def minimum(self) -> Optional[float]:
+    def minimum(self) -> Optional[int]:
         """
         Minimum number of workers for this App Service plan SKU.
         """
@@ -288,20 +288,20 @@ class SkuDescriptionResponse(dict):
     Description of a SKU for a scalable resource.
     """
     def __init__(__self__, *,
-                 capabilities: Optional[List['outputs.CapabilityResponse']] = None,
-                 capacity: Optional[float] = None,
+                 capabilities: Optional[Sequence['outputs.CapabilityResponse']] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
-                 locations: Optional[List[str]] = None,
+                 locations: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  size: Optional[str] = None,
                  sku_capacity: Optional['outputs.SkuCapacityResponse'] = None,
                  tier: Optional[str] = None):
         """
         Description of a SKU for a scalable resource.
-        :param List['CapabilityResponseArgs'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
-        :param float capacity: Current number of instances assigned to the resource.
+        :param Sequence['CapabilityResponseArgs'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
+        :param int capacity: Current number of instances assigned to the resource.
         :param str family: Family code of the resource SKU.
-        :param List[str] locations: Locations of the SKU.
+        :param Sequence[str] locations: Locations of the SKU.
         :param str name: Name of the resource SKU.
         :param str size: Size specifier of the resource SKU.
         :param 'SkuCapacityResponseArgs' sku_capacity: Min, max, and default scale values of the SKU.
@@ -326,7 +326,7 @@ class SkuDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[List['outputs.CapabilityResponse']]:
+    def capabilities(self) -> Optional[Sequence['outputs.CapabilityResponse']]:
         """
         Capabilities of the SKU, e.g., is traffic manager enabled?
         """
@@ -334,7 +334,7 @@ class SkuDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Current number of instances assigned to the resource.
         """
@@ -350,7 +350,7 @@ class SkuDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def locations(self) -> Optional[List[str]]:
+    def locations(self) -> Optional[Sequence[str]]:
         """
         Locations of the SKU.
         """
@@ -398,29 +398,29 @@ class StampCapacityResponse(dict):
     Stamp capacity information.
     """
     def __init__(__self__, *,
-                 available_capacity: Optional[float] = None,
+                 available_capacity: Optional[int] = None,
                  compute_mode: Optional[str] = None,
                  exclude_from_capacity_allocation: Optional[bool] = None,
                  is_applicable_for_all_compute_modes: Optional[bool] = None,
                  name: Optional[str] = None,
                  site_mode: Optional[str] = None,
-                 total_capacity: Optional[float] = None,
+                 total_capacity: Optional[int] = None,
                  unit: Optional[str] = None,
                  worker_size: Optional[str] = None,
-                 worker_size_id: Optional[float] = None):
+                 worker_size_id: Optional[int] = None):
         """
         Stamp capacity information.
-        :param float available_capacity: Available capacity (# of machines, bytes of storage etc...).
+        :param int available_capacity: Available capacity (# of machines, bytes of storage etc...).
         :param str compute_mode: Shared/dedicated workers.
         :param bool exclude_from_capacity_allocation: If <code>true</code>, it includes basic apps.
                Basic apps are not used for capacity allocation.
         :param bool is_applicable_for_all_compute_modes: <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
         :param str name: Name of the stamp.
         :param str site_mode: Shared or Dedicated.
-        :param float total_capacity: Total capacity (# of machines, bytes of storage etc...).
+        :param int total_capacity: Total capacity (# of machines, bytes of storage etc...).
         :param str unit: Name of the unit.
         :param str worker_size: Size of the machines.
-        :param float worker_size_id: Size ID of machines: 
+        :param int worker_size_id: Size ID of machines: 
                0 - Small
                1 - Medium
                2 - Large
@@ -448,7 +448,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="availableCapacity")
-    def available_capacity(self) -> Optional[float]:
+    def available_capacity(self) -> Optional[int]:
         """
         Available capacity (# of machines, bytes of storage etc...).
         """
@@ -497,7 +497,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="totalCapacity")
-    def total_capacity(self) -> Optional[float]:
+    def total_capacity(self) -> Optional[int]:
         """
         Total capacity (# of machines, bytes of storage etc...).
         """
@@ -521,7 +521,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[float]:
+    def worker_size_id(self) -> Optional[int]:
         """
         Size ID of machines: 
         0 - Small
@@ -541,14 +541,14 @@ class VirtualIPMappingResponse(dict):
     """
     def __init__(__self__, *,
                  in_use: Optional[bool] = None,
-                 internal_http_port: Optional[float] = None,
-                 internal_https_port: Optional[float] = None,
+                 internal_http_port: Optional[int] = None,
+                 internal_https_port: Optional[int] = None,
                  virtual_ip: Optional[str] = None):
         """
         Virtual IP mapping.
         :param bool in_use: Is virtual IP mapping in use.
-        :param float internal_http_port: Internal HTTP port.
-        :param float internal_https_port: Internal HTTPS port.
+        :param int internal_http_port: Internal HTTP port.
+        :param int internal_https_port: Internal HTTPS port.
         :param str virtual_ip: Virtual IP address.
         """
         if in_use is not None:
@@ -570,7 +570,7 @@ class VirtualIPMappingResponse(dict):
 
     @property
     @pulumi.getter(name="internalHttpPort")
-    def internal_http_port(self) -> Optional[float]:
+    def internal_http_port(self) -> Optional[int]:
         """
         Internal HTTP port.
         """
@@ -578,7 +578,7 @@ class VirtualIPMappingResponse(dict):
 
     @property
     @pulumi.getter(name="internalHttpsPort")
-    def internal_https_port(self) -> Optional[float]:
+    def internal_https_port(self) -> Optional[int]:
         """
         Internal HTTPS port.
         """
@@ -662,18 +662,18 @@ class WorkerPoolResponse(dict):
     Worker pool of an App Service Environment.
     """
     def __init__(__self__, *,
-                 instance_names: List[str],
+                 instance_names: Sequence[str],
                  compute_mode: Optional[str] = None,
-                 worker_count: Optional[float] = None,
+                 worker_count: Optional[int] = None,
                  worker_size: Optional[str] = None,
-                 worker_size_id: Optional[float] = None):
+                 worker_size_id: Optional[int] = None):
         """
         Worker pool of an App Service Environment.
-        :param List[str] instance_names: Names of all instances in the worker pool (read only).
+        :param Sequence[str] instance_names: Names of all instances in the worker pool (read only).
         :param str compute_mode: Shared or dedicated app hosting.
-        :param float worker_count: Number of instances in the worker pool.
+        :param int worker_count: Number of instances in the worker pool.
         :param str worker_size: VM size of the worker pool instances.
-        :param float worker_size_id: Worker size ID for referencing this worker pool.
+        :param int worker_size_id: Worker size ID for referencing this worker pool.
         """
         pulumi.set(__self__, "instance_names", instance_names)
         if compute_mode is not None:
@@ -687,7 +687,7 @@ class WorkerPoolResponse(dict):
 
     @property
     @pulumi.getter(name="instanceNames")
-    def instance_names(self) -> List[str]:
+    def instance_names(self) -> Sequence[str]:
         """
         Names of all instances in the worker pool (read only).
         """
@@ -703,7 +703,7 @@ class WorkerPoolResponse(dict):
 
     @property
     @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[float]:
+    def worker_count(self) -> Optional[int]:
         """
         Number of instances in the worker pool.
         """
@@ -719,7 +719,7 @@ class WorkerPoolResponse(dict):
 
     @property
     @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[float]:
+    def worker_size_id(self) -> Optional[int]:
         """
         Worker size ID for referencing this worker pool.
         """

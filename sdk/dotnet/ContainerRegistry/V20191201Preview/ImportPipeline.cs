@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// The identity of the import pipeline.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityPropertiesResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the import pipeline.
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// The source properties of the import pipeline.
         /// </summary>
         [Output("source")]
-        public Output<Outputs.ImportPipelineSourcePropertiesResponseResult> Source { get; private set; } = null!;
+        public Output<Outputs.ImportPipelineSourcePropertiesResponse> Source { get; private set; } = null!;
 
         /// <summary>
         /// The properties that describe the trigger of the import pipeline.
         /// </summary>
         [Output("trigger")]
-        public Output<Outputs.PipelineTriggerPropertiesResponseResult?> Trigger { get; private set; } = null!;
+        public Output<Outputs.PipelineTriggerPropertiesResponse?> Trigger { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

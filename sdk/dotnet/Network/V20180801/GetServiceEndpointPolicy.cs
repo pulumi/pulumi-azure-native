@@ -68,11 +68,11 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// <summary>
         /// A collection of service endpoint policy definitions of the service endpoint policy.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponseResult> ServiceEndpointPolicyDefinitions;
+        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponse> ServiceEndpointPolicyDefinitions;
         /// <summary>
         /// A collection of references to subnets.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetResponseResult> Subnets;
+        public readonly ImmutableArray<Outputs.SubnetResponse> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -94,9 +94,9 @@ namespace Pulumi.AzureRM.Network.V20180801
 
             string resourceGuid,
 
-            ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponseResult> serviceEndpointPolicyDefinitions,
+            ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponse> serviceEndpointPolicyDefinitions,
 
-            ImmutableArray<Outputs.SubnetResponseResult> subnets,
+            ImmutableArray<Outputs.SubnetResponse> subnets,
 
             ImmutableDictionary<string, string>? tags,
 

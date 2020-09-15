@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// List of all P2SVpnServerConfigurations associated with the virtual wan.
         /// </summary>
         [Output("p2SVpnServerConfigurations")]
-        public Output<ImmutableArray<Outputs.P2SVpnServerConfigurationResponseResult>> P2SVpnServerConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.P2SVpnServerConfigurationResponse>> P2SVpnServerConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.
@@ -90,13 +90,13 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// List of VirtualHubs in the VirtualWAN.
         /// </summary>
         [Output("virtualHubs")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualHubs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualHubs { get; private set; } = null!;
 
         /// <summary>
         /// List of VpnSites in the VirtualWAN.
         /// </summary>
         [Output("vpnSites")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VpnSites { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VpnSites { get; private set; } = null!;
 
 
         /// <summary>

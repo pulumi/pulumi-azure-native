@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,15 +22,15 @@ class Redis(pulumi.CustomResource):
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 replicas_per_master: Optional[pulumi.Input[float]] = None,
+                 replicas_per_master: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shard_count: Optional[pulumi.Input[float]] = None,
+                 shard_count: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -44,15 +44,15 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[str] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-        :param pulumi.Input[float] replicas_per_master: The number of replicas to be created per master.
+        :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per master.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[float] shard_count: The number of shards to be created on a Premium Cluster Cache.
+        :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the Redis cache to deploy.
         :param pulumi.Input[str] static_ip: Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
         :param pulumi.Input[str] subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A dictionary of tenant settings
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -154,7 +154,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instances(self) -> pulumi.Output[List['outputs.RedisInstanceDetailsResponse']]:
+    def instances(self) -> pulumi.Output[Sequence['outputs.RedisInstanceDetailsResponse']]:
         """
         List of the Redis instances associated with the cache
         """
@@ -162,7 +162,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedServers")
-    def linked_servers(self) -> pulumi.Output[List['outputs.RedisLinkedServerResponse']]:
+    def linked_servers(self) -> pulumi.Output[Sequence['outputs.RedisLinkedServerResponse']]:
         """
         List of the linked servers associated with the cache
         """
@@ -194,7 +194,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[float]:
+    def port(self) -> pulumi.Output[int]:
         """
         Redis non-SSL port.
         """
@@ -226,7 +226,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicasPerMaster")
-    def replicas_per_master(self) -> pulumi.Output[Optional[float]]:
+    def replicas_per_master(self) -> pulumi.Output[Optional[int]]:
         """
         The number of replicas to be created per master.
         """
@@ -234,7 +234,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> pulumi.Output[Optional[float]]:
+    def shard_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of shards to be created on a Premium Cluster Cache.
         """
@@ -250,7 +250,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslPort")
-    def ssl_port(self) -> pulumi.Output[float]:
+    def ssl_port(self) -> pulumi.Output[int]:
         """
         Redis SSL port.
         """
@@ -298,7 +298,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of availability zones denoting where the resource needs to come from.
         """

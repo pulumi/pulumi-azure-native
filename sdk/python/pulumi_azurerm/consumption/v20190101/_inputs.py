@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -56,16 +56,16 @@ class BudgetTimePeriodArgs:
 @pulumi.input_type
 class FiltersArgs:
     def __init__(__self__, *,
-                 meters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 resource_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 resources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]]] = None):
+                 meters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None):
         """
         May be used to filter budgets by resource group, resource, or meter.
-        :param pulumi.Input[List[pulumi.Input[str]]] meters: The list of filters on meters (GUID), mandatory for budgets of usage category. 
-        :param pulumi.Input[List[pulumi.Input[str]]] resource_groups: The list of filters on resource groups, allowed at subscription level only.
-        :param pulumi.Input[List[pulumi.Input[str]]] resources: The list of filters on resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]] tags: The dictionary of filters on tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] meters: The list of filters on meters (GUID), mandatory for budgets of usage category. 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_groups: The list of filters on resource groups, allowed at subscription level only.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The list of filters on resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] tags: The dictionary of filters on tags.
         """
         if meters is not None:
             pulumi.set(__self__, "meters", meters)
@@ -78,70 +78,70 @@ class FiltersArgs:
 
     @property
     @pulumi.getter
-    def meters(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def meters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of filters on meters (GUID), mandatory for budgets of usage category. 
         """
         return pulumi.get(self, "meters")
 
     @meters.setter
-    def meters(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def meters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "meters", value)
 
     @property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of filters on resource groups, allowed at subscription level only.
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
     @property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of filters on resources.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resources", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]:
         """
         The dictionary of filters on tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class NotificationArgs:
     def __init__(__self__, *,
-                 contact_emails: pulumi.Input[List[pulumi.Input[str]]],
+                 contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]],
                  enabled: pulumi.Input[bool],
                  operator: pulumi.Input[str],
                  threshold: pulumi.Input[float],
-                 contact_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 contact_roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The notification associated with a budget.
-        :param pulumi.Input[List[pulumi.Input[str]]] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[bool] enabled: The notification is enabled or not.
         :param pulumi.Input[str] operator: The comparison operator.
         :param pulumi.Input[float] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        :param pulumi.Input[List[pulumi.Input[str]]] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
-        :param pulumi.Input[List[pulumi.Input[str]]] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
         pulumi.set(__self__, "enabled", enabled)
@@ -154,14 +154,14 @@ class NotificationArgs:
 
     @property
     @pulumi.getter(name="contactEmails")
-    def contact_emails(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def contact_emails(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Email addresses to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_emails")
 
     @contact_emails.setter
-    def contact_emails(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def contact_emails(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "contact_emails", value)
 
     @property
@@ -202,26 +202,26 @@ class NotificationArgs:
 
     @property
     @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def contact_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Action groups to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_groups")
 
     @contact_groups.setter
-    def contact_groups(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def contact_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "contact_groups", value)
 
     @property
     @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def contact_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Contact roles to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_roles")
 
     @contact_roles.setter
-    def contact_roles(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def contact_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "contact_roles", value)
 
 

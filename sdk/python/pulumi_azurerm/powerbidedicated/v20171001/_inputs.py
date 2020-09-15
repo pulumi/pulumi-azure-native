@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -16,24 +16,24 @@ __all__ = [
 @pulumi.input_type
 class DedicatedCapacityAdministratorsArgs:
     def __init__(__self__, *,
-                 members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         An array of administrator user identities
-        :param pulumi.Input[List[pulumi.Input[str]]] members: An array of administrator user identities.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: An array of administrator user identities.
         """
         if members is not None:
             pulumi.set(__self__, "members", members)
 
     @property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         An array of administrator user identities.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "members", value)
 
 

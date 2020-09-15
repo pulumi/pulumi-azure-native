@@ -50,11 +50,11 @@ namespace Pulumi.AzureRM.Maps.Latest
         /// <summary>
         /// The map account properties.
         /// </summary>
-        public readonly Outputs.MapsAccountPropertiesResponseResult Properties;
+        public readonly Outputs.MapsAccountPropertiesResponse Properties;
         /// <summary>
         /// The SKU of this account.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         /// </summary>
@@ -70,9 +70,9 @@ namespace Pulumi.AzureRM.Maps.Latest
 
             string name,
 
-            Outputs.MapsAccountPropertiesResponseResult properties,
+            Outputs.MapsAccountPropertiesResponse properties,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             ImmutableDictionary<string, string> tags,
 

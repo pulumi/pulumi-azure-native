@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.CostManagement.V20190101
         /// Has definition for the export.
         /// </summary>
         [Output("definition")]
-        public Output<Outputs.QueryDefinitionResponseResult> Definition { get; private set; } = null!;
+        public Output<Outputs.QueryDefinitionResponse> Definition { get; private set; } = null!;
 
         /// <summary>
         /// Has delivery information for the export.
         /// </summary>
         [Output("deliveryInfo")]
-        public Output<Outputs.ExportDeliveryInfoResponseResult> DeliveryInfo { get; private set; } = null!;
+        public Output<Outputs.ExportDeliveryInfoResponse> DeliveryInfo { get; private set; } = null!;
 
         /// <summary>
         /// The format of the export being delivered.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.CostManagement.V20190101
         /// Has schedule information for the export.
         /// </summary>
         [Output("schedule")]
-        public Output<Outputs.ExportScheduleResponseResult?> Schedule { get; private set; } = null!;
+        public Output<Outputs.ExportScheduleResponse?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

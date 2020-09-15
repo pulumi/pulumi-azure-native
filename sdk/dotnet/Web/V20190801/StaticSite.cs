@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// Build properties to configure on the repository.
         /// </summary>
         [Output("buildProperties")]
-        public Output<Outputs.StaticSiteBuildPropertiesResponseResult?> BuildProperties { get; private set; } = null!;
+        public Output<Outputs.StaticSiteBuildPropertiesResponse?> BuildProperties { get; private set; } = null!;
 
         /// <summary>
         /// The custom domains associated with this static site.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// Description of a SKU for a scalable resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuDescriptionResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuDescriptionResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

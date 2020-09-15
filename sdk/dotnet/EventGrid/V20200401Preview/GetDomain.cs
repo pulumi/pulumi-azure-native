@@ -46,11 +46,11 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <summary>
         /// Identity information for the resource.
         /// </summary>
-        public readonly Outputs.IdentityInfoResponseResult? Identity;
+        public readonly Outputs.IdentityInfoResponse? Identity;
         /// <summary>
         /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InboundIpRuleResponseResult> InboundIpRules;
+        public readonly ImmutableArray<Outputs.InboundIpRuleResponse> InboundIpRules;
         /// <summary>
         /// This determines the format that Event Grid should expect for incoming events published to the domain.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <summary>
         /// Information about the InputSchemaMapping which specified the info about mapping event payload.
         /// </summary>
-        public readonly Outputs.JsonInputSchemaMappingResponseResult? InputSchemaMapping;
+        public readonly Outputs.JsonInputSchemaMappingResponse? InputSchemaMapping;
         /// <summary>
         /// Location of the resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <summary>
         /// List of private endpoint connections.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the domain.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <summary>
         /// The Sku pricing tier for the domain.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponseResult? Sku;
+        public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
         /// Tags of the resource.
         /// </summary>
@@ -101,13 +101,13 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         private GetDomainResult(
             string endpoint,
 
-            Outputs.IdentityInfoResponseResult? identity,
+            Outputs.IdentityInfoResponse? identity,
 
-            ImmutableArray<Outputs.InboundIpRuleResponseResult> inboundIpRules,
+            ImmutableArray<Outputs.InboundIpRuleResponse> inboundIpRules,
 
             string? inputSchema,
 
-            Outputs.JsonInputSchemaMappingResponseResult? inputSchemaMapping,
+            Outputs.JsonInputSchemaMappingResponse? inputSchemaMapping,
 
             string location,
 
@@ -115,13 +115,13 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 
             string? publicNetworkAccess,
 
-            Outputs.ResourceSkuResponseResult? sku,
+            Outputs.ResourceSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

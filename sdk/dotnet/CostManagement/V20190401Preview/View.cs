@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.CostManagement.V20190401Preview
         /// Has definition for data in this report config.
         /// </summary>
         [Output("dataset")]
-        public Output<Outputs.ReportConfigDatasetResponseResult?> Dataset { get; private set; } = null!;
+        public Output<Outputs.ReportConfigDatasetResponse?> Dataset { get; private set; } = null!;
 
         /// <summary>
         /// User input name of the view. Required.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.CostManagement.V20190401Preview
         /// List of KPIs to show in Cost Analysis UI.
         /// </summary>
         [Output("kpis")]
-        public Output<ImmutableArray<Outputs.KpiPropertiesResponseResult>> Kpis { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KpiPropertiesResponse>> Kpis { get; private set; } = null!;
 
         /// <summary>
         /// Metric to use when displaying costs.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.CostManagement.V20190401Preview
         /// Configuration of 3 sub-views in the Cost Analysis UI.
         /// </summary>
         [Output("pivots")]
-        public Output<ImmutableArray<Outputs.PivotPropertiesResponseResult>> Pivots { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PivotPropertiesResponse>> Pivots { get; private set; } = null!;
 
         /// <summary>
         /// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.CostManagement.V20190401Preview
         /// Has time period for pulling data for the report.
         /// </summary>
         [Output("timePeriod")]
-        public Output<Outputs.ReportConfigTimePeriodResponseResult?> TimePeriod { get; private set; } = null!;
+        public Output<Outputs.ReportConfigTimePeriodResponse?> TimePeriod { get; private set; } = null!;
 
         /// <summary>
         /// The time frame for pulling data for the report. If custom, then a specific time period must be provided.

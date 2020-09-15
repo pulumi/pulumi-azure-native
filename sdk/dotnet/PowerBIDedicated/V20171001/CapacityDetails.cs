@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.PowerBIDedicated.V20171001
         /// A collection of Dedicated capacity administrators
         /// </summary>
         [Output("administration")]
-        public Output<Outputs.DedicatedCapacityAdministratorsResponseResult?> Administration { get; private set; } = null!;
+        public Output<Outputs.DedicatedCapacityAdministratorsResponse?> Administration { get; private set; } = null!;
 
         /// <summary>
         /// Location of the PowerBI Dedicated resource.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.PowerBIDedicated.V20171001
         /// The SKU of the PowerBI Dedicated resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ResourceSkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.ResourceSkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.

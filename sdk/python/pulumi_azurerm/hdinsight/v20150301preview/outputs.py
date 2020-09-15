@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -50,14 +50,14 @@ class ApplicationGetEndpointResponse(dict):
     Gets the application SSH endpoint
     """
     def __init__(__self__, *,
-                 destination_port: Optional[float] = None,
+                 destination_port: Optional[int] = None,
                  location: Optional[str] = None,
-                 public_port: Optional[float] = None):
+                 public_port: Optional[int] = None):
         """
         Gets the application SSH endpoint
-        :param float destination_port: The destination port to connect to.
+        :param int destination_port: The destination port to connect to.
         :param str location: The location of the endpoint.
-        :param float public_port: The public port to connect to.
+        :param int public_port: The public port to connect to.
         """
         if destination_port is not None:
             pulumi.set(__self__, "destination_port", destination_port)
@@ -68,7 +68,7 @@ class ApplicationGetEndpointResponse(dict):
 
     @property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[float]:
+    def destination_port(self) -> Optional[int]:
         """
         The destination port to connect to.
         """
@@ -84,7 +84,7 @@ class ApplicationGetEndpointResponse(dict):
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[float]:
+    def public_port(self) -> Optional[int]:
         """
         The public port to connect to.
         """
@@ -100,19 +100,19 @@ class ApplicationGetHttpsEndpointResponse(dict):
     Gets the application HTTP endpoints.
     """
     def __init__(__self__, *,
-                 access_modes: Optional[List[str]] = None,
-                 destination_port: Optional[float] = None,
+                 access_modes: Optional[Sequence[str]] = None,
+                 destination_port: Optional[int] = None,
                  disable_gateway_auth: Optional[bool] = None,
                  location: Optional[str] = None,
-                 public_port: Optional[float] = None,
+                 public_port: Optional[int] = None,
                  sub_domain_suffix: Optional[str] = None):
         """
         Gets the application HTTP endpoints.
-        :param List[str] access_modes: The list of access modes for the application.
-        :param float destination_port: The destination port to connect to.
+        :param Sequence[str] access_modes: The list of access modes for the application.
+        :param int destination_port: The destination port to connect to.
         :param bool disable_gateway_auth: Disable gateway authentication.
         :param str location: The location of the endpoint.
-        :param float public_port: The public port to connect to.
+        :param int public_port: The public port to connect to.
         :param str sub_domain_suffix: The subdomain suffix of the application.
         """
         if access_modes is not None:
@@ -130,7 +130,7 @@ class ApplicationGetHttpsEndpointResponse(dict):
 
     @property
     @pulumi.getter(name="accessModes")
-    def access_modes(self) -> Optional[List[str]]:
+    def access_modes(self) -> Optional[Sequence[str]]:
         """
         The list of access modes for the application.
         """
@@ -138,7 +138,7 @@ class ApplicationGetHttpsEndpointResponse(dict):
 
     @property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[float]:
+    def destination_port(self) -> Optional[int]:
         """
         The destination port to connect to.
         """
@@ -162,7 +162,7 @@ class ApplicationGetHttpsEndpointResponse(dict):
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[float]:
+    def public_port(self) -> Optional[int]:
         """
         The public port to connect to.
         """
@@ -192,11 +192,11 @@ class ApplicationPropertiesResponse(dict):
                  provisioning_state: str,
                  application_type: Optional[str] = None,
                  compute_profile: Optional['outputs.ComputeProfileResponse'] = None,
-                 errors: Optional[List['outputs.ErrorsResponse']] = None,
-                 https_endpoints: Optional[List['outputs.ApplicationGetHttpsEndpointResponse']] = None,
-                 install_script_actions: Optional[List['outputs.RuntimeScriptActionResponse']] = None,
-                 ssh_endpoints: Optional[List['outputs.ApplicationGetEndpointResponse']] = None,
-                 uninstall_script_actions: Optional[List['outputs.RuntimeScriptActionResponse']] = None):
+                 errors: Optional[Sequence['outputs.ErrorsResponse']] = None,
+                 https_endpoints: Optional[Sequence['outputs.ApplicationGetHttpsEndpointResponse']] = None,
+                 install_script_actions: Optional[Sequence['outputs.RuntimeScriptActionResponse']] = None,
+                 ssh_endpoints: Optional[Sequence['outputs.ApplicationGetEndpointResponse']] = None,
+                 uninstall_script_actions: Optional[Sequence['outputs.RuntimeScriptActionResponse']] = None):
         """
         The HDInsight cluster application GET response.
         :param str application_state: The application state.
@@ -205,11 +205,11 @@ class ApplicationPropertiesResponse(dict):
         :param str provisioning_state: The provisioning state of the application.
         :param str application_type: The application type.
         :param 'ComputeProfileResponseArgs' compute_profile: The list of roles in the cluster.
-        :param List['ErrorsResponseArgs'] errors: The list of errors.
-        :param List['ApplicationGetHttpsEndpointResponseArgs'] https_endpoints: The list of application HTTPS endpoints.
-        :param List['RuntimeScriptActionResponseArgs'] install_script_actions: The list of install script actions.
-        :param List['ApplicationGetEndpointResponseArgs'] ssh_endpoints: The list of application SSH endpoints.
-        :param List['RuntimeScriptActionResponseArgs'] uninstall_script_actions: The list of uninstall script actions.
+        :param Sequence['ErrorsResponseArgs'] errors: The list of errors.
+        :param Sequence['ApplicationGetHttpsEndpointResponseArgs'] https_endpoints: The list of application HTTPS endpoints.
+        :param Sequence['RuntimeScriptActionResponseArgs'] install_script_actions: The list of install script actions.
+        :param Sequence['ApplicationGetEndpointResponseArgs'] ssh_endpoints: The list of application SSH endpoints.
+        :param Sequence['RuntimeScriptActionResponseArgs'] uninstall_script_actions: The list of uninstall script actions.
         """
         pulumi.set(__self__, "application_state", application_state)
         pulumi.set(__self__, "created_date", created_date)
@@ -280,7 +280,7 @@ class ApplicationPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[List['outputs.ErrorsResponse']]:
+    def errors(self) -> Optional[Sequence['outputs.ErrorsResponse']]:
         """
         The list of errors.
         """
@@ -288,7 +288,7 @@ class ApplicationPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="httpsEndpoints")
-    def https_endpoints(self) -> Optional[List['outputs.ApplicationGetHttpsEndpointResponse']]:
+    def https_endpoints(self) -> Optional[Sequence['outputs.ApplicationGetHttpsEndpointResponse']]:
         """
         The list of application HTTPS endpoints.
         """
@@ -296,7 +296,7 @@ class ApplicationPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="installScriptActions")
-    def install_script_actions(self) -> Optional[List['outputs.RuntimeScriptActionResponse']]:
+    def install_script_actions(self) -> Optional[Sequence['outputs.RuntimeScriptActionResponse']]:
         """
         The list of install script actions.
         """
@@ -304,7 +304,7 @@ class ApplicationPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="sshEndpoints")
-    def ssh_endpoints(self) -> Optional[List['outputs.ApplicationGetEndpointResponse']]:
+    def ssh_endpoints(self) -> Optional[Sequence['outputs.ApplicationGetEndpointResponse']]:
         """
         The list of application SSH endpoints.
         """
@@ -312,7 +312,7 @@ class ApplicationPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="uninstallScriptActions")
-    def uninstall_script_actions(self) -> Optional[List['outputs.RuntimeScriptActionResponse']]:
+    def uninstall_script_actions(self) -> Optional[Sequence['outputs.RuntimeScriptActionResponse']]:
         """
         The list of uninstall script actions.
         """
@@ -328,12 +328,12 @@ class AutoscaleCapacityResponse(dict):
     The load-based autoscale request parameters
     """
     def __init__(__self__, *,
-                 max_instance_count: Optional[float] = None,
-                 min_instance_count: Optional[float] = None):
+                 max_instance_count: Optional[int] = None,
+                 min_instance_count: Optional[int] = None):
         """
         The load-based autoscale request parameters
-        :param float max_instance_count: The maximum instance count of the cluster
-        :param float min_instance_count: The minimum instance count of the cluster
+        :param int max_instance_count: The maximum instance count of the cluster
+        :param int min_instance_count: The minimum instance count of the cluster
         """
         if max_instance_count is not None:
             pulumi.set(__self__, "max_instance_count", max_instance_count)
@@ -342,7 +342,7 @@ class AutoscaleCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="maxInstanceCount")
-    def max_instance_count(self) -> Optional[float]:
+    def max_instance_count(self) -> Optional[int]:
         """
         The maximum instance count of the cluster
         """
@@ -350,7 +350,7 @@ class AutoscaleCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[float]:
+    def min_instance_count(self) -> Optional[int]:
         """
         The minimum instance count of the cluster
         """
@@ -366,11 +366,11 @@ class AutoscaleRecurrenceResponse(dict):
     Schedule-based autoscale request parameters
     """
     def __init__(__self__, *,
-                 schedule: Optional[List['outputs.AutoscaleScheduleResponse']] = None,
+                 schedule: Optional[Sequence['outputs.AutoscaleScheduleResponse']] = None,
                  time_zone: Optional[str] = None):
         """
         Schedule-based autoscale request parameters
-        :param List['AutoscaleScheduleResponseArgs'] schedule: Array of schedule-based autoscale rules
+        :param Sequence['AutoscaleScheduleResponseArgs'] schedule: Array of schedule-based autoscale rules
         :param str time_zone: The time zone for the autoscale schedule times
         """
         if schedule is not None:
@@ -380,7 +380,7 @@ class AutoscaleRecurrenceResponse(dict):
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[List['outputs.AutoscaleScheduleResponse']]:
+    def schedule(self) -> Optional[Sequence['outputs.AutoscaleScheduleResponse']]:
         """
         Array of schedule-based autoscale rules
         """
@@ -442,11 +442,11 @@ class AutoscaleScheduleResponse(dict):
     Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
     """
     def __init__(__self__, *,
-                 days: Optional[List[str]] = None,
+                 days: Optional[Sequence[str]] = None,
                  time_and_capacity: Optional['outputs.AutoscaleTimeAndCapacityResponse'] = None):
         """
         Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
-        :param List[str] days: Days of the week for a schedule-based autoscale rule
+        :param Sequence[str] days: Days of the week for a schedule-based autoscale rule
         :param 'AutoscaleTimeAndCapacityResponseArgs' time_and_capacity: Time and capacity for a schedule-based autoscale rule
         """
         if days is not None:
@@ -456,7 +456,7 @@ class AutoscaleScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[List[str]]:
+    def days(self) -> Optional[Sequence[str]]:
         """
         Days of the week for a schedule-based autoscale rule
         """
@@ -480,13 +480,13 @@ class AutoscaleTimeAndCapacityResponse(dict):
     Time and capacity request parameters
     """
     def __init__(__self__, *,
-                 max_instance_count: Optional[float] = None,
-                 min_instance_count: Optional[float] = None,
+                 max_instance_count: Optional[int] = None,
+                 min_instance_count: Optional[int] = None,
                  time: Optional[str] = None):
         """
         Time and capacity request parameters
-        :param float max_instance_count: The maximum instance count of the cluster
-        :param float min_instance_count: The minimum instance count of the cluster
+        :param int max_instance_count: The maximum instance count of the cluster
+        :param int min_instance_count: The minimum instance count of the cluster
         :param str time: 24-hour time in the form xx:xx
         """
         if max_instance_count is not None:
@@ -498,7 +498,7 @@ class AutoscaleTimeAndCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="maxInstanceCount")
-    def max_instance_count(self) -> Optional[float]:
+    def max_instance_count(self) -> Optional[int]:
         """
         The maximum instance count of the cluster
         """
@@ -506,7 +506,7 @@ class AutoscaleTimeAndCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[float]:
+    def min_instance_count(self) -> Optional[int]:
         """
         The minimum instance count of the cluster
         """
@@ -634,11 +634,11 @@ class ClusterGetPropertiesResponse(dict):
                  cluster_state: Optional[str] = None,
                  cluster_version: Optional[str] = None,
                  compute_profile: Optional['outputs.ComputeProfileResponse'] = None,
-                 connectivity_endpoints: Optional[List['outputs.ConnectivityEndpointResponse']] = None,
+                 connectivity_endpoints: Optional[Sequence['outputs.ConnectivityEndpointResponse']] = None,
                  created_date: Optional[str] = None,
                  disk_encryption_properties: Optional['outputs.DiskEncryptionPropertiesResponse'] = None,
                  encryption_in_transit_properties: Optional['outputs.EncryptionInTransitPropertiesResponse'] = None,
-                 errors: Optional[List['outputs.ErrorsResponse']] = None,
+                 errors: Optional[Sequence['outputs.ErrorsResponse']] = None,
                  kafka_rest_properties: Optional['outputs.KafkaRestPropertiesResponse'] = None,
                  min_supported_tls_version: Optional[str] = None,
                  network_settings: Optional['outputs.NetworkSettingsResponse'] = None,
@@ -653,11 +653,11 @@ class ClusterGetPropertiesResponse(dict):
         :param str cluster_state: The state of the cluster.
         :param str cluster_version: The version of the cluster.
         :param 'ComputeProfileResponseArgs' compute_profile: The compute profile.
-        :param List['ConnectivityEndpointResponseArgs'] connectivity_endpoints: The list of connectivity endpoints.
+        :param Sequence['ConnectivityEndpointResponseArgs'] connectivity_endpoints: The list of connectivity endpoints.
         :param str created_date: The date on which the cluster was created.
         :param 'DiskEncryptionPropertiesResponseArgs' disk_encryption_properties: The disk encryption properties.
         :param 'EncryptionInTransitPropertiesResponseArgs' encryption_in_transit_properties: The encryption-in-transit properties.
-        :param List['ErrorsResponseArgs'] errors: The list of errors.
+        :param Sequence['ErrorsResponseArgs'] errors: The list of errors.
         :param 'KafkaRestPropertiesResponseArgs' kafka_rest_properties: The cluster kafka rest proxy configuration.
         :param str min_supported_tls_version: The minimal supported tls version.
         :param 'NetworkSettingsResponseArgs' network_settings: The network settings.
@@ -735,7 +735,7 @@ class ClusterGetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
-    def connectivity_endpoints(self) -> Optional[List['outputs.ConnectivityEndpointResponse']]:
+    def connectivity_endpoints(self) -> Optional[Sequence['outputs.ConnectivityEndpointResponse']]:
         """
         The list of connectivity endpoints.
         """
@@ -767,7 +767,7 @@ class ClusterGetPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[List['outputs.ErrorsResponse']]:
+    def errors(self) -> Optional[Sequence['outputs.ErrorsResponse']]:
         """
         The list of errors.
         """
@@ -939,17 +939,17 @@ class ComputeProfileResponse(dict):
     Describes the compute profile.
     """
     def __init__(__self__, *,
-                 roles: Optional[List['outputs.RoleResponse']] = None):
+                 roles: Optional[Sequence['outputs.RoleResponse']] = None):
         """
         Describes the compute profile.
-        :param List['RoleResponseArgs'] roles: The list of roles in the cluster.
+        :param Sequence['RoleResponseArgs'] roles: The list of roles in the cluster.
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[List['outputs.RoleResponse']]:
+    def roles(self) -> Optional[Sequence['outputs.RoleResponse']]:
         """
         The list of roles in the cluster.
         """
@@ -967,13 +967,13 @@ class ConnectivityEndpointResponse(dict):
     def __init__(__self__, *,
                  location: Optional[str] = None,
                  name: Optional[str] = None,
-                 port: Optional[float] = None,
+                 port: Optional[int] = None,
                  protocol: Optional[str] = None):
         """
         The connectivity properties
         :param str location: The location of the endpoint.
         :param str name: The name of the endpoint.
-        :param float port: The port to connect to.
+        :param int port: The port to connect to.
         :param str protocol: The protocol of the endpoint.
         """
         if location is not None:
@@ -1003,7 +1003,7 @@ class ConnectivityEndpointResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         The port to connect to.
         """
@@ -1027,14 +1027,14 @@ class DataDisksGroupsResponse(dict):
     The data disks groups for the role.
     """
     def __init__(__self__, *,
-                 disk_size_gb: float,
+                 disk_size_gb: int,
                  storage_account_type: str,
-                 disks_per_node: Optional[float] = None):
+                 disks_per_node: Optional[int] = None):
         """
         The data disks groups for the role.
-        :param float disk_size_gb: ReadOnly. The DiskSize in GB. Do not set this value.
+        :param int disk_size_gb: ReadOnly. The DiskSize in GB. Do not set this value.
         :param str storage_account_type: ReadOnly. The storage account type. Do not set this value.
-        :param float disks_per_node: The number of disks per node.
+        :param int disks_per_node: The number of disks per node.
         """
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         pulumi.set(__self__, "storage_account_type", storage_account_type)
@@ -1043,7 +1043,7 @@ class DataDisksGroupsResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> float:
+    def disk_size_gb(self) -> int:
         """
         ReadOnly. The DiskSize in GB. Do not set this value.
         """
@@ -1059,7 +1059,7 @@ class DataDisksGroupsResponse(dict):
 
     @property
     @pulumi.getter(name="disksPerNode")
-    def disks_per_node(self) -> Optional[float]:
+    def disks_per_node(self) -> Optional[int]:
         """
         The number of disks per node.
         """
@@ -1391,17 +1391,17 @@ class QuotaInfoResponse(dict):
     The quota properties for the cluster.
     """
     def __init__(__self__, *,
-                 cores_used: Optional[float] = None):
+                 cores_used: Optional[int] = None):
         """
         The quota properties for the cluster.
-        :param float cores_used: The cores used by the cluster.
+        :param int cores_used: The cores used by the cluster.
         """
         if cores_used is not None:
             pulumi.set(__self__, "cores_used", cores_used)
 
     @property
     @pulumi.getter(name="coresUsed")
-    def cores_used(self) -> Optional[float]:
+    def cores_used(self) -> Optional[int]:
         """
         The cores used by the cluster.
         """
@@ -1418,24 +1418,24 @@ class RoleResponse(dict):
     """
     def __init__(__self__, *,
                  autoscale_configuration: Optional['outputs.AutoscaleResponse'] = None,
-                 data_disks_groups: Optional[List['outputs.DataDisksGroupsResponse']] = None,
+                 data_disks_groups: Optional[Sequence['outputs.DataDisksGroupsResponse']] = None,
                  hardware_profile: Optional['outputs.HardwareProfileResponse'] = None,
-                 min_instance_count: Optional[float] = None,
+                 min_instance_count: Optional[int] = None,
                  name: Optional[str] = None,
                  os_profile: Optional['outputs.OsProfileResponse'] = None,
-                 script_actions: Optional[List['outputs.ScriptActionResponse']] = None,
-                 target_instance_count: Optional[float] = None,
+                 script_actions: Optional[Sequence['outputs.ScriptActionResponse']] = None,
+                 target_instance_count: Optional[int] = None,
                  virtual_network_profile: Optional['outputs.VirtualNetworkProfileResponse'] = None):
         """
         Describes a role on the cluster.
         :param 'AutoscaleResponseArgs' autoscale_configuration: The autoscale configurations.
-        :param List['DataDisksGroupsResponseArgs'] data_disks_groups: The data disks groups for the role.
+        :param Sequence['DataDisksGroupsResponseArgs'] data_disks_groups: The data disks groups for the role.
         :param 'HardwareProfileResponseArgs' hardware_profile: The hardware profile.
-        :param float min_instance_count: The minimum instance count of the cluster.
+        :param int min_instance_count: The minimum instance count of the cluster.
         :param str name: The name of the role.
         :param 'OsProfileResponseArgs' os_profile: The operating system profile.
-        :param List['ScriptActionResponseArgs'] script_actions: The list of script actions on the role.
-        :param float target_instance_count: The instance count of the cluster.
+        :param Sequence['ScriptActionResponseArgs'] script_actions: The list of script actions on the role.
+        :param int target_instance_count: The instance count of the cluster.
         :param 'VirtualNetworkProfileResponseArgs' virtual_network_profile: The virtual network profile.
         """
         if autoscale_configuration is not None:
@@ -1467,7 +1467,7 @@ class RoleResponse(dict):
 
     @property
     @pulumi.getter(name="dataDisksGroups")
-    def data_disks_groups(self) -> Optional[List['outputs.DataDisksGroupsResponse']]:
+    def data_disks_groups(self) -> Optional[Sequence['outputs.DataDisksGroupsResponse']]:
         """
         The data disks groups for the role.
         """
@@ -1483,7 +1483,7 @@ class RoleResponse(dict):
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[float]:
+    def min_instance_count(self) -> Optional[int]:
         """
         The minimum instance count of the cluster.
         """
@@ -1507,7 +1507,7 @@ class RoleResponse(dict):
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[List['outputs.ScriptActionResponse']]:
+    def script_actions(self) -> Optional[Sequence['outputs.ScriptActionResponse']]:
         """
         The list of script actions on the role.
         """
@@ -1515,7 +1515,7 @@ class RoleResponse(dict):
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> Optional[float]:
+    def target_instance_count(self) -> Optional[int]:
         """
         The instance count of the cluster.
         """
@@ -1541,14 +1541,14 @@ class RuntimeScriptActionResponse(dict):
     def __init__(__self__, *,
                  application_name: str,
                  name: str,
-                 roles: List[str],
+                 roles: Sequence[str],
                  uri: str,
                  parameters: Optional[str] = None):
         """
         Describes a script action on a running cluster.
         :param str application_name: The application name of the script action, if any.
         :param str name: The name of the script action.
-        :param List[str] roles: The list of roles where script will be executed.
+        :param Sequence[str] roles: The list of roles where script will be executed.
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script
         """
@@ -1577,7 +1577,7 @@ class RuntimeScriptActionResponse(dict):
 
     @property
     @pulumi.getter
-    def roles(self) -> List[str]:
+    def roles(self) -> Sequence[str]:
         """
         The list of roles where script will be executed.
         """
@@ -1657,23 +1657,23 @@ class SecurityProfileResponse(dict):
     """
     def __init__(__self__, *,
                  aadds_resource_id: Optional[str] = None,
-                 cluster_users_group_dns: Optional[List[str]] = None,
+                 cluster_users_group_dns: Optional[Sequence[str]] = None,
                  directory_type: Optional[str] = None,
                  domain: Optional[str] = None,
                  domain_user_password: Optional[str] = None,
                  domain_username: Optional[str] = None,
-                 ldaps_urls: Optional[List[str]] = None,
+                 ldaps_urls: Optional[Sequence[str]] = None,
                  msi_resource_id: Optional[str] = None,
                  organizational_unit_dn: Optional[str] = None):
         """
         The security profile which contains Ssh public key for the HDInsight cluster.
         :param str aadds_resource_id: The resource ID of the user's Azure Active Directory Domain Service.
-        :param List[str] cluster_users_group_dns: Optional. The Distinguished Names for cluster user groups
+        :param Sequence[str] cluster_users_group_dns: Optional. The Distinguished Names for cluster user groups
         :param str directory_type: The directory type.
         :param str domain: The organization's active directory domain.
         :param str domain_user_password: The domain admin password.
         :param str domain_username: The domain user account that will have admin privileges on the cluster.
-        :param List[str] ldaps_urls: The LDAPS protocol URLs to communicate with the Active Directory.
+        :param Sequence[str] ldaps_urls: The LDAPS protocol URLs to communicate with the Active Directory.
         :param str msi_resource_id: User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
         :param str organizational_unit_dn: The organizational unit within the Active Directory to place the cluster and service accounts.
         """
@@ -1706,7 +1706,7 @@ class SecurityProfileResponse(dict):
 
     @property
     @pulumi.getter(name="clusterUsersGroupDNs")
-    def cluster_users_group_dns(self) -> Optional[List[str]]:
+    def cluster_users_group_dns(self) -> Optional[Sequence[str]]:
         """
         Optional. The Distinguished Names for cluster user groups
         """
@@ -1746,7 +1746,7 @@ class SecurityProfileResponse(dict):
 
     @property
     @pulumi.getter(name="ldapsUrls")
-    def ldaps_urls(self) -> Optional[List[str]]:
+    def ldaps_urls(self) -> Optional[Sequence[str]]:
         """
         The LDAPS protocol URLs to communicate with the Active Directory.
         """
@@ -1778,17 +1778,17 @@ class SshProfileResponse(dict):
     The list of SSH public keys.
     """
     def __init__(__self__, *,
-                 public_keys: Optional[List['outputs.SshPublicKeyResponse']] = None):
+                 public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         The list of SSH public keys.
-        :param List['SshPublicKeyResponseArgs'] public_keys: The list of SSH public keys.
+        :param Sequence['SshPublicKeyResponseArgs'] public_keys: The list of SSH public keys.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[List['outputs.SshPublicKeyResponse']]:
+    def public_keys(self) -> Optional[Sequence['outputs.SshPublicKeyResponse']]:
         """
         The list of SSH public keys.
         """

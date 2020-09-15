@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -185,7 +185,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def resources(self) -> List['outputs.VirtualMachineExtensionResponse']:
+    def resources(self) -> Sequence['outputs.VirtualMachineExtensionResponse']:
         """
         The virtual machine child extension resources.
         """
@@ -225,7 +225,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> Optional[Sequence[str]]:
         """
         The virtual machine zones.
         """

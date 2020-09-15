@@ -15,19 +15,19 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190201Preview
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
         [Output("customize")]
-        public Output<ImmutableArray<Union<Outputs.ImageTemplatePowerShellCustomizerResponseResult, Union<Outputs.ImageTemplateRestartCustomizerResponseResult, Outputs.ImageTemplateShellCustomizerResponseResult>>>> Customize { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.ImageTemplatePowerShellCustomizerResponse, Union<Outputs.ImageTemplateRestartCustomizerResponse, Outputs.ImageTemplateShellCustomizerResponse>>>> Customize { get; private set; } = null!;
 
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
         [Output("distribute")]
-        public Output<ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponseResult, Union<Outputs.ImageTemplateSharedImageDistributorResponseResult, Outputs.ImageTemplateVhdDistributorResponseResult>>>> Distribute { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Union<Outputs.ImageTemplateSharedImageDistributorResponse, Outputs.ImageTemplateVhdDistributorResponse>>>> Distribute { get; private set; } = null!;
 
         /// <summary>
         /// State of 'run' that is currently executing or was last executed.
         /// </summary>
         [Output("lastRunStatus")]
-        public Output<Outputs.ImageTemplateLastRunStatusResponseResult> LastRunStatus { get; private set; } = null!;
+        public Output<Outputs.ImageTemplateLastRunStatusResponse> LastRunStatus { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -45,7 +45,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190201Preview
         /// Provisioning error, if any
         /// </summary>
         [Output("provisioningError")]
-        public Output<Outputs.ProvisioningErrorResponseResult> ProvisioningError { get; private set; } = null!;
+        public Output<Outputs.ProvisioningErrorResponse> ProvisioningError { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the resource
@@ -57,7 +57,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190201Preview
         /// Specifies the properties used to describe the source image.
         /// </summary>
         [Output("source")]
-        public Output<Union<Outputs.ImageTemplateIsoSourceResponseResult, Union<Outputs.ImageTemplateManagedImageSourceResponseResult, Outputs.ImageTemplatePlatformImageSourceResponseResult>>> Source { get; private set; } = null!;
+        public Output<Union<Outputs.ImageTemplateIsoSourceResponse, Union<Outputs.ImageTemplateManagedImageSourceResponse, Outputs.ImageTemplatePlatformImageSourceResponse>>> Source { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -100,7 +100,7 @@ class GetWebAppVnetConnectionResult:
 
     @property
     @pulumi.getter
-    def routes(self) -> List['outputs.VnetRouteResponse']:
+    def routes(self) -> Sequence['outputs.VnetRouteResponse']:
         """
         The routes that this Virtual Network connection uses.
         """

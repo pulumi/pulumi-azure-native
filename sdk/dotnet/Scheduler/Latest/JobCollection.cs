@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.Scheduler.Latest
         /// Gets or sets the job collection properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.JobCollectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.JobCollectionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the tags.

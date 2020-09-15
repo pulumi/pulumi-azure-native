@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// The encryption settings of container registry.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.EncryptionPropertyResponseResult?> Encryption { get; private set; } = null!;
+        public Output<Outputs.EncryptionPropertyResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the container registry.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityPropertiesResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
@@ -72,19 +72,19 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// The network rule set for a container registry.
         /// </summary>
         [Output("networkRuleSet")]
-        public Output<Outputs.NetworkRuleSetResponseResult?> NetworkRuleSet { get; private set; } = null!;
+        public Output<Outputs.NetworkRuleSetResponse?> NetworkRuleSet { get; private set; } = null!;
 
         /// <summary>
         /// The policies for a container registry.
         /// </summary>
         [Output("policies")]
-        public Output<Outputs.PoliciesResponseResult?> Policies { get; private set; } = null!;
+        public Output<Outputs.PoliciesResponse?> Policies { get; private set; } = null!;
 
         /// <summary>
         /// List of private endpoint connections for a container registry.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the container registry at the time the operation was called.
@@ -102,19 +102,19 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// The SKU of the container registry.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The status of the container registry at the time the operation was called.
         /// </summary>
         [Output("status")]
-        public Output<Outputs.StatusResponseResult> Status { get; private set; } = null!;
+        public Output<Outputs.StatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
         /// </summary>
         [Output("storageAccount")]
-        public Output<Outputs.StorageAccountPropertiesResponseResult?> StorageAccount { get; private set; } = null!;
+        public Output<Outputs.StorageAccountPropertiesResponse?> StorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

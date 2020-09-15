@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic.Latest
         /// The api resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApiResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ApiResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

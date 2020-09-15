@@ -52,11 +52,11 @@ namespace Pulumi.AzureRM.DataBox.V20180101
         /// <summary>
         /// Details of a job run. This field will only be sent for expand details filter.
         /// </summary>
-        public readonly Union<Outputs.DataBoxDiskJobDetailsResponseResult, Union<Outputs.DataBoxHeavyJobDetailsResponseResult, Outputs.DataBoxJobDetailsResponseResult>>? Details;
+        public readonly Union<Outputs.DataBoxDiskJobDetailsResponse, Union<Outputs.DataBoxHeavyJobDetailsResponse, Outputs.DataBoxJobDetailsResponse>>? Details;
         /// <summary>
         /// Top level error for the job.
         /// </summary>
-        public readonly Outputs.ErrorResponseResult Error;
+        public readonly Outputs.ErrorResponse Error;
         /// <summary>
         /// Describes whether the job is cancellable or not.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.DataBox.V20180101
         /// <summary>
         /// The sku type.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Time at which the job was started in UTC ISO 8601 format.
         /// </summary>
@@ -102,9 +102,9 @@ namespace Pulumi.AzureRM.DataBox.V20180101
         private GetJobResult(
             string cancellationReason,
 
-            Union<Outputs.DataBoxDiskJobDetailsResponseResult, Union<Outputs.DataBoxHeavyJobDetailsResponseResult, Outputs.DataBoxJobDetailsResponseResult>>? details,
+            Union<Outputs.DataBoxDiskJobDetailsResponse, Union<Outputs.DataBoxHeavyJobDetailsResponse, Outputs.DataBoxJobDetailsResponse>>? details,
 
-            Outputs.ErrorResponseResult error,
+            Outputs.ErrorResponse error,
 
             bool isCancellable,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureRM.DataBox.V20180101
 
             string name,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             string startTime,
 

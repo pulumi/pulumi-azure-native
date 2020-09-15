@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,11 +17,11 @@ class ServerTrustGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_members: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServerInfoArgs']]]]] = None,
+                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerInfoArgs']]]]] = None,
                  location_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_trust_group_name: Optional[pulumi.Input[str]] = None,
-                 trust_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +30,11 @@ class ServerTrustGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServerInfoArgs']]]] group_members: Group members information for the server trust group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerInfoArgs']]]] group_members: Group members information for the server trust group.
         :param pulumi.Input[str] location_name: The name of the region where the resource is located.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_trust_group_name: The name of the server trust group.
-        :param pulumi.Input[List[pulumi.Input[str]]] trust_scopes: Trust scope of the server trust group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trust_scopes: Trust scope of the server trust group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,7 +96,7 @@ class ServerTrustGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupMembers")
-    def group_members(self) -> pulumi.Output[List['outputs.ServerInfoResponse']]:
+    def group_members(self) -> pulumi.Output[Sequence['outputs.ServerInfoResponse']]:
         """
         Group members information for the server trust group.
         """
@@ -112,7 +112,7 @@ class ServerTrustGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustScopes")
-    def trust_scopes(self) -> pulumi.Output[List[str]]:
+    def trust_scopes(self) -> pulumi.Output[Sequence[str]]:
         """
         Trust scope of the server trust group.
         """

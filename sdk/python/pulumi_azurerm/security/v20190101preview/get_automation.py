@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -57,7 +57,7 @@ class GetAutomationResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List[Any]]:
+    def actions(self) -> Optional[Sequence[Any]]:
         """
         A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         """
@@ -113,7 +113,7 @@ class GetAutomationResult:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List['outputs.AutomationScopeResponse']]:
+    def scopes(self) -> Optional[Sequence['outputs.AutomationScopeResponse']]:
         """
         A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
         """
@@ -121,7 +121,7 @@ class GetAutomationResult:
 
     @property
     @pulumi.getter
-    def sources(self) -> Optional[List['outputs.AutomationSourceResponse']]:
+    def sources(self) -> Optional[Sequence['outputs.AutomationSourceResponse']]:
         """
         A collection of the source event types which evaluate the security automation set of rules.
         """

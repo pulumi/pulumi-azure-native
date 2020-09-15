@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
         /// <summary>
         /// Properties of the agent pool.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> AgentPoolProfiles;
+        public readonly ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse> AgentPoolProfiles;
         /// <summary>
         /// DNS prefix specified when creating the managed cluster.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
         /// <summary>
         /// Profile for Linux VMs in the container service cluster.
         /// </summary>
-        public readonly Outputs.ContainerServiceLinuxProfileResponseResult? LinuxProfile;
+        public readonly Outputs.ContainerServiceLinuxProfileResponse? LinuxProfile;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
         /// </summary>
-        public readonly Outputs.ContainerServiceServicePrincipalProfileResponseResult? ServicePrincipalProfile;
+        public readonly Outputs.ContainerServiceServicePrincipalProfileResponse? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
 
         [OutputConstructor]
         private GetManagedClusterResult(
-            ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> agentPoolProfiles,
+            ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse> agentPoolProfiles,
 
             string? dnsPrefix,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
 
             string? kubernetesVersion,
 
-            Outputs.ContainerServiceLinuxProfileResponseResult? linuxProfile,
+            Outputs.ContainerServiceLinuxProfileResponse? linuxProfile,
 
             string location,
 
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
 
             string provisioningState,
 
-            Outputs.ContainerServiceServicePrincipalProfileResponseResult? servicePrincipalProfile,
+            Outputs.ContainerServiceServicePrincipalProfileResponse? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 

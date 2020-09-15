@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Resources.V20190301
         /// <summary>
         /// Deployment properties.
         /// </summary>
-        public readonly Outputs.DeploymentPropertiesExtendedResponseResult Properties;
+        public readonly Outputs.DeploymentPropertiesExtendedResponse Properties;
         /// <summary>
         /// The type of the deployment.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Resources.V20190301
 
             string name,
 
-            Outputs.DeploymentPropertiesExtendedResponseResult properties,
+            Outputs.DeploymentPropertiesExtendedResponse properties,
 
             string type)
         {

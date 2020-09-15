@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
         /// <summary>
         /// A collection of AS server administrators
         /// </summary>
-        public readonly Outputs.ServerAdministratorsResponseResult? AsAdministrators;
+        public readonly Outputs.ServerAdministratorsResponse? AsAdministrators;
         /// <summary>
         /// The SAS container URI to the backup container.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
         /// <summary>
         /// The gateway details configured for the AS server.
         /// </summary>
-        public readonly Outputs.GatewayDetailsResponseResult? GatewayDetails;
+        public readonly Outputs.GatewayDetailsResponse? GatewayDetails;
         /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
         /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponseResult Sku;
+        public readonly Outputs.ResourceSkuResponse Sku;
         /// <summary>
         /// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
 
         [OutputConstructor]
         private GetServerDetailsResult(
-            Outputs.ServerAdministratorsResponseResult? asAdministrators,
+            Outputs.ServerAdministratorsResponse? asAdministrators,
 
             string? backupBlobContainerUri,
 
-            Outputs.GatewayDetailsResponseResult? gatewayDetails,
+            Outputs.GatewayDetailsResponse? gatewayDetails,
 
             string location,
 
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
 
             string serverFullName,
 
-            Outputs.ResourceSkuResponseResult sku,
+            Outputs.ResourceSkuResponse sku,
 
             string state,
 

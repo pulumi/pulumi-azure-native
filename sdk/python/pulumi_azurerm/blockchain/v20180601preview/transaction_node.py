@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class TransactionNode(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blockchain_member_name: Optional[pulumi.Input[str]] = None,
-                 firewall_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]]] = None,
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class TransactionNode(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blockchain_member_name: Blockchain member name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]] firewall_rules: Gets or sets the firewall rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]] firewall_rules: Gets or sets the firewall rules.
         :param pulumi.Input[str] location: Gets or sets the transaction node location.
         :param pulumi.Input[str] password: Sets the transaction node dns endpoint basic auth password.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -107,7 +107,7 @@ class TransactionNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> pulumi.Output[Optional[List['outputs.FirewallRuleResponse']]]:
+    def firewall_rules(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallRuleResponse']]]:
         """
         Gets or sets the firewall rules.
         """

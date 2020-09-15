@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// Specifies if the Manager is Garda or Helsinki
         /// </summary>
         [Output("cisIntrinsicSettings")]
-        public Output<Outputs.ManagerIntrinsicSettingsResponseResult?> CisIntrinsicSettings { get; private set; } = null!;
+        public Output<Outputs.ManagerIntrinsicSettingsResponse?> CisIntrinsicSettings { get; private set; } = null!;
 
         /// <summary>
         /// ETag of the Manager
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// Specifies the Sku
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ManagerSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ManagerSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Tags attached to the Manager

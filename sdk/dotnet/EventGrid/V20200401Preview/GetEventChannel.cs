@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <summary>
         /// Represents the destination of an event channel.
         /// </summary>
-        public readonly Outputs.EventChannelDestinationResponseResult? Destination;
+        public readonly Outputs.EventChannelDestinationResponse? Destination;
         /// <summary>
         /// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
         /// the event channel and corresponding partner topic are deleted.
@@ -57,7 +57,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <summary>
         /// Information about the filter for the event channel.
         /// </summary>
-        public readonly Outputs.EventChannelFilterResponseResult? Filter;
+        public readonly Outputs.EventChannelFilterResponse? Filter;
         /// <summary>
         /// Name of the resource
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <summary>
         /// Source of the event channel. This represents a unique resource in the partner's resource model.
         /// </summary>
-        public readonly Outputs.EventChannelSourceResponseResult? Source;
+        public readonly Outputs.EventChannelSourceResponse? Source;
         /// <summary>
         /// Type of the resource
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 
         [OutputConstructor]
         private GetEventChannelResult(
-            Outputs.EventChannelDestinationResponseResult? destination,
+            Outputs.EventChannelDestinationResponse? destination,
 
             string? expirationTimeIfNotActivatedUtc,
 
-            Outputs.EventChannelFilterResponseResult? filter,
+            Outputs.EventChannelFilterResponse? filter,
 
             string name,
 
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 
             string provisioningState,
 
-            Outputs.EventChannelSourceResponseResult? source,
+            Outputs.EventChannelSourceResponse? source,
 
             string type)
         {

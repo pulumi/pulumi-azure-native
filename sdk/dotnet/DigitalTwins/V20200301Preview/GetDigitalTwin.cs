@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
         /// <summary>
         /// This property is reserved for future use, and will be ignored/omitted
         /// </summary>
-        public readonly Outputs.DigitalTwinsSkuInfoResponseResult? Sku;
+        public readonly Outputs.DigitalTwinsSkuInfoResponse? Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
 
             string provisioningState,
 
-            Outputs.DigitalTwinsSkuInfoResponseResult? sku,
+            Outputs.DigitalTwinsSkuInfoResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

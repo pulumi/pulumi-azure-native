@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['IscsiDisk']
@@ -15,7 +15,7 @@ class IscsiDisk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_records: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 access_control_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_policy: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -24,7 +24,7 @@ class IscsiDisk(pulumi.CustomResource):
                  iscsi_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  monitoring_status: Optional[pulumi.Input[str]] = None,
-                 provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
+                 provisioned_capacity_in_bytes: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -34,7 +34,7 @@ class IscsiDisk(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] access_control_records: The access control records.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_records: The access control records.
         :param pulumi.Input[str] data_policy: The data policy.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] device_name: The device name.
@@ -43,7 +43,7 @@ class IscsiDisk(pulumi.CustomResource):
         :param pulumi.Input[str] iscsi_server_name: The iSCSI server name.
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] monitoring_status: The monitoring.
-        :param pulumi.Input[float] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
+        :param pulumi.Input[int] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
         if __name__ is not None:
@@ -126,7 +126,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessControlRecords")
-    def access_control_records(self) -> pulumi.Output[List[str]]:
+    def access_control_records(self) -> pulumi.Output[Sequence[str]]:
         """
         The access control records.
         """
@@ -158,7 +158,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localUsedCapacityInBytes")
-    def local_used_capacity_in_bytes(self) -> pulumi.Output[float]:
+    def local_used_capacity_in_bytes(self) -> pulumi.Output[int]:
         """
         The local used capacity in bytes.
         """
@@ -182,7 +182,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> pulumi.Output[float]:
+    def provisioned_capacity_in_bytes(self) -> pulumi.Output[int]:
         """
         The provisioned capacity in bytes.
         """
@@ -198,7 +198,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usedCapacityInBytes")
-    def used_capacity_in_bytes(self) -> pulumi.Output[float]:
+    def used_capacity_in_bytes(self) -> pulumi.Output[int]:
         """
         The used capacity in bytes.
         """

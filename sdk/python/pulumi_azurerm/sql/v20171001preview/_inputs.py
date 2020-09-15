@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -22,23 +22,23 @@ __all__ = [
 @pulumi.input_type
 class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
     def __init__(__self__, *,
-                 result: pulumi.Input[List[pulumi.Input[str]]]):
+                 result: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
-        :param pulumi.Input[List[pulumi.Input[str]]] result: The rule baseline result
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] result: The rule baseline result
         """
         pulumi.set(__self__, "result", result)
 
     @property
     @pulumi.getter
-    def result(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def result(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The rule baseline result
         """
         return pulumi.get(self, "result")
 
     @result.setter
-    def result(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def result(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "result", value)
 
 
@@ -110,11 +110,11 @@ class InstanceFailoverGroupReadOnlyEndpointArgs:
 class InstanceFailoverGroupReadWriteEndpointArgs:
     def __init__(__self__, *,
                  failover_policy: pulumi.Input[str],
-                 failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[float]] = None):
+                 failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[int]] = None):
         """
         Read-write endpoint of the failover group instance.
         :param pulumi.Input[str] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-        :param pulumi.Input[float] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        :param pulumi.Input[int] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         pulumi.set(__self__, "failover_policy", failover_policy)
         if failover_with_data_loss_grace_period_minutes is not None:
@@ -134,14 +134,14 @@ class InstanceFailoverGroupReadWriteEndpointArgs:
 
     @property
     @pulumi.getter(name="failoverWithDataLossGracePeriodMinutes")
-    def failover_with_data_loss_grace_period_minutes(self) -> Optional[pulumi.Input[float]]:
+    def failover_with_data_loss_grace_period_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         return pulumi.get(self, "failover_with_data_loss_grace_period_minutes")
 
     @failover_with_data_loss_grace_period_minutes.setter
-    def failover_with_data_loss_grace_period_minutes(self, value: Optional[pulumi.Input[float]]):
+    def failover_with_data_loss_grace_period_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "failover_with_data_loss_grace_period_minutes", value)
 
 
@@ -213,14 +213,14 @@ class PartnerRegionInfoArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         An ARM Resource SKU.
         :param pulumi.Input[str] name: The name of the SKU, typically, a letter + Number code, e.g. P3.
-        :param pulumi.Input[float] capacity: Capacity of the particular SKU.
+        :param pulumi.Input[int] capacity: Capacity of the particular SKU.
         :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param pulumi.Input[str] size: Size of the particular SKU
         :param pulumi.Input[str] tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
@@ -249,14 +249,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Capacity of the particular SKU.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -300,12 +300,12 @@ class SkuArgs:
 class VulnerabilityAssessmentRecurringScansPropertiesArgs:
     def __init__(__self__, *,
                  email_subscription_admins: Optional[pulumi.Input[bool]] = None,
-                 emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
         :param pulumi.Input[bool] email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
-        :param pulumi.Input[List[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param pulumi.Input[bool] is_enabled: Recurring scans state.
         """
         if email_subscription_admins is not None:
@@ -329,14 +329,14 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies an array of e-mail addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "emails", value)
 
     @property

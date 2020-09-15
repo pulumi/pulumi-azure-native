@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -36,7 +36,7 @@ class GetServerTrustGroupResult:
 
     @property
     @pulumi.getter(name="groupMembers")
-    def group_members(self) -> List['outputs.ServerInfoResponse']:
+    def group_members(self) -> Sequence['outputs.ServerInfoResponse']:
         """
         Group members information for the server trust group.
         """
@@ -52,7 +52,7 @@ class GetServerTrustGroupResult:
 
     @property
     @pulumi.getter(name="trustScopes")
-    def trust_scopes(self) -> List[str]:
+    def trust_scopes(self) -> Sequence[str]:
         """
         Trust scope of the server trust group.
         """

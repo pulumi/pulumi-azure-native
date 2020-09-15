@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// List of all connections associated with this route table.
         /// </summary>
         [Output("associatedConnections")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> AssociatedConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> AssociatedConnections { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// List of all connections that advertise to this route table.
         /// </summary>
         [Output("propagatingConnections")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> PropagatingConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> PropagatingConnections { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the RouteTable resource.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// List of all routes.
         /// </summary>
         [Output("routes")]
-        public Output<ImmutableArray<Outputs.HubRouteResponseResult>> Routes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HubRouteResponse>> Routes { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

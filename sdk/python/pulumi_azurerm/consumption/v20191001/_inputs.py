@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -21,12 +21,12 @@ class BudgetComparisonExpressionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The comparison expression to be used in the budgets.
         :param pulumi.Input[str] name: The name of the column to use in comparison.
         :param pulumi.Input[str] operator: The operator to use for comparison.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: Array of values to use for comparison
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -58,27 +58,27 @@ class BudgetComparisonExpressionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Array of values to use for comparison
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
 class BudgetFilterArgs:
     def __init__(__self__, *,
-                 and_: Optional[pulumi.Input[List[pulumi.Input['BudgetFilterPropertiesArgs']]]] = None,
+                 and_: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]] = None,
                  dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
                  not_: Optional[pulumi.Input['BudgetFilterPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None):
         """
         May be used to filter budgets by resource group, resource, or meter.
-        :param pulumi.Input[List[pulumi.Input['BudgetFilterPropertiesArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
         :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
         :param pulumi.Input['BudgetFilterPropertiesArgs'] not_: The logical "NOT" expression.
         :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag
@@ -94,14 +94,14 @@ class BudgetFilterArgs:
 
     @property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[pulumi.Input[List[pulumi.Input['BudgetFilterPropertiesArgs']]]]:
+    def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]:
         """
         The logical "AND" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "and_")
 
     @and_.setter
-    def and_(self, value: Optional[pulumi.Input[List[pulumi.Input['BudgetFilterPropertiesArgs']]]]):
+    def and_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]):
         pulumi.set(self, "and_", value)
 
     @property
@@ -223,21 +223,21 @@ class BudgetTimePeriodArgs:
 @pulumi.input_type
 class NotificationArgs:
     def __init__(__self__, *,
-                 contact_emails: pulumi.Input[List[pulumi.Input[str]]],
+                 contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]],
                  enabled: pulumi.Input[bool],
                  operator: pulumi.Input[str],
                  threshold: pulumi.Input[float],
-                 contact_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 contact_roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  threshold_type: Optional[pulumi.Input[str]] = None):
         """
         The notification associated with a budget.
-        :param pulumi.Input[List[pulumi.Input[str]]] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[bool] enabled: The notification is enabled or not.
         :param pulumi.Input[str] operator: The comparison operator.
         :param pulumi.Input[float] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        :param pulumi.Input[List[pulumi.Input[str]]] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
-        :param pulumi.Input[List[pulumi.Input[str]]] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[str] threshold_type: The type of threshold
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
@@ -253,14 +253,14 @@ class NotificationArgs:
 
     @property
     @pulumi.getter(name="contactEmails")
-    def contact_emails(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def contact_emails(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Email addresses to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_emails")
 
     @contact_emails.setter
-    def contact_emails(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def contact_emails(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "contact_emails", value)
 
     @property
@@ -301,26 +301,26 @@ class NotificationArgs:
 
     @property
     @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def contact_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Action groups to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_groups")
 
     @contact_groups.setter
-    def contact_groups(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def contact_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "contact_groups", value)
 
     @property
     @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def contact_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Contact roles to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_roles")
 
     @contact_roles.setter
-    def contact_roles(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def contact_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "contact_roles", value)
 
     @property

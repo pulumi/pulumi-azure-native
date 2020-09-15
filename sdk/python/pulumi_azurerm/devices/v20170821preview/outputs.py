@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -104,8 +104,8 @@ class IotDpsPropertiesDescriptionResponse(dict):
                  id_scope: str,
                  service_operations_host_name: str,
                  allocation_policy: Optional[str] = None,
-                 authorization_policies: Optional[List['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']] = None,
-                 iot_hubs: Optional[List['outputs.IotHubDefinitionDescriptionResponse']] = None,
+                 authorization_policies: Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']] = None,
+                 iot_hubs: Optional[Sequence['outputs.IotHubDefinitionDescriptionResponse']] = None,
                  provisioning_state: Optional[str] = None,
                  state: Optional[str] = None):
         """
@@ -113,7 +113,7 @@ class IotDpsPropertiesDescriptionResponse(dict):
         :param str id_scope: Unique identifier of this provisioning service.
         :param str service_operations_host_name: Service endpoint for provisioning service.
         :param str allocation_policy: Allocation policy to be used by this provisioning service.
-        :param List['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
+        :param Sequence['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
         :param str provisioning_state: The ARM provisioning state of the provisioning service.
         :param str state: Current state of the provisioning service.
         """
@@ -165,12 +165,12 @@ class IotDpsPropertiesDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="authorizationPolicies")
-    def authorization_policies(self) -> Optional[List['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']]:
+    def authorization_policies(self) -> Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']]:
         return pulumi.get(self, "authorization_policies")
 
     @property
     @pulumi.getter(name="iotHubs")
-    def iot_hubs(self) -> Optional[List['outputs.IotHubDefinitionDescriptionResponse']]:
+    def iot_hubs(self) -> Optional[Sequence['outputs.IotHubDefinitionDescriptionResponse']]:
         """
         List of IoT hubs associated with this provisioning service.
         """
@@ -203,12 +203,12 @@ class IotDpsSkuInfoResponse(dict):
     """
     def __init__(__self__, *,
                  tier: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None):
         """
         List of possible provisioning service SKUs.
         :param str tier: Pricing tier of the provisioning service.
-        :param float capacity: The number of services of the selected tier allowed in the subscription.
+        :param int capacity: The number of services of the selected tier allowed in the subscription.
         """
         pulumi.set(__self__, "tier", tier)
         if capacity is not None:
@@ -226,7 +226,7 @@ class IotDpsSkuInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The number of services of the selected tier allowed in the subscription.
         """
@@ -250,7 +250,7 @@ class IotHubDefinitionDescriptionResponse(dict):
                  connection_string: str,
                  location: str,
                  name: str,
-                 allocation_weight: Optional[float] = None,
+                 allocation_weight: Optional[int] = None,
                  apply_allocation_policy: Optional[bool] = None):
         """
         Description of the IoT hub.
@@ -292,7 +292,7 @@ class IotHubDefinitionDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="allocationWeight")
-    def allocation_weight(self) -> Optional[float]:
+    def allocation_weight(self) -> Optional[int]:
         return pulumi.get(self, "allocation_weight")
 
     @property

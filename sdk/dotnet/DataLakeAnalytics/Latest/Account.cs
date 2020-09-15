@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
         /// The list of compute policies associated with this account.
         /// </summary>
         [Output("computePolicies")]
-        public Output<ImmutableArray<Outputs.ComputePolicyResponseResult>> ComputePolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ComputePolicyResponse>> ComputePolicies { get; private set; } = null!;
 
         /// <summary>
         /// The account creation time.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
         /// The list of Data Lake Store accounts associated with this account.
         /// </summary>
         [Output("dataLakeStoreAccounts")]
-        public Output<ImmutableArray<Outputs.DataLakeStoreAccountInformationResponseResult>> DataLakeStoreAccounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse>> DataLakeStoreAccounts { get; private set; } = null!;
 
         /// <summary>
         /// The default Data Lake Store account associated with this account.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
         /// The list of firewall rules associated with this account.
         /// </summary>
         [Output("firewallRules")]
-        public Output<ImmutableArray<Outputs.FirewallRuleResponseResult>> FirewallRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallRuleResponse>> FirewallRules { get; private set; } = null!;
 
         /// <summary>
         /// The current state of the IP address firewall for this account.
@@ -144,7 +144,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
         /// The list of Azure Blob Storage accounts associated with this account.
         /// </summary>
         [Output("storageAccounts")]
-        public Output<ImmutableArray<Outputs.StorageAccountInformationResponseResult>> StorageAccounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StorageAccountInformationResponse>> StorageAccounts { get; private set; } = null!;
 
         /// <summary>
         /// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.

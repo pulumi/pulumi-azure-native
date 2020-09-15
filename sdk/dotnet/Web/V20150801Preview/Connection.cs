@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Web.V20150801Preview
         /// expanded connection provider name
         /// </summary>
         [Output("api")]
-        public Output<Outputs.ExpandedParentApiEntityResponseResult?> Api { get; private set; } = null!;
+        public Output<Outputs.ExpandedParentApiEntityResponse?> Api { get; private set; } = null!;
 
         /// <summary>
         /// Timestamp of last connection change.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Web.V20150801Preview
         /// Custom login setting values.
         /// </summary>
         [Output("customParameterValues")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterCustomLoginSettingValuesResponseResult>?> CustomParameterValues { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ParameterCustomLoginSettingValuesResponse>?> CustomParameterValues { get; private set; } = null!;
 
         /// <summary>
         /// display name
@@ -93,7 +93,7 @@ namespace Pulumi.AzureRM.Web.V20150801Preview
         /// Status of the connection
         /// </summary>
         [Output("statuses")]
-        public Output<ImmutableArray<Outputs.ConnectionStatusResponseResult>> Statuses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ConnectionStatusResponse>> Statuses { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

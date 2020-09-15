@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
         /// Properties of the trigger.
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.MultiplePipelineTriggerResponseResult, Outputs.TumblingWindowTriggerResponseResult>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.MultiplePipelineTriggerResponse, Outputs.TumblingWindowTriggerResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

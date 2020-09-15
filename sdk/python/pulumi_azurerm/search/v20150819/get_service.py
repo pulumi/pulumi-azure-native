@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -33,14 +33,14 @@ class GetServiceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if partition_count and not isinstance(partition_count, float):
-            raise TypeError("Expected argument 'partition_count' to be a float")
+        if partition_count and not isinstance(partition_count, int):
+            raise TypeError("Expected argument 'partition_count' to be a int")
         pulumi.set(__self__, "partition_count", partition_count)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if replica_count and not isinstance(replica_count, float):
-            raise TypeError("Expected argument 'replica_count' to be a float")
+        if replica_count and not isinstance(replica_count, int):
+            raise TypeError("Expected argument 'replica_count' to be a int")
         pulumi.set(__self__, "replica_count", replica_count)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -92,7 +92,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[float]:
+    def partition_count(self) -> Optional[int]:
         """
         The number of partitions in the Search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         """
@@ -108,7 +108,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[float]:
+    def replica_count(self) -> Optional[int]:
         """
         The number of replicas in the Search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         """

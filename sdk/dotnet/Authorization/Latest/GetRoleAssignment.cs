@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Authorization.Latest
         /// <summary>
         /// Role assignment properties.
         /// </summary>
-        public readonly Outputs.RoleAssignmentPropertiesWithScopeResponseResult Properties;
+        public readonly Outputs.RoleAssignmentPropertiesWithScopeResponse Properties;
         /// <summary>
         /// The role assignment type.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Authorization.Latest
         private GetRoleAssignmentResult(
             string name,
 
-            Outputs.RoleAssignmentPropertiesWithScopeResponseResult properties,
+            Outputs.RoleAssignmentPropertiesWithScopeResponse properties,
 
             string type)
         {

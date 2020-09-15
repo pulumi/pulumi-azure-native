@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
         /// <summary>
         /// The Network Mapping Properties.
         /// </summary>
-        public readonly Outputs.NetworkMappingPropertiesResponseResult Properties;
+        public readonly Outputs.NetworkMappingPropertiesResponse Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
 
             string name,
 
-            Outputs.NetworkMappingPropertiesResponseResult properties,
+            Outputs.NetworkMappingPropertiesResponse properties,
 
             string type)
         {

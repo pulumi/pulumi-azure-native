@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
         /// Cross-Origin Resource Sharing (CORS) settings.
         /// </summary>
         [Output("cors")]
-        public Output<Outputs.SignalRCorsSettingsResponseResult?> Cors { get; private set; } = null!;
+        public Output<Outputs.SignalRCorsSettingsResponse?> Cors { get; private set; } = null!;
 
         /// <summary>
         /// The publicly accessible IP of the SignalR service.
@@ -35,7 +35,7 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
         /// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         /// </summary>
         [Output("features")]
-        public Output<ImmutableArray<Outputs.SignalRFeatureResponseResult>> Features { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SignalRFeatureResponse>> Features { get; private set; } = null!;
 
         /// <summary>
         /// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
         /// SKU of the service.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ResourceSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ResourceSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -28,17 +28,17 @@ class DataCollectionRuleResponseDataSources(dict):
     This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
     """
     def __init__(__self__, *,
-                 extensions: Optional[List['outputs.ExtensionDataSourceResponse']] = None,
-                 performance_counters: Optional[List['outputs.PerfCounterDataSourceResponse']] = None,
-                 syslog: Optional[List['outputs.SyslogDataSourceResponse']] = None,
-                 windows_event_logs: Optional[List['outputs.WindowsEventLogDataSourceResponse']] = None):
+                 extensions: Optional[Sequence['outputs.ExtensionDataSourceResponse']] = None,
+                 performance_counters: Optional[Sequence['outputs.PerfCounterDataSourceResponse']] = None,
+                 syslog: Optional[Sequence['outputs.SyslogDataSourceResponse']] = None,
+                 windows_event_logs: Optional[Sequence['outputs.WindowsEventLogDataSourceResponse']] = None):
         """
         The specification of data sources. 
         This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
-        :param List['ExtensionDataSourceResponseArgs'] extensions: The list of Azure VM extension data source configurations.
-        :param List['PerfCounterDataSourceResponseArgs'] performance_counters: The list of performance counter data source configurations.
-        :param List['SyslogDataSourceResponseArgs'] syslog: The list of Syslog data source configurations.
-        :param List['WindowsEventLogDataSourceResponseArgs'] windows_event_logs: The list of Windows Event Log data source configurations.
+        :param Sequence['ExtensionDataSourceResponseArgs'] extensions: The list of Azure VM extension data source configurations.
+        :param Sequence['PerfCounterDataSourceResponseArgs'] performance_counters: The list of performance counter data source configurations.
+        :param Sequence['SyslogDataSourceResponseArgs'] syslog: The list of Syslog data source configurations.
+        :param Sequence['WindowsEventLogDataSourceResponseArgs'] windows_event_logs: The list of Windows Event Log data source configurations.
         """
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
@@ -51,7 +51,7 @@ class DataCollectionRuleResponseDataSources(dict):
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[List['outputs.ExtensionDataSourceResponse']]:
+    def extensions(self) -> Optional[Sequence['outputs.ExtensionDataSourceResponse']]:
         """
         The list of Azure VM extension data source configurations.
         """
@@ -59,7 +59,7 @@ class DataCollectionRuleResponseDataSources(dict):
 
     @property
     @pulumi.getter(name="performanceCounters")
-    def performance_counters(self) -> Optional[List['outputs.PerfCounterDataSourceResponse']]:
+    def performance_counters(self) -> Optional[Sequence['outputs.PerfCounterDataSourceResponse']]:
         """
         The list of performance counter data source configurations.
         """
@@ -67,7 +67,7 @@ class DataCollectionRuleResponseDataSources(dict):
 
     @property
     @pulumi.getter
-    def syslog(self) -> Optional[List['outputs.SyslogDataSourceResponse']]:
+    def syslog(self) -> Optional[Sequence['outputs.SyslogDataSourceResponse']]:
         """
         The list of Syslog data source configurations.
         """
@@ -75,7 +75,7 @@ class DataCollectionRuleResponseDataSources(dict):
 
     @property
     @pulumi.getter(name="windowsEventLogs")
-    def windows_event_logs(self) -> Optional[List['outputs.WindowsEventLogDataSourceResponse']]:
+    def windows_event_logs(self) -> Optional[Sequence['outputs.WindowsEventLogDataSourceResponse']]:
         """
         The list of Windows Event Log data source configurations.
         """
@@ -92,11 +92,11 @@ class DataCollectionRuleResponseDestinations(dict):
     """
     def __init__(__self__, *,
                  azure_monitor_metrics: Optional['outputs.DestinationsSpecResponseAzureMonitorMetrics'] = None,
-                 log_analytics: Optional[List['outputs.LogAnalyticsDestinationResponse']] = None):
+                 log_analytics: Optional[Sequence['outputs.LogAnalyticsDestinationResponse']] = None):
         """
         The specification of destinations.
         :param 'DestinationsSpecResponseAzureMonitorMetricsArgs' azure_monitor_metrics: Azure Monitor Metrics destination.
-        :param List['LogAnalyticsDestinationResponseArgs'] log_analytics: List of Log Analytics destinations.
+        :param Sequence['LogAnalyticsDestinationResponseArgs'] log_analytics: List of Log Analytics destinations.
         """
         if azure_monitor_metrics is not None:
             pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
@@ -113,7 +113,7 @@ class DataCollectionRuleResponseDestinations(dict):
 
     @property
     @pulumi.getter(name="logAnalytics")
-    def log_analytics(self) -> Optional[List['outputs.LogAnalyticsDestinationResponse']]:
+    def log_analytics(self) -> Optional[Sequence['outputs.LogAnalyticsDestinationResponse']]:
         """
         List of Log Analytics destinations.
         """
@@ -129,19 +129,19 @@ class DataFlowResponse(dict):
     Definition of which streams are sent to which destinations.
     """
     def __init__(__self__, *,
-                 destinations: List[str],
-                 streams: List[str]):
+                 destinations: Sequence[str],
+                 streams: Sequence[str]):
         """
         Definition of which streams are sent to which destinations.
-        :param List[str] destinations: List of destinations for this data flow.
-        :param List[str] streams: List of streams for this data flow.
+        :param Sequence[str] destinations: List of destinations for this data flow.
+        :param Sequence[str] streams: List of streams for this data flow.
         """
         pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "streams", streams)
 
     @property
     @pulumi.getter
-    def destinations(self) -> List[str]:
+    def destinations(self) -> Sequence[str]:
         """
         List of destinations for this data flow.
         """
@@ -149,7 +149,7 @@ class DataFlowResponse(dict):
 
     @property
     @pulumi.getter
-    def streams(self) -> List[str]:
+    def streams(self) -> Sequence[str]:
         """
         List of streams for this data flow.
         """
@@ -195,7 +195,7 @@ class ExtensionDataSourceResponse(dict):
     def __init__(__self__, *,
                  extension_name: str,
                  name: str,
-                 streams: List[str],
+                 streams: Sequence[str],
                  extension_settings: Optional[Mapping[str, Any]] = None):
         """
         Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
@@ -203,7 +203,7 @@ class ExtensionDataSourceResponse(dict):
         :param str extension_name: The name of the VM extension.
         :param str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
-        :param List[str] streams: List of streams that this data source will be sent to.
+        :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         :param Mapping[str, Any] extension_settings: The extension settings. The format is specific for particular extension.
         """
@@ -232,7 +232,7 @@ class ExtensionDataSourceResponse(dict):
 
     @property
     @pulumi.getter
-    def streams(self) -> List[str]:
+    def streams(self) -> Sequence[str]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -296,22 +296,22 @@ class PerfCounterDataSourceResponse(dict):
     Collected from both Windows and Linux machines where the counter is present.
     """
     def __init__(__self__, *,
-                 counter_specifiers: List[str],
+                 counter_specifiers: Sequence[str],
                  name: str,
-                 sampling_frequency_in_seconds: float,
+                 sampling_frequency_in_seconds: int,
                  scheduled_transfer_period: str,
-                 streams: List[str]):
+                 streams: Sequence[str]):
         """
         Definition of which performance counters will be collected and how they will be collected by this data collection rule.
         Collected from both Windows and Linux machines where the counter is present.
-        :param List[str] counter_specifiers: A list of specifier names of the performance counters you want to collect.
+        :param Sequence[str] counter_specifiers: A list of specifier names of the performance counters you want to collect.
                Use a wildcard (*) to collect a counter for all instances.
                To get a list of performance counters on Windows, run the command 'typeperf'.
         :param str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
-        :param float sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples).
+        :param int sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples).
         :param str scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-        :param List[str] streams: List of streams that this data source will be sent to.
+        :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         pulumi.set(__self__, "counter_specifiers", counter_specifiers)
@@ -322,7 +322,7 @@ class PerfCounterDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="counterSpecifiers")
-    def counter_specifiers(self) -> List[str]:
+    def counter_specifiers(self) -> Sequence[str]:
         """
         A list of specifier names of the performance counters you want to collect.
         Use a wildcard (*) to collect a counter for all instances.
@@ -341,7 +341,7 @@ class PerfCounterDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="samplingFrequencyInSeconds")
-    def sampling_frequency_in_seconds(self) -> float:
+    def sampling_frequency_in_seconds(self) -> int:
         """
         The number of seconds between consecutive counter measurements (samples).
         """
@@ -357,7 +357,7 @@ class PerfCounterDataSourceResponse(dict):
 
     @property
     @pulumi.getter
-    def streams(self) -> List[str]:
+    def streams(self) -> Sequence[str]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -375,19 +375,19 @@ class SyslogDataSourceResponse(dict):
     Only collected from Linux machines.
     """
     def __init__(__self__, *,
-                 facility_names: List[str],
+                 facility_names: Sequence[str],
                  name: str,
-                 streams: List[str],
-                 log_levels: Optional[List[str]] = None):
+                 streams: Sequence[str],
+                 log_levels: Optional[Sequence[str]] = None):
         """
         Definition of which syslog data will be collected and how it will be collected.
         Only collected from Linux machines.
-        :param List[str] facility_names: The list of facility names.
+        :param Sequence[str] facility_names: The list of facility names.
         :param str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
-        :param List[str] streams: List of streams that this data source will be sent to.
+        :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        :param List[str] log_levels: The log levels to collect.
+        :param Sequence[str] log_levels: The log levels to collect.
         """
         pulumi.set(__self__, "facility_names", facility_names)
         pulumi.set(__self__, "name", name)
@@ -397,7 +397,7 @@ class SyslogDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="facilityNames")
-    def facility_names(self) -> List[str]:
+    def facility_names(self) -> Sequence[str]:
         """
         The list of facility names.
         """
@@ -414,7 +414,7 @@ class SyslogDataSourceResponse(dict):
 
     @property
     @pulumi.getter
-    def streams(self) -> List[str]:
+    def streams(self) -> Sequence[str]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -423,7 +423,7 @@ class SyslogDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="logLevels")
-    def log_levels(self) -> Optional[List[str]]:
+    def log_levels(self) -> Optional[Sequence[str]]:
         """
         The log levels to collect.
         """
@@ -442,17 +442,17 @@ class WindowsEventLogDataSourceResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  scheduled_transfer_period: str,
-                 streams: List[str],
-                 x_path_queries: List[str]):
+                 streams: Sequence[str],
+                 x_path_queries: Sequence[str]):
         """
         Definition of which Windows Event Log events will be collected and how they will be collected.
         Only collected from Windows machines.
         :param str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param str scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-        :param List[str] streams: List of streams that this data source will be sent to.
+        :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        :param List[str] x_path_queries: A list of Windows Event Log queries in XPATH format.
+        :param Sequence[str] x_path_queries: A list of Windows Event Log queries in XPATH format.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "scheduled_transfer_period", scheduled_transfer_period)
@@ -478,7 +478,7 @@ class WindowsEventLogDataSourceResponse(dict):
 
     @property
     @pulumi.getter
-    def streams(self) -> List[str]:
+    def streams(self) -> Sequence[str]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -487,7 +487,7 @@ class WindowsEventLogDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="xPathQueries")
-    def x_path_queries(self) -> List[str]:
+    def x_path_queries(self) -> Sequence[str]:
         """
         A list of Windows Event Log queries in XPATH format.
         """

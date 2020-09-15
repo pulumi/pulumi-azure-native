@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <summary>
         /// The access control configuration.
         /// </summary>
-        public readonly Outputs.FlowAccessControlConfigurationResponseResult? AccessControl;
+        public readonly Outputs.FlowAccessControlConfigurationResponse? AccessControl;
         /// <summary>
         /// Gets the access endpoint.
         /// </summary>
@@ -62,15 +62,15 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <summary>
         /// The endpoints configuration.
         /// </summary>
-        public readonly Outputs.FlowEndpointsConfigurationResponseResult? EndpointsConfiguration;
+        public readonly Outputs.FlowEndpointsConfigurationResponse? EndpointsConfiguration;
         /// <summary>
         /// The integration account.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponseResult? IntegrationAccount;
+        public readonly Outputs.ResourceReferenceResponse? IntegrationAccount;
         /// <summary>
         /// The integration service environment.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponseResult? IntegrationServiceEnvironment;
+        public readonly Outputs.ResourceReferenceResponse? IntegrationServiceEnvironment;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <summary>
         /// The parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterResponse>? Parameters;
         /// <summary>
         /// Gets the provisioning state.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <summary>
         /// The sku.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// The state.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
 
         [OutputConstructor]
         private GetWorkflowResult(
-            Outputs.FlowAccessControlConfigurationResponseResult? accessControl,
+            Outputs.FlowAccessControlConfigurationResponse? accessControl,
 
             string accessEndpoint,
 
@@ -120,21 +120,21 @@ namespace Pulumi.AzureRM.Logic.V20190501
 
             ImmutableDictionary<string, object>? definition,
 
-            Outputs.FlowEndpointsConfigurationResponseResult? endpointsConfiguration,
+            Outputs.FlowEndpointsConfigurationResponse? endpointsConfiguration,
 
-            Outputs.ResourceReferenceResponseResult? integrationAccount,
+            Outputs.ResourceReferenceResponse? integrationAccount,
 
-            Outputs.ResourceReferenceResponseResult? integrationServiceEnvironment,
+            Outputs.ResourceReferenceResponse? integrationServiceEnvironment,
 
             string? location,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>? parameters,
+            ImmutableDictionary<string, Outputs.WorkflowParameterResponse>? parameters,
 
             string provisioningState,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             string? state,
 

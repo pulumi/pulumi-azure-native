@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// The prediction grades.
         /// </summary>
         [Output("grades")]
-        public Output<ImmutableArray<Outputs.PredictionResponseGradesResult>> Grades { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PredictionResponseGrades>> Grades { get; private set; } = null!;
 
         /// <summary>
         /// Interaction types involved in the prediction.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// Definition of the link mapping of prediction.
         /// </summary>
         [Output("mappings")]
-        public Output<Outputs.PredictionResponseMappingsResult> Mappings { get; private set; } = null!;
+        public Output<Outputs.PredictionResponseMappings> Mappings { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// System generated entities.
         /// </summary>
         [Output("systemGeneratedEntities")]
-        public Output<Outputs.PredictionResponseSystemGeneratedEntitiesResult> SystemGeneratedEntities { get; private set; } = null!;
+        public Output<Outputs.PredictionResponseSystemGeneratedEntities> SystemGeneratedEntities { get; private set; } = null!;
 
         /// <summary>
         /// The hub name.

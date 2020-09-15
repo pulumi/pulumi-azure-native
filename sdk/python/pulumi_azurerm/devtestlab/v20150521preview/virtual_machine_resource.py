@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class VirtualMachineResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_deployment_status: Optional[pulumi.Input[pulumi.InputType['ArtifactDeploymentStatusPropertiesArgs']]] = None,
-                 artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]]] = None,
                  compute_id: Optional[pulumi.Input[str]] = None,
                  created_by_user: Optional[pulumi.Input[str]] = None,
                  created_by_user_id: Optional[pulumi.Input[str]] = None,
@@ -53,7 +53,7 @@ class VirtualMachineResource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ArtifactDeploymentStatusPropertiesArgs']] artifact_deployment_status: The artifact deployment status for the virtual machine.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]] artifacts: The artifacts to be installed on the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]] artifacts: The artifacts to be installed on the virtual machine.
         :param pulumi.Input[str] compute_id: The resource identifier (Microsoft.Compute) of the virtual machine.
         :param pulumi.Input[str] created_by_user: The email address of creator of the virtual machine.
         :param pulumi.Input[str] created_by_user_id: The object identifier of the creator of the virtual machine.
@@ -166,7 +166,7 @@ class VirtualMachineResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> pulumi.Output[Optional[List['outputs.ArtifactInstallPropertiesResponse']]]:
+    def artifacts(self) -> pulumi.Output[Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']]]:
         """
         The artifacts to be installed on the virtual machine.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class PatchSchedule(pulumi.CustomResource):
                  default: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_entries: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
+                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,7 +32,7 @@ class PatchSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] default: Default string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]] schedule_entries: List of patch schedules for a Redis cache.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]] schedule_entries: List of patch schedules for a Redis cache.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -100,7 +100,7 @@ class PatchSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduleEntries")
-    def schedule_entries(self) -> pulumi.Output[List['outputs.ScheduleEntryResponse']]:
+    def schedule_entries(self) -> pulumi.Output[Sequence['outputs.ScheduleEntryResponse']]:
         """
         List of patch schedules for a Redis cache.
         """

@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// List of all connections associated with this route table.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> AssociatedConnections;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> AssociatedConnections;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// List of all connections that advertise to this route table.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> PropagatingConnections;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> PropagatingConnections;
         /// <summary>
         /// The provisioning state of the RouteTable resource.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// List of all routes.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HubRouteResponseResult> Routes;
+        public readonly ImmutableArray<Outputs.HubRouteResponse> Routes;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Network.Latest
 
         [OutputConstructor]
         private GetHubRouteTableResult(
-            ImmutableArray<Outputs.SubResourceResponseResult> associatedConnections,
+            ImmutableArray<Outputs.SubResourceResponse> associatedConnections,
 
             string etag,
 
@@ -88,11 +88,11 @@ namespace Pulumi.AzureRM.Network.Latest
 
             string? name,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> propagatingConnections,
+            ImmutableArray<Outputs.SubResourceResponse> propagatingConnections,
 
             string provisioningState,
 
-            ImmutableArray<Outputs.HubRouteResponseResult> routes,
+            ImmutableArray<Outputs.HubRouteResponse> routes,
 
             string type)
         {

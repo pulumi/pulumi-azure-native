@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetHybridConnectionResult:
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
-        if listener_count and not isinstance(listener_count, float):
-            raise TypeError("Expected argument 'listener_count' to be a float")
+        if listener_count and not isinstance(listener_count, int):
+            raise TypeError("Expected argument 'listener_count' to be a int")
         pulumi.set(__self__, "listener_count", listener_count)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -52,7 +52,7 @@ class GetHybridConnectionResult:
 
     @property
     @pulumi.getter(name="listenerCount")
-    def listener_count(self) -> float:
+    def listener_count(self) -> int:
         """
         The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
         """

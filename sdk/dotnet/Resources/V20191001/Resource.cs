@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Resources.V20191001
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the resource.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Resources.V20191001
         /// The plan of the resource.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
+        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// The resource properties.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Resources.V20191001
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

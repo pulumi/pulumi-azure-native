@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -215,7 +215,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="trustedExternalTenants")
-    def trusted_external_tenants(self) -> Optional[List['outputs.TrustedExternalTenantResponse']]:
+    def trusted_external_tenants(self) -> Optional[Sequence['outputs.TrustedExternalTenantResponse']]:
         """
         The cluster's external tenants.
         """
@@ -247,7 +247,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> Optional[Sequence[str]]:
         """
         The availability zones of the cluster.
         """

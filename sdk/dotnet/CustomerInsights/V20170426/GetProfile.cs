@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <summary>
         /// The properties of the Profile.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PropertyDefinitionResponseResult> Fields;
+        public readonly ImmutableArray<Outputs.PropertyDefinitionResponse> Fields;
         /// <summary>
         /// The instance count.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <summary>
         /// The strong IDs.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StrongIdResponseResult> StrongIds;
+        public readonly ImmutableArray<Outputs.StrongIdResponse> StrongIds;
         /// <summary>
         /// The hub name.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 
             string? entityType,
 
-            ImmutableArray<Outputs.PropertyDefinitionResponseResult> fields,
+            ImmutableArray<Outputs.PropertyDefinitionResponse> fields,
 
             int? instancesCount,
 
@@ -164,7 +164,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 
             string? smallImage,
 
-            ImmutableArray<Outputs.StrongIdResponseResult> strongIds,
+            ImmutableArray<Outputs.StrongIdResponse> strongIds,
 
             string tenantId,
 

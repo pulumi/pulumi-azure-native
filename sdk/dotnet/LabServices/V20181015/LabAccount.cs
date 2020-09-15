@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// The details of the latest operation. ex: status, error
         /// </summary>
         [Output("latestOperationResult")]
-        public Output<Outputs.LatestOperationResultResponseResult> LatestOperationResult { get; private set; } = null!;
+        public Output<Outputs.LatestOperationResultResponse> LatestOperationResult { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// Represents the size configuration under the lab account
         /// </summary>
         [Output("sizeConfiguration")]
-        public Output<Outputs.SizeConfigurationPropertiesResponseResult> SizeConfiguration { get; private set; } = null!;
+        public Output<Outputs.SizeConfigurationPropertiesResponse> SizeConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

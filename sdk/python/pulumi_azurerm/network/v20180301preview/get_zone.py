@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,8 +27,8 @@ class GetZoneResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
-            raise TypeError("Expected argument 'max_number_of_record_sets' to be a float")
+        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, int):
+            raise TypeError("Expected argument 'max_number_of_record_sets' to be a int")
         pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -36,8 +36,8 @@ class GetZoneResult:
         if name_servers and not isinstance(name_servers, list):
             raise TypeError("Expected argument 'name_servers' to be a list")
         pulumi.set(__self__, "name_servers", name_servers)
-        if number_of_record_sets and not isinstance(number_of_record_sets, float):
-            raise TypeError("Expected argument 'number_of_record_sets' to be a float")
+        if number_of_record_sets and not isinstance(number_of_record_sets, int):
+            raise TypeError("Expected argument 'number_of_record_sets' to be a int")
         pulumi.set(__self__, "number_of_record_sets", number_of_record_sets)
         if registration_virtual_networks and not isinstance(registration_virtual_networks, list):
             raise TypeError("Expected argument 'registration_virtual_networks' to be a list")
@@ -73,7 +73,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> float:
+    def max_number_of_record_sets(self) -> int:
         """
         The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -89,7 +89,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> List[str]:
+    def name_servers(self) -> Sequence[str]:
         """
         The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -97,7 +97,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> float:
+    def number_of_record_sets(self) -> int:
         """
         The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -105,7 +105,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="registrationVirtualNetworks")
-    def registration_virtual_networks(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def registration_virtual_networks(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         """
@@ -113,7 +113,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="resolutionVirtualNetworks")
-    def resolution_virtual_networks(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def resolution_virtual_networks(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         """

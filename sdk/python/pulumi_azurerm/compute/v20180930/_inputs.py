@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -135,11 +135,11 @@ class DiskSkuArgs:
 class EncryptionSettingsCollectionArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 encryption_settings: Optional[pulumi.Input[List[pulumi.Input['EncryptionSettingsElementArgs']]]] = None):
+                 encryption_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgs']]]] = None):
         """
         Encryption settings for disk or snapshot
         :param pulumi.Input[bool] enabled: Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-        :param pulumi.Input[List[pulumi.Input['EncryptionSettingsElementArgs']]] encryption_settings: A collection of encryption settings, one for each disk volume.
+        :param pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgs']]] encryption_settings: A collection of encryption settings, one for each disk volume.
         """
         pulumi.set(__self__, "enabled", enabled)
         if encryption_settings is not None:
@@ -159,14 +159,14 @@ class EncryptionSettingsCollectionArgs:
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input[List[pulumi.Input['EncryptionSettingsElementArgs']]]]:
+    def encryption_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgs']]]]:
         """
         A collection of encryption settings, one for each disk volume.
         """
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input[List[pulumi.Input['EncryptionSettingsElementArgs']]]]):
+    def encryption_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgs']]]]):
         pulumi.set(self, "encryption_settings", value)
 
 
@@ -214,11 +214,11 @@ class EncryptionSettingsElementArgs:
 class ImageDiskReferenceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 lun: Optional[pulumi.Input[float]] = None):
+                 lun: Optional[pulumi.Input[int]] = None):
         """
         The source image used for creating the disk.
         :param pulumi.Input[str] id: A relative uri containing either a Platform Image Repository or user image reference.
-        :param pulumi.Input[float] lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+        :param pulumi.Input[int] lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """
         pulumi.set(__self__, "id", id)
         if lun is not None:
@@ -238,14 +238,14 @@ class ImageDiskReferenceArgs:
 
     @property
     @pulumi.getter
-    def lun(self) -> Optional[pulumi.Input[float]]:
+    def lun(self) -> Optional[pulumi.Input[int]]:
         """
         If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """
         return pulumi.get(self, "lun")
 
     @lun.setter
-    def lun(self, value: Optional[pulumi.Input[float]]):
+    def lun(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "lun", value)
 
 

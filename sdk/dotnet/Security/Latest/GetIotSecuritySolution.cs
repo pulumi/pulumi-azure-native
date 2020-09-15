@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Security.Latest
         /// <summary>
         /// List of the configuration status for each recommendation type.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponseResult> RecommendationsConfiguration;
+        public readonly ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponse> RecommendationsConfiguration;
         /// <summary>
         /// Status of the IoT Security solution.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Security.Latest
         /// <summary>
         /// Properties of the IoT Security solution's user defined resources.
         /// </summary>
-        public readonly Outputs.UserDefinedResourcesPropertiesResponseResult? UserDefinedResources;
+        public readonly Outputs.UserDefinedResourcesPropertiesResponse? UserDefinedResources;
         /// <summary>
         /// Workspace resource ID
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.Security.Latest
 
             string name,
 
-            ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponseResult> recommendationsConfiguration,
+            ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponse> recommendationsConfiguration,
 
             string? status,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.Security.Latest
 
             string? unmaskedIpLoggingStatus,
 
-            Outputs.UserDefinedResourcesPropertiesResponseResult? userDefinedResources,
+            Outputs.UserDefinedResourcesPropertiesResponse? userDefinedResources,
 
             string? workspace)
         {

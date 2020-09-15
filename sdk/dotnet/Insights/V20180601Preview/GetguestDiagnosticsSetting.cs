@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Insights.V20180601Preview
         /// <summary>
         /// the array of data source object which are configured to collect and send data
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataSourceResponseResult> DataSources;
+        public readonly ImmutableArray<Outputs.DataSourceResponse> DataSources;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureRM.Insights.V20180601Preview
 
         [OutputConstructor]
         private GetguestDiagnosticsSettingResult(
-            ImmutableArray<Outputs.DataSourceResponseResult> dataSources,
+            ImmutableArray<Outputs.DataSourceResponse> dataSources,
 
             string location,
 

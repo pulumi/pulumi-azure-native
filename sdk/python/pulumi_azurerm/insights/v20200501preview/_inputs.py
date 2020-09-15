@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -62,7 +62,7 @@ class ConditionArgs:
                  operator: pulumi.Input[str],
                  threshold: pulumi.Input[float],
                  time_aggregation: pulumi.Input[str],
-                 dimensions: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]] = None,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]] = None,
                  failing_periods: Optional[pulumi.Input['ConditionFailingPeriodsArgs']] = None,
                  metric_measure_column: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -72,7 +72,7 @@ class ConditionArgs:
         :param pulumi.Input[str] operator: The criteria operator.
         :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert.
         :param pulumi.Input[str] time_aggregation: Aggregation type
-        :param pulumi.Input[List[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions conditions
+        :param pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions conditions
         :param pulumi.Input['ConditionFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
         :param pulumi.Input[str] metric_measure_column: The column containing the metric measure number.
         :param pulumi.Input[str] query: Log query alert
@@ -130,14 +130,14 @@ class ConditionArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]]:
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]:
         """
         List of Dimensions conditions
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]]):
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @property
@@ -234,12 +234,12 @@ class DimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Dimension splitting and filtering definition
         :param pulumi.Input[str] name: Name of the dimension
         :param pulumi.Input[str] operator: Operator for dimension values
-        :param pulumi.Input[List[pulumi.Input[str]]] values: List of dimension values
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -271,38 +271,38 @@ class DimensionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of dimension values
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
 class ScheduledQueryRuleCriteriaArgs:
     def __init__(__self__, *,
-                 all_of: Optional[pulumi.Input[List[pulumi.Input['ConditionArgs']]]] = None):
+                 all_of: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]] = None):
         """
         The rule criteria that defines the conditions of the scheduled query rule.
-        :param pulumi.Input[List[pulumi.Input['ConditionArgs']]] all_of: A list of conditions to evaluate against the specified scopes
+        :param pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]] all_of: A list of conditions to evaluate against the specified scopes
         """
         if all_of is not None:
             pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[pulumi.Input[List[pulumi.Input['ConditionArgs']]]]:
+    def all_of(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]:
         """
         A list of conditions to evaluate against the specified scopes
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: Optional[pulumi.Input[List[pulumi.Input['ConditionArgs']]]]):
+    def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]):
         pulumi.set(self, "all_of", value)
 
 

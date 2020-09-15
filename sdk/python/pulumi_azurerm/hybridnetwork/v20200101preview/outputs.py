@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -88,7 +88,7 @@ class NetworkInterfaceIPConfigurationResponse(dict):
     Network interface IP configuration properties.
     """
     def __init__(__self__, *,
-                 dns_servers: Optional[List[str]] = None,
+                 dns_servers: Optional[Sequence[str]] = None,
                  gateway: Optional[str] = None,
                  ip_address: Optional[str] = None,
                  ip_allocation_method: Optional[str] = None,
@@ -96,7 +96,7 @@ class NetworkInterfaceIPConfigurationResponse(dict):
                  subnet: Optional[str] = None):
         """
         Network interface IP configuration properties.
-        :param List[str] dns_servers: The list of DNS servers IP addresses.
+        :param Sequence[str] dns_servers: The list of DNS servers IP addresses.
         :param str gateway: The value of the gateway.
         :param str ip_address: The value of the IP address.
         :param str ip_allocation_method: IP address allocation method.
@@ -118,7 +118,7 @@ class NetworkInterfaceIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> Optional[Sequence[str]]:
         """
         The list of DNS servers IP addresses.
         """
@@ -174,13 +174,13 @@ class NetworkInterfaceResponse(dict):
     Network interface properties.
     """
     def __init__(__self__, *,
-                 ip_configurations: Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
+                 ip_configurations: Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
                  mac_address: Optional[str] = None,
                  network_interface_name: Optional[str] = None,
                  vm_switch_type: Optional[str] = None):
         """
         Network interface properties.
-        :param List['NetworkInterfaceIPConfigurationResponseArgs'] ip_configurations: A list of IP configurations of the network interface.
+        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] ip_configurations: A list of IP configurations of the network interface.
         :param str mac_address: The MAC address of the network interface.
         :param str network_interface_name: The name of the network interface.
         :param str vm_switch_type: The type of VM switch
@@ -196,7 +196,7 @@ class NetworkInterfaceResponse(dict):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]:
         """
         A list of IP configurations of the network interface.
         """
@@ -313,7 +313,7 @@ class VirtualNetworkFunctionRoleConfigurationResponse(dict):
     """
     def __init__(__self__, *,
                  image_reference: Optional['outputs.ImageReferenceResponse'] = None,
-                 network_interfaces: Optional[List['outputs.NetworkInterfaceResponse']] = None,
+                 network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
                  os_profile: Optional['outputs.OsProfileResponse'] = None,
                  role_name: Optional[str] = None,
                  role_type: Optional[str] = None,
@@ -323,7 +323,7 @@ class VirtualNetworkFunctionRoleConfigurationResponse(dict):
         """
         Virtual network function role configuration.
         :param 'ImageReferenceResponseArgs' image_reference: The definition of image reference.
-        :param List['NetworkInterfaceResponseArgs'] network_interfaces: The network interface configurations.
+        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: The network interface configurations.
         :param 'OsProfileResponseArgs' os_profile: Specifies the operating system settings for the role instance. This value can be updated during the deployment of virtual network function.
         :param str role_name: The name of the virtual network function role.
         :param str role_type: Role type.
@@ -358,7 +358,7 @@ class VirtualNetworkFunctionRoleConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[List['outputs.NetworkInterfaceResponse']]:
+    def network_interfaces(self) -> Optional[Sequence['outputs.NetworkInterfaceResponse']]:
         """
         The network interface configurations.
         """
@@ -422,17 +422,17 @@ class VirtualNetworkFunctionTemplateResponse(dict):
     The virtual network function template.
     """
     def __init__(__self__, *,
-                 virutal_network_function_role_configurations: Optional[List['outputs.VirtualNetworkFunctionRoleConfigurationResponse']] = None):
+                 virutal_network_function_role_configurations: Optional[Sequence['outputs.VirtualNetworkFunctionRoleConfigurationResponse']] = None):
         """
         The virtual network function template.
-        :param List['VirtualNetworkFunctionRoleConfigurationResponseArgs'] virutal_network_function_role_configurations: An array of virtual network function role definitions.
+        :param Sequence['VirtualNetworkFunctionRoleConfigurationResponseArgs'] virutal_network_function_role_configurations: An array of virtual network function role definitions.
         """
         if virutal_network_function_role_configurations is not None:
             pulumi.set(__self__, "virutal_network_function_role_configurations", virutal_network_function_role_configurations)
 
     @property
     @pulumi.getter(name="virutalNetworkFunctionRoleConfigurations")
-    def virutal_network_function_role_configurations(self) -> Optional[List['outputs.VirtualNetworkFunctionRoleConfigurationResponse']]:
+    def virutal_network_function_role_configurations(self) -> Optional[Sequence['outputs.VirtualNetworkFunctionRoleConfigurationResponse']]:
         """
         An array of virtual network function role definitions.
         """
@@ -448,12 +448,12 @@ class VirtualNetworkFunctionUserConfigurationResponse(dict):
     The virtual network function user configuration.
     """
     def __init__(__self__, *,
-                 network_interfaces: Optional[List['outputs.NetworkInterfaceResponse']] = None,
+                 network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
                  role_name: Optional[str] = None,
                  user_data_parameters: Optional[Mapping[str, Any]] = None):
         """
         The virtual network function user configuration.
-        :param List['NetworkInterfaceResponseArgs'] network_interfaces: The network interface configuration.
+        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: The network interface configuration.
         :param str role_name: The name of the virtual network function role.
         :param Mapping[str, Any] user_data_parameters: The user data parameters from the customer.
         """
@@ -466,7 +466,7 @@ class VirtualNetworkFunctionUserConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[List['outputs.NetworkInterfaceResponse']]:
+    def network_interfaces(self) -> Optional[Sequence['outputs.NetworkInterfaceResponse']]:
         """
         The network interface configuration.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -98,7 +98,7 @@ class GetRelationshipResult:
 
     @property
     @pulumi.getter
-    def fields(self) -> Optional[List['outputs.PropertyDefinitionResponse']]:
+    def fields(self) -> Optional[Sequence['outputs.PropertyDefinitionResponse']]:
         """
         The properties of the Relationship.
         """
@@ -106,7 +106,7 @@ class GetRelationshipResult:
 
     @property
     @pulumi.getter(name="lookupMappings")
-    def lookup_mappings(self) -> Optional[List['outputs.RelationshipTypeMappingResponse']]:
+    def lookup_mappings(self) -> Optional[Sequence['outputs.RelationshipTypeMappingResponse']]:
         """
         Optional property to be used to map fields in profile to their strong ids in related profile.
         """

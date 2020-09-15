@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.AlertsManagement.V20200804Preview
         /// <summary>
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HealthAlertActionResponseResult> Actions;
+        public readonly ImmutableArray<Outputs.HealthAlertActionResponse> Actions;
         /// <summary>
         /// defines the specific alert criteria information.
         /// </summary>
-        public readonly Outputs.HealthAlertCriteriaResponseResult Criteria;
+        public readonly Outputs.HealthAlertCriteriaResponse Criteria;
         /// <summary>
         /// the description of the health alert that will be included in the alert email.
         /// </summary>
@@ -82,9 +82,9 @@ namespace Pulumi.AzureRM.AlertsManagement.V20200804Preview
 
         [OutputConstructor]
         private GetHealthAlertResult(
-            ImmutableArray<Outputs.HealthAlertActionResponseResult> actions,
+            ImmutableArray<Outputs.HealthAlertActionResponse> actions,
 
-            Outputs.HealthAlertCriteriaResponseResult criteria,
+            Outputs.HealthAlertCriteriaResponse criteria,
 
             string description,
 

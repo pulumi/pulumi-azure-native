@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// The ExpressRoute circuit peering.
         /// </summary>
         [Output("expressRouteCircuitPeering")]
-        public Output<Outputs.ExpressRouteCircuitPeeringIdResponseResult> ExpressRouteCircuitPeering { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitPeeringIdResponse> ExpressRouteCircuitPeering { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.

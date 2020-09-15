@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class ImportPipeline(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
                  import_pipeline_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ImportPipelineSourcePropertiesArgs']]] = None,
@@ -36,7 +36,7 @@ class ImportPipeline(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: The identity of the import pipeline.
         :param pulumi.Input[str] import_pipeline_name: The name of the import pipeline.
         :param pulumi.Input[str] location: The location of the import pipeline.
-        :param pulumi.Input[List[pulumi.Input[str]]] options: The list of all options configured for the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] options: The list of all options configured for the pipeline.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[pulumi.InputType['ImportPipelineSourcePropertiesArgs']] source: The source properties of the import pipeline.
@@ -128,7 +128,7 @@ class ImportPipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Output[Optional[List[str]]]:
+    def options(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of all options configured for the pipeline.
         """

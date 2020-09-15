@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic.Latest
         /// The content link.
         /// </summary>
         [Output("contentLink")]
-        public Output<Outputs.ContentLinkResponseResult> ContentLink { get; private set; } = null!;
+        public Output<Outputs.ContentLinkResponse> ContentLink { get; private set; } = null!;
 
         /// <summary>
         /// The content type.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Logic.Latest
         /// The parameters schema of integration account map.
         /// </summary>
         [Output("parametersSchema")]
-        public Output<Outputs.IntegrationAccountMapPropertiesResponseParametersSchemaResult?> ParametersSchema { get; private set; } = null!;
+        public Output<Outputs.IntegrationAccountMapPropertiesResponseParametersSchema?> ParametersSchema { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

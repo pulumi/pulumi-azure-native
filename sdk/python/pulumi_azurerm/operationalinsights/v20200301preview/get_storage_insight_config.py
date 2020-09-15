@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,7 +48,7 @@ class GetStorageInsightConfigResult:
 
     @property
     @pulumi.getter
-    def containers(self) -> Optional[List[str]]:
+    def containers(self) -> Optional[Sequence[str]]:
         """
         The names of the blob containers that the workspace should read
         """
@@ -88,7 +88,7 @@ class GetStorageInsightConfigResult:
 
     @property
     @pulumi.getter
-    def tables(self) -> Optional[List[str]]:
+    def tables(self) -> Optional[Sequence[str]]:
         """
         The names of the Azure tables that the workspace should read
         """

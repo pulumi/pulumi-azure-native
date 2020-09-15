@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -63,47 +63,47 @@ class ActivityLogAlertActionGroupArgs:
 @pulumi.input_type
 class ActivityLogAlertActionListArgs:
     def __init__(__self__, *,
-                 action_groups: Optional[pulumi.Input[List[pulumi.Input['ActivityLogAlertActionGroupArgs']]]] = None):
+                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgs']]]] = None):
         """
         A list of activity log alert actions.
-        :param pulumi.Input[List[pulumi.Input['ActivityLogAlertActionGroupArgs']]] action_groups: The list of activity log alerts.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgs']]] action_groups: The list of activity log alerts.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
 
     @property
     @pulumi.getter(name="actionGroups")
-    def action_groups(self) -> Optional[pulumi.Input[List[pulumi.Input['ActivityLogAlertActionGroupArgs']]]]:
+    def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgs']]]]:
         """
         The list of activity log alerts.
         """
         return pulumi.get(self, "action_groups")
 
     @action_groups.setter
-    def action_groups(self, value: Optional[pulumi.Input[List[pulumi.Input['ActivityLogAlertActionGroupArgs']]]]):
+    def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgs']]]]):
         pulumi.set(self, "action_groups", value)
 
 
 @pulumi.input_type
 class ActivityLogAlertAllOfConditionArgs:
     def __init__(__self__, *,
-                 all_of: pulumi.Input[List[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]):
+                 all_of: pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]):
         """
         An Activity Log alert condition that is met when all its member conditions are met.
-        :param pulumi.Input[List[pulumi.Input['ActivityLogAlertLeafConditionArgs']]] all_of: The list of activity log alert conditions.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]] all_of: The list of activity log alert conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> pulumi.Input[List[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]:
+    def all_of(self) -> pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]:
         """
         The list of activity log alert conditions.
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: pulumi.Input[List[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]):
+    def all_of(self, value: pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]):
         pulumi.set(self, "all_of", value)
 
 

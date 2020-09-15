@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.StorSimple.Latest
         /// Represents the type of StorSimple Manager.
         /// </summary>
         [Output("cisIntrinsicSettings")]
-        public Output<Outputs.ManagerIntrinsicSettingsResponseResult?> CisIntrinsicSettings { get; private set; } = null!;
+        public Output<Outputs.ManagerIntrinsicSettingsResponse?> CisIntrinsicSettings { get; private set; } = null!;
 
         /// <summary>
         /// The etag of the manager.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.StorSimple.Latest
         /// Specifies the Sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ManagerSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ManagerSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The tags attached to the resource.

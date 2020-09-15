@@ -60,11 +60,11 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
         /// <summary>
         /// The status of the storage insight
         /// </summary>
-        public readonly Outputs.StorageInsightStatusResponseResult Status;
+        public readonly Outputs.StorageInsightStatusResponse Status;
         /// <summary>
         /// The storage account connection details
         /// </summary>
-        public readonly Outputs.StorageAccountResponseResult StorageAccount;
+        public readonly Outputs.StorageAccountResponse StorageAccount;
         /// <summary>
         /// The names of the Azure tables that the workspace should read
         /// </summary>
@@ -86,9 +86,9 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
 
             string name,
 
-            Outputs.StorageInsightStatusResponseResult status,
+            Outputs.StorageInsightStatusResponse status,
 
-            Outputs.StorageAccountResponseResult storageAccount,
+            Outputs.StorageAccountResponse storageAccount,
 
             ImmutableArray<string> tables,
 

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20200301Preview
         /// The properties associated with a private endpoint.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

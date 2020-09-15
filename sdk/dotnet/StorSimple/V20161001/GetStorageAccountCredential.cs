@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// <summary>
         /// The details of the storage account password
         /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponseResult? AccessKey;
+        public readonly Outputs.AsymmetricEncryptedSecretResponse? AccessKey;
         /// <summary>
         /// The cloud service provider
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 
         [OutputConstructor]
         private GetStorageAccountCredentialResult(
-            Outputs.AsymmetricEncryptedSecretResponseResult? accessKey,
+            Outputs.AsymmetricEncryptedSecretResponse? accessKey,
 
             string cloudType,
 

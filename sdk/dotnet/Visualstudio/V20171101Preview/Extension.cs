@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Visualstudio.V20171101Preview
         /// The extension plan that was purchased.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.ExtensionResourcePlanResponseResult?> Plan { get; private set; } = null!;
+        public Output<Outputs.ExtensionResourcePlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// Resource properties.

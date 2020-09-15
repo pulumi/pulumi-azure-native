@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetVirtualMachineImageTemplateResult:
     Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     """
     def __init__(__self__, build_timeout_in_minutes=None, customize=None, distribute=None, identity=None, last_run_status=None, location=None, name=None, provisioning_error=None, provisioning_state=None, source=None, tags=None, type=None, vm_profile=None):
-        if build_timeout_in_minutes and not isinstance(build_timeout_in_minutes, float):
-            raise TypeError("Expected argument 'build_timeout_in_minutes' to be a float")
+        if build_timeout_in_minutes and not isinstance(build_timeout_in_minutes, int):
+            raise TypeError("Expected argument 'build_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "build_timeout_in_minutes", build_timeout_in_minutes)
         if customize and not isinstance(customize, list):
             raise TypeError("Expected argument 'customize' to be a list")
@@ -63,7 +63,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter(name="buildTimeoutInMinutes")
-    def build_timeout_in_minutes(self) -> Optional[float]:
+    def build_timeout_in_minutes(self) -> Optional[int]:
         """
         Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
         """
@@ -71,7 +71,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter
-    def customize(self) -> Optional[List[Any]]:
+    def customize(self) -> Optional[Sequence[Any]]:
         """
         Specifies the properties used to describe the customization steps of the image, like Image source etc
         """
@@ -79,7 +79,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter
-    def distribute(self) -> List[Any]:
+    def distribute(self) -> Sequence[Any]:
         """
         The distribution targets where the image output needs to go to.
         """

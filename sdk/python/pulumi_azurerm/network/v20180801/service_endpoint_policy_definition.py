@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['ServiceEndpointPolicyDefinition']
@@ -23,7 +23,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
                  service: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_definition_name: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
-                 service_resources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 service_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,7 +40,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] service: service endpoint name.
         :param pulumi.Input[str] service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.
         :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
-        :param pulumi.Input[List[pulumi.Input[str]]] service_resources: A list of service resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_resources: A list of service resources.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -143,7 +143,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceResources")
-    def service_resources(self) -> pulumi.Output[Optional[List[str]]]:
+    def service_resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of service resources.
         """

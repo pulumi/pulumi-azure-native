@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
         /// <summary>
         /// AppInsights configuration.
         /// </summary>
-        public readonly Outputs.AppInsightsPropertiesResponseResult? AppInsights;
+        public readonly Outputs.AppInsightsPropertiesResponse? AppInsights;
         /// <summary>
         /// The cluster type.
         /// </summary>
@@ -50,11 +50,11 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
         /// <summary>
         /// Container Registry properties.
         /// </summary>
-        public readonly Outputs.ContainerRegistryPropertiesResponseResult? ContainerRegistry;
+        public readonly Outputs.ContainerRegistryPropertiesResponse? ContainerRegistry;
         /// <summary>
         /// Parameters for the Azure Container Service cluster.
         /// </summary>
-        public readonly Outputs.AcsClusterPropertiesResponseResult? ContainerService;
+        public readonly Outputs.AcsClusterPropertiesResponse? ContainerService;
         /// <summary>
         /// The date and time when the cluster was created.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
         /// <summary>
         /// Contains global configuration for the web services in the cluster.
         /// </summary>
-        public readonly Outputs.GlobalServiceConfigurationResponseResult? GlobalServiceConfiguration;
+        public readonly Outputs.GlobalServiceConfigurationResponse? GlobalServiceConfiguration;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
         /// <summary>
         /// List of provisioning errors reported by the resource provider.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorResponseWrapperResponseResult> ProvisioningErrors;
+        public readonly ImmutableArray<Outputs.ErrorResponseWrapperResponse> ProvisioningErrors;
         /// <summary>
         /// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
         /// <summary>
         /// Storage Account properties.
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponseResult? StorageAccount;
+        public readonly Outputs.StorageAccountPropertiesResponse? StorageAccount;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -102,19 +102,19 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
 
         [OutputConstructor]
         private GetOperationalizationClusterResult(
-            Outputs.AppInsightsPropertiesResponseResult? appInsights,
+            Outputs.AppInsightsPropertiesResponse? appInsights,
 
             string clusterType,
 
-            Outputs.ContainerRegistryPropertiesResponseResult? containerRegistry,
+            Outputs.ContainerRegistryPropertiesResponse? containerRegistry,
 
-            Outputs.AcsClusterPropertiesResponseResult? containerService,
+            Outputs.AcsClusterPropertiesResponse? containerService,
 
             string createdOn,
 
             string? description,
 
-            Outputs.GlobalServiceConfigurationResponseResult? globalServiceConfiguration,
+            Outputs.GlobalServiceConfigurationResponse? globalServiceConfiguration,
 
             string location,
 
@@ -122,11 +122,11 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
 
             string name,
 
-            ImmutableArray<Outputs.ErrorResponseWrapperResponseResult> provisioningErrors,
+            ImmutableArray<Outputs.ErrorResponseWrapperResponse> provisioningErrors,
 
             string provisioningState,
 
-            Outputs.StorageAccountPropertiesResponseResult? storageAccount,
+            Outputs.StorageAccountPropertiesResponse? storageAccount,
 
             ImmutableDictionary<string, string>? tags,
 

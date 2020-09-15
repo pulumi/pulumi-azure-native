@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -72,7 +72,7 @@ class GetAutoscaleSettingResult:
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[List['outputs.AutoscaleNotificationResponse']]:
+    def notifications(self) -> Optional[Sequence['outputs.AutoscaleNotificationResponse']]:
         """
         the collection of notifications.
         """
@@ -80,7 +80,7 @@ class GetAutoscaleSettingResult:
 
     @property
     @pulumi.getter
-    def profiles(self) -> List['outputs.AutoscaleProfileResponse']:
+    def profiles(self) -> Sequence['outputs.AutoscaleProfileResponse']:
         """
         the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         """

@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Network.Latest
         /// Local network gateway's BGP speaker settings.
         /// </summary>
         [Output("bgpSettings")]
-        public Output<Outputs.BgpSettingsResponseResult?> BgpSettings { get; private set; } = null!;
+        public Output<Outputs.BgpSettingsResponse?> BgpSettings { get; private set; } = null!;
 
         /// <summary>
         /// List of all vpn connections to the gateway.
         /// </summary>
         [Output("connections")]
-        public Output<ImmutableArray<Outputs.VpnConnectionResponseResult>> Connections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpnConnectionResponse>> Connections { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// List of all IPs configured on the gateway.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.VpnGatewayIpConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpnGatewayIpConfigurationResponse>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The VirtualHub to which the gateway belongs.
         /// </summary>
         [Output("virtualHub")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualHub { get; private set; } = null!;
 
         /// <summary>
         /// The scale unit for this vpn gateway.

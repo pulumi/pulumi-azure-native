@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20190513
         /// <summary>
         /// ProtectedItemResource properties
         /// </summary>
-        public readonly Union<Outputs.AzureFileshareProtectedItemResponseResult, Union<Outputs.AzureIaaSVMProtectedItemResponseResult, Union<Outputs.AzureSqlProtectedItemResponseResult, Union<Outputs.AzureVmWorkloadProtectedItemResponseResult, Union<Outputs.DPMProtectedItemResponseResult, Union<Outputs.GenericProtectedItemResponseResult, Outputs.MabFileFolderProtectedItemResponseResult>>>>>> Properties;
+        public readonly Union<Outputs.AzureFileshareProtectedItemResponse, Union<Outputs.AzureIaaSVMProtectedItemResponse, Union<Outputs.AzureSqlProtectedItemResponse, Union<Outputs.AzureVmWorkloadProtectedItemResponse, Union<Outputs.DPMProtectedItemResponse, Union<Outputs.GenericProtectedItemResponse, Outputs.MabFileFolderProtectedItemResponse>>>>>> Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20190513
 
             string name,
 
-            Union<Outputs.AzureFileshareProtectedItemResponseResult, Union<Outputs.AzureIaaSVMProtectedItemResponseResult, Union<Outputs.AzureSqlProtectedItemResponseResult, Union<Outputs.AzureVmWorkloadProtectedItemResponseResult, Union<Outputs.DPMProtectedItemResponseResult, Union<Outputs.GenericProtectedItemResponseResult, Outputs.MabFileFolderProtectedItemResponseResult>>>>>> properties,
+            Union<Outputs.AzureFileshareProtectedItemResponse, Union<Outputs.AzureIaaSVMProtectedItemResponse, Union<Outputs.AzureSqlProtectedItemResponse, Union<Outputs.AzureVmWorkloadProtectedItemResponse, Union<Outputs.DPMProtectedItemResponse, Union<Outputs.GenericProtectedItemResponse, Outputs.MabFileFolderProtectedItemResponse>>>>>> properties,
 
             ImmutableDictionary<string, string>? tags,
 

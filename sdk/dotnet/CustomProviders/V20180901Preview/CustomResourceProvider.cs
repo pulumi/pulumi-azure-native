@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
         /// A list of actions that the custom resource provider implements.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponseResult>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponse>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
         /// A list of resource types that the custom resource provider implements.
         /// </summary>
         [Output("resourceTypes")]
-        public Output<ImmutableArray<Outputs.CustomRPResourceTypeRouteDefinitionResponseResult>> ResourceTypes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CustomRPResourceTypeRouteDefinitionResponse>> ResourceTypes { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
         /// A list of validations to run on the custom resource provider's requests.
         /// </summary>
         [Output("validations")]
-        public Output<ImmutableArray<Outputs.CustomRPValidationsResponseResult>> Validations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CustomRPValidationsResponse>> Validations { get; private set; } = null!;
 
 
         /// <summary>

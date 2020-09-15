@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -22,11 +22,11 @@ __all__ = [
 class ClusterSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None):
+                 capacity: Optional[pulumi.Input[int]] = None):
         """
         SKU parameters particular to a cluster instance.
         :param pulumi.Input[str] name: Name of this SKU.
-        :param pulumi.Input[float] capacity: The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
+        :param pulumi.Input[int] capacity: The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -46,14 +46,14 @@ class ClusterSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -101,11 +101,11 @@ class ConnectionStateArgs:
 class EncryptionArgs:
     def __init__(__self__, *,
                  key_source: Optional[pulumi.Input[str]] = None,
-                 key_vault_properties: Optional[pulumi.Input[List[pulumi.Input['KeyVaultPropertiesArgs']]]] = None):
+                 key_vault_properties: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]] = None):
         """
         Properties to configure Encryption
         :param pulumi.Input[str] key_source: Enumerates the possible value of keySource for Encryption
-        :param pulumi.Input[List[pulumi.Input['KeyVaultPropertiesArgs']]] key_vault_properties: Properties of KeyVault
+        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]] key_vault_properties: Properties of KeyVault
         """
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
@@ -126,14 +126,14 @@ class EncryptionArgs:
 
     @property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input[List[pulumi.Input['KeyVaultPropertiesArgs']]]]:
+    def key_vault_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]]:
         """
         Properties of KeyVault
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input[List[pulumi.Input['KeyVaultPropertiesArgs']]]]):
+    def key_vault_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]]):
         pulumi.set(self, "key_vault_properties", value)
 
 
@@ -277,12 +277,12 @@ class PrivateEndpointArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         SKU parameters supplied to the create namespace operation
         :param pulumi.Input[str] name: Name of this SKU.
-        :param pulumi.Input[float] capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        :param pulumi.Input[int] capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
         :param pulumi.Input[str] tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -305,14 +305,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The Event Hubs throughput units, value should be 0 to 20 throughput units.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

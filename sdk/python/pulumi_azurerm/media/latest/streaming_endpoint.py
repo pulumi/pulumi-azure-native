@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,12 +25,12 @@ class StreamingEndpoint(pulumi.CustomResource):
                  cdn_profile: Optional[pulumi.Input[str]] = None,
                  cdn_provider: Optional[pulumi.Input[str]] = None,
                  cross_site_access_policies: Optional[pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']]] = None,
-                 custom_host_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_cache_age: Optional[pulumi.Input[float]] = None,
+                 max_cache_age: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scale_units: Optional[pulumi.Input[float]] = None,
+                 scale_units: Optional[pulumi.Input[int]] = None,
                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -49,12 +49,12 @@ class StreamingEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] cdn_profile: The CDN profile name.
         :param pulumi.Input[str] cdn_provider: The CDN provider name.
         :param pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']] cross_site_access_policies: The StreamingEndpoint access policies.
-        :param pulumi.Input[List[pulumi.Input[str]]] custom_host_names: The custom host names of the StreamingEndpoint
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_host_names: The custom host names of the StreamingEndpoint
         :param pulumi.Input[str] description: The StreamingEndpoint description.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[float] max_cache_age: Max cache age
+        :param pulumi.Input[int] max_cache_age: Max cache age
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-        :param pulumi.Input[float] scale_units: The number of scale units.  Use the Scale operation to adjust this value.
+        :param pulumi.Input[int] scale_units: The number of scale units.  Use the Scale operation to adjust this value.
         :param pulumi.Input[str] streaming_endpoint_name: The name of the StreamingEndpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -193,7 +193,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHostNames")
-    def custom_host_names(self) -> pulumi.Output[Optional[List[str]]]:
+    def custom_host_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The custom host names of the StreamingEndpoint
         """
@@ -241,7 +241,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxCacheAge")
-    def max_cache_age(self) -> pulumi.Output[Optional[float]]:
+    def max_cache_age(self) -> pulumi.Output[Optional[int]]:
         """
         Max cache age
         """
@@ -273,7 +273,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleUnits")
-    def scale_units(self) -> pulumi.Output[float]:
+    def scale_units(self) -> pulumi.Output[int]:
         """
         The number of scale units.  Use the Scale operation to adjust this value.
         """

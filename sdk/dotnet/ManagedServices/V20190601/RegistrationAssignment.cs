@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ManagedServices.V20190601
         /// Properties of a registration assignment.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RegistrationAssignmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.RegistrationAssignmentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -28,7 +28,7 @@ class VpnSite(pulumi.CustomResource):
                  site_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 vpn_site_links: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]]] = None,
+                 vpn_site_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]]] = None,
                  vpn_site_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -49,7 +49,7 @@ class VpnSite(pulumi.CustomResource):
         :param pulumi.Input[str] site_key: The key for vpn-site that can be used for connections.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the vpnSite belongs.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]] vpn_site_links: List of all vpn site links.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]] vpn_site_links: List of all vpn site links.
         :param pulumi.Input[str] vpn_site_name: The name of the VpnSite being created or updated.
         """
         if __name__ is not None:
@@ -224,7 +224,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnSiteLinks")
-    def vpn_site_links(self) -> pulumi.Output[Optional[List['outputs.VpnSiteLinkResponse']]]:
+    def vpn_site_links(self) -> pulumi.Output[Optional[Sequence['outputs.VpnSiteLinkResponse']]]:
         """
         List of all vpn site links.
         """

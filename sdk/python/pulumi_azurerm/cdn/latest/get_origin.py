@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,11 +26,11 @@ class GetOriginResult:
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
-        if http_port and not isinstance(http_port, float):
-            raise TypeError("Expected argument 'http_port' to be a float")
+        if http_port and not isinstance(http_port, int):
+            raise TypeError("Expected argument 'http_port' to be a int")
         pulumi.set(__self__, "http_port", http_port)
-        if https_port and not isinstance(https_port, float):
-            raise TypeError("Expected argument 'https_port' to be a float")
+        if https_port and not isinstance(https_port, int):
+            raise TypeError("Expected argument 'https_port' to be a int")
         pulumi.set(__self__, "https_port", https_port)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -38,8 +38,8 @@ class GetOriginResult:
         if origin_host_header and not isinstance(origin_host_header, str):
             raise TypeError("Expected argument 'origin_host_header' to be a str")
         pulumi.set(__self__, "origin_host_header", origin_host_header)
-        if priority and not isinstance(priority, float):
-            raise TypeError("Expected argument 'priority' to be a float")
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
         if private_endpoint_status and not isinstance(private_endpoint_status, str):
             raise TypeError("Expected argument 'private_endpoint_status' to be a str")
@@ -65,8 +65,8 @@ class GetOriginResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if weight and not isinstance(weight, float):
-            raise TypeError("Expected argument 'weight' to be a float")
+        if weight and not isinstance(weight, int):
+            raise TypeError("Expected argument 'weight' to be a int")
         pulumi.set(__self__, "weight", weight)
 
     @property
@@ -87,7 +87,7 @@ class GetOriginResult:
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[float]:
+    def http_port(self) -> Optional[int]:
         """
         The value of the HTTP port. Must be between 1 and 65535.
         """
@@ -95,7 +95,7 @@ class GetOriginResult:
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[float]:
+    def https_port(self) -> Optional[int]:
         """
         The value of the HTTPS port. Must be between 1 and 65535.
         """
@@ -119,7 +119,7 @@ class GetOriginResult:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         """
@@ -191,7 +191,7 @@ class GetOriginResult:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[float]:
+    def weight(self) -> Optional[int]:
         """
         Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """

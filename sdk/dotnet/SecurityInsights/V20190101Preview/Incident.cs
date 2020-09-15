@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// Additional data on the incident
         /// </summary>
         [Output("additionalData")]
-        public Output<Outputs.IncidentAdditionalDataResponseResult> AdditionalData { get; private set; } = null!;
+        public Output<Outputs.IncidentAdditionalDataResponse> AdditionalData { get; private set; } = null!;
 
         /// <summary>
         /// The reason the incident was closed
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// List of labels relevant to this incident
         /// </summary>
         [Output("labels")]
-        public Output<ImmutableArray<Outputs.IncidentLabelResponseResult>> Labels { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IncidentLabelResponse>> Labels { get; private set; } = null!;
 
         /// <summary>
         /// The time of the last activity in the incident
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// Describes a user that the incident is assigned to
         /// </summary>
         [Output("owner")]
-        public Output<Outputs.IncidentOwnerInfoResponseResult?> Owner { get; private set; } = null!;
+        public Output<Outputs.IncidentOwnerInfoResponse?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// List of resource ids of Analytic rules related to the incident

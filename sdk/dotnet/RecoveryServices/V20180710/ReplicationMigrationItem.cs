@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
         /// The migration item properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MigrationItemPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.MigrationItemPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource Type

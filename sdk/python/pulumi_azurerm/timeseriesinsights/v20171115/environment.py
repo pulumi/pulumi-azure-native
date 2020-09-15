@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class Environment(pulumi.CustomResource):
                  data_retention_time: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 partition_key_properties: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PartitionKeyPropertyArgs']]]]] = None,
+                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartitionKeyPropertyArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  storage_limit_exceeded_behavior: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         :param pulumi.Input[str] environment_name: Name of the environment
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PartitionKeyPropertyArgs']]]] partition_key_properties: The list of partition keys according to which the data in the environment will be ordered.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartitionKeyPropertyArgs']]]] partition_key_properties: The list of partition keys according to which the data in the environment will be ordered.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         :param pulumi.Input[str] storage_limit_exceeded_behavior: The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
@@ -160,7 +160,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKeyProperties")
-    def partition_key_properties(self) -> pulumi.Output[Optional[List['outputs.PartitionKeyPropertyResponse']]]:
+    def partition_key_properties(self) -> pulumi.Output[Optional[Sequence['outputs.PartitionKeyPropertyResponse']]]:
         """
         The list of partition keys according to which the data in the environment will be ordered.
         """

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
         /// <summary>
         /// Cross-Origin Resource Sharing (CORS) settings.
         /// </summary>
-        public readonly Outputs.SignalRCorsSettingsResponseResult? Cors;
+        public readonly Outputs.SignalRCorsSettingsResponse? Cors;
         /// <summary>
         /// The publicly accessible IP of the SignalR service.
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
         /// When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
         /// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SignalRFeatureResponseResult> Features;
+        public readonly ImmutableArray<Outputs.SignalRFeatureResponse> Features;
         /// <summary>
         /// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
         /// </summary>
@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
         /// <summary>
         /// The managed identity response
         /// </summary>
-        public readonly Outputs.ManagedIdentityResponseResult? Identity;
+        public readonly Outputs.ManagedIdentityResponse? Identity;
         /// <summary>
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         /// </summary>
@@ -79,11 +79,11 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
         /// <summary>
         /// Network ACLs
         /// </summary>
-        public readonly Outputs.SignalRNetworkACLsResponseResult? NetworkACLs;
+        public readonly Outputs.SignalRNetworkACLsResponse? NetworkACLs;
         /// <summary>
         /// Private endpoint connections to the SignalR resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the resource.
         /// </summary>
@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
         /// <summary>
         /// The billing information of the resource.(e.g. Free, Standard)
         /// </summary>
-        public readonly Outputs.ResourceSkuResponseResult? Sku;
+        public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.
         /// </summary>
@@ -107,7 +107,7 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
         /// <summary>
         /// TLS settings.
         /// </summary>
-        public readonly Outputs.SignalRTlsSettingsResponseResult? Tls;
+        public readonly Outputs.SignalRTlsSettingsResponse? Tls;
         /// <summary>
         /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
         /// </summary>
@@ -115,7 +115,7 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
         /// <summary>
         /// Upstream settings when the Azure SignalR is in server-less mode.
         /// </summary>
-        public readonly Outputs.ServerlessUpstreamSettingsResponseResult? Upstream;
+        public readonly Outputs.ServerlessUpstreamSettingsResponse? Upstream;
         /// <summary>
         /// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
         /// </summary>
@@ -123,15 +123,15 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
 
         [OutputConstructor]
         private GetSignalRResult(
-            Outputs.SignalRCorsSettingsResponseResult? cors,
+            Outputs.SignalRCorsSettingsResponse? cors,
 
             string externalIP,
 
-            ImmutableArray<Outputs.SignalRFeatureResponseResult> features,
+            ImmutableArray<Outputs.SignalRFeatureResponse> features,
 
             string hostName,
 
-            Outputs.ManagedIdentityResponseResult? identity,
+            Outputs.ManagedIdentityResponse? identity,
 
             string? kind,
 
@@ -139,9 +139,9 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
 
             string name,
 
-            Outputs.SignalRNetworkACLsResponseResult? networkACLs,
+            Outputs.SignalRNetworkACLsResponse? networkACLs,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 
@@ -149,15 +149,15 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
 
             int serverPort,
 
-            Outputs.ResourceSkuResponseResult? sku,
+            Outputs.ResourceSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            Outputs.SignalRTlsSettingsResponseResult? tls,
+            Outputs.SignalRTlsSettingsResponse? tls,
 
             string type,
 
-            Outputs.ServerlessUpstreamSettingsResponseResult? upstream,
+            Outputs.ServerlessUpstreamSettingsResponse? upstream,
 
             string version)
         {

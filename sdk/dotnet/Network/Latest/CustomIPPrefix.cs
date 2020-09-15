@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The list of all referenced PublicIpPrefixes.
         /// </summary>
         [Output("publicIpPrefixes")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> PublicIpPrefixes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> PublicIpPrefixes { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the custom IP prefix resource.

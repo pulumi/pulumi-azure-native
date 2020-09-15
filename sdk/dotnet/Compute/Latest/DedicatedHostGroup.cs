@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// A list of references to all dedicated hosts in the dedicated host group.
         /// </summary>
         [Output("hosts")]
-        public Output<ImmutableArray<Outputs.SubResourceReadOnlyResponseResult>> Hosts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceReadOnlyResponse>> Hosts { get; private set; } = null!;
 
         /// <summary>
         /// The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
         /// </summary>
         [Output("instanceView")]
-        public Output<Outputs.DedicatedHostGroupInstanceViewResponseResult> InstanceView { get; private set; } = null!;
+        public Output<Outputs.DedicatedHostGroupInstanceViewResponse> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

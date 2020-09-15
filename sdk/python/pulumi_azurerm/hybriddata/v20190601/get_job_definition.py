@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -57,7 +57,7 @@ class GetJobDefinitionResult:
 
     @property
     @pulumi.getter(name="customerSecrets")
-    def customer_secrets(self) -> Optional[List['outputs.CustomerSecretResponse']]:
+    def customer_secrets(self) -> Optional[Sequence['outputs.CustomerSecretResponse']]:
         """
         List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         """
@@ -113,7 +113,7 @@ class GetJobDefinitionResult:
 
     @property
     @pulumi.getter
-    def schedules(self) -> Optional[List['outputs.ScheduleResponse']]:
+    def schedules(self) -> Optional[Sequence['outputs.ScheduleResponse']]:
         """
         Schedule for running the job definition
         """

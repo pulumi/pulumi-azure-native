@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -69,7 +69,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter(name="associatedNetworkInterfaces")
-    def associated_network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
+    def associated_network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
         """
         Associated Network Interfaces to the DSCP Configuration.
         """
@@ -77,7 +77,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter(name="destinationIpRanges")
-    def destination_ip_ranges(self) -> Optional[List['outputs.QosIpRangeResponse']]:
+    def destination_ip_ranges(self) -> Optional[Sequence['outputs.QosIpRangeResponse']]:
         """
         Destination IP ranges.
         """
@@ -85,7 +85,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[List['outputs.QosPortRangeResponse']]:
+    def destination_port_ranges(self) -> Optional[Sequence['outputs.QosPortRangeResponse']]:
         """
         Destination port ranges.
         """
@@ -109,7 +109,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter
-    def markings(self) -> Optional[List[float]]:
+    def markings(self) -> Optional[Sequence[int]]:
         """
         List of markings to be used in the configuration.
         """
@@ -157,7 +157,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter(name="sourceIpRanges")
-    def source_ip_ranges(self) -> Optional[List['outputs.QosIpRangeResponse']]:
+    def source_ip_ranges(self) -> Optional[Sequence['outputs.QosIpRangeResponse']]:
         """
         Source IP ranges.
         """
@@ -165,7 +165,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[List['outputs.QosPortRangeResponse']]:
+    def source_port_ranges(self) -> Optional[Sequence['outputs.QosPortRangeResponse']]:
         """
         Sources port ranges.
         """

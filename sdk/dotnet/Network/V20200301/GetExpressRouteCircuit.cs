@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// The list of authorizations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult> Authorizations;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponse> Authorizations;
         /// <summary>
         /// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? ExpressRoutePort;
+        public readonly Outputs.SubResourceResponse? ExpressRoutePort;
         /// <summary>
         /// The GatewayManager Etag.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// The list of peerings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> Peerings;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> Peerings;
         /// <summary>
         /// The provisioning state of the express route circuit resource.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// The ServiceProviderProperties.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult? ServiceProviderProperties;
+        public readonly Outputs.ExpressRouteCircuitServiceProviderPropertiesResponse? ServiceProviderProperties;
         /// <summary>
         /// The ServiceProviderProvisioningState state of the resource.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// The SKU.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitSkuResponseResult? Sku;
+        public readonly Outputs.ExpressRouteCircuitSkuResponse? Sku;
         /// <summary>
         /// The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         private GetExpressRouteCircuitResult(
             bool? allowClassicOperations,
 
-            ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult> authorizations,
+            ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponse> authorizations,
 
             double? bandwidthInGbps,
 
@@ -132,7 +132,7 @@ namespace Pulumi.AzureRM.Network.V20200301
 
             string etag,
 
-            Outputs.SubResourceResponseResult? expressRoutePort,
+            Outputs.SubResourceResponse? expressRoutePort,
 
             string? gatewayManagerEtag,
 
@@ -142,7 +142,7 @@ namespace Pulumi.AzureRM.Network.V20200301
 
             string name,
 
-            ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> peerings,
+            ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> peerings,
 
             string provisioningState,
 
@@ -150,11 +150,11 @@ namespace Pulumi.AzureRM.Network.V20200301
 
             string? serviceProviderNotes,
 
-            Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult? serviceProviderProperties,
+            Outputs.ExpressRouteCircuitServiceProviderPropertiesResponse? serviceProviderProperties,
 
             string? serviceProviderProvisioningState,
 
-            Outputs.ExpressRouteCircuitSkuResponseResult? sku,
+            Outputs.ExpressRouteCircuitSkuResponse? sku,
 
             int stag,
 

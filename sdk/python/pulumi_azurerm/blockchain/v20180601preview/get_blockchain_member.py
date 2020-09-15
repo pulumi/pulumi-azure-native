@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -129,7 +129,7 @@ class GetBlockchainMemberResult:
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Optional[List['outputs.FirewallRuleResponse']]:
+    def firewall_rules(self) -> Optional[Sequence['outputs.FirewallRuleResponse']]:
         """
         Gets or sets firewall rules
         """

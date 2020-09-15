@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,8 +26,8 @@ class GetWCFRelayResult:
         if is_dynamic and not isinstance(is_dynamic, bool):
             raise TypeError("Expected argument 'is_dynamic' to be a bool")
         pulumi.set(__self__, "is_dynamic", is_dynamic)
-        if listener_count and not isinstance(listener_count, float):
-            raise TypeError("Expected argument 'listener_count' to be a float")
+        if listener_count and not isinstance(listener_count, int):
+            raise TypeError("Expected argument 'listener_count' to be a int")
         pulumi.set(__self__, "listener_count", listener_count)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -69,7 +69,7 @@ class GetWCFRelayResult:
 
     @property
     @pulumi.getter(name="listenerCount")
-    def listener_count(self) -> float:
+    def listener_count(self) -> int:
         """
         The number of listeners for this relay. min : 1 and max:25 supported
         """

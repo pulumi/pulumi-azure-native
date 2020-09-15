@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -82,14 +82,14 @@ class WorkbookTemplateGalleryArgs:
     def __init__(__self__, *,
                  category: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[float]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Gallery information for a workbook template.
         :param pulumi.Input[str] category: Category for the gallery.
         :param pulumi.Input[str] name: Name of the workbook template in the gallery.
-        :param pulumi.Input[float] order: Order of the template within the gallery.
+        :param pulumi.Input[int] order: Order of the template within the gallery.
         :param pulumi.Input[str] resource_type: Azure resource type supported by the gallery.
         :param pulumi.Input[str] type: Type of workbook supported by the workbook template.
         """
@@ -130,14 +130,14 @@ class WorkbookTemplateGalleryArgs:
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[float]]:
+    def order(self) -> Optional[pulumi.Input[int]]:
         """
         Order of the template within the gallery.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[float]]):
+    def order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "order", value)
 
     @property
@@ -168,11 +168,11 @@ class WorkbookTemplateGalleryArgs:
 @pulumi.input_type
 class WorkbookTemplateLocalizedGalleryArgs:
     def __init__(__self__, *,
-                 galleries: Optional[pulumi.Input[List[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
+                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
                  template_data: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Localized template data and gallery information.
-        :param pulumi.Input[List[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: Workbook galleries supported by the template.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: Workbook galleries supported by the template.
         :param pulumi.Input[Mapping[str, Any]] template_data: Valid JSON object containing workbook template payload.
         """
         if galleries is not None:
@@ -182,14 +182,14 @@ class WorkbookTemplateLocalizedGalleryArgs:
 
     @property
     @pulumi.getter
-    def galleries(self) -> Optional[pulumi.Input[List[pulumi.Input['WorkbookTemplateGalleryArgs']]]]:
+    def galleries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]:
         """
         Workbook galleries supported by the template.
         """
         return pulumi.get(self, "galleries")
 
     @galleries.setter
-    def galleries(self, value: Optional[pulumi.Input[List[pulumi.Input['WorkbookTemplateGalleryArgs']]]]):
+    def galleries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]):
         pulumi.set(self, "galleries", value)
 
     @property

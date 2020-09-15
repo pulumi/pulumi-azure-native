@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// A list of volumes assigned to this policy
         /// </summary>
         [Output("volumeBackups")]
-        public Output<ImmutableArray<Outputs.VolumeBackupsResponseResult>> VolumeBackups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VolumeBackupsResponse>> VolumeBackups { get; private set; } = null!;
 
         /// <summary>
         /// Volumes using current backup policy

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// <summary>
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MetricAlertActionResponseResult> Actions;
+        public readonly ImmutableArray<Outputs.MetricAlertActionResponse> Actions;
         /// <summary>
         /// the flag that indicates whether the alert should be auto resolved or not. The default is true.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// <summary>
         /// defines the specific alert criteria information.
         /// </summary>
-        public readonly Union<Outputs.MetricAlertMultipleResourceMultipleMetricCriteriaResponseResult, Union<Outputs.MetricAlertSingleResourceMultipleMetricCriteriaResponseResult, Outputs.WebtestLocationAvailabilityCriteriaResponseResult>> Criteria;
+        public readonly Union<Outputs.MetricAlertMultipleResourceMultipleMetricCriteriaResponse, Union<Outputs.MetricAlertSingleResourceMultipleMetricCriteriaResponse, Outputs.WebtestLocationAvailabilityCriteriaResponse>> Criteria;
         /// <summary>
         /// the description of the metric alert that will be included in the alert email.
         /// </summary>
@@ -106,11 +106,11 @@ namespace Pulumi.AzureRM.Insights.Latest
 
         [OutputConstructor]
         private GetMetricAlertResult(
-            ImmutableArray<Outputs.MetricAlertActionResponseResult> actions,
+            ImmutableArray<Outputs.MetricAlertActionResponse> actions,
 
             bool? autoMitigate,
 
-            Union<Outputs.MetricAlertMultipleResourceMultipleMetricCriteriaResponseResult, Union<Outputs.MetricAlertSingleResourceMultipleMetricCriteriaResponseResult, Outputs.WebtestLocationAvailabilityCriteriaResponseResult>> criteria,
+            Union<Outputs.MetricAlertMultipleResourceMultipleMetricCriteriaResponse, Union<Outputs.MetricAlertSingleResourceMultipleMetricCriteriaResponse, Outputs.WebtestLocationAvailabilityCriteriaResponse>> criteria,
 
             string description,
 

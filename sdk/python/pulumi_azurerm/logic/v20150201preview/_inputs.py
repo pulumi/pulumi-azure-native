@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -59,13 +59,13 @@ class ContentHashArgs:
 class ContentLinkArgs:
     def __init__(__self__, *,
                  content_hash: Optional[pulumi.Input['ContentHashArgs']] = None,
-                 content_size: Optional[pulumi.Input[float]] = None,
+                 content_size: Optional[pulumi.Input[int]] = None,
                  content_version: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['ContentHashArgs'] content_hash: Gets or sets the content hash.
-        :param pulumi.Input[float] content_size: Gets or sets the content size.
+        :param pulumi.Input[int] content_size: Gets or sets the content size.
         :param pulumi.Input[str] content_version: Gets or sets the content version.
         :param pulumi.Input[Mapping[str, Any]] metadata: Gets or sets the metadata.
         :param pulumi.Input[str] uri: Gets or sets the content link URI.
@@ -95,14 +95,14 @@ class ContentLinkArgs:
 
     @property
     @pulumi.getter(name="contentSize")
-    def content_size(self) -> Optional[pulumi.Input[float]]:
+    def content_size(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the content size.
         """
         return pulumi.get(self, "content_size")
 
     @content_size.setter
-    def content_size(self, value: Optional[pulumi.Input[float]]):
+    def content_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "content_size", value)
 
     @property

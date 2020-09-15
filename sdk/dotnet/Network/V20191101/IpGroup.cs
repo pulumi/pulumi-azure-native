@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// List of references to Azure resources that this IpGroups is associated with.
         /// </summary>
         [Output("firewalls")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> Firewalls { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> Firewalls { get; private set; } = null!;
 
         /// <summary>
         /// IpAddresses/IpAddressPrefixes in the IpGroups resource.

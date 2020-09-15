@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -51,7 +51,7 @@ class AKSResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -63,7 +63,7 @@ class AKSResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -119,7 +119,7 @@ class AKSResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -175,16 +175,16 @@ class AKSResponseProperties(dict):
     AKS properties
     """
     def __init__(__self__, *,
-                 system_services: List['outputs.SystemServiceResponse'],
-                 agent_count: Optional[float] = None,
+                 system_services: Sequence['outputs.SystemServiceResponse'],
+                 agent_count: Optional[int] = None,
                  agent_vm_size: Optional[str] = None,
                  aks_networking_configuration: Optional['outputs.AksNetworkingConfigurationResponse'] = None,
                  cluster_fqdn: Optional[str] = None,
                  ssl_configuration: Optional['outputs.SslConfigurationResponse'] = None):
         """
         AKS properties
-        :param List['SystemServiceResponseArgs'] system_services: System services
-        :param float agent_count: Number of agents
+        :param Sequence['SystemServiceResponseArgs'] system_services: System services
+        :param int agent_count: Number of agents
         :param str agent_vm_size: Agent virtual machine size
         :param 'AksNetworkingConfigurationResponseArgs' aks_networking_configuration: AKS networking configuration for vnet
         :param str cluster_fqdn: Cluster full qualified domain name
@@ -204,7 +204,7 @@ class AKSResponseProperties(dict):
 
     @property
     @pulumi.getter(name="systemServices")
-    def system_services(self) -> List['outputs.SystemServiceResponse']:
+    def system_services(self) -> Sequence['outputs.SystemServiceResponse']:
         """
         System services
         """
@@ -212,7 +212,7 @@ class AKSResponseProperties(dict):
 
     @property
     @pulumi.getter(name="agentCount")
-    def agent_count(self) -> Optional[float]:
+    def agent_count(self) -> Optional[int]:
         """
         Number of agents
         """
@@ -403,7 +403,7 @@ class AmlComputeResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -415,7 +415,7 @@ class AmlComputeResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -471,7 +471,7 @@ class AmlComputeResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -529,10 +529,10 @@ class AmlComputeResponseProperties(dict):
     def __init__(__self__, *,
                  allocation_state: str,
                  allocation_state_transition_time: str,
-                 current_node_count: float,
-                 errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 current_node_count: int,
+                 errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  node_state_counts: 'outputs.NodeStateCountsResponse',
-                 target_node_count: float,
+                 target_node_count: int,
                  remote_login_port_public_access: Optional[str] = None,
                  scale_settings: Optional['outputs.ScaleSettingsResponse'] = None,
                  subnet: Optional['outputs.ResourceIdResponse'] = None,
@@ -543,10 +543,10 @@ class AmlComputeResponseProperties(dict):
         AML Compute properties
         :param str allocation_state: Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute.
         :param str allocation_state_transition_time: The time at which the compute entered its current allocation state.
-        :param float current_node_count: The number of compute nodes currently assigned to the compute.
-        :param List['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered by various compute nodes during node setup.
+        :param int current_node_count: The number of compute nodes currently assigned to the compute.
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered by various compute nodes during node setup.
         :param 'NodeStateCountsResponseArgs' node_state_counts: Counts of various node states on the compute.
-        :param float target_node_count: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
+        :param int target_node_count: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
         :param str remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         :param 'ScaleSettingsResponseArgs' scale_settings: Scale settings for AML Compute
         :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
@@ -591,7 +591,7 @@ class AmlComputeResponseProperties(dict):
 
     @property
     @pulumi.getter(name="currentNodeCount")
-    def current_node_count(self) -> float:
+    def current_node_count(self) -> int:
         """
         The number of compute nodes currently assigned to the compute.
         """
@@ -599,7 +599,7 @@ class AmlComputeResponseProperties(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Collection of errors encountered by various compute nodes during node setup.
         """
@@ -615,7 +615,7 @@ class AmlComputeResponseProperties(dict):
 
     @property
     @pulumi.getter(name="targetNodeCount")
-    def target_node_count(self) -> float:
+    def target_node_count(self) -> int:
         """
         The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
         """
@@ -683,7 +683,7 @@ class DataFactoryResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -694,7 +694,7 @@ class DataFactoryResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -747,7 +747,7 @@ class DataFactoryResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -799,7 +799,7 @@ class DataLakeAnalyticsResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -811,7 +811,7 @@ class DataLakeAnalyticsResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -866,7 +866,7 @@ class DataLakeAnalyticsResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -945,7 +945,7 @@ class DatabricksResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -957,7 +957,7 @@ class DatabricksResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1012,7 +1012,7 @@ class DatabricksResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -1124,12 +1124,12 @@ class ErrorResponseResponse(dict):
     """
     def __init__(__self__, *,
                  code: str,
-                 details: List['outputs.ErrorDetailResponse'],
+                 details: Sequence['outputs.ErrorDetailResponse'],
                  message: str):
         """
         Error response information.
         :param str code: Error code.
-        :param List['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
         :param str message: Error message.
         """
         pulumi.set(__self__, "code", code)
@@ -1146,7 +1146,7 @@ class ErrorResponseResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> List['outputs.ErrorDetailResponse']:
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
         """
         An array of error detail objects.
         """
@@ -1174,7 +1174,7 @@ class HDInsightResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -1186,7 +1186,7 @@ class HDInsightResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1241,7 +1241,7 @@ class HDInsightResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -1293,11 +1293,11 @@ class HDInsightResponseProperties(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
-                 ssh_port: Optional[float] = None):
+                 ssh_port: Optional[int] = None):
         """
         :param str address: Public IP address of the master node of the cluster.
         :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for master node of the cluster
-        :param float ssh_port: Port open for ssh connections on the master node of the cluster.
+        :param int ssh_port: Port open for ssh connections on the master node of the cluster.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -1324,7 +1324,7 @@ class HDInsightResponseProperties(dict):
 
     @property
     @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[float]:
+    def ssh_port(self) -> Optional[int]:
         """
         Port open for ssh connections on the master node of the cluster.
         """
@@ -1413,20 +1413,20 @@ class NodeStateCountsResponse(dict):
     Counts of various compute node states on the amlCompute.
     """
     def __init__(__self__, *,
-                 idle_node_count: float,
-                 leaving_node_count: float,
-                 preempted_node_count: float,
-                 preparing_node_count: float,
-                 running_node_count: float,
-                 unusable_node_count: float):
+                 idle_node_count: int,
+                 leaving_node_count: int,
+                 preempted_node_count: int,
+                 preparing_node_count: int,
+                 running_node_count: int,
+                 unusable_node_count: int):
         """
         Counts of various compute node states on the amlCompute.
-        :param float idle_node_count: Number of compute nodes in idle state.
-        :param float leaving_node_count: Number of compute nodes which are leaving the amlCompute.
-        :param float preempted_node_count: Number of compute nodes which are in preempted state.
-        :param float preparing_node_count: Number of compute nodes which are being prepared.
-        :param float running_node_count: Number of compute nodes which are running jobs.
-        :param float unusable_node_count: Number of compute nodes which are in unusable state.
+        :param int idle_node_count: Number of compute nodes in idle state.
+        :param int leaving_node_count: Number of compute nodes which are leaving the amlCompute.
+        :param int preempted_node_count: Number of compute nodes which are in preempted state.
+        :param int preparing_node_count: Number of compute nodes which are being prepared.
+        :param int running_node_count: Number of compute nodes which are running jobs.
+        :param int unusable_node_count: Number of compute nodes which are in unusable state.
         """
         pulumi.set(__self__, "idle_node_count", idle_node_count)
         pulumi.set(__self__, "leaving_node_count", leaving_node_count)
@@ -1437,7 +1437,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="idleNodeCount")
-    def idle_node_count(self) -> float:
+    def idle_node_count(self) -> int:
         """
         Number of compute nodes in idle state.
         """
@@ -1445,7 +1445,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="leavingNodeCount")
-    def leaving_node_count(self) -> float:
+    def leaving_node_count(self) -> int:
         """
         Number of compute nodes which are leaving the amlCompute.
         """
@@ -1453,7 +1453,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="preemptedNodeCount")
-    def preempted_node_count(self) -> float:
+    def preempted_node_count(self) -> int:
         """
         Number of compute nodes which are in preempted state.
         """
@@ -1461,7 +1461,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="preparingNodeCount")
-    def preparing_node_count(self) -> float:
+    def preparing_node_count(self) -> int:
         """
         Number of compute nodes which are being prepared.
         """
@@ -1469,7 +1469,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="runningNodeCount")
-    def running_node_count(self) -> float:
+    def running_node_count(self) -> int:
         """
         Number of compute nodes which are running jobs.
         """
@@ -1477,7 +1477,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="unusableNodeCount")
-    def unusable_node_count(self) -> float:
+    def unusable_node_count(self) -> int:
         """
         Number of compute nodes which are in unusable state.
         """
@@ -1511,7 +1511,7 @@ class RegistryListCredentialsResultResponseResult(dict):
     def __init__(__self__, *,
                  location: str,
                  username: str,
-                 passwords: Optional[List['outputs.PasswordResponseResult']] = None):
+                 passwords: Optional[Sequence['outputs.PasswordResponseResult']] = None):
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "username", username)
         if passwords is not None:
@@ -1529,7 +1529,7 @@ class RegistryListCredentialsResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[List['outputs.PasswordResponseResult']]:
+    def passwords(self) -> Optional[Sequence['outputs.PasswordResponseResult']]:
         return pulumi.get(self, "passwords")
 
 
@@ -1564,13 +1564,13 @@ class ScaleSettingsResponse(dict):
     scale settings for AML Compute
     """
     def __init__(__self__, *,
-                 max_node_count: float,
-                 min_node_count: Optional[float] = None,
+                 max_node_count: int,
+                 min_node_count: Optional[int] = None,
                  node_idle_time_before_scale_down: Optional[str] = None):
         """
         scale settings for AML Compute
-        :param float max_node_count: Max number of nodes to use
-        :param float min_node_count: Min number of nodes to use
+        :param int max_node_count: Max number of nodes to use
+        :param int min_node_count: Min number of nodes to use
         :param str node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
@@ -1581,7 +1581,7 @@ class ScaleSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="maxNodeCount")
-    def max_node_count(self) -> float:
+    def max_node_count(self) -> int:
         """
         Max number of nodes to use
         """
@@ -1589,7 +1589,7 @@ class ScaleSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="minNodeCount")
-    def min_node_count(self) -> Optional[float]:
+    def min_node_count(self) -> Optional[int]:
         """
         Min number of nodes to use
         """
@@ -1813,7 +1813,7 @@ class VirtualMachineResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -1825,7 +1825,7 @@ class VirtualMachineResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1880,7 +1880,7 @@ class VirtualMachineResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -1932,12 +1932,12 @@ class VirtualMachineResponseProperties(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
-                 ssh_port: Optional[float] = None,
+                 ssh_port: Optional[int] = None,
                  virtual_machine_size: Optional[str] = None):
         """
         :param str address: Public IP address of the virtual machine.
         :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for virtual machine
-        :param float ssh_port: Port open for ssh connections.
+        :param int ssh_port: Port open for ssh connections.
         :param str virtual_machine_size: Virtual Machine size
         """
         if address is not None:
@@ -1967,7 +1967,7 @@ class VirtualMachineResponseProperties(dict):
 
     @property
     @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[float]:
+    def ssh_port(self) -> Optional[int]:
         """
         Port open for ssh connections.
         """

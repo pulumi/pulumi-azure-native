@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// <summary>
         /// State of the Key Vault secret
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.CertificateOrderCertificateResponseResult>? Certificates;
+        public readonly ImmutableDictionary<string, Outputs.CertificateOrderCertificateResponse>? Certificates;
         /// <summary>
         /// Last CSR that was created for this order
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// <summary>
         /// Intermediate certificate
         /// </summary>
-        public readonly Outputs.CertificateDetailsResponseResult? Intermediate;
+        public readonly Outputs.CertificateDetailsResponse? Intermediate;
         /// <summary>
         /// Certificate Key Size
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// <summary>
         /// Root certificate
         /// </summary>
-        public readonly Outputs.CertificateDetailsResponseResult? Root;
+        public readonly Outputs.CertificateDetailsResponse? Root;
         /// <summary>
         /// Current serial number of the certificate
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// <summary>
         /// Signed certificate
         /// </summary>
-        public readonly Outputs.CertificateDetailsResponseResult? SignedCertificate;
+        public readonly Outputs.CertificateDetailsResponse? SignedCertificate;
         /// <summary>
         /// Current order status
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         private GetCertificateOrderResult(
             bool? autoRenew,
 
-            ImmutableDictionary<string, Outputs.CertificateOrderCertificateResponseResult>? certificates,
+            ImmutableDictionary<string, Outputs.CertificateOrderCertificateResponse>? certificates,
 
             string? csr,
 
@@ -138,7 +138,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
 
             string? expirationTime,
 
-            Outputs.CertificateDetailsResponseResult? intermediate,
+            Outputs.CertificateDetailsResponse? intermediate,
 
             int? keySize,
 
@@ -154,11 +154,11 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
 
             string? provisioningState,
 
-            Outputs.CertificateDetailsResponseResult? root,
+            Outputs.CertificateDetailsResponse? root,
 
             string? serialNumber,
 
-            Outputs.CertificateDetailsResponseResult? signedCertificate,
+            Outputs.CertificateDetailsResponse? signedCertificate,
 
             string? status,
 

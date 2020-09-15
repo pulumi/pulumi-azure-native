@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -33,8 +33,8 @@ class GetRunbookResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if job_count and not isinstance(job_count, float):
-            raise TypeError("Expected argument 'job_count' to be a float")
+        if job_count and not isinstance(job_count, int):
+            raise TypeError("Expected argument 'job_count' to be a int")
         pulumi.set(__self__, "job_count", job_count)
         if last_modified_by and not isinstance(last_modified_by, str):
             raise TypeError("Expected argument 'last_modified_by' to be a str")
@@ -45,8 +45,8 @@ class GetRunbookResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if log_activity_trace and not isinstance(log_activity_trace, float):
-            raise TypeError("Expected argument 'log_activity_trace' to be a float")
+        if log_activity_trace and not isinstance(log_activity_trace, int):
+            raise TypeError("Expected argument 'log_activity_trace' to be a int")
         pulumi.set(__self__, "log_activity_trace", log_activity_trace)
         if log_progress and not isinstance(log_progress, bool):
             raise TypeError("Expected argument 'log_progress' to be a bool")
@@ -116,7 +116,7 @@ class GetRunbookResult:
 
     @property
     @pulumi.getter(name="jobCount")
-    def job_count(self) -> Optional[float]:
+    def job_count(self) -> Optional[int]:
         """
         Gets or sets the job count of the runbook.
         """
@@ -148,7 +148,7 @@ class GetRunbookResult:
 
     @property
     @pulumi.getter(name="logActivityTrace")
-    def log_activity_trace(self) -> Optional[float]:
+    def log_activity_trace(self) -> Optional[int]:
         """
         Gets or sets the option to log activity trace of the runbook.
         """
@@ -180,7 +180,7 @@ class GetRunbookResult:
 
     @property
     @pulumi.getter(name="outputTypes")
-    def output_types(self) -> Optional[List[str]]:
+    def output_types(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the runbook output types.
         """

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
         /// Gateway location.
         /// </summary>
         [Output("locationData")]
-        public Output<Outputs.ResourceLocationDataContractResponseResult?> LocationData { get; private set; } = null!;
+        public Output<Outputs.ResourceLocationDataContractResponse?> LocationData { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.

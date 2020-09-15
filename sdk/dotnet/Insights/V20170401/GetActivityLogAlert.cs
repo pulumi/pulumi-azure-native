@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Insights.V20170401
         /// <summary>
         /// The actions that will activate when the condition is met.
         /// </summary>
-        public readonly Outputs.ActivityLogAlertActionListResponseResult Actions;
+        public readonly Outputs.ActivityLogAlertActionListResponse Actions;
         /// <summary>
         /// The condition that will cause this alert to activate.
         /// </summary>
-        public readonly Outputs.ActivityLogAlertAllOfConditionResponseResult Condition;
+        public readonly Outputs.ActivityLogAlertAllOfConditionResponse Condition;
         /// <summary>
         /// A description of this activity log alert.
         /// </summary>
@@ -78,9 +78,9 @@ namespace Pulumi.AzureRM.Insights.V20170401
 
         [OutputConstructor]
         private GetActivityLogAlertResult(
-            Outputs.ActivityLogAlertActionListResponseResult actions,
+            Outputs.ActivityLogAlertActionListResponse actions,
 
-            Outputs.ActivityLogAlertAllOfConditionResponseResult condition,
+            Outputs.ActivityLogAlertAllOfConditionResponse condition,
 
             string? description,
 

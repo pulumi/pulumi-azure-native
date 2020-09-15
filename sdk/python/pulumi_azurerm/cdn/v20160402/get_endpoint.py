@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -69,7 +69,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="contentTypesToCompress")
-    def content_types_to_compress(self) -> Optional[List[str]]:
+    def content_types_to_compress(self) -> Optional[Sequence[str]]:
         """
         List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
         """
@@ -141,7 +141,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def origins(self) -> Optional[List['outputs.DeepCreatedOriginResponse']]:
+    def origins(self) -> Optional[Sequence['outputs.DeepCreatedOriginResponse']]:
         """
         The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
         """

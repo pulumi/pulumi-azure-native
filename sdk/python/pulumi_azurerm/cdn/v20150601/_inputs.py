@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -18,14 +18,14 @@ class DeepCreatedOriginArgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 http_port: Optional[pulumi.Input[float]] = None,
-                 https_port: Optional[pulumi.Input[float]] = None):
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None):
         """
         Deep created origins within a CDN endpoint.
         :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
         :param pulumi.Input[str] name: Origin name
-        :param pulumi.Input[float] http_port: The value of the HTTP port. Must be between 1 and 65535
-        :param pulumi.Input[float] https_port: The value of the HTTPS port. Must be between 1 and 65535
+        :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535
+        :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "name", name)
@@ -60,26 +60,26 @@ class DeepCreatedOriginArgs:
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[pulumi.Input[float]]:
+    def http_port(self) -> Optional[pulumi.Input[int]]:
         """
         The value of the HTTP port. Must be between 1 and 65535
         """
         return pulumi.get(self, "http_port")
 
     @http_port.setter
-    def http_port(self, value: Optional[pulumi.Input[float]]):
+    def http_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "http_port", value)
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[pulumi.Input[float]]:
+    def https_port(self) -> Optional[pulumi.Input[int]]:
         """
         The value of the HTTPS port. Must be between 1 and 65535
         """
         return pulumi.get(self, "https_port")
 
     @https_port.setter
-    def https_port(self, value: Optional[pulumi.Input[float]]):
+    def https_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "https_port", value)
 
 

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Outputs.MetricAlertActionResponseResult>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MetricAlertActionResponse>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// the flag that indicates whether the alert should be auto resolved or not. The default is true.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// defines the specific alert criteria information.
         /// </summary>
         [Output("criteria")]
-        public Output<Union<Outputs.MetricAlertMultipleResourceMultipleMetricCriteriaResponseResult, Union<Outputs.MetricAlertSingleResourceMultipleMetricCriteriaResponseResult, Outputs.WebtestLocationAvailabilityCriteriaResponseResult>>> Criteria { get; private set; } = null!;
+        public Output<Union<Outputs.MetricAlertMultipleResourceMultipleMetricCriteriaResponse, Union<Outputs.MetricAlertSingleResourceMultipleMetricCriteriaResponse, Outputs.WebtestLocationAvailabilityCriteriaResponse>>> Criteria { get; private set; } = null!;
 
         /// <summary>
         /// the description of the metric alert that will be included in the alert email.

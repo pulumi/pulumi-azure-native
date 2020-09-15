@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// Azure container mapping for the share.
         /// </summary>
         [Output("azureContainerInfo")]
-        public Output<Outputs.AzureContainerInfoResponseResult?> AzureContainerInfo { get; private set; } = null!;
+        public Output<Outputs.AzureContainerInfoResponse?> AzureContainerInfo { get; private set; } = null!;
 
         /// <summary>
         /// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
         /// </summary>
         [Output("clientAccessRights")]
-        public Output<ImmutableArray<Outputs.ClientAccessRightResponseResult>> ClientAccessRights { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClientAccessRightResponse>> ClientAccessRights { get; private set; } = null!;
 
         /// <summary>
         /// Data policy of the share.
@@ -60,13 +60,13 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// Details of the refresh job on this share.
         /// </summary>
         [Output("refreshDetails")]
-        public Output<Outputs.RefreshDetailsResponseResult?> RefreshDetails { get; private set; } = null!;
+        public Output<Outputs.RefreshDetailsResponse?> RefreshDetails { get; private set; } = null!;
 
         /// <summary>
         /// Share mount point to the role.
         /// </summary>
         [Output("shareMappings")]
-        public Output<ImmutableArray<Outputs.MountPointMapResponseResult>> ShareMappings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MountPointMapResponse>> ShareMappings { get; private set; } = null!;
 
         /// <summary>
         /// Current status of the share.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// Mapping of users and corresponding access rights on the share (required for SMB protocol).
         /// </summary>
         [Output("userAccessRights")]
-        public Output<ImmutableArray<Outputs.UserAccessRightResponseResult>> UserAccessRights { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.UserAccessRightResponse>> UserAccessRights { get; private set; } = null!;
 
 
         /// <summary>

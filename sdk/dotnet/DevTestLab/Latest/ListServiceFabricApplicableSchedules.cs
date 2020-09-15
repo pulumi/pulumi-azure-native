@@ -54,11 +54,11 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
         /// </summary>
-        public readonly Outputs.ScheduleResponseResult? LabVmsShutdown;
+        public readonly Outputs.ScheduleResponse? LabVmsShutdown;
         /// <summary>
         /// The auto-startup schedule, if one has been set at the lab or lab resource level.
         /// </summary>
-        public readonly Outputs.ScheduleResponseResult? LabVmsStartup;
+        public readonly Outputs.ScheduleResponse? LabVmsStartup;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -78,9 +78,9 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
 
         [OutputConstructor]
         private ListServiceFabricApplicableSchedulesResult(
-            Outputs.ScheduleResponseResult? labVmsShutdown,
+            Outputs.ScheduleResponse? labVmsShutdown,
 
-            Outputs.ScheduleResponseResult? labVmsStartup,
+            Outputs.ScheduleResponse? labVmsStartup,
 
             string? location,
 

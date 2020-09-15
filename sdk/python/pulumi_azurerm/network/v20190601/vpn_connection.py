@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class VpnConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_bandwidth: Optional[pulumi.Input[float]] = None,
+                 connection_bandwidth: Optional[pulumi.Input[int]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  connection_status: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
@@ -25,17 +25,17 @@ class VpnConnection(pulumi.CustomResource):
                  enable_rate_limiting: Optional[pulumi.Input[bool]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipsec_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  remote_vpn_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routing_weight: Optional[pulumi.Input[float]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  use_local_azure_ip_address: Optional[pulumi.Input[bool]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  vpn_connection_protocol_type: Optional[pulumi.Input[str]] = None,
-                 vpn_link_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]]] = None,
+                 vpn_link_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -44,7 +44,7 @@ class VpnConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] connection_bandwidth: Expected bandwidth in MBPS.
+        :param pulumi.Input[int] connection_bandwidth: Expected bandwidth in MBPS.
         :param pulumi.Input[str] connection_name: The name of the connection.
         :param pulumi.Input[str] connection_status: The connection status.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
@@ -52,17 +52,17 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_rate_limiting: EnableBgp flag.
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_vpn_site: Id of the connected vpn site.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
-        :param pulumi.Input[float] routing_weight: Routing weight for vpn connection.
+        :param pulumi.Input[int] routing_weight: Routing weight for vpn connection.
         :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
         :param pulumi.Input[bool] use_local_azure_ip_address: Use local azure ip to initiate connection.
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
         :param pulumi.Input[str] vpn_connection_protocol_type: Connection protocol used for this connection.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]] vpn_link_connections: List of all vpn site link connections to the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]] vpn_link_connections: List of all vpn site link connections to the gateway.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,7 +137,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionBandwidth")
-    def connection_bandwidth(self) -> pulumi.Output[Optional[float]]:
+    def connection_bandwidth(self) -> pulumi.Output[Optional[int]]:
         """
         Expected bandwidth in MBPS.
         """
@@ -153,7 +153,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> pulumi.Output[float]:
+    def egress_bytes_transferred(self) -> pulumi.Output[int]:
         """
         Egress bytes transferred.
         """
@@ -193,7 +193,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> pulumi.Output[float]:
+    def ingress_bytes_transferred(self) -> pulumi.Output[int]:
         """
         Ingress bytes transferred.
         """
@@ -201,7 +201,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> pulumi.Output[Optional[List['outputs.IpsecPolicyResponse']]]:
+    def ipsec_policies(self) -> pulumi.Output[Optional[Sequence['outputs.IpsecPolicyResponse']]]:
         """
         The IPSec Policies to be considered by this connection.
         """
@@ -233,7 +233,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> pulumi.Output[Optional[float]]:
+    def routing_weight(self) -> pulumi.Output[Optional[int]]:
         """
         Routing weight for vpn connection.
         """
@@ -273,7 +273,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnLinkConnections")
-    def vpn_link_connections(self) -> pulumi.Output[Optional[List['outputs.VpnSiteLinkConnectionResponse']]]:
+    def vpn_link_connections(self) -> pulumi.Output[Optional[Sequence['outputs.VpnSiteLinkConnectionResponse']]]:
         """
         List of all vpn site link connections to the gateway.
         """

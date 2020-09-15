@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         /// </summary>
         [Output("inboundIpRules")]
-        public Output<ImmutableArray<Outputs.InboundIpRuleResponseResult>> InboundIpRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InboundIpRuleResponse>> InboundIpRules { get; private set; } = null!;
 
         /// <summary>
         /// This determines the format that Event Grid should expect for incoming events published to the topic.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         /// </summary>
         [Output("inputSchemaMapping")]
-        public Output<Outputs.JsonInputSchemaMappingResponseResult?> InputSchemaMapping { get; private set; } = null!;
+        public Output<Outputs.JsonInputSchemaMappingResponse?> InputSchemaMapping { get; private set; } = null!;
 
         /// <summary>
         /// Location of the resource.
@@ -57,7 +57,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         public Output<string> Name { get; private set; } = null!;
 
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the topic.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Webhook']
@@ -15,7 +15,7 @@ class Webhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class Webhook(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] actions: The list of actions that trigger the webhook to post notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: The list of actions that trigger the webhook to post notifications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_headers: Custom headers that will be added to the webhook notifications.
         :param pulumi.Input[str] location: The location of the webhook. This cannot be changed after the resource is created.
         :param pulumi.Input[str] registry_name: The name of the container registry.
@@ -114,7 +114,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[List[str]]:
+    def actions(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of actions that trigger the webhook to post notifications.
         """

@@ -21,7 +21,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// Settings for the data disk which would be created for the File Server.
         /// </summary>
         [Output("dataDisks")]
-        public Output<Outputs.DataDisksResponseResult?> DataDisks { get; private set; } = null!;
+        public Output<Outputs.DataDisksResponse?> DataDisks { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource
@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// Details of the File Server.
         /// </summary>
         [Output("mountSettings")]
-        public Output<Outputs.MountSettingsResponseResult> MountSettings { get; private set; } = null!;
+        public Output<Outputs.MountSettingsResponse> MountSettings { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// SSH configuration settings for the VM
         /// </summary>
         [Output("sshConfiguration")]
-        public Output<Outputs.SshConfigurationResponseResult?> SshConfiguration { get; private set; } = null!;
+        public Output<Outputs.SshConfigurationResponse?> SshConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.ResourceIdResponseResult?> Subnet { get; private set; } = null!;
+        public Output<Outputs.ResourceIdResponse?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -73,12 +73,12 @@ class ConsoleCreatePropertiesArgs:
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 disk_size_in_gb: Optional[pulumi.Input[float]] = None,
+                 disk_size_in_gb: Optional[pulumi.Input[int]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
                  storage_account_resource_id: Optional[pulumi.Input[str]] = None):
         """
         The storage profile of the user settings.
-        :param pulumi.Input[float] disk_size_in_gb: Size of file share
+        :param pulumi.Input[int] disk_size_in_gb: Size of file share
         :param pulumi.Input[str] file_share_name: Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
         :param pulumi.Input[str] storage_account_resource_id: Full resource ID of storage account.
         """
@@ -91,14 +91,14 @@ class StorageProfileArgs:
 
     @property
     @pulumi.getter(name="diskSizeInGB")
-    def disk_size_in_gb(self) -> Optional[pulumi.Input[float]]:
+    def disk_size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
         Size of file share
         """
         return pulumi.get(self, "disk_size_in_gb")
 
     @disk_size_in_gb.setter
-    def disk_size_in_gb(self, value: Optional[pulumi.Input[float]]):
+    def disk_size_in_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_in_gb", value)
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -118,7 +118,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configuredRoleTypes")
-    def configured_role_types(self) -> pulumi.Output[List[str]]:
+    def configured_role_types(self) -> pulumi.Output[Sequence[str]]:
         """
         Type of compute roles configured.
         """
@@ -158,7 +158,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceLocalCapacity")
-    def device_local_capacity(self) -> pulumi.Output[float]:
+    def device_local_capacity(self) -> pulumi.Output[int]:
         """
         The Data Box Edge/Gateway device local capacity in MB.
         """

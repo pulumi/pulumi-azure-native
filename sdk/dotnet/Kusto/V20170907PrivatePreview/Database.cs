@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Kusto.V20170907PrivatePreview
         /// The statistics of the database.
         /// </summary>
         [Output("statistics")]
-        public Output<Outputs.DatabaseStatisticsResponseResult?> Statistics { get; private set; } = null!;
+        public Output<Outputs.DatabaseStatisticsResponse?> Statistics { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

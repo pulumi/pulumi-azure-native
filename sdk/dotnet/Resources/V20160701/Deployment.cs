@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Resources.V20160701
         /// Deployment properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DeploymentPropertiesExtendedResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.DeploymentPropertiesExtendedResponse> Properties { get; private set; } = null!;
 
 
         /// <summary>

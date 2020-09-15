@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['WorkloadGroup']
@@ -17,11 +17,11 @@ class WorkloadGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  importance: Optional[pulumi.Input[str]] = None,
-                 max_resource_percent: Optional[pulumi.Input[float]] = None,
+                 max_resource_percent: Optional[pulumi.Input[int]] = None,
                  max_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
-                 min_resource_percent: Optional[pulumi.Input[float]] = None,
+                 min_resource_percent: Optional[pulumi.Input[int]] = None,
                  min_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
-                 query_execution_timeout: Optional[pulumi.Input[float]] = None,
+                 query_execution_timeout: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  workload_group_name: Optional[pulumi.Input[str]] = None,
@@ -35,11 +35,11 @@ class WorkloadGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] importance: The workload group importance level.
-        :param pulumi.Input[float] max_resource_percent: The workload group cap percentage resource.
+        :param pulumi.Input[int] max_resource_percent: The workload group cap percentage resource.
         :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage.
-        :param pulumi.Input[float] min_resource_percent: The workload group minimum percentage resource.
+        :param pulumi.Input[int] min_resource_percent: The workload group minimum percentage resource.
         :param pulumi.Input[float] min_resource_percent_per_request: The workload group request minimum grant percentage.
-        :param pulumi.Input[float] query_execution_timeout: The workload group query execution timeout.
+        :param pulumi.Input[int] query_execution_timeout: The workload group query execution timeout.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] workload_group_name: The name of the workload group.
@@ -121,7 +121,7 @@ class WorkloadGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxResourcePercent")
-    def max_resource_percent(self) -> pulumi.Output[float]:
+    def max_resource_percent(self) -> pulumi.Output[int]:
         """
         The workload group cap percentage resource.
         """
@@ -137,7 +137,7 @@ class WorkloadGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minResourcePercent")
-    def min_resource_percent(self) -> pulumi.Output[float]:
+    def min_resource_percent(self) -> pulumi.Output[int]:
         """
         The workload group minimum percentage resource.
         """
@@ -161,7 +161,7 @@ class WorkloadGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryExecutionTimeout")
-    def query_execution_timeout(self) -> pulumi.Output[Optional[float]]:
+    def query_execution_timeout(self) -> pulumi.Output[Optional[int]]:
         """
         The workload group query execution timeout.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class CustomImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[str]] = None,
                  custom_image_plan: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromPlanArgs']]] = None,
-                 data_disk_storage_info: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DataDiskStorageTypeInfoArgs']]]]] = None,
+                 data_disk_storage_info: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskStorageTypeInfoArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_plan_authorized: Optional[pulumi.Input[bool]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
@@ -41,7 +41,7 @@ class CustomImage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] author: The author of the custom image.
         :param pulumi.Input[pulumi.InputType['CustomImagePropertiesFromPlanArgs']] custom_image_plan: Storage information about the plan related to this custom image
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DataDiskStorageTypeInfoArgs']]]] data_disk_storage_info: Storage information about the data disks present in the custom image
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskStorageTypeInfoArgs']]]] data_disk_storage_info: Storage information about the data disks present in the custom image
         :param pulumi.Input[str] description: The description of the custom image.
         :param pulumi.Input[bool] is_plan_authorized: Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
         :param pulumi.Input[str] lab_name: The name of the lab.
@@ -147,7 +147,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataDiskStorageInfo")
-    def data_disk_storage_info(self) -> pulumi.Output[Optional[List['outputs.DataDiskStorageTypeInfoResponse']]]:
+    def data_disk_storage_info(self) -> pulumi.Output[Optional[Sequence['outputs.DataDiskStorageTypeInfoResponse']]]:
         """
         Storage information about the data disks present in the custom image
         """

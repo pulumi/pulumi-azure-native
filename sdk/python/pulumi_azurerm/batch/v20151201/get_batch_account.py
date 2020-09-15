@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,14 +24,14 @@ class GetBatchAccountResult:
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
-        if active_job_and_job_schedule_quota and not isinstance(active_job_and_job_schedule_quota, float):
-            raise TypeError("Expected argument 'active_job_and_job_schedule_quota' to be a float")
+        if active_job_and_job_schedule_quota and not isinstance(active_job_and_job_schedule_quota, int):
+            raise TypeError("Expected argument 'active_job_and_job_schedule_quota' to be a int")
         pulumi.set(__self__, "active_job_and_job_schedule_quota", active_job_and_job_schedule_quota)
         if auto_storage and not isinstance(auto_storage, dict):
             raise TypeError("Expected argument 'auto_storage' to be a dict")
         pulumi.set(__self__, "auto_storage", auto_storage)
-        if core_quota and not isinstance(core_quota, float):
-            raise TypeError("Expected argument 'core_quota' to be a float")
+        if core_quota and not isinstance(core_quota, int):
+            raise TypeError("Expected argument 'core_quota' to be a int")
         pulumi.set(__self__, "core_quota", core_quota)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -39,8 +39,8 @@ class GetBatchAccountResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if pool_quota and not isinstance(pool_quota, float):
-            raise TypeError("Expected argument 'pool_quota' to be a float")
+        if pool_quota and not isinstance(pool_quota, int):
+            raise TypeError("Expected argument 'pool_quota' to be a int")
         pulumi.set(__self__, "pool_quota", pool_quota)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -62,7 +62,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="activeJobAndJobScheduleQuota")
-    def active_job_and_job_schedule_quota(self) -> float:
+    def active_job_and_job_schedule_quota(self) -> int:
         """
         The active job and job schedule quota for this Batch account.
         """
@@ -78,7 +78,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="coreQuota")
-    def core_quota(self) -> float:
+    def core_quota(self) -> int:
         """
         The core quota for this Batch account.
         """
@@ -102,7 +102,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="poolQuota")
-    def pool_quota(self) -> float:
+    def pool_quota(self) -> int:
         """
         The pool quota for this Batch account.
         """

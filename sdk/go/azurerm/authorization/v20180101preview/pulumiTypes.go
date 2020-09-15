@@ -83,61 +83,6 @@ func (i PermissionArray) ToPermissionArrayOutputWithContext(ctx context.Context)
 }
 
 // Role definition permissions.
-type PermissionOutput struct{ *pulumi.OutputState }
-
-func (PermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Permission)(nil)).Elem()
-}
-
-func (o PermissionOutput) ToPermissionOutput() PermissionOutput {
-	return o
-}
-
-func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) PermissionOutput {
-	return o
-}
-
-// Allowed actions.
-func (o PermissionOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Permission) []string { return v.Actions }).(pulumi.StringArrayOutput)
-}
-
-// Allowed Data actions.
-func (o PermissionOutput) DataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Permission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
-}
-
-// Denied actions.
-func (o PermissionOutput) NotActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Permission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
-}
-
-// Denied Data actions.
-func (o PermissionOutput) NotDataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Permission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
-}
-
-type PermissionArrayOutput struct{ *pulumi.OutputState }
-
-func (PermissionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Permission)(nil)).Elem()
-}
-
-func (o PermissionArrayOutput) ToPermissionArrayOutput() PermissionArrayOutput {
-	return o
-}
-
-func (o PermissionArrayOutput) ToPermissionArrayOutputWithContext(ctx context.Context) PermissionArrayOutput {
-	return o
-}
-
-func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Permission {
-		return vs[0].([]Permission)[vs[1].(int)]
-	}).(PermissionOutput)
-}
-
-// Role definition permissions.
 type PermissionResponse struct {
 	// Allowed actions.
 	Actions []string `pulumi:"actions"`
@@ -147,66 +92,6 @@ type PermissionResponse struct {
 	NotActions []string `pulumi:"notActions"`
 	// Denied Data actions.
 	NotDataActions []string `pulumi:"notDataActions"`
-}
-
-// PermissionResponseInput is an input type that accepts PermissionResponseArgs and PermissionResponseOutput values.
-// You can construct a concrete instance of `PermissionResponseInput` via:
-//
-//          PermissionResponseArgs{...}
-type PermissionResponseInput interface {
-	pulumi.Input
-
-	ToPermissionResponseOutput() PermissionResponseOutput
-	ToPermissionResponseOutputWithContext(context.Context) PermissionResponseOutput
-}
-
-// Role definition permissions.
-type PermissionResponseArgs struct {
-	// Allowed actions.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// Allowed Data actions.
-	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	// Denied actions.
-	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
-	// Denied Data actions.
-	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
-}
-
-func (PermissionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionResponse)(nil)).Elem()
-}
-
-func (i PermissionResponseArgs) ToPermissionResponseOutput() PermissionResponseOutput {
-	return i.ToPermissionResponseOutputWithContext(context.Background())
-}
-
-func (i PermissionResponseArgs) ToPermissionResponseOutputWithContext(ctx context.Context) PermissionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionResponseOutput)
-}
-
-// PermissionResponseArrayInput is an input type that accepts PermissionResponseArray and PermissionResponseArrayOutput values.
-// You can construct a concrete instance of `PermissionResponseArrayInput` via:
-//
-//          PermissionResponseArray{ PermissionResponseArgs{...} }
-type PermissionResponseArrayInput interface {
-	pulumi.Input
-
-	ToPermissionResponseArrayOutput() PermissionResponseArrayOutput
-	ToPermissionResponseArrayOutputWithContext(context.Context) PermissionResponseArrayOutput
-}
-
-type PermissionResponseArray []PermissionResponseInput
-
-func (PermissionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PermissionResponse)(nil)).Elem()
-}
-
-func (i PermissionResponseArray) ToPermissionResponseArrayOutput() PermissionResponseArrayOutput {
-	return i.ToPermissionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PermissionResponseArray) ToPermissionResponseArrayOutputWithContext(ctx context.Context) PermissionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionResponseArrayOutput)
 }
 
 // Role definition permissions.

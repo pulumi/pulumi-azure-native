@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.OffAzure.Latest
         /// Nested properties of VMWare site.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SitePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.SitePropertiesResponse> Properties { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;

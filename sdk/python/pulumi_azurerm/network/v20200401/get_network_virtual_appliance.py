@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -51,8 +51,8 @@ class GetNetworkVirtualApplianceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_appliance_asn and not isinstance(virtual_appliance_asn, float):
-            raise TypeError("Expected argument 'virtual_appliance_asn' to be a float")
+        if virtual_appliance_asn and not isinstance(virtual_appliance_asn, int):
+            raise TypeError("Expected argument 'virtual_appliance_asn' to be a int")
         pulumi.set(__self__, "virtual_appliance_asn", virtual_appliance_asn)
         if virtual_appliance_nics and not isinstance(virtual_appliance_nics, list):
             raise TypeError("Expected argument 'virtual_appliance_nics' to be a list")
@@ -63,7 +63,7 @@ class GetNetworkVirtualApplianceResult:
 
     @property
     @pulumi.getter(name="bootStrapConfigurationBlob")
-    def boot_strap_configuration_blob(self) -> Optional[List[str]]:
+    def boot_strap_configuration_blob(self) -> Optional[Sequence[str]]:
         """
         BootStrapConfigurationBlob storage URLs.
         """
@@ -71,7 +71,7 @@ class GetNetworkVirtualApplianceResult:
 
     @property
     @pulumi.getter(name="cloudInitConfigurationBlob")
-    def cloud_init_configuration_blob(self) -> Optional[List[str]]:
+    def cloud_init_configuration_blob(self) -> Optional[Sequence[str]]:
         """
         CloudInitConfigurationBlob storage URLs.
         """
@@ -143,7 +143,7 @@ class GetNetworkVirtualApplianceResult:
 
     @property
     @pulumi.getter(name="virtualApplianceAsn")
-    def virtual_appliance_asn(self) -> Optional[float]:
+    def virtual_appliance_asn(self) -> Optional[int]:
         """
         VirtualAppliance ASN.
         """
@@ -151,7 +151,7 @@ class GetNetworkVirtualApplianceResult:
 
     @property
     @pulumi.getter(name="virtualApplianceNics")
-    def virtual_appliance_nics(self) -> List['outputs.VirtualApplianceNicPropertiesResponse']:
+    def virtual_appliance_nics(self) -> Sequence['outputs.VirtualApplianceNicPropertiesResponse']:
         """
         List of Virtual Appliance Network Interfaces.
         """

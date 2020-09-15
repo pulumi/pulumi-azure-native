@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -114,13 +114,13 @@ class AKSArgs:
 @pulumi.input_type
 class AKSPropertiesArgs:
     def __init__(__self__, *,
-                 agent_count: Optional[pulumi.Input[float]] = None,
+                 agent_count: Optional[pulumi.Input[int]] = None,
                  agent_vm_size: Optional[pulumi.Input[str]] = None,
                  cluster_fqdn: Optional[pulumi.Input[str]] = None,
                  ssl_configuration: Optional[pulumi.Input['SslConfigurationArgs']] = None):
         """
         AKS properties
-        :param pulumi.Input[float] agent_count: Number of agents
+        :param pulumi.Input[int] agent_count: Number of agents
         :param pulumi.Input[str] agent_vm_size: Agent virtual machine size
         :param pulumi.Input[str] cluster_fqdn: Cluster full qualified domain name
         :param pulumi.Input['SslConfigurationArgs'] ssl_configuration: SSL configuration
@@ -136,14 +136,14 @@ class AKSPropertiesArgs:
 
     @property
     @pulumi.getter(name="agentCount")
-    def agent_count(self) -> Optional[pulumi.Input[float]]:
+    def agent_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of agents
         """
         return pulumi.get(self, "agent_count")
 
     @agent_count.setter
-    def agent_count(self, value: Optional[pulumi.Input[float]]):
+    def agent_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "agent_count", value)
 
     @property
@@ -485,11 +485,11 @@ class HDInsightPropertiesArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
-                 ssh_port: Optional[pulumi.Input[float]] = None):
+                 ssh_port: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] address: Public IP address of the master node of the cluster.
         :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for master node of the cluster
-        :param pulumi.Input[float] ssh_port: Port open for ssh connections on the master node of the cluster.
+        :param pulumi.Input[int] ssh_port: Port open for ssh connections on the master node of the cluster.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -524,14 +524,14 @@ class HDInsightPropertiesArgs:
 
     @property
     @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[pulumi.Input[float]]:
+    def ssh_port(self) -> Optional[pulumi.Input[int]]:
         """
         Port open for ssh connections on the master node of the cluster.
         """
         return pulumi.get(self, "ssh_port")
 
     @ssh_port.setter
-    def ssh_port(self, value: Optional[pulumi.Input[float]]):
+    def ssh_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ssh_port", value)
 
 
@@ -563,13 +563,13 @@ class IdentityArgs:
 class ScaleSettingsArgs:
     def __init__(__self__, *,
                  auto_scale_enabled: Optional[pulumi.Input[bool]] = None,
-                 max_node_count: Optional[pulumi.Input[float]] = None,
-                 min_node_count: Optional[pulumi.Input[float]] = None):
+                 max_node_count: Optional[pulumi.Input[int]] = None,
+                 min_node_count: Optional[pulumi.Input[int]] = None):
         """
         scale settings for BatchAI Compute
         :param pulumi.Input[bool] auto_scale_enabled: Enable or disable auto scale
-        :param pulumi.Input[float] max_node_count: Max number of nodes to use
-        :param pulumi.Input[float] min_node_count: Min number of nodes to use
+        :param pulumi.Input[int] max_node_count: Max number of nodes to use
+        :param pulumi.Input[int] min_node_count: Min number of nodes to use
         """
         if auto_scale_enabled is not None:
             pulumi.set(__self__, "auto_scale_enabled", auto_scale_enabled)
@@ -592,26 +592,26 @@ class ScaleSettingsArgs:
 
     @property
     @pulumi.getter(name="maxNodeCount")
-    def max_node_count(self) -> Optional[pulumi.Input[float]]:
+    def max_node_count(self) -> Optional[pulumi.Input[int]]:
         """
         Max number of nodes to use
         """
         return pulumi.get(self, "max_node_count")
 
     @max_node_count.setter
-    def max_node_count(self, value: Optional[pulumi.Input[float]]):
+    def max_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_node_count", value)
 
     @property
     @pulumi.getter(name="minNodeCount")
-    def min_node_count(self) -> Optional[pulumi.Input[float]]:
+    def min_node_count(self) -> Optional[pulumi.Input[int]]:
         """
         Min number of nodes to use
         """
         return pulumi.get(self, "min_node_count")
 
     @min_node_count.setter
-    def min_node_count(self, value: Optional[pulumi.Input[float]]):
+    def min_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_node_count", value)
 
 
@@ -775,12 +775,12 @@ class VirtualMachinePropertiesArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
-                 ssh_port: Optional[pulumi.Input[float]] = None,
+                 ssh_port: Optional[pulumi.Input[int]] = None,
                  virtual_machine_size: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] address: Public IP address of the virtual machine.
         :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for virtual machine
-        :param pulumi.Input[float] ssh_port: Port open for ssh connections.
+        :param pulumi.Input[int] ssh_port: Port open for ssh connections.
         :param pulumi.Input[str] virtual_machine_size: Virtual Machine size
         """
         if address is not None:
@@ -818,14 +818,14 @@ class VirtualMachinePropertiesArgs:
 
     @property
     @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[pulumi.Input[float]]:
+    def ssh_port(self) -> Optional[pulumi.Input[int]]:
         """
         Port open for ssh connections.
         """
         return pulumi.get(self, "ssh_port")
 
     @ssh_port.setter
-    def ssh_port(self, value: Optional[pulumi.Input[float]]):
+    def ssh_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ssh_port", value)
 
     @property

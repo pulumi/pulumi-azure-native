@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -37,22 +37,22 @@ class CreationDataResponse(dict):
                  source_unique_id: str,
                  gallery_image_reference: Optional['outputs.ImageDiskReferenceResponse'] = None,
                  image_reference: Optional['outputs.ImageDiskReferenceResponse'] = None,
-                 logical_sector_size: Optional[float] = None,
+                 logical_sector_size: Optional[int] = None,
                  source_resource_id: Optional[str] = None,
                  source_uri: Optional[str] = None,
                  storage_account_id: Optional[str] = None,
-                 upload_size_bytes: Optional[float] = None):
+                 upload_size_bytes: Optional[int] = None):
         """
         Data used when creating a disk.
         :param str create_option: This enumerates the possible sources of a disk's creation.
         :param str source_unique_id: If this field is set, this is the unique id identifying the source of this resource.
         :param 'ImageDiskReferenceResponseArgs' gallery_image_reference: Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
         :param 'ImageDiskReferenceResponseArgs' image_reference: Disk source information.
-        :param float logical_sector_size: Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
+        :param int logical_sector_size: Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
         :param str source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param str source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
         :param str storage_account_id: Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-        :param float upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+        :param int upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
         pulumi.set(__self__, "create_option", create_option)
         pulumi.set(__self__, "source_unique_id", source_unique_id)
@@ -105,7 +105,7 @@ class CreationDataResponse(dict):
 
     @property
     @pulumi.getter(name="logicalSectorSize")
-    def logical_sector_size(self) -> Optional[float]:
+    def logical_sector_size(self) -> Optional[int]:
         """
         Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
         """
@@ -137,7 +137,7 @@ class CreationDataResponse(dict):
 
     @property
     @pulumi.getter(name="uploadSizeBytes")
-    def upload_size_bytes(self) -> Optional[float]:
+    def upload_size_bytes(self) -> Optional[int]:
         """
         If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
@@ -277,12 +277,12 @@ class EncryptionSettingsCollectionResponse(dict):
     """
     def __init__(__self__, *,
                  enabled: bool,
-                 encryption_settings: Optional[List['outputs.EncryptionSettingsElementResponse']] = None,
+                 encryption_settings: Optional[Sequence['outputs.EncryptionSettingsElementResponse']] = None,
                  encryption_settings_version: Optional[str] = None):
         """
         Encryption settings for disk or snapshot
         :param bool enabled: Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-        :param List['EncryptionSettingsElementResponseArgs'] encryption_settings: A collection of encryption settings, one for each disk volume.
+        :param Sequence['EncryptionSettingsElementResponseArgs'] encryption_settings: A collection of encryption settings, one for each disk volume.
         :param str encryption_settings_version: Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -301,7 +301,7 @@ class EncryptionSettingsCollectionResponse(dict):
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[List['outputs.EncryptionSettingsElementResponse']]:
+    def encryption_settings(self) -> Optional[Sequence['outputs.EncryptionSettingsElementResponse']]:
         """
         A collection of encryption settings, one for each disk volume.
         """
@@ -364,11 +364,11 @@ class ImageDiskReferenceResponse(dict):
     """
     def __init__(__self__, *,
                  id: str,
-                 lun: Optional[float] = None):
+                 lun: Optional[int] = None):
         """
         The source image used for creating the disk.
         :param str id: A relative uri containing either a Platform Image Repository or user image reference.
-        :param float lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+        :param int lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """
         pulumi.set(__self__, "id", id)
         if lun is not None:
@@ -384,7 +384,7 @@ class ImageDiskReferenceResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> Optional[float]:
+    def lun(self) -> Optional[int]:
         """
         If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """

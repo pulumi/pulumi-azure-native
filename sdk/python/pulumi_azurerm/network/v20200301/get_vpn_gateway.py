@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,8 +48,8 @@ class GetVpnGatewayResult:
         if virtual_hub and not isinstance(virtual_hub, dict):
             raise TypeError("Expected argument 'virtual_hub' to be a dict")
         pulumi.set(__self__, "virtual_hub", virtual_hub)
-        if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, float):
-            raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a float")
+        if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, int):
+            raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a int")
         pulumi.set(__self__, "vpn_gateway_scale_unit", vpn_gateway_scale_unit)
 
     @property
@@ -62,7 +62,7 @@ class GetVpnGatewayResult:
 
     @property
     @pulumi.getter
-    def connections(self) -> Optional[List['outputs.VpnConnectionResponse']]:
+    def connections(self) -> Optional[Sequence['outputs.VpnConnectionResponse']]:
         """
         List of all vpn connections to the gateway.
         """
@@ -126,7 +126,7 @@ class GetVpnGatewayResult:
 
     @property
     @pulumi.getter(name="vpnGatewayScaleUnit")
-    def vpn_gateway_scale_unit(self) -> Optional[float]:
+    def vpn_gateway_scale_unit(self) -> Optional[int]:
         """
         The scale unit for this vpn gateway.
         """

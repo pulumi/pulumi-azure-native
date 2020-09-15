@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// Describes custom rules inside the policy.
         /// </summary>
         [Output("customRules")]
-        public Output<Outputs.CustomRuleListResponseResult?> CustomRules { get; private set; } = null!;
+        public Output<Outputs.CustomRuleListResponse?> CustomRules { get; private set; } = null!;
 
         /// <summary>
         /// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
         /// </summary>
         [Output("endpointLinks")]
-        public Output<ImmutableArray<Outputs.CdnEndpointResponseResult>> EndpointLinks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CdnEndpointResponse>> EndpointLinks { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// Describes managed rules inside the policy.
         /// </summary>
         [Output("managedRules")]
-        public Output<Outputs.ManagedRuleSetListResponseResult?> ManagedRules { get; private set; } = null!;
+        public Output<Outputs.ManagedRuleSetListResponse?> ManagedRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// Describes  policySettings for policy
         /// </summary>
         [Output("policySettings")]
-        public Output<Outputs.PolicySettingsResponseResult?> PolicySettings { get; private set; } = null!;
+        public Output<Outputs.PolicySettingsResponse?> PolicySettings { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the WebApplicationFirewallPolicy.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// Describes rate limit rules inside the policy.
         /// </summary>
         [Output("rateLimitRules")]
-        public Output<Outputs.RateLimitRuleListResponseResult?> RateLimitRules { get; private set; } = null!;
+        public Output<Outputs.RateLimitRuleListResponse?> RateLimitRules { get; private set; } = null!;
 
         [Output("resourceState")]
         public Output<string> ResourceState { get; private set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

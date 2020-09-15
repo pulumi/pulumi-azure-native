@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
         /// <summary>
         /// Cross-Origin Resource Sharing (CORS) settings.
         /// </summary>
-        public readonly Outputs.SignalRCorsSettingsResponseResult? Cors;
+        public readonly Outputs.SignalRCorsSettingsResponse? Cors;
         /// <summary>
         /// The publicly accessible IP of the SignalR service.
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
         /// When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
         /// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SignalRFeatureResponseResult> Features;
+        public readonly ImmutableArray<Outputs.SignalRFeatureResponse> Features;
         /// <summary>
         /// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
         /// <summary>
         /// SKU of the service.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponseResult? Sku;
+        public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.
         /// </summary>
@@ -104,11 +104,11 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
 
         [OutputConstructor]
         private GetSignalRResult(
-            Outputs.SignalRCorsSettingsResponseResult? cors,
+            Outputs.SignalRCorsSettingsResponse? cors,
 
             string externalIP,
 
-            ImmutableArray<Outputs.SignalRFeatureResponseResult> features,
+            ImmutableArray<Outputs.SignalRFeatureResponse> features,
 
             string hostName,
 
@@ -124,7 +124,7 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
 
             int serverPort,
 
-            Outputs.ResourceSkuResponseResult? sku,
+            Outputs.ResourceSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

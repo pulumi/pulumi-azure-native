@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,7 +38,7 @@ class ListShareSubscriptionSynchronizationDetailsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> List['outputs.SynchronizationDetailsResponseResult']:
+    def value(self) -> Sequence['outputs.SynchronizationDetailsResponseResult']:
         """
         Collection of items of type DataTransferObjects.
         """

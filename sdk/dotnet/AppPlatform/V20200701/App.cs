@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         /// The Managed Identity type of the app resource
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedIdentityPropertiesResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedIdentityPropertiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The GEO location of the application, always the same with its parent resource
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         /// Properties of the App resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AppResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.AppResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

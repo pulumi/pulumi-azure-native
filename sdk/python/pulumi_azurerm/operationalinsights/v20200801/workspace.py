@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_for_ingestion: Optional[pulumi.Input[str]] = None,
                  public_network_access_for_query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_in_days: Optional[pulumi.Input[float]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_capping: Optional[pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']]] = None,
@@ -42,7 +42,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] public_network_access_for_ingestion: The network access type for accessing Log Analytics ingestion.
         :param pulumi.Input[str] public_network_access_for_query: The network access type for accessing Log Analytics query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[float] retention_in_days: The workspace data retention in days, between 30 and 730.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days, between 30 and 730.
         :param pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']] sku: The SKU of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']] workspace_capping: The daily volume cap for ingestion.
@@ -146,7 +146,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkScopedResources")
-    def private_link_scoped_resources(self) -> pulumi.Output[List['outputs.PrivateLinkScopedResourceResponse']]:
+    def private_link_scoped_resources(self) -> pulumi.Output[Sequence['outputs.PrivateLinkScopedResourceResponse']]:
         """
         List of linked private link scope resources.
         """
@@ -178,7 +178,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Output[Optional[float]]:
+    def retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         The workspace data retention in days, between 30 and 730.
         """

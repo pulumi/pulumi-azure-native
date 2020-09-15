@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// Backend Credentials Contract Properties
         /// </summary>
         [Output("credentials")]
-        public Output<Outputs.BackendCredentialsContractResponseResult?> Credentials { get; private set; } = null!;
+        public Output<Outputs.BackendCredentialsContractResponse?> Credentials { get; private set; } = null!;
 
         /// <summary>
         /// Backend Description.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// Backend Properties contract
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BackendPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.BackendPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Backend communication protocol.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// Backend Proxy Contract Properties
         /// </summary>
         [Output("proxy")]
-        public Output<Outputs.BackendProxyContractResponseResult?> Proxy { get; private set; } = null!;
+        public Output<Outputs.BackendProxyContractResponse?> Proxy { get; private set; } = null!;
 
         /// <summary>
         /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// Backend TLS Properties
         /// </summary>
         [Output("tls")]
-        public Output<Outputs.BackendTlsPropertiesResponseResult?> Tls { get; private set; } = null!;
+        public Output<Outputs.BackendTlsPropertiesResponse?> Tls { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

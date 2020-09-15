@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Resources.V20151101
         /// Gets or sets the plan of the resource.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
+        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the resource properties.

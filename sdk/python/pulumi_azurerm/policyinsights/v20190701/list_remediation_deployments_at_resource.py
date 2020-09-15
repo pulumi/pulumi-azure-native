@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,7 +38,7 @@ class ListRemediationDeploymentsAtResourceResult:
 
     @property
     @pulumi.getter
-    def value(self) -> List['outputs.RemediationDeploymentResponseResult']:
+    def value(self) -> Sequence['outputs.RemediationDeploymentResponseResult']:
         """
         Array of deployments for the remediation.
         """
@@ -57,14 +57,14 @@ class AwaitableListRemediationDeploymentsAtResourceResult(ListRemediationDeploym
 
 def list_remediation_deployments_at_resource(remediation_name: Optional[str] = None,
                                              resource_id: Optional[str] = None,
-                                             top: Optional[float] = None,
+                                             top: Optional[int] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtResourceResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str remediation_name: The name of the remediation.
     :param str resource_id: Resource ID.
-    :param float top: Maximum number of records to return.
+    :param int top: Maximum number of records to return.
     """
     __args__ = dict()
     __args__['remediationName'] = remediation_name

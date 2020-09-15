@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,7 +26,7 @@ class AssessmentPropertiesArgs:
                  azure_offer_code: pulumi.Input[str],
                  azure_pricing_tier: pulumi.Input[str],
                  azure_storage_redundancy: pulumi.Input[str],
-                 azure_vm_families: pulumi.Input[List[pulumi.Input[str]]],
+                 azure_vm_families: pulumi.Input[Sequence[pulumi.Input[str]]],
                  currency: pulumi.Input[str],
                  discount_percentage: pulumi.Input[float],
                  percentile: pulumi.Input[str],
@@ -44,7 +44,7 @@ class AssessmentPropertiesArgs:
         :param pulumi.Input[str] azure_offer_code: Offer code according to which cost estimation is done.
         :param pulumi.Input[str] azure_pricing_tier: Pricing tier for Size evaluation.
         :param pulumi.Input[str] azure_storage_redundancy: Storage Redundancy type offered by Azure.
-        :param pulumi.Input[List[pulumi.Input[str]]] azure_vm_families: List of azure VM families.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] azure_vm_families: List of azure VM families.
         :param pulumi.Input[str] currency: Currency to report prices in.
         :param pulumi.Input[float] discount_percentage: Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
         :param pulumi.Input[str] percentile: Percentile of performance data used to recommend Azure size.
@@ -146,14 +146,14 @@ class AssessmentPropertiesArgs:
 
     @property
     @pulumi.getter(name="azureVmFamilies")
-    def azure_vm_families(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def azure_vm_families(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of azure VM families.
         """
         return pulumi.get(self, "azure_vm_families")
 
     @azure_vm_families.setter
-    def azure_vm_families(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def azure_vm_families(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "azure_vm_families", value)
 
     @property

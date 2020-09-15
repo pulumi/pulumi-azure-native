@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -66,12 +66,12 @@ class ReportComparisonExpressionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The comparison expression to be used in the report.
         :param pulumi.Input[str] name: The name of the column to use in comparison.
         :param pulumi.Input[str] operator: The operator to use for comparison.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: Array of values to use for comparison
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -103,14 +103,14 @@ class ReportComparisonExpressionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Array of values to use for comparison
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
@@ -121,14 +121,14 @@ class ReportDatasetArgs:
                  configuration: Optional[pulumi.Input['ReportDatasetConfigurationArgs']] = None,
                  filter: Optional[pulumi.Input['ReportFilterArgs']] = None,
                  granularity: Optional[pulumi.Input[str]] = None,
-                 grouping: Optional[pulumi.Input[List[pulumi.Input['ReportGroupingArgs']]]] = None):
+                 grouping: Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]]] = None):
         """
         The definition of data present in the report.
         :param pulumi.Input[Mapping[str, pulumi.Input['ReportAggregationArgs']]] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
         :param pulumi.Input['ReportDatasetConfigurationArgs'] configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
         :param pulumi.Input['ReportFilterArgs'] filter: Has filter expression to use in the report.
         :param pulumi.Input[str] granularity: The granularity of rows in the report.
-        :param pulumi.Input[List[pulumi.Input['ReportGroupingArgs']]] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        :param pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -191,38 +191,38 @@ class ReportDatasetArgs:
 
     @property
     @pulumi.getter
-    def grouping(self) -> Optional[pulumi.Input[List[pulumi.Input['ReportGroupingArgs']]]]:
+    def grouping(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]]]:
         """
         Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         """
         return pulumi.get(self, "grouping")
 
     @grouping.setter
-    def grouping(self, value: Optional[pulumi.Input[List[pulumi.Input['ReportGroupingArgs']]]]):
+    def grouping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]]]):
         pulumi.set(self, "grouping", value)
 
 
 @pulumi.input_type
 class ReportDatasetConfigurationArgs:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The configuration of dataset in the report.
-        :param pulumi.Input[List[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "columns", value)
 
 
@@ -376,17 +376,17 @@ class ReportDeliveryInfoArgs:
 @pulumi.input_type
 class ReportFilterArgs:
     def __init__(__self__, *,
-                 and_: Optional[pulumi.Input[List[pulumi.Input['ReportFilterArgs']]]] = None,
+                 and_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]] = None,
                  dimension: Optional[pulumi.Input['ReportComparisonExpressionArgs']] = None,
                  not_: Optional[pulumi.Input['ReportFilterArgs']] = None,
-                 or_: Optional[pulumi.Input[List[pulumi.Input['ReportFilterArgs']]]] = None,
+                 or_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]] = None,
                  tag: Optional[pulumi.Input['ReportComparisonExpressionArgs']] = None):
         """
         The filter expression to be used in the report.
-        :param pulumi.Input[List[pulumi.Input['ReportFilterArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
+        :param pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
         :param pulumi.Input['ReportComparisonExpressionArgs'] dimension: Has comparison expression for a dimension
         :param pulumi.Input['ReportFilterArgs'] not_: The logical "NOT" expression.
-        :param pulumi.Input[List[pulumi.Input['ReportFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
+        :param pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
         :param pulumi.Input['ReportComparisonExpressionArgs'] tag: Has comparison expression for a tag
         """
         if and_ is not None:
@@ -402,14 +402,14 @@ class ReportFilterArgs:
 
     @property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[pulumi.Input[List[pulumi.Input['ReportFilterArgs']]]]:
+    def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]]:
         """
         The logical "AND" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "and_")
 
     @and_.setter
-    def and_(self, value: Optional[pulumi.Input[List[pulumi.Input['ReportFilterArgs']]]]):
+    def and_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]]):
         pulumi.set(self, "and_", value)
 
     @property
@@ -438,14 +438,14 @@ class ReportFilterArgs:
 
     @property
     @pulumi.getter(name="or")
-    def or_(self) -> Optional[pulumi.Input[List[pulumi.Input['ReportFilterArgs']]]]:
+    def or_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]]:
         """
         The logical "OR" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "or_")
 
     @or_.setter
-    def or_(self, value: Optional[pulumi.Input[List[pulumi.Input['ReportFilterArgs']]]]):
+    def or_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]]):
         pulumi.set(self, "or_", value)
 
     @property

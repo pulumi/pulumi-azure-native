@@ -46,11 +46,11 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The associated key properties.
         /// </summary>
-        public readonly Outputs.KeyVaultPropertiesResponseResult? KeyVaultProperties;
+        public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
         /// <summary>
         /// The sku properties.
         /// </summary>
-        public readonly Outputs.ClusterSkuResponseResult? Sku;
+        public readonly Outputs.ClusterSkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -84,9 +84,9 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
         private GetClusterResult(
             string clusterId,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
-            Outputs.KeyVaultPropertiesResponseResult? keyVaultProperties,
+            Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
 
             string location,
 
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
 
             string provisioningState,
 
-            Outputs.ClusterSkuResponseResult? sku,
+            Outputs.ClusterSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

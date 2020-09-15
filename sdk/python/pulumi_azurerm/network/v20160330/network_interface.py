@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class NetworkInterface(pulumi.CustomResource):
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
@@ -44,7 +44,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_ip_forwarding: Gets or sets whether IPForwarding is enabled on the NIC
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] id: Resource Id
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: Gets or sets list of IPConfigurations of the NetworkInterface
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: Gets or sets list of IPConfigurations of the NetworkInterface
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] mac_address: Gets the MAC Address of the network interface
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
@@ -146,7 +146,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Output[Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']]]:
+    def ip_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]]:
         """
         Gets or sets list of IPConfigurations of the NetworkInterface
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,7 +24,7 @@ class InstancePool(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 v_cores: Optional[pulumi.Input[float]] = None,
+                 v_cores: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,7 +40,7 @@ class InstancePool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The name and tier of the SKU.
         :param pulumi.Input[str] subnet_id: Resource ID of the subnet to place this instance pool in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[float] v_cores: Count of vCores belonging to this instance pool.
+        :param pulumi.Input[int] v_cores: Count of vCores belonging to this instance pool.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -163,7 +163,7 @@ class InstancePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vCores")
-    def v_cores(self) -> pulumi.Output[float]:
+    def v_cores(self) -> pulumi.Output[int]:
         """
         Count of vCores belonging to this instance pool.
         """

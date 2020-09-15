@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -69,8 +69,8 @@ class GetVolumeResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if usage_threshold and not isinstance(usage_threshold, float):
-            raise TypeError("Expected argument 'usage_threshold' to be a float")
+        if usage_threshold and not isinstance(usage_threshold, int):
+            raise TypeError("Expected argument 'usage_threshold' to be a int")
         pulumi.set(__self__, "usage_threshold", usage_threshold)
         if volume_type and not isinstance(volume_type, str):
             raise TypeError("Expected argument 'volume_type' to be a str")
@@ -134,7 +134,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> Optional[List['outputs.MountTargetPropertiesResponse']]:
+    def mount_targets(self) -> Optional[Sequence['outputs.MountTargetPropertiesResponse']]:
         """
         List of mount targets
         """
@@ -150,7 +150,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="protocolTypes")
-    def protocol_types(self) -> Optional[List[str]]:
+    def protocol_types(self) -> Optional[Sequence[str]]:
         """
         Set of protocol types
         """
@@ -206,7 +206,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="usageThreshold")
-    def usage_threshold(self) -> float:
+    def usage_threshold(self) -> int:
         """
         Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         """

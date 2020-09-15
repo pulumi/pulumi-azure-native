@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// the collection of notifications.
         /// </summary>
         [Output("notifications")]
-        public Output<ImmutableArray<Outputs.AutoscaleNotificationResponseResult>> Notifications { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AutoscaleNotificationResponse>> Notifications { get; private set; } = null!;
 
         /// <summary>
         /// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         /// </summary>
         [Output("profiles")]
-        public Output<ImmutableArray<Outputs.AutoscaleProfileResponseResult>> Profiles { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AutoscaleProfileResponse>> Profiles { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

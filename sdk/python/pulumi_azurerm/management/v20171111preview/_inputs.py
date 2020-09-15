@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -17,7 +17,7 @@ __all__ = [
 class ParameterDefinitionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 allowed_values: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  default_value: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,7 @@ class ParameterDefinitionArgs:
         """
         Represent a parameter with constrains and metadata.
         :param pulumi.Input[str] type: Allowed data types for Azure Resource Manager template parameters.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] allowed_values: Array of allowed values for this parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] allowed_values: Array of allowed values for this parameter.
         :param pulumi.Input[Mapping[str, Any]] default_value: Default Value for this parameter.
         :param pulumi.Input[str] description: Description of this parameter/resourceGroup.
         :param pulumi.Input[str] display_name: DisplayName of this parameter/resourceGroup.
@@ -57,14 +57,14 @@ class ParameterDefinitionArgs:
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         Array of allowed values for this parameter.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "allowed_values", value)
 
     @property
@@ -119,7 +119,7 @@ class ParameterDefinitionArgs:
 @pulumi.input_type
 class ResourceGroupDefinitionArgs:
     def __init__(__self__, *,
-                 depends_on: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,7 @@ class ResourceGroupDefinitionArgs:
                  strong_type: Optional[pulumi.Input[str]] = None):
         """
         Represents an Azure resource group in a Blueprint definition.
-        :param pulumi.Input[List[pulumi.Input[str]]] depends_on: Artifacts which need to be deployed before this resource group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_on: Artifacts which need to be deployed before this resource group.
         :param pulumi.Input[str] description: Description of this parameter/resourceGroup.
         :param pulumi.Input[str] display_name: DisplayName of this parameter/resourceGroup.
         :param pulumi.Input[str] location: Location of this resourceGroup, leave empty if the resource group location will be specified during the Blueprint assignment.
@@ -149,14 +149,14 @@ class ResourceGroupDefinitionArgs:
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Artifacts which need to be deployed before this resource group.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "depends_on", value)
 
     @property

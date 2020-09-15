@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// Represents the destination of an event channel.
         /// </summary>
         [Output("destination")]
-        public Output<Outputs.EventChannelDestinationResponseResult?> Destination { get; private set; } = null!;
+        public Output<Outputs.EventChannelDestinationResponse?> Destination { get; private set; } = null!;
 
         /// <summary>
         /// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
@@ -31,7 +31,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// Information about the filter for the event channel.
         /// </summary>
         [Output("filter")]
-        public Output<Outputs.EventChannelFilterResponseResult?> Filter { get; private set; } = null!;
+        public Output<Outputs.EventChannelFilterResponse?> Filter { get; private set; } = null!;
 
         /// <summary>
         /// Name of the resource
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// Source of the event channel. This represents a unique resource in the partner's resource model.
         /// </summary>
         [Output("source")]
-        public Output<Outputs.EventChannelSourceResponseResult?> Source { get; private set; } = null!;
+        public Output<Outputs.EventChannelSourceResponse?> Source { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource

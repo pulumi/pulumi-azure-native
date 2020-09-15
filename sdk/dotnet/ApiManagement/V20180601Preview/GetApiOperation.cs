@@ -74,15 +74,15 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <summary>
         /// An entity containing request details.
         /// </summary>
-        public readonly Outputs.RequestContractResponseResult? Request;
+        public readonly Outputs.RequestContractResponse? Request;
         /// <summary>
         /// Array of Operation responses.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResponseContractResponseResult> Responses;
+        public readonly ImmutableArray<Outputs.ResponseContractResponse> Responses;
         /// <summary>
         /// Collection of URL template parameters.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ParameterContractResponseResult> TemplateParameters;
+        public readonly ImmutableArray<Outputs.ParameterContractResponse> TemplateParameters;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -104,11 +104,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
 
             string? policies,
 
-            Outputs.RequestContractResponseResult? request,
+            Outputs.RequestContractResponse? request,
 
-            ImmutableArray<Outputs.ResponseContractResponseResult> responses,
+            ImmutableArray<Outputs.ResponseContractResponse> responses,
 
-            ImmutableArray<Outputs.ParameterContractResponseResult> templateParameters,
+            ImmutableArray<Outputs.ParameterContractResponse> templateParameters,
 
             string type,
 

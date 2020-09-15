@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -64,7 +64,7 @@ class ConditionResponse(dict):
                  operator: str,
                  threshold: float,
                  time_aggregation: str,
-                 dimensions: Optional[List['outputs.DimensionResponse']] = None,
+                 dimensions: Optional[Sequence['outputs.DimensionResponse']] = None,
                  failing_periods: Optional['outputs.ConditionResponseFailingPeriods'] = None,
                  metric_measure_column: Optional[str] = None,
                  query: Optional[str] = None,
@@ -74,7 +74,7 @@ class ConditionResponse(dict):
         :param str operator: The criteria operator.
         :param float threshold: the criteria threshold value that activates the alert.
         :param str time_aggregation: Aggregation type
-        :param List['DimensionResponseArgs'] dimensions: List of Dimensions conditions
+        :param Sequence['DimensionResponseArgs'] dimensions: List of Dimensions conditions
         :param 'ConditionResponseFailingPeriodsArgs' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
         :param str metric_measure_column: The column containing the metric measure number.
         :param str query: Log query alert
@@ -120,7 +120,7 @@ class ConditionResponse(dict):
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[List['outputs.DimensionResponse']]:
+    def dimensions(self) -> Optional[Sequence['outputs.DimensionResponse']]:
         """
         List of Dimensions conditions
         """
@@ -208,12 +208,12 @@ class DimensionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         Dimension splitting and filtering definition
         :param str name: Name of the dimension
         :param str operator: Operator for dimension values
-        :param List[str] values: List of dimension values
+        :param Sequence[str] values: List of dimension values
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -237,7 +237,7 @@ class DimensionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         List of dimension values
         """
@@ -253,17 +253,17 @@ class ScheduledQueryRuleCriteriaResponse(dict):
     The rule criteria that defines the conditions of the scheduled query rule.
     """
     def __init__(__self__, *,
-                 all_of: Optional[List['outputs.ConditionResponse']] = None):
+                 all_of: Optional[Sequence['outputs.ConditionResponse']] = None):
         """
         The rule criteria that defines the conditions of the scheduled query rule.
-        :param List['ConditionResponseArgs'] all_of: A list of conditions to evaluate against the specified scopes
+        :param Sequence['ConditionResponseArgs'] all_of: A list of conditions to evaluate against the specified scopes
         """
         if all_of is not None:
             pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[List['outputs.ConditionResponse']]:
+    def all_of(self) -> Optional[Sequence['outputs.ConditionResponse']]:
         """
         A list of conditions to evaluate against the specified scopes
         """

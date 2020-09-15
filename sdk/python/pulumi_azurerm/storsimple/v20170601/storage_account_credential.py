@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -153,7 +153,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumesCount")
-    def volumes_count(self) -> pulumi.Output[float]:
+    def volumes_count(self) -> pulumi.Output[int]:
         """
         The count of volumes using this storage account credential.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -96,7 +96,7 @@ class CognitiveServicesAccountPropertiesResponse(dict):
     Properties of Cognitive Services account.
     """
     def __init__(__self__, *,
-                 capabilities: List['outputs.SkuCapabilityResponse'],
+                 capabilities: Sequence['outputs.SkuCapabilityResponse'],
                  endpoint: str,
                  internal_id: str,
                  provisioning_state: str,
@@ -104,12 +104,12 @@ class CognitiveServicesAccountPropertiesResponse(dict):
                  custom_sub_domain_name: Optional[str] = None,
                  encryption: Optional['outputs.EncryptionResponse'] = None,
                  network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
-                 private_endpoint_connections: Optional[List['outputs.PrivateEndpointConnectionResponse']] = None,
+                 private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionResponse']] = None,
                  public_network_access: Optional[str] = None,
-                 user_owned_storage: Optional[List['outputs.UserOwnedStorageResponse']] = None):
+                 user_owned_storage: Optional[Sequence['outputs.UserOwnedStorageResponse']] = None):
         """
         Properties of Cognitive Services account.
-        :param List['SkuCapabilityResponseArgs'] capabilities: Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
+        :param Sequence['SkuCapabilityResponseArgs'] capabilities: Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
         :param str endpoint: Endpoint of the created account.
         :param str internal_id: The internal identifier.
         :param str provisioning_state: Gets the status of the cognitive services account at the time the operation was called.
@@ -117,9 +117,9 @@ class CognitiveServicesAccountPropertiesResponse(dict):
         :param str custom_sub_domain_name: Optional subdomain name used for token-based authentication.
         :param 'EncryptionResponseArgs' encryption: The encryption properties for this resource.
         :param 'NetworkRuleSetResponseArgs' network_acls: A collection of rules governing the accessibility from specific network locations.
-        :param List['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: The private endpoint connection associated with the Cognitive Services account.
+        :param Sequence['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: The private endpoint connection associated with the Cognitive Services account.
         :param str public_network_access: Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        :param List['UserOwnedStorageResponseArgs'] user_owned_storage: The storage accounts for this resource.
+        :param Sequence['UserOwnedStorageResponseArgs'] user_owned_storage: The storage accounts for this resource.
         """
         pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -142,7 +142,7 @@ class CognitiveServicesAccountPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> List['outputs.SkuCapabilityResponse']:
+    def capabilities(self) -> Sequence['outputs.SkuCapabilityResponse']:
         """
         Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
         """
@@ -206,7 +206,7 @@ class CognitiveServicesAccountPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[List['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
         The private endpoint connection associated with the Cognitive Services account.
         """
@@ -222,7 +222,7 @@ class CognitiveServicesAccountPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="userOwnedStorage")
-    def user_owned_storage(self) -> Optional[List['outputs.UserOwnedStorageResponse']]:
+    def user_owned_storage(self) -> Optional[Sequence['outputs.UserOwnedStorageResponse']]:
         """
         The storage accounts for this resource.
         """
@@ -412,13 +412,13 @@ class NetworkRuleSetResponse(dict):
     """
     def __init__(__self__, *,
                  default_action: Optional[str] = None,
-                 ip_rules: Optional[List['outputs.IpRuleResponse']] = None,
-                 virtual_network_rules: Optional[List['outputs.VirtualNetworkRuleResponse']] = None):
+                 ip_rules: Optional[Sequence['outputs.IpRuleResponse']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         A set of rules governing the network accessibility.
         :param str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-        :param List['IpRuleResponseArgs'] ip_rules: The list of IP address rules.
-        :param List['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
+        :param Sequence['IpRuleResponseArgs'] ip_rules: The list of IP address rules.
+        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -437,7 +437,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List['outputs.IpRuleResponse']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.IpRuleResponse']]:
         """
         The list of IP address rules.
         """
@@ -445,7 +445,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.VirtualNetworkRuleResponse']]:
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
         """
         The list of virtual network rules.
         """
@@ -462,12 +462,12 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
-                 group_ids: Optional[List[str]] = None,
+                 group_ids: Optional[Sequence[str]] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         Properties of the PrivateEndpointConnectProperties.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param List[str] group_ids: The private link resource group ids.
+        :param Sequence[str] group_ids: The private link resource group ids.
         :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -486,7 +486,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[List[str]]:
+    def group_ids(self) -> Optional[Sequence[str]]:
         """
         The private link resource group ids.
         """

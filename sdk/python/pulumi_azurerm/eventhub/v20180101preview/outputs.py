@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -26,11 +26,11 @@ class ClusterSkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None):
+                 capacity: Optional[int] = None):
         """
         SKU parameters particular to a cluster instance.
         :param str name: Name of this SKU.
-        :param float capacity: The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
+        :param int capacity: The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -46,7 +46,7 @@ class ClusterSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
         """
@@ -101,11 +101,11 @@ class EncryptionResponse(dict):
     """
     def __init__(__self__, *,
                  key_source: Optional[str] = None,
-                 key_vault_properties: Optional[List['outputs.KeyVaultPropertiesResponse']] = None):
+                 key_vault_properties: Optional[Sequence['outputs.KeyVaultPropertiesResponse']] = None):
         """
         Properties to configure Encryption
         :param str key_source: Enumerates the possible value of keySource for Encryption
-        :param List['KeyVaultPropertiesResponseArgs'] key_vault_properties: Properties of KeyVault
+        :param Sequence['KeyVaultPropertiesResponseArgs'] key_vault_properties: Properties of KeyVault
         """
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
@@ -122,7 +122,7 @@ class EncryptionResponse(dict):
 
     @property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[List['outputs.KeyVaultPropertiesResponse']]:
+    def key_vault_properties(self) -> Optional[Sequence['outputs.KeyVaultPropertiesResponse']]:
         """
         Properties of KeyVault
         """
@@ -265,12 +265,12 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  tier: Optional[str] = None):
         """
         SKU parameters supplied to the create namespace operation
         :param str name: Name of this SKU.
-        :param float capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        :param int capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
         :param str tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -289,7 +289,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The Event Hubs throughput units, value should be 0 to 20 throughput units.
         """

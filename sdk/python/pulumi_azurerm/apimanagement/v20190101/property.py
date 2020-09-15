@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Property']
@@ -20,7 +20,7 @@ class Property(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,7 +35,7 @@ class Property(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] secret: Determines whether the value is a secret and should be encrypted or not. Default value is false.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-        :param pulumi.Input[List[pulumi.Input[str]]] tags: Optional tags that when provided can be used to filter the property list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Optional tags that when provided can be used to filter the property list.
         :param pulumi.Input[str] value: Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
         """
         if __name__ is not None:
@@ -126,7 +126,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[List[str]]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Optional tags that when provided can be used to filter the property list.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -160,14 +160,14 @@ class ArmTemplateParameterPropertiesArgs:
 @pulumi.input_type
 class ArtifactDeploymentStatusPropertiesArgs:
     def __init__(__self__, *,
-                 artifacts_applied: Optional[pulumi.Input[float]] = None,
+                 artifacts_applied: Optional[pulumi.Input[int]] = None,
                  deployment_status: Optional[pulumi.Input[str]] = None,
-                 total_artifacts: Optional[pulumi.Input[float]] = None):
+                 total_artifacts: Optional[pulumi.Input[int]] = None):
         """
         Properties of an artifact deployment.
-        :param pulumi.Input[float] artifacts_applied: The total count of the artifacts that were successfully applied.
+        :param pulumi.Input[int] artifacts_applied: The total count of the artifacts that were successfully applied.
         :param pulumi.Input[str] deployment_status: The deployment status of the artifact.
-        :param pulumi.Input[float] total_artifacts: The total count of the artifacts that were tentatively applied.
+        :param pulumi.Input[int] total_artifacts: The total count of the artifacts that were tentatively applied.
         """
         if artifacts_applied is not None:
             pulumi.set(__self__, "artifacts_applied", artifacts_applied)
@@ -178,14 +178,14 @@ class ArtifactDeploymentStatusPropertiesArgs:
 
     @property
     @pulumi.getter(name="artifactsApplied")
-    def artifacts_applied(self) -> Optional[pulumi.Input[float]]:
+    def artifacts_applied(self) -> Optional[pulumi.Input[int]]:
         """
         The total count of the artifacts that were successfully applied.
         """
         return pulumi.get(self, "artifacts_applied")
 
     @artifacts_applied.setter
-    def artifacts_applied(self, value: Optional[pulumi.Input[float]]):
+    def artifacts_applied(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "artifacts_applied", value)
 
     @property
@@ -202,14 +202,14 @@ class ArtifactDeploymentStatusPropertiesArgs:
 
     @property
     @pulumi.getter(name="totalArtifacts")
-    def total_artifacts(self) -> Optional[pulumi.Input[float]]:
+    def total_artifacts(self) -> Optional[pulumi.Input[int]]:
         """
         The total count of the artifacts that were tentatively applied.
         """
         return pulumi.get(self, "total_artifacts")
 
     @total_artifacts.setter
-    def total_artifacts(self, value: Optional[pulumi.Input[float]]):
+    def total_artifacts(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "total_artifacts", value)
 
 
@@ -219,7 +219,7 @@ class ArtifactInstallPropertiesArgs:
                  artifact_id: Optional[pulumi.Input[str]] = None,
                  deployment_status_message: Optional[pulumi.Input[str]] = None,
                  install_time: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['ArtifactParameterPropertiesArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  vm_extension_status_message: Optional[pulumi.Input[str]] = None):
         """
@@ -227,7 +227,7 @@ class ArtifactInstallPropertiesArgs:
         :param pulumi.Input[str] artifact_id: The artifact's identifier.
         :param pulumi.Input[str] deployment_status_message: The status message from the deployment.
         :param pulumi.Input[str] install_time: The time that the artifact starts to install on the virtual machine.
-        :param pulumi.Input[List[pulumi.Input['ArtifactParameterPropertiesArgs']]] parameters: The parameters of the artifact.
+        :param pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]] parameters: The parameters of the artifact.
         :param pulumi.Input[str] status: The status of the artifact.
         :param pulumi.Input[str] vm_extension_status_message: The status message from the virtual machine extension.
         """
@@ -282,14 +282,14 @@ class ArtifactInstallPropertiesArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['ArtifactParameterPropertiesArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]]:
         """
         The parameters of the artifact.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['ArtifactParameterPropertiesArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -360,37 +360,37 @@ class ArtifactParameterPropertiesArgs:
 @pulumi.input_type
 class BulkCreationParametersArgs:
     def __init__(__self__, *,
-                 instance_count: Optional[pulumi.Input[float]] = None):
+                 instance_count: Optional[pulumi.Input[int]] = None):
         """
         Parameters for creating multiple virtual machines as a single action.
-        :param pulumi.Input[float] instance_count: The number of virtual machine instances to create.
+        :param pulumi.Input[int] instance_count: The number of virtual machine instances to create.
         """
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[float]]:
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of virtual machine instances to create.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[float]]):
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "instance_count", value)
 
 
 @pulumi.input_type
 class ComputeDataDiskArgs:
     def __init__(__self__, *,
-                 disk_size_gi_b: Optional[pulumi.Input[float]] = None,
+                 disk_size_gi_b: Optional[pulumi.Input[int]] = None,
                  disk_uri: Optional[pulumi.Input[str]] = None,
                  managed_disk_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         A data disks attached to a virtual machine.
-        :param pulumi.Input[float] disk_size_gi_b: Gets data disk size in GiB.
+        :param pulumi.Input[int] disk_size_gi_b: Gets data disk size in GiB.
         :param pulumi.Input[str] disk_uri: When backed by a blob, the URI of underlying blob.
         :param pulumi.Input[str] managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
         :param pulumi.Input[str] name: Gets data disk name.
@@ -406,14 +406,14 @@ class ComputeDataDiskArgs:
 
     @property
     @pulumi.getter(name="diskSizeGiB")
-    def disk_size_gi_b(self) -> Optional[pulumi.Input[float]]:
+    def disk_size_gi_b(self) -> Optional[pulumi.Input[int]]:
         """
         Gets data disk size in GiB.
         """
         return pulumi.get(self, "disk_size_gi_b")
 
     @disk_size_gi_b.setter
-    def disk_size_gi_b(self, value: Optional[pulumi.Input[float]]):
+    def disk_size_gi_b(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gi_b", value)
 
     @property
@@ -512,21 +512,21 @@ class ComputeVmInstanceViewStatusArgs:
 @pulumi.input_type
 class ComputeVmPropertiesArgs:
     def __init__(__self__, *,
-                 data_disk_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 data_disks: Optional[pulumi.Input[List[pulumi.Input['ComputeDataDiskArgs']]]] = None,
+                 data_disk_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeDataDiskArgs']]]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  os_disk_id: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
-                 statuses: Optional[pulumi.Input[List[pulumi.Input['ComputeVmInstanceViewStatusArgs']]]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeVmInstanceViewStatusArgs']]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         Properties of a virtual machine returned by the Microsoft.Compute API.
-        :param pulumi.Input[List[pulumi.Input[str]]] data_disk_ids: Gets data disks blob uri for the virtual machine.
-        :param pulumi.Input[List[pulumi.Input['ComputeDataDiskArgs']]] data_disks: Gets all data disks attached to the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_disk_ids: Gets data disks blob uri for the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input['ComputeDataDiskArgs']]] data_disks: Gets all data disks attached to the virtual machine.
         :param pulumi.Input[str] network_interface_id: Gets the network interface ID of the virtual machine.
         :param pulumi.Input[str] os_disk_id: Gets OS disk blob uri for the virtual machine.
         :param pulumi.Input[str] os_type: Gets the OS type of the virtual machine.
-        :param pulumi.Input[List[pulumi.Input['ComputeVmInstanceViewStatusArgs']]] statuses: Gets the statuses of the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input['ComputeVmInstanceViewStatusArgs']]] statuses: Gets the statuses of the virtual machine.
         :param pulumi.Input[str] vm_size: Gets the size of the virtual machine.
         """
         if data_disk_ids is not None:
@@ -546,26 +546,26 @@ class ComputeVmPropertiesArgs:
 
     @property
     @pulumi.getter(name="dataDiskIds")
-    def data_disk_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def data_disk_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gets data disks blob uri for the virtual machine.
         """
         return pulumi.get(self, "data_disk_ids")
 
     @data_disk_ids.setter
-    def data_disk_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def data_disk_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "data_disk_ids", value)
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[List[pulumi.Input['ComputeDataDiskArgs']]]]:
+    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComputeDataDiskArgs']]]]:
         """
         Gets all data disks attached to the virtual machine.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[List[pulumi.Input['ComputeDataDiskArgs']]]]):
+    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @property
@@ -606,14 +606,14 @@ class ComputeVmPropertiesArgs:
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[pulumi.Input[List[pulumi.Input['ComputeVmInstanceViewStatusArgs']]]]:
+    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComputeVmInstanceViewStatusArgs']]]]:
         """
         Gets the statuses of the virtual machine.
         """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
-    def statuses(self, value: Optional[pulumi.Input[List[pulumi.Input['ComputeVmInstanceViewStatusArgs']]]]):
+    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeVmInstanceViewStatusArgs']]]]):
         pulumi.set(self, "statuses", value)
 
     @property
@@ -768,11 +768,11 @@ class DayDetailsArgs:
 class EnvironmentDeploymentPropertiesArgs:
     def __init__(__self__, *,
                  arm_template_id: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]] = None):
         """
         Properties of an environment deployment.
         :param pulumi.Input[str] arm_template_id: The Azure Resource Manager template's identifier.
-        :param pulumi.Input[List[pulumi.Input['ArmTemplateParameterPropertiesArgs']]] parameters: The parameters of the Azure Resource Manager template.
+        :param pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]] parameters: The parameters of the Azure Resource Manager template.
         """
         if arm_template_id is not None:
             pulumi.set(__self__, "arm_template_id", arm_template_id)
@@ -793,14 +793,14 @@ class EnvironmentDeploymentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]]:
         """
         The parameters of the Azure Resource Manager template.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -983,24 +983,24 @@ class GalleryImageReferenceArgs:
 @pulumi.input_type
 class HourDetailsArgs:
     def __init__(__self__, *,
-                 minute: Optional[pulumi.Input[float]] = None):
+                 minute: Optional[pulumi.Input[int]] = None):
         """
         Properties of an hourly schedule.
-        :param pulumi.Input[float] minute: Minutes of the hour the schedule will run.
+        :param pulumi.Input[int] minute: Minutes of the hour the schedule will run.
         """
         if minute is not None:
             pulumi.set(__self__, "minute", minute)
 
     @property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[float]]:
+    def minute(self) -> Optional[pulumi.Input[int]]:
         """
         Minutes of the hour the schedule will run.
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[float]]):
+    def minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minute", value)
 
 
@@ -1079,13 +1079,13 @@ class IdentityPropertiesArgs:
 @pulumi.input_type
 class InboundNatRuleArgs:
     def __init__(__self__, *,
-                 backend_port: Optional[pulumi.Input[float]] = None,
-                 frontend_port: Optional[pulumi.Input[float]] = None,
+                 backend_port: Optional[pulumi.Input[int]] = None,
+                 frontend_port: Optional[pulumi.Input[int]] = None,
                  transport_protocol: Optional[pulumi.Input[str]] = None):
         """
         A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
-        :param pulumi.Input[float] backend_port: The port to which the external traffic will be redirected.
-        :param pulumi.Input[float] frontend_port: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+        :param pulumi.Input[int] backend_port: The port to which the external traffic will be redirected.
+        :param pulumi.Input[int] frontend_port: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
         :param pulumi.Input[str] transport_protocol: The transport protocol for the endpoint.
         """
         if backend_port is not None:
@@ -1097,26 +1097,26 @@ class InboundNatRuleArgs:
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[pulumi.Input[float]]:
+    def backend_port(self) -> Optional[pulumi.Input[int]]:
         """
         The port to which the external traffic will be redirected.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: Optional[pulumi.Input[float]]):
+    def backend_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backend_port", value)
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[pulumi.Input[float]]:
+    def frontend_port(self) -> Optional[pulumi.Input[int]]:
         """
         The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
         """
         return pulumi.get(self, "frontend_port")
 
     @frontend_port.setter
-    def frontend_port(self, value: Optional[pulumi.Input[float]]):
+    def frontend_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "frontend_port", value)
 
     @property
@@ -1138,7 +1138,7 @@ class LabVirtualMachineCreationParameterArgs:
                  allow_claim: Optional[pulumi.Input[bool]] = None,
                  applicable_schedule: Optional[pulumi.Input['ApplicableScheduleArgs']] = None,
                  artifact_deployment_status: Optional[pulumi.Input['ArtifactDeploymentStatusPropertiesArgs']] = None,
-                 artifacts: Optional[pulumi.Input[List[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
                  bulk_creation_parameters: Optional[pulumi.Input['BulkCreationParametersArgs']] = None,
                  compute_vm: Optional[pulumi.Input['ComputeVmPropertiesArgs']] = None,
                  created_by_user: Optional[pulumi.Input[str]] = None,
@@ -1174,7 +1174,7 @@ class LabVirtualMachineCreationParameterArgs:
         :param pulumi.Input[bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
         :param pulumi.Input['ApplicableScheduleArgs'] applicable_schedule: The applicable schedule for the virtual machine.
         :param pulumi.Input['ArtifactDeploymentStatusPropertiesArgs'] artifact_deployment_status: The artifact deployment status for the virtual machine.
-        :param pulumi.Input[List[pulumi.Input['ArtifactInstallPropertiesArgs']]] artifacts: The artifacts to be installed on the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]] artifacts: The artifacts to be installed on the virtual machine.
         :param pulumi.Input['BulkCreationParametersArgs'] bulk_creation_parameters: The number of virtual machine instances to create.
         :param pulumi.Input['ComputeVmPropertiesArgs'] compute_vm: The compute virtual machine properties.
         :param pulumi.Input[str] created_by_user: The email address of creator of the virtual machine.
@@ -1313,14 +1313,14 @@ class LabVirtualMachineCreationParameterArgs:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[pulumi.Input[List[pulumi.Input['ArtifactInstallPropertiesArgs']]]]:
+    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]:
         """
         The artifacts to be installed on the virtual machine.
         """
         return pulumi.get(self, "artifacts")
 
     @artifacts.setter
-    def artifacts(self, value: Optional[pulumi.Input[List[pulumi.Input['ArtifactInstallPropertiesArgs']]]]):
+    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]):
         pulumi.set(self, "artifacts", value)
 
     @property
@@ -1864,12 +1864,12 @@ class NetworkInterfacePropertiesArgs:
 class NotificationSettingsArgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None,
-                 time_in_minutes: Optional[pulumi.Input[float]] = None,
+                 time_in_minutes: Optional[pulumi.Input[int]] = None,
                  webhook_url: Optional[pulumi.Input[str]] = None):
         """
         Notification settings for a schedule.
         :param pulumi.Input[str] status: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-        :param pulumi.Input[float] time_in_minutes: Time in minutes before event at which notification will be sent.
+        :param pulumi.Input[int] time_in_minutes: Time in minutes before event at which notification will be sent.
         :param pulumi.Input[str] webhook_url: The webhook URL to which the notification will be sent.
         """
         if status is not None:
@@ -1893,14 +1893,14 @@ class NotificationSettingsArgs:
 
     @property
     @pulumi.getter(name="timeInMinutes")
-    def time_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def time_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Time in minutes before event at which notification will be sent.
         """
         return pulumi.get(self, "time_in_minutes")
 
     @time_in_minutes.setter
-    def time_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def time_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "time_in_minutes", value)
 
     @property
@@ -1919,11 +1919,11 @@ class NotificationSettingsArgs:
 @pulumi.input_type
 class PortArgs:
     def __init__(__self__, *,
-                 backend_port: Optional[pulumi.Input[float]] = None,
+                 backend_port: Optional[pulumi.Input[int]] = None,
                  transport_protocol: Optional[pulumi.Input[str]] = None):
         """
         Properties of a network port.
-        :param pulumi.Input[float] backend_port: Backend port of the target virtual machine.
+        :param pulumi.Input[int] backend_port: Backend port of the target virtual machine.
         :param pulumi.Input[str] transport_protocol: Protocol type of the port.
         """
         if backend_port is not None:
@@ -1933,14 +1933,14 @@ class PortArgs:
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[pulumi.Input[float]]:
+    def backend_port(self) -> Optional[pulumi.Input[int]]:
         """
         Backend port of the target virtual machine.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: Optional[pulumi.Input[float]]):
+    def backend_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backend_port", value)
 
     @property
@@ -2159,24 +2159,24 @@ class ScheduleArgs:
 @pulumi.input_type
 class SharedPublicIpAddressConfigurationArgs:
     def __init__(__self__, *,
-                 inbound_nat_rules: Optional[pulumi.Input[List[pulumi.Input['InboundNatRuleArgs']]]] = None):
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]] = None):
         """
         Properties of a virtual machine that determine how it is connected to a load balancer.
-        :param pulumi.Input[List[pulumi.Input['InboundNatRuleArgs']]] inbound_nat_rules: The incoming NAT rules
+        :param pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]] inbound_nat_rules: The incoming NAT rules
         """
         if inbound_nat_rules is not None:
             pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
 
     @property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['InboundNatRuleArgs']]]]:
+    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]]:
         """
         The incoming NAT rules
         """
         return pulumi.get(self, "inbound_nat_rules")
 
     @inbound_nat_rules.setter
-    def inbound_nat_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['InboundNatRuleArgs']]]]):
+    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]]):
         pulumi.set(self, "inbound_nat_rules", value)
 
 
@@ -2343,24 +2343,24 @@ class SubnetOverrideArgs:
 @pulumi.input_type
 class SubnetSharedPublicIpAddressConfigurationArgs:
     def __init__(__self__, *,
-                 allowed_ports: Optional[pulumi.Input[List[pulumi.Input['PortArgs']]]] = None):
+                 allowed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['PortArgs']]]] = None):
         """
         Configuration for public IP address sharing.
-        :param pulumi.Input[List[pulumi.Input['PortArgs']]] allowed_ports: Backend ports that virtual machines on this subnet are allowed to expose
+        :param pulumi.Input[Sequence[pulumi.Input['PortArgs']]] allowed_ports: Backend ports that virtual machines on this subnet are allowed to expose
         """
         if allowed_ports is not None:
             pulumi.set(__self__, "allowed_ports", allowed_ports)
 
     @property
     @pulumi.getter(name="allowedPorts")
-    def allowed_ports(self) -> Optional[pulumi.Input[List[pulumi.Input['PortArgs']]]]:
+    def allowed_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PortArgs']]]]:
         """
         Backend ports that virtual machines on this subnet are allowed to expose
         """
         return pulumi.get(self, "allowed_ports")
 
     @allowed_ports.setter
-    def allowed_ports(self, value: Optional[pulumi.Input[List[pulumi.Input['PortArgs']]]]):
+    def allowed_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PortArgs']]]]):
         pulumi.set(self, "allowed_ports", value)
 
 
@@ -2496,11 +2496,11 @@ class UserSecretStoreArgs:
 class WeekDetailsArgs:
     def __init__(__self__, *,
                  time: Optional[pulumi.Input[str]] = None,
-                 weekdays: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Properties of a weekly schedule.
         :param pulumi.Input[str] time: The time of the day the schedule will occur.
-        :param pulumi.Input[List[pulumi.Input[str]]] weekdays: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
         """
         if time is not None:
             pulumi.set(__self__, "time", time)
@@ -2521,14 +2521,14 @@ class WeekDetailsArgs:
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def weekdays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
         """
         return pulumi.get(self, "weekdays")
 
     @weekdays.setter
-    def weekdays(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def weekdays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weekdays", value)
 
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -18,11 +18,11 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  host_group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[float]] = None,
+                 platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  support_automatic_placement: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -33,11 +33,11 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] host_group_name: The name of the dedicated host group.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[float] platform_fault_domain_count: Number of fault domains that the host group can span.
+        :param pulumi.Input[int] platform_fault_domain_count: Number of fault domains that the host group can span.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] support_automatic_placement: Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,7 +103,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hosts(self) -> pulumi.Output[List['outputs.SubResourceReadOnlyResponse']]:
+    def hosts(self) -> pulumi.Output[Sequence['outputs.SubResourceReadOnlyResponse']]:
         """
         A list of references to all dedicated hosts in the dedicated host group.
         """
@@ -135,7 +135,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> pulumi.Output[float]:
+    def platform_fault_domain_count(self) -> pulumi.Output[int]:
         """
         Number of fault domains that the host group can span.
         """
@@ -167,7 +167,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """

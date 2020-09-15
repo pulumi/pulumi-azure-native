@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,11 +26,11 @@ class ClusterSkuResponse(dict):
     The cluster sku definition.
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None):
         """
         The cluster sku definition.
-        :param float capacity: The capacity value
+        :param int capacity: The capacity value
         :param str name: The name of the SKU.
         """
         if capacity is not None:
@@ -40,7 +40,7 @@ class ClusterSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The capacity value
         """
@@ -307,15 +307,15 @@ class WorkspaceSkuResponse(dict):
     """
     def __init__(__self__, *,
                  last_sku_update: str,
-                 max_capacity_reservation_level: float,
+                 max_capacity_reservation_level: int,
                  name: str,
-                 capacity_reservation_level: Optional[float] = None):
+                 capacity_reservation_level: Optional[int] = None):
         """
         The SKU (tier) of a workspace.
         :param str last_sku_update: The last time when the sku was updated.
-        :param float max_capacity_reservation_level: The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
+        :param int max_capacity_reservation_level: The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
         :param str name: The name of the SKU.
-        :param float capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        :param int capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """
         pulumi.set(__self__, "last_sku_update", last_sku_update)
         pulumi.set(__self__, "max_capacity_reservation_level", max_capacity_reservation_level)
@@ -333,7 +333,7 @@ class WorkspaceSkuResponse(dict):
 
     @property
     @pulumi.getter(name="maxCapacityReservationLevel")
-    def max_capacity_reservation_level(self) -> float:
+    def max_capacity_reservation_level(self) -> int:
         """
         The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
         """
@@ -349,7 +349,7 @@ class WorkspaceSkuResponse(dict):
 
     @property
     @pulumi.getter(name="capacityReservationLevel")
-    def capacity_reservation_level(self) -> Optional[float]:
+    def capacity_reservation_level(self) -> Optional[int]:
         """
         The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """

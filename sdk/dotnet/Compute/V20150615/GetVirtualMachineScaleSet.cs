@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Compute.V20150615
         /// <summary>
         /// The virtual machine scale set sku.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Compute.V20150615
         /// <summary>
         /// The upgrade policy.
         /// </summary>
-        public readonly Outputs.UpgradePolicyResponseResult? UpgradePolicy;
+        public readonly Outputs.UpgradePolicyResponse? UpgradePolicy;
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetVMProfileResponseResult? VirtualMachineProfile;
+        public readonly Outputs.VirtualMachineScaleSetVMProfileResponse? VirtualMachineProfile;
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
@@ -86,15 +86,15 @@ namespace Pulumi.AzureRM.Compute.V20150615
 
             string? provisioningState,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.UpgradePolicyResponseResult? upgradePolicy,
+            Outputs.UpgradePolicyResponse? upgradePolicy,
 
-            Outputs.VirtualMachineScaleSetVMProfileResponseResult? virtualMachineProfile)
+            Outputs.VirtualMachineScaleSetVMProfileResponse? virtualMachineProfile)
         {
             Location = location;
             Name = name;

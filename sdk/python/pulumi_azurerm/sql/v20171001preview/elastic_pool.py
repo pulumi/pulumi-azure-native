@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class ElasticPool(pulumi.CustomResource):
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 max_size_bytes: Optional[pulumi.Input[int]] = None,
                  per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool.
         :param pulumi.Input[str] license_type: The license type to apply for this elastic pool.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[float] max_size_bytes: The storage limit for the database elastic pool in bytes.
+        :param pulumi.Input[int] max_size_bytes: The storage limit for the database elastic pool in bytes.
         :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: The per database settings for the elastic pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
@@ -152,7 +152,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> pulumi.Output[Optional[float]]:
+    def max_size_bytes(self) -> pulumi.Output[Optional[int]]:
         """
         The storage limit for the database elastic pool in bytes.
         """

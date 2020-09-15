@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class DedicatedHost(pulumi.CustomResource):
                  host_name: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 platform_fault_domain: Optional[pulumi.Input[float]] = None,
+                 platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -39,7 +39,7 @@ class DedicatedHost(pulumi.CustomResource):
         :param pulumi.Input[str] host_name: The name of the dedicated host .
         :param pulumi.Input[str] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[float] platform_fault_domain: Fault domain of the dedicated host within a dedicated host group.
+        :param pulumi.Input[int] platform_fault_domain: Fault domain of the dedicated host within a dedicated host group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -163,7 +163,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformFaultDomain")
-    def platform_fault_domain(self) -> pulumi.Output[Optional[float]]:
+    def platform_fault_domain(self) -> pulumi.Output[Optional[int]]:
         """
         Fault domain of the dedicated host within a dedicated host group.
         """
@@ -211,7 +211,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> pulumi.Output[List['outputs.SubResourceReadOnlyResponse']]:
+    def virtual_machines(self) -> pulumi.Output[Sequence['outputs.SubResourceReadOnlyResponse']]:
         """
         A list of references to all virtual machines in the Dedicated Host.
         """

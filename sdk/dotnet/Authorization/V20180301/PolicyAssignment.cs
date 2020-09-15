@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Authorization.V20180301
         /// The policy sku. This property is optional, obsolete, and will be ignored.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.PolicySkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.PolicySkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The type of the policy assignment.

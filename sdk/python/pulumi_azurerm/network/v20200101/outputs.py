@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,7 +38,7 @@ class BackendPoolResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 backends: Optional[List['outputs.BackendResponse']] = None,
+                 backends: Optional[Sequence['outputs.BackendResponse']] = None,
                  health_probe_settings: Optional['outputs.SubResourceResponse'] = None,
                  id: Optional[str] = None,
                  load_balancing_settings: Optional['outputs.SubResourceResponse'] = None,
@@ -47,7 +47,7 @@ class BackendPoolResponse(dict):
         """
         A backend pool is a collection of backends that can be routed to.
         :param str type: Resource type.
-        :param List['BackendResponseArgs'] backends: The set of backends for this pool
+        :param Sequence['BackendResponseArgs'] backends: The set of backends for this pool
         :param 'SubResourceResponseArgs' health_probe_settings: L7 health probe settings for a backend pool
         :param str id: Resource ID.
         :param 'SubResourceResponseArgs' load_balancing_settings: Load balancing settings for a backend pool
@@ -78,7 +78,7 @@ class BackendPoolResponse(dict):
 
     @property
     @pulumi.getter
-    def backends(self) -> Optional[List['outputs.BackendResponse']]:
+    def backends(self) -> Optional[Sequence['outputs.BackendResponse']]:
         """
         The set of backends for this pool
         """
@@ -135,11 +135,11 @@ class BackendPoolsSettingsResponse(dict):
     """
     def __init__(__self__, *,
                  enforce_certificate_name_check: Optional[str] = None,
-                 send_recv_timeout_seconds: Optional[float] = None):
+                 send_recv_timeout_seconds: Optional[int] = None):
         """
         Settings that apply to all backend pools.
         :param str enforce_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
-        :param float send_recv_timeout_seconds: Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
+        :param int send_recv_timeout_seconds: Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
         """
         if enforce_certificate_name_check is not None:
             pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
@@ -156,7 +156,7 @@ class BackendPoolsSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="sendRecvTimeoutSeconds")
-    def send_recv_timeout_seconds(self) -> Optional[float]:
+    def send_recv_timeout_seconds(self) -> Optional[int]:
         """
         Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
         """
@@ -176,24 +176,24 @@ class BackendResponse(dict):
                  address: Optional[str] = None,
                  backend_host_header: Optional[str] = None,
                  enabled_state: Optional[str] = None,
-                 http_port: Optional[float] = None,
-                 https_port: Optional[float] = None,
-                 priority: Optional[float] = None,
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None,
+                 priority: Optional[int] = None,
                  private_link_alias: Optional[str] = None,
                  private_link_approval_message: Optional[str] = None,
-                 weight: Optional[float] = None):
+                 weight: Optional[int] = None):
         """
         Backend address of a frontDoor load balancer.
         :param str private_endpoint_status: The Approval status for the connection to the Private Link
         :param str address: Location of the backend (IP address or FQDN)
         :param str backend_host_header: The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
         :param str enabled_state: Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
-        :param float http_port: The HTTP TCP port number. Must be between 1 and 65535.
-        :param float https_port: The HTTPS TCP port number. Must be between 1 and 65535.
-        :param float priority: Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
+        :param int http_port: The HTTP TCP port number. Must be between 1 and 65535.
+        :param int https_port: The HTTPS TCP port number. Must be between 1 and 65535.
+        :param int priority: Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
         :param str private_link_alias: The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
         :param str private_link_approval_message: A custom message to be included in the approval request to connect to the Private Link
-        :param float weight: Weight of this endpoint for load balancing purposes.
+        :param int weight: Weight of this endpoint for load balancing purposes.
         """
         pulumi.set(__self__, "private_endpoint_status", private_endpoint_status)
         if address is not None:
@@ -249,7 +249,7 @@ class BackendResponse(dict):
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[float]:
+    def http_port(self) -> Optional[int]:
         """
         The HTTP TCP port number. Must be between 1 and 65535.
         """
@@ -257,7 +257,7 @@ class BackendResponse(dict):
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[float]:
+    def https_port(self) -> Optional[int]:
         """
         The HTTPS TCP port number. Must be between 1 and 65535.
         """
@@ -265,7 +265,7 @@ class BackendResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
         """
@@ -289,7 +289,7 @@ class BackendResponse(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[float]:
+    def weight(self) -> Optional[int]:
         """
         Weight of this endpoint for load balancing purposes.
         """
@@ -540,7 +540,7 @@ class FrontendEndpointResponse(dict):
                  name: Optional[str] = None,
                  resource_state: Optional[str] = None,
                  session_affinity_enabled_state: Optional[str] = None,
-                 session_affinity_ttl_seconds: Optional[float] = None,
+                 session_affinity_ttl_seconds: Optional[int] = None,
                  web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
         """
         A frontend endpoint used for routing.
@@ -553,7 +553,7 @@ class FrontendEndpointResponse(dict):
         :param str name: Resource name.
         :param str resource_state: Resource status.
         :param str session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-        :param float session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
+        :param int session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
         :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
         """
         pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
@@ -649,7 +649,7 @@ class FrontendEndpointResponse(dict):
 
     @property
     @pulumi.getter(name="sessionAffinityTtlSeconds")
-    def session_affinity_ttl_seconds(self) -> Optional[float]:
+    def session_affinity_ttl_seconds(self) -> Optional[int]:
         """
         UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
         """
@@ -751,7 +751,7 @@ class HealthProbeSettingsModelResponse(dict):
                  enabled_state: Optional[str] = None,
                  health_probe_method: Optional[str] = None,
                  id: Optional[str] = None,
-                 interval_in_seconds: Optional[float] = None,
+                 interval_in_seconds: Optional[int] = None,
                  name: Optional[str] = None,
                  path: Optional[str] = None,
                  protocol: Optional[str] = None,
@@ -762,7 +762,7 @@ class HealthProbeSettingsModelResponse(dict):
         :param str enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
         :param str health_probe_method: Configures which HTTP method to use to probe the backends defined under backendPools.
         :param str id: Resource ID.
-        :param float interval_in_seconds: The number of seconds between health probes.
+        :param int interval_in_seconds: The number of seconds between health probes.
         :param str name: Resource name.
         :param str path: The path to use for the health probe. Default is /
         :param str protocol: Protocol scheme to use for this probe
@@ -820,7 +820,7 @@ class HealthProbeSettingsModelResponse(dict):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[float]:
+    def interval_in_seconds(self) -> Optional[int]:
         """
         The number of seconds between health probes.
         """
@@ -895,21 +895,21 @@ class LoadBalancingSettingsModelResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 additional_latency_milliseconds: Optional[float] = None,
+                 additional_latency_milliseconds: Optional[int] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  resource_state: Optional[str] = None,
-                 sample_size: Optional[float] = None,
-                 successful_samples_required: Optional[float] = None):
+                 sample_size: Optional[int] = None,
+                 successful_samples_required: Optional[int] = None):
         """
         Load balancing settings for a backend pool
         :param str type: Resource type.
-        :param float additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket
+        :param int additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket
         :param str id: Resource ID.
         :param str name: Resource name.
         :param str resource_state: Resource status.
-        :param float sample_size: The number of samples to consider for load balancing decisions
-        :param float successful_samples_required: The number of samples within the sample period that must succeed
+        :param int sample_size: The number of samples to consider for load balancing decisions
+        :param int successful_samples_required: The number of samples within the sample period that must succeed
         """
         pulumi.set(__self__, "type", type)
         if additional_latency_milliseconds is not None:
@@ -935,7 +935,7 @@ class LoadBalancingSettingsModelResponse(dict):
 
     @property
     @pulumi.getter(name="additionalLatencyMilliseconds")
-    def additional_latency_milliseconds(self) -> Optional[float]:
+    def additional_latency_milliseconds(self) -> Optional[int]:
         """
         The additional latency in milliseconds for probes to fall into the lowest latency bucket
         """
@@ -967,7 +967,7 @@ class LoadBalancingSettingsModelResponse(dict):
 
     @property
     @pulumi.getter(name="sampleSize")
-    def sample_size(self) -> Optional[float]:
+    def sample_size(self) -> Optional[int]:
         """
         The number of samples to consider for load balancing decisions
         """
@@ -975,7 +975,7 @@ class LoadBalancingSettingsModelResponse(dict):
 
     @property
     @pulumi.getter(name="successfulSamplesRequired")
-    def successful_samples_required(self) -> Optional[float]:
+    def successful_samples_required(self) -> Optional[int]:
         """
         The number of samples within the sample period that must succeed
         """
@@ -1085,24 +1085,24 @@ class RoutingRuleResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 accepted_protocols: Optional[List[str]] = None,
+                 accepted_protocols: Optional[Sequence[str]] = None,
                  enabled_state: Optional[str] = None,
-                 frontend_endpoints: Optional[List['outputs.SubResourceResponse']] = None,
+                 frontend_endpoints: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 patterns_to_match: Optional[List[str]] = None,
+                 patterns_to_match: Optional[Sequence[str]] = None,
                  resource_state: Optional[str] = None,
                  route_configuration: Optional[Any] = None,
                  rules_engine: Optional['outputs.SubResourceResponse'] = None):
         """
         A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
         :param str type: Resource type.
-        :param List[str] accepted_protocols: Protocol schemes to match for this rule
+        :param Sequence[str] accepted_protocols: Protocol schemes to match for this rule
         :param str enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-        :param List['SubResourceResponseArgs'] frontend_endpoints: Frontend endpoints associated with this rule
+        :param Sequence['SubResourceResponseArgs'] frontend_endpoints: Frontend endpoints associated with this rule
         :param str id: Resource ID.
         :param str name: Resource name.
-        :param List[str] patterns_to_match: The route patterns of the rule.
+        :param Sequence[str] patterns_to_match: The route patterns of the rule.
         :param str resource_state: Resource status.
         :param Union['ForwardingConfigurationResponseArgs', 'RedirectConfigurationResponseArgs'] route_configuration: A reference to the routing configuration.
         :param 'SubResourceResponseArgs' rules_engine: A reference to a specific Rules Engine Configuration to apply to this route.
@@ -1137,7 +1137,7 @@ class RoutingRuleResponse(dict):
 
     @property
     @pulumi.getter(name="acceptedProtocols")
-    def accepted_protocols(self) -> Optional[List[str]]:
+    def accepted_protocols(self) -> Optional[Sequence[str]]:
         """
         Protocol schemes to match for this rule
         """
@@ -1153,7 +1153,7 @@ class RoutingRuleResponse(dict):
 
     @property
     @pulumi.getter(name="frontendEndpoints")
-    def frontend_endpoints(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def frontend_endpoints(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         Frontend endpoints associated with this rule
         """
@@ -1177,7 +1177,7 @@ class RoutingRuleResponse(dict):
 
     @property
     @pulumi.getter(name="patternsToMatch")
-    def patterns_to_match(self) -> Optional[List[str]]:
+    def patterns_to_match(self) -> Optional[Sequence[str]]:
         """
         The route patterns of the rule.
         """
@@ -1217,13 +1217,13 @@ class RulesEngineActionResponse(dict):
     One or more actions that will execute, modifying the request and/or response.
     """
     def __init__(__self__, *,
-                 request_header_actions: Optional[List['outputs.HeaderActionResponse']] = None,
-                 response_header_actions: Optional[List['outputs.HeaderActionResponse']] = None,
+                 request_header_actions: Optional[Sequence['outputs.HeaderActionResponse']] = None,
+                 response_header_actions: Optional[Sequence['outputs.HeaderActionResponse']] = None,
                  route_configuration_override: Optional[Any] = None):
         """
         One or more actions that will execute, modifying the request and/or response.
-        :param List['HeaderActionResponseArgs'] request_header_actions: A list of header actions to apply from the request from AFD to the origin.
-        :param List['HeaderActionResponseArgs'] response_header_actions: A list of header actions to apply from the response from AFD to the client.
+        :param Sequence['HeaderActionResponseArgs'] request_header_actions: A list of header actions to apply from the request from AFD to the origin.
+        :param Sequence['HeaderActionResponseArgs'] response_header_actions: A list of header actions to apply from the response from AFD to the client.
         :param Union['ForwardingConfigurationResponseArgs', 'RedirectConfigurationResponseArgs'] route_configuration_override: Override the route configuration.
         """
         if request_header_actions is not None:
@@ -1235,7 +1235,7 @@ class RulesEngineActionResponse(dict):
 
     @property
     @pulumi.getter(name="requestHeaderActions")
-    def request_header_actions(self) -> Optional[List['outputs.HeaderActionResponse']]:
+    def request_header_actions(self) -> Optional[Sequence['outputs.HeaderActionResponse']]:
         """
         A list of header actions to apply from the request from AFD to the origin.
         """
@@ -1243,7 +1243,7 @@ class RulesEngineActionResponse(dict):
 
     @property
     @pulumi.getter(name="responseHeaderActions")
-    def response_header_actions(self) -> Optional[List['outputs.HeaderActionResponse']]:
+    def response_header_actions(self) -> Optional[Sequence['outputs.HeaderActionResponse']]:
         """
         A list of header actions to apply from the response from AFD to the client.
         """
@@ -1267,20 +1267,20 @@ class RulesEngineMatchConditionResponse(dict):
     Define a match condition
     """
     def __init__(__self__, *,
-                 rules_engine_match_value: List[str],
+                 rules_engine_match_value: Sequence[str],
                  rules_engine_match_variable: str,
                  rules_engine_operator: str,
                  negate_condition: Optional[bool] = None,
                  selector: Optional[str] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Define a match condition
-        :param List[str] rules_engine_match_value: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+        :param Sequence[str] rules_engine_match_value: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
         :param str rules_engine_match_variable: Match Variable
         :param str rules_engine_operator: Describes operator to apply to the match condition.
         :param bool negate_condition: Describes if this is negate condition or not
         :param str selector: Name of selector in RequestHeader or RequestBody to be matched
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "rules_engine_match_value", rules_engine_match_value)
         pulumi.set(__self__, "rules_engine_match_variable", rules_engine_match_variable)
@@ -1294,7 +1294,7 @@ class RulesEngineMatchConditionResponse(dict):
 
     @property
     @pulumi.getter(name="rulesEngineMatchValue")
-    def rules_engine_match_value(self) -> List[str]:
+    def rules_engine_match_value(self) -> Sequence[str]:
         """
         Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
         """
@@ -1334,7 +1334,7 @@ class RulesEngineMatchConditionResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -1354,14 +1354,14 @@ class RulesEngineResponse(dict):
                  name: str,
                  type: str,
                  resource_state: Optional[str] = None,
-                 rules: Optional[List['outputs.RulesEngineRuleResponse']] = None):
+                 rules: Optional[Sequence['outputs.RulesEngineRuleResponse']] = None):
         """
         A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
         :param str id: Resource ID.
         :param str name: Resource name.
         :param str type: Resource type.
         :param str resource_state: Resource status.
-        :param List['RulesEngineRuleResponseArgs'] rules: A list of rules that define a particular Rules Engine Configuration.
+        :param Sequence['RulesEngineRuleResponseArgs'] rules: A list of rules that define a particular Rules Engine Configuration.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1405,7 +1405,7 @@ class RulesEngineResponse(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.RulesEngineRuleResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.RulesEngineRuleResponse']]:
         """
         A list of rules that define a particular Rules Engine Configuration.
         """
@@ -1423,15 +1423,15 @@ class RulesEngineRuleResponse(dict):
     def __init__(__self__, *,
                  action: 'outputs.RulesEngineActionResponse',
                  name: str,
-                 priority: float,
-                 match_conditions: Optional[List['outputs.RulesEngineMatchConditionResponse']] = None,
+                 priority: int,
+                 match_conditions: Optional[Sequence['outputs.RulesEngineMatchConditionResponse']] = None,
                  match_processing_behavior: Optional[str] = None):
         """
         Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
         :param 'RulesEngineActionResponseArgs' action: Actions to perform on the request and response if all of the match conditions are met.
         :param str name: A name to refer to this specific rule.
-        :param float priority: A priority assigned to this rule. 
-        :param List['RulesEngineMatchConditionResponseArgs'] match_conditions: A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
+        :param int priority: A priority assigned to this rule. 
+        :param Sequence['RulesEngineMatchConditionResponseArgs'] match_conditions: A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
         :param str match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         """
         pulumi.set(__self__, "action", action)
@@ -1460,7 +1460,7 @@ class RulesEngineRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> int:
         """
         A priority assigned to this rule. 
         """
@@ -1468,7 +1468,7 @@ class RulesEngineRuleResponse(dict):
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> Optional[List['outputs.RulesEngineMatchConditionResponse']]:
+    def match_conditions(self) -> Optional[Sequence['outputs.RulesEngineMatchConditionResponse']]:
         """
         A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
         """

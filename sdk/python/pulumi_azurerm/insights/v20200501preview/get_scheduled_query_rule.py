@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -66,7 +66,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.ActionResponse']]:
+    def actions(self) -> Optional[Sequence['outputs.ActionResponse']]:
         return pulumi.get(self, "actions")
 
     @property
@@ -127,7 +127,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> Optional[Sequence[str]]:
         """
         The list of resource id's that this scheduled query rule is scoped to.
         """
@@ -151,7 +151,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter(name="targetResourceTypes")
-    def target_resource_types(self) -> Optional[List[str]]:
+    def target_resource_types(self) -> Optional[Sequence[str]]:
         """
         List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
         """

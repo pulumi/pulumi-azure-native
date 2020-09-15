@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// PrivateEndpointConnectionResource properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointConnectionResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

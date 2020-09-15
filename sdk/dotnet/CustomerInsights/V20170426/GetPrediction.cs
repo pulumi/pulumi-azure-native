@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <summary>
         /// The prediction grades.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PredictionResponseGradesResult> Grades;
+        public readonly ImmutableArray<Outputs.PredictionResponseGrades> Grades;
         /// <summary>
         /// Interaction types involved in the prediction.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <summary>
         /// Definition of the link mapping of prediction.
         /// </summary>
-        public readonly Outputs.PredictionResponseMappingsResult Mappings;
+        public readonly Outputs.PredictionResponseMappings Mappings;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <summary>
         /// System generated entities.
         /// </summary>
-        public readonly Outputs.PredictionResponseSystemGeneratedEntitiesResult SystemGeneratedEntities;
+        public readonly Outputs.PredictionResponseSystemGeneratedEntities SystemGeneratedEntities;
         /// <summary>
         /// The hub name.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 
             ImmutableDictionary<string, string>? displayName,
 
-            ImmutableArray<Outputs.PredictionResponseGradesResult> grades,
+            ImmutableArray<Outputs.PredictionResponseGrades> grades,
 
             ImmutableArray<string> involvedInteractionTypes,
 
@@ -138,7 +138,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 
             ImmutableArray<string> involvedRelationships,
 
-            Outputs.PredictionResponseMappingsResult mappings,
+            Outputs.PredictionResponseMappings mappings,
 
             string name,
 
@@ -156,7 +156,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 
             string scoreLabel,
 
-            Outputs.PredictionResponseSystemGeneratedEntitiesResult systemGeneratedEntities,
+            Outputs.PredictionResponseSystemGeneratedEntities systemGeneratedEntities,
 
             string tenantId,
 

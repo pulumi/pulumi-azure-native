@@ -46,11 +46,11 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
-        public readonly Outputs.BgpSettingsResponseResult? BgpSettings;
+        public readonly Outputs.BgpSettingsResponse? BgpSettings;
         /// <summary>
         /// The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponseResult? CustomRoutes;
+        public readonly Outputs.AddressSpaceResponse? CustomRoutes;
         /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? GatewayDefaultSite;
+        public readonly Outputs.SubResourceResponse? GatewayDefaultSite;
         /// <summary>
         /// The type of this virtual network gateway.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// IP configurations for virtual network gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewaySkuResponseResult? Sku;
+        public readonly Outputs.VirtualNetworkGatewaySkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         /// </summary>
-        public readonly Outputs.VpnClientConfigurationResponseResult? VpnClientConfiguration;
+        public readonly Outputs.VpnClientConfigurationResponse? VpnClientConfiguration;
         /// <summary>
         /// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         /// </summary>
@@ -128,9 +128,9 @@ namespace Pulumi.AzureRM.Network.V20200601
         private GetVirtualNetworkGatewayResult(
             bool? activeActive,
 
-            Outputs.BgpSettingsResponseResult? bgpSettings,
+            Outputs.BgpSettingsResponse? bgpSettings,
 
-            Outputs.AddressSpaceResponseResult? customRoutes,
+            Outputs.AddressSpaceResponse? customRoutes,
 
             bool? enableBgp,
 
@@ -140,13 +140,13 @@ namespace Pulumi.AzureRM.Network.V20200601
 
             string etag,
 
-            Outputs.SubResourceResponseResult? gatewayDefaultSite,
+            Outputs.SubResourceResponse? gatewayDefaultSite,
 
             string? gatewayType,
 
             string inboundDnsForwardingEndpoint,
 
-            ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> ipConfigurations,
 
             string? location,
 
@@ -156,13 +156,13 @@ namespace Pulumi.AzureRM.Network.V20200601
 
             string resourceGuid,
 
-            Outputs.VirtualNetworkGatewaySkuResponseResult? sku,
+            Outputs.VirtualNetworkGatewaySkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.VpnClientConfigurationResponseResult? vpnClientConfiguration,
+            Outputs.VpnClientConfigurationResponse? vpnClientConfiguration,
 
             string? vpnGatewayGeneration,
 

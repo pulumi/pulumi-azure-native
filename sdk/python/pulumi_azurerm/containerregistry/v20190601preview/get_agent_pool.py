@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -21,8 +21,8 @@ class GetAgentPoolResult:
     The agentpool will have all information to create an agent pool.
     """
     def __init__(__self__, count=None, location=None, name=None, os=None, provisioning_state=None, tags=None, tier=None, type=None, virtual_network_subnet_resource_id=None):
-        if count and not isinstance(count, float):
-            raise TypeError("Expected argument 'count' to be a float")
+        if count and not isinstance(count, int):
+            raise TypeError("Expected argument 'count' to be a int")
         pulumi.set(__self__, "count", count)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -51,7 +51,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         The count of agent machine
         """

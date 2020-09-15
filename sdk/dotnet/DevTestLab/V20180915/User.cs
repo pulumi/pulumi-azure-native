@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The identity of the user.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.UserIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.UserIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The secret store of the user.
         /// </summary>
         [Output("secretStore")]
-        public Output<Outputs.UserSecretStoreResponseResult?> SecretStore { get; private set; } = null!;
+        public Output<Outputs.UserSecretStoreResponse?> SecretStore { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

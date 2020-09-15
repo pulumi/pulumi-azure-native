@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,13 +22,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipsec_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
                  local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  peer: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 routing_weight: Optional[pulumi.Input[float]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
@@ -48,13 +48,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']] local_network_gateway2: The reference to local network gateway resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] peer: The reference to peerings resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the VirtualNetworkGatewayConnection resource.
-        :param pulumi.Input[float] routing_weight: The routing weight.
+        :param pulumi.Input[int] routing_weight: The routing weight.
         :param pulumi.Input[str] shared_key: The IPSec shared key.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
@@ -164,7 +164,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> pulumi.Output[float]:
+    def egress_bytes_transferred(self) -> pulumi.Output[int]:
         """
         The egress bytes transferred in this connection.
         """
@@ -188,7 +188,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> pulumi.Output[float]:
+    def ingress_bytes_transferred(self) -> pulumi.Output[int]:
         """
         The ingress bytes transferred in this connection.
         """
@@ -196,7 +196,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> pulumi.Output[Optional[List['outputs.IpsecPolicyResponse']]]:
+    def ipsec_policies(self) -> pulumi.Output[Optional[Sequence['outputs.IpsecPolicyResponse']]]:
         """
         The IPSec Policies to be considered by this connection.
         """
@@ -252,7 +252,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> pulumi.Output[Optional[float]]:
+    def routing_weight(self) -> pulumi.Output[Optional[int]]:
         """
         The routing weight.
         """
@@ -276,7 +276,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tunnelConnectionStatus")
-    def tunnel_connection_status(self) -> pulumi.Output[List['outputs.TunnelConnectionHealthResponse']]:
+    def tunnel_connection_status(self) -> pulumi.Output[Sequence['outputs.TunnelConnectionHealthResponse']]:
         """
         Collection of all tunnels' connection health status.
         """

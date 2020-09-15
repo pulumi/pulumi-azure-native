@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -109,47 +109,47 @@ class ActivityLogAlertActionGroupArgs:
 @pulumi.input_type
 class ActivityLogAlertActionListArgs:
     def __init__(__self__, *,
-                 action_groups: Optional[pulumi.Input[List[pulumi.Input['ActivityLogAlertActionGroupArgs']]]] = None):
+                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgs']]]] = None):
         """
         A list of activity log alert actions.
-        :param pulumi.Input[List[pulumi.Input['ActivityLogAlertActionGroupArgs']]] action_groups: The list of activity log alerts.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgs']]] action_groups: The list of activity log alerts.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
 
     @property
     @pulumi.getter(name="actionGroups")
-    def action_groups(self) -> Optional[pulumi.Input[List[pulumi.Input['ActivityLogAlertActionGroupArgs']]]]:
+    def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgs']]]]:
         """
         The list of activity log alerts.
         """
         return pulumi.get(self, "action_groups")
 
     @action_groups.setter
-    def action_groups(self, value: Optional[pulumi.Input[List[pulumi.Input['ActivityLogAlertActionGroupArgs']]]]):
+    def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgs']]]]):
         pulumi.set(self, "action_groups", value)
 
 
 @pulumi.input_type
 class ActivityLogAlertAllOfConditionArgs:
     def __init__(__self__, *,
-                 all_of: pulumi.Input[List[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]):
+                 all_of: pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]):
         """
         An Activity Log alert condition that is met when all its member conditions are met.
-        :param pulumi.Input[List[pulumi.Input['ActivityLogAlertLeafConditionArgs']]] all_of: The list of activity log alert conditions.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]] all_of: The list of activity log alert conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> pulumi.Input[List[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]:
+    def all_of(self) -> pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]:
         """
         The list of activity log alert conditions.
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: pulumi.Input[List[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]):
+    def all_of(self, value: pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]):
         pulumi.set(self, "all_of", value)
 
 
@@ -198,14 +198,14 @@ class AlertingActionArgs:
                  severity: pulumi.Input[str],
                  trigger: pulumi.Input['TriggerConditionArgs'],
                  azns_action: Optional[pulumi.Input['AzNsActionGroupArgs']] = None,
-                 throttling_in_min: Optional[pulumi.Input[float]] = None):
+                 throttling_in_min: Optional[pulumi.Input[int]] = None):
         """
         Specify action need to be taken when rule type is Alert
         :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
         :param pulumi.Input[str] severity: Severity of the alert
         :param pulumi.Input['TriggerConditionArgs'] trigger: The trigger condition that results in the alert rule being.
         :param pulumi.Input['AzNsActionGroupArgs'] azns_action: Azure action group reference.
-        :param pulumi.Input[float] throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
+        :param pulumi.Input[int] throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
         pulumi.set(__self__, "severity", severity)
@@ -265,14 +265,14 @@ class AlertingActionArgs:
 
     @property
     @pulumi.getter(name="throttlingInMin")
-    def throttling_in_min(self) -> Optional[pulumi.Input[float]]:
+    def throttling_in_min(self) -> Optional[pulumi.Input[int]]:
         """
         time (in minutes) for which Alerts should be throttled or suppressed.
         """
         return pulumi.get(self, "throttling_in_min")
 
     @throttling_in_min.setter
-    def throttling_in_min(self, value: Optional[pulumi.Input[float]]):
+    def throttling_in_min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "throttling_in_min", value)
 
 
@@ -473,12 +473,12 @@ class AutoscaleNotificationArgs:
     def __init__(__self__, *,
                  operation: pulumi.Input[str],
                  email: Optional[pulumi.Input['EmailNotificationArgs']] = None,
-                 webhooks: Optional[pulumi.Input[List[pulumi.Input['WebhookNotificationArgs']]]] = None):
+                 webhooks: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]] = None):
         """
         Autoscale notification.
         :param pulumi.Input[str] operation: the operation associated with the notification and its value must be "scale"
         :param pulumi.Input['EmailNotificationArgs'] email: the email notification.
-        :param pulumi.Input[List[pulumi.Input['WebhookNotificationArgs']]] webhooks: the collection of webhook notifications.
+        :param pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]] webhooks: the collection of webhook notifications.
         """
         pulumi.set(__self__, "operation", operation)
         if email is not None:
@@ -512,14 +512,14 @@ class AutoscaleNotificationArgs:
 
     @property
     @pulumi.getter
-    def webhooks(self) -> Optional[pulumi.Input[List[pulumi.Input['WebhookNotificationArgs']]]]:
+    def webhooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]]:
         """
         the collection of webhook notifications.
         """
         return pulumi.get(self, "webhooks")
 
     @webhooks.setter
-    def webhooks(self, value: Optional[pulumi.Input[List[pulumi.Input['WebhookNotificationArgs']]]]):
+    def webhooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]]):
         pulumi.set(self, "webhooks", value)
 
 
@@ -528,14 +528,14 @@ class AutoscaleProfileArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input['ScaleCapacityArgs'],
                  name: pulumi.Input[str],
-                 rules: pulumi.Input[List[pulumi.Input['ScaleRuleArgs']]],
+                 rules: pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]],
                  fixed_date: Optional[pulumi.Input['TimeWindowArgs']] = None,
                  recurrence: Optional[pulumi.Input['RecurrenceArgs']] = None):
         """
         Autoscale profile.
         :param pulumi.Input['ScaleCapacityArgs'] capacity: the number of instances that can be used during this profile.
         :param pulumi.Input[str] name: the name of the profile.
-        :param pulumi.Input[List[pulumi.Input['ScaleRuleArgs']]] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
         :param pulumi.Input['TimeWindowArgs'] fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
         :param pulumi.Input['RecurrenceArgs'] recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
@@ -573,14 +573,14 @@ class AutoscaleProfileArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[List[pulumi.Input['ScaleRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]:
         """
         the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[List[pulumi.Input['ScaleRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -611,12 +611,12 @@ class AutoscaleProfileArgs:
 @pulumi.input_type
 class AzNsActionGroupArgs:
     def __init__(__self__, *,
-                 action_group: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 action_group: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_webhook_payload: Optional[pulumi.Input[str]] = None,
                  email_subject: Optional[pulumi.Input[str]] = None):
         """
         Azure action group
-        :param pulumi.Input[List[pulumi.Input[str]]] action_group: Azure Action Group reference.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_group: Azure Action Group reference.
         :param pulumi.Input[str] custom_webhook_payload: Custom payload to be sent for all webhook URI in Azure action group
         :param pulumi.Input[str] email_subject: Custom subject override for all email ids in Azure action group
         """
@@ -629,14 +629,14 @@ class AzNsActionGroupArgs:
 
     @property
     @pulumi.getter(name="actionGroup")
-    def action_group(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def action_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Azure Action Group reference.
         """
         return pulumi.get(self, "action_group")
 
     @action_group.setter
-    def action_group(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def action_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "action_group", value)
 
     @property
@@ -789,11 +789,11 @@ class AzureFunctionReceiverArgs:
 class CriteriaArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[str],
-                 dimensions: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]] = None):
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]] = None):
         """
         Specifies the criteria for converting log to metric.
         :param pulumi.Input[str] metric_name: Name of the metric
-        :param pulumi.Input[List[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions for creating metric
+        :param pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions for creating metric
         """
         pulumi.set(__self__, "metric_name", metric_name)
         if dimensions is not None:
@@ -813,14 +813,14 @@ class CriteriaArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]]:
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]:
         """
         List of Dimensions for creating metric
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]]):
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
 
@@ -829,12 +829,12 @@ class DimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Specifies the criteria for converting log to metric.
         :param pulumi.Input[str] name: Name of the dimension
         :param pulumi.Input[str] operator: Operator for dimension values
-        :param pulumi.Input[List[pulumi.Input[str]]] values: List of dimension values
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -866,14 +866,14 @@ class DimensionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of dimension values
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
@@ -887,7 +887,7 @@ class DynamicMetricCriteriaArgs:
                  name: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  time_aggregation: pulumi.Input[Mapping[str, Any]],
-                 dimensions: Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]] = None,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
                  ignore_data_before: Optional[pulumi.Input[str]] = None,
                  metric_namespace: Optional[pulumi.Input[str]] = None,
                  skip_metric_validation: Optional[pulumi.Input[bool]] = None):
@@ -900,7 +900,7 @@ class DynamicMetricCriteriaArgs:
         :param pulumi.Input[str] name: Name of the criteria.
         :param pulumi.Input[str] operator: The operator used to compare the metric value against the threshold.
         :param pulumi.Input[Mapping[str, Any]] time_aggregation: the criteria time aggregation types.
-        :param pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
         :param pulumi.Input[str] ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         :param pulumi.Input[str] metric_namespace: Namespace of the metric.
         :param pulumi.Input[bool] skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -1007,14 +1007,14 @@ class DynamicMetricCriteriaArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]]:
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]:
         """
         List of dimension conditions.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]]):
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @property
@@ -1095,12 +1095,12 @@ class DynamicThresholdFailingPeriodsArgs:
 @pulumi.input_type
 class EmailNotificationArgs:
     def __init__(__self__, *,
-                 custom_emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  send_to_subscription_administrator: Optional[pulumi.Input[bool]] = None,
                  send_to_subscription_co_administrators: Optional[pulumi.Input[bool]] = None):
         """
         Email notification of an autoscale event.
-        :param pulumi.Input[List[pulumi.Input[str]]] custom_emails: the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_emails: the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         :param pulumi.Input[bool] send_to_subscription_administrator: a value indicating whether to send email to subscription administrator.
         :param pulumi.Input[bool] send_to_subscription_co_administrators: a value indicating whether to send email to subscription co-administrators.
         """
@@ -1113,14 +1113,14 @@ class EmailNotificationArgs:
 
     @property
     @pulumi.getter(name="customEmails")
-    def custom_emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def custom_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         """
         return pulumi.get(self, "custom_emails")
 
     @custom_emails.setter
-    def custom_emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def custom_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "custom_emails", value)
 
     @property
@@ -1287,13 +1287,13 @@ class ItsmReceiverArgs:
 @pulumi.input_type
 class LocationThresholdRuleConditionArgs:
     def __init__(__self__, *,
-                 failed_location_count: pulumi.Input[float],
+                 failed_location_count: pulumi.Input[int],
                  odata_type: pulumi.Input[str],
                  data_source: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]] = None,
                  window_size: Optional[pulumi.Input[str]] = None):
         """
         A rule condition based on a certain number of locations failing.
-        :param pulumi.Input[float] failed_location_count: the number of locations that must fail to activate the alert.
+        :param pulumi.Input[int] failed_location_count: the number of locations that must fail to activate the alert.
         :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
         :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -1307,14 +1307,14 @@ class LocationThresholdRuleConditionArgs:
 
     @property
     @pulumi.getter(name="failedLocationCount")
-    def failed_location_count(self) -> pulumi.Input[float]:
+    def failed_location_count(self) -> pulumi.Input[int]:
         """
         the number of locations that must fail to activate the alert.
         """
         return pulumi.get(self, "failed_location_count")
 
     @failed_location_count.setter
-    def failed_location_count(self, value: pulumi.Input[float]):
+    def failed_location_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "failed_location_count", value)
 
     @property
@@ -1429,11 +1429,11 @@ class LogMetricTriggerArgs:
 @pulumi.input_type
 class LogToMetricActionArgs:
     def __init__(__self__, *,
-                 criteria: pulumi.Input[List[pulumi.Input['CriteriaArgs']]],
+                 criteria: pulumi.Input[Sequence[pulumi.Input['CriteriaArgs']]],
                  odata_type: pulumi.Input[str]):
         """
         Specify action need to be taken when rule type is converting log to metric
-        :param pulumi.Input[List[pulumi.Input['CriteriaArgs']]] criteria: Criteria of Metric
+        :param pulumi.Input[Sequence[pulumi.Input['CriteriaArgs']]] criteria: Criteria of Metric
         :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
         """
         pulumi.set(__self__, "criteria", criteria)
@@ -1441,14 +1441,14 @@ class LogToMetricActionArgs:
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Input[List[pulumi.Input['CriteriaArgs']]]:
+    def criteria(self) -> pulumi.Input[Sequence[pulumi.Input['CriteriaArgs']]]:
         """
         Criteria of Metric
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: pulumi.Input[List[pulumi.Input['CriteriaArgs']]]):
+    def criteria(self, value: pulumi.Input[Sequence[pulumi.Input['CriteriaArgs']]]):
         pulumi.set(self, "criteria", value)
 
     @property
@@ -1687,11 +1687,11 @@ class MetricAlertActionArgs:
 class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 all_of: Optional[pulumi.Input[List[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]] = None):
+                 all_of: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]] = None):
         """
         Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
         :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
-        :param pulumi.Input[List[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]] all_of: the list of multiple metric criteria for this 'all of' operation. 
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]] all_of: the list of multiple metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -1711,14 +1711,14 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[pulumi.Input[List[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]:
+    def all_of(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]:
         """
         the list of multiple metric criteria for this 'all of' operation. 
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: Optional[pulumi.Input[List[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]):
+    def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]):
         pulumi.set(self, "all_of", value)
 
 
@@ -1726,11 +1726,11 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
 class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 all_of: Optional[pulumi.Input[List[pulumi.Input['MetricCriteriaArgs']]]] = None):
+                 all_of: Optional[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]]] = None):
         """
         Specifies the metric alert criteria for a single resource that has multiple metric criteria.
         :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
-        :param pulumi.Input[List[pulumi.Input['MetricCriteriaArgs']]] all_of: The list of metric criteria for this 'all of' operation. 
+        :param pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]] all_of: The list of metric criteria for this 'all of' operation. 
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
         if all_of is not None:
@@ -1750,14 +1750,14 @@ class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[pulumi.Input[List[pulumi.Input['MetricCriteriaArgs']]]]:
+    def all_of(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]]]:
         """
         The list of metric criteria for this 'all of' operation. 
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: Optional[pulumi.Input[List[pulumi.Input['MetricCriteriaArgs']]]]):
+    def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]]]):
         pulumi.set(self, "all_of", value)
 
 
@@ -1770,7 +1770,7 @@ class MetricCriteriaArgs:
                  operator: pulumi.Input[str],
                  threshold: pulumi.Input[float],
                  time_aggregation: pulumi.Input[Mapping[str, Any]],
-                 dimensions: Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]] = None,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
                  metric_namespace: Optional[pulumi.Input[str]] = None,
                  skip_metric_validation: Optional[pulumi.Input[bool]] = None):
         """
@@ -1781,7 +1781,7 @@ class MetricCriteriaArgs:
         :param pulumi.Input[str] operator: the criteria operator.
         :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert.
         :param pulumi.Input[Mapping[str, Any]] time_aggregation: the criteria time aggregation types.
-        :param pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
         :param pulumi.Input[str] metric_namespace: Namespace of the metric.
         :param pulumi.Input[bool] skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
@@ -1872,14 +1872,14 @@ class MetricCriteriaArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]]:
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]:
         """
         List of dimension conditions.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]]):
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @property
@@ -1912,12 +1912,12 @@ class MetricDimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Specifies a metric dimension.
         :param pulumi.Input[str] name: Name of the dimension.
         :param pulumi.Input[str] operator: the dimension operator. Only 'Include' and 'Exclude' are supported
-        :param pulumi.Input[List[pulumi.Input[str]]] values: list of dimension values.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of dimension values.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -1949,14 +1949,14 @@ class MetricDimensionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         list of dimension values.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1971,7 +1971,7 @@ class MetricTriggerArgs:
                  time_aggregation: pulumi.Input[str],
                  time_grain: pulumi.Input[str],
                  time_window: pulumi.Input[str],
-                 dimensions: Optional[pulumi.Input[List[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
                  metric_namespace: Optional[pulumi.Input[str]] = None):
         """
         The trigger that results in a scaling action.
@@ -1983,7 +1983,7 @@ class MetricTriggerArgs:
         :param pulumi.Input[str] time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         :param pulumi.Input[str] time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param pulumi.Input[str] time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-        :param pulumi.Input[List[pulumi.Input['ScaleRuleMetricDimensionArgs']]] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         :param pulumi.Input[str] metric_namespace: the namespace of the metric that defines what the rule monitors.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -2097,14 +2097,14 @@ class MetricTriggerArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]:
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]:
         """
         List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]):
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @property
@@ -2161,15 +2161,15 @@ class RecurrenceArgs:
 @pulumi.input_type
 class RecurrentScheduleArgs:
     def __init__(__self__, *,
-                 days: pulumi.Input[List[pulumi.Input[str]]],
-                 hours: pulumi.Input[List[pulumi.Input[float]]],
-                 minutes: pulumi.Input[List[pulumi.Input[float]]],
+                 days: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 hours: pulumi.Input[Sequence[pulumi.Input[int]]],
+                 minutes: pulumi.Input[Sequence[pulumi.Input[int]]],
                  time_zone: pulumi.Input[str]):
         """
         The scheduling constraints for when the profile begins.
-        :param pulumi.Input[List[pulumi.Input[str]]] days: the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-        :param pulumi.Input[List[pulumi.Input[float]]] hours: A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-        :param pulumi.Input[List[pulumi.Input[float]]] minutes: A collection of minutes at which the profile takes effect at.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: A collection of minutes at which the profile takes effect at.
         :param pulumi.Input[str] time_zone: the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
         pulumi.set(__self__, "days", days)
@@ -2179,38 +2179,38 @@ class RecurrentScheduleArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def days(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def days(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "days", value)
 
     @property
     @pulumi.getter
-    def hours(self) -> pulumi.Input[List[pulumi.Input[float]]]:
+    def hours(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
         """
         A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
         """
         return pulumi.get(self, "hours")
 
     @hours.setter
-    def hours(self, value: pulumi.Input[List[pulumi.Input[float]]]):
+    def hours(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
         pulumi.set(self, "hours", value)
 
     @property
     @pulumi.getter
-    def minutes(self) -> pulumi.Input[List[pulumi.Input[float]]]:
+    def minutes(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
         """
         A collection of minutes at which the profile takes effect at.
         """
         return pulumi.get(self, "minutes")
 
     @minutes.setter
-    def minutes(self, value: pulumi.Input[List[pulumi.Input[float]]]):
+    def minutes(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
         pulumi.set(self, "minutes", value)
 
     @property
@@ -2229,11 +2229,11 @@ class RecurrentScheduleArgs:
 @pulumi.input_type
 class RetentionPolicyArgs:
     def __init__(__self__, *,
-                 days: pulumi.Input[float],
+                 days: pulumi.Input[int],
                  enabled: pulumi.Input[bool]):
         """
         Specifies the retention policy for the log.
-        :param pulumi.Input[float] days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        :param pulumi.Input[int] days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param pulumi.Input[bool] enabled: a value indicating whether the retention policy is enabled.
         """
         pulumi.set(__self__, "days", days)
@@ -2241,14 +2241,14 @@ class RetentionPolicyArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> pulumi.Input[float]:
+    def days(self) -> pulumi.Input[int]:
         """
         the number of days for the retention in days. A value of 0 will retain the events indefinitely.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: pulumi.Input[float]):
+    def days(self, value: pulumi.Input[int]):
         pulumi.set(self, "days", value)
 
     @property
@@ -2268,12 +2268,12 @@ class RetentionPolicyArgs:
 class RuleEmailActionArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 custom_emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  send_to_service_owners: Optional[pulumi.Input[bool]] = None):
         """
         Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
         :param pulumi.Input[str] odata_type: specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-        :param pulumi.Input[List[pulumi.Input[str]]] custom_emails: the list of administrator's custom email addresses to notify of the activation of the alert.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_emails: the list of administrator's custom email addresses to notify of the activation of the alert.
         :param pulumi.Input[bool] send_to_service_owners: Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction')
@@ -2296,14 +2296,14 @@ class RuleEmailActionArgs:
 
     @property
     @pulumi.getter(name="customEmails")
-    def custom_emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def custom_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         the list of administrator's custom email addresses to notify of the activation of the alert.
         """
         return pulumi.get(self, "custom_emails")
 
     @custom_emails.setter
-    def custom_emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def custom_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "custom_emails", value)
 
     @property
@@ -2801,12 +2801,12 @@ class ScaleRuleMetricDimensionArgs:
     def __init__(__self__, *,
                  dimension_name: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Specifies an auto scale rule metric dimension.
         :param pulumi.Input[str] dimension_name: Name of the dimension.
         :param pulumi.Input[str] operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-        :param pulumi.Input[List[pulumi.Input[str]]] values: list of dimension values. For example: ["App1","App2"].
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of dimension values. For example: ["App1","App2"].
         """
         pulumi.set(__self__, "dimension_name", dimension_name)
         pulumi.set(__self__, "operator", operator)
@@ -2838,52 +2838,52 @@ class ScaleRuleMetricDimensionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         list of dimension values. For example: ["App1","App2"].
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
 class ScheduleArgs:
     def __init__(__self__, *,
-                 frequency_in_minutes: pulumi.Input[float],
-                 time_window_in_minutes: pulumi.Input[float]):
+                 frequency_in_minutes: pulumi.Input[int],
+                 time_window_in_minutes: pulumi.Input[int]):
         """
         Defines how often to run the search and the time interval.
-        :param pulumi.Input[float] frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
-        :param pulumi.Input[float] time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+        :param pulumi.Input[int] frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
+        :param pulumi.Input[int] time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
         """
         pulumi.set(__self__, "frequency_in_minutes", frequency_in_minutes)
         pulumi.set(__self__, "time_window_in_minutes", time_window_in_minutes)
 
     @property
     @pulumi.getter(name="frequencyInMinutes")
-    def frequency_in_minutes(self) -> pulumi.Input[float]:
+    def frequency_in_minutes(self) -> pulumi.Input[int]:
         """
         frequency (in minutes) at which rule condition should be evaluated.
         """
         return pulumi.get(self, "frequency_in_minutes")
 
     @frequency_in_minutes.setter
-    def frequency_in_minutes(self, value: pulumi.Input[float]):
+    def frequency_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "frequency_in_minutes", value)
 
     @property
     @pulumi.getter(name="timeWindowInMinutes")
-    def time_window_in_minutes(self) -> pulumi.Input[float]:
+    def time_window_in_minutes(self) -> pulumi.Input[int]:
         """
         Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
         """
         return pulumi.get(self, "time_window_in_minutes")
 
     @time_window_in_minutes.setter
-    def time_window_in_minutes(self, value: pulumi.Input[float]):
+    def time_window_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "time_window_in_minutes", value)
 
 
@@ -2944,13 +2944,13 @@ class SmsReceiverArgs:
 class SourceArgs:
     def __init__(__self__, *,
                  data_source_id: pulumi.Input[str],
-                 authorized_resources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 authorized_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  query_type: Optional[pulumi.Input[str]] = None):
         """
         Specifies the log search query.
         :param pulumi.Input[str] data_source_id: The resource uri over which log search query is to be run.
-        :param pulumi.Input[List[pulumi.Input[str]]] authorized_resources: List of  Resource referred into query
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resources: List of  Resource referred into query
         :param pulumi.Input[str] query: Log search query. Required for action type - AlertingAction
         :param pulumi.Input[str] query_type: Set value to 'ResultCount' .
         """
@@ -2976,14 +2976,14 @@ class SourceArgs:
 
     @property
     @pulumi.getter(name="authorizedResources")
-    def authorized_resources(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def authorized_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of  Resource referred into query
         """
         return pulumi.get(self, "authorized_resources")
 
     @authorized_resources.setter
-    def authorized_resources(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def authorized_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "authorized_resources", value)
 
     @property

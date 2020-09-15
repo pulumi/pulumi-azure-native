@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataMigration.V20171115Preview
         /// Custom task properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponseResult, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponseResult, Union<Outputs.GetUserTablesSqlTaskPropertiesResponseResult, Outputs.MigrateSqlServerSqlDbTaskPropertiesResponseResult>>>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponse, Union<Outputs.GetUserTablesSqlTaskPropertiesResponse, Outputs.MigrateSqlServerSqlDbTaskPropertiesResponse>>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

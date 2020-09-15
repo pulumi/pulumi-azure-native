@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Peering.V20190801Preview
         /// The contact information of the peer.
         /// </summary>
         [Output("peerContactInfo")]
-        public Output<Outputs.ContactInfoResponseResult?> PeerContactInfo { get; private set; } = null!;
+        public Output<Outputs.ContactInfoResponse?> PeerContactInfo { get; private set; } = null!;
 
         /// <summary>
         /// The name of the peer.

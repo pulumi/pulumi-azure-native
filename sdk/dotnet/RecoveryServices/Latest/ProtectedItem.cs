@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// ProtectedItemResource properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AzureFileshareProtectedItemResponseResult, Union<Outputs.AzureIaaSVMProtectedItemResponseResult, Union<Outputs.AzureSqlProtectedItemResponseResult, Union<Outputs.AzureVmWorkloadProtectedItemResponseResult, Union<Outputs.DPMProtectedItemResponseResult, Union<Outputs.GenericProtectedItemResponseResult, Outputs.MabFileFolderProtectedItemResponseResult>>>>>>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.AzureFileshareProtectedItemResponse, Union<Outputs.AzureIaaSVMProtectedItemResponse, Union<Outputs.AzureSqlProtectedItemResponse, Union<Outputs.AzureVmWorkloadProtectedItemResponse, Union<Outputs.DPMProtectedItemResponse, Union<Outputs.GenericProtectedItemResponse, Outputs.MabFileFolderProtectedItemResponse>>>>>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

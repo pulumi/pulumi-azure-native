@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,8 +30,8 @@ class BgpSessionResponse(dict):
                  microsoft_session_i_pv6_address: str,
                  session_state_v4: str,
                  session_state_v6: str,
-                 max_prefixes_advertised_v4: Optional[float] = None,
-                 max_prefixes_advertised_v6: Optional[float] = None,
+                 max_prefixes_advertised_v4: Optional[int] = None,
+                 max_prefixes_advertised_v6: Optional[int] = None,
                  md5_authentication_key: Optional[str] = None,
                  peer_session_i_pv4_address: Optional[str] = None,
                  peer_session_i_pv6_address: Optional[str] = None,
@@ -43,8 +43,8 @@ class BgpSessionResponse(dict):
         :param str microsoft_session_i_pv6_address: The IPv6 session address on Microsoft's end.
         :param str session_state_v4: The state of the IPv4 session.
         :param str session_state_v6: The state of the IPv6 session.
-        :param float max_prefixes_advertised_v4: The maximum number of prefixes advertised over the IPv4 session.
-        :param float max_prefixes_advertised_v6: The maximum number of prefixes advertised over the IPv6 session.
+        :param int max_prefixes_advertised_v4: The maximum number of prefixes advertised over the IPv4 session.
+        :param int max_prefixes_advertised_v6: The maximum number of prefixes advertised over the IPv6 session.
         :param str md5_authentication_key: The MD5 authentication key of the session.
         :param str peer_session_i_pv4_address: The IPv4 session address on peer's end.
         :param str peer_session_i_pv6_address: The IPv6 session address on peer's end.
@@ -104,7 +104,7 @@ class BgpSessionResponse(dict):
 
     @property
     @pulumi.getter(name="maxPrefixesAdvertisedV4")
-    def max_prefixes_advertised_v4(self) -> Optional[float]:
+    def max_prefixes_advertised_v4(self) -> Optional[int]:
         """
         The maximum number of prefixes advertised over the IPv4 session.
         """
@@ -112,7 +112,7 @@ class BgpSessionResponse(dict):
 
     @property
     @pulumi.getter(name="maxPrefixesAdvertisedV6")
-    def max_prefixes_advertised_v6(self) -> Optional[float]:
+    def max_prefixes_advertised_v6(self) -> Optional[int]:
         """
         The maximum number of prefixes advertised over the IPv6 session.
         """
@@ -168,12 +168,12 @@ class ContactInfoResponse(dict):
     The contact information of the peer.
     """
     def __init__(__self__, *,
-                 emails: Optional[List[str]] = None,
-                 phone: Optional[List[str]] = None):
+                 emails: Optional[Sequence[str]] = None,
+                 phone: Optional[Sequence[str]] = None):
         """
         The contact information of the peer.
-        :param List[str] emails: The list of email addresses.
-        :param List[str] phone: The list of contact numbers.
+        :param Sequence[str] emails: The list of email addresses.
+        :param Sequence[str] phone: The list of contact numbers.
         """
         if emails is not None:
             pulumi.set(__self__, "emails", emails)
@@ -182,7 +182,7 @@ class ContactInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[List[str]]:
+    def emails(self) -> Optional[Sequence[str]]:
         """
         The list of email addresses.
         """
@@ -190,7 +190,7 @@ class ContactInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def phone(self) -> Optional[List[str]]:
+    def phone(self) -> Optional[Sequence[str]]:
         """
         The list of contact numbers.
         """
@@ -207,21 +207,21 @@ class DirectConnectionResponse(dict):
     """
     def __init__(__self__, *,
                  connection_state: str,
-                 bandwidth_in_mbps: Optional[float] = None,
+                 bandwidth_in_mbps: Optional[int] = None,
                  bgp_session: Optional['outputs.BgpSessionResponse'] = None,
                  connection_identifier: Optional[str] = None,
-                 peering_db_facility_id: Optional[float] = None,
-                 provisioned_bandwidth_in_mbps: Optional[float] = None,
+                 peering_db_facility_id: Optional[int] = None,
+                 provisioned_bandwidth_in_mbps: Optional[int] = None,
                  session_address_provider: Optional[str] = None,
                  use_for_peering_service: Optional[bool] = None):
         """
         The properties that define a direct connection.
         :param str connection_state: The state of the connection.
-        :param float bandwidth_in_mbps: The bandwidth of the connection.
+        :param int bandwidth_in_mbps: The bandwidth of the connection.
         :param 'BgpSessionResponseArgs' bgp_session: The BGP session associated with the connection.
         :param str connection_identifier: The unique identifier (GUID) for the connection.
-        :param float peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
-        :param float provisioned_bandwidth_in_mbps: The bandwidth that is actually provisioned.
+        :param int peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
+        :param int provisioned_bandwidth_in_mbps: The bandwidth that is actually provisioned.
         :param str session_address_provider: The field indicating if Microsoft provides session ip addresses.
         :param bool use_for_peering_service: The flag that indicates whether or not the connection is used for peering service.
         """
@@ -251,7 +251,7 @@ class DirectConnectionResponse(dict):
 
     @property
     @pulumi.getter(name="bandwidthInMbps")
-    def bandwidth_in_mbps(self) -> Optional[float]:
+    def bandwidth_in_mbps(self) -> Optional[int]:
         """
         The bandwidth of the connection.
         """
@@ -275,7 +275,7 @@ class DirectConnectionResponse(dict):
 
     @property
     @pulumi.getter(name="peeringDBFacilityId")
-    def peering_db_facility_id(self) -> Optional[float]:
+    def peering_db_facility_id(self) -> Optional[int]:
         """
         The PeeringDB.com ID of the facility at which the connection has to be set up.
         """
@@ -283,7 +283,7 @@ class DirectConnectionResponse(dict):
 
     @property
     @pulumi.getter(name="provisionedBandwidthInMbps")
-    def provisioned_bandwidth_in_mbps(self) -> Optional[float]:
+    def provisioned_bandwidth_in_mbps(self) -> Optional[int]:
         """
         The bandwidth that is actually provisioned.
         """
@@ -318,13 +318,13 @@ class ExchangeConnectionResponse(dict):
                  connection_state: str,
                  bgp_session: Optional['outputs.BgpSessionResponse'] = None,
                  connection_identifier: Optional[str] = None,
-                 peering_db_facility_id: Optional[float] = None):
+                 peering_db_facility_id: Optional[int] = None):
         """
         The properties that define an exchange connection.
         :param str connection_state: The state of the connection.
         :param 'BgpSessionResponseArgs' bgp_session: The BGP session associated with the connection.
         :param str connection_identifier: The unique identifier (GUID) for the connection.
-        :param float peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
+        :param int peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
         """
         pulumi.set(__self__, "connection_state", connection_state)
         if bgp_session is not None:
@@ -360,7 +360,7 @@ class ExchangeConnectionResponse(dict):
 
     @property
     @pulumi.getter(name="peeringDBFacilityId")
-    def peering_db_facility_id(self) -> Optional[float]:
+    def peering_db_facility_id(self) -> Optional[int]:
         """
         The PeeringDB.com ID of the facility at which the connection has to be set up.
         """
@@ -376,13 +376,13 @@ class PeeringPropertiesDirectResponse(dict):
     The properties that define a direct peering.
     """
     def __init__(__self__, *,
-                 connections: Optional[List['outputs.DirectConnectionResponse']] = None,
+                 connections: Optional[Sequence['outputs.DirectConnectionResponse']] = None,
                  direct_peering_type: Optional[str] = None,
                  peer_asn: Optional['outputs.SubResourceResponse'] = None,
                  use_for_peering_service: Optional[bool] = None):
         """
         The properties that define a direct peering.
-        :param List['DirectConnectionResponseArgs'] connections: The set of connections that constitute a direct peering.
+        :param Sequence['DirectConnectionResponseArgs'] connections: The set of connections that constitute a direct peering.
         :param str direct_peering_type: The type of direct peering.
         :param 'SubResourceResponseArgs' peer_asn: The reference of the peer ASN.
         :param bool use_for_peering_service: The flag that indicates whether or not the peering is used for peering service.
@@ -398,7 +398,7 @@ class PeeringPropertiesDirectResponse(dict):
 
     @property
     @pulumi.getter
-    def connections(self) -> Optional[List['outputs.DirectConnectionResponse']]:
+    def connections(self) -> Optional[Sequence['outputs.DirectConnectionResponse']]:
         """
         The set of connections that constitute a direct peering.
         """
@@ -438,11 +438,11 @@ class PeeringPropertiesExchangeResponse(dict):
     The properties that define an exchange peering.
     """
     def __init__(__self__, *,
-                 connections: Optional[List['outputs.ExchangeConnectionResponse']] = None,
+                 connections: Optional[Sequence['outputs.ExchangeConnectionResponse']] = None,
                  peer_asn: Optional['outputs.SubResourceResponse'] = None):
         """
         The properties that define an exchange peering.
-        :param List['ExchangeConnectionResponseArgs'] connections: The set of connections that constitute an exchange peering.
+        :param Sequence['ExchangeConnectionResponseArgs'] connections: The set of connections that constitute an exchange peering.
         :param 'SubResourceResponseArgs' peer_asn: The reference of the peer ASN.
         """
         if connections is not None:
@@ -452,7 +452,7 @@ class PeeringPropertiesExchangeResponse(dict):
 
     @property
     @pulumi.getter
-    def connections(self) -> Optional[List['outputs.ExchangeConnectionResponse']]:
+    def connections(self) -> Optional[Sequence['outputs.ExchangeConnectionResponse']]:
         """
         The set of connections that constitute an exchange peering.
         """

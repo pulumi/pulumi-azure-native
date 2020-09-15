@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,7 +38,7 @@ class ListScheduleApplicableResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[List['outputs.ScheduleResponse']]:
+    def value(self) -> Optional[Sequence['outputs.ScheduleResponse']]:
         """
         Results of the list operation.
         """

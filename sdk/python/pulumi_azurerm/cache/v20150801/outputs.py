@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -57,12 +57,12 @@ class SkuResponse(dict):
     SKU parameters supplied to the create Redis operation.
     """
     def __init__(__self__, *,
-                 capacity: float,
+                 capacity: int,
                  family: str,
                  name: str):
         """
         SKU parameters supplied to the create Redis operation.
-        :param float capacity: What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
+        :param int capacity: What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
         :param str family: Which family to use. Valid values: (C, P).
         :param str name: What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
         """
@@ -72,7 +72,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
         """

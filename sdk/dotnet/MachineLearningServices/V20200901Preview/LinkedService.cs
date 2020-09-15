@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// location of the linked service.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
         /// LinkedService specific properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.LinkedServicePropsResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.LinkedServicePropsResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type of linked service.

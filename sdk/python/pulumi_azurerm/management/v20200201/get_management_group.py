@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,7 +48,7 @@ class GetManagementGroupResult:
 
     @property
     @pulumi.getter
-    def children(self) -> Optional[List['outputs.ManagementGroupChildInfoResponse']]:
+    def children(self) -> Optional[Sequence['outputs.ManagementGroupChildInfoResponse']]:
         """
         The list of children.
         """
@@ -80,7 +80,7 @@ class GetManagementGroupResult:
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[List['outputs.ManagementGroupPathElementResponse']]:
+    def path(self) -> Optional[Sequence['outputs.ManagementGroupPathElementResponse']]:
         """
         The path from the root to the current group.
         """
@@ -88,7 +88,7 @@ class GetManagementGroupResult:
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[List[str]]:
+    def roles(self) -> Optional[Sequence[str]]:
         """
         The role definitions associated with the management group.
         """

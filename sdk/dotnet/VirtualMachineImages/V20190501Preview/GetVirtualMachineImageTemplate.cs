@@ -46,19 +46,19 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
         /// <summary>
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ImageTemplateFileCustomizerResponseResult, Union<Outputs.ImageTemplatePowerShellCustomizerResponseResult, Union<Outputs.ImageTemplateRestartCustomizerResponseResult, Outputs.ImageTemplateShellCustomizerResponseResult>>>> Customize;
+        public readonly ImmutableArray<Union<Outputs.ImageTemplateFileCustomizerResponse, Union<Outputs.ImageTemplatePowerShellCustomizerResponse, Union<Outputs.ImageTemplateRestartCustomizerResponse, Outputs.ImageTemplateShellCustomizerResponse>>>> Customize;
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponseResult, Union<Outputs.ImageTemplateSharedImageDistributorResponseResult, Outputs.ImageTemplateVhdDistributorResponseResult>>> Distribute;
+        public readonly ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Union<Outputs.ImageTemplateSharedImageDistributorResponse, Outputs.ImageTemplateVhdDistributorResponse>>> Distribute;
         /// <summary>
         /// The identity of the image template, if configured.
         /// </summary>
-        public readonly Outputs.ImageTemplateIdentityResponseResult? Identity;
+        public readonly Outputs.ImageTemplateIdentityResponse? Identity;
         /// <summary>
         /// State of 'run' that is currently executing or was last executed.
         /// </summary>
-        public readonly Outputs.ImageTemplateLastRunStatusResponseResult LastRunStatus;
+        public readonly Outputs.ImageTemplateLastRunStatusResponse LastRunStatus;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
         /// <summary>
         /// Provisioning error, if any
         /// </summary>
-        public readonly Outputs.ProvisioningErrorResponseResult ProvisioningError;
+        public readonly Outputs.ProvisioningErrorResponse ProvisioningError;
         /// <summary>
         /// Provisioning state of the resource
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
         /// <summary>
         /// Specifies the properties used to describe the source image.
         /// </summary>
-        public readonly Union<Outputs.ImageTemplateIsoSourceResponseResult, Union<Outputs.ImageTemplateManagedImageSourceResponseResult, Union<Outputs.ImageTemplatePlatformImageSourceResponseResult, Outputs.ImageTemplateSharedImageVersionSourceResponseResult>>> Source;
+        public readonly Union<Outputs.ImageTemplateIsoSourceResponse, Union<Outputs.ImageTemplateManagedImageSourceResponse, Union<Outputs.ImageTemplatePlatformImageSourceResponse, Outputs.ImageTemplateSharedImageVersionSourceResponse>>> Source;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -90,35 +90,35 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
         /// <summary>
         /// Describes how virtual machine is set up to build images
         /// </summary>
-        public readonly Outputs.ImageTemplateVmProfileResponseResult? VmProfile;
+        public readonly Outputs.ImageTemplateVmProfileResponse? VmProfile;
 
         [OutputConstructor]
         private GetVirtualMachineImageTemplateResult(
             int? buildTimeoutInMinutes,
 
-            ImmutableArray<Union<Outputs.ImageTemplateFileCustomizerResponseResult, Union<Outputs.ImageTemplatePowerShellCustomizerResponseResult, Union<Outputs.ImageTemplateRestartCustomizerResponseResult, Outputs.ImageTemplateShellCustomizerResponseResult>>>> customize,
+            ImmutableArray<Union<Outputs.ImageTemplateFileCustomizerResponse, Union<Outputs.ImageTemplatePowerShellCustomizerResponse, Union<Outputs.ImageTemplateRestartCustomizerResponse, Outputs.ImageTemplateShellCustomizerResponse>>>> customize,
 
-            ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponseResult, Union<Outputs.ImageTemplateSharedImageDistributorResponseResult, Outputs.ImageTemplateVhdDistributorResponseResult>>> distribute,
+            ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Union<Outputs.ImageTemplateSharedImageDistributorResponse, Outputs.ImageTemplateVhdDistributorResponse>>> distribute,
 
-            Outputs.ImageTemplateIdentityResponseResult? identity,
+            Outputs.ImageTemplateIdentityResponse? identity,
 
-            Outputs.ImageTemplateLastRunStatusResponseResult lastRunStatus,
+            Outputs.ImageTemplateLastRunStatusResponse lastRunStatus,
 
             string location,
 
             string name,
 
-            Outputs.ProvisioningErrorResponseResult provisioningError,
+            Outputs.ProvisioningErrorResponse provisioningError,
 
             string provisioningState,
 
-            Union<Outputs.ImageTemplateIsoSourceResponseResult, Union<Outputs.ImageTemplateManagedImageSourceResponseResult, Union<Outputs.ImageTemplatePlatformImageSourceResponseResult, Outputs.ImageTemplateSharedImageVersionSourceResponseResult>>> source,
+            Union<Outputs.ImageTemplateIsoSourceResponse, Union<Outputs.ImageTemplateManagedImageSourceResponse, Union<Outputs.ImageTemplatePlatformImageSourceResponse, Outputs.ImageTemplateSharedImageVersionSourceResponse>>> source,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.ImageTemplateVmProfileResponseResult? vmProfile)
+            Outputs.ImageTemplateVmProfileResponse? vmProfile)
         {
             BuildTimeoutInMinutes = buildTimeoutInMinutes;
             Customize = customize;

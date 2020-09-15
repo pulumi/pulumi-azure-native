@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -33,8 +33,8 @@ class GetPipelineResult:
         if organization and not isinstance(organization, dict):
             raise TypeError("Expected argument 'organization' to be a dict")
         pulumi.set(__self__, "organization", organization)
-        if pipeline_id and not isinstance(pipeline_id, float):
-            raise TypeError("Expected argument 'pipeline_id' to be a float")
+        if pipeline_id and not isinstance(pipeline_id, int):
+            raise TypeError("Expected argument 'pipeline_id' to be a int")
         pulumi.set(__self__, "pipeline_id", pipeline_id)
         if project and not isinstance(project, dict):
             raise TypeError("Expected argument 'project' to be a dict")
@@ -80,7 +80,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter(name="pipelineId")
-    def pipeline_id(self) -> float:
+    def pipeline_id(self) -> int:
         """
         Unique identifier of the Azure Pipeline within the Azure DevOps Project.
         """

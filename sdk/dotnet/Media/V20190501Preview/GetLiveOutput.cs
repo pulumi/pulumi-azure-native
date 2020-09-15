@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
         /// <summary>
         /// The HLS configuration.
         /// </summary>
-        public readonly Outputs.HlsResponseResult? Hls;
+        public readonly Outputs.HlsResponse? Hls;
         /// <summary>
         /// The exact time the Live Output was last modified.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
 
             string? description,
 
-            Outputs.HlsResponseResult? hls,
+            Outputs.HlsResponse? hls,
 
             string lastModified,
 

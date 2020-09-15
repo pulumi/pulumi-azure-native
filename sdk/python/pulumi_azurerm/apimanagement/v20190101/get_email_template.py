@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -80,7 +80,7 @@ class GetEmailTemplateResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.EmailTemplateParametersContractPropertiesResponse']]:
+    def parameters(self) -> Optional[Sequence['outputs.EmailTemplateParametersContractPropertiesResponse']]:
         """
         Email Template Parameter values.
         """

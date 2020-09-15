@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -36,8 +36,8 @@ class GetDeviceResult:
         if device_hcs_version and not isinstance(device_hcs_version, str):
             raise TypeError("Expected argument 'device_hcs_version' to be a str")
         pulumi.set(__self__, "device_hcs_version", device_hcs_version)
-        if device_local_capacity and not isinstance(device_local_capacity, float):
-            raise TypeError("Expected argument 'device_local_capacity' to be a float")
+        if device_local_capacity and not isinstance(device_local_capacity, int):
+            raise TypeError("Expected argument 'device_local_capacity' to be a int")
         pulumi.set(__self__, "device_local_capacity", device_local_capacity)
         if device_model and not isinstance(device_model, str):
             raise TypeError("Expected argument 'device_model' to be a str")
@@ -81,7 +81,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="configuredRoleTypes")
-    def configured_role_types(self) -> List[str]:
+    def configured_role_types(self) -> Sequence[str]:
         """
         Type of compute roles configured.
         """
@@ -121,7 +121,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="deviceLocalCapacity")
-    def device_local_capacity(self) -> float:
+    def device_local_capacity(self) -> int:
         """
         The Data Box Edge/Gateway device local capacity in MB.
         """

@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Peering.Latest
         /// <summary>
         /// The contact details of the peer.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContactDetailResponseResult> PeerContactDetail;
+        public readonly ImmutableArray<Outputs.ContactDetailResponse> PeerContactDetail;
         /// <summary>
         /// The name of the peer.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Peering.Latest
 
             int? peerAsn,
 
-            ImmutableArray<Outputs.ContactDetailResponseResult> peerContactDetail,
+            ImmutableArray<Outputs.ContactDetailResponse> peerContactDetail,
 
             string? peerName,
 

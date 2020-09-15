@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -65,17 +65,17 @@ class ActivityLogAlertActionListResponse(dict):
     A list of activity log alert actions.
     """
     def __init__(__self__, *,
-                 action_groups: Optional[List['outputs.ActivityLogAlertActionGroupResponse']] = None):
+                 action_groups: Optional[Sequence['outputs.ActivityLogAlertActionGroupResponse']] = None):
         """
         A list of activity log alert actions.
-        :param List['ActivityLogAlertActionGroupResponseArgs'] action_groups: The list of activity log alerts.
+        :param Sequence['ActivityLogAlertActionGroupResponseArgs'] action_groups: The list of activity log alerts.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
 
     @property
     @pulumi.getter(name="actionGroups")
-    def action_groups(self) -> Optional[List['outputs.ActivityLogAlertActionGroupResponse']]:
+    def action_groups(self) -> Optional[Sequence['outputs.ActivityLogAlertActionGroupResponse']]:
         """
         The list of activity log alerts.
         """
@@ -91,16 +91,16 @@ class ActivityLogAlertAllOfConditionResponse(dict):
     An Activity Log alert condition that is met when all its member conditions are met.
     """
     def __init__(__self__, *,
-                 all_of: List['outputs.ActivityLogAlertLeafConditionResponse']):
+                 all_of: Sequence['outputs.ActivityLogAlertLeafConditionResponse']):
         """
         An Activity Log alert condition that is met when all its member conditions are met.
-        :param List['ActivityLogAlertLeafConditionResponseArgs'] all_of: The list of activity log alert conditions.
+        :param Sequence['ActivityLogAlertLeafConditionResponseArgs'] all_of: The list of activity log alert conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> List['outputs.ActivityLogAlertLeafConditionResponse']:
+    def all_of(self) -> Sequence['outputs.ActivityLogAlertLeafConditionResponse']:
         """
         The list of activity log alert conditions.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,7 +42,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="activeDirectories")
-    def active_directories(self) -> Optional[List['outputs.ActiveDirectoryResponse']]:
+    def active_directories(self) -> Optional[Sequence['outputs.ActiveDirectoryResponse']]:
         """
         Active Directories
         """

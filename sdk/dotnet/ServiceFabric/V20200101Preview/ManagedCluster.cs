@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// Azure active directory.
         /// </summary>
         [Output("azureActiveDirectory")]
-        public Output<Outputs.AzureActiveDirectoryResponseResult?> AzureActiveDirectory { get; private set; } = null!;
+        public Output<Outputs.AzureActiveDirectoryResponse?> AzureActiveDirectory { get; private set; } = null!;
 
         /// <summary>
         /// The port used for client connections to the cluster.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// client certificates for the cluster.
         /// </summary>
         [Output("clients")]
-        public Output<ImmutableArray<Outputs.ClientCertificateResponseResult>> Clients { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClientCertificateResponse>> Clients { get; private set; } = null!;
 
         /// <summary>
         /// The cluster certificate thumbprint used node to node communication.
@@ -83,7 +83,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// Describes the policy used when upgrading the cluster.
         /// </summary>
         [Output("clusterUpgradeDescription")]
-        public Output<Outputs.ClusterUpgradePolicyResponseResult?> ClusterUpgradeDescription { get; private set; } = null!;
+        public Output<Outputs.ClusterUpgradePolicyResponse?> ClusterUpgradeDescription { get; private set; } = null!;
 
         /// <summary>
         /// The upgrade mode of the cluster when new Service Fabric runtime version is available.
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// The list of custom fabric settings to configure the cluster.
         /// </summary>
         [Output("fabricSettings")]
-        public Output<ImmutableArray<Outputs.SettingsSectionDescriptionResponseResult>> FabricSettings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SettingsSectionDescriptionResponse>> FabricSettings { get; private set; } = null!;
 
         /// <summary>
         /// the cluster Fully qualified domain name.
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// Describes load balancing rules.
         /// </summary>
         [Output("loadBalancingRules")]
-        public Output<ImmutableArray<Outputs.LoadBalancingRuleResponseResult>> LoadBalancingRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LoadBalancingRuleResponse>> LoadBalancingRules { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource location.
@@ -152,7 +152,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// The sku of the managed cluster
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

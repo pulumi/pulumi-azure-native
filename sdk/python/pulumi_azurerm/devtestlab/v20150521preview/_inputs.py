@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -29,14 +29,14 @@ __all__ = [
 @pulumi.input_type
 class ArtifactDeploymentStatusPropertiesArgs:
     def __init__(__self__, *,
-                 artifacts_applied: Optional[pulumi.Input[float]] = None,
+                 artifacts_applied: Optional[pulumi.Input[int]] = None,
                  deployment_status: Optional[pulumi.Input[str]] = None,
-                 total_artifacts: Optional[pulumi.Input[float]] = None):
+                 total_artifacts: Optional[pulumi.Input[int]] = None):
         """
         Properties of an artifact deployment.
-        :param pulumi.Input[float] artifacts_applied: The total count of the artifacts that were successfully applied.
+        :param pulumi.Input[int] artifacts_applied: The total count of the artifacts that were successfully applied.
         :param pulumi.Input[str] deployment_status: The deployment status of the artifact.
-        :param pulumi.Input[float] total_artifacts: The total count of the artifacts that were tentatively applied.
+        :param pulumi.Input[int] total_artifacts: The total count of the artifacts that were tentatively applied.
         """
         if artifacts_applied is not None:
             pulumi.set(__self__, "artifacts_applied", artifacts_applied)
@@ -47,14 +47,14 @@ class ArtifactDeploymentStatusPropertiesArgs:
 
     @property
     @pulumi.getter(name="artifactsApplied")
-    def artifacts_applied(self) -> Optional[pulumi.Input[float]]:
+    def artifacts_applied(self) -> Optional[pulumi.Input[int]]:
         """
         The total count of the artifacts that were successfully applied.
         """
         return pulumi.get(self, "artifacts_applied")
 
     @artifacts_applied.setter
-    def artifacts_applied(self, value: Optional[pulumi.Input[float]]):
+    def artifacts_applied(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "artifacts_applied", value)
 
     @property
@@ -71,14 +71,14 @@ class ArtifactDeploymentStatusPropertiesArgs:
 
     @property
     @pulumi.getter(name="totalArtifacts")
-    def total_artifacts(self) -> Optional[pulumi.Input[float]]:
+    def total_artifacts(self) -> Optional[pulumi.Input[int]]:
         """
         The total count of the artifacts that were tentatively applied.
         """
         return pulumi.get(self, "total_artifacts")
 
     @total_artifacts.setter
-    def total_artifacts(self, value: Optional[pulumi.Input[float]]):
+    def total_artifacts(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "total_artifacts", value)
 
 
@@ -86,11 +86,11 @@ class ArtifactDeploymentStatusPropertiesArgs:
 class ArtifactInstallPropertiesArgs:
     def __init__(__self__, *,
                  artifact_id: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['ArtifactParameterPropertiesArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]] = None):
         """
         Properties of an artifact.
         :param pulumi.Input[str] artifact_id: The artifact's identifier.
-        :param pulumi.Input[List[pulumi.Input['ArtifactParameterPropertiesArgs']]] parameters: The parameters of the artifact.
+        :param pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]] parameters: The parameters of the artifact.
         """
         if artifact_id is not None:
             pulumi.set(__self__, "artifact_id", artifact_id)
@@ -111,14 +111,14 @@ class ArtifactInstallPropertiesArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['ArtifactParameterPropertiesArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]]:
         """
         The parameters of the artifact.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['ArtifactParameterPropertiesArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -409,24 +409,24 @@ class GalleryImageReferenceArgs:
 @pulumi.input_type
 class HourDetailsArgs:
     def __init__(__self__, *,
-                 minute: Optional[pulumi.Input[float]] = None):
+                 minute: Optional[pulumi.Input[int]] = None):
         """
         Properties of an hourly schedule.
-        :param pulumi.Input[float] minute: Minutes of the hour the schedule will run.
+        :param pulumi.Input[int] minute: Minutes of the hour the schedule will run.
         """
         if minute is not None:
             pulumi.set(__self__, "minute", minute)
 
     @property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[float]]:
+    def minute(self) -> Optional[pulumi.Input[int]]:
         """
         Minutes of the hour the schedule will run.
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[float]]):
+    def minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minute", value)
 
 
@@ -434,7 +434,7 @@ class HourDetailsArgs:
 class LabVirtualMachineArgs:
     def __init__(__self__, *,
                  artifact_deployment_status: Optional[pulumi.Input['ArtifactDeploymentStatusPropertiesArgs']] = None,
-                 artifacts: Optional[pulumi.Input[List[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
                  compute_id: Optional[pulumi.Input[str]] = None,
                  created_by_user: Optional[pulumi.Input[str]] = None,
                  created_by_user_id: Optional[pulumi.Input[str]] = None,
@@ -461,7 +461,7 @@ class LabVirtualMachineArgs:
         """
         A virtual machine.
         :param pulumi.Input['ArtifactDeploymentStatusPropertiesArgs'] artifact_deployment_status: The artifact deployment status for the virtual machine.
-        :param pulumi.Input[List[pulumi.Input['ArtifactInstallPropertiesArgs']]] artifacts: The artifacts to be installed on the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]] artifacts: The artifacts to be installed on the virtual machine.
         :param pulumi.Input[str] compute_id: The resource identifier (Microsoft.Compute) of the virtual machine.
         :param pulumi.Input[str] created_by_user: The email address of creator of the virtual machine.
         :param pulumi.Input[str] created_by_user_id: The object identifier of the creator of the virtual machine.
@@ -551,14 +551,14 @@ class LabVirtualMachineArgs:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[pulumi.Input[List[pulumi.Input['ArtifactInstallPropertiesArgs']]]]:
+    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]:
         """
         The artifacts to be installed on the virtual machine.
         """
         return pulumi.get(self, "artifacts")
 
     @artifacts.setter
-    def artifacts(self, value: Optional[pulumi.Input[List[pulumi.Input['ArtifactInstallPropertiesArgs']]]]):
+    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]]):
         pulumi.set(self, "artifacts", value)
 
     @property
@@ -979,11 +979,11 @@ class SubnetOverrideArgs:
 class WeekDetailsArgs:
     def __init__(__self__, *,
                  time: Optional[pulumi.Input[str]] = None,
-                 weekdays: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Properties of a weekly schedule.
         :param pulumi.Input[str] time: The time of the day.
-        :param pulumi.Input[List[pulumi.Input[str]]] weekdays: The days of the week.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The days of the week.
         """
         if time is not None:
             pulumi.set(__self__, "time", time)
@@ -1004,14 +1004,14 @@ class WeekDetailsArgs:
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def weekdays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The days of the week.
         """
         return pulumi.get(self, "weekdays")
 
     @weekdays.setter
-    def weekdays(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def weekdays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weekdays", value)
 
 

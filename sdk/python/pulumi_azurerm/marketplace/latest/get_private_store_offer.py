@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -109,7 +109,7 @@ class GetPrivateStoreOfferResult:
 
     @property
     @pulumi.getter(name="specificPlanIdsLimitation")
-    def specific_plan_ids_limitation(self) -> Optional[List[str]]:
+    def specific_plan_ids_limitation(self) -> Optional[Sequence[str]]:
         """
         Plan ids limitation for this offer
         """

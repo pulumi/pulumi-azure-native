@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20140901
         /// Gets or sets properties of the Namespace.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NamespacePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.NamespacePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets tags of the Namespace.

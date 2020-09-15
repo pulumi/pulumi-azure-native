@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
         /// List of recommendation configuration
         /// </summary>
         [Output("recommendationsConfiguration")]
-        public Output<ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponseResult>> RecommendationsConfiguration { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponse>> RecommendationsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Security solution status
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
         /// Properties of the solution's user defined resources.
         /// </summary>
         [Output("userDefinedResources")]
-        public Output<Outputs.UserDefinedResourcesPropertiesResponseResult?> UserDefinedResources { get; private set; } = null!;
+        public Output<Outputs.UserDefinedResourcesPropertiesResponse?> UserDefinedResources { get; private set; } = null!;
 
         /// <summary>
         /// Workspace resource ID

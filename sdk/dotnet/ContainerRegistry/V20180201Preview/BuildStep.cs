@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
         /// The properties of a build step.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DockerBuildStepResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.DockerBuildStepResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

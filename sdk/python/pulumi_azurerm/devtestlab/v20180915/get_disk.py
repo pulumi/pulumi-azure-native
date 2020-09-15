@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,8 +26,8 @@ class GetDiskResult:
         if disk_blob_name and not isinstance(disk_blob_name, str):
             raise TypeError("Expected argument 'disk_blob_name' to be a str")
         pulumi.set(__self__, "disk_blob_name", disk_blob_name)
-        if disk_size_gi_b and not isinstance(disk_size_gi_b, float):
-            raise TypeError("Expected argument 'disk_size_gi_b' to be a float")
+        if disk_size_gi_b and not isinstance(disk_size_gi_b, int):
+            raise TypeError("Expected argument 'disk_size_gi_b' to be a int")
         pulumi.set(__self__, "disk_size_gi_b", disk_size_gi_b)
         if disk_type and not isinstance(disk_type, str):
             raise TypeError("Expected argument 'disk_type' to be a str")
@@ -81,7 +81,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskSizeGiB")
-    def disk_size_gi_b(self) -> Optional[float]:
+    def disk_size_gi_b(self) -> Optional[int]:
         """
         The size of the disk in GibiBytes.
         """

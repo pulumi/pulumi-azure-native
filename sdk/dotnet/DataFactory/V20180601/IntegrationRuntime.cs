@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Integration runtime properties.
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.ManagedIntegrationRuntimeResponseResult, Outputs.SelfHostedIntegrationRuntimeResponseResult>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ManagedIntegrationRuntimeResponse, Outputs.SelfHostedIntegrationRuntimeResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

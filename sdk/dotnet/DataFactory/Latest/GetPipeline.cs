@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// <summary>
         /// List of activities in pipeline.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ControlActivityResponseResult, Outputs.ExecutionActivityResponseResult>> Activities;
+        public readonly ImmutableArray<Union<Outputs.ControlActivityResponse, Outputs.ExecutionActivityResponse>> Activities;
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// <summary>
         /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         /// </summary>
-        public readonly Outputs.PipelineResponseFolderResult? Folder;
+        public readonly Outputs.PipelineResponseFolder? Folder;
         /// <summary>
         /// The resource name.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// <summary>
         /// List of parameters for pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
@@ -88,11 +88,11 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// <summary>
         /// List of variables for pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.VariableSpecificationResponseResult>? Variables;
+        public readonly ImmutableDictionary<string, Outputs.VariableSpecificationResponse>? Variables;
 
         [OutputConstructor]
         private GetPipelineResult(
-            ImmutableArray<Union<Outputs.ControlActivityResponseResult, Outputs.ExecutionActivityResponseResult>> activities,
+            ImmutableArray<Union<Outputs.ControlActivityResponse, Outputs.ExecutionActivityResponse>> activities,
 
             ImmutableArray<ImmutableDictionary<string, object>> annotations,
 
@@ -102,17 +102,17 @@ namespace Pulumi.AzureRM.DataFactory.Latest
 
             string etag,
 
-            Outputs.PipelineResponseFolderResult? folder,
+            Outputs.PipelineResponseFolder? folder,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             ImmutableDictionary<string, ImmutableDictionary<string, object>>? runDimensions,
 
             string type,
 
-            ImmutableDictionary<string, Outputs.VariableSpecificationResponseResult>? variables)
+            ImmutableDictionary<string, Outputs.VariableSpecificationResponse>? variables)
         {
             Activities = activities;
             Annotations = annotations;

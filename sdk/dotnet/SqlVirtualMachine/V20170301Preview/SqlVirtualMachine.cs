@@ -18,25 +18,25 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// Auto backup settings for SQL Server.
         /// </summary>
         [Output("autoBackupSettings")]
-        public Output<Outputs.AutoBackupSettingsResponseResult?> AutoBackupSettings { get; private set; } = null!;
+        public Output<Outputs.AutoBackupSettingsResponse?> AutoBackupSettings { get; private set; } = null!;
 
         /// <summary>
         /// Auto patching settings for applying critical security updates to SQL virtual machine.
         /// </summary>
         [Output("autoPatchingSettings")]
-        public Output<Outputs.AutoPatchingSettingsResponseResult?> AutoPatchingSettings { get; private set; } = null!;
+        public Output<Outputs.AutoPatchingSettingsResponse?> AutoPatchingSettings { get; private set; } = null!;
 
         /// <summary>
         /// Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Key vault credential settings.
         /// </summary>
         [Output("keyVaultCredentialSettings")]
-        public Output<Outputs.KeyVaultCredentialSettingsResponseResult?> KeyVaultCredentialSettings { get; private set; } = null!;
+        public Output<Outputs.KeyVaultCredentialSettingsResponse?> KeyVaultCredentialSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// SQL Server configuration management settings.
         /// </summary>
         [Output("serverConfigurationsManagementSettings")]
-        public Output<Outputs.ServerConfigurationsManagementSettingsResponseResult?> ServerConfigurationsManagementSettings { get; private set; } = null!;
+        public Output<Outputs.ServerConfigurationsManagementSettingsResponse?> ServerConfigurationsManagementSettings { get; private set; } = null!;
 
         /// <summary>
         /// SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// Storage Configuration Settings.
         /// </summary>
         [Output("storageConfigurationSettings")]
-        public Output<Outputs.StorageConfigurationSettingsResponseResult?> StorageConfigurationSettings { get; private set; } = null!;
+        public Output<Outputs.StorageConfigurationSettingsResponse?> StorageConfigurationSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         /// </summary>
         [Output("wsfcDomainCredentials")]
-        public Output<Outputs.WsfcDomainCredentialsResponseResult?> WsfcDomainCredentials { get; private set; } = null!;
+        public Output<Outputs.WsfcDomainCredentialsResponse?> WsfcDomainCredentials { get; private set; } = null!;
 
 
         /// <summary>

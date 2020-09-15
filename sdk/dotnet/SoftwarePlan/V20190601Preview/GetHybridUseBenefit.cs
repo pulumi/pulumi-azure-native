@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20190601Preview
         /// <summary>
         /// Hybrid use benefit SKU
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20190601Preview
 
             string provisioningState,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             string type)
         {

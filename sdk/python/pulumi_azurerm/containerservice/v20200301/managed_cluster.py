@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class ManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']]] = None,
                  addon_profiles: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]]] = None,
-                 agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]]] = None,
                  api_server_access_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterAPIServerAccessProfileArgs']]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterPropertiesAutoScalerProfileArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -49,7 +49,7 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: Profile of Azure Active Directory configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]] addon_profiles: Profile of managed cluster add-on.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
         :param pulumi.Input[pulumi.InputType['ManagedClusterAPIServerAccessProfileArgs']] api_server_access_profile: Access profile for managed cluster API server.
         :param pulumi.Input[pulumi.InputType['ManagedClusterPropertiesAutoScalerProfileArgs']] auto_scaler_profile: Parameters to be applied to the cluster-autoscaler when enabled
         :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
@@ -165,7 +165,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> pulumi.Output[Optional[List['outputs.ManagedClusterAgentPoolProfileResponse']]]:
+    def agent_pool_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.ManagedClusterAgentPoolProfileResponse']]]:
         """
         Properties of the agent pool.
         """
@@ -269,7 +269,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxAgentPools")
-    def max_agent_pools(self) -> pulumi.Output[float]:
+    def max_agent_pools(self) -> pulumi.Output[int]:
         """
         The max number of agent pools for the managed cluster.
         """

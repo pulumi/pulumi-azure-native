@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,8 +24,8 @@ class GetInboundNatRuleResult:
         if backend_ip_configuration and not isinstance(backend_ip_configuration, dict):
             raise TypeError("Expected argument 'backend_ip_configuration' to be a dict")
         pulumi.set(__self__, "backend_ip_configuration", backend_ip_configuration)
-        if backend_port and not isinstance(backend_port, float):
-            raise TypeError("Expected argument 'backend_port' to be a float")
+        if backend_port and not isinstance(backend_port, int):
+            raise TypeError("Expected argument 'backend_port' to be a int")
         pulumi.set(__self__, "backend_port", backend_port)
         if enable_floating_ip and not isinstance(enable_floating_ip, bool):
             raise TypeError("Expected argument 'enable_floating_ip' to be a bool")
@@ -39,11 +39,11 @@ class GetInboundNatRuleResult:
         if frontend_ip_configuration and not isinstance(frontend_ip_configuration, dict):
             raise TypeError("Expected argument 'frontend_ip_configuration' to be a dict")
         pulumi.set(__self__, "frontend_ip_configuration", frontend_ip_configuration)
-        if frontend_port and not isinstance(frontend_port, float):
-            raise TypeError("Expected argument 'frontend_port' to be a float")
+        if frontend_port and not isinstance(frontend_port, int):
+            raise TypeError("Expected argument 'frontend_port' to be a int")
         pulumi.set(__self__, "frontend_port", frontend_port)
-        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
-            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, int):
+            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -68,7 +68,7 @@ class GetInboundNatRuleResult:
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[float]:
+    def backend_port(self) -> Optional[int]:
         """
         The port used for the internal endpoint. Acceptable values range from 1 to 65535.
         """
@@ -108,7 +108,7 @@ class GetInboundNatRuleResult:
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[float]:
+    def frontend_port(self) -> Optional[int]:
         """
         The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
         """
@@ -116,7 +116,7 @@ class GetInboundNatRuleResult:
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> Optional[int]:
         """
         The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         """

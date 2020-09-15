@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -52,7 +52,7 @@ class GetPrivateDnsZoneGroupResult:
 
     @property
     @pulumi.getter(name="privateDnsZoneConfigs")
-    def private_dns_zone_configs(self) -> Optional[List['outputs.PrivateDnsZoneConfigResponse']]:
+    def private_dns_zone_configs(self) -> Optional[Sequence['outputs.PrivateDnsZoneConfigResponse']]:
         """
         A collection of private dns zone configurations of the private dns zone group.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,7 +25,7 @@ class DomainService(pulumi.CustomResource):
                  ldaps_settings: Optional[pulumi.Input[pulumi.InputType['LdapsSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
-                 replica_sets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]]] = None,
+                 replica_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -44,7 +44,7 @@ class DomainService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LdapsSettingsArgs']] ldaps_settings: Secure LDAP Settings
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['NotificationSettingsArgs']] notification_settings: Notification Settings
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]] replica_sets: List of ReplicaSets
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]] replica_sets: List of ReplicaSets
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -195,7 +195,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicaSets")
-    def replica_sets(self) -> pulumi.Output[Optional[List['outputs.ReplicaSetResponse']]]:
+    def replica_sets(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicaSetResponse']]]:
         """
         List of ReplicaSets
         """
@@ -235,7 +235,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[float]:
+    def version(self) -> pulumi.Output[int]:
         """
         Data Model Version
         """

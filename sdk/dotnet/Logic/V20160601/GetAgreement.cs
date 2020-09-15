@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// <summary>
         /// The agreement content.
         /// </summary>
-        public readonly Outputs.AgreementContentResponseResult Content;
+        public readonly Outputs.AgreementContentResponse Content;
         /// <summary>
         /// The created time.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// <summary>
         /// The business identity of the guest partner.
         /// </summary>
-        public readonly Outputs.BusinessIdentityResponseResult GuestIdentity;
+        public readonly Outputs.BusinessIdentityResponse GuestIdentity;
         /// <summary>
         /// The integration account partner that is set as guest partner for this agreement.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// <summary>
         /// The business identity of the host partner.
         /// </summary>
-        public readonly Outputs.BusinessIdentityResponseResult HostIdentity;
+        public readonly Outputs.BusinessIdentityResponse HostIdentity;
         /// <summary>
         /// The integration account partner that is set as host partner for this agreement.
         /// </summary>
@@ -104,15 +104,15 @@ namespace Pulumi.AzureRM.Logic.V20160601
 
             string changedTime,
 
-            Outputs.AgreementContentResponseResult content,
+            Outputs.AgreementContentResponse content,
 
             string createdTime,
 
-            Outputs.BusinessIdentityResponseResult guestIdentity,
+            Outputs.BusinessIdentityResponse guestIdentity,
 
             string guestPartner,
 
-            Outputs.BusinessIdentityResponseResult hostIdentity,
+            Outputs.BusinessIdentityResponse hostIdentity,
 
             string hostPartner,
 

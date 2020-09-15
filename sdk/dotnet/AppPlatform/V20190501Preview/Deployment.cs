@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
         /// Properties of the Deployment resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DeploymentResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.DeploymentResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

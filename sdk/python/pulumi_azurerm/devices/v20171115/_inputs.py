@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,15 +19,15 @@ __all__ = [
 class IotDpsPropertiesDescriptionArgs:
     def __init__(__self__, *,
                  allocation_policy: Optional[pulumi.Input[str]] = None,
-                 authorization_policies: Optional[pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]] = None,
-                 iot_hubs: Optional[pulumi.Input[List[pulumi.Input['IotHubDefinitionDescriptionArgs']]]] = None,
+                 authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]] = None,
+                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None):
         """
         the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
         :param pulumi.Input[str] allocation_policy: Allocation policy to be used by this provisioning service.
-        :param pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]] authorization_policies: List of authorization keys for a provisioning service.
-        :param pulumi.Input[List[pulumi.Input['IotHubDefinitionDescriptionArgs']]] iot_hubs: List of IoT hubs associated with this provisioning service.
+        :param pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]] authorization_policies: List of authorization keys for a provisioning service.
+        :param pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]] iot_hubs: List of IoT hubs associated with this provisioning service.
         :param pulumi.Input[str] provisioning_state: The ARM provisioning state of the provisioning service.
         :param pulumi.Input[str] state: Current state of the provisioning service.
         """
@@ -56,26 +56,26 @@ class IotDpsPropertiesDescriptionArgs:
 
     @property
     @pulumi.getter(name="authorizationPolicies")
-    def authorization_policies(self) -> Optional[pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]]:
+    def authorization_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]]:
         """
         List of authorization keys for a provisioning service.
         """
         return pulumi.get(self, "authorization_policies")
 
     @authorization_policies.setter
-    def authorization_policies(self, value: Optional[pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]]):
+    def authorization_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]]):
         pulumi.set(self, "authorization_policies", value)
 
     @property
     @pulumi.getter(name="iotHubs")
-    def iot_hubs(self) -> Optional[pulumi.Input[List[pulumi.Input['IotHubDefinitionDescriptionArgs']]]]:
+    def iot_hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]]:
         """
         List of IoT hubs associated with this provisioning service.
         """
         return pulumi.get(self, "iot_hubs")
 
     @iot_hubs.setter
-    def iot_hubs(self, value: Optional[pulumi.Input[List[pulumi.Input['IotHubDefinitionDescriptionArgs']]]]):
+    def iot_hubs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]]):
         pulumi.set(self, "iot_hubs", value)
 
     @property
@@ -106,11 +106,11 @@ class IotDpsPropertiesDescriptionArgs:
 @pulumi.input_type
 class IotDpsSkuInfoArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         List of possible provisioning service SKUs.
-        :param pulumi.Input[float] capacity: The number of units to provision
+        :param pulumi.Input[int] capacity: The number of units to provision
         :param pulumi.Input[str] name: Sku name.
         """
         if capacity is not None:
@@ -120,14 +120,14 @@ class IotDpsSkuInfoArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The number of units to provision
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -148,13 +148,13 @@ class IotHubDefinitionDescriptionArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  location: pulumi.Input[str],
-                 allocation_weight: Optional[pulumi.Input[float]] = None,
+                 allocation_weight: Optional[pulumi.Input[int]] = None,
                  apply_allocation_policy: Optional[pulumi.Input[bool]] = None):
         """
         Description of the IoT hub.
         :param pulumi.Input[str] connection_string: Connection string of the IoT hub.
         :param pulumi.Input[str] location: ARM region of the IoT hub.
-        :param pulumi.Input[float] allocation_weight: Weight to apply for a given IoT hub.
+        :param pulumi.Input[int] allocation_weight: Weight to apply for a given IoT hub.
         :param pulumi.Input[bool] apply_allocation_policy: Flag for applying allocationPolicy or not for a given IoT hub.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -190,14 +190,14 @@ class IotHubDefinitionDescriptionArgs:
 
     @property
     @pulumi.getter(name="allocationWeight")
-    def allocation_weight(self) -> Optional[pulumi.Input[float]]:
+    def allocation_weight(self) -> Optional[pulumi.Input[int]]:
         """
         Weight to apply for a given IoT hub.
         """
         return pulumi.get(self, "allocation_weight")
 
     @allocation_weight.setter
-    def allocation_weight(self, value: Optional[pulumi.Input[float]]):
+    def allocation_weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "allocation_weight", value)
 
     @property

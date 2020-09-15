@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -83,23 +83,23 @@ class ApiPropertiesArgs:
 @pulumi.input_type
 class AutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[float]] = None):
+                 max_throughput: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] max_throughput: Represents maximum throughput, the resource can scale up to.
+        :param pulumi.Input[int] max_throughput: Represents maximum throughput, the resource can scale up to.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[float]]:
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
         """
         Represents maximum throughput, the resource can scale up to.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[float]]):
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
 
 
@@ -177,14 +177,14 @@ class CassandraPartitionKeyArgs:
 @pulumi.input_type
 class CassandraSchemaArgs:
     def __init__(__self__, *,
-                 cluster_keys: Optional[pulumi.Input[List[pulumi.Input['ClusterKeyArgs']]]] = None,
-                 columns: Optional[pulumi.Input[List[pulumi.Input['ColumnArgs']]]] = None,
-                 partition_keys: Optional[pulumi.Input[List[pulumi.Input['CassandraPartitionKeyArgs']]]] = None):
+                 cluster_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterKeyArgs']]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]] = None,
+                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraPartitionKeyArgs']]]] = None):
         """
         Cosmos DB Cassandra table schema
-        :param pulumi.Input[List[pulumi.Input['ClusterKeyArgs']]] cluster_keys: List of cluster key.
-        :param pulumi.Input[List[pulumi.Input['ColumnArgs']]] columns: List of Cassandra table columns.
-        :param pulumi.Input[List[pulumi.Input['CassandraPartitionKeyArgs']]] partition_keys: List of partition key.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterKeyArgs']]] cluster_keys: List of cluster key.
+        :param pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]] columns: List of Cassandra table columns.
+        :param pulumi.Input[Sequence[pulumi.Input['CassandraPartitionKeyArgs']]] partition_keys: List of partition key.
         """
         if cluster_keys is not None:
             pulumi.set(__self__, "cluster_keys", cluster_keys)
@@ -195,38 +195,38 @@ class CassandraSchemaArgs:
 
     @property
     @pulumi.getter(name="clusterKeys")
-    def cluster_keys(self) -> Optional[pulumi.Input[List[pulumi.Input['ClusterKeyArgs']]]]:
+    def cluster_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterKeyArgs']]]]:
         """
         List of cluster key.
         """
         return pulumi.get(self, "cluster_keys")
 
     @cluster_keys.setter
-    def cluster_keys(self, value: Optional[pulumi.Input[List[pulumi.Input['ClusterKeyArgs']]]]):
+    def cluster_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterKeyArgs']]]]):
         pulumi.set(self, "cluster_keys", value)
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[List[pulumi.Input['ColumnArgs']]]]:
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]]:
         """
         List of Cassandra table columns.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[List[pulumi.Input['ColumnArgs']]]]):
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]]):
         pulumi.set(self, "columns", value)
 
     @property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[pulumi.Input[List[pulumi.Input['CassandraPartitionKeyArgs']]]]:
+    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CassandraPartitionKeyArgs']]]]:
         """
         List of partition key.
         """
         return pulumi.get(self, "partition_keys")
 
     @partition_keys.setter
-    def partition_keys(self, value: Optional[pulumi.Input[List[pulumi.Input['CassandraPartitionKeyArgs']]]]):
+    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraPartitionKeyArgs']]]]):
         pulumi.set(self, "partition_keys", value)
 
 
@@ -234,14 +234,14 @@ class CassandraSchemaArgs:
 class CassandraTableResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 analytical_storage_ttl: Optional[pulumi.Input[float]] = None,
-                 default_ttl: Optional[pulumi.Input[float]] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
+                 default_ttl: Optional[pulumi.Input[int]] = None,
                  schema: Optional[pulumi.Input['CassandraSchemaArgs']] = None):
         """
         Cosmos DB Cassandra table resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB Cassandra table
-        :param pulumi.Input[float] analytical_storage_ttl: Analytical TTL.
-        :param pulumi.Input[float] default_ttl: Time to live of the Cosmos DB Cassandra table
+        :param pulumi.Input[int] analytical_storage_ttl: Analytical TTL.
+        :param pulumi.Input[int] default_ttl: Time to live of the Cosmos DB Cassandra table
         :param pulumi.Input['CassandraSchemaArgs'] schema: Schema of the Cosmos DB Cassandra table
         """
         pulumi.set(__self__, "id", id)
@@ -266,26 +266,26 @@ class CassandraTableResourceArgs:
 
     @property
     @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[pulumi.Input[float]]:
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[int]]:
         """
         Analytical TTL.
         """
         return pulumi.get(self, "analytical_storage_ttl")
 
     @analytical_storage_ttl.setter
-    def analytical_storage_ttl(self, value: Optional[pulumi.Input[float]]):
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[pulumi.Input[float]]:
+    def default_ttl(self) -> Optional[pulumi.Input[int]]:
         """
         Time to live of the Cosmos DB Cassandra table
         """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
-    def default_ttl(self, value: Optional[pulumi.Input[float]]):
+    def default_ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "default_ttl", value)
 
     @property
@@ -480,13 +480,13 @@ class ConflictResolutionPolicyArgs:
 class ConsistencyPolicyArgs:
     def __init__(__self__, *,
                  default_consistency_level: pulumi.Input[str],
-                 max_interval_in_seconds: Optional[pulumi.Input[float]] = None,
-                 max_staleness_prefix: Optional[pulumi.Input[float]] = None):
+                 max_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 max_staleness_prefix: Optional[pulumi.Input[int]] = None):
         """
         The consistency policy for the Cosmos DB database account.
         :param pulumi.Input[str] default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
-        :param pulumi.Input[float] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        :param pulumi.Input[float] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        :param pulumi.Input[int] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
         pulumi.set(__self__, "default_consistency_level", default_consistency_level)
         if max_interval_in_seconds is not None:
@@ -508,26 +508,26 @@ class ConsistencyPolicyArgs:
 
     @property
     @pulumi.getter(name="maxIntervalInSeconds")
-    def max_interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def max_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
         return pulumi.get(self, "max_interval_in_seconds")
 
     @max_interval_in_seconds.setter
-    def max_interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def max_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_interval_in_seconds", value)
 
     @property
     @pulumi.getter(name="maxStalenessPrefix")
-    def max_staleness_prefix(self) -> Optional[pulumi.Input[float]]:
+    def max_staleness_prefix(self) -> Optional[pulumi.Input[int]]:
         """
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
         return pulumi.get(self, "max_staleness_prefix")
 
     @max_staleness_prefix.setter
-    def max_staleness_prefix(self, value: Optional[pulumi.Input[float]]):
+    def max_staleness_prefix(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_staleness_prefix", value)
 
 
@@ -535,13 +535,13 @@ class ConsistencyPolicyArgs:
 class ContainerPartitionKeyArgs:
     def __init__(__self__, *,
                  kind: Optional[pulumi.Input[str]] = None,
-                 paths: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 version: Optional[pulumi.Input[float]] = None):
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[int]] = None):
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
         :param pulumi.Input[str] kind: Indicates the kind of algorithm used for partitioning
-        :param pulumi.Input[List[pulumi.Input[str]]] paths: List of paths using which data within the container can be partitioned
-        :param pulumi.Input[float] version: Indicates the version of the partition key definition
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths using which data within the container can be partitioned
+        :param pulumi.Input[int] version: Indicates the version of the partition key definition
         """
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -564,26 +564,26 @@ class ContainerPartitionKeyArgs:
 
     @property
     @pulumi.getter
-    def paths(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of paths using which data within the container can be partitioned
         """
         return pulumi.get(self, "paths")
 
     @paths.setter
-    def paths(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "paths", value)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[float]]:
+    def version(self) -> Optional[pulumi.Input[int]]:
         """
         Indicates the version of the partition key definition
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[float]]):
+    def version(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "version", value)
 
 
@@ -617,14 +617,14 @@ class CorsPolicyArgs:
                  allowed_headers: Optional[pulumi.Input[str]] = None,
                  allowed_methods: Optional[pulumi.Input[str]] = None,
                  exposed_headers: Optional[pulumi.Input[str]] = None,
-                 max_age_in_seconds: Optional[pulumi.Input[float]] = None):
+                 max_age_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[str] allowed_origins: The origin domains that are permitted to make a request against the service via CORS.
         :param pulumi.Input[str] allowed_headers: The request headers that the origin domain may specify on the CORS request.
         :param pulumi.Input[str] allowed_methods: The methods (HTTP request verbs) that the origin domain may use for a CORS request.
         :param pulumi.Input[str] exposed_headers: The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
-        :param pulumi.Input[float] max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
+        :param pulumi.Input[int] max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allowed_headers is not None:
@@ -686,14 +686,14 @@ class CorsPolicyArgs:
 
     @property
     @pulumi.getter(name="maxAgeInSeconds")
-    def max_age_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def max_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
         return pulumi.get(self, "max_age_in_seconds")
 
     @max_age_in_seconds.setter
-    def max_age_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def max_age_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_age_in_seconds", value)
 
 
@@ -701,11 +701,11 @@ class CorsPolicyArgs:
 class CreateUpdateOptionsArgs:
     def __init__(__self__, *,
                  autoscale_settings: Optional[pulumi.Input['AutoscaleSettingsArgs']] = None,
-                 throughput: Optional[pulumi.Input[float]] = None):
+                 throughput: Optional[pulumi.Input[int]] = None):
         """
         CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are "If-Match", "If-None-Match", "Session-Token" and "Throughput"
         :param pulumi.Input['AutoscaleSettingsArgs'] autoscale_settings: Specifies the Autoscale settings.
-        :param pulumi.Input[float] throughput: Request Units per second. For example, "throughput": 10000.
+        :param pulumi.Input[int] throughput: Request Units per second. For example, "throughput": 10000.
         """
         if autoscale_settings is not None:
             pulumi.set(__self__, "autoscale_settings", autoscale_settings)
@@ -726,25 +726,25 @@ class CreateUpdateOptionsArgs:
 
     @property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[float]]:
+    def throughput(self) -> Optional[pulumi.Input[int]]:
         """
         Request Units per second. For example, "throughput": 10000.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[float]]):
+    def throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "throughput", value)
 
 
 @pulumi.input_type
 class DatabaseRestoreResourceArgs:
     def __init__(__self__, *,
-                 collection_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 collection_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None):
         """
         Specific Databases to restore.
-        :param pulumi.Input[List[pulumi.Input[str]]] collection_names: The names of the collections to restore.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] collection_names: The names of the collections to restore.
         :param pulumi.Input[str] database_name: The name of the database to restore.
         """
         if collection_names is not None:
@@ -754,14 +754,14 @@ class DatabaseRestoreResourceArgs:
 
     @property
     @pulumi.getter(name="collectionNames")
-    def collection_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def collection_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The names of the collections to restore.
         """
         return pulumi.get(self, "collection_names")
 
     @collection_names.setter
-    def collection_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def collection_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "collection_names", value)
 
     @property
@@ -782,46 +782,46 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
     def __init__(__self__, *,
                  create_mode: pulumi.Input[str],
                  database_account_offer_type: pulumi.Input[str],
-                 locations: pulumi.Input[List[pulumi.Input['LocationArgs']]],
+                 locations: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]],
                  api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
                  backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
-                 capabilities: Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
                  connector_offer: Optional[pulumi.Input[str]] = None,
                  consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
-                 cors: Optional[pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]]] = None,
+                 cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         Properties for non-restore Azure Cosmos DB database account requests.
         :param pulumi.Input[str] create_mode: Enum to indicate the mode of account creation.
         :param pulumi.Input[str] database_account_offer_type: The offer type for the database
-        :param pulumi.Input[List[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
         :param pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']] backup_policy: The object representing the policy for taking backups on an account.
-        :param pulumi.Input[List[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
         :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
         :param pulumi.Input['ConsistencyPolicyArgs'] consistency_policy: The consistency policy for the Cosmos DB account.
-        :param pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]] cors: The CORS policy for the Cosmos DB database account.
+        :param pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]] cors: The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
         :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
-        :param pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
+        :param pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
         :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
         :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
-        :param pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
         pulumi.set(__self__, "create_mode", 'Default')
         pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
@@ -887,14 +887,14 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter
-    def locations(self) -> pulumi.Input[List[pulumi.Input['LocationArgs']]]:
+    def locations(self) -> pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]:
         """
         An array that contains the georeplication locations enabled for the Cosmos DB account.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: pulumi.Input[List[pulumi.Input['LocationArgs']]]):
+    def locations(self, value: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]):
         pulumi.set(self, "locations", value)
 
     @property
@@ -923,14 +923,14 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]]:
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]:
         """
         List of Cosmos DB capabilities for the account
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]]):
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]):
         pulumi.set(self, "capabilities", value)
 
     @property
@@ -959,14 +959,14 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]]]:
+    def cors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]]:
         """
         The CORS policy for the Cosmos DB database account.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]]]):
+    def cors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -1043,14 +1043,14 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]]:
         """
         List of IpRules.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @property
@@ -1091,14 +1091,14 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
         """
         List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -1153,7 +1153,7 @@ class GremlinGraphResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  conflict_resolution_policy: Optional[pulumi.Input['ConflictResolutionPolicyArgs']] = None,
-                 default_ttl: Optional[pulumi.Input[float]] = None,
+                 default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['IndexingPolicyArgs']] = None,
                  partition_key: Optional[pulumi.Input['ContainerPartitionKeyArgs']] = None,
                  unique_key_policy: Optional[pulumi.Input['UniqueKeyPolicyArgs']] = None):
@@ -1161,7 +1161,7 @@ class GremlinGraphResourceArgs:
         Cosmos DB Gremlin graph resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB Gremlin graph
         :param pulumi.Input['ConflictResolutionPolicyArgs'] conflict_resolution_policy: The conflict resolution policy for the graph.
-        :param pulumi.Input[float] default_ttl: Default time to live
+        :param pulumi.Input[int] default_ttl: Default time to live
         :param pulumi.Input['IndexingPolicyArgs'] indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
         :param pulumi.Input['ContainerPartitionKeyArgs'] partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
         :param pulumi.Input['UniqueKeyPolicyArgs'] unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -1204,14 +1204,14 @@ class GremlinGraphResourceArgs:
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[pulumi.Input[float]]:
+    def default_ttl(self) -> Optional[pulumi.Input[int]]:
         """
         Default time to live
         """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
-    def default_ttl(self, value: Optional[pulumi.Input[float]]):
+    def default_ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "default_ttl", value)
 
     @property
@@ -1254,11 +1254,11 @@ class GremlinGraphResourceArgs:
 @pulumi.input_type
 class IncludedPathArgs:
     def __init__(__self__, *,
-                 indexes: Optional[pulumi.Input[List[pulumi.Input['IndexesArgs']]]] = None,
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input['IndexesArgs']]]] = None,
                  path: Optional[pulumi.Input[str]] = None):
         """
         The paths that are included in indexing
-        :param pulumi.Input[List[pulumi.Input['IndexesArgs']]] indexes: List of indexes for this path
+        :param pulumi.Input[Sequence[pulumi.Input['IndexesArgs']]] indexes: List of indexes for this path
         :param pulumi.Input[str] path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
         if indexes is not None:
@@ -1268,14 +1268,14 @@ class IncludedPathArgs:
 
     @property
     @pulumi.getter
-    def indexes(self) -> Optional[pulumi.Input[List[pulumi.Input['IndexesArgs']]]]:
+    def indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexesArgs']]]]:
         """
         List of indexes for this path
         """
         return pulumi.get(self, "indexes")
 
     @indexes.setter
-    def indexes(self, value: Optional[pulumi.Input[List[pulumi.Input['IndexesArgs']]]]):
+    def indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexesArgs']]]]):
         pulumi.set(self, "indexes", value)
 
     @property
@@ -1296,12 +1296,12 @@ class IndexesArgs:
     def __init__(__self__, *,
                  data_type: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 precision: Optional[pulumi.Input[float]] = None):
+                 precision: Optional[pulumi.Input[int]] = None):
         """
         The indexes for the path.
         :param pulumi.Input[str] data_type: The datatype for which the indexing behavior is applied to.
         :param pulumi.Input[str] kind: Indicates the type of index.
-        :param pulumi.Input[float] precision: The precision of the index. -1 is maximum precision.
+        :param pulumi.Input[int] precision: The precision of the index. -1 is maximum precision.
         """
         if data_type is not None:
             pulumi.set(__self__, "data_type", data_type)
@@ -1336,14 +1336,14 @@ class IndexesArgs:
 
     @property
     @pulumi.getter
-    def precision(self) -> Optional[pulumi.Input[float]]:
+    def precision(self) -> Optional[pulumi.Input[int]]:
         """
         The precision of the index. -1 is maximum precision.
         """
         return pulumi.get(self, "precision")
 
     @precision.setter
-    def precision(self, value: Optional[pulumi.Input[float]]):
+    def precision(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "precision", value)
 
 
@@ -1351,19 +1351,19 @@ class IndexesArgs:
 class IndexingPolicyArgs:
     def __init__(__self__, *,
                  automatic: Optional[pulumi.Input[bool]] = None,
-                 composite_indexes: Optional[pulumi.Input[List[pulumi.Input[List[pulumi.Input['CompositePathArgs']]]]]] = None,
-                 excluded_paths: Optional[pulumi.Input[List[pulumi.Input['ExcludedPathArgs']]]] = None,
-                 included_paths: Optional[pulumi.Input[List[pulumi.Input['IncludedPathArgs']]]] = None,
+                 composite_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]]] = None,
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]] = None,
+                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]]] = None,
                  indexing_mode: Optional[pulumi.Input[str]] = None,
-                 spatial_indexes: Optional[pulumi.Input[List[pulumi.Input['SpatialSpecArgs']]]] = None):
+                 spatial_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]] = None):
         """
         Cosmos DB indexing policy
         :param pulumi.Input[bool] automatic: Indicates if the indexing policy is automatic
-        :param pulumi.Input[List[pulumi.Input[List[pulumi.Input['CompositePathArgs']]]]] composite_indexes: List of composite path list
-        :param pulumi.Input[List[pulumi.Input['ExcludedPathArgs']]] excluded_paths: List of paths to exclude from indexing
-        :param pulumi.Input[List[pulumi.Input['IncludedPathArgs']]] included_paths: List of paths to include in the indexing
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]] composite_indexes: List of composite path list
+        :param pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]] excluded_paths: List of paths to exclude from indexing
+        :param pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]] included_paths: List of paths to include in the indexing
         :param pulumi.Input[str] indexing_mode: Indicates the indexing mode.
-        :param pulumi.Input[List[pulumi.Input['SpatialSpecArgs']]] spatial_indexes: List of spatial specifics
+        :param pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]] spatial_indexes: List of spatial specifics
         """
         if automatic is not None:
             pulumi.set(__self__, "automatic", automatic)
@@ -1392,38 +1392,38 @@ class IndexingPolicyArgs:
 
     @property
     @pulumi.getter(name="compositeIndexes")
-    def composite_indexes(self) -> Optional[pulumi.Input[List[pulumi.Input[List[pulumi.Input['CompositePathArgs']]]]]]:
+    def composite_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]]]:
         """
         List of composite path list
         """
         return pulumi.get(self, "composite_indexes")
 
     @composite_indexes.setter
-    def composite_indexes(self, value: Optional[pulumi.Input[List[pulumi.Input[List[pulumi.Input['CompositePathArgs']]]]]]):
+    def composite_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]]]):
         pulumi.set(self, "composite_indexes", value)
 
     @property
     @pulumi.getter(name="excludedPaths")
-    def excluded_paths(self) -> Optional[pulumi.Input[List[pulumi.Input['ExcludedPathArgs']]]]:
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]]:
         """
         List of paths to exclude from indexing
         """
         return pulumi.get(self, "excluded_paths")
 
     @excluded_paths.setter
-    def excluded_paths(self, value: Optional[pulumi.Input[List[pulumi.Input['ExcludedPathArgs']]]]):
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]]):
         pulumi.set(self, "excluded_paths", value)
 
     @property
     @pulumi.getter(name="includedPaths")
-    def included_paths(self) -> Optional[pulumi.Input[List[pulumi.Input['IncludedPathArgs']]]]:
+    def included_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]]]:
         """
         List of paths to include in the indexing
         """
         return pulumi.get(self, "included_paths")
 
     @included_paths.setter
-    def included_paths(self, value: Optional[pulumi.Input[List[pulumi.Input['IncludedPathArgs']]]]):
+    def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]]]):
         pulumi.set(self, "included_paths", value)
 
     @property
@@ -1440,14 +1440,14 @@ class IndexingPolicyArgs:
 
     @property
     @pulumi.getter(name="spatialIndexes")
-    def spatial_indexes(self) -> Optional[pulumi.Input[List[pulumi.Input['SpatialSpecArgs']]]]:
+    def spatial_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]]:
         """
         List of spatial specifics
         """
         return pulumi.get(self, "spatial_indexes")
 
     @spatial_indexes.setter
-    def spatial_indexes(self, value: Optional[pulumi.Input[List[pulumi.Input['SpatialSpecArgs']]]]):
+    def spatial_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]]):
         pulumi.set(self, "spatial_indexes", value)
 
 
@@ -1478,13 +1478,13 @@ class IpAddressOrRangeArgs:
 @pulumi.input_type
 class LocationArgs:
     def __init__(__self__, *,
-                 failover_priority: Optional[pulumi.Input[float]] = None,
+                 failover_priority: Optional[pulumi.Input[int]] = None,
                  is_zone_redundant: Optional[pulumi.Input[bool]] = None,
                  location_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None):
         """
         A region in which the Azure Cosmos DB database account is deployed.
-        :param pulumi.Input[float] failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        :param pulumi.Input[int] failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         :param pulumi.Input[bool] is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
         :param pulumi.Input[str] location_name: The name of the region.
         :param pulumi.Input[str] provisioning_state: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
@@ -1500,14 +1500,14 @@ class LocationArgs:
 
     @property
     @pulumi.getter(name="failoverPriority")
-    def failover_priority(self) -> Optional[pulumi.Input[float]]:
+    def failover_priority(self) -> Optional[pulumi.Input[int]]:
         """
         The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         """
         return pulumi.get(self, "failover_priority")
 
     @failover_priority.setter
-    def failover_priority(self, value: Optional[pulumi.Input[float]]):
+    def failover_priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "failover_priority", value)
 
     @property
@@ -1575,14 +1575,14 @@ class ManagedServiceIdentityArgs:
 class MongoDBCollectionResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 analytical_storage_ttl: Optional[pulumi.Input[float]] = None,
-                 indexes: Optional[pulumi.Input[List[pulumi.Input['MongoIndexArgs']]]] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input['MongoIndexArgs']]]] = None,
                  shard_key: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Cosmos DB MongoDB collection resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB MongoDB collection
-        :param pulumi.Input[float] analytical_storage_ttl: Analytical TTL.
-        :param pulumi.Input[List[pulumi.Input['MongoIndexArgs']]] indexes: List of index keys
+        :param pulumi.Input[int] analytical_storage_ttl: Analytical TTL.
+        :param pulumi.Input[Sequence[pulumi.Input['MongoIndexArgs']]] indexes: List of index keys
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] shard_key: A key-value pair of shard keys to be applied for the request.
         """
         pulumi.set(__self__, "id", id)
@@ -1607,26 +1607,26 @@ class MongoDBCollectionResourceArgs:
 
     @property
     @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[pulumi.Input[float]]:
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[int]]:
         """
         Analytical TTL.
         """
         return pulumi.get(self, "analytical_storage_ttl")
 
     @analytical_storage_ttl.setter
-    def analytical_storage_ttl(self, value: Optional[pulumi.Input[float]]):
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
     @pulumi.getter
-    def indexes(self) -> Optional[pulumi.Input[List[pulumi.Input['MongoIndexArgs']]]]:
+    def indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoIndexArgs']]]]:
         """
         List of index keys
         """
         return pulumi.get(self, "indexes")
 
     @indexes.setter
-    def indexes(self, value: Optional[pulumi.Input[List[pulumi.Input['MongoIndexArgs']]]]):
+    def indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoIndexArgs']]]]):
         pulumi.set(self, "indexes", value)
 
     @property
@@ -1708,35 +1708,35 @@ class MongoIndexArgs:
 @pulumi.input_type
 class MongoIndexKeysArgs:
     def __init__(__self__, *,
-                 keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Cosmos DB MongoDB collection resource object
-        :param pulumi.Input[List[pulumi.Input[str]]] keys: List of keys for each MongoDB collection in the Azure Cosmos DB service
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: List of keys for each MongoDB collection in the Azure Cosmos DB service
         """
         if keys is not None:
             pulumi.set(__self__, "keys", keys)
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of keys for each MongoDB collection in the Azure Cosmos DB service
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "keys", value)
 
 
 @pulumi.input_type
 class MongoIndexOptionsArgs:
     def __init__(__self__, *,
-                 expire_after_seconds: Optional[pulumi.Input[float]] = None,
+                 expire_after_seconds: Optional[pulumi.Input[int]] = None,
                  unique: Optional[pulumi.Input[bool]] = None):
         """
         Cosmos DB MongoDB collection index options
-        :param pulumi.Input[float] expire_after_seconds: Expire after seconds
+        :param pulumi.Input[int] expire_after_seconds: Expire after seconds
         :param pulumi.Input[bool] unique: Is unique or not
         """
         if expire_after_seconds is not None:
@@ -1746,14 +1746,14 @@ class MongoIndexOptionsArgs:
 
     @property
     @pulumi.getter(name="expireAfterSeconds")
-    def expire_after_seconds(self) -> Optional[pulumi.Input[float]]:
+    def expire_after_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Expire after seconds
         """
         return pulumi.get(self, "expire_after_seconds")
 
     @expire_after_seconds.setter
-    def expire_after_seconds(self, value: Optional[pulumi.Input[float]]):
+    def expire_after_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expire_after_seconds", value)
 
     @property
@@ -1811,12 +1811,12 @@ class PeriodicModeBackupPolicyArgs:
 @pulumi.input_type
 class PeriodicModePropertiesArgs:
     def __init__(__self__, *,
-                 backup_interval_in_minutes: Optional[pulumi.Input[float]] = None,
-                 backup_retention_interval_in_hours: Optional[pulumi.Input[float]] = None):
+                 backup_interval_in_minutes: Optional[pulumi.Input[int]] = None,
+                 backup_retention_interval_in_hours: Optional[pulumi.Input[int]] = None):
         """
         Configuration values for periodic mode backup
-        :param pulumi.Input[float] backup_interval_in_minutes: An integer representing the interval in minutes between two backups
-        :param pulumi.Input[float] backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        :param pulumi.Input[int] backup_interval_in_minutes: An integer representing the interval in minutes between two backups
+        :param pulumi.Input[int] backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
         """
         if backup_interval_in_minutes is not None:
             pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
@@ -1825,39 +1825,39 @@ class PeriodicModePropertiesArgs:
 
     @property
     @pulumi.getter(name="backupIntervalInMinutes")
-    def backup_interval_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def backup_interval_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         An integer representing the interval in minutes between two backups
         """
         return pulumi.get(self, "backup_interval_in_minutes")
 
     @backup_interval_in_minutes.setter
-    def backup_interval_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def backup_interval_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_interval_in_minutes", value)
 
     @property
     @pulumi.getter(name="backupRetentionIntervalInHours")
-    def backup_retention_interval_in_hours(self) -> Optional[pulumi.Input[float]]:
+    def backup_retention_interval_in_hours(self) -> Optional[pulumi.Input[int]]:
         """
         An integer representing the time (in hours) that each backup is retained
         """
         return pulumi.get(self, "backup_retention_interval_in_hours")
 
     @backup_retention_interval_in_hours.setter
-    def backup_retention_interval_in_hours(self, value: Optional[pulumi.Input[float]]):
+    def backup_retention_interval_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_interval_in_hours", value)
 
 
 @pulumi.input_type
 class RestoreParametersArgs:
     def __init__(__self__, *,
-                 databases_to_restore: Optional[pulumi.Input[List[pulumi.Input['DatabaseRestoreResourceArgs']]]] = None,
+                 databases_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]] = None,
                  restore_mode: Optional[pulumi.Input[str]] = None,
                  restore_source: Optional[pulumi.Input[str]] = None,
                  restore_timestamp_in_utc: Optional[pulumi.Input[str]] = None):
         """
         Parameters to indicate the information about the restore.
-        :param pulumi.Input[List[pulumi.Input['DatabaseRestoreResourceArgs']]] databases_to_restore: List of specific databases to restore.
+        :param pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]] databases_to_restore: List of specific databases to restore.
         :param pulumi.Input[str] restore_mode: Describes the mode of the restore.
         :param pulumi.Input[str] restore_source: Path of the source account from which the restore has to be initiated
         :param pulumi.Input[str] restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
@@ -1873,14 +1873,14 @@ class RestoreParametersArgs:
 
     @property
     @pulumi.getter(name="databasesToRestore")
-    def databases_to_restore(self) -> Optional[pulumi.Input[List[pulumi.Input['DatabaseRestoreResourceArgs']]]]:
+    def databases_to_restore(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]]:
         """
         List of specific databases to restore.
         """
         return pulumi.get(self, "databases_to_restore")
 
     @databases_to_restore.setter
-    def databases_to_restore(self, value: Optional[pulumi.Input[List[pulumi.Input['DatabaseRestoreResourceArgs']]]]):
+    def databases_to_restore(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]]):
         pulumi.set(self, "databases_to_restore", value)
 
     @property
@@ -1925,48 +1925,48 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
     def __init__(__self__, *,
                  create_mode: pulumi.Input[str],
                  database_account_offer_type: pulumi.Input[str],
-                 locations: pulumi.Input[List[pulumi.Input['LocationArgs']]],
+                 locations: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]],
                  api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
                  backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
-                 capabilities: Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
                  connector_offer: Optional[pulumi.Input[str]] = None,
                  consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
-                 cors: Optional[pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]]] = None,
+                 cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  restore_parameters: Optional[pulumi.Input['RestoreParametersArgs']] = None,
-                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         Properties to restore Azure Cosmos DB database account.
         :param pulumi.Input[str] create_mode: Enum to indicate the mode of account creation.
         :param pulumi.Input[str] database_account_offer_type: The offer type for the database
-        :param pulumi.Input[List[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
         :param pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']] backup_policy: The object representing the policy for taking backups on an account.
-        :param pulumi.Input[List[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
         :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
         :param pulumi.Input['ConsistencyPolicyArgs'] consistency_policy: The consistency policy for the Cosmos DB account.
-        :param pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]] cors: The CORS policy for the Cosmos DB database account.
+        :param pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]] cors: The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
         :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
-        :param pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
+        :param pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
         :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
         :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input['RestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore.
-        :param pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
         pulumi.set(__self__, "create_mode", 'Restore')
         pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
@@ -2034,14 +2034,14 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter
-    def locations(self) -> pulumi.Input[List[pulumi.Input['LocationArgs']]]:
+    def locations(self) -> pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]:
         """
         An array that contains the georeplication locations enabled for the Cosmos DB account.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: pulumi.Input[List[pulumi.Input['LocationArgs']]]):
+    def locations(self, value: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]):
         pulumi.set(self, "locations", value)
 
     @property
@@ -2070,14 +2070,14 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]]:
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]:
         """
         List of Cosmos DB capabilities for the account
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]]):
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]):
         pulumi.set(self, "capabilities", value)
 
     @property
@@ -2106,14 +2106,14 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]]]:
+    def cors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]]:
         """
         The CORS policy for the Cosmos DB database account.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]]]):
+    def cors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -2190,14 +2190,14 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]]:
         """
         List of IpRules.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @property
@@ -2250,14 +2250,14 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
         """
         List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -2265,10 +2265,10 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
 class SpatialSpecArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
-                 types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-        :param pulumi.Input[List[pulumi.Input[str]]] types: List of path's spatial type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] types: List of path's spatial type
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -2289,14 +2289,14 @@ class SpatialSpecArgs:
 
     @property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of path's spatial type
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "types", value)
 
 
@@ -2305,7 +2305,7 @@ class SqlContainerResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  conflict_resolution_policy: Optional[pulumi.Input['ConflictResolutionPolicyArgs']] = None,
-                 default_ttl: Optional[pulumi.Input[float]] = None,
+                 default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['IndexingPolicyArgs']] = None,
                  partition_key: Optional[pulumi.Input['ContainerPartitionKeyArgs']] = None,
                  unique_key_policy: Optional[pulumi.Input['UniqueKeyPolicyArgs']] = None):
@@ -2313,7 +2313,7 @@ class SqlContainerResourceArgs:
         Cosmos DB SQL container resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB SQL container
         :param pulumi.Input['ConflictResolutionPolicyArgs'] conflict_resolution_policy: The conflict resolution policy for the container.
-        :param pulumi.Input[float] default_ttl: Default time to live
+        :param pulumi.Input[int] default_ttl: Default time to live
         :param pulumi.Input['IndexingPolicyArgs'] indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         :param pulumi.Input['ContainerPartitionKeyArgs'] partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
         :param pulumi.Input['UniqueKeyPolicyArgs'] unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -2356,14 +2356,14 @@ class SqlContainerResourceArgs:
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[pulumi.Input[float]]:
+    def default_ttl(self) -> Optional[pulumi.Input[int]]:
         """
         Default time to live
         """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
-    def default_ttl(self, value: Optional[pulumi.Input[float]]):
+    def default_ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "default_ttl", value)
 
     @property
@@ -2601,48 +2601,48 @@ class TableResourceArgs:
 @pulumi.input_type
 class UniqueKeyArgs:
     def __init__(__self__, *,
-                 paths: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
-        :param pulumi.Input[List[pulumi.Input[str]]] paths: List of paths must be unique for each document in the Azure Cosmos DB service
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths must be unique for each document in the Azure Cosmos DB service
         """
         if paths is not None:
             pulumi.set(__self__, "paths", paths)
 
     @property
     @pulumi.getter
-    def paths(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of paths must be unique for each document in the Azure Cosmos DB service
         """
         return pulumi.get(self, "paths")
 
     @paths.setter
-    def paths(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "paths", value)
 
 
 @pulumi.input_type
 class UniqueKeyPolicyArgs:
     def __init__(__self__, *,
-                 unique_keys: Optional[pulumi.Input[List[pulumi.Input['UniqueKeyArgs']]]] = None):
+                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgs']]]] = None):
         """
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-        :param pulumi.Input[List[pulumi.Input['UniqueKeyArgs']]] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        :param pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgs']]] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
         """
         if unique_keys is not None:
             pulumi.set(__self__, "unique_keys", unique_keys)
 
     @property
     @pulumi.getter(name="uniqueKeys")
-    def unique_keys(self) -> Optional[pulumi.Input[List[pulumi.Input['UniqueKeyArgs']]]]:
+    def unique_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgs']]]]:
         """
         List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
         """
         return pulumi.get(self, "unique_keys")
 
     @unique_keys.setter
-    def unique_keys(self, value: Optional[pulumi.Input[List[pulumi.Input['UniqueKeyArgs']]]]):
+    def unique_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgs']]]]):
         pulumi.set(self, "unique_keys", value)
 
 

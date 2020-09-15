@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -25,7 +25,7 @@ class Subscription(pulumi.CustomResource):
                  forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
                  forward_to: Optional[pulumi.Input[str]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[float]] = None,
+                 max_delivery_count: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -49,7 +49,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] forward_dead_lettered_messages_to: Queue/Topic name to forward the Dead Letter message
         :param pulumi.Input[str] forward_to: Queue/Topic name to forward the messages
         :param pulumi.Input[str] lock_duration: ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
-        :param pulumi.Input[float] max_delivery_count: Number of maximum deliveries.
+        :param pulumi.Input[int] max_delivery_count: Number of maximum deliveries.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[bool] requires_session: Value indicating if a subscription supports the concept of sessions.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -229,7 +229,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> pulumi.Output[Optional[float]]:
+    def max_delivery_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of maximum deliveries.
         """
@@ -237,7 +237,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> pulumi.Output[float]:
+    def message_count(self) -> pulumi.Output[int]:
         """
         Number of messages.
         """

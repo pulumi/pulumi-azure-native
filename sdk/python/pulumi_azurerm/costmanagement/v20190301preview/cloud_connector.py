@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -147,7 +147,7 @@ class CloudConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="daysTrialRemaining")
-    def days_trial_remaining(self) -> pulumi.Output[float]:
+    def days_trial_remaining(self) -> pulumi.Output[int]:
         """
         Number of days remaining of trial
         """

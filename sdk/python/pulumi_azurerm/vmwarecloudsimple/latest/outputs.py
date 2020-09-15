@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -26,14 +26,14 @@ class GuestOSCustomizationResponse(dict):
     Guest OS Customization properties
     """
     def __init__(__self__, *,
-                 dns_servers: Optional[List[str]] = None,
+                 dns_servers: Optional[Sequence[str]] = None,
                  host_name: Optional[str] = None,
                  password: Optional[str] = None,
                  policy_id: Optional[str] = None,
                  username: Optional[str] = None):
         """
         Guest OS Customization properties
-        :param List[str] dns_servers: List of dns servers to use
+        :param Sequence[str] dns_servers: List of dns servers to use
         :param str host_name: Virtual Machine hostname
         :param str password: Password for login
         :param str policy_id: id of customization policy
@@ -52,7 +52,7 @@ class GuestOSCustomizationResponse(dict):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> Optional[Sequence[str]]:
         """
         List of dns servers to use
         """
@@ -101,8 +101,8 @@ class GuestOSNICCustomizationResponse(dict):
     """
     def __init__(__self__, *,
                  allocation: Optional[str] = None,
-                 dns_servers: Optional[List[str]] = None,
-                 gateway: Optional[List[str]] = None,
+                 dns_servers: Optional[Sequence[str]] = None,
+                 gateway: Optional[Sequence[str]] = None,
                  ip_address: Optional[str] = None,
                  mask: Optional[str] = None,
                  primary_wins_server: Optional[str] = None,
@@ -110,8 +110,8 @@ class GuestOSNICCustomizationResponse(dict):
         """
         Guest OS nic customization
         :param str allocation: IP address allocation method
-        :param List[str] dns_servers: List of dns servers to use
-        :param List[str] gateway: Gateway addresses assigned to nic
+        :param Sequence[str] dns_servers: List of dns servers to use
+        :param Sequence[str] gateway: Gateway addresses assigned to nic
         :param str ip_address: Static ip address for nic
         :param str mask: Network mask for nic
         :param str primary_wins_server: primary WINS server for Windows
@@ -142,7 +142,7 @@ class GuestOSNICCustomizationResponse(dict):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> Optional[Sequence[str]]:
         """
         List of dns servers to use
         """
@@ -150,7 +150,7 @@ class GuestOSNICCustomizationResponse(dict):
 
     @property
     @pulumi.getter
-    def gateway(self) -> Optional[List[str]]:
+    def gateway(self) -> Optional[Sequence[str]]:
         """
         Gateway addresses assigned to nic
         """
@@ -411,14 +411,14 @@ class VirtualDiskResponse(dict):
     def __init__(__self__, *,
                  controller_id: str,
                  independence_mode: str,
-                 total_size: float,
+                 total_size: int,
                  virtual_disk_name: str,
                  virtual_disk_id: Optional[str] = None):
         """
         Virtual disk model
         :param str controller_id: Disk's Controller id
         :param str independence_mode: Disk's independence mode type
-        :param float total_size: Disk's total size
+        :param int total_size: Disk's total size
         :param str virtual_disk_name: Disk's display name
         :param str virtual_disk_id: Disk's id
         """
@@ -447,7 +447,7 @@ class VirtualDiskResponse(dict):
 
     @property
     @pulumi.getter(name="totalSize")
-    def total_size(self) -> float:
+    def total_size(self) -> int:
         """
         Disk's total size
         """
@@ -563,7 +563,7 @@ class VirtualNicResponse(dict):
                  nic_type: str,
                  virtual_nic_name: str,
                  customization: Optional['outputs.GuestOSNICCustomizationResponse'] = None,
-                 ip_addresses: Optional[List[str]] = None,
+                 ip_addresses: Optional[Sequence[str]] = None,
                  mac_address: Optional[str] = None,
                  power_on_boot: Optional[bool] = None,
                  virtual_nic_id: Optional[str] = None):
@@ -573,7 +573,7 @@ class VirtualNicResponse(dict):
         :param str nic_type: NIC type
         :param str virtual_nic_name: NIC name
         :param 'GuestOSNICCustomizationResponseArgs' customization: guest OS customization for nic
-        :param List[str] ip_addresses: NIC ip address
+        :param Sequence[str] ip_addresses: NIC ip address
         :param str mac_address: NIC MAC address
         :param bool power_on_boot: Is NIC powered on/off on boot
         :param str virtual_nic_id: NIC id
@@ -626,7 +626,7 @@ class VirtualNicResponse(dict):
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[List[str]]:
+    def ip_addresses(self) -> Optional[Sequence[str]]:
         """
         NIC ip address
         """

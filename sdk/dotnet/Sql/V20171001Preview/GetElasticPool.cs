@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// <summary>
         /// The per database settings for the elastic pool.
         /// </summary>
-        public readonly Outputs.ElasticPoolPerDatabaseSettingsResponseResult? PerDatabaseSettings;
+        public readonly Outputs.ElasticPoolPerDatabaseSettingsResponse? PerDatabaseSettings;
         /// <summary>
         /// The elastic pool SKU.
         /// 
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// az sql elastic-pool list-editions -l &lt;location&gt; -o table
         /// ````
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// The state of the elastic pool.
         /// </summary>
@@ -114,9 +114,9 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
 
             string name,
 
-            Outputs.ElasticPoolPerDatabaseSettingsResponseResult? perDatabaseSettings,
+            Outputs.ElasticPoolPerDatabaseSettingsResponse? perDatabaseSettings,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string state,
 

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// The collection of groups and policies concerned with connectivity
         /// </summary>
         [Output("connectivity")]
-        public Output<Outputs.ConnectivityCollectionResponseResult> Connectivity { get; private set; } = null!;
+        public Output<Outputs.ConnectivityCollectionResponse> Connectivity { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
         /// </summary>
         [Output("scope")]
-        public Output<Outputs.ScopeResponseResult?> Scope { get; private set; } = null!;
+        public Output<Outputs.ScopeResponse?> Scope { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

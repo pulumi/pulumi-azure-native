@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -18,12 +18,12 @@ __all__ = [
 @pulumi.input_type
 class ActionArgs:
     def __init__(__self__, *,
-                 compatibility_level: Optional[pulumi.Input[float]] = None,
+                 compatibility_level: Optional[pulumi.Input[int]] = None,
                  requires_preprocessing: Optional[pulumi.Input[bool]] = None,
                  sql_expression: Optional[pulumi.Input[str]] = None):
         """
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
-        :param pulumi.Input[float] compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+        :param pulumi.Input[int] compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         :param pulumi.Input[bool] requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param pulumi.Input[str] sql_expression: SQL expression. e.g. MyProperty='ABC'
         """
@@ -36,14 +36,14 @@ class ActionArgs:
 
     @property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[pulumi.Input[float]]:
+    def compatibility_level(self) -> Optional[pulumi.Input[int]]:
         """
         This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         """
         return pulumi.get(self, "compatibility_level")
 
     @compatibility_level.setter
-    def compatibility_level(self, value: Optional[pulumi.Input[float]]):
+    def compatibility_level(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "compatibility_level", value)
 
     @property
@@ -243,12 +243,12 @@ class CorrelationFilterArgs:
 class SBSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         SKU of the namespace.
         :param pulumi.Input[str] name: Name of this SKU.
-        :param pulumi.Input[float] capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+        :param pulumi.Input[int] capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
         :param pulumi.Input[str] tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -271,14 +271,14 @@ class SBSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -297,12 +297,12 @@ class SBSkuArgs:
 @pulumi.input_type
 class SqlFilterArgs:
     def __init__(__self__, *,
-                 compatibility_level: Optional[pulumi.Input[float]] = None,
+                 compatibility_level: Optional[pulumi.Input[int]] = None,
                  requires_preprocessing: Optional[pulumi.Input[bool]] = None,
                  sql_expression: Optional[pulumi.Input[str]] = None):
         """
         Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
-        :param pulumi.Input[float] compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+        :param pulumi.Input[int] compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         :param pulumi.Input[bool] requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param pulumi.Input[str] sql_expression: The SQL expression. e.g. MyProperty='ABC'
         """
@@ -315,14 +315,14 @@ class SqlFilterArgs:
 
     @property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[pulumi.Input[float]]:
+    def compatibility_level(self) -> Optional[pulumi.Input[int]]:
         """
         This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         """
         return pulumi.get(self, "compatibility_level")
 
     @compatibility_level.setter
-    def compatibility_level(self, value: Optional[pulumi.Input[float]]):
+    def compatibility_level(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "compatibility_level", value)
 
     @property

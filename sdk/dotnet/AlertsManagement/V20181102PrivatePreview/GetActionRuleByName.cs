@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20181102PrivatePreview
         /// <summary>
         /// Action rule properties defining scope, conditions, suppression logic for action rule
         /// </summary>
-        public readonly Outputs.ActionRulePropertiesResponseResult Properties;
+        public readonly Outputs.ActionRulePropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20181102PrivatePreview
 
             string name,
 
-            Outputs.ActionRulePropertiesResponseResult properties,
+            Outputs.ActionRulePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -42,10 +42,10 @@ namespace Pulumi.AzureRM.Portal.V20181001
         /// <summary>
         /// Cloud shell console properties.
         /// </summary>
-        public readonly Outputs.ConsolePropertiesResponseResult Properties;
+        public readonly Outputs.ConsolePropertiesResponse Properties;
 
         [OutputConstructor]
-        private GetConsoleWithLocationResult(Outputs.ConsolePropertiesResponseResult properties)
+        private GetConsoleWithLocationResult(Outputs.ConsolePropertiesResponse properties)
         {
             Properties = properties;
         }

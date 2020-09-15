@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
         /// <summary>
         /// Compute properties
         /// </summary>
-        public readonly Union<Outputs.AKSResponseResult, Union<Outputs.AmlComputeResponseResult, Union<Outputs.ComputeInstanceResponseResult, Union<Outputs.DataFactoryResponseResult, Union<Outputs.DataLakeAnalyticsResponseResult, Union<Outputs.DatabricksResponseResult, Union<Outputs.HDInsightResponseResult, Outputs.VirtualMachineResponseResult>>>>>>> Properties;
+        public readonly Union<Outputs.AKSResponse, Union<Outputs.AmlComputeResponse, Union<Outputs.ComputeInstanceResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.DataLakeAnalyticsResponse, Union<Outputs.DatabricksResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>>>>> Properties;
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -76,15 +76,15 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
 
         [OutputConstructor]
         private GetMachineLearningComputeResult(
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? location,
 
             string name,
 
-            Union<Outputs.AKSResponseResult, Union<Outputs.AmlComputeResponseResult, Union<Outputs.ComputeInstanceResponseResult, Union<Outputs.DataFactoryResponseResult, Union<Outputs.DataLakeAnalyticsResponseResult, Union<Outputs.DatabricksResponseResult, Union<Outputs.HDInsightResponseResult, Outputs.VirtualMachineResponseResult>>>>>>> properties,
+            Union<Outputs.AKSResponse, Union<Outputs.AmlComputeResponse, Union<Outputs.ComputeInstanceResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.DataLakeAnalyticsResponse, Union<Outputs.DatabricksResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>>>>> properties,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

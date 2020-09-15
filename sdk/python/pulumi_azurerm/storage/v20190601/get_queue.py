@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -17,8 +17,8 @@ __all__ = [
 @pulumi.output_type
 class GetQueueResult:
     def __init__(__self__, approximate_message_count=None, metadata=None, name=None, type=None):
-        if approximate_message_count and not isinstance(approximate_message_count, float):
-            raise TypeError("Expected argument 'approximate_message_count' to be a float")
+        if approximate_message_count and not isinstance(approximate_message_count, int):
+            raise TypeError("Expected argument 'approximate_message_count' to be a int")
         pulumi.set(__self__, "approximate_message_count", approximate_message_count)
         if metadata and not isinstance(metadata, dict):
             raise TypeError("Expected argument 'metadata' to be a dict")
@@ -32,7 +32,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="approximateMessageCount")
-    def approximate_message_count(self) -> float:
+    def approximate_message_count(self) -> int:
         """
         Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
         """

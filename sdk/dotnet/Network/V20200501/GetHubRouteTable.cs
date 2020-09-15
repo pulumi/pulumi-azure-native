@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// List of all routes.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HubRouteResponseResult> Routes;
+        public readonly ImmutableArray<Outputs.HubRouteResponse> Routes;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Network.V20200501
 
             string provisioningState,
 
-            ImmutableArray<Outputs.HubRouteResponseResult> routes,
+            ImmutableArray<Outputs.HubRouteResponse> routes,
 
             string type)
         {

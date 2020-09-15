@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200501Preview
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200501Preview
         /// The resource of private end point.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponseResult?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStateResponseResult> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200501Preview
         /// The sku of the workspace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.

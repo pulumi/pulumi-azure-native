@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class VirtualNetworkResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_subnets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
+                 allowed_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  external_provider_resource_id: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -26,7 +26,7 @@ class VirtualNetworkResource(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet_overrides: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]]] = None,
+                 subnet_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -37,7 +37,7 @@ class VirtualNetworkResource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]] allowed_subnets: The allowed subnets of the virtual network.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]] allowed_subnets: The allowed subnets of the virtual network.
         :param pulumi.Input[str] description: The description of the virtual network.
         :param pulumi.Input[str] external_provider_resource_id: The Microsoft.Network resource identifier of the virtual network.
         :param pulumi.Input[str] id: The identifier of the resource.
@@ -46,7 +46,7 @@ class VirtualNetworkResource(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]] subnet_overrides: The subnet overrides of the virtual network.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]] subnet_overrides: The subnet overrides of the virtual network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] type: The type of the resource.
         """
@@ -113,7 +113,7 @@ class VirtualNetworkResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedSubnets")
-    def allowed_subnets(self) -> pulumi.Output[Optional[List['outputs.SubnetResponse']]]:
+    def allowed_subnets(self) -> pulumi.Output[Optional[Sequence['outputs.SubnetResponse']]]:
         """
         The allowed subnets of the virtual network.
         """
@@ -161,7 +161,7 @@ class VirtualNetworkResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetOverrides")
-    def subnet_overrides(self) -> pulumi.Output[Optional[List['outputs.SubnetOverrideResponse']]]:
+    def subnet_overrides(self) -> pulumi.Output[Optional[Sequence['outputs.SubnetOverrideResponse']]]:
         """
         The subnet overrides of the virtual network.
         """

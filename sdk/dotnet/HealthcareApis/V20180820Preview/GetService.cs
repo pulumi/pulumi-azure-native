@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.HealthcareApis.V20180820Preview
         /// <summary>
         /// The common properties of a service.
         /// </summary>
-        public readonly Outputs.ServicesPropertiesResponseResult Properties;
+        public readonly Outputs.ServicesPropertiesResponse Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.HealthcareApis.V20180820Preview
 
             string name,
 
-            Outputs.ServicesPropertiesResponseResult properties,
+            Outputs.ServicesPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

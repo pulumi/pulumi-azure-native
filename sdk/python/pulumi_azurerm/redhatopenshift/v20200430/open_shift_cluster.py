@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class OpenShiftCluster(pulumi.CustomResource):
                  apiserver_profile: Optional[pulumi.Input[pulumi.InputType['APIServerProfileArgs']]] = None,
                  cluster_profile: Optional[pulumi.Input[pulumi.InputType['ClusterProfileArgs']]] = None,
                  console_profile: Optional[pulumi.Input[pulumi.InputType['ConsoleProfileArgs']]] = None,
-                 ingress_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IngressProfileArgs']]]]] = None,
+                 ingress_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IngressProfileArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  master_profile: Optional[pulumi.Input[pulumi.InputType['MasterProfileArgs']]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
@@ -29,7 +29,7 @@ class OpenShiftCluster(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  service_principal_profile: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 worker_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkerProfileArgs']]]]] = None,
+                 worker_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerProfileArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -41,7 +41,7 @@ class OpenShiftCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['APIServerProfileArgs']] apiserver_profile: The cluster API server profile.
         :param pulumi.Input[pulumi.InputType['ClusterProfileArgs']] cluster_profile: The cluster profile.
         :param pulumi.Input[pulumi.InputType['ConsoleProfileArgs']] console_profile: The console profile.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IngressProfileArgs']]]] ingress_profiles: The cluster ingress profiles.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IngressProfileArgs']]]] ingress_profiles: The cluster ingress profiles.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MasterProfileArgs']] master_profile: The cluster master profile.
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: The cluster network profile.
@@ -50,7 +50,7 @@ class OpenShiftCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the OpenShift cluster resource.
         :param pulumi.Input[pulumi.InputType['ServicePrincipalProfileArgs']] service_principal_profile: The cluster service principal profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkerProfileArgs']]]] worker_profiles: The cluster worker profiles.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerProfileArgs']]]] worker_profiles: The cluster worker profiles.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,7 +142,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingressProfiles")
-    def ingress_profiles(self) -> pulumi.Output[Optional[List['outputs.IngressProfileResponse']]]:
+    def ingress_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.IngressProfileResponse']]]:
         """
         The cluster ingress profiles.
         """
@@ -214,7 +214,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workerProfiles")
-    def worker_profiles(self) -> pulumi.Output[Optional[List['outputs.WorkerProfileResponse']]]:
+    def worker_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.WorkerProfileResponse']]]:
         """
         The cluster worker profiles.
         """

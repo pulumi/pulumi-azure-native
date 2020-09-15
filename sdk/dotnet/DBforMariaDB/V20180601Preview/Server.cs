@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
         /// The SKU (pricing tier) of the server.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Enable ssl enforcement or not when connect to server.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
         /// Storage profile of a server.
         /// </summary>
         [Output("storageProfile")]
-        public Output<Outputs.StorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
+        public Output<Outputs.StorageProfileResponse?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

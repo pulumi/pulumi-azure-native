@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
         /// <summary>
         /// Sync schema of the sync group.
         /// </summary>
-        public readonly Outputs.SyncGroupSchemaResponseResult? Schema;
+        public readonly Outputs.SyncGroupSchemaResponse? Schema;
         /// <summary>
         /// ARM resource id of the sync database in the sync group.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
 
             string name,
 
-            Outputs.SyncGroupSchemaResponseResult? schema,
+            Outputs.SyncGroupSchemaResponse? schema,
 
             string? syncDatabaseId,
 

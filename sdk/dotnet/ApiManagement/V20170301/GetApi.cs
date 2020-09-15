@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// <summary>
         /// Api Version Set Contract details.
         /// </summary>
-        public readonly Outputs.ApiVersionSetContractResponseResult? ApiVersionSet;
+        public readonly Outputs.ApiVersionSetContractResponse? ApiVersionSet;
         /// <summary>
         /// A resource identifier for the related ApiVersionSet.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// <summary>
         /// Collection of authentication settings included into this API.
         /// </summary>
-        public readonly Outputs.AuthenticationSettingsContractResponseResult? AuthenticationSettings;
+        public readonly Outputs.AuthenticationSettingsContractResponse? AuthenticationSettings;
         /// <summary>
         /// Description of the API. May include HTML formatting tags.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// <summary>
         /// Protocols over which API is made available.
         /// </summary>
-        public readonly Outputs.SubscriptionKeyParameterNamesContractResponseResult? SubscriptionKeyParameterNames;
+        public readonly Outputs.SubscriptionKeyParameterNamesContractResponse? SubscriptionKeyParameterNames;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -118,11 +118,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 
             string? apiVersion,
 
-            Outputs.ApiVersionSetContractResponseResult? apiVersionSet,
+            Outputs.ApiVersionSetContractResponse? apiVersionSet,
 
             string? apiVersionSetId,
 
-            Outputs.AuthenticationSettingsContractResponseResult? authenticationSettings,
+            Outputs.AuthenticationSettingsContractResponse? authenticationSettings,
 
             string? description,
 
@@ -140,7 +140,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 
             string? serviceUrl,
 
-            Outputs.SubscriptionKeyParameterNamesContractResponseResult? subscriptionKeyParameterNames,
+            Outputs.SubscriptionKeyParameterNamesContractResponse? subscriptionKeyParameterNames,
 
             string type)
         {

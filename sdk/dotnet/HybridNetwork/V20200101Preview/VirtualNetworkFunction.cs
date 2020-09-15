@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// The reference to the hybrid network device.
         /// </summary>
         [Output("device")]
-        public Output<Outputs.SubResourceResponseResult?> Device { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> Device { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// The resource URI of the managed application.
         /// </summary>
         [Output("managedApplication")]
-        public Output<Outputs.SubResourceResponseResult> ManagedApplication { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse> ManagedApplication { get; private set; } = null!;
 
         /// <summary>
         /// The parameters for the managed application.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// The virtual network function configurations from the user.
         /// </summary>
         [Output("virtualNetworkFunctionUserConfigurations")]
-        public Output<ImmutableArray<Outputs.VirtualNetworkFunctionUserConfigurationResponseResult>> VirtualNetworkFunctionUserConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualNetworkFunctionUserConfigurationResponse>> VirtualNetworkFunctionUserConfigurations { get; private set; } = null!;
 
 
         /// <summary>

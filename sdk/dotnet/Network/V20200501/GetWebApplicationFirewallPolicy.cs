@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// A collection of references to application gateways.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayResponseResult> ApplicationGateways;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayResponse> ApplicationGateways;
         /// <summary>
         /// The custom rules inside the policy.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult> CustomRules;
+        public readonly ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponse> CustomRules;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// A collection of references to application gateway http listeners.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> HttpListeners;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> HttpListeners;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// Describes the managedRules structure.
         /// </summary>
-        public readonly Outputs.ManagedRulesDefinitionResponseResult ManagedRules;
+        public readonly Outputs.ManagedRulesDefinitionResponse ManagedRules;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// A collection of references to application gateway path rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> PathBasedRules;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> PathBasedRules;
         /// <summary>
         /// The PolicySettings for policy.
         /// </summary>
-        public readonly Outputs.PolicySettingsResponseResult? PolicySettings;
+        public readonly Outputs.PolicySettingsResponse? PolicySettings;
         /// <summary>
         /// The provisioning state of the web application firewall policy resource.
         /// </summary>
@@ -94,23 +94,23 @@ namespace Pulumi.AzureRM.Network.V20200501
 
         [OutputConstructor]
         private GetWebApplicationFirewallPolicyResult(
-            ImmutableArray<Outputs.ApplicationGatewayResponseResult> applicationGateways,
+            ImmutableArray<Outputs.ApplicationGatewayResponse> applicationGateways,
 
-            ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult> customRules,
+            ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponse> customRules,
 
             string etag,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> httpListeners,
+            ImmutableArray<Outputs.SubResourceResponse> httpListeners,
 
             string? location,
 
-            Outputs.ManagedRulesDefinitionResponseResult managedRules,
+            Outputs.ManagedRulesDefinitionResponse managedRules,
 
             string name,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> pathBasedRules,
+            ImmutableArray<Outputs.SubResourceResponse> pathBasedRules,
 
-            Outputs.PolicySettingsResponseResult? policySettings,
+            Outputs.PolicySettingsResponse? policySettings,
 
             string provisioningState,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,17 +24,17 @@ class GetDiskResult:
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
-        if disk_iops_read_write and not isinstance(disk_iops_read_write, float):
-            raise TypeError("Expected argument 'disk_iops_read_write' to be a float")
+        if disk_iops_read_write and not isinstance(disk_iops_read_write, int):
+            raise TypeError("Expected argument 'disk_iops_read_write' to be a int")
         pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
-        if disk_m_bps_read_write and not isinstance(disk_m_bps_read_write, float):
-            raise TypeError("Expected argument 'disk_m_bps_read_write' to be a float")
+        if disk_m_bps_read_write and not isinstance(disk_m_bps_read_write, int):
+            raise TypeError("Expected argument 'disk_m_bps_read_write' to be a int")
         pulumi.set(__self__, "disk_m_bps_read_write", disk_m_bps_read_write)
-        if disk_size_bytes and not isinstance(disk_size_bytes, float):
-            raise TypeError("Expected argument 'disk_size_bytes' to be a float")
+        if disk_size_bytes and not isinstance(disk_size_bytes, int):
+            raise TypeError("Expected argument 'disk_size_bytes' to be a int")
         pulumi.set(__self__, "disk_size_bytes", disk_size_bytes)
-        if disk_size_gb and not isinstance(disk_size_gb, float):
-            raise TypeError("Expected argument 'disk_size_gb' to be a float")
+        if disk_size_gb and not isinstance(disk_size_gb, int):
+            raise TypeError("Expected argument 'disk_size_gb' to be a int")
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if disk_state and not isinstance(disk_state, str):
             raise TypeError("Expected argument 'disk_state' to be a str")
@@ -89,7 +89,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskIOPSReadWrite")
-    def disk_iops_read_write(self) -> Optional[float]:
+    def disk_iops_read_write(self) -> Optional[int]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         """
@@ -97,7 +97,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskMBpsReadWrite")
-    def disk_m_bps_read_write(self) -> Optional[float]:
+    def disk_m_bps_read_write(self) -> Optional[int]:
         """
         The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
@@ -105,7 +105,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskSizeBytes")
-    def disk_size_bytes(self) -> float:
+    def disk_size_bytes(self) -> int:
         """
         The size of the disk in bytes. This field is read only.
         """
@@ -113,7 +113,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         """
@@ -225,7 +225,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> Optional[Sequence[str]]:
         """
         The Logical zone list for Disk.
         """

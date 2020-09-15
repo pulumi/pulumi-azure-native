@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// List of all routes.
         /// </summary>
         [Output("routes")]
-        public Output<ImmutableArray<Outputs.VirtualHubRouteV2ResponseResult>> Routes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualHubRouteV2Response>> Routes { get; private set; } = null!;
 
 
         /// <summary>

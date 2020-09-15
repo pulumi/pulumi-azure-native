@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Origin']
@@ -18,18 +18,18 @@ class Origin(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
-                 http_port: Optional[pulumi.Input[float]] = None,
-                 https_port: Optional[pulumi.Input[float]] = None,
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
                  origin_name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  private_link_alias: Optional[pulumi.Input[str]] = None,
                  private_link_approval_message: Optional[pulumi.Input[str]] = None,
                  private_link_location: Optional[pulumi.Input[str]] = None,
                  private_link_resource_id: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 weight: Optional[pulumi.Input[float]] = None,
+                 weight: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -41,18 +41,18 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Origin is enabled for load balancing or not
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-        :param pulumi.Input[float] http_port: The value of the HTTP port. Must be between 1 and 65535.
-        :param pulumi.Input[float] https_port: The value of the HTTPS port. Must be between 1 and 65535.
+        :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535.
+        :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
         :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         :param pulumi.Input[str] origin_name: Name of the origin that is unique within the endpoint.
-        :param pulumi.Input[float] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+        :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         :param pulumi.Input[str] private_link_alias: The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
         :param pulumi.Input[str] private_link_approval_message: A custom message to be included in the approval request to connect to the Private Link.
         :param pulumi.Input[str] private_link_location: The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
         :param pulumi.Input[str] private_link_resource_id: The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[float] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+        :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -145,7 +145,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> pulumi.Output[Optional[float]]:
+    def http_port(self) -> pulumi.Output[Optional[int]]:
         """
         The value of the HTTP port. Must be between 1 and 65535.
         """
@@ -153,7 +153,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> pulumi.Output[Optional[float]]:
+    def https_port(self) -> pulumi.Output[Optional[int]]:
         """
         The value of the HTTPS port. Must be between 1 and 65535.
         """
@@ -177,7 +177,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         """
@@ -249,7 +249,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def weight(self) -> pulumi.Output[Optional[float]]:
+    def weight(self) -> pulumi.Output[Optional[int]]:
         """
         Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """

@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Peering.Latest
         /// The SKU that defines the type of the peering service.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.PeeringServiceSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.PeeringServiceSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

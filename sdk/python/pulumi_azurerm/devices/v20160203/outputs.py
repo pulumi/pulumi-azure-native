@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,12 +30,12 @@ class CloudToDevicePropertiesResponse(dict):
     def __init__(__self__, *,
                  default_ttl_as_iso8601: Optional[str] = None,
                  feedback: Optional['outputs.FeedbackPropertiesResponse'] = None,
-                 max_delivery_count: Optional[float] = None):
+                 max_delivery_count: Optional[int] = None):
         """
         The IoT hub cloud-to-device messaging properties.
         :param str default_ttl_as_iso8601: The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         :param 'FeedbackPropertiesResponseArgs' feedback: The properties of the feedback queue for cloud-to-device messages.
-        :param float max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        :param int max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         if default_ttl_as_iso8601 is not None:
             pulumi.set(__self__, "default_ttl_as_iso8601", default_ttl_as_iso8601)
@@ -62,7 +62,7 @@ class CloudToDevicePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> Optional[int]:
         """
         The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
@@ -79,17 +79,17 @@ class EventHubPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  endpoint: str,
-                 partition_ids: List[str],
+                 partition_ids: Sequence[str],
                  path: str,
-                 partition_count: Optional[float] = None,
-                 retention_time_in_days: Optional[float] = None):
+                 partition_count: Optional[int] = None,
+                 retention_time_in_days: Optional[int] = None):
         """
         The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
         :param str endpoint: The Event Hub-compatible endpoint.
-        :param List[str] partition_ids: The partition ids in the Event Hub-compatible endpoint.
+        :param Sequence[str] partition_ids: The partition ids in the Event Hub-compatible endpoint.
         :param str path: The Event Hub-compatible name.
-        :param float partition_count: The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
-        :param float retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+        :param int partition_count: The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+        :param int retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "partition_ids", partition_ids)
@@ -109,7 +109,7 @@ class EventHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="partitionIds")
-    def partition_ids(self) -> List[str]:
+    def partition_ids(self) -> Sequence[str]:
         """
         The partition ids in the Event Hub-compatible endpoint.
         """
@@ -125,7 +125,7 @@ class EventHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[float]:
+    def partition_count(self) -> Optional[int]:
         """
         The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
         """
@@ -133,7 +133,7 @@ class EventHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimeInDays")
-    def retention_time_in_days(self) -> Optional[float]:
+    def retention_time_in_days(self) -> Optional[int]:
         """
         The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
@@ -150,12 +150,12 @@ class FeedbackPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  lock_duration_as_iso8601: Optional[str] = None,
-                 max_delivery_count: Optional[float] = None,
+                 max_delivery_count: Optional[int] = None,
                  ttl_as_iso8601: Optional[str] = None):
         """
         The properties of the feedback queue for cloud-to-device messages.
         :param str lock_duration_as_iso8601: The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-        :param float max_delivery_count: The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        :param int max_delivery_count: The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         :param str ttl_as_iso8601: The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         if lock_duration_as_iso8601 is not None:
@@ -175,7 +175,7 @@ class FeedbackPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> Optional[int]:
         """
         The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
@@ -201,13 +201,13 @@ class IotHubPropertiesResponse(dict):
     def __init__(__self__, *,
                  host_name: str,
                  provisioning_state: str,
-                 authorization_policies: Optional[List['outputs.SharedAccessSignatureAuthorizationRuleResponse']] = None,
+                 authorization_policies: Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleResponse']] = None,
                  cloud_to_device: Optional['outputs.CloudToDevicePropertiesResponse'] = None,
                  comments: Optional[str] = None,
                  enable_file_upload_notifications: Optional[bool] = None,
                  event_hub_endpoints: Optional[Mapping[str, 'outputs.EventHubPropertiesResponse']] = None,
                  features: Optional[str] = None,
-                 ip_filter_rules: Optional[List['outputs.IpFilterRuleResponse']] = None,
+                 ip_filter_rules: Optional[Sequence['outputs.IpFilterRuleResponse']] = None,
                  messaging_endpoints: Optional[Mapping[str, 'outputs.MessagingEndpointPropertiesResponse']] = None,
                  operations_monitoring_properties: Optional['outputs.OperationsMonitoringPropertiesResponse'] = None,
                  storage_endpoints: Optional[Mapping[str, 'outputs.StorageEndpointPropertiesResponse']] = None):
@@ -215,13 +215,13 @@ class IotHubPropertiesResponse(dict):
         The properties of an IoT hub.
         :param str host_name: The name of the host.
         :param str provisioning_state: The provisioning state.
-        :param List['SharedAccessSignatureAuthorizationRuleResponseArgs'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
+        :param Sequence['SharedAccessSignatureAuthorizationRuleResponseArgs'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
         :param 'CloudToDevicePropertiesResponseArgs' cloud_to_device: The IoT hub cloud-to-device messaging properties.
         :param str comments: Comments.
         :param bool enable_file_upload_notifications: If True, file upload notifications are enabled.
         :param Mapping[str, 'EventHubPropertiesResponseArgs'] event_hub_endpoints: The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
         :param str features: The capabilities and features enabled for the IoT hub.
-        :param List['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
+        :param Sequence['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
         :param Mapping[str, 'MessagingEndpointPropertiesResponseArgs'] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param 'OperationsMonitoringPropertiesResponseArgs' operations_monitoring_properties: The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
         :param Mapping[str, 'StorageEndpointPropertiesResponseArgs'] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
@@ -267,7 +267,7 @@ class IotHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="authorizationPolicies")
-    def authorization_policies(self) -> Optional[List['outputs.SharedAccessSignatureAuthorizationRuleResponse']]:
+    def authorization_policies(self) -> Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleResponse']]:
         """
         The shared access policies you can use to secure a connection to the IoT hub.
         """
@@ -315,7 +315,7 @@ class IotHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="ipFilterRules")
-    def ip_filter_rules(self) -> Optional[List['outputs.IpFilterRuleResponse']]:
+    def ip_filter_rules(self) -> Optional[Sequence['outputs.IpFilterRuleResponse']]:
         """
         The IP filter rules.
         """
@@ -355,12 +355,12 @@ class IotHubSkuInfoResponse(dict):
     Information about the SKU of the IoT hub.
     """
     def __init__(__self__, *,
-                 capacity: float,
+                 capacity: int,
                  name: str,
                  tier: str):
         """
         Information about the SKU of the IoT hub.
-        :param float capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
+        :param int capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         :param str name: The name of the SKU.
         :param str tier: The billing tier for the IoT hub.
         """
@@ -370,7 +370,7 @@ class IotHubSkuInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """
@@ -450,12 +450,12 @@ class MessagingEndpointPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  lock_duration_as_iso8601: Optional[str] = None,
-                 max_delivery_count: Optional[float] = None,
+                 max_delivery_count: Optional[int] = None,
                  ttl_as_iso8601: Optional[str] = None):
         """
         The properties of the messaging endpoints used by this IoT hub.
         :param str lock_duration_as_iso8601: The lock duration. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
-        :param float max_delivery_count: The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
+        :param int max_delivery_count: The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
         :param str ttl_as_iso8601: The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
         """
         if lock_duration_as_iso8601 is not None:
@@ -475,7 +475,7 @@ class MessagingEndpointPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> Optional[int]:
         """
         The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
         """

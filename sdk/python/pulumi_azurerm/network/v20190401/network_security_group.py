@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_security_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]]] = None,
+                 default_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 security_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]]] = None,
+                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,7 +35,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]] default_security_rules: The default security rules of network security group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]] default_security_rules: The default security rules of network security group.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
@@ -43,7 +43,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the network security group resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]] security_rules: A collection of security rules of the network security group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]] security_rules: A collection of security rules of the network security group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -109,7 +109,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSecurityRules")
-    def default_security_rules(self) -> pulumi.Output[Optional[List['outputs.SecurityRuleResponse']]]:
+    def default_security_rules(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityRuleResponse']]]:
         """
         The default security rules of network security group.
         """
@@ -141,7 +141,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> pulumi.Output[List['outputs.NetworkInterfaceResponse']]:
+    def network_interfaces(self) -> pulumi.Output[Sequence['outputs.NetworkInterfaceResponse']]:
         """
         A collection of references to network interfaces.
         """
@@ -165,7 +165,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityRules")
-    def security_rules(self) -> pulumi.Output[Optional[List['outputs.SecurityRuleResponse']]]:
+    def security_rules(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityRuleResponse']]]:
         """
         A collection of security rules of the network security group.
         """
@@ -173,7 +173,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> pulumi.Output[List['outputs.SubnetResponse']]:
+    def subnets(self) -> pulumi.Output[Sequence['outputs.SubnetResponse']]:
         """
         A collection of references to subnets.
         """

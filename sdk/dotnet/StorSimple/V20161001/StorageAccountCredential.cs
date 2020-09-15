@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// The details of the storage account password
         /// </summary>
         [Output("accessKey")]
-        public Output<Outputs.AsymmetricEncryptedSecretResponseResult?> AccessKey { get; private set; } = null!;
+        public Output<Outputs.AsymmetricEncryptedSecretResponse?> AccessKey { get; private set; } = null!;
 
         /// <summary>
         /// The cloud service provider

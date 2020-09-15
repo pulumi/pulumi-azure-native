@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -72,7 +72,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="correlationScheme")
-    def correlation_scheme(self) -> Optional[List['outputs.ServiceCorrelationDescriptionResponse']]:
+    def correlation_scheme(self) -> Optional[Sequence['outputs.ServiceCorrelationDescriptionResponse']]:
         """
         A list that describes the correlation of the service with other services.
         """
@@ -152,7 +152,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="serviceLoadMetrics")
-    def service_load_metrics(self) -> Optional[List['outputs.ServiceLoadMetricDescriptionResponse']]:
+    def service_load_metrics(self) -> Optional[Sequence['outputs.ServiceLoadMetricDescriptionResponse']]:
         """
         The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         """
@@ -168,7 +168,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="servicePlacementPolicies")
-    def service_placement_policies(self) -> Optional[List['outputs.ServicePlacementPolicyDescriptionResponse']]:
+    def service_placement_policies(self) -> Optional[Sequence['outputs.ServicePlacementPolicyDescriptionResponse']]:
         """
         A list that describes the correlation of the service with other services.
         """

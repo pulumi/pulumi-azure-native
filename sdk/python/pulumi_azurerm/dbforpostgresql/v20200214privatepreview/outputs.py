@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -71,15 +71,15 @@ class MaintenanceWindowResponse(dict):
     """
     def __init__(__self__, *,
                  custom_window: Optional[str] = None,
-                 day_of_week: Optional[float] = None,
-                 start_hour: Optional[float] = None,
-                 start_minute: Optional[float] = None):
+                 day_of_week: Optional[int] = None,
+                 start_hour: Optional[int] = None,
+                 start_minute: Optional[int] = None):
         """
         Maintenance window of a server.
         :param str custom_window: indicates whether custom window is enabled or disabled
-        :param float day_of_week: day of week for maintenance window
-        :param float start_hour: start hour for maintenance window
-        :param float start_minute: start minute for maintenance window
+        :param int day_of_week: day of week for maintenance window
+        :param int start_hour: start hour for maintenance window
+        :param int start_minute: start minute for maintenance window
         """
         if custom_window is not None:
             pulumi.set(__self__, "custom_window", custom_window)
@@ -100,7 +100,7 @@ class MaintenanceWindowResponse(dict):
 
     @property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[float]:
+    def day_of_week(self) -> Optional[int]:
         """
         day of week for maintenance window
         """
@@ -108,7 +108,7 @@ class MaintenanceWindowResponse(dict):
 
     @property
     @pulumi.getter(name="startHour")
-    def start_hour(self) -> Optional[float]:
+    def start_hour(self) -> Optional[int]:
         """
         start hour for maintenance window
         """
@@ -116,7 +116,7 @@ class MaintenanceWindowResponse(dict):
 
     @property
     @pulumi.getter(name="startMinute")
-    def start_minute(self) -> Optional[float]:
+    def start_minute(self) -> Optional[int]:
         """
         start minute for maintenance window
         """
@@ -190,12 +190,12 @@ class StorageProfileResponse(dict):
     Storage Profile properties of a server
     """
     def __init__(__self__, *,
-                 backup_retention_days: Optional[float] = None,
-                 storage_mb: Optional[float] = None):
+                 backup_retention_days: Optional[int] = None,
+                 storage_mb: Optional[int] = None):
         """
         Storage Profile properties of a server
-        :param float backup_retention_days: Backup retention days for the server.
-        :param float storage_mb: Max storage allowed for a server.
+        :param int backup_retention_days: Backup retention days for the server.
+        :param int storage_mb: Max storage allowed for a server.
         """
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
@@ -204,7 +204,7 @@ class StorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[float]:
+    def backup_retention_days(self) -> Optional[int]:
         """
         Backup retention days for the server.
         """
@@ -212,7 +212,7 @@ class StorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="storageMB")
-    def storage_mb(self) -> Optional[float]:
+    def storage_mb(self) -> Optional[int]:
         """
         Max storage allowed for a server.
         """

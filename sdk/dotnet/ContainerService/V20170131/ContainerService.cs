@@ -18,25 +18,25 @@ namespace Pulumi.AzureRM.ContainerService.V20170131
         /// Properties of the agent pool.
         /// </summary>
         [Output("agentPoolProfiles")]
-        public Output<ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult>> AgentPoolProfiles { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse>> AgentPoolProfiles { get; private set; } = null!;
 
         /// <summary>
         /// Properties for custom clusters.
         /// </summary>
         [Output("customProfile")]
-        public Output<Outputs.ContainerServiceCustomProfileResponseResult?> CustomProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceCustomProfileResponse?> CustomProfile { get; private set; } = null!;
 
         /// <summary>
         /// Properties of the diagnostic agent.
         /// </summary>
         [Output("diagnosticsProfile")]
-        public Output<Outputs.ContainerServiceDiagnosticsProfileResponseResult?> DiagnosticsProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceDiagnosticsProfileResponse?> DiagnosticsProfile { get; private set; } = null!;
 
         /// <summary>
         /// Properties of Linux VMs.
         /// </summary>
         [Output("linuxProfile")]
-        public Output<Outputs.ContainerServiceLinuxProfileResponseResult> LinuxProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceLinuxProfileResponse> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170131
         /// Properties of master agents.
         /// </summary>
         [Output("masterProfile")]
-        public Output<Outputs.ContainerServiceMasterProfileResponseResult> MasterProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceMasterProfileResponse> MasterProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170131
         /// Properties of the orchestrator.
         /// </summary>
         [Output("orchestratorProfile")]
-        public Output<Outputs.ContainerServiceOrchestratorProfileResponseResult?> OrchestratorProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceOrchestratorProfileResponse?> OrchestratorProfile { get; private set; } = null!;
 
         /// <summary>
         /// the current deployment or provisioning state, which only appears in the response.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170131
         /// Properties for cluster service principals.
         /// </summary>
         [Output("servicePrincipalProfile")]
-        public Output<Outputs.ContainerServiceServicePrincipalProfileResponseResult?> ServicePrincipalProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceServicePrincipalProfileResponse?> ServicePrincipalProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170131
         /// Properties of Windows VMs.
         /// </summary>
         [Output("windowsProfile")]
-        public Output<Outputs.ContainerServiceWindowsProfileResponseResult?> WindowsProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceWindowsProfileResponse?> WindowsProfile { get; private set; } = null!;
 
 
         /// <summary>

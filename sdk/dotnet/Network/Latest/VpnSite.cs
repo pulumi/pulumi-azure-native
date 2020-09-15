@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The AddressSpace that contains an array of IP address ranges.
         /// </summary>
         [Output("addressSpace")]
-        public Output<Outputs.AddressSpaceResponseResult?> AddressSpace { get; private set; } = null!;
+        public Output<Outputs.AddressSpaceResponse?> AddressSpace { get; private set; } = null!;
 
         /// <summary>
         /// The set of bgp properties.
         /// </summary>
         [Output("bgpProperties")]
-        public Output<Outputs.BgpSettingsResponseResult?> BgpProperties { get; private set; } = null!;
+        public Output<Outputs.BgpSettingsResponse?> BgpProperties { get; private set; } = null!;
 
         /// <summary>
         /// The device properties.
         /// </summary>
         [Output("deviceProperties")]
-        public Output<Outputs.DevicePropertiesResponseResult?> DeviceProperties { get; private set; } = null!;
+        public Output<Outputs.DevicePropertiesResponse?> DeviceProperties { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// Office365 Policy.
         /// </summary>
         [Output("o365Policy")]
-        public Output<Outputs.O365PolicyPropertiesResponseResult?> O365Policy { get; private set; } = null!;
+        public Output<Outputs.O365PolicyPropertiesResponse?> O365Policy { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the VPN site resource.
@@ -96,13 +96,13 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The VirtualWAN to which the vpnSite belongs.
         /// </summary>
         [Output("virtualWan")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualWan { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualWan { get; private set; } = null!;
 
         /// <summary>
         /// List of all vpn site links.
         /// </summary>
         [Output("vpnSiteLinks")]
-        public Output<ImmutableArray<Outputs.VpnSiteLinkResponseResult>> VpnSiteLinks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpnSiteLinkResponse>> VpnSiteLinks { get; private set; } = null!;
 
 
         /// <summary>

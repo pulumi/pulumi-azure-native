@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -279,11 +279,11 @@ __all__ = [
 class ActivityDependencyArgs:
     def __init__(__self__, *,
                  activity: pulumi.Input[str],
-                 dependency_conditions: pulumi.Input[List[pulumi.Input[str]]]):
+                 dependency_conditions: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Activity dependency information.
         :param pulumi.Input[str] activity: Activity name.
-        :param pulumi.Input[List[pulumi.Input[str]]] dependency_conditions: Match-Condition for the dependency.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dependency_conditions: Match-Condition for the dependency.
         """
         pulumi.set(__self__, "activity", activity)
         pulumi.set(__self__, "dependency_conditions", dependency_conditions)
@@ -302,14 +302,14 @@ class ActivityDependencyArgs:
 
     @property
     @pulumi.getter(name="dependencyConditions")
-    def dependency_conditions(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def dependency_conditions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Match-Condition for the dependency.
         """
         return pulumi.get(self, "dependency_conditions")
 
     @dependency_conditions.setter
-    def dependency_conditions(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def dependency_conditions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "dependency_conditions", value)
 
 
@@ -317,14 +317,14 @@ class ActivityDependencyArgs:
 class ActivityPolicyArgs:
     def __init__(__self__, *,
                  retry: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 retry_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+                 retry_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  secure_input: Optional[pulumi.Input[bool]] = None,
                  secure_output: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Execution policy for an activity.
         :param pulumi.Input[Mapping[str, Any]] retry: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param pulumi.Input[float] retry_interval_in_seconds: Interval between each retry attempt (in seconds). The default is 30 sec.
+        :param pulumi.Input[int] retry_interval_in_seconds: Interval between each retry attempt (in seconds). The default is 30 sec.
         :param pulumi.Input[bool] secure_input: When set to true, Input from activity is considered as secure and will not be logged to monitoring.
         :param pulumi.Input[bool] secure_output: When set to true, Output from activity is considered as secure and will not be logged to monitoring.
         :param pulumi.Input[Mapping[str, Any]] timeout: Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -354,14 +354,14 @@ class ActivityPolicyArgs:
 
     @property
     @pulumi.getter(name="retryIntervalInSeconds")
-    def retry_interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def retry_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Interval between each retry attempt (in seconds). The default is 30 sec.
         """
         return pulumi.get(self, "retry_interval_in_seconds")
 
     @retry_interval_in_seconds.setter
-    def retry_interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def retry_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retry_interval_in_seconds", value)
 
     @property
@@ -409,7 +409,7 @@ class AmazonMWSLinkedServiceArgs:
                  marketplace_id: pulumi.Input[Mapping[str, Any]],
                  seller_id: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -426,7 +426,7 @@ class AmazonMWSLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] marketplace_id: The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
         :param pulumi.Input[Mapping[str, Any]] seller_id: The Amazon seller ID.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -525,14 +525,14 @@ class AmazonMWSLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -649,7 +649,7 @@ class AmazonMWSObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -660,7 +660,7 @@ class AmazonMWSObjectDatasetArgs:
         Amazon Marketplace Web Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -711,14 +711,14 @@ class AmazonMWSObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -800,7 +800,7 @@ class AmazonRedshiftLinkedServiceArgs:
                  database: pulumi.Input[Mapping[str, Any]],
                  server: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -813,7 +813,7 @@ class AmazonRedshiftLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] database: The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] server: The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -880,14 +880,14 @@ class AmazonRedshiftLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -980,7 +980,7 @@ class AmazonRedshiftTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -992,7 +992,7 @@ class AmazonRedshiftTableDatasetArgs:
         The Amazon Redshift table dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -1046,14 +1046,14 @@ class AmazonRedshiftTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -1147,7 +1147,7 @@ class AmazonS3DatasetArgs:
                  bucket_name: pulumi.Input[Mapping[str, Any]],
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -1165,7 +1165,7 @@ class AmazonS3DatasetArgs:
         :param pulumi.Input[Mapping[str, Any]] bucket_name: The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the Amazon S3 object.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -1247,14 +1247,14 @@ class AmazonS3DatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -1407,7 +1407,7 @@ class AmazonS3LinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  access_key_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -1418,7 +1418,7 @@ class AmazonS3LinkedServiceArgs:
         Linked service for Amazon S3.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -1470,14 +1470,14 @@ class AmazonS3LinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -1646,9 +1646,9 @@ class AvroDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  location: pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  avro_compression_codec: Optional[pulumi.Input[str]] = None,
-                 avro_compression_level: Optional[pulumi.Input[float]] = None,
+                 avro_compression_level: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -1659,7 +1659,7 @@ class AvroDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']] location: The location of the avro storage.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -1724,14 +1724,14 @@ class AvroDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -1745,11 +1745,11 @@ class AvroDatasetArgs:
 
     @property
     @pulumi.getter(name="avroCompressionLevel")
-    def avro_compression_level(self) -> Optional[pulumi.Input[float]]:
+    def avro_compression_level(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "avro_compression_level")
 
     @avro_compression_level.setter
-    def avro_compression_level(self, value: Optional[pulumi.Input[float]]):
+    def avro_compression_level(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "avro_compression_level", value)
 
     @property
@@ -1915,7 +1915,7 @@ class AzureBatchLinkedServiceArgs:
                  pool_name: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  access_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -1928,7 +1928,7 @@ class AzureBatchLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] pool_name: The Azure Batch pool name. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_key: The Azure Batch account access key.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -2026,14 +2026,14 @@ class AzureBatchLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -2090,7 +2090,7 @@ class AzureBlobDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  file_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -2107,7 +2107,7 @@ class AzureBlobDatasetArgs:
         The Azure Blob storage.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the blob storage.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
@@ -2176,14 +2176,14 @@ class AzureBlobDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -2336,7 +2336,7 @@ class AzureBlobFSDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  file_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -2350,7 +2350,7 @@ class AzureBlobFSDatasetArgs:
         The Azure Data Lake Storage Gen2 storage.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the blob storage.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] file_name: The name of the Azure Data Lake Storage Gen2. Type: string (or Expression with resultType string).
@@ -2410,14 +2410,14 @@ class AzureBlobFSDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -2535,7 +2535,7 @@ class AzureBlobFSLinkedServiceArgs:
                  type: pulumi.Input[str],
                  url: pulumi.Input[Mapping[str, Any]],
                  account_key: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  azure_cloud_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -2549,7 +2549,7 @@ class AzureBlobFSLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] url: Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] account_key: Account key for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -2620,14 +2620,14 @@ class AzureBlobFSLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -2803,7 +2803,7 @@ class AzureBlobStorageLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  account_key: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  azure_cloud_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -2820,7 +2820,7 @@ class AzureBlobStorageLinkedServiceArgs:
         The azure blob storage linked service.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] account_key: The Azure key vault secret reference of accountKey in connection string.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. It is mutually exclusive with sasUri, serviceEndpoint property. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -2890,14 +2890,14 @@ class AzureBlobStorageLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3125,7 +3125,7 @@ class AzureDataExplorerLinkedServiceArgs:
                  service_principal_key: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  tenant: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
@@ -3137,7 +3137,7 @@ class AzureDataExplorerLinkedServiceArgs:
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key of the service principal used to authenticate against Kusto.
         :param pulumi.Input[Mapping[str, Any]] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -3231,14 +3231,14 @@ class AzureDataExplorerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3283,7 +3283,7 @@ class AzureDataExplorerTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -3294,7 +3294,7 @@ class AzureDataExplorerTableDatasetArgs:
         The Azure Data Explorer (Kusto) dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -3345,14 +3345,14 @@ class AzureDataExplorerTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3434,7 +3434,7 @@ class AzureDataLakeAnalyticsLinkedServiceArgs:
                  account_name: pulumi.Input[Mapping[str, Any]],
                  tenant: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  data_lake_analytics_uri: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -3449,7 +3449,7 @@ class AzureDataLakeAnalyticsLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] account_name: The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] data_lake_analytics_uri: Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
         :param pulumi.Input[str] description: Linked service description.
@@ -3522,14 +3522,14 @@ class AzureDataLakeAnalyticsLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3646,7 +3646,7 @@ class AzureDataLakeStoreDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  file_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -3660,7 +3660,7 @@ class AzureDataLakeStoreDatasetArgs:
         Azure Data Lake Store dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
@@ -3720,14 +3720,14 @@ class AzureDataLakeStoreDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3845,7 +3845,7 @@ class AzureDataLakeStoreLinkedServiceArgs:
                  data_lake_store_uri: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  account_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  azure_cloud_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -3861,7 +3861,7 @@ class AzureDataLakeStoreLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] data_lake_store_uri: Data Lake Store service URI. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] account_name: Data Lake Store account name. Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -3938,14 +3938,14 @@ class AzureDataLakeStoreLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -4130,7 +4130,7 @@ class AzureDatabricksLinkedServiceArgs:
                  access_token: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  domain: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -4152,7 +4152,7 @@ class AzureDatabricksLinkedServiceArgs:
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -4246,14 +4246,14 @@ class AzureDatabricksLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -4454,7 +4454,7 @@ class AzureFileStorageLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  account_key: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -4471,7 +4471,7 @@ class AzureFileStorageLinkedServiceArgs:
         Azure File Storage linked service.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] account_key: The Azure key vault secret reference of accountKey in connection string.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
@@ -4541,14 +4541,14 @@ class AzureFileStorageLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -4756,7 +4756,7 @@ class AzureFunctionLinkedServiceArgs:
     def __init__(__self__, *,
                  function_app_url: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -4766,7 +4766,7 @@ class AzureFunctionLinkedServiceArgs:
         Azure Function linked service.
         :param pulumi.Input[Mapping[str, Any]] function_app_url: The endpoint of the Azure Function App. URL will be in the format https://<accountName>.azurewebsites.net.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -4814,14 +4814,14 @@ class AzureFunctionLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -4890,7 +4890,7 @@ class AzureKeyVaultLinkedServiceArgs:
     def __init__(__self__, *,
                  base_url: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
@@ -4898,7 +4898,7 @@ class AzureKeyVaultLinkedServiceArgs:
         Azure Key Vault linked service.
         :param pulumi.Input[Mapping[str, Any]] base_url: The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -4940,14 +4940,14 @@ class AzureKeyVaultLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5062,7 +5062,7 @@ class AzureMLLinkedServiceArgs:
                  api_key: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  ml_endpoint: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -5076,7 +5076,7 @@ class AzureMLLinkedServiceArgs:
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] api_key: The API key for accessing the Azure ML model endpoint.
         :param pulumi.Input[Mapping[str, Any]] ml_endpoint: The Batch Execution REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -5146,14 +5146,14 @@ class AzureMLLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5260,7 +5260,7 @@ class AzureMLServiceLinkedServiceArgs:
                  resource_group_name: pulumi.Input[Mapping[str, Any]],
                  subscription_id: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -5274,7 +5274,7 @@ class AzureMLServiceLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] resource_group_name: Azure ML Service workspace resource group name. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] subscription_id: Azure ML Service workspace subscription ID. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -5354,14 +5354,14 @@ class AzureMLServiceLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5453,7 +5453,7 @@ class AzureMLServiceLinkedServiceArgs:
 class AzureMariaDBLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -5463,7 +5463,7 @@ class AzureMariaDBLinkedServiceArgs:
         """
         Azure Database for MariaDB linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
@@ -5501,14 +5501,14 @@ class AzureMariaDBLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5589,7 +5589,7 @@ class AzureMariaDBTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -5600,7 +5600,7 @@ class AzureMariaDBTableDatasetArgs:
         Azure Database for MariaDB dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -5651,14 +5651,14 @@ class AzureMariaDBTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5739,7 +5739,7 @@ class AzureMySqlLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -5749,7 +5749,7 @@ class AzureMySqlLinkedServiceArgs:
         Azure MySQL database linked service.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -5797,14 +5797,14 @@ class AzureMySqlLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5873,7 +5873,7 @@ class AzureMySqlTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -5885,7 +5885,7 @@ class AzureMySqlTableDatasetArgs:
         The Azure MySQL database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -5939,14 +5939,14 @@ class AzureMySqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6038,7 +6038,7 @@ class AzureMySqlTableDatasetArgs:
 class AzurePostgreSqlLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -6048,7 +6048,7 @@ class AzurePostgreSqlLinkedServiceArgs:
         """
         Azure PostgreSQL linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
@@ -6086,14 +6086,14 @@ class AzurePostgreSqlLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6174,7 +6174,7 @@ class AzurePostgreSqlTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -6186,7 +6186,7 @@ class AzurePostgreSqlTableDatasetArgs:
         Azure PostgreSQL dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -6240,14 +6240,14 @@ class AzurePostgreSqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6341,7 +6341,7 @@ class AzureSearchIndexDatasetArgs:
                  index_name: pulumi.Input[Mapping[str, Any]],
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -6352,7 +6352,7 @@ class AzureSearchIndexDatasetArgs:
         :param pulumi.Input[Mapping[str, Any]] index_name: The name of the Azure Search Index. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -6413,14 +6413,14 @@ class AzureSearchIndexDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6489,7 +6489,7 @@ class AzureSearchLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  url: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -6499,7 +6499,7 @@ class AzureSearchLinkedServiceArgs:
         Linked service for Windows Azure Search Service.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] url: URL for Azure Search service. Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -6547,14 +6547,14 @@ class AzureSearchLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6623,7 +6623,7 @@ class AzureSqlDWLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  azure_cloud_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -6637,7 +6637,7 @@ class AzureSqlDWLinkedServiceArgs:
         Azure SQL Data Warehouse linked service.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -6697,14 +6697,14 @@ class AzureSqlDWLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6821,7 +6821,7 @@ class AzureSqlDWTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -6833,7 +6833,7 @@ class AzureSqlDWTableDatasetArgs:
         The Azure SQL Data Warehouse dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -6887,14 +6887,14 @@ class AzureSqlDWTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6987,7 +6987,7 @@ class AzureSqlDatabaseLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  azure_cloud_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -7001,7 +7001,7 @@ class AzureSqlDatabaseLinkedServiceArgs:
         Microsoft Azure SQL Database linked service.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -7061,14 +7061,14 @@ class AzureSqlDatabaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -7185,7 +7185,7 @@ class AzureSqlMILinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  azure_cloud_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -7199,7 +7199,7 @@ class AzureSqlMILinkedServiceArgs:
         Azure SQL Managed Instance linked service.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -7259,14 +7259,14 @@ class AzureSqlMILinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -7383,7 +7383,7 @@ class AzureSqlMITableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -7395,7 +7395,7 @@ class AzureSqlMITableDatasetArgs:
         The Azure SQL Managed Instance dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -7449,14 +7449,14 @@ class AzureSqlMITableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -7549,7 +7549,7 @@ class AzureSqlTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -7561,7 +7561,7 @@ class AzureSqlTableDatasetArgs:
         The Azure SQL Server database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -7615,14 +7615,14 @@ class AzureSqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -7715,7 +7715,7 @@ class AzureStorageLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  account_key: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -7727,7 +7727,7 @@ class AzureStorageLinkedServiceArgs:
         The storage account linked service.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] account_key: The Azure key vault secret reference of accountKey in connection string.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
@@ -7782,14 +7782,14 @@ class AzureStorageLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -7883,7 +7883,7 @@ class AzureTableDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  table_name: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -7894,7 +7894,7 @@ class AzureTableDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Mapping[str, Any]] table_name: The table name of the Azure Table storage. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -7955,14 +7955,14 @@ class AzureTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8031,7 +8031,7 @@ class AzureTableStorageLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  account_key: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -8043,7 +8043,7 @@ class AzureTableStorageLinkedServiceArgs:
         The azure table storage linked service.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] account_key: The Azure key vault secret reference of accountKey in connection string.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
@@ -8098,14 +8098,14 @@ class AzureTableStorageLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8199,7 +8199,7 @@ class BinaryDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  location: pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -8211,7 +8211,7 @@ class BinaryDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']] location: The location of the Binary storage.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the binary dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -8275,14 +8275,14 @@ class BinaryDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8363,7 +8363,7 @@ class CassandraLinkedServiceArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -8376,7 +8376,7 @@ class CassandraLinkedServiceArgs:
         Linked service for Cassandra data source.
         :param pulumi.Input[Mapping[str, Any]] host: Host name for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] authentication_type: AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -8433,14 +8433,14 @@ class CassandraLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8545,7 +8545,7 @@ class CassandraTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  keyspace: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -8557,7 +8557,7 @@ class CassandraTableDatasetArgs:
         The Cassandra database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, Any]] keyspace: The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
@@ -8611,14 +8611,14 @@ class CassandraTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8709,19 +8709,19 @@ class CassandraTableDatasetArgs:
 @pulumi.input_type
 class ChainingTriggerArgs:
     def __init__(__self__, *,
-                 depends_on: pulumi.Input[List[pulumi.Input['PipelineReferenceArgs']]],
+                 depends_on: pulumi.Input[Sequence[pulumi.Input['PipelineReferenceArgs']]],
                  pipeline: pulumi.Input['TriggerPipelineReferenceArgs'],
                  run_dimension: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         Trigger that allows the referenced pipeline to depend on other pipeline runs based on runDimension Name/Value pairs. Upstream pipelines should declare the same runDimension Name and their runs should have the values for those runDimensions. The referenced pipeline run would be triggered if the values for the runDimension match for all upstream pipeline runs.
-        :param pulumi.Input[List[pulumi.Input['PipelineReferenceArgs']]] depends_on: Upstream Pipelines.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineReferenceArgs']]] depends_on: Upstream Pipelines.
         :param pulumi.Input['TriggerPipelineReferenceArgs'] pipeline: Pipeline for which runs are created when all upstream pipelines complete successfully.
         :param pulumi.Input[str] run_dimension: Run Dimension property that needs to be emitted by upstream pipelines.
         :param pulumi.Input[str] type: Trigger type.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the trigger.
         :param pulumi.Input[str] description: Trigger description.
         """
         pulumi.set(__self__, "depends_on", depends_on)
@@ -8735,14 +8735,14 @@ class ChainingTriggerArgs:
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> pulumi.Input[List[pulumi.Input['PipelineReferenceArgs']]]:
+    def depends_on(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineReferenceArgs']]]:
         """
         Upstream Pipelines.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: pulumi.Input[List[pulumi.Input['PipelineReferenceArgs']]]):
+    def depends_on(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineReferenceArgs']]]):
         pulumi.set(self, "depends_on", value)
 
     @property
@@ -8783,14 +8783,14 @@ class ChainingTriggerArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the trigger.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8879,7 +8879,7 @@ class CommonDataServiceForAppsEntityDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entity_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -8890,7 +8890,7 @@ class CommonDataServiceForAppsEntityDatasetArgs:
         The Common Data Service for Apps entity dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -8941,14 +8941,14 @@ class CommonDataServiceForAppsEntityDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -9030,7 +9030,7 @@ class CommonDataServiceForAppsLinkedServiceArgs:
                  authentication_type: pulumi.Input[str],
                  deployment_type: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -9049,7 +9049,7 @@ class CommonDataServiceForAppsLinkedServiceArgs:
         :param pulumi.Input[str] authentication_type: The authentication type to connect to Common Data Service for Apps server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] deployment_type: The deployment type of the Common Data Service for Apps instance. 'Online' for Common Data Service for Apps Online and 'OnPremisesWithIfd' for Common Data Service for Apps on-premises with Ifd. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -9134,14 +9134,14 @@ class CommonDataServiceForAppsLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -9361,7 +9361,7 @@ class ConcurLinkedServiceArgs:
                  client_id: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  username: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -9375,7 +9375,7 @@ class ConcurLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] client_id: Application client_id supplied by Concur App Management.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] username: The user name that you use to access Concur Service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -9445,14 +9445,14 @@ class ConcurLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -9557,7 +9557,7 @@ class ConcurObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -9568,7 +9568,7 @@ class ConcurObjectDatasetArgs:
         Concur Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -9619,14 +9619,14 @@ class ConcurObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -9707,16 +9707,16 @@ class ControlActivityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 depends_on: Optional[pulumi.Input[List[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 user_properties: Optional[pulumi.Input[List[pulumi.Input['UserPropertyArgs']]]] = None):
+                 user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
         """
         Base class for all control activities like IfCondition, ForEach , Until.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-        :param pulumi.Input[List[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
-        :param pulumi.Input[List[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
+        :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Container')
@@ -9753,14 +9753,14 @@ class ControlActivityArgs:
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[List[pulumi.Input['ActivityDependencyArgs']]]]:
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
         """
         Activity depends on condition.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[List[pulumi.Input['ActivityDependencyArgs']]]]):
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
         pulumi.set(self, "depends_on", value)
 
     @property
@@ -9777,14 +9777,14 @@ class ControlActivityArgs:
 
     @property
     @pulumi.getter(name="userProperties")
-    def user_properties(self) -> Optional[pulumi.Input[List[pulumi.Input['UserPropertyArgs']]]]:
+    def user_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]:
         """
         Activity user properties.
         """
         return pulumi.get(self, "user_properties")
 
     @user_properties.setter
-    def user_properties(self, value: Optional[pulumi.Input[List[pulumi.Input['UserPropertyArgs']]]]):
+    def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]):
         pulumi.set(self, "user_properties", value)
 
 
@@ -9794,7 +9794,7 @@ class CosmosDbLinkedServiceArgs:
                  type: pulumi.Input[str],
                  account_endpoint: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  account_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  database: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -9806,7 +9806,7 @@ class CosmosDbLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] account_endpoint: The endpoint of the Azure CosmosDB account. Type: string (or Expression with resultType string)
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] account_key: The account key of the Azure CosmosDB account. Type: SecureString or AzureKeyVaultSecretReference.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[Mapping[str, Any]] database: The name of the database. Type: string (or Expression with resultType string)
@@ -9872,14 +9872,14 @@ class CosmosDbLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -9961,7 +9961,7 @@ class CosmosDbMongoDbApiCollectionDatasetArgs:
                  collection: pulumi.Input[Mapping[str, Any]],
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -9972,7 +9972,7 @@ class CosmosDbMongoDbApiCollectionDatasetArgs:
         :param pulumi.Input[Mapping[str, Any]] collection: The collection name of the CosmosDB (MongoDB API) database. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -10033,14 +10033,14 @@ class CosmosDbMongoDbApiCollectionDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10110,7 +10110,7 @@ class CosmosDbMongoDbApiLinkedServiceArgs:
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  database: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
@@ -10119,7 +10119,7 @@ class CosmosDbMongoDbApiLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] connection_string: The CosmosDB (MongoDB API) connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[Mapping[str, Any]] database: The name of the CosmosDB (MongoDB API) database that you want to access. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -10174,14 +10174,14 @@ class CosmosDbMongoDbApiLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10227,7 +10227,7 @@ class CosmosDbSqlApiCollectionDatasetArgs:
                  collection_name: pulumi.Input[Mapping[str, Any]],
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -10238,7 +10238,7 @@ class CosmosDbSqlApiCollectionDatasetArgs:
         :param pulumi.Input[Mapping[str, Any]] collection_name: CosmosDB (SQL API) collection name. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -10299,14 +10299,14 @@ class CosmosDbSqlApiCollectionDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10374,7 +10374,7 @@ class CosmosDbSqlApiCollectionDatasetArgs:
 class CouchbaseLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  cred_string: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
@@ -10384,7 +10384,7 @@ class CouchbaseLinkedServiceArgs:
         """
         Couchbase server linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] cred_string: The Azure key vault secret reference of credString in connection string.
@@ -10422,14 +10422,14 @@ class CouchbaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10510,7 +10510,7 @@ class CouchbaseTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -10521,7 +10521,7 @@ class CouchbaseTableDatasetArgs:
         Couchbase server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -10572,14 +10572,14 @@ class CouchbaseTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10659,14 +10659,14 @@ class CouchbaseTableDatasetArgs:
 class CustomDataSourceLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Custom linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -10695,14 +10695,14 @@ class CustomDataSourceLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10747,7 +10747,7 @@ class CustomDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -10757,7 +10757,7 @@ class CustomDatasetArgs:
         The custom dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -10805,14 +10805,14 @@ class CustomDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -11358,7 +11358,7 @@ class DatasetZipDeflateCompressionArgs:
 class Db2LinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  certificate_common_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -11374,7 +11374,7 @@ class Db2LinkedServiceArgs:
         """
         Linked service for DB2 data source.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[str] authentication_type: AuthenticationType to be used for connection. It is mutually exclusive with connectionString property.
         :param pulumi.Input[Mapping[str, Any]] certificate_common_name: Certificate Common Name when TLS is enabled. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -11430,14 +11430,14 @@ class Db2LinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -11590,7 +11590,7 @@ class Db2TableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -11602,7 +11602,7 @@ class Db2TableDatasetArgs:
         The Db2 table dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -11656,14 +11656,14 @@ class Db2TableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -11757,7 +11757,7 @@ class DelimitedTextDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  location: pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  column_delimiter: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  compression_codec: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  compression_level: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -11777,7 +11777,7 @@ class DelimitedTextDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']] location: The location of the delimited text storage.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Mapping[str, Any]] column_delimiter: The column delimiter. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] compression_level: The data compression method used for DelimitedText.
         :param pulumi.Input[str] description: Dataset description.
@@ -11864,14 +11864,14 @@ class DelimitedTextDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12046,7 +12046,7 @@ class DocumentDbCollectionDatasetArgs:
                  collection_name: pulumi.Input[Mapping[str, Any]],
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -12057,7 +12057,7 @@ class DocumentDbCollectionDatasetArgs:
         :param pulumi.Input[Mapping[str, Any]] collection_name: Document Database collection name. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -12118,14 +12118,14 @@ class DocumentDbCollectionDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12193,7 +12193,7 @@ class DocumentDbCollectionDatasetArgs:
 class DrillLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -12203,7 +12203,7 @@ class DrillLinkedServiceArgs:
         """
         Drill server linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
@@ -12241,14 +12241,14 @@ class DrillLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12329,7 +12329,7 @@ class DrillTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -12341,7 +12341,7 @@ class DrillTableDatasetArgs:
         Drill server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -12395,14 +12395,14 @@ class DrillTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12499,7 +12499,7 @@ class DynamicsAXLinkedServiceArgs:
                  tenant: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  url: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -12512,7 +12512,7 @@ class DynamicsAXLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] tenant: Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] url: The Dynamics AX (or Dynamics 365 Finance and Operations) instance OData endpoint.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -12609,14 +12609,14 @@ class DynamicsAXLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12674,7 +12674,7 @@ class DynamicsAXResourceDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  path: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -12685,7 +12685,7 @@ class DynamicsAXResourceDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Mapping[str, Any]] path: The path of the Dynamics AX OData entity. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -12746,14 +12746,14 @@ class DynamicsAXResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12822,7 +12822,7 @@ class DynamicsCrmEntityDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entity_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -12833,7 +12833,7 @@ class DynamicsCrmEntityDatasetArgs:
         The Dynamics CRM entity dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -12884,14 +12884,14 @@ class DynamicsCrmEntityDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12973,7 +12973,7 @@ class DynamicsCrmLinkedServiceArgs:
                  authentication_type: pulumi.Input[str],
                  deployment_type: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -12992,7 +12992,7 @@ class DynamicsCrmLinkedServiceArgs:
         :param pulumi.Input[str] authentication_type: The authentication type to connect to Dynamics CRM server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] deployment_type: The deployment type of the Dynamics CRM instance. 'Online' for Dynamics CRM Online and 'OnPremisesWithIfd' for Dynamics CRM on-premises with Ifd. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -13077,14 +13077,14 @@ class DynamicsCrmLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -13249,7 +13249,7 @@ class DynamicsEntityDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entity_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -13260,7 +13260,7 @@ class DynamicsEntityDatasetArgs:
         The Dynamics entity dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -13311,14 +13311,14 @@ class DynamicsEntityDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -13400,7 +13400,7 @@ class DynamicsLinkedServiceArgs:
                  authentication_type: pulumi.Input[Mapping[str, Any]],
                  deployment_type: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -13419,7 +13419,7 @@ class DynamicsLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -13504,14 +13504,14 @@ class DynamicsLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -13677,7 +13677,7 @@ class EloquaLinkedServiceArgs:
                  endpoint: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  username: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -13691,7 +13691,7 @@ class EloquaLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the Eloqua server. (i.e. eloqua.example.com)
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] username: The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -13761,14 +13761,14 @@ class EloquaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -13873,7 +13873,7 @@ class EloquaObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -13884,7 +13884,7 @@ class EloquaObjectDatasetArgs:
         Eloqua server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -13935,14 +13935,14 @@ class EloquaObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -14118,7 +14118,7 @@ class ExcelDatasetArgs:
                  location: pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']],
                  sheet_name: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  first_row_as_header: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -14134,7 +14134,7 @@ class ExcelDatasetArgs:
         :param pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']] location: The location of the excel storage.
         :param pulumi.Input[Mapping[str, Any]] sheet_name: The sheet of excel file. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the json dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
@@ -14220,14 +14220,14 @@ class ExcelDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -14344,20 +14344,20 @@ class ExecutionActivityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 depends_on: Optional[pulumi.Input[List[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
-                 user_properties: Optional[pulumi.Input[List[pulumi.Input['UserPropertyArgs']]]] = None):
+                 user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
         """
         Base class for all execution activities.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-        :param pulumi.Input[List[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
-        :param pulumi.Input[List[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
+        :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
@@ -14398,14 +14398,14 @@ class ExecutionActivityArgs:
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[List[pulumi.Input['ActivityDependencyArgs']]]]:
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
         """
         Activity depends on condition.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[List[pulumi.Input['ActivityDependencyArgs']]]]):
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
         pulumi.set(self, "depends_on", value)
 
     @property
@@ -14446,14 +14446,14 @@ class ExecutionActivityArgs:
 
     @property
     @pulumi.getter(name="userProperties")
-    def user_properties(self) -> Optional[pulumi.Input[List[pulumi.Input['UserPropertyArgs']]]]:
+    def user_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]:
         """
         Activity user properties.
         """
         return pulumi.get(self, "user_properties")
 
     @user_properties.setter
-    def user_properties(self, value: Optional[pulumi.Input[List[pulumi.Input['UserPropertyArgs']]]]):
+    def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]):
         pulumi.set(self, "user_properties", value)
 
 
@@ -14730,7 +14730,7 @@ class FileServerLinkedServiceArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -14741,7 +14741,7 @@ class FileServerLinkedServiceArgs:
         File system linked service.
         :param pulumi.Input[Mapping[str, Any]] host: Host name of the server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -14792,14 +14792,14 @@ class FileServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -14935,7 +14935,7 @@ class FileShareDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  file_filter: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -14952,7 +14952,7 @@ class FileShareDatasetArgs:
         An on-premises file system dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the file system.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
@@ -15021,14 +15021,14 @@ class FileShareDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -15181,7 +15181,7 @@ class FtpServerLinkedServiceArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -15196,7 +15196,7 @@ class FtpServerLinkedServiceArgs:
         A FTP server Linked Service.
         :param pulumi.Input[Mapping[str, Any]] host: Host name of the FTP server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the FTP server.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -15259,14 +15259,14 @@ class FtpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -15490,7 +15490,7 @@ class GoogleAdWordsLinkedServiceArgs:
                  client_customer_id: pulumi.Input[Mapping[str, Any]],
                  developer_token: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -15508,7 +15508,7 @@ class GoogleAdWordsLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] client_customer_id: The Client customer ID of the AdWords account that you want to fetch report data for.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] developer_token: The developer token associated with the manager account that you use to grant access to the AdWords API.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret of the google application used to acquire the refresh token.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -15600,14 +15600,14 @@ class GoogleAdWordsLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -15748,7 +15748,7 @@ class GoogleAdWordsObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -15759,7 +15759,7 @@ class GoogleAdWordsObjectDatasetArgs:
         Google AdWords service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -15810,14 +15810,14 @@ class GoogleAdWordsObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -15900,7 +15900,7 @@ class GoogleBigQueryLinkedServiceArgs:
                  project: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  additional_projects: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -15919,7 +15919,7 @@ class GoogleBigQueryLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] project: The default BigQuery project to query against.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] additional_projects: A comma-separated list of public BigQuery projects to access.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret of the google application used to acquire the refresh token.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -16015,14 +16015,14 @@ class GoogleBigQueryLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16175,7 +16175,7 @@ class GoogleBigQueryObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  dataset: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -16188,7 +16188,7 @@ class GoogleBigQueryObjectDatasetArgs:
         Google BigQuery service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Mapping[str, Any]] dataset: The database name of the Google BigQuery. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -16245,14 +16245,14 @@ class GoogleBigQueryObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16357,7 +16357,7 @@ class GoogleCloudStorageLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  access_key_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -16368,7 +16368,7 @@ class GoogleCloudStorageLinkedServiceArgs:
         Linked service for Google Cloud Storage.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] access_key_id: The access key identifier of the Google Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -16420,14 +16420,14 @@ class GoogleCloudStorageLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16594,7 +16594,7 @@ class GoogleCloudStorageLocationArgs:
 class GreenplumLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -16604,7 +16604,7 @@ class GreenplumLinkedServiceArgs:
         """
         Greenplum Database linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
@@ -16642,14 +16642,14 @@ class GreenplumLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16730,7 +16730,7 @@ class GreenplumTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -16742,7 +16742,7 @@ class GreenplumTableDatasetArgs:
         Greenplum Database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -16796,14 +16796,14 @@ class GreenplumTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16899,7 +16899,7 @@ class HBaseLinkedServiceArgs:
                  type: pulumi.Input[str],
                  allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -16917,7 +16917,7 @@ class HBaseLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -17021,14 +17021,14 @@ class HBaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -17157,7 +17157,7 @@ class HBaseObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -17168,7 +17168,7 @@ class HBaseObjectDatasetArgs:
         HBase server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -17219,14 +17219,14 @@ class HBaseObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -17307,7 +17307,7 @@ class HDInsightLinkedServiceArgs:
     def __init__(__self__, *,
                  cluster_uri: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -17322,7 +17322,7 @@ class HDInsightLinkedServiceArgs:
         HDInsight linked service.
         :param pulumi.Input[Mapping[str, Any]] cluster_uri: HDInsight cluster URI. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -17385,14 +17385,14 @@ class HDInsightLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -17527,8 +17527,8 @@ class HDInsightOnDemandLinkedServiceArgs:
                  time_to_live: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  version: pulumi.Input[Mapping[str, Any]],
-                 additional_linked_service_names: Optional[pulumi.Input[List[pulumi.Input['LinkedServiceReferenceArgs']]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 additional_linked_service_names: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  cluster_name_prefix: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  cluster_password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  cluster_ssh_password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
@@ -17548,7 +17548,7 @@ class HDInsightOnDemandLinkedServiceArgs:
                  map_reduce_configuration: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  oozie_configuration: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 script_actions: Optional[pulumi.Input[List[pulumi.Input['ScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]]] = None,
                  service_principal_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  spark_version: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -17567,8 +17567,8 @@ class HDInsightOnDemandLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] time_to_live: The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] version: Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input['LinkedServiceReferenceArgs']]] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] cluster_password: The password to access the cluster.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
@@ -17588,7 +17588,7 @@ class HDInsightOnDemandLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] map_reduce_configuration: Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
         :param pulumi.Input[Mapping[str, Any]] oozie_configuration: Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[List[pulumi.Input['ScriptActionArgs']]] script_actions: Custom script actions to run on HDI ondemand cluster once it's up. Please refer to https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fr-server%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json#understanding-script-actions.
+        :param pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]] script_actions: Custom script actions to run on HDI ondemand cluster once it's up. Please refer to https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fr-server%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json#understanding-script-actions.
         :param pulumi.Input[Mapping[str, Any]] service_principal_id: The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key for the service principal id.
         :param pulumi.Input[Mapping[str, Any]] spark_version: The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
@@ -17765,26 +17765,26 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="additionalLinkedServiceNames")
-    def additional_linked_service_names(self) -> Optional[pulumi.Input[List[pulumi.Input['LinkedServiceReferenceArgs']]]]:
+    def additional_linked_service_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
         """
         Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
         """
         return pulumi.get(self, "additional_linked_service_names")
 
     @additional_linked_service_names.setter
-    def additional_linked_service_names(self, value: Optional[pulumi.Input[List[pulumi.Input['LinkedServiceReferenceArgs']]]]):
+    def additional_linked_service_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
         pulumi.set(self, "additional_linked_service_names", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -18017,14 +18017,14 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['ScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]]]:
         """
         Custom script actions to run on HDI ondemand cluster once it's up. Please refer to https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fr-server%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json#understanding-script-actions.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['ScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -18129,7 +18129,7 @@ class HdfsLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  url: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -18141,7 +18141,7 @@ class HdfsLinkedServiceArgs:
         Hadoop Distributed File System (HDFS) linked service.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] url: The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] authentication_type: Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -18195,14 +18195,14 @@ class HdfsLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -18353,7 +18353,7 @@ class HiveLinkedServiceArgs:
                  type: pulumi.Input[str],
                  allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -18377,7 +18377,7 @@ class HiveLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -18499,14 +18499,14 @@ class HiveLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -18707,7 +18707,7 @@ class HiveObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -18719,7 +18719,7 @@ class HiveObjectDatasetArgs:
         Hive Server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -18773,14 +18773,14 @@ class HiveObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -18874,7 +18874,7 @@ class HttpDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
                  additional_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -18892,7 +18892,7 @@ class HttpDatasetArgs:
         :param pulumi.Input[Mapping[str, Any]] additional_headers: The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
                ...
                request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used on files.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -18971,14 +18971,14 @@ class HttpDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -19107,7 +19107,7 @@ class HttpLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  url: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  cert_thumbprint: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -19122,7 +19122,7 @@ class HttpLinkedServiceArgs:
         Linked service for an HTTP source.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] url: The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the HTTP server.
         :param pulumi.Input[Mapping[str, Any]] cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -19185,14 +19185,14 @@ class HttpLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -19393,7 +19393,7 @@ class HubspotLinkedServiceArgs:
                  client_id: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -19408,7 +19408,7 @@ class HubspotLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] client_id: The client ID associated with your Hubspot application.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: The access token obtained when initially authenticating your OAuth integration.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret associated with your Hubspot application.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -19482,14 +19482,14 @@ class HubspotLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -19606,7 +19606,7 @@ class HubspotObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -19617,7 +19617,7 @@ class HubspotObjectDatasetArgs:
         Hubspot Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -19668,14 +19668,14 @@ class HubspotObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -19759,7 +19759,7 @@ class ImpalaLinkedServiceArgs:
                  type: pulumi.Input[str],
                  allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -19777,7 +19777,7 @@ class ImpalaLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -19881,14 +19881,14 @@ class ImpalaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -20017,7 +20017,7 @@ class ImpalaObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -20029,7 +20029,7 @@ class ImpalaObjectDatasetArgs:
         Impala server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -20083,14 +20083,14 @@ class ImpalaObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -20183,7 +20183,7 @@ class InformixLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
@@ -20196,7 +20196,7 @@ class InformixLinkedServiceArgs:
         Informix linked service.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] authentication_type: Type of authentication used to connect to the Informix as ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] credential: The access credential portion of the connection string specified in driver-specific property-value format.
@@ -20253,14 +20253,14 @@ class InformixLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -20365,7 +20365,7 @@ class InformixTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -20376,7 +20376,7 @@ class InformixTableDatasetArgs:
         The Informix table dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -20427,14 +20427,14 @@ class InformixTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -20515,17 +20515,17 @@ class IntegrationRuntimeComputePropertiesArgs:
     def __init__(__self__, *,
                  data_flow_properties: Optional[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_parallel_executions_per_node: Optional[pulumi.Input[float]] = None,
+                 max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[float]] = None,
+                 number_of_nodes: Optional[pulumi.Input[int]] = None,
                  v_net_properties: Optional[pulumi.Input['IntegrationRuntimeVNetPropertiesArgs']] = None):
         """
         The compute resource properties for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs'] data_flow_properties: Data flow properties for managed integration runtime.
         :param pulumi.Input[str] location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
-        :param pulumi.Input[float] max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
+        :param pulumi.Input[int] max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
         :param pulumi.Input[str] node_size: The node size requirement to managed integration runtime.
-        :param pulumi.Input[float] number_of_nodes: The required number of nodes for managed integration runtime.
+        :param pulumi.Input[int] number_of_nodes: The required number of nodes for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeVNetPropertiesArgs'] v_net_properties: VNet properties for managed integration runtime.
         """
         if data_flow_properties is not None:
@@ -20567,14 +20567,14 @@ class IntegrationRuntimeComputePropertiesArgs:
 
     @property
     @pulumi.getter(name="maxParallelExecutionsPerNode")
-    def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[float]]:
+    def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum parallel executions count per node for managed integration runtime.
         """
         return pulumi.get(self, "max_parallel_executions_per_node")
 
     @max_parallel_executions_per_node.setter
-    def max_parallel_executions_per_node(self, value: Optional[pulumi.Input[float]]):
+    def max_parallel_executions_per_node(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_parallel_executions_per_node", value)
 
     @property
@@ -20591,14 +20591,14 @@ class IntegrationRuntimeComputePropertiesArgs:
 
     @property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> Optional[pulumi.Input[float]]:
+    def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
         """
         The required number of nodes for managed integration runtime.
         """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
-    def number_of_nodes(self, value: Optional[pulumi.Input[float]]):
+    def number_of_nodes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_nodes", value)
 
     @property
@@ -20658,13 +20658,13 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
 class IntegrationRuntimeDataFlowPropertiesArgs:
     def __init__(__self__, *,
                  compute_type: Optional[pulumi.Input[str]] = None,
-                 core_count: Optional[pulumi.Input[float]] = None,
-                 time_to_live: Optional[pulumi.Input[float]] = None):
+                 core_count: Optional[pulumi.Input[int]] = None,
+                 time_to_live: Optional[pulumi.Input[int]] = None):
         """
         Data flow properties for managed integration runtime.
         :param pulumi.Input[str] compute_type: Compute type of the cluster which will execute data flow job.
-        :param pulumi.Input[float] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
-        :param pulumi.Input[float] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
+        :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
@@ -20687,26 +20687,26 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
 
     @property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[pulumi.Input[float]]:
+    def core_count(self) -> Optional[pulumi.Input[int]]:
         """
         Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         """
         return pulumi.get(self, "core_count")
 
     @core_count.setter
-    def core_count(self, value: Optional[pulumi.Input[float]]):
+    def core_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "core_count", value)
 
     @property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Optional[pulumi.Input[float]]:
+    def time_to_live(self) -> Optional[pulumi.Input[int]]:
         """
         Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         return pulumi.get(self, "time_to_live")
 
     @time_to_live.setter
-    def time_to_live(self, value: Optional[pulumi.Input[float]]):
+    def time_to_live(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "time_to_live", value)
 
 
@@ -20899,18 +20899,18 @@ class IntegrationRuntimeSsisPropertiesArgs:
                  custom_setup_script_properties: Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']] = None,
                  data_proxy_properties: Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']] = None,
                  edition: Optional[pulumi.Input[str]] = None,
-                 express_custom_setup_properties: Optional[pulumi.Input[List[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
+                 express_custom_setup_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
-                 package_stores: Optional[pulumi.Input[List[pulumi.Input['PackageStoreArgs']]]] = None):
+                 package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['PackageStoreArgs']]]] = None):
         """
         SSIS properties for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: Catalog information for managed dedicated integration runtime.
         :param pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs'] custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
         :param pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs'] data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
         :param pulumi.Input[str] edition: The edition for the SSIS Integration Runtime
-        :param pulumi.Input[List[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param pulumi.Input[str] license_type: License type for bringing your own license scenario.
-        :param pulumi.Input[List[pulumi.Input['PackageStoreArgs']]] package_stores: Package stores for the SSIS Integration Runtime.
+        :param pulumi.Input[Sequence[pulumi.Input['PackageStoreArgs']]] package_stores: Package stores for the SSIS Integration Runtime.
         """
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
@@ -20977,14 +20977,14 @@ class IntegrationRuntimeSsisPropertiesArgs:
 
     @property
     @pulumi.getter(name="expressCustomSetupProperties")
-    def express_custom_setup_properties(self) -> Optional[pulumi.Input[List[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]:
+    def express_custom_setup_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]:
         """
         Custom setup without script properties for a SSIS integration runtime.
         """
         return pulumi.get(self, "express_custom_setup_properties")
 
     @express_custom_setup_properties.setter
-    def express_custom_setup_properties(self, value: Optional[pulumi.Input[List[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]):
+    def express_custom_setup_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]):
         pulumi.set(self, "express_custom_setup_properties", value)
 
     @property
@@ -21001,26 +21001,26 @@ class IntegrationRuntimeSsisPropertiesArgs:
 
     @property
     @pulumi.getter(name="packageStores")
-    def package_stores(self) -> Optional[pulumi.Input[List[pulumi.Input['PackageStoreArgs']]]]:
+    def package_stores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PackageStoreArgs']]]]:
         """
         Package stores for the SSIS Integration Runtime.
         """
         return pulumi.get(self, "package_stores")
 
     @package_stores.setter
-    def package_stores(self, value: Optional[pulumi.Input[List[pulumi.Input['PackageStoreArgs']]]]):
+    def package_stores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PackageStoreArgs']]]]):
         pulumi.set(self, "package_stores", value)
 
 
 @pulumi.input_type
 class IntegrationRuntimeVNetPropertiesArgs:
     def __init__(__self__, *,
-                 public_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
                  v_net_id: Optional[pulumi.Input[str]] = None):
         """
         VNet properties for managed integration runtime.
-        :param pulumi.Input[List[pulumi.Input[str]]] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
         :param pulumi.Input[str] subnet: The name of the subnet this integration runtime will join.
         :param pulumi.Input[str] v_net_id: The ID of the VNet that this integration runtime will join.
         """
@@ -21033,14 +21033,14 @@ class IntegrationRuntimeVNetPropertiesArgs:
 
     @property
     @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Resource IDs of the public IP addresses that this integration runtime will use.
         """
         return pulumi.get(self, "public_ips")
 
     @public_ips.setter
-    def public_ips(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "public_ips", value)
 
     @property
@@ -21074,7 +21074,7 @@ class JiraLinkedServiceArgs:
                  host: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  username: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -21089,7 +21089,7 @@ class JiraLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] host: The IP address or host name of the Jira service. (e.g. jira.example.com)
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] username: The user name that you use to access Jira Service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -21162,14 +21162,14 @@ class JiraLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -21286,7 +21286,7 @@ class JiraObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -21297,7 +21297,7 @@ class JiraObjectDatasetArgs:
         Jira Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -21348,14 +21348,14 @@ class JiraObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -21437,7 +21437,7 @@ class JsonDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  location: pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encoding_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -21450,7 +21450,7 @@ class JsonDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']] location: The location of the json data storage.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the json dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
@@ -21517,14 +21517,14 @@ class JsonDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -21883,7 +21883,7 @@ class MagentoLinkedServiceArgs:
                  host: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -21896,7 +21896,7 @@ class MagentoLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: The access token from Magento.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -21964,14 +21964,14 @@ class MagentoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -22064,7 +22064,7 @@ class MagentoObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -22075,7 +22075,7 @@ class MagentoObjectDatasetArgs:
         Magento server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -22126,14 +22126,14 @@ class MagentoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -22283,12 +22283,12 @@ class ManagedIntegrationRuntimeArgs:
 @pulumi.input_type
 class ManagedPrivateEndpointArgs:
     def __init__(__self__, *,
-                 fqdns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  private_link_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Properties of a managed private endpoint
-        :param pulumi.Input[List[pulumi.Input[str]]] fqdns: Fully qualified domain names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: Fully qualified domain names
         :param pulumi.Input[str] group_id: The groupId to which the managed private endpoint is created
         :param pulumi.Input[str] private_link_resource_id: The ARM resource ID of the resource to which the managed private endpoint is created
         """
@@ -22301,14 +22301,14 @@ class ManagedPrivateEndpointArgs:
 
     @property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Fully qualified domain names
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @property
@@ -22339,23 +22339,23 @@ class ManagedPrivateEndpointArgs:
 @pulumi.input_type
 class MappingDataFlowArgs:
     def __init__(__self__, *,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DataFlowFolderArgs']] = None,
                  script: Optional[pulumi.Input[str]] = None,
-                 sinks: Optional[pulumi.Input[List[pulumi.Input['DataFlowSinkArgs']]]] = None,
-                 sources: Optional[pulumi.Input[List[pulumi.Input['DataFlowSourceArgs']]]] = None,
-                 transformations: Optional[pulumi.Input[List[pulumi.Input['TransformationArgs']]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]] = None,
+                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Mapping data flow.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the data flow.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the data flow.
         :param pulumi.Input[str] description: The description of the data flow.
         :param pulumi.Input['DataFlowFolderArgs'] folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param pulumi.Input[str] script: DataFlow script.
-        :param pulumi.Input[List[pulumi.Input['DataFlowSinkArgs']]] sinks: List of sinks in data flow.
-        :param pulumi.Input[List[pulumi.Input['DataFlowSourceArgs']]] sources: List of sources in data flow.
-        :param pulumi.Input[List[pulumi.Input['TransformationArgs']]] transformations: List of transformations in data flow.
+        :param pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]] sinks: List of sinks in data flow.
+        :param pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]] sources: List of sources in data flow.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]] transformations: List of transformations in data flow.
         :param pulumi.Input[str] type: Type of data flow.
         """
         if annotations is not None:
@@ -22377,14 +22377,14 @@ class MappingDataFlowArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the data flow.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -22425,38 +22425,38 @@ class MappingDataFlowArgs:
 
     @property
     @pulumi.getter
-    def sinks(self) -> Optional[pulumi.Input[List[pulumi.Input['DataFlowSinkArgs']]]]:
+    def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]]:
         """
         List of sinks in data flow.
         """
         return pulumi.get(self, "sinks")
 
     @sinks.setter
-    def sinks(self, value: Optional[pulumi.Input[List[pulumi.Input['DataFlowSinkArgs']]]]):
+    def sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]]):
         pulumi.set(self, "sinks", value)
 
     @property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[List[pulumi.Input['DataFlowSourceArgs']]]]:
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]]:
         """
         List of sources in data flow.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[List[pulumi.Input['DataFlowSourceArgs']]]]):
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @property
     @pulumi.getter
-    def transformations(self) -> Optional[pulumi.Input[List[pulumi.Input['TransformationArgs']]]]:
+    def transformations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]]:
         """
         List of transformations in data flow.
         """
         return pulumi.get(self, "transformations")
 
     @transformations.setter
-    def transformations(self, value: Optional[pulumi.Input[List[pulumi.Input['TransformationArgs']]]]):
+    def transformations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]]):
         pulumi.set(self, "transformations", value)
 
     @property
@@ -22476,7 +22476,7 @@ class MappingDataFlowArgs:
 class MariaDBLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -22486,7 +22486,7 @@ class MariaDBLinkedServiceArgs:
         """
         MariaDB server linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
@@ -22524,14 +22524,14 @@ class MariaDBLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -22612,7 +22612,7 @@ class MariaDBTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -22623,7 +22623,7 @@ class MariaDBTableDatasetArgs:
         MariaDB server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -22674,14 +22674,14 @@ class MariaDBTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -22763,7 +22763,7 @@ class MarketoLinkedServiceArgs:
                  client_id: pulumi.Input[Mapping[str, Any]],
                  endpoint: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -22777,7 +22777,7 @@ class MarketoLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] client_id: The client Id of your Marketo service.
         :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret of your Marketo service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -22847,14 +22847,14 @@ class MarketoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -22959,7 +22959,7 @@ class MarketoObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -22970,7 +22970,7 @@ class MarketoObjectDatasetArgs:
         Marketo server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -23021,14 +23021,14 @@ class MarketoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -23109,7 +23109,7 @@ class MicrosoftAccessLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
@@ -23122,7 +23122,7 @@ class MicrosoftAccessLinkedServiceArgs:
         Microsoft Access linked service.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] authentication_type: Type of authentication used to connect to the Microsoft Access as ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] credential: The access credential portion of the connection string specified in driver-specific property-value format.
@@ -23179,14 +23179,14 @@ class MicrosoftAccessLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -23291,7 +23291,7 @@ class MicrosoftAccessTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -23302,7 +23302,7 @@ class MicrosoftAccessTableDatasetArgs:
         The Microsoft Access table dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -23353,14 +23353,14 @@ class MicrosoftAccessTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -23442,7 +23442,7 @@ class MongoDbCollectionDatasetArgs:
                  collection_name: pulumi.Input[Mapping[str, Any]],
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -23453,7 +23453,7 @@ class MongoDbCollectionDatasetArgs:
         :param pulumi.Input[Mapping[str, Any]] collection_name: The table name of the MongoDB database. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -23514,14 +23514,14 @@ class MongoDbCollectionDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -23592,7 +23592,7 @@ class MongoDbLinkedServiceArgs:
                  server: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  auth_source: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -23609,7 +23609,7 @@ class MongoDbLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] server: The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] auth_source: Database to verify the username and password. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the MongoDB database.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -23699,14 +23699,14 @@ class MongoDbLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -23836,7 +23836,7 @@ class MongoDbV2CollectionDatasetArgs:
                  collection: pulumi.Input[Mapping[str, Any]],
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -23847,7 +23847,7 @@ class MongoDbV2CollectionDatasetArgs:
         :param pulumi.Input[Mapping[str, Any]] collection: The collection name of the MongoDB database. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -23908,14 +23908,14 @@ class MongoDbV2CollectionDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -23985,7 +23985,7 @@ class MongoDbV2LinkedServiceArgs:
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  database: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
@@ -23994,7 +23994,7 @@ class MongoDbV2LinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] connection_string: The MongoDB connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[Mapping[str, Any]] database: The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -24049,14 +24049,14 @@ class MongoDbV2LinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -24100,15 +24100,15 @@ class MongoDbV2LinkedServiceArgs:
 class MultiplePipelineTriggerArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 pipelines: Optional[pulumi.Input[List[pulumi.Input['TriggerPipelineReferenceArgs']]]] = None):
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]] = None):
         """
         Base class for all triggers that support one to many model for trigger to pipeline.
         :param pulumi.Input[str] type: Trigger type.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the trigger.
         :param pulumi.Input[str] description: Trigger description.
-        :param pulumi.Input[List[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
         if annotations is not None:
@@ -24132,14 +24132,14 @@ class MultiplePipelineTriggerArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the trigger.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -24156,14 +24156,14 @@ class MultiplePipelineTriggerArgs:
 
     @property
     @pulumi.getter
-    def pipelines(self) -> Optional[pulumi.Input[List[pulumi.Input['TriggerPipelineReferenceArgs']]]]:
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]:
         """
         Pipelines that need to be started.
         """
         return pulumi.get(self, "pipelines")
 
     @pipelines.setter
-    def pipelines(self, value: Optional[pulumi.Input[List[pulumi.Input['TriggerPipelineReferenceArgs']]]]):
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]):
         pulumi.set(self, "pipelines", value)
 
 
@@ -24172,7 +24172,7 @@ class MySqlLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -24182,7 +24182,7 @@ class MySqlLinkedServiceArgs:
         Linked service for MySQL data source.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -24230,14 +24230,14 @@ class MySqlLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -24306,7 +24306,7 @@ class MySqlTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -24317,7 +24317,7 @@ class MySqlTableDatasetArgs:
         The MySQL table dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -24368,14 +24368,14 @@ class MySqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -24455,7 +24455,7 @@ class MySqlTableDatasetArgs:
 class NetezzaLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -24465,7 +24465,7 @@ class NetezzaLinkedServiceArgs:
         """
         Netezza linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
@@ -24503,14 +24503,14 @@ class NetezzaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -24591,7 +24591,7 @@ class NetezzaTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -24603,7 +24603,7 @@ class NetezzaTableDatasetArgs:
         Netezza dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -24657,14 +24657,14 @@ class NetezzaTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -24759,7 +24759,7 @@ class ODataLinkedServiceArgs:
                  url: pulumi.Input[Mapping[str, Any]],
                  aad_resource_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  aad_service_principal_credential_type: Optional[pulumi.Input[str]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  azure_cloud_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -24779,7 +24779,7 @@ class ODataLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] url: The URL of the OData service endpoint. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] aad_resource_id: Specify the resource you are requesting authorization to use Directory. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] aad_service_principal_credential_type: Specify the credential type (key or cert) is used for service principal.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[str] authentication_type: Type of authentication used to connect to the OData service.
         :param pulumi.Input[Mapping[str, Any]] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -24879,14 +24879,14 @@ class ODataLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -25051,7 +25051,7 @@ class ODataResourceDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -25062,7 +25062,7 @@ class ODataResourceDatasetArgs:
         The Open Data Protocol (OData) resource dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -25113,14 +25113,14 @@ class ODataResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -25201,7 +25201,7 @@ class OdbcLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
@@ -25214,7 +25214,7 @@ class OdbcLinkedServiceArgs:
         Open Database Connectivity (ODBC) linked service.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] authentication_type: Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] credential: The access credential portion of the connection string specified in driver-specific property-value format.
@@ -25271,14 +25271,14 @@ class OdbcLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -25383,7 +25383,7 @@ class OdbcTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -25394,7 +25394,7 @@ class OdbcTableDatasetArgs:
         The ODBC table dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -25445,14 +25445,14 @@ class OdbcTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -25534,7 +25534,7 @@ class Office365DatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  table_name: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -25546,7 +25546,7 @@ class Office365DatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Mapping[str, Any]] table_name: Name of the dataset to extract from Office 365. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -25610,14 +25610,14 @@ class Office365DatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -25701,7 +25701,7 @@ class Office365LinkedServiceArgs:
                  service_principal_key: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  service_principal_tenant_id: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -25713,7 +25713,7 @@ class Office365LinkedServiceArgs:
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: Specify the application's key.
         :param pulumi.Input[Mapping[str, Any]] service_principal_tenant_id: Specify the tenant information under which your Azure AD web application resides. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -25797,14 +25797,14 @@ class Office365LinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -25861,7 +25861,7 @@ class OracleLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -25871,7 +25871,7 @@ class OracleLinkedServiceArgs:
         Oracle database.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -25919,14 +25919,14 @@ class OracleLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -25997,7 +25997,7 @@ class OracleServiceCloudLinkedServiceArgs:
                  password: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  type: pulumi.Input[str],
                  username: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -26011,7 +26011,7 @@ class OracleServiceCloudLinkedServiceArgs:
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name that you provided in the username key.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] username: The user name that you use to access Oracle Service Cloud server.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -26091,14 +26091,14 @@ class OracleServiceCloudLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -26191,7 +26191,7 @@ class OracleServiceCloudObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -26202,7 +26202,7 @@ class OracleServiceCloudObjectDatasetArgs:
         Oracle Service Cloud dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -26253,14 +26253,14 @@ class OracleServiceCloudObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -26341,7 +26341,7 @@ class OracleTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -26353,7 +26353,7 @@ class OracleTableDatasetArgs:
         The on-premises Oracle database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -26407,14 +26407,14 @@ class OracleTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -26508,7 +26508,7 @@ class OrcDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  location: pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  orc_compression_codec: Optional[pulumi.Input[str]] = None,
@@ -26520,7 +26520,7 @@ class OrcDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']] location: The location of the ORC data storage.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -26583,14 +26583,14 @@ class OrcDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -26801,7 +26801,7 @@ class ParquetDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  location: pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression_codec: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -26813,7 +26813,7 @@ class ParquetDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']] location: The location of the parquet storage.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -26876,14 +26876,14 @@ class ParquetDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -27017,7 +27017,7 @@ class PaypalLinkedServiceArgs:
                  client_id: pulumi.Input[Mapping[str, Any]],
                  host: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -27031,7 +27031,7 @@ class PaypalLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] client_id: The client ID associated with your PayPal application.
         :param pulumi.Input[Mapping[str, Any]] host: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret associated with your PayPal application.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -27101,14 +27101,14 @@ class PaypalLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -27213,7 +27213,7 @@ class PaypalObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -27224,7 +27224,7 @@ class PaypalObjectDatasetArgs:
         Paypal Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -27275,14 +27275,14 @@ class PaypalObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -27366,7 +27366,7 @@ class PhoenixLinkedServiceArgs:
                  type: pulumi.Input[str],
                  allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -27385,7 +27385,7 @@ class PhoenixLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -27492,14 +27492,14 @@ class PhoenixLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -27640,7 +27640,7 @@ class PhoenixObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -27652,7 +27652,7 @@ class PhoenixObjectDatasetArgs:
         Phoenix server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -27706,14 +27706,14 @@ class PhoenixObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -27884,7 +27884,7 @@ class PostgreSqlLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -27894,7 +27894,7 @@ class PostgreSqlLinkedServiceArgs:
         Linked service for PostgreSQL data source.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -27942,14 +27942,14 @@ class PostgreSqlLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -28018,7 +28018,7 @@ class PostgreSqlTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -28030,7 +28030,7 @@ class PostgreSqlTableDatasetArgs:
         The PostgreSQL table dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -28084,14 +28084,14 @@ class PostgreSqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -28189,7 +28189,7 @@ class PrestoLinkedServiceArgs:
                  type: pulumi.Input[str],
                  allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -28210,7 +28210,7 @@ class PrestoLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -28343,14 +28343,14 @@ class PrestoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -28491,7 +28491,7 @@ class PrestoObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -28503,7 +28503,7 @@ class PrestoObjectDatasetArgs:
         Presto server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -28557,14 +28557,14 @@ class PrestoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -28658,7 +28658,7 @@ class QuickBooksLinkedServiceArgs:
                  type: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  access_token_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  company_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -28674,7 +28674,7 @@ class QuickBooksLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: The access token for OAuth 1.0 authentication.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token_secret: The access token secret for OAuth 1.0 authentication.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] company_id: The company ID of the QuickBooks company to authorize.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_properties: Properties used to connect to QuickBooks. It is mutually exclusive with any other properties in the linked service. Type: object.
@@ -28752,14 +28752,14 @@ class QuickBooksLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -28888,7 +28888,7 @@ class QuickBooksObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -28899,7 +28899,7 @@ class QuickBooksObjectDatasetArgs:
         QuickBooks server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -28950,14 +28950,14 @@ class QuickBooksObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -29038,7 +29038,7 @@ class RelationalTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -29049,7 +29049,7 @@ class RelationalTableDatasetArgs:
         The relational table dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -29100,14 +29100,14 @@ class RelationalTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -29189,18 +29189,18 @@ class RerunTumblingWindowTriggerArgs:
                  parent_trigger: pulumi.Input[Mapping[str, Any]],
                  requested_end_time: pulumi.Input[str],
                  requested_start_time: pulumi.Input[str],
-                 rerun_concurrency: pulumi.Input[float],
+                 rerun_concurrency: pulumi.Input[int],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         Trigger that schedules pipeline reruns for all fixed time interval windows from a requested start time to requested end time.
         :param pulumi.Input[Mapping[str, Any]] parent_trigger: The parent trigger reference.
         :param pulumi.Input[str] requested_end_time: The end time for the time period for which restatement is initiated. Only UTC time is currently supported.
         :param pulumi.Input[str] requested_start_time: The start time for the time period for which restatement is initiated. Only UTC time is currently supported.
-        :param pulumi.Input[float] rerun_concurrency: The max number of parallel time windows (ready for execution) for which a rerun is triggered.
+        :param pulumi.Input[int] rerun_concurrency: The max number of parallel time windows (ready for execution) for which a rerun is triggered.
         :param pulumi.Input[str] type: Trigger type.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the trigger.
         :param pulumi.Input[str] description: Trigger description.
         """
         pulumi.set(__self__, "parent_trigger", parent_trigger)
@@ -29251,14 +29251,14 @@ class RerunTumblingWindowTriggerArgs:
 
     @property
     @pulumi.getter(name="rerunConcurrency")
-    def rerun_concurrency(self) -> pulumi.Input[float]:
+    def rerun_concurrency(self) -> pulumi.Input[int]:
         """
         The max number of parallel time windows (ready for execution) for which a rerun is triggered.
         """
         return pulumi.get(self, "rerun_concurrency")
 
     @rerun_concurrency.setter
-    def rerun_concurrency(self, value: pulumi.Input[float]):
+    def rerun_concurrency(self, value: pulumi.Input[int]):
         pulumi.set(self, "rerun_concurrency", value)
 
     @property
@@ -29275,14 +29275,14 @@ class RerunTumblingWindowTriggerArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the trigger.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -29304,7 +29304,7 @@ class ResponsysLinkedServiceArgs:
                  client_id: pulumi.Input[Mapping[str, Any]],
                  endpoint: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -29318,7 +29318,7 @@ class ResponsysLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] client_id: The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the Responsys server.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -29388,14 +29388,14 @@ class ResponsysLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -29500,7 +29500,7 @@ class ResponsysObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -29511,7 +29511,7 @@ class ResponsysObjectDatasetArgs:
         Responsys dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -29562,14 +29562,14 @@ class ResponsysObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -29651,7 +29651,7 @@ class RestResourceDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
                  additional_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  pagination_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -29666,7 +29666,7 @@ class RestResourceDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
         :param pulumi.Input[Mapping[str, Any]] additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, Any]] pagination_rules: The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
@@ -29740,14 +29740,14 @@ class RestResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -29866,7 +29866,7 @@ class RestServiceLinkedServiceArgs:
                  type: pulumi.Input[str],
                  url: pulumi.Input[Mapping[str, Any]],
                  aad_resource_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  azure_cloud_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -29884,7 +29884,7 @@ class RestServiceLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] url: The base URL of the REST service.
         :param pulumi.Input[Mapping[str, Any]] aad_resource_id: The resource you are requesting authorization to use.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -29977,14 +29977,14 @@ class RestServiceLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -30124,11 +30124,11 @@ class RestServiceLinkedServiceArgs:
 class RetryPolicyArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 interval_in_seconds: Optional[pulumi.Input[float]] = None):
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         Execution policy for an activity.
         :param pulumi.Input[Mapping[str, Any]] count: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param pulumi.Input[float] interval_in_seconds: Interval between retries in seconds. Default is 30.
+        :param pulumi.Input[int] interval_in_seconds: Interval between retries in seconds. Default is 30.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -30149,14 +30149,14 @@ class RetryPolicyArgs:
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Interval between retries in seconds. Default is 30.
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval_in_seconds", value)
 
 
@@ -30164,7 +30164,7 @@ class RetryPolicyArgs:
 class SalesforceLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  api_version: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -30177,7 +30177,7 @@ class SalesforceLinkedServiceArgs:
         """
         Linked service for Salesforce.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] api_version: The Salesforce API version used in ADF. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -30224,14 +30224,14 @@ class SalesforceLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -30347,7 +30347,7 @@ class SalesforceLinkedServiceArgs:
 class SalesforceMarketingCloudLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -30361,7 +30361,7 @@ class SalesforceMarketingCloudLinkedServiceArgs:
         """
         Salesforce Marketing Cloud linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] client_id: The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -30411,14 +30411,14 @@ class SalesforceMarketingCloudLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -30547,7 +30547,7 @@ class SalesforceMarketingCloudObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -30558,7 +30558,7 @@ class SalesforceMarketingCloudObjectDatasetArgs:
         Salesforce Marketing Cloud dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -30609,14 +30609,14 @@ class SalesforceMarketingCloudObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -30697,7 +30697,7 @@ class SalesforceObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  object_api_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -30708,7 +30708,7 @@ class SalesforceObjectDatasetArgs:
         The Salesforce object dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, Any]] object_api_name: The Salesforce object API name. Type: string (or Expression with resultType string).
@@ -30759,14 +30759,14 @@ class SalesforceObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -30846,7 +30846,7 @@ class SalesforceObjectDatasetArgs:
 class SalesforceServiceCloudLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  api_version: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -30860,7 +30860,7 @@ class SalesforceServiceCloudLinkedServiceArgs:
         """
         Linked service for Salesforce Service Cloud.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] api_version: The Salesforce API version used in ADF. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -30910,14 +30910,14 @@ class SalesforceServiceCloudLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -31046,7 +31046,7 @@ class SalesforceServiceCloudObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  object_api_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -31057,7 +31057,7 @@ class SalesforceServiceCloudObjectDatasetArgs:
         The Salesforce Service Cloud object dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, Any]] object_api_name: The Salesforce Service Cloud object API name. Type: string (or Expression with resultType string).
@@ -31108,14 +31108,14 @@ class SalesforceServiceCloudObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -31198,7 +31198,7 @@ class SapBWLinkedServiceArgs:
                  server: pulumi.Input[Mapping[str, Any]],
                  system_number: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -31211,7 +31211,7 @@ class SapBWLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] server: Host name of the SAP BW instance. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] system_number: System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -31288,14 +31288,14 @@ class SapBWLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -31376,7 +31376,7 @@ class SapBwCubeDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -31386,7 +31386,7 @@ class SapBwCubeDatasetArgs:
         The SAP BW cube dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -31434,14 +31434,14 @@ class SapBwCubeDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -31510,7 +31510,7 @@ class SapCloudForCustomerLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  url: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -31521,7 +31521,7 @@ class SapCloudForCustomerLinkedServiceArgs:
         Linked service for SAP Cloud for Customer.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] url: The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
@@ -31572,14 +31572,14 @@ class SapCloudForCustomerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -31661,7 +31661,7 @@ class SapCloudForCustomerResourceDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  path: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -31672,7 +31672,7 @@ class SapCloudForCustomerResourceDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Mapping[str, Any]] path: The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -31733,14 +31733,14 @@ class SapCloudForCustomerResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -31809,7 +31809,7 @@ class SapEccLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  url: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
@@ -31820,7 +31820,7 @@ class SapEccLinkedServiceArgs:
         Linked service for SAP ERP Central Component(SAP ECC).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[str] url: The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
@@ -31871,14 +31871,14 @@ class SapEccLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -31960,7 +31960,7 @@ class SapEccResourceDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  path: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -31971,7 +31971,7 @@ class SapEccResourceDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Mapping[str, Any]] path: The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -32032,14 +32032,14 @@ class SapEccResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -32107,7 +32107,7 @@ class SapEccResourceDatasetArgs:
 class SapHanaLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -32120,7 +32120,7 @@ class SapHanaLinkedServiceArgs:
         """
         SAP HANA Linked Service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the SAP HANA server.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: SAP HANA ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -32167,14 +32167,14 @@ class SapHanaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -32291,7 +32291,7 @@ class SapHanaTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -32302,7 +32302,7 @@ class SapHanaTableDatasetArgs:
         SAP HANA Table properties.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -32353,14 +32353,14 @@ class SapHanaTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -32440,7 +32440,7 @@ class SapHanaTableDatasetArgs:
 class SapOpenHubLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -32458,7 +32458,7 @@ class SapOpenHubLinkedServiceArgs:
         """
         SAP Business Warehouse Open Hub Destination Linked Service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] client_id: Client ID of the client on the BW system where the open hub destination is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -32520,14 +32520,14 @@ class SapOpenHubLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -32705,7 +32705,7 @@ class SapOpenHubTableDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  open_hub_destination_name: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  base_request_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  exclude_last_request: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -32718,7 +32718,7 @@ class SapOpenHubTableDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Mapping[str, Any]] open_hub_destination_name: The name of the Open Hub Destination with destination type as Database Table. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Mapping[str, Any]] base_request_id: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] exclude_last_request: Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -32785,14 +32785,14 @@ class SapOpenHubTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -32884,7 +32884,7 @@ class SapOpenHubTableDatasetArgs:
 class SapTableLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -32907,7 +32907,7 @@ class SapTableLinkedServiceArgs:
         """
         SAP Table Linked Service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] client_id: Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -32984,14 +32984,14 @@ class SapTableLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -33229,7 +33229,7 @@ class SapTableResourceDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  table_name: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -33240,7 +33240,7 @@ class SapTableResourceDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Mapping[str, Any]] table_name: The name of the SAP Table. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -33301,14 +33301,14 @@ class SapTableResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -33594,7 +33594,7 @@ class ServiceNowLinkedServiceArgs:
                  authentication_type: pulumi.Input[str],
                  endpoint: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -33611,7 +33611,7 @@ class ServiceNowLinkedServiceArgs:
         :param pulumi.Input[str] authentication_type: The authentication type to use.
         :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] client_id: The client id for OAuth2 authentication.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret for OAuth2 authentication.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -33690,14 +33690,14 @@ class ServiceNowLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -33838,7 +33838,7 @@ class ServiceNowObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -33849,7 +33849,7 @@ class ServiceNowObjectDatasetArgs:
         ServiceNow server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -33900,14 +33900,14 @@ class ServiceNowObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -34043,7 +34043,7 @@ class SftpServerLinkedServiceArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -34061,7 +34061,7 @@ class SftpServerLinkedServiceArgs:
         A linked service for an SSH File Transfer Protocol (SFTP) server. 
         :param pulumi.Input[Mapping[str, Any]] host: The SFTP server host name. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the FTP server.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -34133,14 +34133,14 @@ class SftpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -34308,7 +34308,7 @@ class SharePointOnlineListLinkedServiceArgs:
                  site_url: pulumi.Input[Mapping[str, Any]],
                  tenant_id: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -34320,7 +34320,7 @@ class SharePointOnlineListLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] site_url: The URL of the SharePoint Online site. For example, https://contoso.sharepoint.com/sites/siteName. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] tenant_id: The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -34404,14 +34404,14 @@ class SharePointOnlineListLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -34468,7 +34468,7 @@ class SharePointOnlineListResourceDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  list_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -34479,7 +34479,7 @@ class SharePointOnlineListResourceDatasetArgs:
         The sharepoint online list resource dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, Any]] list_name: The name of the SharePoint Online list. Type: string (or Expression with resultType string).
@@ -34530,14 +34530,14 @@ class SharePointOnlineListResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -34619,7 +34619,7 @@ class ShopifyLinkedServiceArgs:
                  host: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -34632,7 +34632,7 @@ class ShopifyLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -34700,14 +34700,14 @@ class ShopifyLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -34800,7 +34800,7 @@ class ShopifyObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -34811,7 +34811,7 @@ class ShopifyObjectDatasetArgs:
         Shopify Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -34862,14 +34862,14 @@ class ShopifyObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -34950,7 +34950,7 @@ class SnowflakeDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -34961,7 +34961,7 @@ class SnowflakeDatasetArgs:
         The snowflake dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -35012,14 +35012,14 @@ class SnowflakeDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -35100,7 +35100,7 @@ class SnowflakeLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -35110,7 +35110,7 @@ class SnowflakeLinkedServiceArgs:
         Snowflake linked service.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string of snowflake. Type: string, SecureString.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -35158,14 +35158,14 @@ class SnowflakeLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -35238,7 +35238,7 @@ class SparkLinkedServiceArgs:
                  type: pulumi.Input[str],
                  allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -35259,7 +35259,7 @@ class SparkLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -35382,14 +35382,14 @@ class SparkLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -35542,7 +35542,7 @@ class SparkObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -35554,7 +35554,7 @@ class SparkObjectDatasetArgs:
         Spark Server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -35608,14 +35608,14 @@ class SparkObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -35708,7 +35708,7 @@ class SqlServerLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -35719,7 +35719,7 @@ class SqlServerLinkedServiceArgs:
         SQL Server linked service.
         :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -35770,14 +35770,14 @@ class SqlServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -35858,7 +35858,7 @@ class SqlServerTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -35870,7 +35870,7 @@ class SqlServerTableDatasetArgs:
         The on-premises SQL Server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -35924,14 +35924,14 @@ class SqlServerTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -36023,7 +36023,7 @@ class SqlServerTableDatasetArgs:
 class SquareLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  client_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -36039,7 +36039,7 @@ class SquareLinkedServiceArgs:
         """
         Square Service linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[Mapping[str, Any]] client_id: The client ID associated with your Square application.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret associated with your Square application.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -36095,14 +36095,14 @@ class SquareLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -36255,7 +36255,7 @@ class SquareObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -36266,7 +36266,7 @@ class SquareObjectDatasetArgs:
         Square Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -36317,14 +36317,14 @@ class SquareObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -36406,7 +36406,7 @@ class SybaseLinkedServiceArgs:
                  database: pulumi.Input[Mapping[str, Any]],
                  server: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -36420,7 +36420,7 @@ class SybaseLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] database: Database name for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] server: Server name for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[str] authentication_type: AuthenticationType to be used for connection.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -36490,14 +36490,14 @@ class SybaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -36602,7 +36602,7 @@ class SybaseTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -36613,7 +36613,7 @@ class SybaseTableDatasetArgs:
         The Sybase table dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -36664,14 +36664,14 @@ class SybaseTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -36751,7 +36751,7 @@ class SybaseTableDatasetArgs:
 class TeradataLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -36764,7 +36764,7 @@ class TeradataLinkedServiceArgs:
         """
         Linked service for Teradata data source.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input[str] authentication_type: AuthenticationType to be used for connection.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -36811,14 +36811,14 @@ class TeradataLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -36935,7 +36935,7 @@ class TeradataTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  database: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -36947,7 +36947,7 @@ class TeradataTableDatasetArgs:
         The Teradata database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Mapping[str, Any]] database: The database name of Teradata. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -37001,14 +37001,14 @@ class TeradataTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -37454,28 +37454,28 @@ class TriggerReferenceArgs:
 class TumblingWindowTriggerArgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input[str],
-                 interval: pulumi.Input[float],
-                 max_concurrency: pulumi.Input[float],
+                 interval: pulumi.Input[int],
+                 max_concurrency: pulumi.Input[int],
                  pipeline: pulumi.Input['TriggerPipelineReferenceArgs'],
                  start_time: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  delay: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 depends_on: Optional[pulumi.Input[List[pulumi.Input[Union['SelfDependencyTumblingWindowTriggerReferenceArgs', 'TriggerDependencyReferenceArgs']]]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelfDependencyTumblingWindowTriggerReferenceArgs', 'TriggerDependencyReferenceArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None):
         """
         Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
         :param pulumi.Input[str] frequency: The frequency of the time windows.
-        :param pulumi.Input[float] interval: The interval of the time windows. The minimum interval allowed is 15 Minutes.
-        :param pulumi.Input[float] max_concurrency: The max number of parallel time windows (ready for execution) for which a new run is triggered.
+        :param pulumi.Input[int] interval: The interval of the time windows. The minimum interval allowed is 15 Minutes.
+        :param pulumi.Input[int] max_concurrency: The max number of parallel time windows (ready for execution) for which a new run is triggered.
         :param pulumi.Input['TriggerPipelineReferenceArgs'] pipeline: Pipeline for which runs are created when an event is fired for trigger window that is ready.
         :param pulumi.Input[str] start_time: The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param pulumi.Input[str] type: Trigger type.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the trigger.
         :param pulumi.Input[Mapping[str, Any]] delay: Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[List[pulumi.Input[Union['SelfDependencyTumblingWindowTriggerReferenceArgs', 'TriggerDependencyReferenceArgs']]]] depends_on: Triggers that this trigger depends on. Only tumbling window triggers are supported.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SelfDependencyTumblingWindowTriggerReferenceArgs', 'TriggerDependencyReferenceArgs']]]] depends_on: Triggers that this trigger depends on. Only tumbling window triggers are supported.
         :param pulumi.Input[str] description: Trigger description.
         :param pulumi.Input[str] end_time: The end time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param pulumi.Input['RetryPolicyArgs'] retry_policy: Retry policy that will be applied for failed pipeline runs.
@@ -37513,26 +37513,26 @@ class TumblingWindowTriggerArgs:
 
     @property
     @pulumi.getter
-    def interval(self) -> pulumi.Input[float]:
+    def interval(self) -> pulumi.Input[int]:
         """
         The interval of the time windows. The minimum interval allowed is 15 Minutes.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: pulumi.Input[float]):
+    def interval(self, value: pulumi.Input[int]):
         pulumi.set(self, "interval", value)
 
     @property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> pulumi.Input[float]:
+    def max_concurrency(self) -> pulumi.Input[int]:
         """
         The max number of parallel time windows (ready for execution) for which a new run is triggered.
         """
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
-    def max_concurrency(self, value: pulumi.Input[float]):
+    def max_concurrency(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_concurrency", value)
 
     @property
@@ -37573,14 +37573,14 @@ class TumblingWindowTriggerArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the trigger.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -37597,14 +37597,14 @@ class TumblingWindowTriggerArgs:
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[List[pulumi.Input[Union['SelfDependencyTumblingWindowTriggerReferenceArgs', 'TriggerDependencyReferenceArgs']]]]]:
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelfDependencyTumblingWindowTriggerReferenceArgs', 'TriggerDependencyReferenceArgs']]]]]:
         """
         Triggers that this trigger depends on. Only tumbling window triggers are supported.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[List[pulumi.Input[Union['SelfDependencyTumblingWindowTriggerReferenceArgs', 'TriggerDependencyReferenceArgs']]]]]):
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelfDependencyTumblingWindowTriggerReferenceArgs', 'TriggerDependencyReferenceArgs']]]]]):
         pulumi.set(self, "depends_on", value)
 
     @property
@@ -37725,7 +37725,7 @@ class VariableSpecificationArgs:
 class VerticaLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -37735,7 +37735,7 @@ class VerticaLinkedServiceArgs:
         """
         Vertica linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
@@ -37773,14 +37773,14 @@ class VerticaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -37861,7 +37861,7 @@ class VerticaTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -37873,7 +37873,7 @@ class VerticaTableDatasetArgs:
         Vertica dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -37927,14 +37927,14 @@ class VerticaTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -38201,7 +38201,7 @@ class WebLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  type_properties: pulumi.Input[Union['WebAnonymousAuthenticationArgs', 'WebBasicAuthenticationArgs', 'WebClientCertificateAuthenticationArgs']],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
@@ -38209,7 +38209,7 @@ class WebLinkedServiceArgs:
         Web linked service.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['WebAnonymousAuthenticationArgs', 'WebBasicAuthenticationArgs', 'WebClientCertificateAuthenticationArgs']] type_properties: Web linked service properties.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -38251,14 +38251,14 @@ class WebLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -38304,7 +38304,7 @@ class WebTableDatasetArgs:
                  index: pulumi.Input[Mapping[str, Any]],
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -38316,7 +38316,7 @@ class WebTableDatasetArgs:
         :param pulumi.Input[Mapping[str, Any]] index: The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -38380,14 +38380,14 @@ class WebTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -38467,7 +38467,7 @@ class WebTableDatasetArgs:
 class XeroLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  consumer_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
@@ -38482,7 +38482,7 @@ class XeroLinkedServiceArgs:
         """
         Xero Service linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_properties: Properties used to connect to Xero. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] consumer_key: The consumer key associated with the Xero application.
@@ -38536,14 +38536,14 @@ class XeroLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -38685,7 +38685,7 @@ class XeroObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -38696,7 +38696,7 @@ class XeroObjectDatasetArgs:
         Xero Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -38747,14 +38747,14 @@ class XeroObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -38836,7 +38836,7 @@ class XmlDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  location: pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encoding_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -38850,7 +38850,7 @@ class XmlDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']] location: The location of the json data storage.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the json dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
@@ -38920,14 +38920,14 @@ class XmlDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -39032,7 +39032,7 @@ class ZohoLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -39046,7 +39046,7 @@ class ZohoLinkedServiceArgs:
         Zoho server linked service.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: The access token for Zoho authentication.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Mapping[str, Any]] connection_properties: Properties used to connect to Zoho. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param pulumi.Input[str] description: Linked service description.
@@ -39107,14 +39107,14 @@ class ZohoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -39231,7 +39231,7 @@ class ZohoObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -39242,7 +39242,7 @@ class ZohoObjectDatasetArgs:
         Zoho server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -39293,14 +39293,14 @@ class ZohoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "annotations", value)
 
     @property

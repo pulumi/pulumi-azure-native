@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  overprovision: Optional[pulumi.Input[bool]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[float]] = None,
+                 platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  proximity_placement_group: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -33,7 +33,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
-                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -48,7 +48,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[bool] overprovision: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-        :param pulumi.Input[float] platform_fault_domain_count: Fault Domain count for each placement group.
+        :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count for each placement group.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] single_placement_group: When true this limits the scale set to a single placement group, of max size 100 virtual machines.
@@ -58,7 +58,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']] virtual_machine_profile: The virtual machine profile.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set to create or update.
         :param pulumi.Input[bool] zone_balance: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -188,7 +188,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> pulumi.Output[Optional[float]]:
+    def platform_fault_domain_count(self) -> pulumi.Output[Optional[int]]:
         """
         Fault Domain count for each placement group.
         """
@@ -276,7 +276,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
         """

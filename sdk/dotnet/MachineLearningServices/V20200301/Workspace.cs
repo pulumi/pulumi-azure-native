@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200301
         /// The encryption settings of Azure ML workspace.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.EncryptionPropertyResponseResult?> Encryption { get; private set; } = null!;
+        public Output<Outputs.EncryptionPropertyResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// The friendly name for this workspace. This name in mutable
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200301
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The compute name for image build
@@ -102,13 +102,13 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200301
         /// The notebook info of Azure ML workspace.
         /// </summary>
         [Output("notebookInfo")]
-        public Output<Outputs.NotebookResourceInfoResponseResult> NotebookInfo { get; private set; } = null!;
+        public Output<Outputs.NotebookResourceInfoResponse> NotebookInfo { get; private set; } = null!;
 
         /// <summary>
         /// The list of private endpoint connections in the workspace.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Count of private connections in the workspace
@@ -132,13 +132,13 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200301
         /// The list of shared private link resources in this workspace.
         /// </summary>
         [Output("sharedPrivateLinkResources")]
-        public Output<ImmutableArray<Outputs.SharedPrivateLinkResourceResponseResult>> SharedPrivateLinkResources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SharedPrivateLinkResourceResponse>> SharedPrivateLinkResources { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created

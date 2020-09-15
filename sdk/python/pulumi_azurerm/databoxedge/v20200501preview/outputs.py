@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -255,13 +255,13 @@ class ContactDetailsResponse(dict):
     def __init__(__self__, *,
                  company_name: str,
                  contact_person: str,
-                 email_list: List[str],
+                 email_list: Sequence[str],
                  phone: str):
         """
         Contains all the contact details of the customer.
         :param str company_name: The name of the company.
         :param str contact_person: The contact person name.
-        :param List[str] email_list: The email list.
+        :param Sequence[str] email_list: The email list.
         :param str phone: The phone number.
         """
         pulumi.set(__self__, "company_name", company_name)
@@ -287,7 +287,7 @@ class ContactDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="emailList")
-    def email_list(self) -> List[str]:
+    def email_list(self) -> Sequence[str]:
         """
         The email list.
         """

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.AlertsManagement.Latest
         /// The alert rule actions.
         /// </summary>
         [Output("actionGroups")]
-        public Output<Outputs.ActionGroupsInformationResponseResult> ActionGroups { get; private set; } = null!;
+        public Output<Outputs.ActionGroupsInformationResponse> ActionGroups { get; private set; } = null!;
 
         /// <summary>
         /// The alert rule description.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.AlertsManagement.Latest
         /// The alert rule's detector.
         /// </summary>
         [Output("detector")]
-        public Output<Outputs.DetectorResponseResult> Detector { get; private set; } = null!;
+        public Output<Outputs.DetectorResponse> Detector { get; private set; } = null!;
 
         /// <summary>
         /// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.AlertsManagement.Latest
         /// The alert rule throttling information.
         /// </summary>
         [Output("throttling")]
-        public Output<Outputs.ThrottlingInformationResponseResult?> Throttling { get; private set; } = null!;
+        public Output<Outputs.ThrottlingInformationResponse?> Throttling { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

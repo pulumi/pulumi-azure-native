@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -54,8 +54,8 @@ class GetRolloutResult:
         if target_service_topology_id and not isinstance(target_service_topology_id, str):
             raise TypeError("Expected argument 'target_service_topology_id' to be a str")
         pulumi.set(__self__, "target_service_topology_id", target_service_topology_id)
-        if total_retry_attempts and not isinstance(total_retry_attempts, float):
-            raise TypeError("Expected argument 'total_retry_attempts' to be a float")
+        if total_retry_attempts and not isinstance(total_retry_attempts, int):
+            raise TypeError("Expected argument 'total_retry_attempts' to be a int")
         pulumi.set(__self__, "total_retry_attempts", total_retry_attempts)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -111,7 +111,7 @@ class GetRolloutResult:
 
     @property
     @pulumi.getter
-    def services(self) -> List['outputs.ServiceResponseResult']:
+    def services(self) -> Sequence['outputs.ServiceResponseResult']:
         """
         The detailed information on the services being deployed.
         """
@@ -127,7 +127,7 @@ class GetRolloutResult:
 
     @property
     @pulumi.getter(name="stepGroups")
-    def step_groups(self) -> List['outputs.StepGroupResponse']:
+    def step_groups(self) -> Sequence['outputs.StepGroupResponse']:
         """
         The list of step groups that define the orchestration.
         """
@@ -151,7 +151,7 @@ class GetRolloutResult:
 
     @property
     @pulumi.getter(name="totalRetryAttempts")
-    def total_retry_attempts(self) -> float:
+    def total_retry_attempts(self) -> int:
         """
         The cardinal count of total number of retries performed on the rollout at a given time.
         """
@@ -188,14 +188,14 @@ class AwaitableGetRolloutResult(GetRolloutResult):
 
 
 def get_rollout(resource_group_name: Optional[str] = None,
-                retry_attempt: Optional[float] = None,
+                retry_attempt: Optional[int] = None,
                 rollout_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRolloutResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param float retry_attempt: Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
+    :param int retry_attempt: Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
     :param str rollout_name: The rollout name.
     """
     __args__ = dict()

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -96,7 +96,7 @@ class GetCustomImageResult:
 
     @property
     @pulumi.getter(name="dataDiskStorageInfo")
-    def data_disk_storage_info(self) -> Optional[List['outputs.DataDiskStorageTypeInfoResponse']]:
+    def data_disk_storage_info(self) -> Optional[Sequence['outputs.DataDiskStorageTypeInfoResponse']]:
         """
         Storage information about the data disks present in the custom image
         """

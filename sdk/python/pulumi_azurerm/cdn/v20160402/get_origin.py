@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,11 +23,11 @@ class GetOriginResult:
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
-        if http_port and not isinstance(http_port, float):
-            raise TypeError("Expected argument 'http_port' to be a float")
+        if http_port and not isinstance(http_port, int):
+            raise TypeError("Expected argument 'http_port' to be a int")
         pulumi.set(__self__, "http_port", http_port)
-        if https_port and not isinstance(https_port, float):
-            raise TypeError("Expected argument 'https_port' to be a float")
+        if https_port and not isinstance(https_port, int):
+            raise TypeError("Expected argument 'https_port' to be a int")
         pulumi.set(__self__, "https_port", https_port)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -52,7 +52,7 @@ class GetOriginResult:
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[float]:
+    def http_port(self) -> Optional[int]:
         """
         The value of the HTTP port. Must be between 1 and 65535.
         """
@@ -60,7 +60,7 @@ class GetOriginResult:
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[float]:
+    def https_port(self) -> Optional[int]:
         """
         The value of the https port. Must be between 1 and 65535.
         """

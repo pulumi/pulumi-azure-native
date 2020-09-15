@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -65,14 +65,14 @@ class ServerInfoArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         An ARM Resource SKU.
         :param pulumi.Input[str] name: The name of the SKU, typically, a letter + Number code, e.g. P3.
-        :param pulumi.Input[float] capacity: Capacity of the particular SKU.
+        :param pulumi.Input[int] capacity: Capacity of the particular SKU.
         :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param pulumi.Input[str] size: Size of the particular SKU
         :param pulumi.Input[str] tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
@@ -101,14 +101,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Capacity of the particular SKU.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

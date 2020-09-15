@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
         /// The HLS configuration.
         /// </summary>
         [Output("hls")]
-        public Output<Outputs.HlsResponseResult?> Hls { get; private set; } = null!;
+        public Output<Outputs.HlsResponse?> Hls { get; private set; } = null!;
 
         /// <summary>
         /// The exact time the Live Output was last modified.

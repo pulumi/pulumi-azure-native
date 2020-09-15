@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
         /// </summary>
         [Output("addressSpace")]
-        public Output<Outputs.AddressSpaceResponseResult?> AddressSpace { get; private set; } = null!;
+        public Output<Outputs.AddressSpaceResponse?> AddressSpace { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
         /// </summary>
         [Output("dhcpOptions")]
-        public Output<Outputs.DhcpOptionsResponseResult?> DhcpOptions { get; private set; } = null!;
+        public Output<Outputs.DhcpOptionsResponse?> DhcpOptions { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets list of subnets in a VirtualNetwork
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubnetResponse>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets list of peerings in a VirtualNetwork
         /// </summary>
         [Output("virtualNetworkPeerings")]
-        public Output<ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult>> VirtualNetworkPeerings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualNetworkPeeringResponse>> VirtualNetworkPeerings { get; private set; } = null!;
 
 
         /// <summary>

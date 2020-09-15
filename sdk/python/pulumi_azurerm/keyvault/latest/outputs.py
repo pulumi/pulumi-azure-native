@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -114,14 +114,14 @@ class NetworkRuleSetResponse(dict):
     def __init__(__self__, *,
                  bypass: Optional[str] = None,
                  default_action: Optional[str] = None,
-                 ip_rules: Optional[List['outputs.IPRuleResponse']] = None,
-                 virtual_network_rules: Optional[List['outputs.VirtualNetworkRuleResponse']] = None):
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         A set of rules governing the network accessibility of a vault.
         :param str bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         :param str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-        :param List['IPRuleResponseArgs'] ip_rules: The list of IP address rules.
-        :param List['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
+        :param Sequence['IPRuleResponseArgs'] ip_rules: The list of IP address rules.
+        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
         """
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
@@ -150,7 +150,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List['outputs.IPRuleResponse']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
         """
         The list of IP address rules.
         """
@@ -158,7 +158,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.VirtualNetworkRuleResponse']]:
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
         """
         The list of virtual network rules.
         """
@@ -174,16 +174,16 @@ class PermissionsResponse(dict):
     Permissions the identity has for keys, secrets, certificates and storage.
     """
     def __init__(__self__, *,
-                 certificates: Optional[List[str]] = None,
-                 keys: Optional[List[str]] = None,
-                 secrets: Optional[List[str]] = None,
-                 storage: Optional[List[str]] = None):
+                 certificates: Optional[Sequence[str]] = None,
+                 keys: Optional[Sequence[str]] = None,
+                 secrets: Optional[Sequence[str]] = None,
+                 storage: Optional[Sequence[str]] = None):
         """
         Permissions the identity has for keys, secrets, certificates and storage.
-        :param List[str] certificates: Permissions to certificates
-        :param List[str] keys: Permissions to keys
-        :param List[str] secrets: Permissions to secrets
-        :param List[str] storage: Permissions to storage accounts
+        :param Sequence[str] certificates: Permissions to certificates
+        :param Sequence[str] keys: Permissions to keys
+        :param Sequence[str] secrets: Permissions to secrets
+        :param Sequence[str] storage: Permissions to storage accounts
         """
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
@@ -196,7 +196,7 @@ class PermissionsResponse(dict):
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[List[str]]:
+    def certificates(self) -> Optional[Sequence[str]]:
         """
         Permissions to certificates
         """
@@ -204,7 +204,7 @@ class PermissionsResponse(dict):
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[List[str]]:
+    def keys(self) -> Optional[Sequence[str]]:
         """
         Permissions to keys
         """
@@ -212,7 +212,7 @@ class PermissionsResponse(dict):
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[List[str]]:
+    def secrets(self) -> Optional[Sequence[str]]:
         """
         Permissions to secrets
         """
@@ -220,7 +220,7 @@ class PermissionsResponse(dict):
 
     @property
     @pulumi.getter
-    def storage(self) -> Optional[List[str]]:
+    def storage(self) -> Optional[Sequence[str]]:
         """
         Permissions to storage accounts
         """
@@ -397,10 +397,10 @@ class VaultPropertiesResponse(dict):
     Properties of the vault
     """
     def __init__(__self__, *,
-                 private_endpoint_connections: List['outputs.PrivateEndpointConnectionItemResponse'],
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionItemResponse'],
                  sku: 'outputs.SkuResponse',
                  tenant_id: str,
-                 access_policies: Optional[List['outputs.AccessPolicyEntryResponse']] = None,
+                 access_policies: Optional[Sequence['outputs.AccessPolicyEntryResponse']] = None,
                  create_mode: Optional[str] = None,
                  enable_purge_protection: Optional[bool] = None,
                  enable_rbac_authorization: Optional[bool] = None,
@@ -409,14 +409,14 @@ class VaultPropertiesResponse(dict):
                  enabled_for_disk_encryption: Optional[bool] = None,
                  enabled_for_template_deployment: Optional[bool] = None,
                  network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
-                 soft_delete_retention_in_days: Optional[float] = None,
+                 soft_delete_retention_in_days: Optional[int] = None,
                  vault_uri: Optional[str] = None):
         """
         Properties of the vault
-        :param List['PrivateEndpointConnectionItemResponseArgs'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
+        :param Sequence['PrivateEndpointConnectionItemResponseArgs'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
         :param 'SkuResponseArgs' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        :param List['AccessPolicyEntryResponseArgs'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+        :param Sequence['AccessPolicyEntryResponseArgs'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
         :param str create_mode: The vault's create mode to indicate whether the vault need to be recovered or not.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         :param bool enable_rbac_authorization: Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
@@ -425,7 +425,7 @@ class VaultPropertiesResponse(dict):
         :param bool enabled_for_disk_encryption: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param bool enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param 'NetworkRuleSetResponseArgs' network_acls: Rules governing the accessibility of the key vault from specific network locations.
-        :param float soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
+        :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str vault_uri: The URI of the vault for performing operations on keys and secrets.
         """
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
@@ -456,7 +456,7 @@ class VaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionItemResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionItemResponse']:
         """
         List of private endpoint connections associated with the key vault.
         """
@@ -480,7 +480,7 @@ class VaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[List['outputs.AccessPolicyEntryResponse']]:
+    def access_policies(self) -> Optional[Sequence['outputs.AccessPolicyEntryResponse']]:
         """
         An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
         """
@@ -552,7 +552,7 @@ class VaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="softDeleteRetentionInDays")
-    def soft_delete_retention_in_days(self) -> Optional[float]:
+    def soft_delete_retention_in_days(self) -> Optional[int]:
         """
         softDelete data retention days. It accepts >=7 and <=90.
         """

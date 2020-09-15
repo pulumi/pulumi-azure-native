@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// Provides the identity based authentication settings for Azure Files.
         /// </summary>
         [Output("azureFilesIdentityBasedAuthentication")]
-        public Output<Outputs.AzureFilesIdentityBasedAuthenticationResponseResult?> AzureFilesIdentityBasedAuthentication { get; private set; } = null!;
+        public Output<Outputs.AzureFilesIdentityBasedAuthenticationResponse?> AzureFilesIdentityBasedAuthentication { get; private set; } = null!;
 
         /// <summary>
         /// Blob restore status
         /// </summary>
         [Output("blobRestoreStatus")]
-        public Output<Outputs.BlobRestoreStatusResponseResult> BlobRestoreStatus { get; private set; } = null!;
+        public Output<Outputs.BlobRestoreStatusResponse> BlobRestoreStatus { get; private set; } = null!;
 
         /// <summary>
         /// Gets the creation date and time of the storage account in UTC.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// Gets the custom domain the user assigned to this storage account.
         /// </summary>
         [Output("customDomain")]
-        public Output<Outputs.CustomDomainResponseResult> CustomDomain { get; private set; } = null!;
+        public Output<Outputs.CustomDomainResponse> CustomDomain { get; private set; } = null!;
 
         /// <summary>
         /// Allows https traffic only to storage service if sets to true.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.EncryptionResponseResult> Encryption { get; private set; } = null!;
+        public Output<Outputs.EncryptionResponse> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// If the failover is in progress, the value will be true, otherwise, it will be null.
@@ -72,13 +72,13 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// Geo Replication Stats
         /// </summary>
         [Output("geoReplicationStats")]
-        public Output<Outputs.GeoReplicationStatsResponseResult> GeoReplicationStats { get; private set; } = null!;
+        public Output<Outputs.GeoReplicationStatsResponse> GeoReplicationStats { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Account HierarchicalNamespace enabled if sets to true.
@@ -126,13 +126,13 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// Network rule set
         /// </summary>
         [Output("networkRuleSet")]
-        public Output<Outputs.NetworkRuleSetResponseResult> NetworkRuleSet { get; private set; } = null!;
+        public Output<Outputs.NetworkRuleSetResponse> NetworkRuleSet { get; private set; } = null!;
 
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
         /// </summary>
         [Output("primaryEndpoints")]
-        public Output<Outputs.EndpointsResponseResult> PrimaryEndpoints { get; private set; } = null!;
+        public Output<Outputs.EndpointsResponse> PrimaryEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Gets the location of the primary data center for the storage account.
@@ -144,7 +144,7 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// List of private endpoint connection associated with the specified storage account
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Gets the status of the storage account at the time the operation was called.
@@ -156,13 +156,13 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// Maintains information about the network routing choice opted by the user for data transfer
         /// </summary>
         [Output("routingPreference")]
-        public Output<Outputs.RoutingPreferenceResponseResult?> RoutingPreference { get; private set; } = null!;
+        public Output<Outputs.RoutingPreferenceResponse?> RoutingPreference { get; private set; } = null!;
 
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
         /// </summary>
         [Output("secondaryEndpoints")]
-        public Output<Outputs.EndpointsResponseResult> SecondaryEndpoints { get; private set; } = null!;
+        public Output<Outputs.EndpointsResponse> SecondaryEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
@@ -174,7 +174,7 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// Gets the SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Gets the status indicating whether the primary location of the storage account is available or unavailable.

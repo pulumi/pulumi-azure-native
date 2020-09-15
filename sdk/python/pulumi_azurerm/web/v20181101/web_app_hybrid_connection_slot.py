@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['WebAppHybridConnectionSlot']
@@ -19,7 +19,7 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  relay_arm_uri: Optional[pulumi.Input[str]] = None,
                  relay_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: The name of the web app.
         :param pulumi.Input[str] namespace_name: The namespace for this hybrid connection.
-        :param pulumi.Input[float] port: The port of the endpoint.
+        :param pulumi.Input[int] port: The port of the endpoint.
         :param pulumi.Input[str] relay_arm_uri: The ARM URI to the Service Bus relay.
         :param pulumi.Input[str] relay_name: The name of the Service Bus relay.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -144,7 +144,7 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[Optional[float]]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         The port of the endpoint.
         """

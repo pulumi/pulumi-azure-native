@@ -68,15 +68,15 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// <summary>
         /// Parameters required by this blueprint definition.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionResponseResult>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>? Parameters;
         /// <summary>
         /// Resource group placeholders defined by this blueprint definition.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponseResult>? ResourceGroups;
+        public readonly ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>? ResourceGroups;
         /// <summary>
         /// Status of the blueprint. This field is readonly.
         /// </summary>
-        public readonly Outputs.BlueprintStatusResponseResult Status;
+        public readonly Outputs.BlueprintStatusResponse Status;
         /// <summary>
         /// The scope where this blueprint definition can be assigned.
         /// </summary>
@@ -98,11 +98,11 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterDefinitionResponseResult>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>? parameters,
 
-            ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponseResult>? resourceGroups,
+            ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>? resourceGroups,
 
-            Outputs.BlueprintStatusResponseResult status,
+            Outputs.BlueprintStatusResponse status,
 
             string? targetScope,
 

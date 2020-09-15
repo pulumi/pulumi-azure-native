@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetPython2PackageResult:
     Definition of the module type.
     """
     def __init__(__self__, activity_count=None, content_link=None, creation_time=None, description=None, error=None, etag=None, is_composite=None, is_global=None, last_modified_time=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, tags=None, type=None, version=None):
-        if activity_count and not isinstance(activity_count, float):
-            raise TypeError("Expected argument 'activity_count' to be a float")
+        if activity_count and not isinstance(activity_count, int):
+            raise TypeError("Expected argument 'activity_count' to be a int")
         pulumi.set(__self__, "activity_count", activity_count)
         if content_link and not isinstance(content_link, dict):
             raise TypeError("Expected argument 'content_link' to be a dict")
@@ -57,8 +57,8 @@ class GetPython2PackageResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if size_in_bytes and not isinstance(size_in_bytes, float):
-            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        if size_in_bytes and not isinstance(size_in_bytes, int):
+            raise TypeError("Expected argument 'size_in_bytes' to be a int")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -72,7 +72,7 @@ class GetPython2PackageResult:
 
     @property
     @pulumi.getter(name="activityCount")
-    def activity_count(self) -> Optional[float]:
+    def activity_count(self) -> Optional[int]:
         """
         Gets or sets the activity count of the module.
         """
@@ -168,7 +168,7 @@ class GetPython2PackageResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> Optional[float]:
+    def size_in_bytes(self) -> Optional[int]:
         """
         Gets or sets the size in bytes of the module.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -267,12 +267,12 @@ class DomainPurchaseConsentArgs:
     def __init__(__self__, *,
                  agreed_at: Optional[pulumi.Input[str]] = None,
                  agreed_by: Optional[pulumi.Input[str]] = None,
-                 agreement_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 agreement_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Domain purchase consent object, representing acceptance of applicable legal agreements.
         :param pulumi.Input[str] agreed_at: Timestamp when the agreements were accepted.
         :param pulumi.Input[str] agreed_by: Client IP address.
-        :param pulumi.Input[List[pulumi.Input[str]]] agreement_keys: List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agreement_keys: List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
         """
         if agreed_at is not None:
             pulumi.set(__self__, "agreed_at", agreed_at)
@@ -307,14 +307,14 @@ class DomainPurchaseConsentArgs:
 
     @property
     @pulumi.getter(name="agreementKeys")
-    def agreement_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def agreement_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
         """
         return pulumi.get(self, "agreement_keys")
 
     @agreement_keys.setter
-    def agreement_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def agreement_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "agreement_keys", value)
 
 

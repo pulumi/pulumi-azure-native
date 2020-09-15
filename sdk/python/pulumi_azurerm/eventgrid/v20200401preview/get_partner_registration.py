@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -74,7 +74,7 @@ class GetPartnerRegistrationResult:
 
     @property
     @pulumi.getter(name="authorizedAzureSubscriptionIds")
-    def authorized_azure_subscription_ids(self) -> Optional[List[str]]:
+    def authorized_azure_subscription_ids(self) -> Optional[Sequence[str]]:
         """
         List of Azure subscription Ids that are authorized to create a partner namespace
         associated with this partner registration. This is an optional property. Creating

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -34,17 +34,17 @@ class AcsClusterPropertiesResponse(dict):
                  cluster_fqdn: str,
                  orchestrator_properties: 'outputs.KubernetesClusterPropertiesResponse',
                  orchestrator_type: str,
-                 agent_count: Optional[float] = None,
+                 agent_count: Optional[int] = None,
                  agent_vm_size: Optional[str] = None,
-                 system_services: Optional[List[str]] = None):
+                 system_services: Optional[Sequence[str]] = None):
         """
         Information about the container service backing the cluster
         :param str cluster_fqdn: The FQDN of the cluster. 
         :param 'KubernetesClusterPropertiesResponseArgs' orchestrator_properties: Orchestrator specific properties
         :param str orchestrator_type: Type of orchestrator. It cannot be changed once the cluster is created.
-        :param float agent_count: The number of agent nodes in the Container Service. This can be changed to scale the cluster.
+        :param int agent_count: The number of agent nodes in the Container Service. This can be changed to scale the cluster.
         :param str agent_vm_size: The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created.
-        :param List[str] system_services: The system services deployed to the cluster
+        :param Sequence[str] system_services: The system services deployed to the cluster
         """
         pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
         pulumi.set(__self__, "orchestrator_properties", orchestrator_properties)
@@ -82,7 +82,7 @@ class AcsClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="agentCount")
-    def agent_count(self) -> Optional[float]:
+    def agent_count(self) -> Optional[int]:
         """
         The number of agent nodes in the Container Service. This can be changed to scale the cluster.
         """
@@ -98,7 +98,7 @@ class AcsClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="systemServices")
-    def system_services(self) -> Optional[List[str]]:
+    def system_services(self) -> Optional[Sequence[str]]:
         """
         The system services deployed to the cluster
         """
@@ -152,16 +152,16 @@ class AutoScaleConfigurationResponse(dict):
     AutoScale configuration properties.
     """
     def __init__(__self__, *,
-                 max_replicas: Optional[float] = None,
-                 min_replicas: Optional[float] = None,
-                 refresh_period_in_seconds: Optional[float] = None,
+                 max_replicas: Optional[int] = None,
+                 min_replicas: Optional[int] = None,
+                 refresh_period_in_seconds: Optional[int] = None,
                  status: Optional[str] = None,
                  target_utilization: Optional[float] = None):
         """
         AutoScale configuration properties.
-        :param float max_replicas: The maximum number of replicas for each service.
-        :param float min_replicas: The minimum number of replicas for each service.
-        :param float refresh_period_in_seconds: Refresh period in seconds.
+        :param int max_replicas: The maximum number of replicas for each service.
+        :param int min_replicas: The minimum number of replicas for each service.
+        :param int refresh_period_in_seconds: Refresh period in seconds.
         :param str status: If auto-scale is enabled for all services. Each service can turn it off individually.
         :param float target_utilization: The target utilization.
         """
@@ -178,7 +178,7 @@ class AutoScaleConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="maxReplicas")
-    def max_replicas(self) -> Optional[float]:
+    def max_replicas(self) -> Optional[int]:
         """
         The maximum number of replicas for each service.
         """
@@ -186,7 +186,7 @@ class AutoScaleConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="minReplicas")
-    def min_replicas(self) -> Optional[float]:
+    def min_replicas(self) -> Optional[int]:
         """
         The minimum number of replicas for each service.
         """
@@ -194,7 +194,7 @@ class AutoScaleConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="refreshPeriodInSeconds")
-    def refresh_period_in_seconds(self) -> Optional[float]:
+    def refresh_period_in_seconds(self) -> Optional[int]:
         """
         Refresh period in seconds.
         """

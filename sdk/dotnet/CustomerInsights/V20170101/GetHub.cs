@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// <summary>
         /// Billing settings of the hub.
         /// </summary>
-        public readonly Outputs.HubBillingInfoFormatResponseResult? HubBillingInfo;
+        public readonly Outputs.HubBillingInfoFormatResponse? HubBillingInfo;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         private GetHubResult(
             string apiEndpoint,
 
-            Outputs.HubBillingInfoFormatResponseResult? hubBillingInfo,
+            Outputs.HubBillingInfoFormatResponse? hubBillingInfo,
 
             string? location,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -240,7 +240,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remainingRetentionDays")
-    def remaining_retention_days(self) -> pulumi.Output[float]:
+    def remaining_retention_days(self) -> pulumi.Output[int]:
         """
         Remaining retention days for soft deleted blob container.
         """

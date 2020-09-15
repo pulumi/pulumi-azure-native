@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class Transform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -32,7 +32,7 @@ class Transform(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]] outputs: An array of one or more TransformOutputs that the Transform should generate.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]] outputs: An array of one or more TransformOutputs that the Transform should generate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] transform_name: The Transform name.
         """
@@ -130,7 +130,7 @@ class Transform(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[List['outputs.TransformOutputResponse']]:
+    def outputs(self) -> pulumi.Output[Sequence['outputs.TransformOutputResponse']]:
         """
         An array of one or more TransformOutputs that the Transform should generate.
         """

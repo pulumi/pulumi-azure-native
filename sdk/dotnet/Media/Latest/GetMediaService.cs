@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Media.Latest
         /// <summary>
         /// The account encryption properties.
         /// </summary>
-        public readonly Outputs.AccountEncryptionResponseResult? Encryption;
+        public readonly Outputs.AccountEncryptionResponse? Encryption;
         /// <summary>
         /// The Managed Identity for the Media Services account.
         /// </summary>
-        public readonly Outputs.MediaServiceIdentityResponseResult? Identity;
+        public readonly Outputs.MediaServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Media.Latest
         /// <summary>
         /// The storage accounts for this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StorageAccountResponseResult> StorageAccounts;
+        public readonly ImmutableArray<Outputs.StorageAccountResponse> StorageAccounts;
         public readonly string? StorageAuthentication;
         /// <summary>
         /// Resource tags.
@@ -75,9 +75,9 @@ namespace Pulumi.AzureRM.Media.Latest
 
         [OutputConstructor]
         private GetMediaServiceResult(
-            Outputs.AccountEncryptionResponseResult? encryption,
+            Outputs.AccountEncryptionResponse? encryption,
 
-            Outputs.MediaServiceIdentityResponseResult? identity,
+            Outputs.MediaServiceIdentityResponse? identity,
 
             string location,
 
@@ -85,7 +85,7 @@ namespace Pulumi.AzureRM.Media.Latest
 
             string name,
 
-            ImmutableArray<Outputs.StorageAccountResponseResult> storageAccounts,
+            ImmutableArray<Outputs.StorageAccountResponse> storageAccounts,
 
             string? storageAuthentication,
 

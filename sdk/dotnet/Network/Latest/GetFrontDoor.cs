@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// Backend pools available to routing rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BackendPoolResponseResult> BackendPools;
+        public readonly ImmutableArray<Outputs.BackendPoolResponse> BackendPools;
         /// <summary>
         /// Settings for all backendPools
         /// </summary>
-        public readonly Outputs.BackendPoolsSettingsResponseResult? BackendPoolsSettings;
+        public readonly Outputs.BackendPoolsSettingsResponse? BackendPoolsSettings;
         /// <summary>
         /// The host that each frontendEndpoint must CNAME to.
         /// </summary>
@@ -66,15 +66,15 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// Frontend endpoints available to routing rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontendEndpointResponseResult> FrontendEndpoints;
+        public readonly ImmutableArray<Outputs.FrontendEndpointResponse> FrontendEndpoints;
         /// <summary>
         /// Health probe settings associated with this Front Door instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HealthProbeSettingsModelResponseResult> HealthProbeSettings;
+        public readonly ImmutableArray<Outputs.HealthProbeSettingsModelResponse> HealthProbeSettings;
         /// <summary>
         /// Load balancing settings associated with this Front Door instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoadBalancingSettingsModelResponseResult> LoadBalancingSettings;
+        public readonly ImmutableArray<Outputs.LoadBalancingSettingsModelResponse> LoadBalancingSettings;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -94,11 +94,11 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// Routing rules associated with this Front Door.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RoutingRuleResponseResult> RoutingRules;
+        public readonly ImmutableArray<Outputs.RoutingRuleResponse> RoutingRules;
         /// <summary>
         /// Rules Engine Configurations available to routing rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RulesEngineResponseResult> RulesEngines;
+        public readonly ImmutableArray<Outputs.RulesEngineResponse> RulesEngines;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -110,9 +110,9 @@ namespace Pulumi.AzureRM.Network.Latest
 
         [OutputConstructor]
         private GetFrontDoorResult(
-            ImmutableArray<Outputs.BackendPoolResponseResult> backendPools,
+            ImmutableArray<Outputs.BackendPoolResponse> backendPools,
 
-            Outputs.BackendPoolsSettingsResponseResult? backendPoolsSettings,
+            Outputs.BackendPoolsSettingsResponse? backendPoolsSettings,
 
             string cname,
 
@@ -122,11 +122,11 @@ namespace Pulumi.AzureRM.Network.Latest
 
             string frontdoorId,
 
-            ImmutableArray<Outputs.FrontendEndpointResponseResult> frontendEndpoints,
+            ImmutableArray<Outputs.FrontendEndpointResponse> frontendEndpoints,
 
-            ImmutableArray<Outputs.HealthProbeSettingsModelResponseResult> healthProbeSettings,
+            ImmutableArray<Outputs.HealthProbeSettingsModelResponse> healthProbeSettings,
 
-            ImmutableArray<Outputs.LoadBalancingSettingsModelResponseResult> loadBalancingSettings,
+            ImmutableArray<Outputs.LoadBalancingSettingsModelResponse> loadBalancingSettings,
 
             string? location,
 
@@ -136,9 +136,9 @@ namespace Pulumi.AzureRM.Network.Latest
 
             string? resourceState,
 
-            ImmutableArray<Outputs.RoutingRuleResponseResult> routingRules,
+            ImmutableArray<Outputs.RoutingRuleResponse> routingRules,
 
-            ImmutableArray<Outputs.RulesEngineResponseResult> rulesEngines,
+            ImmutableArray<Outputs.RulesEngineResponse> rulesEngines,
 
             ImmutableDictionary<string, string>? tags,
 

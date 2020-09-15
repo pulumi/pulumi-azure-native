@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -44,7 +44,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def assessments(self) -> List[str]:
+    def assessments(self) -> Sequence[str]:
         """
         List of References to Assessments created on this group.
         """
@@ -68,7 +68,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def machines(self) -> List[str]:
+    def machines(self) -> Sequence[str]:
         """
         List of machine names that are part of this group.
         """

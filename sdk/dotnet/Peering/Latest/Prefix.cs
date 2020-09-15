@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Peering.Latest
         /// The list of events for peering service prefix
         /// </summary>
         [Output("events")]
-        public Output<ImmutableArray<Outputs.PeeringServicePrefixEventResponseResult>> Events { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PeeringServicePrefixEventResponse>> Events { get; private set; } = null!;
 
         /// <summary>
         /// The prefix learned type

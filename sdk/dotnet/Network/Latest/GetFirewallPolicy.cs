@@ -48,15 +48,15 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// The parent firewall policy from which rules are inherited.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? BasePolicy;
+        public readonly Outputs.SubResourceResponse? BasePolicy;
         /// <summary>
         /// List of references to Child Firewall Policies.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> ChildPolicies;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> ChildPolicies;
         /// <summary>
         /// DNS Proxy Settings definition.
         /// </summary>
-        public readonly Outputs.DnsSettingsResponseResult? DnsSettings;
+        public readonly Outputs.DnsSettingsResponse? DnsSettings;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// List of references to Azure Firewalls that this Firewall Policy is associated with.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Firewalls;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> Firewalls;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// List of references to FirewallPolicyRuleCollectionGroups.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> RuleCollectionGroups;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> RuleCollectionGroups;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// ThreatIntel Whitelist for Firewall Policy.
         /// </summary>
-        public readonly Outputs.FirewallPolicyThreatIntelWhitelistResponseResult? ThreatIntelWhitelist;
+        public readonly Outputs.FirewallPolicyThreatIntelWhitelistResponse? ThreatIntelWhitelist;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -100,15 +100,15 @@ namespace Pulumi.AzureRM.Network.Latest
 
         [OutputConstructor]
         private GetFirewallPolicyResult(
-            Outputs.SubResourceResponseResult? basePolicy,
+            Outputs.SubResourceResponse? basePolicy,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> childPolicies,
+            ImmutableArray<Outputs.SubResourceResponse> childPolicies,
 
-            Outputs.DnsSettingsResponseResult? dnsSettings,
+            Outputs.DnsSettingsResponse? dnsSettings,
 
             string etag,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> firewalls,
+            ImmutableArray<Outputs.SubResourceResponse> firewalls,
 
             string? location,
 
@@ -116,13 +116,13 @@ namespace Pulumi.AzureRM.Network.Latest
 
             string provisioningState,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> ruleCollectionGroups,
+            ImmutableArray<Outputs.SubResourceResponse> ruleCollectionGroups,
 
             ImmutableDictionary<string, string>? tags,
 
             string? threatIntelMode,
 
-            Outputs.FirewallPolicyThreatIntelWhitelistResponseResult? threatIntelWhitelist,
+            Outputs.FirewallPolicyThreatIntelWhitelistResponse? threatIntelWhitelist,
 
             string type)
         {

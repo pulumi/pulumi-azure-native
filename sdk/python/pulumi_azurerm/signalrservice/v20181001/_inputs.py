@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,7 +19,7 @@ __all__ = [
 class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
@@ -28,7 +28,7 @@ class ResourceSkuArgs:
         :param pulumi.Input[str] name: The name of the SKU. Required.
                
                Allowed values: Standard_S1, Free_F1
-        :param pulumi.Input[float] capacity: Optional, integer. The unit count of SignalR resource. 1 by default.
+        :param pulumi.Input[int] capacity: Optional, integer. The unit count of SignalR resource. 1 by default.
                
                If present, following values are allowed:
                    Free: 1
@@ -65,7 +65,7 @@ class ResourceSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Optional, integer. The unit count of SignalR resource. 1 by default.
         
@@ -76,7 +76,7 @@ class ResourceSkuArgs:
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -121,24 +121,24 @@ class ResourceSkuArgs:
 @pulumi.input_type
 class SignalRCorsSettingsArgs:
     def __init__(__self__, *,
-                 allowed_origins: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Cross-Origin Resource Sharing (CORS) settings.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
         """
         if allowed_origins is not None:
             pulumi.set(__self__, "allowed_origins", allowed_origins)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
 
@@ -146,12 +146,12 @@ class SignalRCorsSettingsArgs:
 class SignalRCreateOrUpdatePropertiesArgs:
     def __init__(__self__, *,
                  cors: Optional[pulumi.Input['SignalRCorsSettingsArgs']] = None,
-                 features: Optional[pulumi.Input[List[pulumi.Input['SignalRFeatureArgs']]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]]] = None,
                  host_name_prefix: Optional[pulumi.Input[str]] = None):
         """
         Settings used to provision or configure the resource.
         :param pulumi.Input['SignalRCorsSettingsArgs'] cors: Cross-Origin Resource Sharing (CORS) settings.
-        :param pulumi.Input[List[pulumi.Input['SignalRFeatureArgs']]] features: List of SignalR featureFlags. e.g. ServiceMode.
+        :param pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]] features: List of SignalR featureFlags. e.g. ServiceMode.
                
                FeatureFlags that are not included in the parameters for the update operation will not be modified.
                And the response will only include featureFlags that are explicitly set. 
@@ -181,7 +181,7 @@ class SignalRCreateOrUpdatePropertiesArgs:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[List[pulumi.Input['SignalRFeatureArgs']]]]:
+    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]]]:
         """
         List of SignalR featureFlags. e.g. ServiceMode.
         
@@ -193,7 +193,7 @@ class SignalRCreateOrUpdatePropertiesArgs:
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[List[pulumi.Input['SignalRFeatureArgs']]]]):
+    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]]]):
         pulumi.set(self, "features", value)
 
     @property

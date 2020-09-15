@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// <summary>
         /// Describes the gallery unique name.
         /// </summary>
-        public readonly Outputs.GalleryIdentifierResponseResult? Identifier;
+        public readonly Outputs.GalleryIdentifierResponse? Identifier;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Compute.V20191201
         private GetGalleryResult(
             string? description,
 
-            Outputs.GalleryIdentifierResponseResult? identifier,
+            Outputs.GalleryIdentifierResponse? identifier,
 
             string location,
 

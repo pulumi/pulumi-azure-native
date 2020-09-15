@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,10 +17,10 @@ class ApiManagementService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]]] = None,
-                 certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]]] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 hostname_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
@@ -40,10 +40,10 @@ class ApiManagementService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']] identity: Managed service identity of the Api Management service.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
@@ -141,7 +141,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> pulumi.Output[Optional[List['outputs.AdditionalLocationResponse']]]:
+    def additional_locations(self) -> pulumi.Output[Optional[Sequence['outputs.AdditionalLocationResponse']]]:
         """
         Additional datacenter locations of the API Management service.
         """
@@ -149,7 +149,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Output[Optional[List['outputs.CertificateConfigurationResponse']]]:
+    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateConfigurationResponse']]]:
         """
         List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         """
@@ -197,7 +197,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> pulumi.Output[Optional[List['outputs.HostnameConfigurationResponse']]]:
+    def hostname_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.HostnameConfigurationResponse']]]:
         """
         Custom hostname configuration of the API Management service.
         """
@@ -253,7 +253,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIPAddresses")
-    def private_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def private_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
         """
@@ -269,7 +269,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def public_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
         """

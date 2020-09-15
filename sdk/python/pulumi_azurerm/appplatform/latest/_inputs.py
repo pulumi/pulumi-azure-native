@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -345,18 +345,18 @@ class DeploymentResourcePropertiesArgs:
 @pulumi.input_type
 class DeploymentSettingsArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[float]] = None,
+                 cpu: Optional[pulumi.Input[int]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
-                 memory_in_gb: Optional[pulumi.Input[float]] = None,
+                 memory_in_gb: Optional[pulumi.Input[int]] = None,
                  net_core_main_entry_path: Optional[pulumi.Input[str]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None):
         """
         Deployment settings payload
-        :param pulumi.Input[float] cpu: Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+        :param pulumi.Input[int] cpu: Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Collection of environment variables
         :param pulumi.Input[str] jvm_options: JVM parameter
-        :param pulumi.Input[float] memory_in_gb: Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
+        :param pulumi.Input[int] memory_in_gb: Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
         :param pulumi.Input[str] net_core_main_entry_path: The path to the .NET executable relative to zip root
         :param pulumi.Input[str] runtime_version: Runtime version
         """
@@ -375,14 +375,14 @@ class DeploymentSettingsArgs:
 
     @property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[float]]:
+    def cpu(self) -> Optional[pulumi.Input[int]]:
         """
         Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
         """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[float]]):
+    def cpu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cpu", value)
 
     @property
@@ -411,14 +411,14 @@ class DeploymentSettingsArgs:
 
     @property
     @pulumi.getter(name="memoryInGB")
-    def memory_in_gb(self) -> Optional[pulumi.Input[float]]:
+    def memory_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
         Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
         """
         return pulumi.get(self, "memory_in_gb")
 
     @memory_in_gb.setter
-    def memory_in_gb(self, value: Optional[pulumi.Input[float]]):
+    def memory_in_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "memory_in_gb", value)
 
     @property
@@ -594,11 +594,11 @@ class NetworkProfileArgs:
 class PersistentDiskArgs:
     def __init__(__self__, *,
                  mount_path: Optional[pulumi.Input[str]] = None,
-                 size_in_gb: Optional[pulumi.Input[float]] = None):
+                 size_in_gb: Optional[pulumi.Input[int]] = None):
         """
         Persistent disk payload
         :param pulumi.Input[str] mount_path: Mount path of the persistent disk
-        :param pulumi.Input[float] size_in_gb: Size of the persistent disk in GB
+        :param pulumi.Input[int] size_in_gb: Size of the persistent disk in GB
         """
         if mount_path is not None:
             pulumi.set(__self__, "mount_path", mount_path)
@@ -619,26 +619,26 @@ class PersistentDiskArgs:
 
     @property
     @pulumi.getter(name="sizeInGB")
-    def size_in_gb(self) -> Optional[pulumi.Input[float]]:
+    def size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
         Size of the persistent disk in GB
         """
         return pulumi.get(self, "size_in_gb")
 
     @size_in_gb.setter
-    def size_in_gb(self, value: Optional[pulumi.Input[float]]):
+    def size_in_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_in_gb", value)
 
 
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Sku of Azure Spring Cloud
-        :param pulumi.Input[float] capacity: Current capacity of the target resource
+        :param pulumi.Input[int] capacity: Current capacity of the target resource
         :param pulumi.Input[str] name: Name of the Sku
         :param pulumi.Input[str] tier: Tier of the Sku
         """
@@ -651,14 +651,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Current capacity of the target resource
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -690,11 +690,11 @@ class SkuArgs:
 class TemporaryDiskArgs:
     def __init__(__self__, *,
                  mount_path: Optional[pulumi.Input[str]] = None,
-                 size_in_gb: Optional[pulumi.Input[float]] = None):
+                 size_in_gb: Optional[pulumi.Input[int]] = None):
         """
         Temporary disk payload
         :param pulumi.Input[str] mount_path: Mount path of the temporary disk
-        :param pulumi.Input[float] size_in_gb: Size of the temporary disk in GB
+        :param pulumi.Input[int] size_in_gb: Size of the temporary disk in GB
         """
         if mount_path is not None:
             pulumi.set(__self__, "mount_path", mount_path)
@@ -715,14 +715,14 @@ class TemporaryDiskArgs:
 
     @property
     @pulumi.getter(name="sizeInGB")
-    def size_in_gb(self) -> Optional[pulumi.Input[float]]:
+    def size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
         Size of the temporary disk in GB
         """
         return pulumi.get(self, "size_in_gb")
 
     @size_in_gb.setter
-    def size_in_gb(self, value: Optional[pulumi.Input[float]]):
+    def size_in_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_in_gb", value)
 
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,17 +19,17 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  nat_gateway_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
-                 public_ip_prefixes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['NatGatewaySkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,17 +40,17 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[float] idle_timeout_in_minutes: The idle timeout of the nat gateway.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the nat gateway.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] nat_gateway_name: The name of the nat gateway.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the NAT gateway resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] public_ip_addresses: An array of public ip addresses associated with the nat gateway resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] public_ip_prefixes: An array of public ip prefixes associated with the nat gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] public_ip_addresses: An array of public ip addresses associated with the nat gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] public_ip_prefixes: An array of public ip prefixes associated with the nat gateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the NAT gateway resource.
         :param pulumi.Input[pulumi.InputType['NatGatewaySkuArgs']] sku: The nat gateway SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of availability zones denoting the zone in which Nat Gateway should be deployed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the zone in which Nat Gateway should be deployed.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,7 +125,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         The idle timeout of the nat gateway.
         """
@@ -157,7 +157,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
+    def public_ip_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.SubResourceResponse']]]:
         """
         An array of public ip addresses associated with the nat gateway resource.
         """
@@ -165,7 +165,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpPrefixes")
-    def public_ip_prefixes(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
+    def public_ip_prefixes(self) -> pulumi.Output[Optional[Sequence['outputs.SubResourceResponse']]]:
         """
         An array of public ip prefixes associated with the nat gateway resource.
         """
@@ -189,7 +189,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def subnets(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         An array of references to the subnets using this nat gateway resource.
         """
@@ -213,7 +213,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of availability zones denoting the zone in which Nat Gateway should be deployed.
         """

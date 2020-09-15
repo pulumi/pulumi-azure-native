@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class ManagedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']]] = None,
@@ -34,7 +34,7 @@ class ManagedCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the managed cluster.
         :param pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']] linux_profile: Profile for Linux VMs in the container service cluster.
@@ -108,7 +108,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> pulumi.Output[Optional[List['outputs.ContainerServiceAgentPoolProfileResponse']]]:
+    def agent_pool_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.ContainerServiceAgentPoolProfileResponse']]]:
         """
         Properties of the agent pool.
         """

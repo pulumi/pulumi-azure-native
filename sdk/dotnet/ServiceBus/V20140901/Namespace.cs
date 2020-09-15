@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         /// SKU of the namespace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// State of the namespace.

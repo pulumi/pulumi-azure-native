@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponseResult LatestOperationResult;
+        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// <summary>
         /// Represents the size configuration under the lab account
         /// </summary>
-        public readonly Outputs.SizeConfigurationPropertiesResponseResult SizeConfiguration;
+        public readonly Outputs.SizeConfigurationPropertiesResponse SizeConfiguration;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         private GetLabAccountResult(
             bool? enabledRegionSelection,
 
-            Outputs.LatestOperationResultResponseResult latestOperationResult,
+            Outputs.LatestOperationResultResponse latestOperationResult,
 
             string? location,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
 
             string? provisioningState,
 
-            Outputs.SizeConfigurationPropertiesResponseResult sizeConfiguration,
+            Outputs.SizeConfigurationPropertiesResponse sizeConfiguration,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// An array of references to IP addresses defined in network interfaces.
         /// </summary>
         [Output("backendIPConfigurations")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult>> BackendIPConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse>> BackendIPConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Network.Latest
         /// An array of backend addresses.
         /// </summary>
         [Output("loadBalancerBackendAddresses")]
-        public Output<ImmutableArray<Outputs.LoadBalancerBackendAddressResponseResult>> LoadBalancerBackendAddresses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LoadBalancerBackendAddressResponse>> LoadBalancerBackendAddresses { get; private set; } = null!;
 
         /// <summary>
         /// An array of references to load balancing rules that use this backend address pool.
         /// </summary>
         [Output("loadBalancingRules")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> LoadBalancingRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> LoadBalancingRules { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Network.Latest
         /// A reference to an outbound rule that uses this backend address pool.
         /// </summary>
         [Output("outboundRule")]
-        public Output<Outputs.SubResourceResponseResult> OutboundRule { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse> OutboundRule { get; private set; } = null!;
 
         /// <summary>
         /// An array of references to outbound rules that use this backend address pool.
         /// </summary>
         [Output("outboundRules")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> OutboundRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> OutboundRules { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the backend address pool resource.

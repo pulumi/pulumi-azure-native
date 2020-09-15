@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['BandwidthSchedule']
@@ -15,10 +15,10 @@ class BandwidthSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rate_in_mbps: Optional[pulumi.Input[float]] = None,
+                 rate_in_mbps: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None,
                  stop: Optional[pulumi.Input[str]] = None,
@@ -30,10 +30,10 @@ class BandwidthSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] days: The days of the week when this schedule is applicable.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: The days of the week when this schedule is applicable.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] name: The bandwidth schedule name which needs to be added/updated.
-        :param pulumi.Input[float] rate_in_mbps: The bandwidth rate in Mbps.
+        :param pulumi.Input[int] rate_in_mbps: The bandwidth rate in Mbps.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] start: The start time of the schedule in UTC.
         :param pulumi.Input[str] stop: The stop time of the schedule in UTC.
@@ -105,7 +105,7 @@ class BandwidthSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def days(self) -> pulumi.Output[List[str]]:
+    def days(self) -> pulumi.Output[Sequence[str]]:
         """
         The days of the week when this schedule is applicable.
         """
@@ -121,7 +121,7 @@ class BandwidthSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rateInMbps")
-    def rate_in_mbps(self) -> pulumi.Output[float]:
+    def rate_in_mbps(self) -> pulumi.Output[int]:
         """
         The bandwidth rate in Mbps.
         """

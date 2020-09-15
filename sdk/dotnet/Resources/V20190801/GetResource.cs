@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Resources.V20190801
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The kind of the resource.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Resources.V20190801
         /// <summary>
         /// The plan of the resource.
         /// </summary>
-        public readonly Outputs.PlanResponseResult? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// The resource properties.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Resources.V20190801
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.Resources.V20190801
 
         [OutputConstructor]
         private GetResourceResult(
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? kind,
 
@@ -110,11 +110,11 @@ namespace Pulumi.AzureRM.Resources.V20190801
 
             string name,
 
-            Outputs.PlanResponseResult? plan,
+            Outputs.PlanResponse? plan,
 
             ImmutableDictionary<string, object> properties,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

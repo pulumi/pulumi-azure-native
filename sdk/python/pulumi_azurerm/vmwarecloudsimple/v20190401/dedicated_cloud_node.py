@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nodes_count: Optional[pulumi.Input[float]] = None,
+                 nodes_count: Optional[pulumi.Input[int]] = None,
                  placement_group_id: Optional[pulumi.Input[str]] = None,
                  purchase_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -41,7 +41,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
         :param pulumi.Input[str] id: SKU's id
         :param pulumi.Input[str] location: Azure region
         :param pulumi.Input[str] name: SKU's name
-        :param pulumi.Input[float] nodes_count: count of nodes to create
+        :param pulumi.Input[int] nodes_count: count of nodes to create
         :param pulumi.Input[str] placement_group_id: Placement Group id, e.g. "n1"
         :param pulumi.Input[str] purchase_id: purchase id
         :param pulumi.Input[str] resource_group_name: The name of the resource group
@@ -180,7 +180,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodesCount")
-    def nodes_count(self) -> pulumi.Output[float]:
+    def nodes_count(self) -> pulumi.Output[int]:
         """
         count of nodes to create
         """

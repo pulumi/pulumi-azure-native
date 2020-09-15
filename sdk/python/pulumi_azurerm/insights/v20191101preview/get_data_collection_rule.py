@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -54,7 +54,7 @@ class GetDataCollectionRuleResult:
 
     @property
     @pulumi.getter(name="dataFlows")
-    def data_flows(self) -> List['outputs.DataFlowResponse']:
+    def data_flows(self) -> Sequence['outputs.DataFlowResponse']:
         """
         The specification of data flows.
         """

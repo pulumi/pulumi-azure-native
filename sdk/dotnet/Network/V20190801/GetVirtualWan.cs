@@ -82,11 +82,11 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// <summary>
         /// List of VirtualHubs in the VirtualWAN.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualHubs;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualHubs;
         /// <summary>
         /// List of VpnSites in the VirtualWAN.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VpnSites;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> VpnSites;
 
         [OutputConstructor]
         private GetVirtualWanResult(
@@ -110,9 +110,9 @@ namespace Pulumi.AzureRM.Network.V20190801
 
             string type,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> virtualHubs,
+            ImmutableArray<Outputs.SubResourceResponse> virtualHubs,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> vpnSites)
+            ImmutableArray<Outputs.SubResourceResponse> vpnSites)
         {
             AllowBranchToBranchTraffic = allowBranchToBranchTraffic;
             AllowVnetToVnetTraffic = allowVnetToVnetTraffic;

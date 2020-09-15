@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20160707
         /// Additional datacenter locations of the API Management service.
         /// </summary>
         [Output("additionalLocations")]
-        public Output<ImmutableArray<Outputs.AdditionalRegionResponseResult>> AdditionalLocations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AdditionalRegionResponse>> AdditionalLocations { get; private set; } = null!;
 
         /// <summary>
         /// Addresser email.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20160707
         /// Custom hostname configuration of the API Management service.
         /// </summary>
         [Output("hostnameConfigurations")]
-        public Output<ImmutableArray<Outputs.HostnameConfigurationResponseResult>> HostnameConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HostnameConfigurationResponse>> HostnameConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Datacenter location of the API Management service.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20160707
         /// SKU properties of the API Management service.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ApiManagementServiceSkuPropertiesResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.ApiManagementServiceSkuPropertiesResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
@@ -144,7 +144,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20160707
         /// Virtual network configuration of the API Management service.
         /// </summary>
         [Output("vpnconfiguration")]
-        public Output<Outputs.VirtualNetworkConfigurationResponseResult?> Vpnconfiguration { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkConfigurationResponse?> Vpnconfiguration { get; private set; } = null!;
 
 
         /// <summary>

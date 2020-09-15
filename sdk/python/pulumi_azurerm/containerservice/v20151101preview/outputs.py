@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,14 +30,14 @@ class ContainerServiceAgentPoolProfileResponse(dict):
                  dns_prefix: str,
                  fqdn: str,
                  name: str,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  vm_size: Optional[str] = None):
         """
         Profile for container service agent pool
         :param str dns_prefix: DNS prefix to be used to create FQDN for this agent pool
         :param str fqdn: FQDN for the agent pool
         :param str name: Unique name of the agent pool profile within the context of the subscription and resource group
-        :param float count: No. of agents (VMs) that will host docker containers
+        :param int count: No. of agents (VMs) that will host docker containers
         :param str vm_size: Size of agent VMs
         """
         pulumi.set(__self__, "dns_prefix", dns_prefix)
@@ -74,7 +74,7 @@ class ContainerServiceAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         No. of agents (VMs) that will host docker containers
         """
@@ -158,12 +158,12 @@ class ContainerServiceMasterProfileResponse(dict):
     def __init__(__self__, *,
                  dns_prefix: str,
                  fqdn: str,
-                 count: Optional[float] = None):
+                 count: Optional[int] = None):
         """
         Profile for container service master
         :param str dns_prefix: DNS prefix to be used to create FQDN for master
         :param str fqdn: FQDN for the master
-        :param float count: Number of masters (VMs) in the container cluster
+        :param int count: Number of masters (VMs) in the container cluster
         """
         pulumi.set(__self__, "dns_prefix", dns_prefix)
         pulumi.set(__self__, "fqdn", fqdn)
@@ -188,7 +188,7 @@ class ContainerServiceMasterProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Number of masters (VMs) in the container cluster
         """
@@ -230,17 +230,17 @@ class ContainerServiceSshConfigurationResponse(dict):
     SSH configuration for Linux based VMs running on Azure
     """
     def __init__(__self__, *,
-                 public_keys: Optional[List['outputs.ContainerServiceSshPublicKeyResponse']] = None):
+                 public_keys: Optional[Sequence['outputs.ContainerServiceSshPublicKeyResponse']] = None):
         """
         SSH configuration for Linux based VMs running on Azure
-        :param List['ContainerServiceSshPublicKeyResponseArgs'] public_keys: Gets or sets the list of SSH public keys used to authenticate with Linux based VMs
+        :param Sequence['ContainerServiceSshPublicKeyResponseArgs'] public_keys: Gets or sets the list of SSH public keys used to authenticate with Linux based VMs
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[List['outputs.ContainerServiceSshPublicKeyResponse']]:
+    def public_keys(self) -> Optional[Sequence['outputs.ContainerServiceSshPublicKeyResponse']]:
         """
         Gets or sets the list of SSH public keys used to authenticate with Linux based VMs
         """

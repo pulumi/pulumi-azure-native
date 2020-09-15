@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.EventGrid.V20170915Preview
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
-        public readonly Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>? Destination;
+        public readonly Union<Outputs.EventHubEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>? Destination;
         /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
-        public readonly Outputs.EventSubscriptionFilterResponseResult? Filter;
+        public readonly Outputs.EventSubscriptionFilterResponse? Filter;
         /// <summary>
         /// List of user defined labels.
         /// </summary>
@@ -70,9 +70,9 @@ namespace Pulumi.AzureRM.EventGrid.V20170915Preview
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
-            Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>? destination,
+            Union<Outputs.EventHubEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>? destination,
 
-            Outputs.EventSubscriptionFilterResponseResult? filter,
+            Outputs.EventSubscriptionFilterResponse? filter,
 
             ImmutableArray<string> labels,
 

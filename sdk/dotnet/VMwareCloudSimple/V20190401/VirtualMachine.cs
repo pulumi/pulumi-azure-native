@@ -24,19 +24,19 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// The list of Virtual Disks' Controllers
         /// </summary>
         [Output("controllers")]
-        public Output<ImmutableArray<Outputs.VirtualDiskControllerResponseResult>> Controllers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualDiskControllerResponse>> Controllers { get; private set; } = null!;
 
         /// <summary>
         /// Virtual machine properties
         /// </summary>
         [Output("customization")]
-        public Output<Outputs.GuestOSCustomizationResponseResult?> Customization { get; private set; } = null!;
+        public Output<Outputs.GuestOSCustomizationResponse?> Customization { get; private set; } = null!;
 
         /// <summary>
         /// The list of Virtual Disks
         /// </summary>
         [Output("disks")]
-        public Output<ImmutableArray<Outputs.VirtualDiskResponseResult>> Disks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualDiskResponse>> Disks { get; private set; } = null!;
 
         /// <summary>
         /// The DNS name of Virtual Machine in VCenter
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// The list of Virtual NICs
         /// </summary>
         [Output("nics")]
-        public Output<ImmutableArray<Outputs.VirtualNicResponseResult>> Nics { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualNicResponse>> Nics { get; private set; } = null!;
 
         /// <summary>
         /// The number of CPU cores
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// Virtual Machines Resource Pool
         /// </summary>
         [Output("resourcePool")]
-        public Output<Outputs.ResourcePoolResponseResult?> ResourcePool { get; private set; } = null!;
+        public Output<Outputs.ResourcePoolResponse?> ResourcePool { get; private set; } = null!;
 
         /// <summary>
         /// The status of Virtual machine

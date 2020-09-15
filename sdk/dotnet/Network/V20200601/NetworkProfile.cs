@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// List of chid container network interface configurations.
         /// </summary>
         [Output("containerNetworkInterfaceConfigurations")]
-        public Output<ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponseResult>> ContainerNetworkInterfaceConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponse>> ContainerNetworkInterfaceConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// List of child container network interfaces.
         /// </summary>
         [Output("containerNetworkInterfaces")]
-        public Output<ImmutableArray<Outputs.ContainerNetworkInterfaceResponseResult>> ContainerNetworkInterfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContainerNetworkInterfaceResponse>> ContainerNetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.

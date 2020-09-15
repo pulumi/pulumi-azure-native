@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -54,8 +54,8 @@ class GetHostingEnvironmentResult:
         if internal_load_balancing_mode and not isinstance(internal_load_balancing_mode, str):
             raise TypeError("Expected argument 'internal_load_balancing_mode' to be a str")
         pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
-        if ipssl_address_count and not isinstance(ipssl_address_count, float):
-            raise TypeError("Expected argument 'ipssl_address_count' to be a float")
+        if ipssl_address_count and not isinstance(ipssl_address_count, int):
+            raise TypeError("Expected argument 'ipssl_address_count' to be a int")
         pulumi.set(__self__, "ipssl_address_count", ipssl_address_count)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
@@ -69,11 +69,11 @@ class GetHostingEnvironmentResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if maximum_number_of_machines and not isinstance(maximum_number_of_machines, float):
-            raise TypeError("Expected argument 'maximum_number_of_machines' to be a float")
+        if maximum_number_of_machines and not isinstance(maximum_number_of_machines, int):
+            raise TypeError("Expected argument 'maximum_number_of_machines' to be a int")
         pulumi.set(__self__, "maximum_number_of_machines", maximum_number_of_machines)
-        if multi_role_count and not isinstance(multi_role_count, float):
-            raise TypeError("Expected argument 'multi_role_count' to be a float")
+        if multi_role_count and not isinstance(multi_role_count, int):
+            raise TypeError("Expected argument 'multi_role_count' to be a int")
         pulumi.set(__self__, "multi_role_count", multi_role_count)
         if multi_size and not isinstance(multi_size, str):
             raise TypeError("Expected argument 'multi_size' to be a str")
@@ -105,8 +105,8 @@ class GetHostingEnvironmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if upgrade_domains and not isinstance(upgrade_domains, float):
-            raise TypeError("Expected argument 'upgrade_domains' to be a float")
+        if upgrade_domains and not isinstance(upgrade_domains, int):
+            raise TypeError("Expected argument 'upgrade_domains' to be a int")
         pulumi.set(__self__, "upgrade_domains", upgrade_domains)
         if vip_mappings and not isinstance(vip_mappings, list):
             raise TypeError("Expected argument 'vip_mappings' to be a list")
@@ -153,7 +153,7 @@ class GetHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> Optional[List['outputs.NameValuePairResponse']]:
+    def cluster_settings(self) -> Optional[Sequence['outputs.NameValuePairResponse']]:
         """
         Custom settings for changing the behavior of the hosting environment
         """
@@ -185,7 +185,7 @@ class GetHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="environmentCapacities")
-    def environment_capacities(self) -> Optional[List['outputs.StampCapacityResponse']]:
+    def environment_capacities(self) -> Optional[Sequence['outputs.StampCapacityResponse']]:
         """
         Current total, used, and available worker capacities
         """
@@ -217,7 +217,7 @@ class GetHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="ipsslAddressCount")
-    def ipssl_address_count(self) -> Optional[float]:
+    def ipssl_address_count(self) -> Optional[int]:
         """
         Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
         """
@@ -257,7 +257,7 @@ class GetHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="maximumNumberOfMachines")
-    def maximum_number_of_machines(self) -> Optional[float]:
+    def maximum_number_of_machines(self) -> Optional[int]:
         """
         Maximum number of VMs in this hostingEnvironment (App Service Environment)
         """
@@ -265,7 +265,7 @@ class GetHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="multiRoleCount")
-    def multi_role_count(self) -> Optional[float]:
+    def multi_role_count(self) -> Optional[int]:
         """
         Number of front-end instances
         """
@@ -289,7 +289,7 @@ class GetHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="networkAccessControlList")
-    def network_access_control_list(self) -> Optional[List['outputs.NetworkAccessControlEntryResponse']]:
+    def network_access_control_list(self) -> Optional[Sequence['outputs.NetworkAccessControlEntryResponse']]:
         """
         Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
         """
@@ -354,7 +354,7 @@ class GetHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="upgradeDomains")
-    def upgrade_domains(self) -> Optional[float]:
+    def upgrade_domains(self) -> Optional[int]:
         """
         Number of upgrade domains of this hostingEnvironment (App Service Environment)
         """
@@ -362,7 +362,7 @@ class GetHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="vipMappings")
-    def vip_mappings(self) -> Optional[List['outputs.VirtualIPMappingResponse']]:
+    def vip_mappings(self) -> Optional[Sequence['outputs.VirtualIPMappingResponse']]:
         """
         Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
         """
@@ -402,7 +402,7 @@ class GetHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="workerPools")
-    def worker_pools(self) -> Optional[List['outputs.WorkerPoolResponse']]:
+    def worker_pools(self) -> Optional[Sequence['outputs.WorkerPoolResponse']]:
         """
         Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
         """

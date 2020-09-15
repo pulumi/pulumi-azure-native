@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['LabResource']
@@ -25,7 +25,7 @@ class LabResource(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
@@ -47,7 +47,7 @@ class LabResource(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[List[pulumi.Input[str]]] storage_accounts: The storage accounts of the lab.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_accounts: The storage accounts of the lab.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] type: The type of the resource.
         :param pulumi.Input[str] vault_name: The name of the key vault of the lab.
@@ -179,7 +179,7 @@ class LabResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> pulumi.Output[Optional[List[str]]]:
+    def storage_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The storage accounts of the lab.
         """

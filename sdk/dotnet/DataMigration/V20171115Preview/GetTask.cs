@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.DataMigration.V20171115Preview
         /// <summary>
         /// Custom task properties
         /// </summary>
-        public readonly Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponseResult, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponseResult, Union<Outputs.GetUserTablesSqlTaskPropertiesResponseResult, Outputs.MigrateSqlServerSqlDbTaskPropertiesResponseResult>>> Properties;
+        public readonly Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponse, Union<Outputs.GetUserTablesSqlTaskPropertiesResponse, Outputs.MigrateSqlServerSqlDbTaskPropertiesResponse>>> Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.DataMigration.V20171115Preview
 
             string name,
 
-            Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponseResult, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponseResult, Union<Outputs.GetUserTablesSqlTaskPropertiesResponseResult, Outputs.MigrateSqlServerSqlDbTaskPropertiesResponseResult>>> properties,
+            Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponse, Union<Outputs.GetUserTablesSqlTaskPropertiesResponse, Outputs.MigrateSqlServerSqlDbTaskPropertiesResponse>>> properties,
 
             string type)
         {

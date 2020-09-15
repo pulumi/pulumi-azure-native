@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
         /// Gets or sets firewall rules
         /// </summary>
         [Output("firewallRules")]
-        public Output<ImmutableArray<Outputs.FirewallRuleResponseResult>> FirewallRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallRuleResponse>> FirewallRules { get; private set; } = null!;
 
         /// <summary>
         /// The GEO location of the blockchain service.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
         /// Gets or sets the blockchain member Sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describes the resource.
@@ -126,7 +126,7 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
         /// Gets or sets the blockchain validator nodes Sku.
         /// </summary>
         [Output("validatorNodesSku")]
-        public Output<Outputs.BlockchainMemberNodesSkuResponseResult?> ValidatorNodesSku { get; private set; } = null!;
+        public Output<Outputs.BlockchainMemberNodesSkuResponse?> ValidatorNodesSku { get; private set; } = null!;
 
 
         /// <summary>

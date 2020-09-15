@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,7 +27,7 @@ class ListQueryKeyBySearchServiceResult:
 
     @property
     @pulumi.getter
-    def value(self) -> List['outputs.QueryKeyResponseResult']:
+    def value(self) -> Sequence['outputs.QueryKeyResponseResult']:
         """
         The query keys for the Azure Cognitive Search service.
         """

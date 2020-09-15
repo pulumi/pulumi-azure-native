@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,10 +20,10 @@ class StreamingLocator(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  alternative_media_id: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
-                 content_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StreamingLocatorContentKeyArgs']]]]] = None,
+                 content_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingLocatorContentKeyArgs']]]]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  streaming_locator_id: Optional[pulumi.Input[str]] = None,
@@ -40,10 +40,10 @@ class StreamingLocator(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] alternative_media_id: Alternative Media ID of this Streaming Locator
         :param pulumi.Input[str] asset_name: Asset Name
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StreamingLocatorContentKeyArgs']]]] content_keys: The ContentKeys used by this Streaming Locator.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingLocatorContentKeyArgs']]]] content_keys: The ContentKeys used by this Streaming Locator.
         :param pulumi.Input[str] default_content_key_policy_name: Name of the default ContentKeyPolicy used by this Streaming Locator.
         :param pulumi.Input[str] end_time: The end time of the Streaming Locator.
-        :param pulumi.Input[List[pulumi.Input[str]]] filters: A list of asset or account filters which apply to this streaming locator
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: A list of asset or account filters which apply to this streaming locator
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] start_time: The start time of the Streaming Locator.
         :param pulumi.Input[str] streaming_locator_id: The StreamingLocatorId of the Streaming Locator.
@@ -136,7 +136,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentKeys")
-    def content_keys(self) -> pulumi.Output[Optional[List['outputs.StreamingLocatorContentKeyResponse']]]:
+    def content_keys(self) -> pulumi.Output[Optional[Sequence['outputs.StreamingLocatorContentKeyResponse']]]:
         """
         The ContentKeys used by this Streaming Locator.
         """
@@ -168,7 +168,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Output[Optional[List[str]]]:
+    def filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of asset or account filters which apply to this streaming locator
         """

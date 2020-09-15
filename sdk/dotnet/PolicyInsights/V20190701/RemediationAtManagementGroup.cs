@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         /// The deployment status summary for all deployments created by the remediation.
         /// </summary>
         [Output("deploymentStatus")]
-        public Output<Outputs.RemediationDeploymentSummaryResponseResult> DeploymentStatus { get; private set; } = null!;
+        public Output<Outputs.RemediationDeploymentSummaryResponse> DeploymentStatus { get; private set; } = null!;
 
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
         /// </summary>
         [Output("filters")]
-        public Output<Outputs.RemediationFiltersResponseResult?> Filters { get; private set; } = null!;
+        public Output<Outputs.RemediationFiltersResponse?> Filters { get; private set; } = null!;
 
         /// <summary>
         /// The time at which the remediation was last updated.

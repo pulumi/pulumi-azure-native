@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets or sets Default security rules of network security group
         /// </summary>
-        public readonly ImmutableArray<Outputs.SecurityRuleResponseResult> DefaultSecurityRules;
+        public readonly ImmutableArray<Outputs.SecurityRuleResponse> DefaultSecurityRules;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets collection of references to Network Interfaces
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceResponseResult> NetworkInterfaces;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceResponse> NetworkInterfaces;
         /// <summary>
         /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         /// </summary>
@@ -76,11 +76,11 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets or sets Security rules of network security group
         /// </summary>
-        public readonly ImmutableArray<Outputs.SecurityRuleResponseResult> SecurityRules;
+        public readonly ImmutableArray<Outputs.SecurityRuleResponse> SecurityRules;
         /// <summary>
         /// Gets collection of references to subnets
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetResponseResult> Subnets;
+        public readonly ImmutableArray<Outputs.SubnetResponse> Subnets;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Network.V20160330
 
         [OutputConstructor]
         private GetNetworkSecurityGroupResult(
-            ImmutableArray<Outputs.SecurityRuleResponseResult> defaultSecurityRules,
+            ImmutableArray<Outputs.SecurityRuleResponse> defaultSecurityRules,
 
             string? etag,
 
@@ -100,15 +100,15 @@ namespace Pulumi.AzureRM.Network.V20160330
 
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfaceResponseResult> networkInterfaces,
+            ImmutableArray<Outputs.NetworkInterfaceResponse> networkInterfaces,
 
             string? provisioningState,
 
             string? resourceGuid,
 
-            ImmutableArray<Outputs.SecurityRuleResponseResult> securityRules,
+            ImmutableArray<Outputs.SecurityRuleResponse> securityRules,
 
-            ImmutableArray<Outputs.SubnetResponseResult> subnets,
+            ImmutableArray<Outputs.SubnetResponse> subnets,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,12 +23,12 @@ class AzureSkuResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  tier: str,
-                 capacity: Optional[float] = None):
+                 capacity: Optional[int] = None):
         """
         Azure SKU definition.
         :param str name: SKU name.
         :param str tier: SKU tier.
-        :param float capacity: The number of instances of the cluster.
+        :param int capacity: The number of instances of the cluster.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -53,7 +53,7 @@ class AzureSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The number of instances of the cluster.
         """

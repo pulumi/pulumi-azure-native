@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -66,7 +66,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> Optional[List['outputs.BackendAddressPoolResponse']]:
+    def backend_address_pools(self) -> Optional[Sequence['outputs.BackendAddressPoolResponse']]:
         """
         Collection of backend address pools used by a load balancer
         """
@@ -82,7 +82,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[List['outputs.FrontendIPConfigurationResponse']]:
+    def frontend_ip_configurations(self) -> Optional[Sequence['outputs.FrontendIPConfigurationResponse']]:
         """
         Object representing the frontend IPs to be used for the load balancer
         """
@@ -90,7 +90,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="inboundNatPools")
-    def inbound_nat_pools(self) -> Optional[List['outputs.InboundNatPoolResponse']]:
+    def inbound_nat_pools(self) -> Optional[Sequence['outputs.InboundNatPoolResponse']]:
         """
         Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
         """
@@ -98,7 +98,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[List['outputs.InboundNatRuleResponse']]:
+    def inbound_nat_rules(self) -> Optional[Sequence['outputs.InboundNatRuleResponse']]:
         """
         Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
         """
@@ -106,7 +106,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> Optional[List['outputs.LoadBalancingRuleResponse']]:
+    def load_balancing_rules(self) -> Optional[Sequence['outputs.LoadBalancingRuleResponse']]:
         """
         Object collection representing the load balancing rules Gets the provisioning 
         """
@@ -130,7 +130,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="outboundNatRules")
-    def outbound_nat_rules(self) -> Optional[List['outputs.OutboundNatRuleResponse']]:
+    def outbound_nat_rules(self) -> Optional[Sequence['outputs.OutboundNatRuleResponse']]:
         """
         The outbound NAT rules.
         """
@@ -138,7 +138,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter
-    def probes(self) -> Optional[List['outputs.ProbeResponse']]:
+    def probes(self) -> Optional[Sequence['outputs.ProbeResponse']]:
         """
         Collection of probe objects used in the load balancer
         """

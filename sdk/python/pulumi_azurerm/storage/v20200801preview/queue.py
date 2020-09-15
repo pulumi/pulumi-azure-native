@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Queue']
@@ -89,7 +89,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="approximateMessageCount")
-    def approximate_message_count(self) -> pulumi.Output[float]:
+    def approximate_message_count(self) -> pulumi.Output[int]:
         """
         Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
         """

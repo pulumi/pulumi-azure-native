@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['ElasticPool']
@@ -15,15 +15,15 @@ class ElasticPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_dtu_max: Optional[pulumi.Input[float]] = None,
-                 database_dtu_min: Optional[pulumi.Input[float]] = None,
-                 dtu: Optional[pulumi.Input[float]] = None,
+                 database_dtu_max: Optional[pulumi.Input[int]] = None,
+                 database_dtu_min: Optional[pulumi.Input[int]] = None,
+                 dtu: Optional[pulumi.Input[int]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 storage_mb: Optional[pulumi.Input[float]] = None,
+                 storage_mb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
@@ -34,15 +34,15 @@ class ElasticPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] database_dtu_max: The maximum DTU any one database can consume.
-        :param pulumi.Input[float] database_dtu_min: The minimum DTU all databases are guaranteed.
-        :param pulumi.Input[float] dtu: The total shared DTU for the database elastic pool.
+        :param pulumi.Input[int] database_dtu_max: The maximum DTU any one database can consume.
+        :param pulumi.Input[int] database_dtu_min: The minimum DTU all databases are guaranteed.
+        :param pulumi.Input[int] dtu: The total shared DTU for the database elastic pool.
         :param pulumi.Input[str] edition: The edition of the elastic pool.
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool to be operated on (updated or created).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[float] storage_mb: Gets storage limit for the database elastic pool in MB.
+        :param pulumi.Input[int] storage_mb: Gets storage limit for the database elastic pool in MB.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
@@ -123,7 +123,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseDtuMax")
-    def database_dtu_max(self) -> pulumi.Output[Optional[float]]:
+    def database_dtu_max(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum DTU any one database can consume.
         """
@@ -131,7 +131,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseDtuMin")
-    def database_dtu_min(self) -> pulumi.Output[Optional[float]]:
+    def database_dtu_min(self) -> pulumi.Output[Optional[int]]:
         """
         The minimum DTU all databases are guaranteed.
         """
@@ -139,7 +139,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dtu(self) -> pulumi.Output[Optional[float]]:
+    def dtu(self) -> pulumi.Output[Optional[int]]:
         """
         The total shared DTU for the database elastic pool.
         """
@@ -187,7 +187,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageMB")
-    def storage_mb(self) -> pulumi.Output[Optional[float]]:
+    def storage_mb(self) -> pulumi.Output[Optional[int]]:
         """
         Gets storage limit for the database elastic pool in MB.
         """

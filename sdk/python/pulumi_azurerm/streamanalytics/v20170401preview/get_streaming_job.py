@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,11 +39,11 @@ class GetStreamingJobResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if events_late_arrival_max_delay_in_seconds and not isinstance(events_late_arrival_max_delay_in_seconds, float):
-            raise TypeError("Expected argument 'events_late_arrival_max_delay_in_seconds' to be a float")
+        if events_late_arrival_max_delay_in_seconds and not isinstance(events_late_arrival_max_delay_in_seconds, int):
+            raise TypeError("Expected argument 'events_late_arrival_max_delay_in_seconds' to be a int")
         pulumi.set(__self__, "events_late_arrival_max_delay_in_seconds", events_late_arrival_max_delay_in_seconds)
-        if events_out_of_order_max_delay_in_seconds and not isinstance(events_out_of_order_max_delay_in_seconds, float):
-            raise TypeError("Expected argument 'events_out_of_order_max_delay_in_seconds' to be a float")
+        if events_out_of_order_max_delay_in_seconds and not isinstance(events_out_of_order_max_delay_in_seconds, int):
+            raise TypeError("Expected argument 'events_out_of_order_max_delay_in_seconds' to be a int")
         pulumi.set(__self__, "events_out_of_order_max_delay_in_seconds", events_out_of_order_max_delay_in_seconds)
         if events_out_of_order_policy and not isinstance(events_out_of_order_policy, str):
             raise TypeError("Expected argument 'events_out_of_order_policy' to be a str")
@@ -159,7 +159,7 @@ class GetStreamingJobResult:
 
     @property
     @pulumi.getter(name="eventsLateArrivalMaxDelayInSeconds")
-    def events_late_arrival_max_delay_in_seconds(self) -> Optional[float]:
+    def events_late_arrival_max_delay_in_seconds(self) -> Optional[int]:
         """
         The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
         """
@@ -167,7 +167,7 @@ class GetStreamingJobResult:
 
     @property
     @pulumi.getter(name="eventsOutOfOrderMaxDelayInSeconds")
-    def events_out_of_order_max_delay_in_seconds(self) -> Optional[float]:
+    def events_out_of_order_max_delay_in_seconds(self) -> Optional[int]:
         """
         The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
         """
@@ -191,7 +191,7 @@ class GetStreamingJobResult:
 
     @property
     @pulumi.getter
-    def functions(self) -> Optional[List['outputs.FunctionResponse']]:
+    def functions(self) -> Optional[Sequence['outputs.FunctionResponse']]:
         """
         A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
@@ -207,7 +207,7 @@ class GetStreamingJobResult:
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[List['outputs.InputResponse']]:
+    def inputs(self) -> Optional[Sequence['outputs.InputResponse']]:
         """
         A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         """
@@ -295,7 +295,7 @@ class GetStreamingJobResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[List['outputs.OutputResponse']]:
+    def outputs(self) -> Optional[Sequence['outputs.OutputResponse']]:
         """
         A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         """

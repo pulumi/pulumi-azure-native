@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -45,8 +45,8 @@ class GetIncidentResult:
         if first_activity_time_utc and not isinstance(first_activity_time_utc, str):
             raise TypeError("Expected argument 'first_activity_time_utc' to be a str")
         pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
-        if incident_number and not isinstance(incident_number, float):
-            raise TypeError("Expected argument 'incident_number' to be a float")
+        if incident_number and not isinstance(incident_number, int):
+            raise TypeError("Expected argument 'incident_number' to be a int")
         pulumi.set(__self__, "incident_number", incident_number)
         if incident_url and not isinstance(incident_url, str):
             raise TypeError("Expected argument 'incident_url' to be a str")
@@ -148,7 +148,7 @@ class GetIncidentResult:
 
     @property
     @pulumi.getter(name="incidentNumber")
-    def incident_number(self) -> float:
+    def incident_number(self) -> int:
         """
         A sequential number
         """
@@ -164,7 +164,7 @@ class GetIncidentResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List['outputs.IncidentLabelResponse']]:
+    def labels(self) -> Optional[Sequence['outputs.IncidentLabelResponse']]:
         """
         List of labels relevant to this incident
         """
@@ -204,7 +204,7 @@ class GetIncidentResult:
 
     @property
     @pulumi.getter(name="relatedAnalyticRuleIds")
-    def related_analytic_rule_ids(self) -> List[str]:
+    def related_analytic_rule_ids(self) -> Sequence[str]:
         """
         List of resource ids of Analytic rules related to the incident
         """

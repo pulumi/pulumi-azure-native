@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -45,11 +45,11 @@ class AutoPausePropertiesResponse(dict):
     Auto-pausing properties of a Big Data pool powered by Apache Spark
     """
     def __init__(__self__, *,
-                 delay_in_minutes: Optional[float] = None,
+                 delay_in_minutes: Optional[int] = None,
                  enabled: Optional[bool] = None):
         """
         Auto-pausing properties of a Big Data pool powered by Apache Spark
-        :param float delay_in_minutes: Number of minutes of idle time before the Big Data pool is automatically paused.
+        :param int delay_in_minutes: Number of minutes of idle time before the Big Data pool is automatically paused.
         :param bool enabled: Whether auto-pausing is enabled for the Big Data pool.
         """
         if delay_in_minutes is not None:
@@ -59,7 +59,7 @@ class AutoPausePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="delayInMinutes")
-    def delay_in_minutes(self) -> Optional[float]:
+    def delay_in_minutes(self) -> Optional[int]:
         """
         Number of minutes of idle time before the Big Data pool is automatically paused.
         """
@@ -84,13 +84,13 @@ class AutoScalePropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
-                 max_node_count: Optional[float] = None,
-                 min_node_count: Optional[float] = None):
+                 max_node_count: Optional[int] = None,
+                 min_node_count: Optional[int] = None):
         """
         Auto-scaling properties of a Big Data pool powered by Apache Spark
         :param bool enabled: Whether automatic scaling is enabled for the Big Data pool.
-        :param float max_node_count: The maximum number of nodes the Big Data pool can support.
-        :param float min_node_count: The minimum number of nodes the Big Data pool can support.
+        :param int max_node_count: The maximum number of nodes the Big Data pool can support.
+        :param int min_node_count: The minimum number of nodes the Big Data pool can support.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -109,7 +109,7 @@ class AutoScalePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxNodeCount")
-    def max_node_count(self) -> Optional[float]:
+    def max_node_count(self) -> Optional[int]:
         """
         The maximum number of nodes the Big Data pool can support.
         """
@@ -117,7 +117,7 @@ class AutoScalePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="minNodeCount")
-    def min_node_count(self) -> Optional[float]:
+    def min_node_count(self) -> Optional[int]:
         """
         The minimum number of nodes the Big Data pool can support.
         """
@@ -364,17 +364,17 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
     def __init__(__self__, *,
                  data_flow_properties: Optional['outputs.IntegrationRuntimeDataFlowPropertiesResponse'] = None,
                  location: Optional[str] = None,
-                 max_parallel_executions_per_node: Optional[float] = None,
+                 max_parallel_executions_per_node: Optional[int] = None,
                  node_size: Optional[str] = None,
-                 number_of_nodes: Optional[float] = None,
+                 number_of_nodes: Optional[int] = None,
                  v_net_properties: Optional['outputs.IntegrationRuntimeVNetPropertiesResponse'] = None):
         """
         The compute resource properties for managed integration runtime.
         :param 'IntegrationRuntimeDataFlowPropertiesResponseArgs' data_flow_properties: Data flow properties for managed integration runtime.
         :param str location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
-        :param float max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
+        :param int max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
         :param str node_size: The node size requirement to managed integration runtime.
-        :param float number_of_nodes: The required number of nodes for managed integration runtime.
+        :param int number_of_nodes: The required number of nodes for managed integration runtime.
         :param 'IntegrationRuntimeVNetPropertiesResponseArgs' v_net_properties: VNet properties for managed integration runtime.
         """
         if data_flow_properties is not None:
@@ -408,7 +408,7 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxParallelExecutionsPerNode")
-    def max_parallel_executions_per_node(self) -> Optional[float]:
+    def max_parallel_executions_per_node(self) -> Optional[int]:
         """
         Maximum parallel executions count per node for managed integration runtime.
         """
@@ -424,7 +424,7 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> Optional[float]:
+    def number_of_nodes(self) -> Optional[int]:
         """
         The required number of nodes for managed integration runtime.
         """
@@ -487,13 +487,13 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  compute_type: Optional[str] = None,
-                 core_count: Optional[float] = None,
-                 time_to_live: Optional[float] = None):
+                 core_count: Optional[int] = None,
+                 time_to_live: Optional[int] = None):
         """
         Data flow properties for managed integration runtime.
         :param str compute_type: Compute type of the cluster which will execute data flow job.
-        :param float core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
-        :param float time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
+        :param int core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        :param int time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
@@ -512,7 +512,7 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[float]:
+    def core_count(self) -> Optional[int]:
         """
         Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         """
@@ -520,7 +520,7 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Optional[float]:
+    def time_to_live(self) -> Optional[int]:
         """
         Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
@@ -652,7 +652,7 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
                  custom_setup_script_properties: Optional['outputs.IntegrationRuntimeCustomSetupScriptPropertiesResponse'] = None,
                  data_proxy_properties: Optional['outputs.IntegrationRuntimeDataProxyPropertiesResponse'] = None,
                  edition: Optional[str] = None,
-                 express_custom_setup_properties: Optional[List[Any]] = None,
+                 express_custom_setup_properties: Optional[Sequence[Any]] = None,
                  license_type: Optional[str] = None):
         """
         SSIS properties for managed integration runtime.
@@ -660,7 +660,7 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
         :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
         :param 'IntegrationRuntimeDataProxyPropertiesResponseArgs' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
         :param str edition: The edition for the SSIS Integration Runtime
-        :param List[Union['CmdkeySetupResponseArgs', 'ComponentSetupResponseArgs', 'EnvironmentVariableSetupResponseArgs']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
+        :param Sequence[Union['CmdkeySetupResponseArgs', 'ComponentSetupResponseArgs', 'EnvironmentVariableSetupResponseArgs']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param str license_type: License type for bringing your own license scenario.
         """
         if catalog_info is not None:
@@ -710,7 +710,7 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="expressCustomSetupProperties")
-    def express_custom_setup_properties(self) -> Optional[List[Any]]:
+    def express_custom_setup_properties(self) -> Optional[Sequence[Any]]:
         """
         Custom setup without script properties for a SSIS integration runtime.
         """
@@ -734,12 +734,12 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
     VNet properties for managed integration runtime.
     """
     def __init__(__self__, *,
-                 public_ips: Optional[List[str]] = None,
+                 public_ips: Optional[Sequence[str]] = None,
                  subnet: Optional[str] = None,
                  v_net_id: Optional[str] = None):
         """
         VNet properties for managed integration runtime.
-        :param List[str] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
+        :param Sequence[str] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
         :param str subnet: The name of the subnet this integration runtime will join.
         :param str v_net_id: The ID of the VNet that this integration runtime will join.
         """
@@ -752,7 +752,7 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> Optional[List[str]]:
+    def public_ips(self) -> Optional[Sequence[str]]:
         """
         Resource IDs of the public IP addresses that this integration runtime will use.
         """
@@ -1266,12 +1266,12 @@ class SkuResponse(dict):
     SQL pool SKU
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         SQL pool SKU
-        :param float capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param str name: The SKU name
         :param str tier: The service tier
         """
@@ -1284,7 +1284,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         """
@@ -1343,12 +1343,12 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  email_subscription_admins: Optional[bool] = None,
-                 emails: Optional[List[str]] = None,
+                 emails: Optional[Sequence[str]] = None,
                  is_enabled: Optional[bool] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
         :param bool email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
-        :param List[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param Sequence[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param bool is_enabled: Recurring scans state.
         """
         if email_subscription_admins is not None:
@@ -1368,7 +1368,7 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[List[str]]:
+    def emails(self) -> Optional[Sequence[str]]:
         """
         Specifies an array of e-mail addresses to which the scan notification is sent.
         """

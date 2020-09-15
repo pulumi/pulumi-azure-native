@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -91,11 +91,11 @@ class AssignmentPrincipalArgs:
 @pulumi.input_type
 class ConnectorMappingAvailabilityArgs:
     def __init__(__self__, *,
-                 interval: pulumi.Input[float],
+                 interval: pulumi.Input[int],
                  frequency: Optional[pulumi.Input[str]] = None):
         """
         Connector mapping property availability.
-        :param pulumi.Input[float] interval: The interval of the given frequency to use.
+        :param pulumi.Input[int] interval: The interval of the given frequency to use.
         :param pulumi.Input[str] frequency: The frequency to update.
         """
         pulumi.set(__self__, "interval", interval)
@@ -104,14 +104,14 @@ class ConnectorMappingAvailabilityArgs:
 
     @property
     @pulumi.getter
-    def interval(self) -> pulumi.Input[float]:
+    def interval(self) -> pulumi.Input[int]:
         """
         The interval of the given frequency to use.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: pulumi.Input[float]):
+    def interval(self, value: pulumi.Input[int]):
         pulumi.set(self, "interval", value)
 
     @property
@@ -171,11 +171,11 @@ class ConnectorMappingCompleteOperationArgs:
 class ConnectorMappingErrorManagementArgs:
     def __init__(__self__, *,
                  error_management_type: pulumi.Input[str],
-                 error_limit: Optional[pulumi.Input[float]] = None):
+                 error_limit: Optional[pulumi.Input[int]] = None):
         """
         The error management.
         :param pulumi.Input[str] error_management_type: The type of error management to use for the mapping.
-        :param pulumi.Input[float] error_limit: The error limit allowed while importing data.
+        :param pulumi.Input[int] error_limit: The error limit allowed while importing data.
         """
         pulumi.set(__self__, "error_management_type", error_management_type)
         if error_limit is not None:
@@ -195,14 +195,14 @@ class ConnectorMappingErrorManagementArgs:
 
     @property
     @pulumi.getter(name="errorLimit")
-    def error_limit(self) -> Optional[pulumi.Input[float]]:
+    def error_limit(self) -> Optional[pulumi.Input[int]]:
         """
         The error limit allowed while importing data.
         """
         return pulumi.get(self, "error_limit")
 
     @error_limit.setter
-    def error_limit(self, value: Optional[pulumi.Input[float]]):
+    def error_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "error_limit", value)
 
 
@@ -316,7 +316,7 @@ class ConnectorMappingPropertiesArgs:
                  complete_operation: pulumi.Input['ConnectorMappingCompleteOperationArgs'],
                  error_management: pulumi.Input['ConnectorMappingErrorManagementArgs'],
                  format: pulumi.Input['ConnectorMappingFormatArgs'],
-                 structure: pulumi.Input[List[pulumi.Input['ConnectorMappingStructureArgs']]],
+                 structure: pulumi.Input[Sequence[pulumi.Input['ConnectorMappingStructureArgs']]],
                  file_filter: Optional[pulumi.Input[str]] = None,
                  folder_path: Optional[pulumi.Input[str]] = None,
                  has_header: Optional[pulumi.Input[bool]] = None):
@@ -326,7 +326,7 @@ class ConnectorMappingPropertiesArgs:
         :param pulumi.Input['ConnectorMappingCompleteOperationArgs'] complete_operation: The operation after import is done.
         :param pulumi.Input['ConnectorMappingErrorManagementArgs'] error_management: The error management setting for the mapping.
         :param pulumi.Input['ConnectorMappingFormatArgs'] format: The format of mapping property.
-        :param pulumi.Input[List[pulumi.Input['ConnectorMappingStructureArgs']]] structure: Ingestion mapping information at property level.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectorMappingStructureArgs']]] structure: Ingestion mapping information at property level.
         :param pulumi.Input[str] file_filter: The file filter for the mapping.
         :param pulumi.Input[str] folder_path: The folder path for the mapping.
         :param pulumi.Input[bool] has_header: If the file contains a header or not.
@@ -393,14 +393,14 @@ class ConnectorMappingPropertiesArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> pulumi.Input[List[pulumi.Input['ConnectorMappingStructureArgs']]]:
+    def structure(self) -> pulumi.Input[Sequence[pulumi.Input['ConnectorMappingStructureArgs']]]:
         """
         Ingestion mapping information at property level.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: pulumi.Input[List[pulumi.Input['ConnectorMappingStructureArgs']]]):
+    def structure(self, value: pulumi.Input[Sequence[pulumi.Input['ConnectorMappingStructureArgs']]]):
         pulumi.set(self, "structure", value)
 
     @property
@@ -513,13 +513,13 @@ class ConnectorMappingStructureArgs:
 @pulumi.input_type
 class HubBillingInfoFormatArgs:
     def __init__(__self__, *,
-                 max_units: Optional[pulumi.Input[float]] = None,
-                 min_units: Optional[pulumi.Input[float]] = None,
+                 max_units: Optional[pulumi.Input[int]] = None,
+                 min_units: Optional[pulumi.Input[int]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None):
         """
         Hub billing info.
-        :param pulumi.Input[float] max_units: The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-        :param pulumi.Input[float] min_units: The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
+        :param pulumi.Input[int] max_units: The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
+        :param pulumi.Input[int] min_units: The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
         :param pulumi.Input[str] sku_name: The sku name.
         """
         if max_units is not None:
@@ -531,26 +531,26 @@ class HubBillingInfoFormatArgs:
 
     @property
     @pulumi.getter(name="maxUnits")
-    def max_units(self) -> Optional[pulumi.Input[float]]:
+    def max_units(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
         """
         return pulumi.get(self, "max_units")
 
     @max_units.setter
-    def max_units(self, value: Optional[pulumi.Input[float]]):
+    def max_units(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_units", value)
 
     @property
     @pulumi.getter(name="minUnits")
-    def min_units(self) -> Optional[pulumi.Input[float]]:
+    def min_units(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
         """
         return pulumi.get(self, "min_units")
 
     @min_units.setter
-    def min_units(self, value: Optional[pulumi.Input[float]]):
+    def min_units(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_units", value)
 
     @property
@@ -775,13 +775,13 @@ class ParticipantPropertyReferenceArgs:
 class PredictionGradesArgs:
     def __init__(__self__, *,
                  grade_name: Optional[pulumi.Input[str]] = None,
-                 max_score_threshold: Optional[pulumi.Input[float]] = None,
-                 min_score_threshold: Optional[pulumi.Input[float]] = None):
+                 max_score_threshold: Optional[pulumi.Input[int]] = None,
+                 min_score_threshold: Optional[pulumi.Input[int]] = None):
         """
         The definition of a prediction grade.
         :param pulumi.Input[str] grade_name: Name of the grade.
-        :param pulumi.Input[float] max_score_threshold: Maximum score threshold.
-        :param pulumi.Input[float] min_score_threshold: Minimum score threshold.
+        :param pulumi.Input[int] max_score_threshold: Maximum score threshold.
+        :param pulumi.Input[int] min_score_threshold: Minimum score threshold.
         """
         if grade_name is not None:
             pulumi.set(__self__, "grade_name", grade_name)
@@ -804,26 +804,26 @@ class PredictionGradesArgs:
 
     @property
     @pulumi.getter(name="maxScoreThreshold")
-    def max_score_threshold(self) -> Optional[pulumi.Input[float]]:
+    def max_score_threshold(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum score threshold.
         """
         return pulumi.get(self, "max_score_threshold")
 
     @max_score_threshold.setter
-    def max_score_threshold(self, value: Optional[pulumi.Input[float]]):
+    def max_score_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_score_threshold", value)
 
     @property
     @pulumi.getter(name="minScoreThreshold")
-    def min_score_threshold(self) -> Optional[pulumi.Input[float]]:
+    def min_score_threshold(self) -> Optional[pulumi.Input[int]]:
         """
         Minimum score threshold.
         """
         return pulumi.get(self, "min_score_threshold")
 
     @min_score_threshold.setter
-    def min_score_threshold(self, value: Optional[pulumi.Input[float]]):
+    def min_score_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_score_threshold", value)
 
 
@@ -884,11 +884,11 @@ class PredictionMappingsArgs:
 class ProfileEnumValidValuesFormatArgs:
     def __init__(__self__, *,
                  localized_value_names: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 value: Optional[pulumi.Input[float]] = None):
+                 value: Optional[pulumi.Input[int]] = None):
         """
         Valid enum values in case of an enum property.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] localized_value_names: Localized names of the enum member.
-        :param pulumi.Input[float] value: The integer value of the enum member.
+        :param pulumi.Input[int] value: The integer value of the enum member.
         """
         if localized_value_names is not None:
             pulumi.set(__self__, "localized_value_names", localized_value_names)
@@ -909,14 +909,14 @@ class ProfileEnumValidValuesFormatArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[float]]:
+    def value(self) -> Optional[pulumi.Input[int]]:
         """
         The integer value of the enum member.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[float]]):
+    def value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "value", value)
 
 
@@ -926,7 +926,7 @@ class PropertyDefinitionArgs:
                  field_name: pulumi.Input[str],
                  field_type: pulumi.Input[str],
                  array_value_separator: Optional[pulumi.Input[str]] = None,
-                 enum_valid_values: Optional[pulumi.Input[List[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]] = None,
+                 enum_valid_values: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]] = None,
                  is_array: Optional[pulumi.Input[bool]] = None,
                  is_available_in_graph: Optional[pulumi.Input[bool]] = None,
                  is_enum: Optional[pulumi.Input[bool]] = None,
@@ -935,7 +935,7 @@ class PropertyDefinitionArgs:
                  is_localized_string: Optional[pulumi.Input[bool]] = None,
                  is_name: Optional[pulumi.Input[bool]] = None,
                  is_required: Optional[pulumi.Input[bool]] = None,
-                 max_length: Optional[pulumi.Input[float]] = None,
+                 max_length: Optional[pulumi.Input[int]] = None,
                  property_id: Optional[pulumi.Input[str]] = None,
                  schema_item_prop_link: Optional[pulumi.Input[str]] = None):
         """
@@ -943,7 +943,7 @@ class PropertyDefinitionArgs:
         :param pulumi.Input[str] field_name: Name of the property.
         :param pulumi.Input[str] field_type: Type of the property.
         :param pulumi.Input[str] array_value_separator: Array value separator for properties with isArray set.
-        :param pulumi.Input[List[pulumi.Input['ProfileEnumValidValuesFormatArgs']]] enum_valid_values: Describes valid values for an enum property.
+        :param pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]] enum_valid_values: Describes valid values for an enum property.
         :param pulumi.Input[bool] is_array: Indicates if the property is actually an array of the fieldType above on the data api.
         :param pulumi.Input[bool] is_available_in_graph: Whether property is available in graph or not.
         :param pulumi.Input[bool] is_enum: Indicates if the property is an enum.
@@ -952,7 +952,7 @@ class PropertyDefinitionArgs:
         :param pulumi.Input[bool] is_localized_string: Whether the property is a localized string.
         :param pulumi.Input[bool] is_name: Whether the property is a name or a part of name.
         :param pulumi.Input[bool] is_required: Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-        :param pulumi.Input[float] max_length: Max length of string. Used only if type is string.
+        :param pulumi.Input[int] max_length: Max length of string. Used only if type is string.
         :param pulumi.Input[str] property_id: The ID associated with the property.
         :param pulumi.Input[str] schema_item_prop_link: URL encoded schema.org item prop link for the property.
         """
@@ -1023,14 +1023,14 @@ class PropertyDefinitionArgs:
 
     @property
     @pulumi.getter(name="enumValidValues")
-    def enum_valid_values(self) -> Optional[pulumi.Input[List[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]]:
+    def enum_valid_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]]:
         """
         Describes valid values for an enum property.
         """
         return pulumi.get(self, "enum_valid_values")
 
     @enum_valid_values.setter
-    def enum_valid_values(self, value: Optional[pulumi.Input[List[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]]):
+    def enum_valid_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]]):
         pulumi.set(self, "enum_valid_values", value)
 
     @property
@@ -1131,14 +1131,14 @@ class PropertyDefinitionArgs:
 
     @property
     @pulumi.getter(name="maxLength")
-    def max_length(self) -> Optional[pulumi.Input[float]]:
+    def max_length(self) -> Optional[pulumi.Input[int]]:
         """
         Max length of string. Used only if type is string.
         """
         return pulumi.get(self, "max_length")
 
     @max_length.setter
-    def max_length(self, value: Optional[pulumi.Input[float]]):
+    def max_length(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_length", value)
 
     @property
@@ -1261,35 +1261,35 @@ class RelationshipTypeFieldMappingArgs:
 @pulumi.input_type
 class RelationshipTypeMappingArgs:
     def __init__(__self__, *,
-                 field_mappings: pulumi.Input[List[pulumi.Input['RelationshipTypeFieldMappingArgs']]]):
+                 field_mappings: pulumi.Input[Sequence[pulumi.Input['RelationshipTypeFieldMappingArgs']]]):
         """
         Maps fields in Profile to their corresponding StrongIds in Related Profile.
-        :param pulumi.Input[List[pulumi.Input['RelationshipTypeFieldMappingArgs']]] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
+        :param pulumi.Input[Sequence[pulumi.Input['RelationshipTypeFieldMappingArgs']]] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
         """
         pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> pulumi.Input[List[pulumi.Input['RelationshipTypeFieldMappingArgs']]]:
+    def field_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['RelationshipTypeFieldMappingArgs']]]:
         """
         Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: pulumi.Input[List[pulumi.Input['RelationshipTypeFieldMappingArgs']]]):
+    def field_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['RelationshipTypeFieldMappingArgs']]]):
         pulumi.set(self, "field_mappings", value)
 
 
 @pulumi.input_type
 class ResourceSetDescriptionArgs:
     def __init__(__self__, *,
-                 elements: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 exceptions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The resource set description.
-        :param pulumi.Input[List[pulumi.Input[str]]] elements: The elements included in the set.
-        :param pulumi.Input[List[pulumi.Input[str]]] exceptions: The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] elements: The elements included in the set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exceptions: The elements that are not included in the set, in case elements contains '*' indicating 'all'.
         """
         if elements is not None:
             pulumi.set(__self__, "elements", elements)
@@ -1298,39 +1298,39 @@ class ResourceSetDescriptionArgs:
 
     @property
     @pulumi.getter
-    def elements(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def elements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The elements included in the set.
         """
         return pulumi.get(self, "elements")
 
     @elements.setter
-    def elements(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def elements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "elements", value)
 
     @property
     @pulumi.getter
-    def exceptions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The elements that are not included in the set, in case elements contains '*' indicating 'all'.
         """
         return pulumi.get(self, "exceptions")
 
     @exceptions.setter
-    def exceptions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def exceptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "exceptions", value)
 
 
 @pulumi.input_type
 class StrongIdArgs:
     def __init__(__self__, *,
-                 key_property_names: pulumi.Input[List[pulumi.Input[str]]],
+                 key_property_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  strong_id_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Property/Properties which represent a unique ID.
-        :param pulumi.Input[List[pulumi.Input[str]]] key_property_names: The properties which make up the unique ID.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_property_names: The properties which make up the unique ID.
         :param pulumi.Input[str] strong_id_name: The Name identifying the strong ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name.
@@ -1344,14 +1344,14 @@ class StrongIdArgs:
 
     @property
     @pulumi.getter(name="keyPropertyNames")
-    def key_property_names(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def key_property_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The properties which make up the unique ID.
         """
         return pulumi.get(self, "key_property_names")
 
     @key_property_names.setter
-    def key_property_names(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def key_property_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "key_property_names", value)
 
     @property

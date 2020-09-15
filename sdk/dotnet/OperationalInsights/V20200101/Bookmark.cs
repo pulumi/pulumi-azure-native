@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// Describes a user that created the bookmark
         /// </summary>
         [Output("createdBy")]
-        public Output<Outputs.UserInfoResponseResult?> CreatedBy { get; private set; } = null!;
+        public Output<Outputs.UserInfoResponse?> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// The display name of the bookmark
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// Describes an incident that relates to bookmark
         /// </summary>
         [Output("incidentInfo")]
-        public Output<Outputs.IncidentInfoResponseResult?> IncidentInfo { get; private set; } = null!;
+        public Output<Outputs.IncidentInfoResponse?> IncidentInfo { get; private set; } = null!;
 
         /// <summary>
         /// List of labels relevant to this bookmark
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// Describes a user that updated the bookmark
         /// </summary>
         [Output("updatedBy")]
-        public Output<Outputs.UserInfoResponseResult?> UpdatedBy { get; private set; } = null!;
+        public Output<Outputs.UserInfoResponse?> UpdatedBy { get; private set; } = null!;
 
 
         /// <summary>

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Search.Latest
         /// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SharedPrivateLinkResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.SharedPrivateLinkResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

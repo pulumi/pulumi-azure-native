@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -20,8 +20,8 @@ class GetSqlServerResult:
     A SQL server.
     """
     def __init__(__self__, cores=None, edition=None, name=None, property_bag=None, registration_id=None, type=None, version=None):
-        if cores and not isinstance(cores, float):
-            raise TypeError("Expected argument 'cores' to be a float")
+        if cores and not isinstance(cores, int):
+            raise TypeError("Expected argument 'cores' to be a int")
         pulumi.set(__self__, "cores", cores)
         if edition and not isinstance(edition, str):
             raise TypeError("Expected argument 'edition' to be a str")
@@ -44,7 +44,7 @@ class GetSqlServerResult:
 
     @property
     @pulumi.getter
-    def cores(self) -> Optional[float]:
+    def cores(self) -> Optional[int]:
         """
         Cores of the Sql Server.
         """

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Automanage.V20200630Preview
         /// The identity of the Automanage account.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.AccountIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.AccountIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

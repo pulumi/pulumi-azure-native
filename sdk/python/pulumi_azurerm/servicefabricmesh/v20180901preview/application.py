@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class Application(pulumi.CustomResource):
                  diagnostics: Optional[pulumi.Input[pulumi.InputType['DiagnosticsDescriptionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 services: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceResourceDescriptionArgs']]]]] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceResourceDescriptionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -39,7 +39,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DiagnosticsDescriptionArgs']] diagnostics: Describes the diagnostics definition and usage for an application resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: Azure resource group name
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceResourceDescriptionArgs']]]] services: Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceResourceDescriptionArgs']]]] services: Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -165,7 +165,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceNames")
-    def service_names(self) -> pulumi.Output[List[str]]:
+    def service_names(self) -> pulumi.Output[Sequence[str]]:
         """
         Names of the services in the application.
         """
@@ -173,7 +173,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def services(self) -> pulumi.Output[Optional[List['outputs.ServiceResourceDescriptionResponse']]]:
+    def services(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceResourceDescriptionResponse']]]:
         """
         Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         """

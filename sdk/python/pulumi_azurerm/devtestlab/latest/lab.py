@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,8 +22,8 @@ class Lab(pulumi.CustomResource):
                  extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  lab_storage_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mandatory_artifacts_resource_ids_linux: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 mandatory_artifacts_resource_ids_windows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 mandatory_artifacts_resource_ids_linux: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mandatory_artifacts_resource_ids_windows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  premium_data_disks: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -42,8 +42,8 @@ class Lab(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Extended properties of the lab used for experimental features
         :param pulumi.Input[str] lab_storage_type: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] mandatory_artifacts_resource_ids_linux: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
-        :param pulumi.Input[List[pulumi.Input[str]]] mandatory_artifacts_resource_ids_windows: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] mandatory_artifacts_resource_ids_linux: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] mandatory_artifacts_resource_ids_windows: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         :param pulumi.Input[str] name: The name of the lab.
         :param pulumi.Input[str] premium_data_disks: The setting to enable usage of premium data disks.
                When its value is 'Enabled', creation of standard or premium data disks is allowed.
@@ -206,7 +206,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mandatoryArtifactsResourceIdsLinux")
-    def mandatory_artifacts_resource_ids_linux(self) -> pulumi.Output[Optional[List[str]]]:
+    def mandatory_artifacts_resource_ids_linux(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
         """
@@ -214,7 +214,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mandatoryArtifactsResourceIdsWindows")
-    def mandatory_artifacts_resource_ids_windows(self) -> pulumi.Output[Optional[List[str]]]:
+    def mandatory_artifacts_resource_ids_windows(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         """

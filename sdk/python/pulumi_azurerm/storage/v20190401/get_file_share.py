@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -32,8 +32,8 @@ class GetFileShareResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if share_quota and not isinstance(share_quota, float):
-            raise TypeError("Expected argument 'share_quota' to be a float")
+        if share_quota and not isinstance(share_quota, int):
+            raise TypeError("Expected argument 'share_quota' to be a int")
         pulumi.set(__self__, "share_quota", share_quota)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -73,7 +73,7 @@ class GetFileShareResult:
 
     @property
     @pulumi.getter(name="shareQuota")
-    def share_quota(self) -> Optional[float]:
+    def share_quota(self) -> Optional[int]:
         """
         The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
         """

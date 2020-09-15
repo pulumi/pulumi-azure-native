@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// The disk access resource provisioning state.

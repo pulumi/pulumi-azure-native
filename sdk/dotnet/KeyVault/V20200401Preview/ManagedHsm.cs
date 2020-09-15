@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.KeyVault.V20200401Preview
         /// Properties of the managed HSM
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagedHsmPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ManagedHsmPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// SKU details
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ManagedHsmSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ManagedHsmSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

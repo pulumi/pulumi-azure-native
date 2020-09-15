@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// The DNS settings of the Traffic Manager profile.
         /// </summary>
         [Output("dnsConfig")]
-        public Output<Outputs.DnsConfigResponseResult?> DnsConfig { get; private set; } = null!;
+        public Output<Outputs.DnsConfigResponse?> DnsConfig { get; private set; } = null!;
 
         /// <summary>
         /// The list of endpoints in the Traffic Manager profile.
         /// </summary>
         [Output("endpoints")]
-        public Output<ImmutableArray<Outputs.EndpointResponseResult>> Endpoints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EndpointResponse>> Endpoints { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the resource lives
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// The endpoint monitoring settings of the Traffic Manager profile.
         /// </summary>
         [Output("monitorConfig")]
-        public Output<Outputs.MonitorConfigResponseResult?> MonitorConfig { get; private set; } = null!;
+        public Output<Outputs.MonitorConfigResponse?> MonitorConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource

@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
 
             ImmutableArray<string> rights,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

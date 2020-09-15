@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -28,13 +28,13 @@ class AuthorizationResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  role_definition_id: str,
-                 delegated_role_definition_ids: Optional[List[str]] = None,
+                 delegated_role_definition_ids: Optional[Sequence[str]] = None,
                  principal_id_display_name: Optional[str] = None):
         """
         Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
         :param str principal_id: Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
         :param str role_definition_id: The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-        :param List[str] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+        :param Sequence[str] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
         :param str principal_id_display_name: Display name of the principal Id.
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -62,7 +62,7 @@ class AuthorizationResponse(dict):
 
     @property
     @pulumi.getter(name="delegatedRoleDefinitionIds")
-    def delegated_role_definition_ids(self) -> Optional[List[str]]:
+    def delegated_role_definition_ids(self) -> Optional[Sequence[str]]:
         """
         The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
         """
@@ -288,9 +288,9 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
     Properties of registration definition inside registration assignment.
     """
     def __init__(__self__, *,
-                 authorizations: Optional[List['outputs.AuthorizationResponse']] = None,
+                 authorizations: Optional[Sequence['outputs.AuthorizationResponse']] = None,
                  description: Optional[str] = None,
-                 eligible_authorizations: Optional[List['outputs.EligibleAuthorizationResponse']] = None,
+                 eligible_authorizations: Optional[Sequence['outputs.EligibleAuthorizationResponse']] = None,
                  managed_by_tenant_id: Optional[str] = None,
                  managed_by_tenant_name: Optional[str] = None,
                  managee_tenant_id: Optional[str] = None,
@@ -299,9 +299,9 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
                  registration_definition_name: Optional[str] = None):
         """
         Properties of registration definition inside registration assignment.
-        :param List['AuthorizationResponseArgs'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        :param Sequence['AuthorizationResponseArgs'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         :param str description: Description of the registration definition.
-        :param List['EligibleAuthorizationResponseArgs'] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        :param Sequence['EligibleAuthorizationResponseArgs'] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
         :param str managed_by_tenant_id: Id of the managedBy tenant.
         :param str managed_by_tenant_name: Name of the managedBy tenant.
         :param str managee_tenant_id: Id of the home tenant.
@@ -330,7 +330,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[List['outputs.AuthorizationResponse']]:
+    def authorizations(self) -> Optional[Sequence['outputs.AuthorizationResponse']]:
         """
         Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         """
@@ -346,7 +346,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
 
     @property
     @pulumi.getter(name="eligibleAuthorizations")
-    def eligible_authorizations(self) -> Optional[List['outputs.EligibleAuthorizationResponse']]:
+    def eligible_authorizations(self) -> Optional[Sequence['outputs.EligibleAuthorizationResponse']]:
         """
         Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
         """
@@ -481,21 +481,21 @@ class RegistrationDefinitionPropertiesResponse(dict):
     Properties of a registration definition.
     """
     def __init__(__self__, *,
-                 authorizations: List['outputs.AuthorizationResponse'],
+                 authorizations: Sequence['outputs.AuthorizationResponse'],
                  managed_by_tenant_id: str,
                  managed_by_tenant_name: str,
                  provisioning_state: str,
                  description: Optional[str] = None,
-                 eligible_authorizations: Optional[List['outputs.EligibleAuthorizationResponse']] = None,
+                 eligible_authorizations: Optional[Sequence['outputs.EligibleAuthorizationResponse']] = None,
                  registration_definition_name: Optional[str] = None):
         """
         Properties of a registration definition.
-        :param List['AuthorizationResponseArgs'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        :param Sequence['AuthorizationResponseArgs'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         :param str managed_by_tenant_id: Id of the managedBy tenant.
         :param str managed_by_tenant_name: Name of the managedBy tenant.
         :param str provisioning_state: Current state of the registration definition.
         :param str description: Description of the registration definition.
-        :param List['EligibleAuthorizationResponseArgs'] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        :param Sequence['EligibleAuthorizationResponseArgs'] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
         :param str registration_definition_name: Name of the registration definition.
         """
         pulumi.set(__self__, "authorizations", authorizations)
@@ -511,7 +511,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> List['outputs.AuthorizationResponse']:
+    def authorizations(self) -> Sequence['outputs.AuthorizationResponse']:
         """
         Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         """
@@ -551,7 +551,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="eligibleAuthorizations")
-    def eligible_authorizations(self) -> Optional[List['outputs.EligibleAuthorizationResponse']]:
+    def eligible_authorizations(self) -> Optional[Sequence['outputs.EligibleAuthorizationResponse']]:
         """
         Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
         """

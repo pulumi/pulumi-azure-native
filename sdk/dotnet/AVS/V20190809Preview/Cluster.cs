@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.AVS.V20190809Preview
         /// The properties of a cluster resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ClusterPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

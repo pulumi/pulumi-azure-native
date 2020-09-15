@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -19,7 +19,7 @@ class Lab(pulumi.CustomResource):
                  lab_account_name: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_users_in_lab: Optional[pulumi.Input[float]] = None,
+                 max_users_in_lab: Optional[pulumi.Input[int]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,7 +37,7 @@ class Lab(pulumi.CustomResource):
         :param pulumi.Input[str] lab_account_name: The name of the lab Account.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[float] max_users_in_lab: Maximum number of users allowed in the lab.
+        :param pulumi.Input[int] max_users_in_lab: Maximum number of users allowed in the lab.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
@@ -162,7 +162,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxUsersInLab")
-    def max_users_in_lab(self) -> pulumi.Output[Optional[float]]:
+    def max_users_in_lab(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of users allowed in the lab.
         """
@@ -226,7 +226,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userQuota")
-    def user_quota(self) -> pulumi.Output[float]:
+    def user_quota(self) -> pulumi.Output[int]:
         """
         Maximum value MaxUsersInLab can be set to, as specified by the service
         """

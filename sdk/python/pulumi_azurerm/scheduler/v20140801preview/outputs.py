@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -266,12 +266,12 @@ class JobCollectionPropertiesResponse(dict):
 @pulumi.output_type
 class JobCollectionQuotaResponse(dict):
     def __init__(__self__, *,
-                 max_job_count: Optional[float] = None,
-                 max_job_occurrence: Optional[float] = None,
+                 max_job_count: Optional[int] = None,
+                 max_job_occurrence: Optional[int] = None,
                  max_recurrence: Optional['outputs.JobMaxRecurrenceResponse'] = None):
         """
-        :param float max_job_count: Gets or set the maximum job count.
-        :param float max_job_occurrence: Gets or sets the maximum job occurrence.
+        :param int max_job_count: Gets or set the maximum job count.
+        :param int max_job_occurrence: Gets or sets the maximum job occurrence.
         :param 'JobMaxRecurrenceResponseArgs' max_recurrence: Gets or set the maximum recurrence.
         """
         if max_job_count is not None:
@@ -283,7 +283,7 @@ class JobCollectionQuotaResponse(dict):
 
     @property
     @pulumi.getter(name="maxJobCount")
-    def max_job_count(self) -> Optional[float]:
+    def max_job_count(self) -> Optional[int]:
         """
         Gets or set the maximum job count.
         """
@@ -291,7 +291,7 @@ class JobCollectionQuotaResponse(dict):
 
     @property
     @pulumi.getter(name="maxJobOccurrence")
-    def max_job_occurrence(self) -> Optional[float]:
+    def max_job_occurrence(self) -> Optional[int]:
         """
         Gets or sets the maximum job occurrence.
         """
@@ -395,10 +395,10 @@ class JobErrorActionResponse(dict):
 class JobMaxRecurrenceResponse(dict):
     def __init__(__self__, *,
                  frequency: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         """
         :param str frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-        :param float interval: Gets or sets the interval between retries.
+        :param int interval: Gets or sets the interval between retries.
         """
         if frequency is not None:
             pulumi.set(__self__, "frequency", frequency)
@@ -415,7 +415,7 @@ class JobMaxRecurrenceResponse(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         """
         Gets or sets the interval between retries.
         """
@@ -497,16 +497,16 @@ class JobPropertiesResponse(dict):
 @pulumi.output_type
 class JobRecurrenceResponse(dict):
     def __init__(__self__, *,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  end_time: Optional[str] = None,
                  frequency: Optional[str] = None,
-                 interval: Optional[float] = None,
+                 interval: Optional[int] = None,
                  schedule: Optional['outputs.JobRecurrenceScheduleResponse'] = None):
         """
-        :param float count: Gets or sets the maximum number of times that the job should run.
+        :param int count: Gets or sets the maximum number of times that the job should run.
         :param str end_time: Gets or sets the time at which the job will complete.
         :param str frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-        :param float interval: Gets or sets the interval between retries.
+        :param int interval: Gets or sets the interval between retries.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -521,7 +521,7 @@ class JobRecurrenceResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Gets or sets the maximum number of times that the job should run.
         """
@@ -545,7 +545,7 @@ class JobRecurrenceResponse(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         """
         Gets or sets the interval between retries.
         """
@@ -564,10 +564,10 @@ class JobRecurrenceResponse(dict):
 class JobRecurrenceScheduleMonthlyOccurrenceResponse(dict):
     def __init__(__self__, *,
                  day: Optional[str] = None,
-                 occurrence: Optional[float] = None):
+                 occurrence: Optional[int] = None):
         """
         :param str day: Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        :param float occurrence: Gets or sets the occurrence. Must be between -5 and 5.
+        :param int occurrence: Gets or sets the occurrence. Must be between -5 and 5.
         """
         if day is not None:
             pulumi.set(__self__, "day", day)
@@ -584,7 +584,7 @@ class JobRecurrenceScheduleMonthlyOccurrenceResponse(dict):
 
     @property
     @pulumi.getter
-    def occurrence(self) -> Optional[float]:
+    def occurrence(self) -> Optional[int]:
         """
         Gets or sets the occurrence. Must be between -5 and 5.
         """
@@ -597,17 +597,17 @@ class JobRecurrenceScheduleMonthlyOccurrenceResponse(dict):
 @pulumi.output_type
 class JobRecurrenceScheduleResponse(dict):
     def __init__(__self__, *,
-                 hours: Optional[List[float]] = None,
-                 minutes: Optional[List[float]] = None,
-                 month_days: Optional[List[float]] = None,
-                 monthly_occurrences: Optional[List['outputs.JobRecurrenceScheduleMonthlyOccurrenceResponse']] = None,
-                 week_days: Optional[List[str]] = None):
+                 hours: Optional[Sequence[int]] = None,
+                 minutes: Optional[Sequence[int]] = None,
+                 month_days: Optional[Sequence[int]] = None,
+                 monthly_occurrences: Optional[Sequence['outputs.JobRecurrenceScheduleMonthlyOccurrenceResponse']] = None,
+                 week_days: Optional[Sequence[str]] = None):
         """
-        :param List[float] hours: Gets or sets the hours of the day that the job should execute at.
-        :param List[float] minutes: Gets or sets the minutes of the hour that the job should execute at.
-        :param List[float] month_days: Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
-        :param List['JobRecurrenceScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Gets or sets the occurrences of days within a month.
-        :param List[str] week_days: Gets or sets the days of the week that the job should execute on.
+        :param Sequence[int] hours: Gets or sets the hours of the day that the job should execute at.
+        :param Sequence[int] minutes: Gets or sets the minutes of the hour that the job should execute at.
+        :param Sequence[int] month_days: Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
+        :param Sequence['JobRecurrenceScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Gets or sets the occurrences of days within a month.
+        :param Sequence[str] week_days: Gets or sets the days of the week that the job should execute on.
         """
         if hours is not None:
             pulumi.set(__self__, "hours", hours)
@@ -622,7 +622,7 @@ class JobRecurrenceScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def hours(self) -> Optional[List[float]]:
+    def hours(self) -> Optional[Sequence[int]]:
         """
         Gets or sets the hours of the day that the job should execute at.
         """
@@ -630,7 +630,7 @@ class JobRecurrenceScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def minutes(self) -> Optional[List[float]]:
+    def minutes(self) -> Optional[Sequence[int]]:
         """
         Gets or sets the minutes of the hour that the job should execute at.
         """
@@ -638,7 +638,7 @@ class JobRecurrenceScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="monthDays")
-    def month_days(self) -> Optional[List[float]]:
+    def month_days(self) -> Optional[Sequence[int]]:
         """
         Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
         """
@@ -646,7 +646,7 @@ class JobRecurrenceScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="monthlyOccurrences")
-    def monthly_occurrences(self) -> Optional[List['outputs.JobRecurrenceScheduleMonthlyOccurrenceResponse']]:
+    def monthly_occurrences(self) -> Optional[Sequence['outputs.JobRecurrenceScheduleMonthlyOccurrenceResponse']]:
         """
         Gets or sets the occurrences of days within a month.
         """
@@ -654,7 +654,7 @@ class JobRecurrenceScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[List[str]]:
+    def week_days(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the days of the week that the job should execute on.
         """
@@ -667,15 +667,15 @@ class JobRecurrenceScheduleResponse(dict):
 @pulumi.output_type
 class JobStatusResponse(dict):
     def __init__(__self__, *,
-                 execution_count: float,
-                 failure_count: float,
-                 faulted_count: float,
+                 execution_count: int,
+                 failure_count: int,
+                 faulted_count: int,
                  last_execution_time: str,
                  next_execution_time: str):
         """
-        :param float execution_count: Gets the number of times this job has executed.
-        :param float failure_count: Gets the number of times this job has failed.
-        :param float faulted_count: Gets the number of faulted occurrences (occurrences that were retried and failed as many times as the retry policy states).
+        :param int execution_count: Gets the number of times this job has executed.
+        :param int failure_count: Gets the number of times this job has failed.
+        :param int faulted_count: Gets the number of faulted occurrences (occurrences that were retried and failed as many times as the retry policy states).
         :param str last_execution_time: Gets the time the last occurrence executed in ISO-8601 format.  Could be empty if job has not run yet.
         :param str next_execution_time: Gets the time of the next occurrence in ISO-8601 format. Could be empty if the job is completed.
         """
@@ -687,7 +687,7 @@ class JobStatusResponse(dict):
 
     @property
     @pulumi.getter(name="executionCount")
-    def execution_count(self) -> float:
+    def execution_count(self) -> int:
         """
         Gets the number of times this job has executed.
         """
@@ -695,7 +695,7 @@ class JobStatusResponse(dict):
 
     @property
     @pulumi.getter(name="failureCount")
-    def failure_count(self) -> float:
+    def failure_count(self) -> int:
         """
         Gets the number of times this job has failed.
         """
@@ -703,7 +703,7 @@ class JobStatusResponse(dict):
 
     @property
     @pulumi.getter(name="faultedCount")
-    def faulted_count(self) -> float:
+    def faulted_count(self) -> int:
         """
         Gets the number of faulted occurrences (occurrences that were retried and failed as many times as the retry policy states).
         """
@@ -732,11 +732,11 @@ class JobStatusResponse(dict):
 @pulumi.output_type
 class RetryPolicyResponse(dict):
     def __init__(__self__, *,
-                 retry_count: Optional[float] = None,
+                 retry_count: Optional[int] = None,
                  retry_interval: Optional[str] = None,
                  retry_type: Optional[str] = None):
         """
-        :param float retry_count: Gets or sets the number of times a retry should be attempted.
+        :param int retry_count: Gets or sets the number of times a retry should be attempted.
         :param str retry_interval: Gets or sets the retry interval between retries.
         :param str retry_type: Gets or sets the retry strategy to be used.
         """
@@ -749,7 +749,7 @@ class RetryPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="retryCount")
-    def retry_count(self) -> Optional[float]:
+    def retry_count(self) -> Optional[int]:
         """
         Gets or sets the number of times a retry should be attempted.
         """

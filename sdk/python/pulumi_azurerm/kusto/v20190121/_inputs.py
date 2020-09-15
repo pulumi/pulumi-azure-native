@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,12 +19,12 @@ class AzureSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  tier: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None):
+                 capacity: Optional[pulumi.Input[int]] = None):
         """
         Azure SKU definition.
         :param pulumi.Input[str] name: SKU name.
         :param pulumi.Input[str] tier: SKU tier.
-        :param pulumi.Input[float] capacity: The number of instances of the cluster.
+        :param pulumi.Input[int] capacity: The number of instances of the cluster.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -57,14 +57,14 @@ class AzureSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The number of instances of the cluster.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
 

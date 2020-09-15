@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.StorageSync.Latest
         /// List of private endpoint connection associated with the specified storage sync service
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// StorageSyncService Provisioning State

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Connector']
@@ -110,7 +110,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorId")
-    def connector_id(self) -> pulumi.Output[float]:
+    def connector_id(self) -> pulumi.Output[int]:
         """
         ID of the connector.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class ManagementLockByScope(pulumi.CustomResource):
                  level: Optional[pulumi.Input[str]] = None,
                  lock_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 owners: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
+                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,7 +33,7 @@ class ManagementLockByScope(pulumi.CustomResource):
         :param pulumi.Input[str] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] lock_name: The name of lock.
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
         :param pulumi.Input[str] scope: The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
         """
         if __name__ is not None:
@@ -118,7 +118,7 @@ class ManagementLockByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owners(self) -> pulumi.Output[Optional[List['outputs.ManagementLockOwnerResponse']]]:
+    def owners(self) -> pulumi.Output[Optional[Sequence['outputs.ManagementLockOwnerResponse']]]:
         """
         The owners of the lock.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -47,11 +47,11 @@ class FailoverGroupReadOnlyEndpointArgs:
 class FailoverGroupReadWriteEndpointArgs:
     def __init__(__self__, *,
                  failover_policy: pulumi.Input[str],
-                 failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[float]] = None):
+                 failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[int]] = None):
         """
         Read-write endpoint of the failover group instance.
         :param pulumi.Input[str] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-        :param pulumi.Input[float] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        :param pulumi.Input[int] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         pulumi.set(__self__, "failover_policy", failover_policy)
         if failover_with_data_loss_grace_period_minutes is not None:
@@ -71,14 +71,14 @@ class FailoverGroupReadWriteEndpointArgs:
 
     @property
     @pulumi.getter(name="failoverWithDataLossGracePeriodMinutes")
-    def failover_with_data_loss_grace_period_minutes(self) -> Optional[pulumi.Input[float]]:
+    def failover_with_data_loss_grace_period_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         return pulumi.get(self, "failover_with_data_loss_grace_period_minutes")
 
     @failover_with_data_loss_grace_period_minutes.setter
-    def failover_with_data_loss_grace_period_minutes(self, value: Optional[pulumi.Input[float]]):
+    def failover_with_data_loss_grace_period_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "failover_with_data_loss_grace_period_minutes", value)
 
 
@@ -133,14 +133,14 @@ class ResourceIdentityArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         An ARM Resource SKU.
         :param pulumi.Input[str] name: The name of the SKU, typically, a letter + Number code, e.g. P3.
-        :param pulumi.Input[float] capacity: Capacity of the particular SKU.
+        :param pulumi.Input[int] capacity: Capacity of the particular SKU.
         :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param pulumi.Input[str] size: Size of the particular SKU
         :param pulumi.Input[str] tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
@@ -169,14 +169,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Capacity of the particular SKU.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -220,11 +220,11 @@ class SkuArgs:
 class SyncGroupSchemaArgs:
     def __init__(__self__, *,
                  master_sync_member_name: Optional[pulumi.Input[str]] = None,
-                 tables: Optional[pulumi.Input[List[pulumi.Input['SyncGroupSchemaTableArgs']]]] = None):
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]] = None):
         """
         Properties of sync group schema.
         :param pulumi.Input[str] master_sync_member_name: Name of master sync member where the schema is from.
-        :param pulumi.Input[List[pulumi.Input['SyncGroupSchemaTableArgs']]] tables: List of tables in sync group schema.
+        :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]] tables: List of tables in sync group schema.
         """
         if master_sync_member_name is not None:
             pulumi.set(__self__, "master_sync_member_name", master_sync_member_name)
@@ -245,25 +245,25 @@ class SyncGroupSchemaArgs:
 
     @property
     @pulumi.getter
-    def tables(self) -> Optional[pulumi.Input[List[pulumi.Input['SyncGroupSchemaTableArgs']]]]:
+    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]:
         """
         List of tables in sync group schema.
         """
         return pulumi.get(self, "tables")
 
     @tables.setter
-    def tables(self, value: Optional[pulumi.Input[List[pulumi.Input['SyncGroupSchemaTableArgs']]]]):
+    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]):
         pulumi.set(self, "tables", value)
 
 
 @pulumi.input_type
 class SyncGroupSchemaTableArgs:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[List[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]] = None,
                  quoted_name: Optional[pulumi.Input[str]] = None):
         """
         Properties of table in sync group schema.
-        :param pulumi.Input[List[pulumi.Input['SyncGroupSchemaTableColumnArgs']]] columns: List of columns in sync group schema.
+        :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]] columns: List of columns in sync group schema.
         :param pulumi.Input[str] quoted_name: Quoted name of sync group schema table.
         """
         if columns is not None:
@@ -273,14 +273,14 @@ class SyncGroupSchemaTableArgs:
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[List[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]:
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]:
         """
         List of columns in sync group schema.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[List[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]):
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]):
         pulumi.set(self, "columns", value)
 
     @property

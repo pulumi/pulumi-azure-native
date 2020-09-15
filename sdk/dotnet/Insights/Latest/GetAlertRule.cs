@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// <summary>
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.RuleEmailActionResponseResult, Outputs.RuleWebhookActionResponseResult>> Actions;
+        public readonly ImmutableArray<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>> Actions;
         /// <summary>
         /// the condition that results in the alert rule being activated.
         /// </summary>
-        public readonly Union<Outputs.LocationThresholdRuleConditionResponseResult, Union<Outputs.ManagementEventRuleConditionResponseResult, Outputs.ThresholdRuleConditionResponseResult>> Condition;
+        public readonly Union<Outputs.LocationThresholdRuleConditionResponse, Union<Outputs.ManagementEventRuleConditionResponse, Outputs.ThresholdRuleConditionResponse>> Condition;
         /// <summary>
         /// the description of the alert rule that will be included in the alert email.
         /// </summary>
@@ -78,9 +78,9 @@ namespace Pulumi.AzureRM.Insights.Latest
 
         [OutputConstructor]
         private GetAlertRuleResult(
-            ImmutableArray<Union<Outputs.RuleEmailActionResponseResult, Outputs.RuleWebhookActionResponseResult>> actions,
+            ImmutableArray<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>> actions,
 
-            Union<Outputs.LocationThresholdRuleConditionResponseResult, Union<Outputs.ManagementEventRuleConditionResponseResult, Outputs.ThresholdRuleConditionResponseResult>> condition,
+            Union<Outputs.LocationThresholdRuleConditionResponse, Union<Outputs.ManagementEventRuleConditionResponse, Outputs.ThresholdRuleConditionResponse>> condition,
 
             string? description,
 

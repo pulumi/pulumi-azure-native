@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// The service principal that has read access to cloud-init and config blob.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponseResult? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// Network Virtual Appliance SKU.
         /// </summary>
-        public readonly Outputs.VirtualApplianceSkuPropertiesResponseResult? Sku;
+        public readonly Outputs.VirtualApplianceSkuPropertiesResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -92,11 +92,11 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult> VirtualApplianceNics;
+        public readonly ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> VirtualApplianceNics;
         /// <summary>
         /// The Virtual Hub where Network Virtual Appliance is being deployed.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VirtualHub;
+        public readonly Outputs.SubResourceResponse? VirtualHub;
 
         [OutputConstructor]
         private GetNetworkVirtualApplianceResult(
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.Network.V20200401
 
             string etag,
 
-            Outputs.ManagedServiceIdentityResponseResult? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Network.V20200401
 
             string provisioningState,
 
-            Outputs.VirtualApplianceSkuPropertiesResponseResult? sku,
+            Outputs.VirtualApplianceSkuPropertiesResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -122,9 +122,9 @@ namespace Pulumi.AzureRM.Network.V20200401
 
             int? virtualApplianceAsn,
 
-            ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult> virtualApplianceNics,
+            ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> virtualApplianceNics,
 
-            Outputs.SubResourceResponseResult? virtualHub)
+            Outputs.SubResourceResponse? virtualHub)
         {
             BootStrapConfigurationBlob = bootStrapConfigurationBlob;
             CloudInitConfigurationBlob = cloudInitConfigurationBlob;

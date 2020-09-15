@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -22,7 +22,7 @@ class PolicyExemption(pulumi.CustomResource):
                  expires_on: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
-                 policy_definition_reference_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_exemption_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -39,7 +39,7 @@ class PolicyExemption(pulumi.CustomResource):
         :param pulumi.Input[str] expires_on: The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
         :param pulumi.Input[Mapping[str, Any]] metadata: The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[str] policy_assignment_id: The ID of the policy assignment that is being exempted.
-        :param pulumi.Input[List[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         :param pulumi.Input[str] policy_exemption_name: The name of the policy exemption to delete.
         :param pulumi.Input[str] scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
@@ -162,7 +162,7 @@ class PolicyExemption(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionReferenceIds")
-    def policy_definition_reference_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def policy_definition_reference_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         """

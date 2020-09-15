@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Web.V20160601
         /// <summary>
         /// Custom API properties
         /// </summary>
-        public readonly Outputs.CustomApiPropertiesDefinitionResponseResult Properties;
+        public readonly Outputs.CustomApiPropertiesDefinitionResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Web.V20160601
 
             string name,
 
-            Outputs.CustomApiPropertiesDefinitionResponseResult properties,
+            Outputs.CustomApiPropertiesDefinitionResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

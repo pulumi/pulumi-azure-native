@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// The range of ports from which cluster assigned port to Service Fabric applications.
         /// </summary>
         [Output("applicationPorts")]
-        public Output<Outputs.EndpointRangeDescriptionResponseResult?> ApplicationPorts { get; private set; } = null!;
+        public Output<Outputs.EndpointRangeDescriptionResponse?> ApplicationPorts { get; private set; } = null!;
 
         /// <summary>
         /// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// The range of ephemeral ports that nodes in this node type should be configured with.
         /// </summary>
         [Output("ephemeralPorts")]
-        public Output<Outputs.EndpointRangeDescriptionResponseResult?> EphemeralPorts { get; private set; } = null!;
+        public Output<Outputs.EndpointRangeDescriptionResponse?> EphemeralPorts { get; private set; } = null!;
 
         /// <summary>
         /// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// Set of extensions that should be installed onto the virtual machines.
         /// </summary>
         [Output("vmExtensions")]
-        public Output<ImmutableArray<Outputs.VMSSExtensionResponseResult>> VmExtensions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VMSSExtensionResponse>> VmExtensions { get; private set; } = null!;
 
         /// <summary>
         /// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// The secrets to install in the virtual machines.
         /// </summary>
         [Output("vmSecrets")]
-        public Output<ImmutableArray<Outputs.VaultSecretGroupResponseResult>> VmSecrets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VaultSecretGroupResponse>> VmSecrets { get; private set; } = null!;
 
         /// <summary>
         /// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.

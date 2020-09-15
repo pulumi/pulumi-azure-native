@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class Share(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_protocol: Optional[pulumi.Input[str]] = None,
                  azure_container_info: Optional[pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']]] = None,
-                 client_access_rights: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]]] = None,
+                 client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]]] = None,
                  data_policy: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class Share(pulumi.CustomResource):
                  refresh_details: Optional[pulumi.Input[pulumi.InputType['RefreshDetailsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input[str]] = None,
-                 user_access_rights: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]]] = None,
+                 user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -39,7 +39,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_protocol: Access protocol to be used by the share.
         :param pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']] azure_container_info: Azure container mapping for the share.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
         :param pulumi.Input[str] data_policy: Data policy of the share.
         :param pulumi.Input[str] description: Description for the share.
         :param pulumi.Input[str] device_name: The device name.
@@ -48,7 +48,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RefreshDetailsArgs']] refresh_details: Details of the refresh job on this share.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_status: Current status of the share.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,7 +137,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientAccessRights")
-    def client_access_rights(self) -> pulumi.Output[Optional[List['outputs.ClientAccessRightResponse']]]:
+    def client_access_rights(self) -> pulumi.Output[Optional[Sequence['outputs.ClientAccessRightResponse']]]:
         """
         List of IP addresses and corresponding access rights on the share(required for NFS protocol).
         """
@@ -185,7 +185,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareMappings")
-    def share_mappings(self) -> pulumi.Output[List['outputs.MountPointMapResponse']]:
+    def share_mappings(self) -> pulumi.Output[Sequence['outputs.MountPointMapResponse']]:
         """
         Share mount point to the role.
         """
@@ -209,7 +209,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userAccessRights")
-    def user_access_rights(self) -> pulumi.Output[Optional[List['outputs.UserAccessRightResponse']]]:
+    def user_access_rights(self) -> pulumi.Output[Optional[Sequence['outputs.UserAccessRightResponse']]]:
         """
         Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20180401
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
-        public readonly Outputs.CreationDataResponseResult CreationData;
+        public readonly Outputs.CreationDataResponse CreationData;
         /// <summary>
         /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Compute.V20180401
         /// <summary>
         /// Encryption settings for disk or snapshot
         /// </summary>
-        public readonly Outputs.EncryptionSettingsResponseResult? EncryptionSettings;
+        public readonly Outputs.EncryptionSettingsResponse? EncryptionSettings;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Compute.V20180401
         /// <summary>
         /// The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
         /// </summary>
-        public readonly Outputs.DiskSkuResponseResult? Sku;
+        public readonly Outputs.DiskSkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -94,11 +94,11 @@ namespace Pulumi.AzureRM.Compute.V20180401
 
         [OutputConstructor]
         private GetDiskResult(
-            Outputs.CreationDataResponseResult creationData,
+            Outputs.CreationDataResponse creationData,
 
             int? diskSizeGB,
 
-            Outputs.EncryptionSettingsResponseResult? encryptionSettings,
+            Outputs.EncryptionSettingsResponse? encryptionSettings,
 
             string location,
 
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Compute.V20180401
 
             string provisioningState,
 
-            Outputs.DiskSkuResponseResult? sku,
+            Outputs.DiskSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

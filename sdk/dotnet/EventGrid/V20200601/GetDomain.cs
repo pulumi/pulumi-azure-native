@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// <summary>
         /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InboundIpRuleResponseResult> InboundIpRules;
+        public readonly ImmutableArray<Outputs.InboundIpRuleResponse> InboundIpRules;
         /// <summary>
         /// This determines the format that Event Grid should expect for incoming events published to the domain.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// <summary>
         /// Information about the InputSchemaMapping which specified the info about mapping event payload.
         /// </summary>
-        public readonly Outputs.JsonInputSchemaMappingResponseResult? InputSchemaMapping;
+        public readonly Outputs.JsonInputSchemaMappingResponse? InputSchemaMapping;
         /// <summary>
         /// Location of the resource.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// <summary>
         /// List of private endpoint connections.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the domain.
         /// </summary>
@@ -93,11 +93,11 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         private GetDomainResult(
             string endpoint,
 
-            ImmutableArray<Outputs.InboundIpRuleResponseResult> inboundIpRules,
+            ImmutableArray<Outputs.InboundIpRuleResponse> inboundIpRules,
 
             string? inputSchema,
 
-            Outputs.JsonInputSchemaMappingResponseResult? inputSchemaMapping,
+            Outputs.JsonInputSchemaMappingResponse? inputSchemaMapping,
 
             string location,
 
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 

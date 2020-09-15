@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,9 +21,9 @@ class Relationship(pulumi.CustomResource):
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  expiry_date_time_utc: Optional[pulumi.Input[str]] = None,
-                 fields: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]]] = None,
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
-                 lookup_mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RelationshipTypeMappingArgs']]]]] = None,
+                 lookup_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RelationshipTypeMappingArgs']]]]] = None,
                  profile_type: Optional[pulumi.Input[str]] = None,
                  related_profile_type: Optional[pulumi.Input[str]] = None,
                  relationship_name: Optional[pulumi.Input[str]] = None,
@@ -40,9 +40,9 @@ class Relationship(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the Relationship.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the Relationship.
         :param pulumi.Input[str] expiry_date_time_utc: The expiry date time in UTC.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]] fields: The properties of the Relationship.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]] fields: The properties of the Relationship.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RelationshipTypeMappingArgs']]]] lookup_mappings: Optional property to be used to map fields in profile to their strong ids in related profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RelationshipTypeMappingArgs']]]] lookup_mappings: Optional property to be used to map fields in profile to their strong ids in related profile.
         :param pulumi.Input[str] profile_type: Profile type.
         :param pulumi.Input[str] related_profile_type: Related profile being referenced.
         :param pulumi.Input[str] relationship_name: The name of the Relationship.
@@ -151,7 +151,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fields(self) -> pulumi.Output[Optional[List['outputs.PropertyDefinitionResponse']]]:
+    def fields(self) -> pulumi.Output[Optional[Sequence['outputs.PropertyDefinitionResponse']]]:
         """
         The properties of the Relationship.
         """
@@ -159,7 +159,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lookupMappings")
-    def lookup_mappings(self) -> pulumi.Output[Optional[List['outputs.RelationshipTypeMappingResponse']]]:
+    def lookup_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.RelationshipTypeMappingResponse']]]:
         """
         Optional property to be used to map fields in profile to their strong ids in related profile.
         """

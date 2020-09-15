@@ -49,22 +49,22 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Outputs.StorageBlobDeadLetterDestinationResponseResult? DeadLetterDestination;
+        public readonly Outputs.StorageBlobDeadLetterDestinationResponse? DeadLetterDestination;
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Outputs.DeadLetterWithResourceIdentityResponseResult? DeadLetterWithResourceIdentity;
+        public readonly Outputs.DeadLetterWithResourceIdentityResponse? DeadLetterWithResourceIdentity;
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Outputs.DeliveryWithResourceIdentityResponseResult? DeliveryWithResourceIdentity;
+        public readonly Outputs.DeliveryWithResourceIdentityResponse? DeliveryWithResourceIdentity;
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Union<Outputs.AzureFunctionEventSubscriptionDestinationResponseResult, Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusTopicEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>>>>? Destination;
+        public readonly Union<Outputs.AzureFunctionEventSubscriptionDestinationResponse, Union<Outputs.EventHubEventSubscriptionDestinationResponse, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponse, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponse, Union<Outputs.ServiceBusTopicEventSubscriptionDestinationResponse, Union<Outputs.StorageQueueEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>>>>>>? Destination;
         /// <summary>
         /// The event delivery schema for the event subscription.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
-        public readonly Outputs.EventSubscriptionFilterResponseResult? Filter;
+        public readonly Outputs.EventSubscriptionFilterResponse? Filter;
         /// <summary>
         /// List of user defined labels.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <summary>
         /// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         /// </summary>
-        public readonly Outputs.RetryPolicyResponseResult? RetryPolicy;
+        public readonly Outputs.RetryPolicyResponse? RetryPolicy;
         /// <summary>
         /// Name of the topic of the event subscription.
         /// </summary>
@@ -104,19 +104,19 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 
         [OutputConstructor]
         private GetSystemTopicEventSubscriptionResult(
-            Outputs.StorageBlobDeadLetterDestinationResponseResult? deadLetterDestination,
+            Outputs.StorageBlobDeadLetterDestinationResponse? deadLetterDestination,
 
-            Outputs.DeadLetterWithResourceIdentityResponseResult? deadLetterWithResourceIdentity,
+            Outputs.DeadLetterWithResourceIdentityResponse? deadLetterWithResourceIdentity,
 
-            Outputs.DeliveryWithResourceIdentityResponseResult? deliveryWithResourceIdentity,
+            Outputs.DeliveryWithResourceIdentityResponse? deliveryWithResourceIdentity,
 
-            Union<Outputs.AzureFunctionEventSubscriptionDestinationResponseResult, Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusTopicEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>>>>? destination,
+            Union<Outputs.AzureFunctionEventSubscriptionDestinationResponse, Union<Outputs.EventHubEventSubscriptionDestinationResponse, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponse, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponse, Union<Outputs.ServiceBusTopicEventSubscriptionDestinationResponse, Union<Outputs.StorageQueueEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>>>>>>? destination,
 
             string? eventDeliverySchema,
 
             string? expirationTimeUtc,
 
-            Outputs.EventSubscriptionFilterResponseResult? filter,
+            Outputs.EventSubscriptionFilterResponse? filter,
 
             ImmutableArray<string> labels,
 
@@ -124,7 +124,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 
             string provisioningState,
 
-            Outputs.RetryPolicyResponseResult? retryPolicy,
+            Outputs.RetryPolicyResponse? retryPolicy,
 
             string topic,
 

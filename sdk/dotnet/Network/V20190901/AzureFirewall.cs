@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// Collection of application rule collections used by Azure Firewall.
         /// </summary>
         [Output("applicationRuleCollections")]
-        public Output<ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult>> ApplicationRuleCollections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponse>> ApplicationRuleCollections { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -36,19 +36,19 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// The firewallPolicy associated with this azure firewall.
         /// </summary>
         [Output("firewallPolicy")]
-        public Output<Outputs.SubResourceResponseResult?> FirewallPolicy { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> FirewallPolicy { get; private set; } = null!;
 
         /// <summary>
         /// IP addresses associated with AzureFirewall.
         /// </summary>
         [Output("hubIpAddresses")]
-        public Output<Outputs.HubIPAddressesResponseResult> HubIpAddresses { get; private set; } = null!;
+        public Output<Outputs.HubIPAddressesResponse> HubIpAddresses { get; private set; } = null!;
 
         /// <summary>
         /// IP configuration of the Azure Firewall resource.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -66,13 +66,13 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// Collection of NAT rule collections used by Azure Firewall.
         /// </summary>
         [Output("natRuleCollections")]
-        public Output<ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponseResult>> NatRuleCollections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponse>> NatRuleCollections { get; private set; } = null!;
 
         /// <summary>
         /// Collection of network rule collections used by Azure Firewall.
         /// </summary>
         [Output("networkRuleCollections")]
-        public Output<ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult>> NetworkRuleCollections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponse>> NetworkRuleCollections { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the Azure firewall resource.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// The Azure Firewall Resource SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.AzureFirewallSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.AzureFirewallSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// The virtualHub to which the firewall belongs.
         /// </summary>
         [Output("virtualHub")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualHub { get; private set; } = null!;
 
         /// <summary>
         /// A list of availability zones denoting where the resource needs to come from.

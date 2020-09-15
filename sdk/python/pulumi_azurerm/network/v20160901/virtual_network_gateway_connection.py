@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -27,7 +27,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  peer: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 routing_weight: Optional[pulumi.Input[float]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_gateway1: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
@@ -51,7 +51,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] peer: The reference to peerings resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the VirtualNetworkGatewayConnection resource.
-        :param pulumi.Input[float] routing_weight: The routing weight.
+        :param pulumi.Input[int] routing_weight: The routing weight.
         :param pulumi.Input[str] shared_key: The IPSec shared key.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway1: A common class for general resource information
@@ -158,7 +158,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> pulumi.Output[float]:
+    def egress_bytes_transferred(self) -> pulumi.Output[int]:
         """
         The egress bytes transferred in this connection.
         """
@@ -182,7 +182,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> pulumi.Output[float]:
+    def ingress_bytes_transferred(self) -> pulumi.Output[int]:
         """
         The ingress bytes transferred in this connection.
         """
@@ -238,7 +238,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> pulumi.Output[Optional[float]]:
+    def routing_weight(self) -> pulumi.Output[Optional[int]]:
         """
         The routing weight.
         """
@@ -262,7 +262,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tunnelConnectionStatus")
-    def tunnel_connection_status(self) -> pulumi.Output[List['outputs.TunnelConnectionHealthResponse']]:
+    def tunnel_connection_status(self) -> pulumi.Output[Sequence['outputs.TunnelConnectionHealthResponse']]:
         """
         Collection of all tunnels' connection health status.
         """

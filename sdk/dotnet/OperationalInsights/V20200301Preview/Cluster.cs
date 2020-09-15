@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The associated key properties.
         /// </summary>
         [Output("keyVaultProperties")]
-        public Output<Outputs.KeyVaultPropertiesResponseResult?> KeyVaultProperties { get; private set; } = null!;
+        public Output<Outputs.KeyVaultPropertiesResponse?> KeyVaultProperties { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
         /// The sku properties.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ClusterSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ClusterSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

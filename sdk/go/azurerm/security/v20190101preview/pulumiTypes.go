@@ -16,76 +16,6 @@ type AssessmentLinksResponse struct {
 	AzurePortalUri string `pulumi:"azurePortalUri"`
 }
 
-// AssessmentLinksResponseInput is an input type that accepts AssessmentLinksResponseArgs and AssessmentLinksResponseOutput values.
-// You can construct a concrete instance of `AssessmentLinksResponseInput` via:
-//
-//          AssessmentLinksResponseArgs{...}
-type AssessmentLinksResponseInput interface {
-	pulumi.Input
-
-	ToAssessmentLinksResponseOutput() AssessmentLinksResponseOutput
-	ToAssessmentLinksResponseOutputWithContext(context.Context) AssessmentLinksResponseOutput
-}
-
-// Links relevant to the assessment
-type AssessmentLinksResponseArgs struct {
-	// Link to assessment in Azure Portal
-	AzurePortalUri pulumi.StringInput `pulumi:"azurePortalUri"`
-}
-
-func (AssessmentLinksResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentLinksResponse)(nil)).Elem()
-}
-
-func (i AssessmentLinksResponseArgs) ToAssessmentLinksResponseOutput() AssessmentLinksResponseOutput {
-	return i.ToAssessmentLinksResponseOutputWithContext(context.Background())
-}
-
-func (i AssessmentLinksResponseArgs) ToAssessmentLinksResponseOutputWithContext(ctx context.Context) AssessmentLinksResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksResponseOutput)
-}
-
-func (i AssessmentLinksResponseArgs) ToAssessmentLinksResponsePtrOutput() AssessmentLinksResponsePtrOutput {
-	return i.ToAssessmentLinksResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AssessmentLinksResponseArgs) ToAssessmentLinksResponsePtrOutputWithContext(ctx context.Context) AssessmentLinksResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksResponseOutput).ToAssessmentLinksResponsePtrOutputWithContext(ctx)
-}
-
-// AssessmentLinksResponsePtrInput is an input type that accepts AssessmentLinksResponseArgs, AssessmentLinksResponsePtr and AssessmentLinksResponsePtrOutput values.
-// You can construct a concrete instance of `AssessmentLinksResponsePtrInput` via:
-//
-//          AssessmentLinksResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AssessmentLinksResponsePtrInput interface {
-	pulumi.Input
-
-	ToAssessmentLinksResponsePtrOutput() AssessmentLinksResponsePtrOutput
-	ToAssessmentLinksResponsePtrOutputWithContext(context.Context) AssessmentLinksResponsePtrOutput
-}
-
-type assessmentLinksResponsePtrType AssessmentLinksResponseArgs
-
-func AssessmentLinksResponsePtr(v *AssessmentLinksResponseArgs) AssessmentLinksResponsePtrInput {
-	return (*assessmentLinksResponsePtrType)(v)
-}
-
-func (*assessmentLinksResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentLinksResponse)(nil)).Elem()
-}
-
-func (i *assessmentLinksResponsePtrType) ToAssessmentLinksResponsePtrOutput() AssessmentLinksResponsePtrOutput {
-	return i.ToAssessmentLinksResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentLinksResponsePtrType) ToAssessmentLinksResponsePtrOutputWithContext(ctx context.Context) AssessmentLinksResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksResponsePtrOutput)
-}
-
 // Links relevant to the assessment
 type AssessmentLinksResponseOutput struct{ *pulumi.OutputState }
 
@@ -229,94 +159,6 @@ func (i *assessmentStatusPtrType) ToAssessmentStatusPtrOutputWithContext(ctx con
 }
 
 // The result of the assessment
-type AssessmentStatusOutput struct{ *pulumi.OutputState }
-
-func (AssessmentStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentStatus)(nil)).Elem()
-}
-
-func (o AssessmentStatusOutput) ToAssessmentStatusOutput() AssessmentStatusOutput {
-	return o
-}
-
-func (o AssessmentStatusOutput) ToAssessmentStatusOutputWithContext(ctx context.Context) AssessmentStatusOutput {
-	return o
-}
-
-func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
-	return o.ToAssessmentStatusPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return o.ApplyT(func(v AssessmentStatus) *AssessmentStatus {
-		return &v
-	}).(AssessmentStatusPtrOutput)
-}
-
-// Programmatic code for the cause of the assessment status
-func (o AssessmentStatusOutput) Cause() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentStatus) *string { return v.Cause }).(pulumi.StringPtrOutput)
-}
-
-// Programmatic code for the status of the assessment
-func (o AssessmentStatusOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentStatus) string { return v.Code }).(pulumi.StringOutput)
-}
-
-// Human readable description of the assessment status
-func (o AssessmentStatusOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentStatus) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-type AssessmentStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentStatus)(nil)).Elem()
-}
-
-func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
-	return o
-}
-
-func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return o
-}
-
-func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
-	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus { return *v }).(AssessmentStatusOutput)
-}
-
-// Programmatic code for the cause of the assessment status
-func (o AssessmentStatusPtrOutput) Cause() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Cause
-	}).(pulumi.StringPtrOutput)
-}
-
-// Programmatic code for the status of the assessment
-func (o AssessmentStatusPtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-// Human readable description of the assessment status
-func (o AssessmentStatusPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The result of the assessment
 type AssessmentStatusResponse struct {
 	// Programmatic code for the cause of the assessment status
 	Cause *string `pulumi:"cause"`
@@ -324,80 +166,6 @@ type AssessmentStatusResponse struct {
 	Code string `pulumi:"code"`
 	// Human readable description of the assessment status
 	Description *string `pulumi:"description"`
-}
-
-// AssessmentStatusResponseInput is an input type that accepts AssessmentStatusResponseArgs and AssessmentStatusResponseOutput values.
-// You can construct a concrete instance of `AssessmentStatusResponseInput` via:
-//
-//          AssessmentStatusResponseArgs{...}
-type AssessmentStatusResponseInput interface {
-	pulumi.Input
-
-	ToAssessmentStatusResponseOutput() AssessmentStatusResponseOutput
-	ToAssessmentStatusResponseOutputWithContext(context.Context) AssessmentStatusResponseOutput
-}
-
-// The result of the assessment
-type AssessmentStatusResponseArgs struct {
-	// Programmatic code for the cause of the assessment status
-	Cause pulumi.StringPtrInput `pulumi:"cause"`
-	// Programmatic code for the status of the assessment
-	Code pulumi.StringInput `pulumi:"code"`
-	// Human readable description of the assessment status
-	Description pulumi.StringPtrInput `pulumi:"description"`
-}
-
-func (AssessmentStatusResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentStatusResponse)(nil)).Elem()
-}
-
-func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponseOutput() AssessmentStatusResponseOutput {
-	return i.ToAssessmentStatusResponseOutputWithContext(context.Background())
-}
-
-func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponseOutputWithContext(ctx context.Context) AssessmentStatusResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponseOutput)
-}
-
-func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput {
-	return i.ToAssessmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponseOutput).ToAssessmentStatusResponsePtrOutputWithContext(ctx)
-}
-
-// AssessmentStatusResponsePtrInput is an input type that accepts AssessmentStatusResponseArgs, AssessmentStatusResponsePtr and AssessmentStatusResponsePtrOutput values.
-// You can construct a concrete instance of `AssessmentStatusResponsePtrInput` via:
-//
-//          AssessmentStatusResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AssessmentStatusResponsePtrInput interface {
-	pulumi.Input
-
-	ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput
-	ToAssessmentStatusResponsePtrOutputWithContext(context.Context) AssessmentStatusResponsePtrOutput
-}
-
-type assessmentStatusResponsePtrType AssessmentStatusResponseArgs
-
-func AssessmentStatusResponsePtr(v *AssessmentStatusResponseArgs) AssessmentStatusResponsePtrInput {
-	return (*assessmentStatusResponsePtrType)(v)
-}
-
-func (*assessmentStatusResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentStatusResponse)(nil)).Elem()
-}
-
-func (i *assessmentStatusResponsePtrType) ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput {
-	return i.ToAssessmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentStatusResponsePtrType) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponsePtrOutput)
 }
 
 // The result of the assessment
@@ -532,36 +300,6 @@ func (i AutomationActionEventHubArgs) ToAutomationActionEventHubOutputWithContex
 }
 
 // The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
-type AutomationActionEventHubOutput struct{ *pulumi.OutputState }
-
-func (AutomationActionEventHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationActionEventHub)(nil)).Elem()
-}
-
-func (o AutomationActionEventHubOutput) ToAutomationActionEventHubOutput() AutomationActionEventHubOutput {
-	return o
-}
-
-func (o AutomationActionEventHubOutput) ToAutomationActionEventHubOutputWithContext(ctx context.Context) AutomationActionEventHubOutput {
-	return o
-}
-
-// The type of the action that will be triggered by the Automation
-func (o AutomationActionEventHubOutput) ActionType() pulumi.StringOutput {
-	return o.ApplyT(func(v AutomationActionEventHub) string { return v.ActionType }).(pulumi.StringOutput)
-}
-
-// The target Event Hub connection string (it will not be included in any response).
-func (o AutomationActionEventHubOutput) ConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationActionEventHub) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
-}
-
-// The target Event Hub Azure Resource ID.
-func (o AutomationActionEventHubOutput) EventHubResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationActionEventHub) *string { return v.EventHubResourceId }).(pulumi.StringPtrOutput)
-}
-
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponse struct {
 	// The type of the action that will be triggered by the Automation
 	ActionType string `pulumi:"actionType"`
@@ -571,41 +309,6 @@ type AutomationActionEventHubResponse struct {
 	EventHubResourceId *string `pulumi:"eventHubResourceId"`
 	// The target Event Hub SAS policy name.
 	SasPolicyName string `pulumi:"sasPolicyName"`
-}
-
-// AutomationActionEventHubResponseInput is an input type that accepts AutomationActionEventHubResponseArgs and AutomationActionEventHubResponseOutput values.
-// You can construct a concrete instance of `AutomationActionEventHubResponseInput` via:
-//
-//          AutomationActionEventHubResponseArgs{...}
-type AutomationActionEventHubResponseInput interface {
-	pulumi.Input
-
-	ToAutomationActionEventHubResponseOutput() AutomationActionEventHubResponseOutput
-	ToAutomationActionEventHubResponseOutputWithContext(context.Context) AutomationActionEventHubResponseOutput
-}
-
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
-type AutomationActionEventHubResponseArgs struct {
-	// The type of the action that will be triggered by the Automation
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The target Event Hub connection string (it will not be included in any response).
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The target Event Hub Azure Resource ID.
-	EventHubResourceId pulumi.StringPtrInput `pulumi:"eventHubResourceId"`
-	// The target Event Hub SAS policy name.
-	SasPolicyName pulumi.StringInput `pulumi:"sasPolicyName"`
-}
-
-func (AutomationActionEventHubResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationActionEventHubResponse)(nil)).Elem()
-}
-
-func (i AutomationActionEventHubResponseArgs) ToAutomationActionEventHubResponseOutput() AutomationActionEventHubResponseOutput {
-	return i.ToAutomationActionEventHubResponseOutputWithContext(context.Background())
-}
-
-func (i AutomationActionEventHubResponseArgs) ToAutomationActionEventHubResponseOutputWithContext(ctx context.Context) AutomationActionEventHubResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionEventHubResponseOutput)
 }
 
 // The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
@@ -687,36 +390,6 @@ func (i AutomationActionLogicAppArgs) ToAutomationActionLogicAppOutputWithContex
 }
 
 // The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
-type AutomationActionLogicAppOutput struct{ *pulumi.OutputState }
-
-func (AutomationActionLogicAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationActionLogicApp)(nil)).Elem()
-}
-
-func (o AutomationActionLogicAppOutput) ToAutomationActionLogicAppOutput() AutomationActionLogicAppOutput {
-	return o
-}
-
-func (o AutomationActionLogicAppOutput) ToAutomationActionLogicAppOutputWithContext(ctx context.Context) AutomationActionLogicAppOutput {
-	return o
-}
-
-// The type of the action that will be triggered by the Automation
-func (o AutomationActionLogicAppOutput) ActionType() pulumi.StringOutput {
-	return o.ApplyT(func(v AutomationActionLogicApp) string { return v.ActionType }).(pulumi.StringOutput)
-}
-
-// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
-func (o AutomationActionLogicAppOutput) LogicAppResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationActionLogicApp) *string { return v.LogicAppResourceId }).(pulumi.StringPtrOutput)
-}
-
-// The Logic App trigger URI endpoint (it will not be included in any response).
-func (o AutomationActionLogicAppOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationActionLogicApp) *string { return v.Uri }).(pulumi.StringPtrOutput)
-}
-
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponse struct {
 	// The type of the action that will be triggered by the Automation
 	ActionType string `pulumi:"actionType"`
@@ -724,39 +397,6 @@ type AutomationActionLogicAppResponse struct {
 	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
 	// The Logic App trigger URI endpoint (it will not be included in any response).
 	Uri *string `pulumi:"uri"`
-}
-
-// AutomationActionLogicAppResponseInput is an input type that accepts AutomationActionLogicAppResponseArgs and AutomationActionLogicAppResponseOutput values.
-// You can construct a concrete instance of `AutomationActionLogicAppResponseInput` via:
-//
-//          AutomationActionLogicAppResponseArgs{...}
-type AutomationActionLogicAppResponseInput interface {
-	pulumi.Input
-
-	ToAutomationActionLogicAppResponseOutput() AutomationActionLogicAppResponseOutput
-	ToAutomationActionLogicAppResponseOutputWithContext(context.Context) AutomationActionLogicAppResponseOutput
-}
-
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
-type AutomationActionLogicAppResponseArgs struct {
-	// The type of the action that will be triggered by the Automation
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
-	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
-	// The Logic App trigger URI endpoint (it will not be included in any response).
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-}
-
-func (AutomationActionLogicAppResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationActionLogicAppResponse)(nil)).Elem()
-}
-
-func (i AutomationActionLogicAppResponseArgs) ToAutomationActionLogicAppResponseOutput() AutomationActionLogicAppResponseOutput {
-	return i.ToAutomationActionLogicAppResponseOutputWithContext(context.Background())
-}
-
-func (i AutomationActionLogicAppResponseArgs) ToAutomationActionLogicAppResponseOutputWithContext(ctx context.Context) AutomationActionLogicAppResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionLogicAppResponseOutput)
 }
 
 // The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
@@ -829,67 +469,11 @@ func (i AutomationActionWorkspaceArgs) ToAutomationActionWorkspaceOutputWithCont
 }
 
 // The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
-type AutomationActionWorkspaceOutput struct{ *pulumi.OutputState }
-
-func (AutomationActionWorkspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationActionWorkspace)(nil)).Elem()
-}
-
-func (o AutomationActionWorkspaceOutput) ToAutomationActionWorkspaceOutput() AutomationActionWorkspaceOutput {
-	return o
-}
-
-func (o AutomationActionWorkspaceOutput) ToAutomationActionWorkspaceOutputWithContext(ctx context.Context) AutomationActionWorkspaceOutput {
-	return o
-}
-
-// The type of the action that will be triggered by the Automation
-func (o AutomationActionWorkspaceOutput) ActionType() pulumi.StringOutput {
-	return o.ApplyT(func(v AutomationActionWorkspace) string { return v.ActionType }).(pulumi.StringOutput)
-}
-
-// The fully qualified Log Analytics Workspace Azure Resource ID.
-func (o AutomationActionWorkspaceOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationActionWorkspace) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
-}
-
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceResponse struct {
 	// The type of the action that will be triggered by the Automation
 	ActionType string `pulumi:"actionType"`
 	// The fully qualified Log Analytics Workspace Azure Resource ID.
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
-}
-
-// AutomationActionWorkspaceResponseInput is an input type that accepts AutomationActionWorkspaceResponseArgs and AutomationActionWorkspaceResponseOutput values.
-// You can construct a concrete instance of `AutomationActionWorkspaceResponseInput` via:
-//
-//          AutomationActionWorkspaceResponseArgs{...}
-type AutomationActionWorkspaceResponseInput interface {
-	pulumi.Input
-
-	ToAutomationActionWorkspaceResponseOutput() AutomationActionWorkspaceResponseOutput
-	ToAutomationActionWorkspaceResponseOutputWithContext(context.Context) AutomationActionWorkspaceResponseOutput
-}
-
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
-type AutomationActionWorkspaceResponseArgs struct {
-	// The type of the action that will be triggered by the Automation
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The fully qualified Log Analytics Workspace Azure Resource ID.
-	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
-}
-
-func (AutomationActionWorkspaceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationActionWorkspaceResponse)(nil)).Elem()
-}
-
-func (i AutomationActionWorkspaceResponseArgs) ToAutomationActionWorkspaceResponseOutput() AutomationActionWorkspaceResponseOutput {
-	return i.ToAutomationActionWorkspaceResponseOutputWithContext(context.Background())
-}
-
-func (i AutomationActionWorkspaceResponseArgs) ToAutomationActionWorkspaceResponseOutputWithContext(ctx context.Context) AutomationActionWorkspaceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionWorkspaceResponseOutput)
 }
 
 // The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
@@ -976,100 +560,8 @@ func (i AutomationRuleSetArray) ToAutomationRuleSetArrayOutputWithContext(ctx co
 }
 
 // A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
-type AutomationRuleSetOutput struct{ *pulumi.OutputState }
-
-func (AutomationRuleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRuleSet)(nil)).Elem()
-}
-
-func (o AutomationRuleSetOutput) ToAutomationRuleSetOutput() AutomationRuleSetOutput {
-	return o
-}
-
-func (o AutomationRuleSetOutput) ToAutomationRuleSetOutputWithContext(ctx context.Context) AutomationRuleSetOutput {
-	return o
-}
-
-func (o AutomationRuleSetOutput) Rules() AutomationTriggeringRuleArrayOutput {
-	return o.ApplyT(func(v AutomationRuleSet) []AutomationTriggeringRule { return v.Rules }).(AutomationTriggeringRuleArrayOutput)
-}
-
-type AutomationRuleSetArrayOutput struct{ *pulumi.OutputState }
-
-func (AutomationRuleSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationRuleSet)(nil)).Elem()
-}
-
-func (o AutomationRuleSetArrayOutput) ToAutomationRuleSetArrayOutput() AutomationRuleSetArrayOutput {
-	return o
-}
-
-func (o AutomationRuleSetArrayOutput) ToAutomationRuleSetArrayOutputWithContext(ctx context.Context) AutomationRuleSetArrayOutput {
-	return o
-}
-
-func (o AutomationRuleSetArrayOutput) Index(i pulumi.IntInput) AutomationRuleSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleSet {
-		return vs[0].([]AutomationRuleSet)[vs[1].(int)]
-	}).(AutomationRuleSetOutput)
-}
-
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetResponse struct {
 	Rules []AutomationTriggeringRuleResponse `pulumi:"rules"`
-}
-
-// AutomationRuleSetResponseInput is an input type that accepts AutomationRuleSetResponseArgs and AutomationRuleSetResponseOutput values.
-// You can construct a concrete instance of `AutomationRuleSetResponseInput` via:
-//
-//          AutomationRuleSetResponseArgs{...}
-type AutomationRuleSetResponseInput interface {
-	pulumi.Input
-
-	ToAutomationRuleSetResponseOutput() AutomationRuleSetResponseOutput
-	ToAutomationRuleSetResponseOutputWithContext(context.Context) AutomationRuleSetResponseOutput
-}
-
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
-type AutomationRuleSetResponseArgs struct {
-	Rules AutomationTriggeringRuleResponseArrayInput `pulumi:"rules"`
-}
-
-func (AutomationRuleSetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRuleSetResponse)(nil)).Elem()
-}
-
-func (i AutomationRuleSetResponseArgs) ToAutomationRuleSetResponseOutput() AutomationRuleSetResponseOutput {
-	return i.ToAutomationRuleSetResponseOutputWithContext(context.Background())
-}
-
-func (i AutomationRuleSetResponseArgs) ToAutomationRuleSetResponseOutputWithContext(ctx context.Context) AutomationRuleSetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetResponseOutput)
-}
-
-// AutomationRuleSetResponseArrayInput is an input type that accepts AutomationRuleSetResponseArray and AutomationRuleSetResponseArrayOutput values.
-// You can construct a concrete instance of `AutomationRuleSetResponseArrayInput` via:
-//
-//          AutomationRuleSetResponseArray{ AutomationRuleSetResponseArgs{...} }
-type AutomationRuleSetResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutomationRuleSetResponseArrayOutput() AutomationRuleSetResponseArrayOutput
-	ToAutomationRuleSetResponseArrayOutputWithContext(context.Context) AutomationRuleSetResponseArrayOutput
-}
-
-type AutomationRuleSetResponseArray []AutomationRuleSetResponseInput
-
-func (AutomationRuleSetResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationRuleSetResponse)(nil)).Elem()
-}
-
-func (i AutomationRuleSetResponseArray) ToAutomationRuleSetResponseArrayOutput() AutomationRuleSetResponseArrayOutput {
-	return i.ToAutomationRuleSetResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutomationRuleSetResponseArray) ToAutomationRuleSetResponseArrayOutputWithContext(ctx context.Context) AutomationRuleSetResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetResponseArrayOutput)
 }
 
 // A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
@@ -1176,112 +668,11 @@ func (i AutomationScopeArray) ToAutomationScopeArrayOutputWithContext(ctx contex
 }
 
 // A single automation scope.
-type AutomationScopeOutput struct{ *pulumi.OutputState }
-
-func (AutomationScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationScope)(nil)).Elem()
-}
-
-func (o AutomationScopeOutput) ToAutomationScopeOutput() AutomationScopeOutput {
-	return o
-}
-
-func (o AutomationScopeOutput) ToAutomationScopeOutputWithContext(ctx context.Context) AutomationScopeOutput {
-	return o
-}
-
-// The resources scope description.
-func (o AutomationScopeOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationScope) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
-func (o AutomationScopeOutput) ScopePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationScope) *string { return v.ScopePath }).(pulumi.StringPtrOutput)
-}
-
-type AutomationScopeArrayOutput struct{ *pulumi.OutputState }
-
-func (AutomationScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationScope)(nil)).Elem()
-}
-
-func (o AutomationScopeArrayOutput) ToAutomationScopeArrayOutput() AutomationScopeArrayOutput {
-	return o
-}
-
-func (o AutomationScopeArrayOutput) ToAutomationScopeArrayOutputWithContext(ctx context.Context) AutomationScopeArrayOutput {
-	return o
-}
-
-func (o AutomationScopeArrayOutput) Index(i pulumi.IntInput) AutomationScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationScope {
-		return vs[0].([]AutomationScope)[vs[1].(int)]
-	}).(AutomationScopeOutput)
-}
-
-// A single automation scope.
 type AutomationScopeResponse struct {
 	// The resources scope description.
 	Description *string `pulumi:"description"`
 	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
 	ScopePath *string `pulumi:"scopePath"`
-}
-
-// AutomationScopeResponseInput is an input type that accepts AutomationScopeResponseArgs and AutomationScopeResponseOutput values.
-// You can construct a concrete instance of `AutomationScopeResponseInput` via:
-//
-//          AutomationScopeResponseArgs{...}
-type AutomationScopeResponseInput interface {
-	pulumi.Input
-
-	ToAutomationScopeResponseOutput() AutomationScopeResponseOutput
-	ToAutomationScopeResponseOutputWithContext(context.Context) AutomationScopeResponseOutput
-}
-
-// A single automation scope.
-type AutomationScopeResponseArgs struct {
-	// The resources scope description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
-	ScopePath pulumi.StringPtrInput `pulumi:"scopePath"`
-}
-
-func (AutomationScopeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationScopeResponse)(nil)).Elem()
-}
-
-func (i AutomationScopeResponseArgs) ToAutomationScopeResponseOutput() AutomationScopeResponseOutput {
-	return i.ToAutomationScopeResponseOutputWithContext(context.Background())
-}
-
-func (i AutomationScopeResponseArgs) ToAutomationScopeResponseOutputWithContext(ctx context.Context) AutomationScopeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeResponseOutput)
-}
-
-// AutomationScopeResponseArrayInput is an input type that accepts AutomationScopeResponseArray and AutomationScopeResponseArrayOutput values.
-// You can construct a concrete instance of `AutomationScopeResponseArrayInput` via:
-//
-//          AutomationScopeResponseArray{ AutomationScopeResponseArgs{...} }
-type AutomationScopeResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutomationScopeResponseArrayOutput() AutomationScopeResponseArrayOutput
-	ToAutomationScopeResponseArrayOutputWithContext(context.Context) AutomationScopeResponseArrayOutput
-}
-
-type AutomationScopeResponseArray []AutomationScopeResponseInput
-
-func (AutomationScopeResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationScopeResponse)(nil)).Elem()
-}
-
-func (i AutomationScopeResponseArray) ToAutomationScopeResponseArrayOutput() AutomationScopeResponseArrayOutput {
-	return i.ToAutomationScopeResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutomationScopeResponseArray) ToAutomationScopeResponseArrayOutputWithContext(ctx context.Context) AutomationScopeResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeResponseArrayOutput)
 }
 
 // A single automation scope.
@@ -1394,112 +785,11 @@ func (i AutomationSourceArray) ToAutomationSourceArrayOutputWithContext(ctx cont
 }
 
 // The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
-type AutomationSourceOutput struct{ *pulumi.OutputState }
-
-func (AutomationSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationSource)(nil)).Elem()
-}
-
-func (o AutomationSourceOutput) ToAutomationSourceOutput() AutomationSourceOutput {
-	return o
-}
-
-func (o AutomationSourceOutput) ToAutomationSourceOutputWithContext(ctx context.Context) AutomationSourceOutput {
-	return o
-}
-
-// A valid event source type.
-func (o AutomationSourceOutput) EventSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationSource) *string { return v.EventSource }).(pulumi.StringPtrOutput)
-}
-
-// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
-func (o AutomationSourceOutput) RuleSets() AutomationRuleSetArrayOutput {
-	return o.ApplyT(func(v AutomationSource) []AutomationRuleSet { return v.RuleSets }).(AutomationRuleSetArrayOutput)
-}
-
-type AutomationSourceArrayOutput struct{ *pulumi.OutputState }
-
-func (AutomationSourceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationSource)(nil)).Elem()
-}
-
-func (o AutomationSourceArrayOutput) ToAutomationSourceArrayOutput() AutomationSourceArrayOutput {
-	return o
-}
-
-func (o AutomationSourceArrayOutput) ToAutomationSourceArrayOutputWithContext(ctx context.Context) AutomationSourceArrayOutput {
-	return o
-}
-
-func (o AutomationSourceArrayOutput) Index(i pulumi.IntInput) AutomationSourceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationSource {
-		return vs[0].([]AutomationSource)[vs[1].(int)]
-	}).(AutomationSourceOutput)
-}
-
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceResponse struct {
 	// A valid event source type.
 	EventSource *string `pulumi:"eventSource"`
 	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
 	RuleSets []AutomationRuleSetResponse `pulumi:"ruleSets"`
-}
-
-// AutomationSourceResponseInput is an input type that accepts AutomationSourceResponseArgs and AutomationSourceResponseOutput values.
-// You can construct a concrete instance of `AutomationSourceResponseInput` via:
-//
-//          AutomationSourceResponseArgs{...}
-type AutomationSourceResponseInput interface {
-	pulumi.Input
-
-	ToAutomationSourceResponseOutput() AutomationSourceResponseOutput
-	ToAutomationSourceResponseOutputWithContext(context.Context) AutomationSourceResponseOutput
-}
-
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
-type AutomationSourceResponseArgs struct {
-	// A valid event source type.
-	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
-	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
-	RuleSets AutomationRuleSetResponseArrayInput `pulumi:"ruleSets"`
-}
-
-func (AutomationSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationSourceResponse)(nil)).Elem()
-}
-
-func (i AutomationSourceResponseArgs) ToAutomationSourceResponseOutput() AutomationSourceResponseOutput {
-	return i.ToAutomationSourceResponseOutputWithContext(context.Background())
-}
-
-func (i AutomationSourceResponseArgs) ToAutomationSourceResponseOutputWithContext(ctx context.Context) AutomationSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceResponseOutput)
-}
-
-// AutomationSourceResponseArrayInput is an input type that accepts AutomationSourceResponseArray and AutomationSourceResponseArrayOutput values.
-// You can construct a concrete instance of `AutomationSourceResponseArrayInput` via:
-//
-//          AutomationSourceResponseArray{ AutomationSourceResponseArgs{...} }
-type AutomationSourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutomationSourceResponseArrayOutput() AutomationSourceResponseArrayOutput
-	ToAutomationSourceResponseArrayOutputWithContext(context.Context) AutomationSourceResponseArrayOutput
-}
-
-type AutomationSourceResponseArray []AutomationSourceResponseInput
-
-func (AutomationSourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationSourceResponse)(nil)).Elem()
-}
-
-func (i AutomationSourceResponseArray) ToAutomationSourceResponseArrayOutput() AutomationSourceResponseArrayOutput {
-	return i.ToAutomationSourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutomationSourceResponseArray) ToAutomationSourceResponseArrayOutputWithContext(ctx context.Context) AutomationSourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceResponseArrayOutput)
 }
 
 // The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
@@ -1620,61 +910,6 @@ func (i AutomationTriggeringRuleArray) ToAutomationTriggeringRuleArrayOutputWith
 }
 
 // A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
-type AutomationTriggeringRuleOutput struct{ *pulumi.OutputState }
-
-func (AutomationTriggeringRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationTriggeringRule)(nil)).Elem()
-}
-
-func (o AutomationTriggeringRuleOutput) ToAutomationTriggeringRuleOutput() AutomationTriggeringRuleOutput {
-	return o
-}
-
-func (o AutomationTriggeringRuleOutput) ToAutomationTriggeringRuleOutputWithContext(ctx context.Context) AutomationTriggeringRuleOutput {
-	return o
-}
-
-// The expected value.
-func (o AutomationTriggeringRuleOutput) ExpectedValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
-}
-
-// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-func (o AutomationTriggeringRuleOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.Operator }).(pulumi.StringPtrOutput)
-}
-
-// The JPath of the entity model property that should be checked.
-func (o AutomationTriggeringRuleOutput) PropertyJPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.PropertyJPath }).(pulumi.StringPtrOutput)
-}
-
-// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-func (o AutomationTriggeringRuleOutput) PropertyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.PropertyType }).(pulumi.StringPtrOutput)
-}
-
-type AutomationTriggeringRuleArrayOutput struct{ *pulumi.OutputState }
-
-func (AutomationTriggeringRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationTriggeringRule)(nil)).Elem()
-}
-
-func (o AutomationTriggeringRuleArrayOutput) ToAutomationTriggeringRuleArrayOutput() AutomationTriggeringRuleArrayOutput {
-	return o
-}
-
-func (o AutomationTriggeringRuleArrayOutput) ToAutomationTriggeringRuleArrayOutputWithContext(ctx context.Context) AutomationTriggeringRuleArrayOutput {
-	return o
-}
-
-func (o AutomationTriggeringRuleArrayOutput) Index(i pulumi.IntInput) AutomationTriggeringRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationTriggeringRule {
-		return vs[0].([]AutomationTriggeringRule)[vs[1].(int)]
-	}).(AutomationTriggeringRuleOutput)
-}
-
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleResponse struct {
 	// The expected value.
 	ExpectedValue *string `pulumi:"expectedValue"`
@@ -1684,66 +919,6 @@ type AutomationTriggeringRuleResponse struct {
 	PropertyJPath *string `pulumi:"propertyJPath"`
 	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
 	PropertyType *string `pulumi:"propertyType"`
-}
-
-// AutomationTriggeringRuleResponseInput is an input type that accepts AutomationTriggeringRuleResponseArgs and AutomationTriggeringRuleResponseOutput values.
-// You can construct a concrete instance of `AutomationTriggeringRuleResponseInput` via:
-//
-//          AutomationTriggeringRuleResponseArgs{...}
-type AutomationTriggeringRuleResponseInput interface {
-	pulumi.Input
-
-	ToAutomationTriggeringRuleResponseOutput() AutomationTriggeringRuleResponseOutput
-	ToAutomationTriggeringRuleResponseOutputWithContext(context.Context) AutomationTriggeringRuleResponseOutput
-}
-
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
-type AutomationTriggeringRuleResponseArgs struct {
-	// The expected value.
-	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
-	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// The JPath of the entity model property that should be checked.
-	PropertyJPath pulumi.StringPtrInput `pulumi:"propertyJPath"`
-	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-	PropertyType pulumi.StringPtrInput `pulumi:"propertyType"`
-}
-
-func (AutomationTriggeringRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationTriggeringRuleResponse)(nil)).Elem()
-}
-
-func (i AutomationTriggeringRuleResponseArgs) ToAutomationTriggeringRuleResponseOutput() AutomationTriggeringRuleResponseOutput {
-	return i.ToAutomationTriggeringRuleResponseOutputWithContext(context.Background())
-}
-
-func (i AutomationTriggeringRuleResponseArgs) ToAutomationTriggeringRuleResponseOutputWithContext(ctx context.Context) AutomationTriggeringRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleResponseOutput)
-}
-
-// AutomationTriggeringRuleResponseArrayInput is an input type that accepts AutomationTriggeringRuleResponseArray and AutomationTriggeringRuleResponseArrayOutput values.
-// You can construct a concrete instance of `AutomationTriggeringRuleResponseArrayInput` via:
-//
-//          AutomationTriggeringRuleResponseArray{ AutomationTriggeringRuleResponseArgs{...} }
-type AutomationTriggeringRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutomationTriggeringRuleResponseArrayOutput() AutomationTriggeringRuleResponseArrayOutput
-	ToAutomationTriggeringRuleResponseArrayOutputWithContext(context.Context) AutomationTriggeringRuleResponseArrayOutput
-}
-
-type AutomationTriggeringRuleResponseArray []AutomationTriggeringRuleResponseInput
-
-func (AutomationTriggeringRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationTriggeringRuleResponse)(nil)).Elem()
-}
-
-func (i AutomationTriggeringRuleResponseArray) ToAutomationTriggeringRuleResponseArrayOutput() AutomationTriggeringRuleResponseArrayOutput {
-	return i.ToAutomationTriggeringRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutomationTriggeringRuleResponseArray) ToAutomationTriggeringRuleResponseArrayOutputWithContext(ctx context.Context) AutomationTriggeringRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleResponseArrayOutput)
 }
 
 // A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
@@ -1837,62 +1012,11 @@ func (i AzureResourceDetailsArgs) ToAzureResourceDetailsOutputWithContext(ctx co
 }
 
 // Details of the Azure resource that was assessed
-type AzureResourceDetailsOutput struct{ *pulumi.OutputState }
-
-func (AzureResourceDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureResourceDetails)(nil)).Elem()
-}
-
-func (o AzureResourceDetailsOutput) ToAzureResourceDetailsOutput() AzureResourceDetailsOutput {
-	return o
-}
-
-func (o AzureResourceDetailsOutput) ToAzureResourceDetailsOutputWithContext(ctx context.Context) AzureResourceDetailsOutput {
-	return o
-}
-
-// The platform where the assessed resource resides
-func (o AzureResourceDetailsOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureResourceDetails) string { return v.Source }).(pulumi.StringOutput)
-}
-
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsResponse struct {
 	// Azure resource Id of the assessed resource
 	Id string `pulumi:"id"`
 	// The platform where the assessed resource resides
 	Source string `pulumi:"source"`
-}
-
-// AzureResourceDetailsResponseInput is an input type that accepts AzureResourceDetailsResponseArgs and AzureResourceDetailsResponseOutput values.
-// You can construct a concrete instance of `AzureResourceDetailsResponseInput` via:
-//
-//          AzureResourceDetailsResponseArgs{...}
-type AzureResourceDetailsResponseInput interface {
-	pulumi.Input
-
-	ToAzureResourceDetailsResponseOutput() AzureResourceDetailsResponseOutput
-	ToAzureResourceDetailsResponseOutputWithContext(context.Context) AzureResourceDetailsResponseOutput
-}
-
-// Details of the Azure resource that was assessed
-type AzureResourceDetailsResponseArgs struct {
-	// Azure resource Id of the assessed resource
-	Id pulumi.StringInput `pulumi:"id"`
-	// The platform where the assessed resource resides
-	Source pulumi.StringInput `pulumi:"source"`
-}
-
-func (AzureResourceDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureResourceDetailsResponse)(nil)).Elem()
-}
-
-func (i AzureResourceDetailsResponseArgs) ToAzureResourceDetailsResponseOutput() AzureResourceDetailsResponseOutput {
-	return i.ToAzureResourceDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i AzureResourceDetailsResponseArgs) ToAzureResourceDetailsResponseOutputWithContext(ctx context.Context) AzureResourceDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceDetailsResponseOutput)
 }
 
 // Details of the Azure resource that was assessed
@@ -1972,46 +1096,6 @@ func (i OnPremiseResourceDetailsArgs) ToOnPremiseResourceDetailsOutputWithContex
 }
 
 // Details of the On Premise resource that was assessed
-type OnPremiseResourceDetailsOutput struct{ *pulumi.OutputState }
-
-func (OnPremiseResourceDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnPremiseResourceDetails)(nil)).Elem()
-}
-
-func (o OnPremiseResourceDetailsOutput) ToOnPremiseResourceDetailsOutput() OnPremiseResourceDetailsOutput {
-	return o
-}
-
-func (o OnPremiseResourceDetailsOutput) ToOnPremiseResourceDetailsOutputWithContext(ctx context.Context) OnPremiseResourceDetailsOutput {
-	return o
-}
-
-// The name of the machine
-func (o OnPremiseResourceDetailsOutput) MachineName() pulumi.StringOutput {
-	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.MachineName }).(pulumi.StringOutput)
-}
-
-// The platform where the assessed resource resides
-func (o OnPremiseResourceDetailsOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.Source }).(pulumi.StringOutput)
-}
-
-// The oms agent Id installed on the machine
-func (o OnPremiseResourceDetailsOutput) SourceComputerId() pulumi.StringOutput {
-	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.SourceComputerId }).(pulumi.StringOutput)
-}
-
-// The unique Id of the machine
-func (o OnPremiseResourceDetailsOutput) Vmuuid() pulumi.StringOutput {
-	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.Vmuuid }).(pulumi.StringOutput)
-}
-
-// Azure resource Id of the workspace the machine is attached to
-func (o OnPremiseResourceDetailsOutput) WorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.WorkspaceId }).(pulumi.StringOutput)
-}
-
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsResponse struct {
 	// The name of the machine
 	MachineName string `pulumi:"machineName"`
@@ -2023,43 +1107,6 @@ type OnPremiseResourceDetailsResponse struct {
 	Vmuuid string `pulumi:"vmuuid"`
 	// Azure resource Id of the workspace the machine is attached to
 	WorkspaceId string `pulumi:"workspaceId"`
-}
-
-// OnPremiseResourceDetailsResponseInput is an input type that accepts OnPremiseResourceDetailsResponseArgs and OnPremiseResourceDetailsResponseOutput values.
-// You can construct a concrete instance of `OnPremiseResourceDetailsResponseInput` via:
-//
-//          OnPremiseResourceDetailsResponseArgs{...}
-type OnPremiseResourceDetailsResponseInput interface {
-	pulumi.Input
-
-	ToOnPremiseResourceDetailsResponseOutput() OnPremiseResourceDetailsResponseOutput
-	ToOnPremiseResourceDetailsResponseOutputWithContext(context.Context) OnPremiseResourceDetailsResponseOutput
-}
-
-// Details of the On Premise resource that was assessed
-type OnPremiseResourceDetailsResponseArgs struct {
-	// The name of the machine
-	MachineName pulumi.StringInput `pulumi:"machineName"`
-	// The platform where the assessed resource resides
-	Source pulumi.StringInput `pulumi:"source"`
-	// The oms agent Id installed on the machine
-	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
-	// The unique Id of the machine
-	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
-	// Azure resource Id of the workspace the machine is attached to
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
-}
-
-func (OnPremiseResourceDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnPremiseResourceDetailsResponse)(nil)).Elem()
-}
-
-func (i OnPremiseResourceDetailsResponseArgs) ToOnPremiseResourceDetailsResponseOutput() OnPremiseResourceDetailsResponseOutput {
-	return i.ToOnPremiseResourceDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i OnPremiseResourceDetailsResponseArgs) ToOnPremiseResourceDetailsResponseOutputWithContext(ctx context.Context) OnPremiseResourceDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseResourceDetailsResponseOutput)
 }
 
 // Details of the On Premise resource that was assessed
@@ -2163,103 +1210,9 @@ func (i ScopeElementArray) ToScopeElementArrayOutputWithContext(ctx context.Cont
 }
 
 // A more specific scope used to identify the alerts to suppress.
-type ScopeElementOutput struct{ *pulumi.OutputState }
-
-func (ScopeElementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeElement)(nil)).Elem()
-}
-
-func (o ScopeElementOutput) ToScopeElementOutput() ScopeElementOutput {
-	return o
-}
-
-func (o ScopeElementOutput) ToScopeElementOutputWithContext(ctx context.Context) ScopeElementOutput {
-	return o
-}
-
-// The alert entity type to suppress by.
-func (o ScopeElementOutput) Field() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScopeElement) *string { return v.Field }).(pulumi.StringPtrOutput)
-}
-
-type ScopeElementArrayOutput struct{ *pulumi.OutputState }
-
-func (ScopeElementArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScopeElement)(nil)).Elem()
-}
-
-func (o ScopeElementArrayOutput) ToScopeElementArrayOutput() ScopeElementArrayOutput {
-	return o
-}
-
-func (o ScopeElementArrayOutput) ToScopeElementArrayOutputWithContext(ctx context.Context) ScopeElementArrayOutput {
-	return o
-}
-
-func (o ScopeElementArrayOutput) Index(i pulumi.IntInput) ScopeElementOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScopeElement {
-		return vs[0].([]ScopeElement)[vs[1].(int)]
-	}).(ScopeElementOutput)
-}
-
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementResponse struct {
 	// The alert entity type to suppress by.
 	Field *string `pulumi:"field"`
-}
-
-// ScopeElementResponseInput is an input type that accepts ScopeElementResponseArgs and ScopeElementResponseOutput values.
-// You can construct a concrete instance of `ScopeElementResponseInput` via:
-//
-//          ScopeElementResponseArgs{...}
-type ScopeElementResponseInput interface {
-	pulumi.Input
-
-	ToScopeElementResponseOutput() ScopeElementResponseOutput
-	ToScopeElementResponseOutputWithContext(context.Context) ScopeElementResponseOutput
-}
-
-// A more specific scope used to identify the alerts to suppress.
-type ScopeElementResponseArgs struct {
-	// The alert entity type to suppress by.
-	Field pulumi.StringPtrInput `pulumi:"field"`
-}
-
-func (ScopeElementResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeElementResponse)(nil)).Elem()
-}
-
-func (i ScopeElementResponseArgs) ToScopeElementResponseOutput() ScopeElementResponseOutput {
-	return i.ToScopeElementResponseOutputWithContext(context.Background())
-}
-
-func (i ScopeElementResponseArgs) ToScopeElementResponseOutputWithContext(ctx context.Context) ScopeElementResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementResponseOutput)
-}
-
-// ScopeElementResponseArrayInput is an input type that accepts ScopeElementResponseArray and ScopeElementResponseArrayOutput values.
-// You can construct a concrete instance of `ScopeElementResponseArrayInput` via:
-//
-//          ScopeElementResponseArray{ ScopeElementResponseArgs{...} }
-type ScopeElementResponseArrayInput interface {
-	pulumi.Input
-
-	ToScopeElementResponseArrayOutput() ScopeElementResponseArrayOutput
-	ToScopeElementResponseArrayOutputWithContext(context.Context) ScopeElementResponseArrayOutput
-}
-
-type ScopeElementResponseArray []ScopeElementResponseInput
-
-func (ScopeElementResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScopeElementResponse)(nil)).Elem()
-}
-
-func (i ScopeElementResponseArray) ToScopeElementResponseArrayOutput() ScopeElementResponseArrayOutput {
-	return i.ToScopeElementResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ScopeElementResponseArray) ToScopeElementResponseArrayOutputWithContext(ctx context.Context) ScopeElementResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementResponseArrayOutput)
 }
 
 // A more specific scope used to identify the alerts to suppress.
@@ -2376,135 +1329,9 @@ func (i *suppressionAlertsScopePtrType) ToSuppressionAlertsScopePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopePtrOutput)
 }
 
-type SuppressionAlertsScopeOutput struct{ *pulumi.OutputState }
-
-func (SuppressionAlertsScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SuppressionAlertsScope)(nil)).Elem()
-}
-
-func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopeOutput() SuppressionAlertsScopeOutput {
-	return o
-}
-
-func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopeOutputWithContext(ctx context.Context) SuppressionAlertsScopeOutput {
-	return o
-}
-
-func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopePtrOutput() SuppressionAlertsScopePtrOutput {
-	return o.ToSuppressionAlertsScopePtrOutputWithContext(context.Background())
-}
-
-func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopePtrOutput {
-	return o.ApplyT(func(v SuppressionAlertsScope) *SuppressionAlertsScope {
-		return &v
-	}).(SuppressionAlertsScopePtrOutput)
-}
-
-// All the conditions inside need to be true in order to suppress the alert
-func (o SuppressionAlertsScopeOutput) AllOf() ScopeElementArrayOutput {
-	return o.ApplyT(func(v SuppressionAlertsScope) []ScopeElement { return v.AllOf }).(ScopeElementArrayOutput)
-}
-
-type SuppressionAlertsScopePtrOutput struct{ *pulumi.OutputState }
-
-func (SuppressionAlertsScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SuppressionAlertsScope)(nil)).Elem()
-}
-
-func (o SuppressionAlertsScopePtrOutput) ToSuppressionAlertsScopePtrOutput() SuppressionAlertsScopePtrOutput {
-	return o
-}
-
-func (o SuppressionAlertsScopePtrOutput) ToSuppressionAlertsScopePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopePtrOutput {
-	return o
-}
-
-func (o SuppressionAlertsScopePtrOutput) Elem() SuppressionAlertsScopeOutput {
-	return o.ApplyT(func(v *SuppressionAlertsScope) SuppressionAlertsScope { return *v }).(SuppressionAlertsScopeOutput)
-}
-
-// All the conditions inside need to be true in order to suppress the alert
-func (o SuppressionAlertsScopePtrOutput) AllOf() ScopeElementArrayOutput {
-	return o.ApplyT(func(v *SuppressionAlertsScope) []ScopeElement {
-		if v == nil {
-			return nil
-		}
-		return v.AllOf
-	}).(ScopeElementArrayOutput)
-}
-
 type SuppressionAlertsScopeResponse struct {
 	// All the conditions inside need to be true in order to suppress the alert
 	AllOf []ScopeElementResponse `pulumi:"allOf"`
-}
-
-// SuppressionAlertsScopeResponseInput is an input type that accepts SuppressionAlertsScopeResponseArgs and SuppressionAlertsScopeResponseOutput values.
-// You can construct a concrete instance of `SuppressionAlertsScopeResponseInput` via:
-//
-//          SuppressionAlertsScopeResponseArgs{...}
-type SuppressionAlertsScopeResponseInput interface {
-	pulumi.Input
-
-	ToSuppressionAlertsScopeResponseOutput() SuppressionAlertsScopeResponseOutput
-	ToSuppressionAlertsScopeResponseOutputWithContext(context.Context) SuppressionAlertsScopeResponseOutput
-}
-
-type SuppressionAlertsScopeResponseArgs struct {
-	// All the conditions inside need to be true in order to suppress the alert
-	AllOf ScopeElementResponseArrayInput `pulumi:"allOf"`
-}
-
-func (SuppressionAlertsScopeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SuppressionAlertsScopeResponse)(nil)).Elem()
-}
-
-func (i SuppressionAlertsScopeResponseArgs) ToSuppressionAlertsScopeResponseOutput() SuppressionAlertsScopeResponseOutput {
-	return i.ToSuppressionAlertsScopeResponseOutputWithContext(context.Background())
-}
-
-func (i SuppressionAlertsScopeResponseArgs) ToSuppressionAlertsScopeResponseOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopeResponseOutput)
-}
-
-func (i SuppressionAlertsScopeResponseArgs) ToSuppressionAlertsScopeResponsePtrOutput() SuppressionAlertsScopeResponsePtrOutput {
-	return i.ToSuppressionAlertsScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SuppressionAlertsScopeResponseArgs) ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopeResponseOutput).ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx)
-}
-
-// SuppressionAlertsScopeResponsePtrInput is an input type that accepts SuppressionAlertsScopeResponseArgs, SuppressionAlertsScopeResponsePtr and SuppressionAlertsScopeResponsePtrOutput values.
-// You can construct a concrete instance of `SuppressionAlertsScopeResponsePtrInput` via:
-//
-//          SuppressionAlertsScopeResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SuppressionAlertsScopeResponsePtrInput interface {
-	pulumi.Input
-
-	ToSuppressionAlertsScopeResponsePtrOutput() SuppressionAlertsScopeResponsePtrOutput
-	ToSuppressionAlertsScopeResponsePtrOutputWithContext(context.Context) SuppressionAlertsScopeResponsePtrOutput
-}
-
-type suppressionAlertsScopeResponsePtrType SuppressionAlertsScopeResponseArgs
-
-func SuppressionAlertsScopeResponsePtr(v *SuppressionAlertsScopeResponseArgs) SuppressionAlertsScopeResponsePtrInput {
-	return (*suppressionAlertsScopeResponsePtrType)(v)
-}
-
-func (*suppressionAlertsScopeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SuppressionAlertsScopeResponse)(nil)).Elem()
-}
-
-func (i *suppressionAlertsScopeResponsePtrType) ToSuppressionAlertsScopeResponsePtrOutput() SuppressionAlertsScopeResponsePtrOutput {
-	return i.ToSuppressionAlertsScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *suppressionAlertsScopeResponsePtrType) ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopeResponsePtrOutput)
 }
 
 type SuppressionAlertsScopeResponseOutput struct{ *pulumi.OutputState }

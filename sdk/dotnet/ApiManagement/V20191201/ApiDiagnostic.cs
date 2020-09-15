@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         /// </summary>
         [Output("backend")]
-        public Output<Outputs.PipelineDiagnosticSettingsResponseResult?> Backend { get; private set; } = null!;
+        public Output<Outputs.PipelineDiagnosticSettingsResponse?> Backend { get; private set; } = null!;
 
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         /// </summary>
         [Output("frontend")]
-        public Output<Outputs.PipelineDiagnosticSettingsResponseResult?> Frontend { get; private set; } = null!;
+        public Output<Outputs.PipelineDiagnosticSettingsResponse?> Frontend { get; private set; } = null!;
 
         /// <summary>
         /// Sets correlation protocol to use for Application Insights diagnostics.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// Sampling settings for Diagnostic.
         /// </summary>
         [Output("sampling")]
-        public Output<Outputs.SamplingSettingsResponseResult?> Sampling { get; private set; } = null!;
+        public Output<Outputs.SamplingSettingsResponse?> Sampling { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -22,23 +22,23 @@ __all__ = [
 @pulumi.input_type
 class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
     def __init__(__self__, *,
-                 result: pulumi.Input[List[pulumi.Input[str]]]):
+                 result: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
-        :param pulumi.Input[List[pulumi.Input[str]]] result: The rule baseline result
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] result: The rule baseline result
         """
         pulumi.set(__self__, "result", result)
 
     @property
     @pulumi.getter
-    def result(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def result(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The rule baseline result
         """
         return pulumi.get(self, "result")
 
     @result.setter
-    def result(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def result(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "result", value)
 
 
@@ -188,18 +188,18 @@ class JobStepActionArgs:
 @pulumi.input_type
 class JobStepExecutionOptionsArgs:
     def __init__(__self__, *,
-                 initial_retry_interval_seconds: Optional[pulumi.Input[float]] = None,
-                 maximum_retry_interval_seconds: Optional[pulumi.Input[float]] = None,
-                 retry_attempts: Optional[pulumi.Input[float]] = None,
+                 initial_retry_interval_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_retry_interval_seconds: Optional[pulumi.Input[int]] = None,
+                 retry_attempts: Optional[pulumi.Input[int]] = None,
                  retry_interval_backoff_multiplier: Optional[pulumi.Input[float]] = None,
-                 timeout_seconds: Optional[pulumi.Input[float]] = None):
+                 timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
         The execution options of a job step.
-        :param pulumi.Input[float] initial_retry_interval_seconds: Initial delay between retries for job step execution.
-        :param pulumi.Input[float] maximum_retry_interval_seconds: The maximum amount of time to wait between retries for job step execution.
-        :param pulumi.Input[float] retry_attempts: Maximum number of times the job step will be reattempted if the first attempt fails.
+        :param pulumi.Input[int] initial_retry_interval_seconds: Initial delay between retries for job step execution.
+        :param pulumi.Input[int] maximum_retry_interval_seconds: The maximum amount of time to wait between retries for job step execution.
+        :param pulumi.Input[int] retry_attempts: Maximum number of times the job step will be reattempted if the first attempt fails.
         :param pulumi.Input[float] retry_interval_backoff_multiplier: The backoff multiplier for the time between retries.
-        :param pulumi.Input[float] timeout_seconds: Execution timeout for the job step.
+        :param pulumi.Input[int] timeout_seconds: Execution timeout for the job step.
         """
         if initial_retry_interval_seconds is not None:
             pulumi.set(__self__, "initial_retry_interval_seconds", initial_retry_interval_seconds)
@@ -214,38 +214,38 @@ class JobStepExecutionOptionsArgs:
 
     @property
     @pulumi.getter(name="initialRetryIntervalSeconds")
-    def initial_retry_interval_seconds(self) -> Optional[pulumi.Input[float]]:
+    def initial_retry_interval_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Initial delay between retries for job step execution.
         """
         return pulumi.get(self, "initial_retry_interval_seconds")
 
     @initial_retry_interval_seconds.setter
-    def initial_retry_interval_seconds(self, value: Optional[pulumi.Input[float]]):
+    def initial_retry_interval_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "initial_retry_interval_seconds", value)
 
     @property
     @pulumi.getter(name="maximumRetryIntervalSeconds")
-    def maximum_retry_interval_seconds(self) -> Optional[pulumi.Input[float]]:
+    def maximum_retry_interval_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum amount of time to wait between retries for job step execution.
         """
         return pulumi.get(self, "maximum_retry_interval_seconds")
 
     @maximum_retry_interval_seconds.setter
-    def maximum_retry_interval_seconds(self, value: Optional[pulumi.Input[float]]):
+    def maximum_retry_interval_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maximum_retry_interval_seconds", value)
 
     @property
     @pulumi.getter(name="retryAttempts")
-    def retry_attempts(self) -> Optional[pulumi.Input[float]]:
+    def retry_attempts(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum number of times the job step will be reattempted if the first attempt fails.
         """
         return pulumi.get(self, "retry_attempts")
 
     @retry_attempts.setter
-    def retry_attempts(self, value: Optional[pulumi.Input[float]]):
+    def retry_attempts(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retry_attempts", value)
 
     @property
@@ -262,14 +262,14 @@ class JobStepExecutionOptionsArgs:
 
     @property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[float]]:
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Execution timeout for the job step.
         """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[float]]):
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
 
 
@@ -528,14 +528,14 @@ class JobTargetArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         An ARM Resource SKU.
         :param pulumi.Input[str] name: The name of the SKU, typically, a letter + Number code, e.g. P3.
-        :param pulumi.Input[float] capacity: Capacity of the particular SKU.
+        :param pulumi.Input[int] capacity: Capacity of the particular SKU.
         :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param pulumi.Input[str] size: Size of the particular SKU
         :param pulumi.Input[str] tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
@@ -564,14 +564,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Capacity of the particular SKU.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -615,12 +615,12 @@ class SkuArgs:
 class VulnerabilityAssessmentRecurringScansPropertiesArgs:
     def __init__(__self__, *,
                  email_subscription_admins: Optional[pulumi.Input[bool]] = None,
-                 emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
         :param pulumi.Input[bool] email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
-        :param pulumi.Input[List[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param pulumi.Input[bool] is_enabled: Recurring scans state.
         """
         if email_subscription_admins is not None:
@@ -644,14 +644,14 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies an array of e-mail addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "emails", value)
 
     @property

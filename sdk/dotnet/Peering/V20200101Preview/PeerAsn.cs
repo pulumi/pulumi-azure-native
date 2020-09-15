@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Peering.V20200101Preview
         /// The contact details of the peer.
         /// </summary>
         [Output("peerContactDetail")]
-        public Output<ImmutableArray<Outputs.ContactDetailResponseResult>> PeerContactDetail { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContactDetailResponse>> PeerContactDetail { get; private set; } = null!;
 
         /// <summary>
         /// The name of the peer.

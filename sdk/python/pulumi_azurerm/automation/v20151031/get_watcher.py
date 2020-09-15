@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetWatcherResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if execution_frequency_in_seconds and not isinstance(execution_frequency_in_seconds, float):
-            raise TypeError("Expected argument 'execution_frequency_in_seconds' to be a float")
+        if execution_frequency_in_seconds and not isinstance(execution_frequency_in_seconds, int):
+            raise TypeError("Expected argument 'execution_frequency_in_seconds' to be a int")
         pulumi.set(__self__, "execution_frequency_in_seconds", execution_frequency_in_seconds)
         if last_modified_by and not isinstance(last_modified_by, str):
             raise TypeError("Expected argument 'last_modified_by' to be a str")
@@ -89,7 +89,7 @@ class GetWatcherResult:
 
     @property
     @pulumi.getter(name="executionFrequencyInSeconds")
-    def execution_frequency_in_seconds(self) -> Optional[float]:
+    def execution_frequency_in_seconds(self) -> Optional[int]:
         """
         Gets or sets the frequency at which the watcher is invoked.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,7 +25,7 @@ class JobStep(pulumi.CustomResource):
                  output: Optional[pulumi.Input[pulumi.InputType['JobStepOutputArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 step_id: Optional[pulumi.Input[float]] = None,
+                 step_id: Optional[pulumi.Input[int]] = None,
                  step_name: Optional[pulumi.Input[str]] = None,
                  target_group: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -44,7 +44,7 @@ class JobStep(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['JobStepOutputArgs']] output: Output destination properties of the job step.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[float] step_id: The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
+        :param pulumi.Input[int] step_id: The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
         :param pulumi.Input[str] step_name: The name of the job step.
         :param pulumi.Input[str] target_group: The resource ID of the target group that the job step will be executed on.
         """
@@ -160,7 +160,7 @@ class JobStep(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stepId")
-    def step_id(self) -> pulumi.Output[Optional[float]]:
+    def step_id(self) -> pulumi.Output[Optional[int]]:
         """
         The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
         """

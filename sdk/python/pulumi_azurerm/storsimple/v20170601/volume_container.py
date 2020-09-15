@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class VolumeContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 band_width_rate_in_mbps: Optional[pulumi.Input[float]] = None,
+                 band_width_rate_in_mbps: Optional[pulumi.Input[int]] = None,
                  bandwidth_setting_id: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
@@ -34,7 +34,7 @@ class VolumeContainer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] band_width_rate_in_mbps: The bandwidth-rate set on the volume container.
+        :param pulumi.Input[int] band_width_rate_in_mbps: The bandwidth-rate set on the volume container.
         :param pulumi.Input[str] bandwidth_setting_id: The ID of the bandwidth setting associated with the volume container.
         :param pulumi.Input[str] device_name: The device name
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encryption_key: The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
@@ -114,7 +114,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bandWidthRateInMbps")
-    def band_width_rate_in_mbps(self) -> pulumi.Output[Optional[float]]:
+    def band_width_rate_in_mbps(self) -> pulumi.Output[Optional[int]]:
         """
         The bandwidth-rate set on the volume container.
         """
@@ -178,7 +178,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalCloudStorageUsageInBytes")
-    def total_cloud_storage_usage_in_bytes(self) -> pulumi.Output[float]:
+    def total_cloud_storage_usage_in_bytes(self) -> pulumi.Output[int]:
         """
         The total cloud storage for the volume container.
         """
@@ -194,7 +194,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> pulumi.Output[float]:
+    def volume_count(self) -> pulumi.Output[int]:
         """
         The number of volumes in the volume Container.
         """

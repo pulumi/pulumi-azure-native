@@ -47,7 +47,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001
     {
         public readonly string? ETag;
         public readonly string Name;
-        public readonly Outputs.CollectorPropertiesResponseResult Properties;
+        public readonly Outputs.CollectorPropertiesResponse Properties;
         public readonly string Type;
 
         [OutputConstructor]
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001
 
             string name,
 
-            Outputs.CollectorPropertiesResponseResult properties,
+            Outputs.CollectorPropertiesResponse properties,
 
             string type)
         {

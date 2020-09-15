@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -104,18 +104,18 @@ class CognitiveServicesAccountPropertiesArgs:
                  custom_sub_domain_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
                  network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[List[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
-                 user_owned_storage: Optional[pulumi.Input[List[pulumi.Input['UserOwnedStorageArgs']]]] = None):
+                 user_owned_storage: Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]] = None):
         """
         Properties of Cognitive Services account.
         :param pulumi.Input['CognitiveServicesAccountApiPropertiesArgs'] api_properties: The api properties for special APIs.
         :param pulumi.Input[str] custom_sub_domain_name: Optional subdomain name used for token-based authentication.
         :param pulumi.Input['EncryptionArgs'] encryption: The encryption properties for this resource.
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: A collection of rules governing the accessibility from specific network locations.
-        :param pulumi.Input[List[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: The private endpoint connection associated with the Cognitive Services account.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: The private endpoint connection associated with the Cognitive Services account.
         :param pulumi.Input[str] public_network_access: Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        :param pulumi.Input[List[pulumi.Input['UserOwnedStorageArgs']]] user_owned_storage: The storage accounts for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]] user_owned_storage: The storage accounts for this resource.
         """
         if api_properties is not None:
             pulumi.set(__self__, "api_properties", api_properties)
@@ -182,14 +182,14 @@ class CognitiveServicesAccountPropertiesArgs:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[pulumi.Input[List[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
+    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
         """
         The private endpoint connection associated with the Cognitive Services account.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
     @private_endpoint_connections.setter
-    def private_endpoint_connections(self, value: Optional[pulumi.Input[List[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
+    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
         pulumi.set(self, "private_endpoint_connections", value)
 
     @property
@@ -206,14 +206,14 @@ class CognitiveServicesAccountPropertiesArgs:
 
     @property
     @pulumi.getter(name="userOwnedStorage")
-    def user_owned_storage(self) -> Optional[pulumi.Input[List[pulumi.Input['UserOwnedStorageArgs']]]]:
+    def user_owned_storage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]]:
         """
         The storage accounts for this resource.
         """
         return pulumi.get(self, "user_owned_storage")
 
     @user_owned_storage.setter
-    def user_owned_storage(self, value: Optional[pulumi.Input[List[pulumi.Input['UserOwnedStorageArgs']]]]):
+    def user_owned_storage(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]]):
         pulumi.set(self, "user_owned_storage", value)
 
 
@@ -380,13 +380,13 @@ class KeyVaultPropertiesArgs:
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input['IpRuleArgs']]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         A set of rules governing the network accessibility.
         :param pulumi.Input[str] default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-        :param pulumi.Input[List[pulumi.Input['IpRuleArgs']]] ip_rules: The list of IP address rules.
-        :param pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
+        :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: The list of IP address rules.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -409,26 +409,26 @@ class NetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['IpRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]]:
         """
         The list of IP address rules.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['IpRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
         """
         The list of virtual network rules.
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -460,11 +460,11 @@ class PrivateEndpointConnectionArgs:
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
-                 group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Properties of the PrivateEndpointConnectProperties.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[List[pulumi.Input[str]]] group_ids: The private link resource group ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The private link resource group ids.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if group_ids is not None:
@@ -484,14 +484,14 @@ class PrivateEndpointConnectionPropertiesArgs:
 
     @property
     @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The private link resource group ids.
         """
         return pulumi.get(self, "group_ids")
 
     @group_ids.setter
-    def group_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "group_ids", value)
 
 

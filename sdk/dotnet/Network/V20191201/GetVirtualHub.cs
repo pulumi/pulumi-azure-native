@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// The azureFirewall associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? AzureFirewall;
+        public readonly Outputs.SubResourceResponse? AzureFirewall;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// The expressRouteGateway associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? ExpressRouteGateway;
+        public readonly Outputs.SubResourceResponse? ExpressRouteGateway;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// The P2SVpnGateway associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? P2SVpnGateway;
+        public readonly Outputs.SubResourceResponse? P2SVpnGateway;
         /// <summary>
         /// The provisioning state of the virtual hub resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// The routeTable associated with this virtual hub.
         /// </summary>
-        public readonly Outputs.VirtualHubRouteTableResponseResult? RouteTable;
+        public readonly Outputs.VirtualHubRouteTableResponse? RouteTable;
         /// <summary>
         /// The Security Provider name.
         /// </summary>
@@ -94,39 +94,39 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// List of all virtual hub route table v2s associated with this VirtualHub.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualHubRouteTableV2ResponseResult> VirtualHubRouteTableV2s;
+        public readonly ImmutableArray<Outputs.VirtualHubRouteTableV2Response> VirtualHubRouteTableV2s;
         /// <summary>
         /// List of all vnet connections with this VirtualHub.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult> VirtualNetworkConnections;
+        public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse> VirtualNetworkConnections;
         /// <summary>
         /// The VirtualWAN to which the VirtualHub belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VirtualWan;
+        public readonly Outputs.SubResourceResponse? VirtualWan;
         /// <summary>
         /// The VpnGateway associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VpnGateway;
+        public readonly Outputs.SubResourceResponse? VpnGateway;
 
         [OutputConstructor]
         private GetVirtualHubResult(
             string? addressPrefix,
 
-            Outputs.SubResourceResponseResult? azureFirewall,
+            Outputs.SubResourceResponse? azureFirewall,
 
             string etag,
 
-            Outputs.SubResourceResponseResult? expressRouteGateway,
+            Outputs.SubResourceResponse? expressRouteGateway,
 
             string location,
 
             string name,
 
-            Outputs.SubResourceResponseResult? p2SVpnGateway,
+            Outputs.SubResourceResponse? p2SVpnGateway,
 
             string provisioningState,
 
-            Outputs.VirtualHubRouteTableResponseResult? routeTable,
+            Outputs.VirtualHubRouteTableResponse? routeTable,
 
             string? securityProviderName,
 
@@ -136,13 +136,13 @@ namespace Pulumi.AzureRM.Network.V20191201
 
             string type,
 
-            ImmutableArray<Outputs.VirtualHubRouteTableV2ResponseResult> virtualHubRouteTableV2s,
+            ImmutableArray<Outputs.VirtualHubRouteTableV2Response> virtualHubRouteTableV2s,
 
-            ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult> virtualNetworkConnections,
+            ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse> virtualNetworkConnections,
 
-            Outputs.SubResourceResponseResult? virtualWan,
+            Outputs.SubResourceResponse? virtualWan,
 
-            Outputs.SubResourceResponseResult? vpnGateway)
+            Outputs.SubResourceResponse? vpnGateway)
         {
             AddressPrefix = addressPrefix;
             AzureFirewall = azureFirewall;

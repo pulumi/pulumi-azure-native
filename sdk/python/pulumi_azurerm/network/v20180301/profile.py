@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class Profile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_config: Optional[pulumi.Input[pulumi.InputType['DnsConfigArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointArgs']]]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  monitor_config: Optional[pulumi.Input[pulumi.InputType['MonitorConfigArgs']]] = None,
@@ -39,7 +39,7 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DnsConfigArgs']] dns_config: The DNS settings of the Traffic Manager profile.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointArgs']]]] endpoints: The list of endpoints in the Traffic Manager profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointArgs']]]] endpoints: The list of endpoints in the Traffic Manager profile.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[pulumi.InputType['MonitorConfigArgs']] monitor_config: The endpoint monitoring settings of the Traffic Manager profile.
@@ -122,7 +122,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> pulumi.Output[Optional[List['outputs.EndpointResponse']]]:
+    def endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointResponse']]]:
         """
         The list of endpoints in the Traffic Manager profile.
         """

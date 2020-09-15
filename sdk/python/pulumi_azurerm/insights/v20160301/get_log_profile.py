@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -51,7 +51,7 @@ class GetLogProfileResult:
 
     @property
     @pulumi.getter
-    def categories(self) -> List[str]:
+    def categories(self) -> Sequence[str]:
         """
         the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
         """
@@ -67,7 +67,7 @@ class GetLogProfileResult:
 
     @property
     @pulumi.getter
-    def locations(self) -> List[str]:
+    def locations(self) -> Sequence[str]:
         """
         List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
         """

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.NetApp.V20190801
         /// Active Directories
         /// </summary>
         [Output("activeDirectories")]
-        public Output<ImmutableArray<Outputs.ActiveDirectoryResponseResult>> ActiveDirectories { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActiveDirectoryResponse>> ActiveDirectories { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

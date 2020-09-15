@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Web.Latest
         /// Custom API properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CustomApiPropertiesDefinitionResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.CustomApiPropertiesDefinitionResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

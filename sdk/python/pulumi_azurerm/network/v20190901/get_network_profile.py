@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -51,7 +51,7 @@ class GetNetworkProfileResult:
 
     @property
     @pulumi.getter(name="containerNetworkInterfaceConfigurations")
-    def container_network_interface_configurations(self) -> Optional[List['outputs.ContainerNetworkInterfaceConfigurationResponse']]:
+    def container_network_interface_configurations(self) -> Optional[Sequence['outputs.ContainerNetworkInterfaceConfigurationResponse']]:
         """
         List of chid container network interface configurations.
         """
@@ -59,7 +59,7 @@ class GetNetworkProfileResult:
 
     @property
     @pulumi.getter(name="containerNetworkInterfaces")
-    def container_network_interfaces(self) -> List['outputs.ContainerNetworkInterfaceResponse']:
+    def container_network_interfaces(self) -> Sequence['outputs.ContainerNetworkInterfaceResponse']:
         """
         List of child container network interfaces.
         """

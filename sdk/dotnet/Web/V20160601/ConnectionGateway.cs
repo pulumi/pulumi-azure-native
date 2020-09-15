@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.Web.V20160601
         public Output<string> Name { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.ConnectionGatewayDefinitionResponsePropertiesResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ConnectionGatewayDefinitionResponseProperties> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

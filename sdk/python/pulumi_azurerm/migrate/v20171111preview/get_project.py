@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -38,14 +38,14 @@ class GetProjectResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if number_of_assessments and not isinstance(number_of_assessments, float):
-            raise TypeError("Expected argument 'number_of_assessments' to be a float")
+        if number_of_assessments and not isinstance(number_of_assessments, int):
+            raise TypeError("Expected argument 'number_of_assessments' to be a int")
         pulumi.set(__self__, "number_of_assessments", number_of_assessments)
-        if number_of_groups and not isinstance(number_of_groups, float):
-            raise TypeError("Expected argument 'number_of_groups' to be a float")
+        if number_of_groups and not isinstance(number_of_groups, int):
+            raise TypeError("Expected argument 'number_of_groups' to be a int")
         pulumi.set(__self__, "number_of_groups", number_of_groups)
-        if number_of_machines and not isinstance(number_of_machines, float):
-            raise TypeError("Expected argument 'number_of_machines' to be a float")
+        if number_of_machines and not isinstance(number_of_machines, int):
+            raise TypeError("Expected argument 'number_of_machines' to be a int")
         pulumi.set(__self__, "number_of_machines", number_of_machines)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -110,7 +110,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter(name="numberOfAssessments")
-    def number_of_assessments(self) -> float:
+    def number_of_assessments(self) -> int:
         """
         Number of assessments created in the project.
         """
@@ -118,7 +118,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter(name="numberOfGroups")
-    def number_of_groups(self) -> float:
+    def number_of_groups(self) -> int:
         """
         Number of groups created in the project.
         """
@@ -126,7 +126,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter(name="numberOfMachines")
-    def number_of_machines(self) -> float:
+    def number_of_machines(self) -> int:
         """
         Number of machines in the project.
         """

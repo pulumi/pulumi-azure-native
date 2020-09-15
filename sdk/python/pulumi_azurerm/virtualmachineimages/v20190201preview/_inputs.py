@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -286,17 +286,17 @@ class ImageTemplatePlatformImageSourceArgs:
 class ImageTemplatePowerShellCustomizerArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 inline: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 inline: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
-                 valid_exit_codes: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None):
+                 valid_exit_codes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'script' or 'inline' can be specified.
         :param pulumi.Input[str] type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
-        :param pulumi.Input[List[pulumi.Input[str]]] inline: Array of PowerShell commands to execute
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inline: Array of PowerShell commands to execute
         :param pulumi.Input[str] name: Friendly Name to provide context on what this customization step does
         :param pulumi.Input[str] script: The PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
-        :param pulumi.Input[List[pulumi.Input[float]]] valid_exit_codes: Valid exit codes for the PowerShell script. [Default: 0]
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] valid_exit_codes: Valid exit codes for the PowerShell script. [Default: 0]
         """
         pulumi.set(__self__, "type", 'PowerShell')
         if inline is not None:
@@ -322,14 +322,14 @@ class ImageTemplatePowerShellCustomizerArgs:
 
     @property
     @pulumi.getter
-    def inline(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def inline(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Array of PowerShell commands to execute
         """
         return pulumi.get(self, "inline")
 
     @inline.setter
-    def inline(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def inline(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "inline", value)
 
     @property
@@ -358,14 +358,14 @@ class ImageTemplatePowerShellCustomizerArgs:
 
     @property
     @pulumi.getter(name="validExitCodes")
-    def valid_exit_codes(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def valid_exit_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Valid exit codes for the PowerShell script. [Default: 0]
         """
         return pulumi.get(self, "valid_exit_codes")
 
     @valid_exit_codes.setter
-    def valid_exit_codes(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def valid_exit_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "valid_exit_codes", value)
 
 
@@ -460,7 +460,7 @@ class ImageTemplateRestartCustomizerArgs:
 class ImageTemplateSharedImageDistributorArgs:
     def __init__(__self__, *,
                  gallery_image_id: pulumi.Input[str],
-                 replication_regions: pulumi.Input[List[pulumi.Input[str]]],
+                 replication_regions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  run_output_name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  artifact_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -492,11 +492,11 @@ class ImageTemplateSharedImageDistributorArgs:
 
     @property
     @pulumi.getter(name="replicationRegions")
-    def replication_regions(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def replication_regions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         return pulumi.get(self, "replication_regions")
 
     @replication_regions.setter
-    def replication_regions(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def replication_regions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "replication_regions", value)
 
     @property
@@ -540,13 +540,13 @@ class ImageTemplateSharedImageDistributorArgs:
 class ImageTemplateShellCustomizerArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 inline: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 inline: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None):
         """
         Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'script' or 'inline' can be specified.
         :param pulumi.Input[str] type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
-        :param pulumi.Input[List[pulumi.Input[str]]] inline: Array of shell commands to execute
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inline: Array of shell commands to execute
         :param pulumi.Input[str] name: Friendly Name to provide context on what this customization step does
         :param pulumi.Input[str] script: The shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
         """
@@ -572,14 +572,14 @@ class ImageTemplateShellCustomizerArgs:
 
     @property
     @pulumi.getter
-    def inline(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def inline(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Array of shell commands to execute
         """
         return pulumi.get(self, "inline")
 
     @inline.setter
-    def inline(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def inline(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "inline", value)
 
     @property

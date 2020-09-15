@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -206,16 +206,16 @@ class AutoHealTriggersResponse(dict):
     AutoHealTriggers - describes the triggers for auto-heal.
     """
     def __init__(__self__, *,
-                 private_bytes_in_kb: Optional[float] = None,
+                 private_bytes_in_kb: Optional[int] = None,
                  requests: Optional['outputs.RequestsBasedTriggerResponse'] = None,
                  slow_requests: Optional['outputs.SlowRequestsBasedTriggerResponse'] = None,
-                 status_codes: Optional[List['outputs.StatusCodesBasedTriggerResponse']] = None):
+                 status_codes: Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']] = None):
         """
         AutoHealTriggers - describes the triggers for auto-heal.
-        :param float private_bytes_in_kb: PrivateBytesInKB - Defines a rule based on private bytes
+        :param int private_bytes_in_kb: PrivateBytesInKB - Defines a rule based on private bytes
         :param 'RequestsBasedTriggerResponseArgs' requests: Requests - Defines a rule based on total requests
         :param 'SlowRequestsBasedTriggerResponseArgs' slow_requests: SlowRequests - Defines a rule based on request execution time
-        :param List['StatusCodesBasedTriggerResponseArgs'] status_codes: StatusCodes - Defines a rule based on status codes
+        :param Sequence['StatusCodesBasedTriggerResponseArgs'] status_codes: StatusCodes - Defines a rule based on status codes
         """
         if private_bytes_in_kb is not None:
             pulumi.set(__self__, "private_bytes_in_kb", private_bytes_in_kb)
@@ -228,7 +228,7 @@ class AutoHealTriggersResponse(dict):
 
     @property
     @pulumi.getter(name="privateBytesInKB")
-    def private_bytes_in_kb(self) -> Optional[float]:
+    def private_bytes_in_kb(self) -> Optional[int]:
         """
         PrivateBytesInKB - Defines a rule based on private bytes
         """
@@ -252,7 +252,7 @@ class AutoHealTriggersResponse(dict):
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[List['outputs.StatusCodesBasedTriggerResponse']]:
+    def status_codes(self) -> Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']]:
         """
         StatusCodes - Defines a rule based on status codes
         """
@@ -269,18 +269,18 @@ class BackupScheduleResponseResult(dict):
     """
     def __init__(__self__, *,
                  frequency_unit: str,
-                 frequency_interval: Optional[float] = None,
+                 frequency_interval: Optional[int] = None,
                  keep_at_least_one_backup: Optional[bool] = None,
                  last_execution_time: Optional[str] = None,
-                 retention_period_in_days: Optional[float] = None,
+                 retention_period_in_days: Optional[int] = None,
                  start_time: Optional[str] = None):
         """
         Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
         :param str frequency_unit: How often should be the backup executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-        :param float frequency_interval: How often should be the backup executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+        :param int frequency_interval: How often should be the backup executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
         :param bool keep_at_least_one_backup: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
         :param str last_execution_time: The last time when this schedule was triggered
-        :param float retention_period_in_days: After how many days backups should be deleted
+        :param int retention_period_in_days: After how many days backups should be deleted
         :param str start_time: When the schedule should start working
         """
         pulumi.set(__self__, "frequency_unit", frequency_unit)
@@ -305,7 +305,7 @@ class BackupScheduleResponseResult(dict):
 
     @property
     @pulumi.getter(name="frequencyInterval")
-    def frequency_interval(self) -> Optional[float]:
+    def frequency_interval(self) -> Optional[int]:
         """
         How often should be the backup executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
         """
@@ -329,7 +329,7 @@ class BackupScheduleResponseResult(dict):
 
     @property
     @pulumi.getter(name="retentionPeriodInDays")
-    def retention_period_in_days(self) -> Optional[float]:
+    def retention_period_in_days(self) -> Optional[int]:
         """
         After how many days backups should be deleted
         """
@@ -543,10 +543,10 @@ class CorsSettingsResponse(dict):
     Cross-Origin Resource Sharing (CORS) settings for the web app.
     """
     def __init__(__self__, *,
-                 allowed_origins: Optional[List[str]] = None):
+                 allowed_origins: Optional[Sequence[str]] = None):
         """
         Cross-Origin Resource Sharing (CORS) settings for the web app.
-        :param List[str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
+        :param Sequence[str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
                            calls (for example: http://example.com:12345). Use "*" to allow all.
         """
         if allowed_origins is not None:
@@ -554,7 +554,7 @@ class CorsSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[List[str]]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the list of origins that should be allowed to make cross-origin
                     calls (for example: http://example.com:12345). Use "*" to allow all.
@@ -632,17 +632,17 @@ class ExperimentsResponse(dict):
     Class containing Routing in production experiments
     """
     def __init__(__self__, *,
-                 ramp_up_rules: Optional[List['outputs.RampUpRuleResponse']] = None):
+                 ramp_up_rules: Optional[Sequence['outputs.RampUpRuleResponse']] = None):
         """
         Class containing Routing in production experiments
-        :param List['RampUpRuleResponseArgs'] ramp_up_rules: List of {Microsoft.Web.Hosting.Administration.RampUpRule} objects.
+        :param Sequence['RampUpRuleResponseArgs'] ramp_up_rules: List of {Microsoft.Web.Hosting.Administration.RampUpRule} objects.
         """
         if ramp_up_rules is not None:
             pulumi.set(__self__, "ramp_up_rules", ramp_up_rules)
 
     @property
     @pulumi.getter(name="rampUpRules")
-    def ramp_up_rules(self) -> Optional[List['outputs.RampUpRuleResponse']]:
+    def ramp_up_rules(self) -> Optional[Sequence['outputs.RampUpRuleResponse']]:
         """
         List of {Microsoft.Web.Hosting.Administration.RampUpRule} objects.
         """
@@ -908,7 +908,7 @@ class NetworkAccessControlEntryResponse(dict):
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  description: Optional[str] = None,
-                 order: Optional[float] = None,
+                 order: Optional[int] = None,
                  remote_subnet: Optional[str] = None):
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -931,7 +931,7 @@ class NetworkAccessControlEntryResponse(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[float]:
+    def order(self) -> Optional[int]:
         return pulumi.get(self, "order")
 
     @property
@@ -951,7 +951,7 @@ class RampUpRuleResponse(dict):
     def __init__(__self__, *,
                  action_host_name: Optional[str] = None,
                  change_decision_callback_url: Optional[str] = None,
-                 change_interval_in_minutes: Optional[float] = None,
+                 change_interval_in_minutes: Optional[int] = None,
                  change_step: Optional[float] = None,
                  max_reroute_percentage: Optional[float] = None,
                  min_reroute_percentage: Optional[float] = None,
@@ -962,7 +962,7 @@ class RampUpRuleResponse(dict):
         :param str action_host_name: Hostname of a slot to which the traffic will be redirected if decided to. E.g. mysite-stage.azurewebsites.net
         :param str change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified. See TiPCallback site extension for the scaffold and contracts.
                            https://www.siteextensions.net/packages/TiPCallback/
-        :param float change_interval_in_minutes: [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
+        :param int change_interval_in_minutes: [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
         :param float change_step: [Optional] In auto ramp up scenario this is the step to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches 
                            {Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.
                            Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}
@@ -1007,7 +1007,7 @@ class RampUpRuleResponse(dict):
 
     @property
     @pulumi.getter(name="changeIntervalInMinutes")
-    def change_interval_in_minutes(self) -> Optional[float]:
+    def change_interval_in_minutes(self) -> Optional[int]:
         """
         [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
         """
@@ -1065,11 +1065,11 @@ class RequestsBasedTriggerResponse(dict):
     RequestsBasedTrigger
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  time_interval: Optional[str] = None):
         """
         RequestsBasedTrigger
-        :param float count: Count
+        :param int count: Count
         :param str time_interval: TimeInterval
         """
         if count is not None:
@@ -1079,7 +1079,7 @@ class RequestsBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Count
         """
@@ -1107,20 +1107,20 @@ class SiteConfigResponse(dict):
                  always_on: Optional[bool] = None,
                  api_definition: Optional['outputs.ApiDefinitionInfoResponse'] = None,
                  app_command_line: Optional[str] = None,
-                 app_settings: Optional[List['outputs.NameValuePairResponse']] = None,
+                 app_settings: Optional[Sequence['outputs.NameValuePairResponse']] = None,
                  auto_heal_enabled: Optional[bool] = None,
                  auto_heal_rules: Optional['outputs.AutoHealRulesResponse'] = None,
                  auto_swap_slot_name: Optional[str] = None,
-                 connection_strings: Optional[List['outputs.ConnStringInfoResponse']] = None,
+                 connection_strings: Optional[Sequence['outputs.ConnStringInfoResponse']] = None,
                  cors: Optional['outputs.CorsSettingsResponse'] = None,
-                 default_documents: Optional[List[str]] = None,
+                 default_documents: Optional[Sequence[str]] = None,
                  detailed_error_logging_enabled: Optional[bool] = None,
                  document_root: Optional[str] = None,
                  experiments: Optional['outputs.ExperimentsResponse'] = None,
-                 handler_mappings: Optional[List['outputs.HandlerMappingResponse']] = None,
+                 handler_mappings: Optional[Sequence['outputs.HandlerMappingResponse']] = None,
                  http_logging_enabled: Optional[bool] = None,
                  id: Optional[str] = None,
-                 ip_security_restrictions: Optional[List['outputs.IpSecurityRestrictionResponse']] = None,
+                 ip_security_restrictions: Optional[Sequence['outputs.IpSecurityRestrictionResponse']] = None,
                  java_container: Optional[str] = None,
                  java_container_version: Optional[str] = None,
                  java_version: Optional[str] = None,
@@ -1128,13 +1128,13 @@ class SiteConfigResponse(dict):
                  limits: Optional['outputs.SiteLimitsResponse'] = None,
                  load_balancing: Optional[str] = None,
                  local_my_sql_enabled: Optional[bool] = None,
-                 logs_directory_size_limit: Optional[float] = None,
+                 logs_directory_size_limit: Optional[int] = None,
                  managed_pipeline_mode: Optional[str] = None,
-                 metadata: Optional[List['outputs.NameValuePairResponse']] = None,
+                 metadata: Optional[Sequence['outputs.NameValuePairResponse']] = None,
                  name: Optional[str] = None,
                  net_framework_version: Optional[str] = None,
                  node_version: Optional[str] = None,
-                 number_of_workers: Optional[float] = None,
+                 number_of_workers: Optional[int] = None,
                  php_version: Optional[str] = None,
                  publishing_password: Optional[str] = None,
                  publishing_username: Optional[str] = None,
@@ -1148,7 +1148,7 @@ class SiteConfigResponse(dict):
                  tracing_options: Optional[str] = None,
                  type: Optional[str] = None,
                  use32_bit_worker_process: Optional[bool] = None,
-                 virtual_applications: Optional[List['outputs.VirtualApplicationResponse']] = None,
+                 virtual_applications: Optional[Sequence['outputs.VirtualApplicationResponse']] = None,
                  vnet_name: Optional[str] = None,
                  web_sockets_enabled: Optional[bool] = None):
         """
@@ -1157,20 +1157,20 @@ class SiteConfigResponse(dict):
         :param bool always_on: Always On
         :param 'ApiDefinitionInfoResponseArgs' api_definition: Information about the formal API definition for the web app.
         :param str app_command_line: App Command Line to launch
-        :param List['NameValuePairResponseArgs'] app_settings: Application Settings
+        :param Sequence['NameValuePairResponseArgs'] app_settings: Application Settings
         :param bool auto_heal_enabled: Auto heal enabled
         :param 'AutoHealRulesResponseArgs' auto_heal_rules: Auto heal rules
         :param str auto_swap_slot_name: Auto swap slot name
-        :param List['ConnStringInfoResponseArgs'] connection_strings: Connection strings
+        :param Sequence['ConnStringInfoResponseArgs'] connection_strings: Connection strings
         :param 'CorsSettingsResponseArgs' cors: Cross-Origin Resource Sharing (CORS) settings.
-        :param List[str] default_documents: Default documents
+        :param Sequence[str] default_documents: Default documents
         :param bool detailed_error_logging_enabled: Detailed error logging enabled
         :param str document_root: Document root
         :param 'ExperimentsResponseArgs' experiments: This is work around for polymorphic types
-        :param List['HandlerMappingResponseArgs'] handler_mappings: Handler mappings
+        :param Sequence['HandlerMappingResponseArgs'] handler_mappings: Handler mappings
         :param bool http_logging_enabled: HTTP logging Enabled
         :param str id: Resource Id
-        :param List['IpSecurityRestrictionResponseArgs'] ip_security_restrictions: Ip Security restrictions
+        :param Sequence['IpSecurityRestrictionResponseArgs'] ip_security_restrictions: Ip Security restrictions
         :param str java_container: Java container
         :param str java_container_version: Java container version
         :param str java_version: Java version
@@ -1178,13 +1178,13 @@ class SiteConfigResponse(dict):
         :param 'SiteLimitsResponseArgs' limits: Site limits
         :param str load_balancing: Site load balancing
         :param bool local_my_sql_enabled: Local mysql enabled
-        :param float logs_directory_size_limit: HTTP Logs Directory size limit
+        :param int logs_directory_size_limit: HTTP Logs Directory size limit
         :param str managed_pipeline_mode: Managed pipeline mode
-        :param List['NameValuePairResponseArgs'] metadata: Site Metadata
+        :param Sequence['NameValuePairResponseArgs'] metadata: Site Metadata
         :param str name: Resource Name
         :param str net_framework_version: Net Framework Version
         :param str node_version: Version of Node
-        :param float number_of_workers: Number of workers
+        :param int number_of_workers: Number of workers
         :param str php_version: Version of PHP
         :param str publishing_password: Publishing password
         :param str publishing_username: Publishing user name
@@ -1198,7 +1198,7 @@ class SiteConfigResponse(dict):
         :param str tracing_options: Tracing options
         :param str type: Resource type
         :param bool use32_bit_worker_process: Use 32 bit worker process
-        :param List['VirtualApplicationResponseArgs'] virtual_applications: Virtual applications
+        :param Sequence['VirtualApplicationResponseArgs'] virtual_applications: Virtual applications
         :param str vnet_name: Vnet name
         :param bool web_sockets_enabled: Web socket enabled.
         """
@@ -1332,7 +1332,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[List['outputs.NameValuePairResponse']]:
+    def app_settings(self) -> Optional[Sequence['outputs.NameValuePairResponse']]:
         """
         Application Settings
         """
@@ -1364,7 +1364,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[List['outputs.ConnStringInfoResponse']]:
+    def connection_strings(self) -> Optional[Sequence['outputs.ConnStringInfoResponse']]:
         """
         Connection strings
         """
@@ -1380,7 +1380,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="defaultDocuments")
-    def default_documents(self) -> Optional[List[str]]:
+    def default_documents(self) -> Optional[Sequence[str]]:
         """
         Default documents
         """
@@ -1412,7 +1412,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="handlerMappings")
-    def handler_mappings(self) -> Optional[List['outputs.HandlerMappingResponse']]:
+    def handler_mappings(self) -> Optional[Sequence['outputs.HandlerMappingResponse']]:
         """
         Handler mappings
         """
@@ -1436,7 +1436,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="ipSecurityRestrictions")
-    def ip_security_restrictions(self) -> Optional[List['outputs.IpSecurityRestrictionResponse']]:
+    def ip_security_restrictions(self) -> Optional[Sequence['outputs.IpSecurityRestrictionResponse']]:
         """
         Ip Security restrictions
         """
@@ -1500,7 +1500,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="logsDirectorySizeLimit")
-    def logs_directory_size_limit(self) -> Optional[float]:
+    def logs_directory_size_limit(self) -> Optional[int]:
         """
         HTTP Logs Directory size limit
         """
@@ -1516,7 +1516,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[List['outputs.NameValuePairResponse']]:
+    def metadata(self) -> Optional[Sequence['outputs.NameValuePairResponse']]:
         """
         Site Metadata
         """
@@ -1548,7 +1548,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfWorkers")
-    def number_of_workers(self) -> Optional[float]:
+    def number_of_workers(self) -> Optional[int]:
         """
         Number of workers
         """
@@ -1660,7 +1660,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="virtualApplications")
-    def virtual_applications(self) -> Optional[List['outputs.VirtualApplicationResponse']]:
+    def virtual_applications(self) -> Optional[Sequence['outputs.VirtualApplicationResponse']]:
         """
         Virtual applications
         """
@@ -1692,13 +1692,13 @@ class SiteLimitsResponse(dict):
     Represents metric limits set on a web app.
     """
     def __init__(__self__, *,
-                 max_disk_size_in_mb: Optional[float] = None,
-                 max_memory_in_mb: Optional[float] = None,
+                 max_disk_size_in_mb: Optional[int] = None,
+                 max_memory_in_mb: Optional[int] = None,
                  max_percentage_cpu: Optional[float] = None):
         """
         Represents metric limits set on a web app.
-        :param float max_disk_size_in_mb: Maximum allowed disk size usage in MB
-        :param float max_memory_in_mb: Maximum allowed memory usage in MB
+        :param int max_disk_size_in_mb: Maximum allowed disk size usage in MB
+        :param int max_memory_in_mb: Maximum allowed memory usage in MB
         :param float max_percentage_cpu: Maximum allowed CPU usage percentage
         """
         if max_disk_size_in_mb is not None:
@@ -1710,7 +1710,7 @@ class SiteLimitsResponse(dict):
 
     @property
     @pulumi.getter(name="maxDiskSizeInMb")
-    def max_disk_size_in_mb(self) -> Optional[float]:
+    def max_disk_size_in_mb(self) -> Optional[int]:
         """
         Maximum allowed disk size usage in MB
         """
@@ -1718,7 +1718,7 @@ class SiteLimitsResponse(dict):
 
     @property
     @pulumi.getter(name="maxMemoryInMb")
-    def max_memory_in_mb(self) -> Optional[float]:
+    def max_memory_in_mb(self) -> Optional[int]:
         """
         Maximum allowed memory usage in MB
         """
@@ -1742,14 +1742,14 @@ class SkuDescriptionResponse(dict):
     Describes a sku for a scalable resource
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  name: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         Describes a sku for a scalable resource
-        :param float capacity: Current number of instances assigned to the resource
+        :param int capacity: Current number of instances assigned to the resource
         :param str family: Family code of the resource sku
         :param str name: Name of the resource sku
         :param str size: Size specifier of the resource sku
@@ -1768,7 +1768,7 @@ class SkuDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Current number of instances assigned to the resource
         """
@@ -1816,12 +1816,12 @@ class SlowRequestsBasedTriggerResponse(dict):
     SlowRequestsBasedTrigger
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  time_interval: Optional[str] = None,
                  time_taken: Optional[str] = None):
         """
         SlowRequestsBasedTrigger
-        :param float count: Count
+        :param int count: Count
         :param str time_interval: TimeInterval
         :param str time_taken: TimeTaken
         """
@@ -1834,7 +1834,7 @@ class SlowRequestsBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Count
         """
@@ -1866,29 +1866,29 @@ class StampCapacityResponse(dict):
     Class containing stamp capacity information
     """
     def __init__(__self__, *,
-                 available_capacity: Optional[float] = None,
+                 available_capacity: Optional[int] = None,
                  compute_mode: Optional[str] = None,
                  exclude_from_capacity_allocation: Optional[bool] = None,
                  is_applicable_for_all_compute_modes: Optional[bool] = None,
                  name: Optional[str] = None,
                  site_mode: Optional[str] = None,
-                 total_capacity: Optional[float] = None,
+                 total_capacity: Optional[int] = None,
                  unit: Optional[str] = None,
                  worker_size: Optional[str] = None,
-                 worker_size_id: Optional[float] = None):
+                 worker_size_id: Optional[int] = None):
         """
         Class containing stamp capacity information
-        :param float available_capacity: Available capacity (# of machines, bytes of storage etc...)
+        :param int available_capacity: Available capacity (# of machines, bytes of storage etc...)
         :param str compute_mode: Shared/Dedicated workers
         :param bool exclude_from_capacity_allocation: If true it includes basic sites
                            Basic sites are not used for capacity allocation.
         :param bool is_applicable_for_all_compute_modes: Is capacity applicable for all sites?
         :param str name: Name of the stamp
         :param str site_mode: Shared or Dedicated
-        :param float total_capacity: Total capacity (# of machines, bytes of storage etc...)
+        :param int total_capacity: Total capacity (# of machines, bytes of storage etc...)
         :param str unit: Name of the unit
         :param str worker_size: Size of the machines
-        :param float worker_size_id: Size Id of machines: 
+        :param int worker_size_id: Size Id of machines: 
                            0 - Small
                            1 - Medium
                            2 - Large
@@ -1916,7 +1916,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="availableCapacity")
-    def available_capacity(self) -> Optional[float]:
+    def available_capacity(self) -> Optional[int]:
         """
         Available capacity (# of machines, bytes of storage etc...)
         """
@@ -1965,7 +1965,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="totalCapacity")
-    def total_capacity(self) -> Optional[float]:
+    def total_capacity(self) -> Optional[int]:
         """
         Total capacity (# of machines, bytes of storage etc...)
         """
@@ -1989,7 +1989,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[float]:
+    def worker_size_id(self) -> Optional[int]:
         """
         Size Id of machines: 
                     0 - Small
@@ -2008,18 +2008,18 @@ class StatusCodesBasedTriggerResponse(dict):
     StatusCodeBasedTrigger
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
-                 status: Optional[float] = None,
-                 sub_status: Optional[float] = None,
+                 count: Optional[int] = None,
+                 status: Optional[int] = None,
+                 sub_status: Optional[int] = None,
                  time_interval: Optional[str] = None,
-                 win32_status: Optional[float] = None):
+                 win32_status: Optional[int] = None):
         """
         StatusCodeBasedTrigger
-        :param float count: Count
-        :param float status: HTTP status code
-        :param float sub_status: SubStatus
+        :param int count: Count
+        :param int status: HTTP status code
+        :param int sub_status: SubStatus
         :param str time_interval: TimeInterval
-        :param float win32_status: Win32 error code
+        :param int win32_status: Win32 error code
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -2034,7 +2034,7 @@ class StatusCodesBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Count
         """
@@ -2042,7 +2042,7 @@ class StatusCodesBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[float]:
+    def status(self) -> Optional[int]:
         """
         HTTP status code
         """
@@ -2050,7 +2050,7 @@ class StatusCodesBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter(name="subStatus")
-    def sub_status(self) -> Optional[float]:
+    def sub_status(self) -> Optional[int]:
         """
         SubStatus
         """
@@ -2066,7 +2066,7 @@ class StatusCodesBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[float]:
+    def win32_status(self) -> Optional[int]:
         """
         Win32 error code
         """
@@ -2081,7 +2081,7 @@ class VirtualApplicationResponse(dict):
     def __init__(__self__, *,
                  physical_path: Optional[str] = None,
                  preload_enabled: Optional[bool] = None,
-                 virtual_directories: Optional[List['outputs.VirtualDirectoryResponse']] = None,
+                 virtual_directories: Optional[Sequence['outputs.VirtualDirectoryResponse']] = None,
                  virtual_path: Optional[str] = None):
         if physical_path is not None:
             pulumi.set(__self__, "physical_path", physical_path)
@@ -2104,7 +2104,7 @@ class VirtualApplicationResponse(dict):
 
     @property
     @pulumi.getter(name="virtualDirectories")
-    def virtual_directories(self) -> Optional[List['outputs.VirtualDirectoryResponse']]:
+    def virtual_directories(self) -> Optional[Sequence['outputs.VirtualDirectoryResponse']]:
         return pulumi.get(self, "virtual_directories")
 
     @property
@@ -2147,14 +2147,14 @@ class VirtualIPMappingResponse(dict):
     """
     def __init__(__self__, *,
                  in_use: Optional[bool] = None,
-                 internal_http_port: Optional[float] = None,
-                 internal_https_port: Optional[float] = None,
+                 internal_http_port: Optional[int] = None,
+                 internal_https_port: Optional[int] = None,
                  virtual_ip: Optional[str] = None):
         """
         Class that represents a VIP mapping
         :param bool in_use: Is VIP mapping in use
-        :param float internal_http_port: Internal HTTP port
-        :param float internal_https_port: Internal HTTPS port
+        :param int internal_http_port: Internal HTTP port
+        :param int internal_https_port: Internal HTTPS port
         :param str virtual_ip: Virtual IP address
         """
         if in_use is not None:
@@ -2176,7 +2176,7 @@ class VirtualIPMappingResponse(dict):
 
     @property
     @pulumi.getter(name="internalHttpPort")
-    def internal_http_port(self) -> Optional[float]:
+    def internal_http_port(self) -> Optional[int]:
         """
         Internal HTTP port
         """
@@ -2184,7 +2184,7 @@ class VirtualIPMappingResponse(dict):
 
     @property
     @pulumi.getter(name="internalHttpsPort")
-    def internal_https_port(self) -> Optional[float]:
+    def internal_https_port(self) -> Optional[int]:
         """
         Internal HTTPS port
         """
@@ -2406,29 +2406,29 @@ class WorkerPoolResponse(dict):
                  location: str,
                  compute_mode: Optional[str] = None,
                  id: Optional[str] = None,
-                 instance_names: Optional[List[str]] = None,
+                 instance_names: Optional[Sequence[str]] = None,
                  kind: Optional[str] = None,
                  name: Optional[str] = None,
                  sku: Optional['outputs.SkuDescriptionResponse'] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  type: Optional[str] = None,
-                 worker_count: Optional[float] = None,
+                 worker_count: Optional[int] = None,
                  worker_size: Optional[str] = None,
-                 worker_size_id: Optional[float] = None):
+                 worker_size_id: Optional[int] = None):
         """
         Worker pool of a hostingEnvironment (App Service Environment)
         :param str location: Resource Location
         :param str compute_mode: Shared or dedicated web app hosting
         :param str id: Resource Id
-        :param List[str] instance_names: Names of all instances in the worker pool (read only)
+        :param Sequence[str] instance_names: Names of all instances in the worker pool (read only)
         :param str kind: Kind of resource
         :param str name: Resource Name
         :param 'SkuDescriptionResponseArgs' sku: Describes a sku for a scalable resource
         :param Mapping[str, str] tags: Resource tags
         :param str type: Resource type
-        :param float worker_count: Number of instances in the worker pool
+        :param int worker_count: Number of instances in the worker pool
         :param str worker_size: VM size of the worker pool instances
-        :param float worker_size_id: Worker size id for referencing this worker pool
+        :param int worker_size_id: Worker size id for referencing this worker pool
         """
         pulumi.set(__self__, "location", location)
         if compute_mode is not None:
@@ -2480,7 +2480,7 @@ class WorkerPoolResponse(dict):
 
     @property
     @pulumi.getter(name="instanceNames")
-    def instance_names(self) -> Optional[List[str]]:
+    def instance_names(self) -> Optional[Sequence[str]]:
         """
         Names of all instances in the worker pool (read only)
         """
@@ -2528,7 +2528,7 @@ class WorkerPoolResponse(dict):
 
     @property
     @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[float]:
+    def worker_count(self) -> Optional[int]:
         """
         Number of instances in the worker pool
         """
@@ -2544,7 +2544,7 @@ class WorkerPoolResponse(dict):
 
     @property
     @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[float]:
+    def worker_size_id(self) -> Optional[int]:
         """
         Worker size id for referencing this worker pool
         """

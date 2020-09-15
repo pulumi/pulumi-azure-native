@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// Gets or sets the draft runbook properties.
         /// </summary>
         [Output("draft")]
-        public Output<Outputs.RunbookDraftResponseResult?> Draft { get; private set; } = null!;
+        public Output<Outputs.RunbookDraftResponse?> Draft { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the etag of the resource.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// Gets or sets the runbook parameters.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.RunbookParameterResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.RunbookParameterResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the provisioning state of the runbook.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// Gets or sets the published runbook content link.
         /// </summary>
         [Output("publishContentLink")]
-        public Output<Outputs.ContentLinkResponseResult?> PublishContentLink { get; private set; } = null!;
+        public Output<Outputs.ContentLinkResponse?> PublishContentLink { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the type of the runbook.

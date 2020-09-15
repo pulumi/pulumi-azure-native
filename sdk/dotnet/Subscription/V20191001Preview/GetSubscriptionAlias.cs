@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Subscription.V20191001Preview
         /// <summary>
         /// Put Alias response properties.
         /// </summary>
-        public readonly Outputs.PutAliasResponsePropertiesResponseResult Properties;
+        public readonly Outputs.PutAliasResponsePropertiesResponse Properties;
         /// <summary>
         /// Resource type, Microsoft.Subscription/aliases.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Subscription.V20191001Preview
         private GetSubscriptionAliasResult(
             string name,
 
-            Outputs.PutAliasResponsePropertiesResponseResult properties,
+            Outputs.PutAliasResponsePropertiesResponse properties,
 
             string type)
         {

@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.IdentityDataResponseResult? Identity;
+        public readonly Outputs.IdentityDataResponse? Identity;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -58,11 +58,11 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
         /// <summary>
         /// Properties of the vault.
         /// </summary>
-        public readonly Outputs.VaultPropertiesResponseResult Properties;
+        public readonly Outputs.VaultPropertiesResponse Properties;
         /// <summary>
         /// Identifies the unique system identifier for each Azure resource.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -76,15 +76,15 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
         private GetVaultResult(
             string? eTag,
 
-            Outputs.IdentityDataResponseResult? identity,
+            Outputs.IdentityDataResponse? identity,
 
             string location,
 
             string name,
 
-            Outputs.VaultPropertiesResponseResult properties,
+            Outputs.VaultPropertiesResponse properties,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

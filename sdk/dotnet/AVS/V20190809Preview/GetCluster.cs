@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.AVS.V20190809Preview
         /// <summary>
         /// The properties of a cluster resource
         /// </summary>
-        public readonly Outputs.ClusterPropertiesResponseResult Properties;
+        public readonly Outputs.ClusterPropertiesResponse Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.AVS.V20190809Preview
         private GetClusterResult(
             string name,
 
-            Outputs.ClusterPropertiesResponseResult properties,
+            Outputs.ClusterPropertiesResponse properties,
 
             string type)
         {

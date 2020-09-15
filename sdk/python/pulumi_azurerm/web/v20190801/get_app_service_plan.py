@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -45,17 +45,17 @@ class GetAppServicePlanResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if maximum_elastic_worker_count and not isinstance(maximum_elastic_worker_count, float):
-            raise TypeError("Expected argument 'maximum_elastic_worker_count' to be a float")
+        if maximum_elastic_worker_count and not isinstance(maximum_elastic_worker_count, int):
+            raise TypeError("Expected argument 'maximum_elastic_worker_count' to be a int")
         pulumi.set(__self__, "maximum_elastic_worker_count", maximum_elastic_worker_count)
-        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, float):
-            raise TypeError("Expected argument 'maximum_number_of_workers' to be a float")
+        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, int):
+            raise TypeError("Expected argument 'maximum_number_of_workers' to be a int")
         pulumi.set(__self__, "maximum_number_of_workers", maximum_number_of_workers)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if number_of_sites and not isinstance(number_of_sites, float):
-            raise TypeError("Expected argument 'number_of_sites' to be a float")
+        if number_of_sites and not isinstance(number_of_sites, int):
+            raise TypeError("Expected argument 'number_of_sites' to be a int")
         pulumi.set(__self__, "number_of_sites", number_of_sites)
         if per_site_scaling and not isinstance(per_site_scaling, bool):
             raise TypeError("Expected argument 'per_site_scaling' to be a bool")
@@ -84,11 +84,11 @@ class GetAppServicePlanResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if target_worker_count and not isinstance(target_worker_count, float):
-            raise TypeError("Expected argument 'target_worker_count' to be a float")
+        if target_worker_count and not isinstance(target_worker_count, int):
+            raise TypeError("Expected argument 'target_worker_count' to be a int")
         pulumi.set(__self__, "target_worker_count", target_worker_count)
-        if target_worker_size_id and not isinstance(target_worker_size_id, float):
-            raise TypeError("Expected argument 'target_worker_size_id' to be a float")
+        if target_worker_size_id and not isinstance(target_worker_size_id, int):
+            raise TypeError("Expected argument 'target_worker_size_id' to be a int")
         pulumi.set(__self__, "target_worker_size_id", target_worker_size_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -163,7 +163,7 @@ class GetAppServicePlanResult:
 
     @property
     @pulumi.getter(name="maximumElasticWorkerCount")
-    def maximum_elastic_worker_count(self) -> Optional[float]:
+    def maximum_elastic_worker_count(self) -> Optional[int]:
         """
         Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
         """
@@ -171,7 +171,7 @@ class GetAppServicePlanResult:
 
     @property
     @pulumi.getter(name="maximumNumberOfWorkers")
-    def maximum_number_of_workers(self) -> float:
+    def maximum_number_of_workers(self) -> int:
         """
         Maximum number of instances that can be assigned to this App Service plan.
         """
@@ -187,7 +187,7 @@ class GetAppServicePlanResult:
 
     @property
     @pulumi.getter(name="numberOfSites")
-    def number_of_sites(self) -> float:
+    def number_of_sites(self) -> int:
         """
         Number of apps assigned to this App Service plan.
         """
@@ -268,7 +268,7 @@ class GetAppServicePlanResult:
 
     @property
     @pulumi.getter(name="targetWorkerCount")
-    def target_worker_count(self) -> Optional[float]:
+    def target_worker_count(self) -> Optional[int]:
         """
         Scaling worker count.
         """
@@ -276,7 +276,7 @@ class GetAppServicePlanResult:
 
     @property
     @pulumi.getter(name="targetWorkerSizeId")
-    def target_worker_size_id(self) -> Optional[float]:
+    def target_worker_size_id(self) -> Optional[int]:
         """
         Scaling worker size ID.
         """

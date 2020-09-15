@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// The status of the replication at the time the operation was called.
         /// </summary>
         [Output("status")]
-        public Output<Outputs.StatusResponseResult> Status { get; private set; } = null!;
+        public Output<Outputs.StatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

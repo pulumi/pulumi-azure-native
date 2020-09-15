@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20180301Preview
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20180301Preview
         /// Compute properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AKSResponseResult, Union<Outputs.BatchAIResponseResult, Union<Outputs.DataFactoryResponseResult, Union<Outputs.HDInsightResponseResult, Outputs.VirtualMachineResponseResult>>>>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.AKSResponse, Union<Outputs.BatchAIResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.

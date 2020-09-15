@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
         /// <summary>
         /// Resource properties.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponseResult Properties;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
         private GetPrivateEndpointConnectionResult(
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponseResult properties,
+            Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
             string type)
         {

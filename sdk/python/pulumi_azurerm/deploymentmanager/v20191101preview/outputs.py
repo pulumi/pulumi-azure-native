@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -101,13 +101,13 @@ class CloudErrorBodyResponseResult(dict):
     def __init__(__self__, *,
                  code: str,
                  message: str,
-                 details: Optional[List['outputs.CloudErrorBodyResponseResult']] = None,
+                 details: Optional[Sequence['outputs.CloudErrorBodyResponseResult']] = None,
                  target: Optional[str] = None):
         """
         Detailed error information of any failure.
         :param str code: Error code string.
         :param str message: Descriptive error information.
-        :param List['CloudErrorBodyResponseArgs'] details: More detailed error information.
+        :param Sequence['CloudErrorBodyResponseArgs'] details: More detailed error information.
         :param str target: Error target
         """
         pulumi.set(__self__, "code", code)
@@ -135,7 +135,7 @@ class CloudErrorBodyResponseResult(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[List['outputs.CloudErrorBodyResponseResult']]:
+    def details(self) -> Optional[Sequence['outputs.CloudErrorBodyResponseResult']]:
         """
         More detailed error information.
         """
@@ -192,11 +192,11 @@ class IdentityResponse(dict):
     Identity for the resource.
     """
     def __init__(__self__, *,
-                 identity_ids: List[str],
+                 identity_ids: Sequence[str],
                  type: str):
         """
         Identity for the resource.
-        :param List[str] identity_ids: The list of identities.
+        :param Sequence[str] identity_ids: The list of identities.
         :param str type: The identity type.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
@@ -204,7 +204,7 @@ class IdentityResponse(dict):
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> List[str]:
+    def identity_ids(self) -> Sequence[str]:
         """
         The list of identities.
         """
@@ -413,14 +413,14 @@ class RestHealthCheckStepAttributesResponse(dict):
     Defines the REST health check step properties.
     """
     def __init__(__self__, *,
-                 health_checks: List['outputs.RestHealthCheckResponse'],
+                 health_checks: Sequence['outputs.RestHealthCheckResponse'],
                  healthy_state_duration: str,
                  type: str,
                  max_elastic_duration: Optional[str] = None,
                  wait_duration: Optional[str] = None):
         """
         Defines the REST health check step properties.
-        :param List['RestHealthCheckResponseArgs'] health_checks: The list of checks that form the health check step.
+        :param Sequence['RestHealthCheckResponseArgs'] health_checks: The list of checks that form the health check step.
         :param str healthy_state_duration: The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
         :param str type: The type of health check.
         :param str max_elastic_duration: The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
@@ -436,7 +436,7 @@ class RestHealthCheckStepAttributesResponse(dict):
 
     @property
     @pulumi.getter(name="healthChecks")
-    def health_checks(self) -> List['outputs.RestHealthCheckResponse']:
+    def health_checks(self) -> Sequence['outputs.RestHealthCheckResponse']:
         """
         The list of checks that form the health check step.
         """
@@ -532,11 +532,11 @@ class RestResponseResponse(dict):
     """
     def __init__(__self__, *,
                  regex: Optional['outputs.RestResponseResponseRegex'] = None,
-                 success_status_codes: Optional[List[str]] = None):
+                 success_status_codes: Optional[Sequence[str]] = None):
         """
         The properties that make up the expected REST response
         :param 'RestResponseResponseRegexArgs' regex: The regular expressions to match the response content with.
-        :param List[str] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+        :param Sequence[str] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
         """
         if regex is not None:
             pulumi.set(__self__, "regex", regex)
@@ -553,7 +553,7 @@ class RestResponseResponse(dict):
 
     @property
     @pulumi.getter(name="successStatusCodes")
-    def success_status_codes(self) -> Optional[List[str]]:
+    def success_status_codes(self) -> Optional[Sequence[str]]:
         """
         The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
         """
@@ -570,11 +570,11 @@ class RestResponseResponseRegex(dict):
     """
     def __init__(__self__, *,
                  match_quantifier: Optional[str] = None,
-                 matches: Optional[List[str]] = None):
+                 matches: Optional[Sequence[str]] = None):
         """
         The regular expressions to match the response content with.
         :param str match_quantifier: Indicates whether any or all of the expressions should match with the response content.
-        :param List[str] matches: The list of regular expressions.
+        :param Sequence[str] matches: The list of regular expressions.
         """
         if match_quantifier is not None:
             pulumi.set(__self__, "match_quantifier", match_quantifier)
@@ -591,7 +591,7 @@ class RestResponseResponseRegex(dict):
 
     @property
     @pulumi.getter
-    def matches(self) -> Optional[List[str]]:
+    def matches(self) -> Optional[Sequence[str]]:
         """
         The list of regular expressions.
         """
@@ -634,14 +634,14 @@ class RolloutOperationInfoResponseResult(dict):
     def __init__(__self__, *,
                  end_time: str,
                  error: 'outputs.CloudErrorBodyResponseResult',
-                 retry_attempt: float,
+                 retry_attempt: int,
                  skip_succeeded_on_retry: bool,
                  start_time: str):
         """
         Detailed runtime information of the rollout.
         :param str end_time: The start time of the rollout in UTC. This property will not be set if the rollout has not completed yet.
         :param 'CloudErrorBodyResponseArgs' error: The detailed error information for any failure.
-        :param float retry_attempt: The ordinal count of the number of retry attempts on a rollout. 0 if no retries of the rollout have been performed. If the rollout is updated with a PUT, this count is reset to 0.
+        :param int retry_attempt: The ordinal count of the number of retry attempts on a rollout. 0 if no retries of the rollout have been performed. If the rollout is updated with a PUT, this count is reset to 0.
         :param bool skip_succeeded_on_retry: True, if all steps that succeeded on the previous run/attempt were chosen to be skipped in this retry attempt. False, otherwise.
         :param str start_time: The start time of the rollout in UTC.
         """
@@ -669,7 +669,7 @@ class RolloutOperationInfoResponseResult(dict):
 
     @property
     @pulumi.getter(name="retryAttempt")
-    def retry_attempt(self) -> float:
+    def retry_attempt(self) -> int:
         """
         The ordinal count of the number of retry attempts on a rollout. 0 if no retries of the rollout have been performed. If the rollout is updated with a PUT, this count is reset to 0.
         """
@@ -698,18 +698,18 @@ class RolloutStepResponseResult(dict):
     Defines a specific step on a target service unit.
     """
     def __init__(__self__, *,
-                 messages: List['outputs.MessageResponseResult'],
+                 messages: Sequence['outputs.MessageResponseResult'],
                  name: str,
                  operation_info: 'outputs.StepOperationInfoResponseResult',
-                 resource_operations: List['outputs.ResourceOperationResponseResult'],
+                 resource_operations: Sequence['outputs.ResourceOperationResponseResult'],
                  status: str,
                  step_group: Optional[str] = None):
         """
         Defines a specific step on a target service unit.
-        :param List['MessageResponseArgs'] messages: Supplementary informative messages during rollout.
+        :param Sequence['MessageResponseArgs'] messages: Supplementary informative messages during rollout.
         :param str name: Name of the step.
         :param 'StepOperationInfoResponseArgs' operation_info: Detailed information of specific action execution.
-        :param List['ResourceOperationResponseArgs'] resource_operations: Set of resource operations that were performed, if any, on an Azure resource.
+        :param Sequence['ResourceOperationResponseArgs'] resource_operations: Set of resource operations that were performed, if any, on an Azure resource.
         :param str status: Current state of the step.
         :param str step_group: The step group the current step is part of.
         """
@@ -723,7 +723,7 @@ class RolloutStepResponseResult(dict):
 
     @property
     @pulumi.getter
-    def messages(self) -> List['outputs.MessageResponseResult']:
+    def messages(self) -> Sequence['outputs.MessageResponseResult']:
         """
         Supplementary informative messages during rollout.
         """
@@ -747,7 +747,7 @@ class RolloutStepResponseResult(dict):
 
     @property
     @pulumi.getter(name="resourceOperations")
-    def resource_operations(self) -> List['outputs.ResourceOperationResponseResult']:
+    def resource_operations(self) -> Sequence['outputs.ResourceOperationResponseResult']:
         """
         Set of resource operations that were performed, if any, on an Azure resource.
         """
@@ -815,13 +815,13 @@ class ServiceResponseResult(dict):
                  target_location: str,
                  target_subscription_id: str,
                  name: Optional[str] = None,
-                 service_units: Optional[List['outputs.ServiceUnitResponseResult']] = None):
+                 service_units: Optional[Sequence['outputs.ServiceUnitResponseResult']] = None):
         """
         Defines a service.
         :param str target_location: The Azure location to which the resources in the service belong to or should be deployed to.
         :param str target_subscription_id: The subscription to which the resources in the service belong to or should be deployed to.
         :param str name: Name of the service.
-        :param List['ServiceUnitResponseArgs'] service_units: The detailed information about the units that make up the service.
+        :param Sequence['ServiceUnitResponseArgs'] service_units: The detailed information about the units that make up the service.
         """
         pulumi.set(__self__, "target_location", target_location)
         pulumi.set(__self__, "target_subscription_id", target_subscription_id)
@@ -856,7 +856,7 @@ class ServiceResponseResult(dict):
 
     @property
     @pulumi.getter(name="serviceUnits")
-    def service_units(self) -> Optional[List['outputs.ServiceUnitResponseResult']]:
+    def service_units(self) -> Optional[Sequence['outputs.ServiceUnitResponseResult']]:
         """
         The detailed information about the units that make up the service.
         """
@@ -935,14 +935,14 @@ class ServiceUnitResponseResult(dict):
                  target_resource_group: str,
                  artifacts: Optional['outputs.ServiceUnitArtifactsResponse'] = None,
                  name: Optional[str] = None,
-                 steps: Optional[List['outputs.RolloutStepResponseResult']] = None):
+                 steps: Optional[Sequence['outputs.RolloutStepResponseResult']] = None):
         """
         Defines a service unit.
         :param str deployment_mode: Describes the type of ARM deployment to be performed on the resource.
         :param str target_resource_group: The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
         :param 'ServiceUnitArtifactsResponseArgs' artifacts: The artifacts for the service unit.
         :param str name: Name of the service unit.
-        :param List['RolloutStepResponseArgs'] steps: Detailed step information, if present.
+        :param Sequence['RolloutStepResponseArgs'] steps: Detailed step information, if present.
         """
         pulumi.set(__self__, "deployment_mode", deployment_mode)
         pulumi.set(__self__, "target_resource_group", target_resource_group)
@@ -987,7 +987,7 @@ class ServiceUnitResponseResult(dict):
 
     @property
     @pulumi.getter
-    def steps(self) -> Optional[List['outputs.RolloutStepResponseResult']]:
+    def steps(self) -> Optional[Sequence['outputs.RolloutStepResponseResult']]:
         """
         Detailed step information, if present.
         """
@@ -1002,16 +1002,16 @@ class StepGroupResponse(dict):
     def __init__(__self__, *,
                  deployment_target_id: str,
                  name: str,
-                 depends_on_step_groups: Optional[List[str]] = None,
-                 post_deployment_steps: Optional[List['outputs.PrePostStepResponse']] = None,
-                 pre_deployment_steps: Optional[List['outputs.PrePostStepResponse']] = None):
+                 depends_on_step_groups: Optional[Sequence[str]] = None,
+                 post_deployment_steps: Optional[Sequence['outputs.PrePostStepResponse']] = None,
+                 pre_deployment_steps: Optional[Sequence['outputs.PrePostStepResponse']] = None):
         """
         The properties that define a Step group in a rollout.
         :param str deployment_target_id: The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
         :param str name: The name of the step group.
-        :param List[str] depends_on_step_groups: The list of step group names on which this step group depends on.
-        :param List['PrePostStepResponseArgs'] post_deployment_steps: The list of steps to be run after deploying the target.
-        :param List['PrePostStepResponseArgs'] pre_deployment_steps: The list of steps to be run before deploying the target.
+        :param Sequence[str] depends_on_step_groups: The list of step group names on which this step group depends on.
+        :param Sequence['PrePostStepResponseArgs'] post_deployment_steps: The list of steps to be run after deploying the target.
+        :param Sequence['PrePostStepResponseArgs'] pre_deployment_steps: The list of steps to be run before deploying the target.
         """
         pulumi.set(__self__, "deployment_target_id", deployment_target_id)
         pulumi.set(__self__, "name", name)
@@ -1040,7 +1040,7 @@ class StepGroupResponse(dict):
 
     @property
     @pulumi.getter(name="dependsOnStepGroups")
-    def depends_on_step_groups(self) -> Optional[List[str]]:
+    def depends_on_step_groups(self) -> Optional[Sequence[str]]:
         """
         The list of step group names on which this step group depends on.
         """
@@ -1048,7 +1048,7 @@ class StepGroupResponse(dict):
 
     @property
     @pulumi.getter(name="postDeploymentSteps")
-    def post_deployment_steps(self) -> Optional[List['outputs.PrePostStepResponse']]:
+    def post_deployment_steps(self) -> Optional[Sequence['outputs.PrePostStepResponse']]:
         """
         The list of steps to be run after deploying the target.
         """
@@ -1056,7 +1056,7 @@ class StepGroupResponse(dict):
 
     @property
     @pulumi.getter(name="preDeploymentSteps")
-    def pre_deployment_steps(self) -> Optional[List['outputs.PrePostStepResponse']]:
+    def pre_deployment_steps(self) -> Optional[Sequence['outputs.PrePostStepResponse']]:
         """
         The list of steps to be run before deploying the target.
         """

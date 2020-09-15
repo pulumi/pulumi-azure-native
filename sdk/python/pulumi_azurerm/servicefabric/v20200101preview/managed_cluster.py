@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,16 +20,16 @@ class ManagedCluster(pulumi.CustomResource):
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_user_name: Optional[pulumi.Input[str]] = None,
                  azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
-                 client_connection_port: Optional[pulumi.Input[float]] = None,
-                 clients: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]]] = None,
+                 client_connection_port: Optional[pulumi.Input[int]] = None,
+                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
                  cluster_upgrade_mode: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
-                 fabric_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
-                 http_gateway_connection_port: Optional[pulumi.Input[float]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
+                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
+                 http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -45,8 +45,8 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[str] admin_password: vm admin user password.
         :param pulumi.Input[str] admin_user_name: vm admin user name.
         :param pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']] azure_active_directory: Azure active directory.
-        :param pulumi.Input[float] client_connection_port: The port used for client connections to the cluster.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]] clients: client certificates for the cluster.
+        :param pulumi.Input[int] client_connection_port: The port used for client connections to the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]] clients: client certificates for the cluster.
         :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] cluster_upgrade_description: Describes the policy used when upgrading the cluster.
@@ -55,9 +55,9 @@ class ManagedCluster(pulumi.CustomResource):
                  - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
                  - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         :param pulumi.Input[str] dns_name: The cluster dns name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
-        :param pulumi.Input[float] http_gateway_connection_port: The port used for http connections to the cluster.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Describes load balancing rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
+        :param pulumi.Input[int] http_gateway_connection_port: The port used for http connections to the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Describes load balancing rules.
         :param pulumi.Input[str] location: Azure resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the managed cluster
@@ -165,7 +165,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientConnectionPort")
-    def client_connection_port(self) -> pulumi.Output[Optional[float]]:
+    def client_connection_port(self) -> pulumi.Output[Optional[int]]:
         """
         The port used for client connections to the cluster.
         """
@@ -173,7 +173,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def clients(self) -> pulumi.Output[Optional[List['outputs.ClientCertificateResponse']]]:
+    def clients(self) -> pulumi.Output[Optional[Sequence['outputs.ClientCertificateResponse']]]:
         """
         client certificates for the cluster.
         """
@@ -259,7 +259,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fabricSettings")
-    def fabric_settings(self) -> pulumi.Output[Optional[List['outputs.SettingsSectionDescriptionResponse']]]:
+    def fabric_settings(self) -> pulumi.Output[Optional[Sequence['outputs.SettingsSectionDescriptionResponse']]]:
         """
         The list of custom fabric settings to configure the cluster.
         """
@@ -275,7 +275,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpGatewayConnectionPort")
-    def http_gateway_connection_port(self) -> pulumi.Output[Optional[float]]:
+    def http_gateway_connection_port(self) -> pulumi.Output[Optional[int]]:
         """
         The port used for http connections to the cluster.
         """
@@ -283,7 +283,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> pulumi.Output[Optional[List['outputs.LoadBalancingRuleResponse']]]:
+    def load_balancing_rules(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancingRuleResponse']]]:
         """
         Describes load balancing rules.
         """

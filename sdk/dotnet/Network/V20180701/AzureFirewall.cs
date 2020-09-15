@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// Collection of application rule collections used by a Azure Firewall.
         /// </summary>
         [Output("applicationRuleCollections")]
-        public Output<ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult>> ApplicationRuleCollections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponse>> ApplicationRuleCollections { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// IP configuration of the Azure Firewall resource.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// Collection of network rule collections used by a Azure Firewall.
         /// </summary>
         [Output("networkRuleCollections")]
-        public Output<ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult>> NetworkRuleCollections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponse>> NetworkRuleCollections { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.

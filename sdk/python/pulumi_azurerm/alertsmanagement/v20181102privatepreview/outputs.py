@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -154,11 +154,11 @@ class ConditionResponse(dict):
     """
     def __init__(__self__, *,
                  operator: Optional[str] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         condition to trigger an action rule
         :param str operator: operator for a given condition
-        :param List[str] values: list of values to match for a given condition.
+        :param Sequence[str] values: list of values to match for a given condition.
         """
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
@@ -175,7 +175,7 @@ class ConditionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         list of values to match for a given condition.
         """
@@ -338,11 +338,11 @@ class ScopeResponse(dict):
     """
     def __init__(__self__, *,
                  type: Optional[str] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
         :param str type: type of target scope
-        :param List[str] values: list of ARM IDs of the given scope type which will be the target of the given action rule.
+        :param Sequence[str] values: list of ARM IDs of the given scope type which will be the target of the given action rule.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -359,7 +359,7 @@ class ScopeResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         list of ARM IDs of the given scope type which will be the target of the given action rule.
         """
@@ -414,14 +414,14 @@ class SuppressionScheduleResponse(dict):
     def __init__(__self__, *,
                  end_date: Optional[str] = None,
                  end_time: Optional[str] = None,
-                 recurrence_values: Optional[List[float]] = None,
+                 recurrence_values: Optional[Sequence[int]] = None,
                  start_date: Optional[str] = None,
                  start_time: Optional[str] = None):
         """
         Schedule for a given suppression configuration.
         :param str end_date: End date for suppression
         :param str end_time: End date for suppression
-        :param List[float] recurrence_values: Specifies the values for recurrence pattern
+        :param Sequence[int] recurrence_values: Specifies the values for recurrence pattern
         :param str start_date: Start date for suppression
         :param str start_time: Start time for suppression
         """
@@ -454,7 +454,7 @@ class SuppressionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="recurrenceValues")
-    def recurrence_values(self) -> Optional[List[float]]:
+    def recurrence_values(self) -> Optional[Sequence[int]]:
         """
         Specifies the values for recurrence pattern
         """

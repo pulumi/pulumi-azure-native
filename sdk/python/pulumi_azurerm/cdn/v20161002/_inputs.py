@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,14 +19,14 @@ class DeepCreatedOriginArgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 http_port: Optional[pulumi.Input[float]] = None,
-                 https_port: Optional[pulumi.Input[float]] = None):
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None):
         """
         Origin to be added when creating a CDN endpoint.
         :param pulumi.Input[str] host_name: The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
         :param pulumi.Input[str] name: Origin name
-        :param pulumi.Input[float] http_port: The value of the HTTP port. Must be between 1 and 65535
-        :param pulumi.Input[float] https_port: The value of the HTTPS port. Must be between 1 and 65535
+        :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535
+        :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "name", name)
@@ -61,26 +61,26 @@ class DeepCreatedOriginArgs:
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[pulumi.Input[float]]:
+    def http_port(self) -> Optional[pulumi.Input[int]]:
         """
         The value of the HTTP port. Must be between 1 and 65535
         """
         return pulumi.get(self, "http_port")
 
     @http_port.setter
-    def http_port(self, value: Optional[pulumi.Input[float]]):
+    def http_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "http_port", value)
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[pulumi.Input[float]]:
+    def https_port(self) -> Optional[pulumi.Input[int]]:
         """
         The value of the HTTPS port. Must be between 1 and 65535
         """
         return pulumi.get(self, "https_port")
 
     @https_port.setter
-    def https_port(self, value: Optional[pulumi.Input[float]]):
+    def https_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "https_port", value)
 
 
@@ -88,12 +88,12 @@ class DeepCreatedOriginArgs:
 class GeoFilterArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
-                 country_codes: pulumi.Input[List[pulumi.Input[str]]],
+                 country_codes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  relative_path: pulumi.Input[str]):
         """
         Rules defining user geo access within a CDN endpoint.
         :param pulumi.Input[str] action: Action of the geo filter, i.e. allow or block access.
-        :param pulumi.Input[List[pulumi.Input[str]]] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         :param pulumi.Input[str] relative_path: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
         """
         pulumi.set(__self__, "action", action)
@@ -114,14 +114,14 @@ class GeoFilterArgs:
 
     @property
     @pulumi.getter(name="countryCodes")
-    def country_codes(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def country_codes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         """
         return pulumi.get(self, "country_codes")
 
     @country_codes.setter
-    def country_codes(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def country_codes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "country_codes", value)
 
     @property

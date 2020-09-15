@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -222,7 +222,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainNotRenewableReasons")
-    def domain_not_renewable_reasons(self) -> pulumi.Output[List[str]]:
+    def domain_not_renewable_reasons(self) -> pulumi.Output[Sequence[str]]:
         """
         Reasons why domain is not renewable.
         """
@@ -262,7 +262,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedHostNames")
-    def managed_host_names(self) -> pulumi.Output[List['outputs.HostNameResponse']]:
+    def managed_host_names(self) -> pulumi.Output[Sequence['outputs.HostNameResponse']]:
         """
         All hostnames derived from the domain and assigned to Azure resources.
         """
@@ -278,7 +278,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[List[str]]:
+    def name_servers(self) -> pulumi.Output[Sequence[str]]:
         """
         Name servers.
         """

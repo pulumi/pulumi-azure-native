@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// This type describes a volume provided by an Azure Files file share.
         /// </summary>
         [Output("azureFileParameters")]
-        public Output<Outputs.VolumeProviderParametersAzureFileResponseResult?> AzureFileParameters { get; private set; } = null!;
+        public Output<Outputs.VolumeProviderParametersAzureFileResponse?> AzureFileParameters { get; private set; } = null!;
 
         /// <summary>
         /// User readable description of the volume.

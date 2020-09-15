@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -31,14 +31,14 @@ class AlertingActionResponse(dict):
                  severity: str,
                  trigger: 'outputs.TriggerConditionResponse',
                  azns_action: Optional['outputs.AzNsActionGroupResponse'] = None,
-                 throttling_in_min: Optional[float] = None):
+                 throttling_in_min: Optional[int] = None):
         """
         Specify action need to be taken when rule type is Alert
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
         :param str severity: Severity of the alert
         :param 'TriggerConditionResponseArgs' trigger: The trigger condition that results in the alert rule being.
         :param 'AzNsActionGroupResponseArgs' azns_action: Azure action group reference.
-        :param float throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
+        :param int throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
         pulumi.set(__self__, "severity", severity)
@@ -82,7 +82,7 @@ class AlertingActionResponse(dict):
 
     @property
     @pulumi.getter(name="throttlingInMin")
-    def throttling_in_min(self) -> Optional[float]:
+    def throttling_in_min(self) -> Optional[int]:
         """
         time (in minutes) for which Alerts should be throttled or suppressed.
         """
@@ -98,12 +98,12 @@ class AzNsActionGroupResponse(dict):
     Azure action group
     """
     def __init__(__self__, *,
-                 action_group: Optional[List[str]] = None,
+                 action_group: Optional[Sequence[str]] = None,
                  custom_webhook_payload: Optional[str] = None,
                  email_subject: Optional[str] = None):
         """
         Azure action group
-        :param List[str] action_group: Azure Action Group reference.
+        :param Sequence[str] action_group: Azure Action Group reference.
         :param str custom_webhook_payload: Custom payload to be sent for all webhook URI in Azure action group
         :param str email_subject: Custom subject override for all email ids in Azure action group
         """
@@ -116,7 +116,7 @@ class AzNsActionGroupResponse(dict):
 
     @property
     @pulumi.getter(name="actionGroup")
-    def action_group(self) -> Optional[List[str]]:
+    def action_group(self) -> Optional[Sequence[str]]:
         """
         Azure Action Group reference.
         """
@@ -149,11 +149,11 @@ class CriteriaResponse(dict):
     """
     def __init__(__self__, *,
                  metric_name: str,
-                 dimensions: Optional[List['outputs.DimensionResponse']] = None):
+                 dimensions: Optional[Sequence['outputs.DimensionResponse']] = None):
         """
         Specifies the criteria for converting log to metric.
         :param str metric_name: Name of the metric
-        :param List['DimensionResponseArgs'] dimensions: List of Dimensions for creating metric
+        :param Sequence['DimensionResponseArgs'] dimensions: List of Dimensions for creating metric
         """
         pulumi.set(__self__, "metric_name", metric_name)
         if dimensions is not None:
@@ -169,7 +169,7 @@ class CriteriaResponse(dict):
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[List['outputs.DimensionResponse']]:
+    def dimensions(self) -> Optional[Sequence['outputs.DimensionResponse']]:
         """
         List of Dimensions for creating metric
         """
@@ -187,12 +187,12 @@ class DimensionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         Specifies the criteria for converting log to metric.
         :param str name: Name of the dimension
         :param str operator: Operator for dimension values
-        :param List[str] values: List of dimension values
+        :param Sequence[str] values: List of dimension values
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -216,7 +216,7 @@ class DimensionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         List of dimension values
         """
@@ -294,11 +294,11 @@ class LogToMetricActionResponse(dict):
     Specify action need to be taken when rule type is converting log to metric
     """
     def __init__(__self__, *,
-                 criteria: List['outputs.CriteriaResponse'],
+                 criteria: Sequence['outputs.CriteriaResponse'],
                  odata_type: str):
         """
         Specify action need to be taken when rule type is converting log to metric
-        :param List['CriteriaResponseArgs'] criteria: Criteria of Metric
+        :param Sequence['CriteriaResponseArgs'] criteria: Criteria of Metric
         :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
         """
         pulumi.set(__self__, "criteria", criteria)
@@ -306,7 +306,7 @@ class LogToMetricActionResponse(dict):
 
     @property
     @pulumi.getter
-    def criteria(self) -> List['outputs.CriteriaResponse']:
+    def criteria(self) -> Sequence['outputs.CriteriaResponse']:
         """
         Criteria of Metric
         """
@@ -330,19 +330,19 @@ class ScheduleResponse(dict):
     Defines how often to run the search and the time interval.
     """
     def __init__(__self__, *,
-                 frequency_in_minutes: float,
-                 time_window_in_minutes: float):
+                 frequency_in_minutes: int,
+                 time_window_in_minutes: int):
         """
         Defines how often to run the search and the time interval.
-        :param float frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
-        :param float time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+        :param int frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
+        :param int time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
         """
         pulumi.set(__self__, "frequency_in_minutes", frequency_in_minutes)
         pulumi.set(__self__, "time_window_in_minutes", time_window_in_minutes)
 
     @property
     @pulumi.getter(name="frequencyInMinutes")
-    def frequency_in_minutes(self) -> float:
+    def frequency_in_minutes(self) -> int:
         """
         frequency (in minutes) at which rule condition should be evaluated.
         """
@@ -350,7 +350,7 @@ class ScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="timeWindowInMinutes")
-    def time_window_in_minutes(self) -> float:
+    def time_window_in_minutes(self) -> int:
         """
         Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
         """
@@ -367,13 +367,13 @@ class SourceResponse(dict):
     """
     def __init__(__self__, *,
                  data_source_id: str,
-                 authorized_resources: Optional[List[str]] = None,
+                 authorized_resources: Optional[Sequence[str]] = None,
                  query: Optional[str] = None,
                  query_type: Optional[str] = None):
         """
         Specifies the log search query.
         :param str data_source_id: The resource uri over which log search query is to be run.
-        :param List[str] authorized_resources: List of  Resource referred into query
+        :param Sequence[str] authorized_resources: List of  Resource referred into query
         :param str query: Log search query. Required for action type - AlertingAction
         :param str query_type: Set value to 'ResultCount' .
         """
@@ -395,7 +395,7 @@ class SourceResponse(dict):
 
     @property
     @pulumi.getter(name="authorizedResources")
-    def authorized_resources(self) -> Optional[List[str]]:
+    def authorized_resources(self) -> Optional[Sequence[str]]:
         """
         List of  Resource referred into query
         """

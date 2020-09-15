@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -75,7 +75,7 @@ class GetManagementGroupDiagnosticSettingResult:
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional[List['outputs.ManagementGroupLogSettingsResponse']]:
+    def logs(self) -> Optional[Sequence['outputs.ManagementGroupLogSettingsResponse']]:
         """
         The list of logs settings.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,17 +17,17 @@ class FrontDoor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BackendPoolArgs']]]]] = None,
+                 backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendPoolArgs']]]]] = None,
                  enabled_state: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  front_door_name: Optional[pulumi.Input[str]] = None,
-                 frontend_endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontendEndpointArgs']]]]] = None,
-                 health_probe_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HealthProbeSettingsModelArgs']]]]] = None,
-                 load_balancing_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingSettingsModelArgs']]]]] = None,
+                 frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendEndpointArgs']]]]] = None,
+                 health_probe_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HealthProbeSettingsModelArgs']]]]] = None,
+                 load_balancing_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingSettingsModelArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_state: Optional[pulumi.Input[str]] = None,
-                 routing_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]]] = None,
+                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,17 +37,17 @@ class FrontDoor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BackendPoolArgs']]]] backend_pools: Backend pools available to routing rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendPoolArgs']]]] backend_pools: Backend pools available to routing rules.
         :param pulumi.Input[str] enabled_state: Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[str] friendly_name: A friendly name for the frontDoor
         :param pulumi.Input[str] front_door_name: Name of the Front Door which is globally unique.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontendEndpointArgs']]]] frontend_endpoints: Frontend endpoints available to routing rules.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HealthProbeSettingsModelArgs']]]] health_probe_settings: Health probe settings associated with this Front Door instance.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingSettingsModelArgs']]]] load_balancing_settings: Load balancing settings associated with this Front Door instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendEndpointArgs']]]] frontend_endpoints: Frontend endpoints available to routing rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HealthProbeSettingsModelArgs']]]] health_probe_settings: Health probe settings associated with this Front Door instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingSettingsModelArgs']]]] load_balancing_settings: Load balancing settings associated with this Front Door instance.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] resource_state: Resource status of the Front Door.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]] routing_rules: Routing rules associated with this Front Door.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]] routing_rules: Routing rules associated with this Front Door.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -115,7 +115,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPools")
-    def backend_pools(self) -> pulumi.Output[Optional[List['outputs.BackendPoolResponse']]]:
+    def backend_pools(self) -> pulumi.Output[Optional[Sequence['outputs.BackendPoolResponse']]]:
         """
         Backend pools available to routing rules.
         """
@@ -147,7 +147,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendEndpoints")
-    def frontend_endpoints(self) -> pulumi.Output[Optional[List['outputs.FrontendEndpointResponse']]]:
+    def frontend_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.FrontendEndpointResponse']]]:
         """
         Frontend endpoints available to routing rules.
         """
@@ -155,7 +155,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthProbeSettings")
-    def health_probe_settings(self) -> pulumi.Output[Optional[List['outputs.HealthProbeSettingsModelResponse']]]:
+    def health_probe_settings(self) -> pulumi.Output[Optional[Sequence['outputs.HealthProbeSettingsModelResponse']]]:
         """
         Health probe settings associated with this Front Door instance.
         """
@@ -163,7 +163,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingSettings")
-    def load_balancing_settings(self) -> pulumi.Output[Optional[List['outputs.LoadBalancingSettingsModelResponse']]]:
+    def load_balancing_settings(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancingSettingsModelResponse']]]:
         """
         Load balancing settings associated with this Front Door instance.
         """
@@ -203,7 +203,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> pulumi.Output[Optional[List['outputs.RoutingRuleResponse']]]:
+    def routing_rules(self) -> pulumi.Output[Optional[Sequence['outputs.RoutingRuleResponse']]]:
         """
         Routing rules associated with this Front Door.
         """

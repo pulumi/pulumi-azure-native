@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// The parent firewall policy from which rules are inherited.
         /// </summary>
         [Output("basePolicy")]
-        public Output<Outputs.SubResourceResponseResult?> BasePolicy { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> BasePolicy { get; private set; } = null!;
 
         /// <summary>
         /// List of references to Child Firewall Policies.
         /// </summary>
         [Output("childPolicies")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> ChildPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> ChildPolicies { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// List of references to Azure Firewalls that this Firewall Policy is associated with.
         /// </summary>
         [Output("firewalls")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> Firewalls { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> Firewalls { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// List of references to FirewallPolicyRuleGroups.
         /// </summary>
         [Output("ruleGroups")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> RuleGroups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> RuleGroups { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

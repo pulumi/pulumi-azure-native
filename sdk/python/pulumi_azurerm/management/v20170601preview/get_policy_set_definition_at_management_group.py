@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -88,7 +88,7 @@ class GetPolicySetDefinitionAtManagementGroupResult:
 
     @property
     @pulumi.getter(name="policyDefinitions")
-    def policy_definitions(self) -> List['outputs.PolicyDefinitionReferenceResponse']:
+    def policy_definitions(self) -> Sequence['outputs.PolicyDefinitionReferenceResponse']:
         """
         An array of policy definition references.
         """

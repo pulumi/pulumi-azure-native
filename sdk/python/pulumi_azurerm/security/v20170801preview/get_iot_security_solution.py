@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -63,7 +63,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter(name="autoDiscoveredResources")
-    def auto_discovered_resources(self) -> List[str]:
+    def auto_discovered_resources(self) -> Sequence[str]:
         """
         List of resources that were automatically discovered as relevant to the security solution.
         """
@@ -71,7 +71,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter(name="disabledDataSources")
-    def disabled_data_sources(self) -> Optional[List[str]]:
+    def disabled_data_sources(self) -> Optional[Sequence[str]]:
         """
         Disabled data sources. Disabling these data sources compromises the system.
         """
@@ -87,7 +87,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter
-    def export(self) -> Optional[List[str]]:
+    def export(self) -> Optional[Sequence[str]]:
         """
         List of additional export to workspace data options
         """
@@ -95,7 +95,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter(name="iotHubs")
-    def iot_hubs(self) -> List[str]:
+    def iot_hubs(self) -> Sequence[str]:
         """
         IoT Hub resource IDs
         """
@@ -119,7 +119,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter(name="recommendationsConfiguration")
-    def recommendations_configuration(self) -> Optional[List['outputs.RecommendationConfigurationPropertiesResponse']]:
+    def recommendations_configuration(self) -> Optional[Sequence['outputs.RecommendationConfigurationPropertiesResponse']]:
         """
         List of recommendation configuration
         """

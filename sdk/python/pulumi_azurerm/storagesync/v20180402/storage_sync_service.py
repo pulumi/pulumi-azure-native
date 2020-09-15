@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['StorageSyncService']
@@ -105,7 +105,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageSyncServiceStatus")
-    def storage_sync_service_status(self) -> pulumi.Output[float]:
+    def storage_sync_service_status(self) -> pulumi.Output[int]:
         """
         Storage Sync service status.
         """

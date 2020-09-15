@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,8 +27,8 @@ class GetNodeTypeResult:
         if capacities and not isinstance(capacities, dict):
             raise TypeError("Expected argument 'capacities' to be a dict")
         pulumi.set(__self__, "capacities", capacities)
-        if data_disk_size_gb and not isinstance(data_disk_size_gb, float):
-            raise TypeError("Expected argument 'data_disk_size_gb' to be a float")
+        if data_disk_size_gb and not isinstance(data_disk_size_gb, int):
+            raise TypeError("Expected argument 'data_disk_size_gb' to be a int")
         pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
         if ephemeral_ports and not isinstance(ephemeral_ports, dict):
             raise TypeError("Expected argument 'ephemeral_ports' to be a dict")
@@ -66,8 +66,8 @@ class GetNodeTypeResult:
         if vm_image_version and not isinstance(vm_image_version, str):
             raise TypeError("Expected argument 'vm_image_version' to be a str")
         pulumi.set(__self__, "vm_image_version", vm_image_version)
-        if vm_instance_count and not isinstance(vm_instance_count, float):
-            raise TypeError("Expected argument 'vm_instance_count' to be a float")
+        if vm_instance_count and not isinstance(vm_instance_count, int):
+            raise TypeError("Expected argument 'vm_instance_count' to be a int")
         pulumi.set(__self__, "vm_instance_count", vm_instance_count)
         if vm_secrets and not isinstance(vm_secrets, list):
             raise TypeError("Expected argument 'vm_secrets' to be a list")
@@ -94,7 +94,7 @@ class GetNodeTypeResult:
 
     @property
     @pulumi.getter(name="dataDiskSizeGB")
-    def data_disk_size_gb(self) -> float:
+    def data_disk_size_gb(self) -> int:
         """
         Disk size for each vm in the node type in GBs.
         """
@@ -158,7 +158,7 @@ class GetNodeTypeResult:
 
     @property
     @pulumi.getter(name="vmExtensions")
-    def vm_extensions(self) -> Optional[List['outputs.VMSSExtensionResponse']]:
+    def vm_extensions(self) -> Optional[Sequence['outputs.VMSSExtensionResponse']]:
         """
         Set of extensions that should be installed onto the virtual machines.
         """
@@ -198,7 +198,7 @@ class GetNodeTypeResult:
 
     @property
     @pulumi.getter(name="vmInstanceCount")
-    def vm_instance_count(self) -> float:
+    def vm_instance_count(self) -> int:
         """
         The number of nodes in the node type.
         """
@@ -206,7 +206,7 @@ class GetNodeTypeResult:
 
     @property
     @pulumi.getter(name="vmSecrets")
-    def vm_secrets(self) -> Optional[List['outputs.VaultSecretGroupResponse']]:
+    def vm_secrets(self) -> Optional[Sequence['outputs.VaultSecretGroupResponse']]:
         """
         The secrets to install in the virtual machines.
         """

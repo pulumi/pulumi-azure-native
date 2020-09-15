@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// <summary>
         /// Azure active directory.
         /// </summary>
-        public readonly Outputs.AzureActiveDirectoryResponseResult? AzureActiveDirectory;
+        public readonly Outputs.AzureActiveDirectoryResponse? AzureActiveDirectory;
         /// <summary>
         /// The port used for client connections to the cluster.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// <summary>
         /// client certificates for the cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClientCertificateResponseResult> Clients;
+        public readonly ImmutableArray<Outputs.ClientCertificateResponse> Clients;
         /// <summary>
         /// The cluster certificate thumbprint used node to node communication.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// <summary>
         /// Describes the policy used when upgrading the cluster.
         /// </summary>
-        public readonly Outputs.ClusterUpgradePolicyResponseResult? ClusterUpgradeDescription;
+        public readonly Outputs.ClusterUpgradePolicyResponse? ClusterUpgradeDescription;
         /// <summary>
         /// The upgrade mode of the cluster when new Service Fabric runtime version is available.
         /// 
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// <summary>
         /// The list of custom fabric settings to configure the cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SettingsSectionDescriptionResponseResult> FabricSettings;
+        public readonly ImmutableArray<Outputs.SettingsSectionDescriptionResponse> FabricSettings;
         /// <summary>
         /// the cluster Fully qualified domain name.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// <summary>
         /// Describes load balancing rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoadBalancingRuleResponseResult> LoadBalancingRules;
+        public readonly ImmutableArray<Outputs.LoadBalancingRuleResponse> LoadBalancingRules;
         /// <summary>
         /// Azure resource location.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// <summary>
         /// The sku of the managed cluster
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -152,11 +152,11 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
 
             string adminUserName,
 
-            Outputs.AzureActiveDirectoryResponseResult? azureActiveDirectory,
+            Outputs.AzureActiveDirectoryResponse? azureActiveDirectory,
 
             int? clientConnectionPort,
 
-            ImmutableArray<Outputs.ClientCertificateResponseResult> clients,
+            ImmutableArray<Outputs.ClientCertificateResponse> clients,
 
             string clusterCertificateThumbprint,
 
@@ -166,7 +166,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
 
             string clusterState,
 
-            Outputs.ClusterUpgradePolicyResponseResult? clusterUpgradeDescription,
+            Outputs.ClusterUpgradePolicyResponse? clusterUpgradeDescription,
 
             string? clusterUpgradeMode,
 
@@ -174,13 +174,13 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
 
             string etag,
 
-            ImmutableArray<Outputs.SettingsSectionDescriptionResponseResult> fabricSettings,
+            ImmutableArray<Outputs.SettingsSectionDescriptionResponse> fabricSettings,
 
             string fqdn,
 
             int? httpGatewayConnectionPort,
 
-            ImmutableArray<Outputs.LoadBalancingRuleResponseResult> loadBalancingRules,
+            ImmutableArray<Outputs.LoadBalancingRuleResponse> loadBalancingRules,
 
             string location,
 
@@ -188,7 +188,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
 
             string provisioningState,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

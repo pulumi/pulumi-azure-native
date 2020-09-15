@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
         /// <summary>
         /// The access control definition of the StreamingEndpoint.
         /// </summary>
-        public readonly Outputs.StreamingEndpointAccessControlResponseResult? AccessControl;
+        public readonly Outputs.StreamingEndpointAccessControlResponse? AccessControl;
         /// <summary>
         /// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
         /// <summary>
         /// The StreamingEndpoint access policies.
         /// </summary>
-        public readonly Outputs.CrossSiteAccessPoliciesResponseResult? CrossSiteAccessPolicies;
+        public readonly Outputs.CrossSiteAccessPoliciesResponse? CrossSiteAccessPolicies;
         /// <summary>
         /// The custom host names of the StreamingEndpoint
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
 
         [OutputConstructor]
         private GetStreamingEndpointResult(
-            Outputs.StreamingEndpointAccessControlResponseResult? accessControl,
+            Outputs.StreamingEndpointAccessControlResponse? accessControl,
 
             string? availabilitySetName,
 
@@ -140,7 +140,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
 
             string created,
 
-            Outputs.CrossSiteAccessPoliciesResponseResult? crossSiteAccessPolicies,
+            Outputs.CrossSiteAccessPoliciesResponse? crossSiteAccessPolicies,
 
             ImmutableArray<string> customHostNames,
 

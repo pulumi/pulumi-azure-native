@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// A collection of service endpoint policy definitions of the service endpoint policy.
         /// </summary>
         [Output("serviceEndpointPolicyDefinitions")]
-        public Output<ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponseResult>> ServiceEndpointPolicyDefinitions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponse>> ServiceEndpointPolicyDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// A collection of references to subnets.
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubnetResponse>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

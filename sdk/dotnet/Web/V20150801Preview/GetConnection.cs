@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Web.V20150801Preview
         /// <summary>
         /// expanded connection provider name
         /// </summary>
-        public readonly Outputs.ExpandedParentApiEntityResponseResult? Api;
+        public readonly Outputs.ExpandedParentApiEntityResponse? Api;
         /// <summary>
         /// Timestamp of last connection change.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Web.V20150801Preview
         /// <summary>
         /// Custom login setting values.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterCustomLoginSettingValuesResponseResult>? CustomParameterValues;
+        public readonly ImmutableDictionary<string, Outputs.ParameterCustomLoginSettingValuesResponse>? CustomParameterValues;
         /// <summary>
         /// display name
         /// </summary>
@@ -91,7 +91,7 @@ namespace Pulumi.AzureRM.Web.V20150801Preview
         /// <summary>
         /// Status of the connection
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectionStatusResponseResult> Statuses;
+        public readonly ImmutableArray<Outputs.ConnectionStatusResponse> Statuses;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -104,13 +104,13 @@ namespace Pulumi.AzureRM.Web.V20150801Preview
 
         [OutputConstructor]
         private GetConnectionResult(
-            Outputs.ExpandedParentApiEntityResponseResult? api,
+            Outputs.ExpandedParentApiEntityResponse? api,
 
             string? changedTime,
 
             string? createdTime,
 
-            ImmutableDictionary<string, Outputs.ParameterCustomLoginSettingValuesResponseResult>? customParameterValues,
+            ImmutableDictionary<string, Outputs.ParameterCustomLoginSettingValuesResponse>? customParameterValues,
 
             string? displayName,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.Web.V20150801Preview
 
             ImmutableDictionary<string, ImmutableDictionary<string, object>>? parameterValues,
 
-            ImmutableArray<Outputs.ConnectionStatusResponseResult> statuses,
+            ImmutableArray<Outputs.ConnectionStatusResponse> statuses,
 
             ImmutableDictionary<string, string>? tags,
 

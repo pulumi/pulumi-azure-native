@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -40,11 +40,11 @@ class DataDiskImageEncryptionResponse(dict):
     Contains encryption settings for a data disk image.
     """
     def __init__(__self__, *,
-                 lun: float,
+                 lun: int,
                  disk_encryption_set_id: Optional[str] = None):
         """
         Contains encryption settings for a data disk image.
-        :param float lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        :param int lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         :param str disk_encryption_set_id: A relative URI containing the resource ID of the disk encryption set.
         """
         pulumi.set(__self__, "lun", lun)
@@ -53,7 +53,7 @@ class DataDiskImageEncryptionResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         """
@@ -77,17 +77,17 @@ class DisallowedResponse(dict):
     Describes the disallowed disk types.
     """
     def __init__(__self__, *,
-                 disk_types: Optional[List[str]] = None):
+                 disk_types: Optional[Sequence[str]] = None):
         """
         Describes the disallowed disk types.
-        :param List[str] disk_types: A list of disk types.
+        :param Sequence[str] disk_types: A list of disk types.
         """
         if disk_types is not None:
             pulumi.set(__self__, "disk_types", disk_types)
 
     @property
     @pulumi.getter(name="diskTypes")
-    def disk_types(self) -> Optional[List[str]]:
+    def disk_types(self) -> Optional[Sequence[str]]:
         """
         A list of disk types.
         """
@@ -103,11 +103,11 @@ class EncryptionImagesResponse(dict):
     Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
     """
     def __init__(__self__, *,
-                 data_disk_images: Optional[List['outputs.DataDiskImageEncryptionResponse']] = None,
+                 data_disk_images: Optional[Sequence['outputs.DataDiskImageEncryptionResponse']] = None,
                  os_disk_image: Optional['outputs.OSDiskImageEncryptionResponse'] = None):
         """
         Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-        :param List['DataDiskImageEncryptionResponseArgs'] data_disk_images: A list of encryption specifications for data disk images.
+        :param Sequence['DataDiskImageEncryptionResponseArgs'] data_disk_images: A list of encryption specifications for data disk images.
         :param 'OSDiskImageEncryptionResponseArgs' os_disk_image: Contains encryption settings for an OS disk image.
         """
         if data_disk_images is not None:
@@ -117,7 +117,7 @@ class EncryptionImagesResponse(dict):
 
     @property
     @pulumi.getter(name="dataDiskImages")
-    def data_disk_images(self) -> Optional[List['outputs.DataDiskImageEncryptionResponse']]:
+    def data_disk_images(self) -> Optional[Sequence['outputs.DataDiskImageEncryptionResponse']]:
         """
         A list of encryption specifications for data disk images.
         """
@@ -147,9 +147,9 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
                  enable_health_check: Optional[bool] = None,
                  end_of_life_date: Optional[str] = None,
                  exclude_from_latest: Optional[bool] = None,
-                 replica_count: Optional[float] = None,
+                 replica_count: Optional[int] = None,
                  storage_account_type: Optional[str] = None,
-                 target_regions: Optional[List['outputs.TargetRegionResponse']] = None):
+                 target_regions: Optional[Sequence['outputs.TargetRegionResponse']] = None):
         """
         The publishing profile of a gallery image version.
         :param str published_date: The timestamp for when the gallery image version is published.
@@ -158,9 +158,9 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
         :param bool enable_health_check: Optional. Whether or not this application reports health.
         :param str end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-        :param float replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        :param int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
-        :param List['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        :param Sequence['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "published_date", published_date)
         pulumi.set(__self__, "source", source)
@@ -229,7 +229,7 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[float]:
+    def replica_count(self) -> Optional[int]:
         """
         The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         """
@@ -245,7 +245,7 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
 
     @property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> Optional[List['outputs.TargetRegionResponse']]:
+    def target_regions(self) -> Optional[Sequence['outputs.TargetRegionResponse']]:
         """
         The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
@@ -299,14 +299,14 @@ class GalleryDataDiskImageResponse(dict):
     This is the data disk image.
     """
     def __init__(__self__, *,
-                 lun: float,
-                 size_in_gb: float,
+                 lun: int,
+                 size_in_gb: int,
                  host_caching: Optional[str] = None,
                  source: Optional['outputs.GalleryArtifactVersionSourceResponse'] = None):
         """
         This is the data disk image.
-        :param float lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-        :param float size_in_gb: This property indicates the size of the VHD to be created.
+        :param int lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        :param int size_in_gb: This property indicates the size of the VHD to be created.
         :param str host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
         """
@@ -319,7 +319,7 @@ class GalleryDataDiskImageResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         """
@@ -327,7 +327,7 @@ class GalleryDataDiskImageResponse(dict):
 
     @property
     @pulumi.getter(name="sizeInGB")
-    def size_in_gb(self) -> float:
+    def size_in_gb(self) -> int:
         """
         This property indicates the size of the VHD to be created.
         """
@@ -472,17 +472,17 @@ class GalleryImageVersionPublishingProfileResponse(dict):
                  published_date: str,
                  end_of_life_date: Optional[str] = None,
                  exclude_from_latest: Optional[bool] = None,
-                 replica_count: Optional[float] = None,
+                 replica_count: Optional[int] = None,
                  storage_account_type: Optional[str] = None,
-                 target_regions: Optional[List['outputs.TargetRegionResponse']] = None):
+                 target_regions: Optional[Sequence['outputs.TargetRegionResponse']] = None):
         """
         The publishing profile of a gallery image Version.
         :param str published_date: The timestamp for when the gallery image version is published.
         :param str end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-        :param float replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        :param int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
-        :param List['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        :param Sequence['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "published_date", published_date)
         if end_of_life_date is not None:
@@ -522,7 +522,7 @@ class GalleryImageVersionPublishingProfileResponse(dict):
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[float]:
+    def replica_count(self) -> Optional[int]:
         """
         The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         """
@@ -538,7 +538,7 @@ class GalleryImageVersionPublishingProfileResponse(dict):
 
     @property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> Optional[List['outputs.TargetRegionResponse']]:
+    def target_regions(self) -> Optional[Sequence['outputs.TargetRegionResponse']]:
         """
         The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
@@ -554,12 +554,12 @@ class GalleryImageVersionStorageProfileResponse(dict):
     This is the storage profile of a Gallery Image Version.
     """
     def __init__(__self__, *,
-                 data_disk_images: Optional[List['outputs.GalleryDataDiskImageResponse']] = None,
+                 data_disk_images: Optional[Sequence['outputs.GalleryDataDiskImageResponse']] = None,
                  os_disk_image: Optional['outputs.GalleryOSDiskImageResponse'] = None,
                  source: Optional['outputs.GalleryArtifactVersionSourceResponse'] = None):
         """
         This is the storage profile of a Gallery Image Version.
-        :param List['GalleryDataDiskImageResponseArgs'] data_disk_images: A list of data disk images.
+        :param Sequence['GalleryDataDiskImageResponseArgs'] data_disk_images: A list of data disk images.
         :param 'GalleryOSDiskImageResponseArgs' os_disk_image: This is the OS disk image.
         :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
         """
@@ -572,7 +572,7 @@ class GalleryImageVersionStorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="dataDiskImages")
-    def data_disk_images(self) -> Optional[List['outputs.GalleryDataDiskImageResponse']]:
+    def data_disk_images(self) -> Optional[Sequence['outputs.GalleryDataDiskImageResponse']]:
         """
         A list of data disk images.
         """
@@ -604,12 +604,12 @@ class GalleryOSDiskImageResponse(dict):
     This is the OS disk image.
     """
     def __init__(__self__, *,
-                 size_in_gb: float,
+                 size_in_gb: int,
                  host_caching: Optional[str] = None,
                  source: Optional['outputs.GalleryArtifactVersionSourceResponse'] = None):
         """
         This is the OS disk image.
-        :param float size_in_gb: This property indicates the size of the VHD to be created.
+        :param int size_in_gb: This property indicates the size of the VHD to be created.
         :param str host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
         """
@@ -621,7 +621,7 @@ class GalleryOSDiskImageResponse(dict):
 
     @property
     @pulumi.getter(name="sizeInGB")
-    def size_in_gb(self) -> float:
+    def size_in_gb(self) -> int:
         """
         This property indicates the size of the VHD to be created.
         """
@@ -768,13 +768,13 @@ class RegionalReplicationStatusResponse(dict):
     """
     def __init__(__self__, *,
                  details: str,
-                 progress: float,
+                 progress: int,
                  region: str,
                  state: str):
         """
         This is the regional replication status.
         :param str details: The details of the replication status.
-        :param float progress: It indicates progress of the replication job.
+        :param int progress: It indicates progress of the replication job.
         :param str region: The region to which the gallery image version is being replicated to.
         :param str state: This is the regional replication state.
         """
@@ -793,7 +793,7 @@ class RegionalReplicationStatusResponse(dict):
 
     @property
     @pulumi.getter
-    def progress(self) -> float:
+    def progress(self) -> int:
         """
         It indicates progress of the replication job.
         """
@@ -826,11 +826,11 @@ class ReplicationStatusResponse(dict):
     """
     def __init__(__self__, *,
                  aggregated_state: str,
-                 summary: List['outputs.RegionalReplicationStatusResponse']):
+                 summary: Sequence['outputs.RegionalReplicationStatusResponse']):
         """
         This is the replication status of the gallery image version.
         :param str aggregated_state: This is the aggregated replication status based on all the regional replication status flags.
-        :param List['RegionalReplicationStatusResponseArgs'] summary: This is a summary of replication status for each region.
+        :param Sequence['RegionalReplicationStatusResponseArgs'] summary: This is a summary of replication status for each region.
         """
         pulumi.set(__self__, "aggregated_state", aggregated_state)
         pulumi.set(__self__, "summary", summary)
@@ -845,7 +845,7 @@ class ReplicationStatusResponse(dict):
 
     @property
     @pulumi.getter
-    def summary(self) -> List['outputs.RegionalReplicationStatusResponse']:
+    def summary(self) -> Sequence['outputs.RegionalReplicationStatusResponse']:
         """
         This is a summary of replication status for each region.
         """
@@ -861,12 +861,12 @@ class ResourceRangeResponse(dict):
     Describes the resource range.
     """
     def __init__(__self__, *,
-                 max: Optional[float] = None,
-                 min: Optional[float] = None):
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
         """
         Describes the resource range.
-        :param float max: The maximum number of the resource.
-        :param float min: The minimum number of the resource.
+        :param int max: The maximum number of the resource.
+        :param int min: The minimum number of the resource.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -875,7 +875,7 @@ class ResourceRangeResponse(dict):
 
     @property
     @pulumi.getter
-    def max(self) -> Optional[float]:
+    def max(self) -> Optional[int]:
         """
         The maximum number of the resource.
         """
@@ -883,7 +883,7 @@ class ResourceRangeResponse(dict):
 
     @property
     @pulumi.getter
-    def min(self) -> Optional[float]:
+    def min(self) -> Optional[int]:
         """
         The minimum number of the resource.
         """
@@ -899,11 +899,11 @@ class SharingProfileGroupResponse(dict):
     Group of the gallery sharing profile
     """
     def __init__(__self__, *,
-                 ids: Optional[List[str]] = None,
+                 ids: Optional[Sequence[str]] = None,
                  type: Optional[str] = None):
         """
         Group of the gallery sharing profile
-        :param List[str] ids: A list of subscription/tenant ids the gallery is aimed to be shared to.
+        :param Sequence[str] ids: A list of subscription/tenant ids the gallery is aimed to be shared to.
         :param str type: This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
         """
         if ids is not None:
@@ -913,7 +913,7 @@ class SharingProfileGroupResponse(dict):
 
     @property
     @pulumi.getter
-    def ids(self) -> Optional[List[str]]:
+    def ids(self) -> Optional[Sequence[str]]:
         """
         A list of subscription/tenant ids the gallery is aimed to be shared to.
         """
@@ -937,11 +937,11 @@ class SharingProfileResponse(dict):
     Profile for gallery sharing to subscription or tenant
     """
     def __init__(__self__, *,
-                 groups: List['outputs.SharingProfileGroupResponse'],
+                 groups: Sequence['outputs.SharingProfileGroupResponse'],
                  permissions: Optional[str] = None):
         """
         Profile for gallery sharing to subscription or tenant
-        :param List['SharingProfileGroupResponseArgs'] groups: A list of sharing profile groups.
+        :param Sequence['SharingProfileGroupResponseArgs'] groups: A list of sharing profile groups.
         :param str permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
         """
         pulumi.set(__self__, "groups", groups)
@@ -950,7 +950,7 @@ class SharingProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> List['outputs.SharingProfileGroupResponse']:
+    def groups(self) -> Sequence['outputs.SharingProfileGroupResponse']:
         """
         A list of sharing profile groups.
         """
@@ -976,13 +976,13 @@ class TargetRegionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  encryption: Optional['outputs.EncryptionImagesResponse'] = None,
-                 regional_replica_count: Optional[float] = None,
+                 regional_replica_count: Optional[int] = None,
                  storage_account_type: Optional[str] = None):
         """
         Describes the target region information.
         :param str name: The name of the region.
         :param 'EncryptionImagesResponseArgs' encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-        :param float regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
+        :param int regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         pulumi.set(__self__, "name", name)
@@ -1011,7 +1011,7 @@ class TargetRegionResponse(dict):
 
     @property
     @pulumi.getter(name="regionalReplicaCount")
-    def regional_replica_count(self) -> Optional[float]:
+    def regional_replica_count(self) -> Optional[int]:
         """
         The number of replicas of the Image Version to be created per region. This property is updatable.
         """

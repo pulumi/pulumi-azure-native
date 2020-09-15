@@ -58,11 +58,11 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The encryption settings of container registry.
         /// </summary>
-        public readonly Outputs.EncryptionPropertyResponseResult? Encryption;
+        public readonly Outputs.EncryptionPropertyResponse? Encryption;
         /// <summary>
         /// The identity of the container registry.
         /// </summary>
-        public readonly Outputs.IdentityPropertiesResponseResult? Identity;
+        public readonly Outputs.IdentityPropertiesResponse? Identity;
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
@@ -78,15 +78,15 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The network rule set for a container registry.
         /// </summary>
-        public readonly Outputs.NetworkRuleSetResponseResult? NetworkRuleSet;
+        public readonly Outputs.NetworkRuleSetResponse? NetworkRuleSet;
         /// <summary>
         /// The policies for a container registry.
         /// </summary>
-        public readonly Outputs.PoliciesResponseResult? Policies;
+        public readonly Outputs.PoliciesResponse? Policies;
         /// <summary>
         /// List of private endpoint connections for a container registry.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state of the container registry at the time the operation was called.
         /// </summary>
@@ -98,15 +98,15 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The SKU of the container registry.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// The status of the container registry at the time the operation was called.
         /// </summary>
-        public readonly Outputs.StatusResponseResult Status;
+        public readonly Outputs.StatusResponse Status;
         /// <summary>
         /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponseResult? StorageAccount;
+        public readonly Outputs.StorageAccountPropertiesResponse? StorageAccount;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -126,9 +126,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 
             ImmutableArray<string> dataEndpointHostNames,
 
-            Outputs.EncryptionPropertyResponseResult? encryption,
+            Outputs.EncryptionPropertyResponse? encryption,
 
-            Outputs.IdentityPropertiesResponseResult? identity,
+            Outputs.IdentityPropertiesResponse? identity,
 
             string location,
 
@@ -136,21 +136,21 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 
             string name,
 
-            Outputs.NetworkRuleSetResponseResult? networkRuleSet,
+            Outputs.NetworkRuleSetResponse? networkRuleSet,
 
-            Outputs.PoliciesResponseResult? policies,
+            Outputs.PoliciesResponse? policies,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 
             string? publicNetworkAccess,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
-            Outputs.StatusResponseResult status,
+            Outputs.StatusResponse status,
 
-            Outputs.StorageAccountPropertiesResponseResult? storageAccount,
+            Outputs.StorageAccountPropertiesResponse? storageAccount,
 
             ImmutableDictionary<string, string>? tags,
 

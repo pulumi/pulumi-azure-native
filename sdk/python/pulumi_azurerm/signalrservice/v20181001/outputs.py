@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -21,7 +21,7 @@ class ResourceSkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
@@ -30,7 +30,7 @@ class ResourceSkuResponse(dict):
         :param str name: The name of the SKU. Required.
                
                Allowed values: Standard_S1, Free_F1
-        :param float capacity: Optional, integer. The unit count of SignalR resource. 1 by default.
+        :param int capacity: Optional, integer. The unit count of SignalR resource. 1 by default.
                
                If present, following values are allowed:
                    Free: 1
@@ -63,7 +63,7 @@ class ResourceSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Optional, integer. The unit count of SignalR resource. 1 by default.
         
@@ -109,17 +109,17 @@ class SignalRCorsSettingsResponse(dict):
     Cross-Origin Resource Sharing (CORS) settings.
     """
     def __init__(__self__, *,
-                 allowed_origins: Optional[List[str]] = None):
+                 allowed_origins: Optional[Sequence[str]] = None):
         """
         Cross-Origin Resource Sharing (CORS) settings.
-        :param List[str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+        :param Sequence[str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
         """
         if allowed_origins is not None:
             pulumi.set(__self__, "allowed_origins", allowed_origins)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[List[str]]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
         """

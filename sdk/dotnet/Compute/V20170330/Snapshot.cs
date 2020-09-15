@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         [Output("creationData")]
-        public Output<Outputs.CreationDataResponseResult> CreationData { get; private set; } = null!;
+        public Output<Outputs.CreationDataResponse> CreationData { get; private set; } = null!;
 
         /// <summary>
         /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// Encryption settings for disk or snapshot
         /// </summary>
         [Output("encryptionSettings")]
-        public Output<Outputs.EncryptionSettingsResponseResult?> EncryptionSettings { get; private set; } = null!;
+        public Output<Outputs.EncryptionSettingsResponse?> EncryptionSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.DiskSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.DiskSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
