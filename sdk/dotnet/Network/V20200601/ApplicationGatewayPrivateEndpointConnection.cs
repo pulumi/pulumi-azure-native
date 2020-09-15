@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200601
+namespace Pulumi.AzureNextGen.Network.V20200601
 {
     /// <summary>
     /// Private Endpoint connection on an application gateway.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationGatewayPrivateEndpointConnection(string name, ApplicationGatewayPrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:ApplicationGatewayPrivateEndpointConnection", name, args ?? new ApplicationGatewayPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection", name, args ?? new ApplicationGatewayPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationGatewayPrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:ApplicationGatewayPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:ApplicationGatewayPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.PowerBI.Latest
+namespace Pulumi.AzureNextGen.PowerBI.Latest
 {
     public partial class WorkspaceCollection : Pulumi.CustomResource
     {
@@ -50,12 +50,12 @@ namespace Pulumi.AzureRM.PowerBI.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkspaceCollection(string name, WorkspaceCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:powerbi/latest:WorkspaceCollection", name, args ?? new WorkspaceCollectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:powerbi/latest:WorkspaceCollection", name, args ?? new WorkspaceCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkspaceCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:powerbi/latest:WorkspaceCollection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:powerbi/latest:WorkspaceCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.PowerBI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:powerbi/v20160129:WorkspaceCollection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:powerbi/v20160129:WorkspaceCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

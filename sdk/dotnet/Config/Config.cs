@@ -3,11 +3,11 @@
 
 using System.Collections.Immutable;
 
-namespace Pulumi.AzureRM
+namespace Pulumi.AzureNextGen
 {
     public static class Config
     {
-        private static readonly Pulumi.Config __config = new Pulumi.Config("azurerm");
+        private static readonly Pulumi.Config __config = new Pulumi.Config("azure-nextgen");
         public static ImmutableArray<string> AuxiliaryTenantIds { get; set; } = __config.GetObject<ImmutableArray<string>>("auxiliaryTenantIds");
 
         /// <summary>

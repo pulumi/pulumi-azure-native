@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Synapse.V20190601Preview
+namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     /// <summary>
     /// Workspace active directory administrator
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkspaceAadAdmin(string name, WorkspaceAadAdminArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:synapse/v20190601preview:WorkspaceAadAdmin", name, args ?? new WorkspaceAadAdminArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin", name, args ?? new WorkspaceAadAdminArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkspaceAadAdmin(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:synapse/v20190601preview:WorkspaceAadAdmin", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin", name, null, MakeResourceOptions(options, id))
         {
         }
 

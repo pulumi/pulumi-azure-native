@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Virtual Appliance Site resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualHubBgpConnection(string name, VirtualHubBgpConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:VirtualHubBgpConnection", name, args ?? new VirtualHubBgpConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/latest:VirtualHubBgpConnection", name, args ?? new VirtualHubBgpConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualHubBgpConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:VirtualHubBgpConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/latest:VirtualHubBgpConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:VirtualHubBgpConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualHubBgpConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualHubBgpConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

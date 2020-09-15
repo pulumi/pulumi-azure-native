@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20170915Preview
+namespace Pulumi.AzureNextGen.EventGrid.V20170915Preview
 {
     public static class GetEventSubscription
     {
         public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("azurerm:eventgrid/v20170915preview:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("azure-nextgen:eventgrid/v20170915preview:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearning.V20160501Preview
+namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
 {
     public static class GetCommitmentPlan
     {
         public static Task<GetCommitmentPlanResult> InvokeAsync(GetCommitmentPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azurerm:machinelearning/v20160501preview:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-nextgen:machinelearning/v20160501preview:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningServices.V20181119
+namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20181119
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices/v20181119:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:machinelearningservices/v20181119:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices/v20181119:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:machinelearningservices/v20181119:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,19 +129,19 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20181119
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/latest:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20180301preview:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20190501:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20190601:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20191101:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200101:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200218preview:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200301:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200401:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200501preview:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200515preview:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200601:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200901preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20180301preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20190501:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20190601:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20191101:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200101:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200218preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200301:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200401:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200501preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

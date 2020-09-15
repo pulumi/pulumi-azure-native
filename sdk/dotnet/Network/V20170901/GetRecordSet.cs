@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20170901
+namespace Pulumi.AzureNextGen.Network.V20170901
 {
     public static class GetRecordSet
     {
         public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azurerm:network/v20170901:getRecordSet", args ?? new GetRecordSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-nextgen:network/v20170901:getRecordSet", args ?? new GetRecordSetArgs(), options.WithVersion());
     }
 
 

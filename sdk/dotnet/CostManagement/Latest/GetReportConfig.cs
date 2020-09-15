@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CostManagement.Latest
+namespace Pulumi.AzureNextGen.CostManagement.Latest
 {
     public static class GetReportConfig
     {
         public static Task<GetReportConfigResult> InvokeAsync(GetReportConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigResult>("azurerm:costmanagement/latest:getReportConfig", args ?? new GetReportConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigResult>("azure-nextgen:costmanagement/latest:getReportConfig", args ?? new GetReportConfigArgs(), options.WithVersion());
     }
 
 

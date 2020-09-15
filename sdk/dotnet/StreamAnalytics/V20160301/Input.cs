@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StreamAnalytics.V20160301
+namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
 {
     /// <summary>
     /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Input(string name, InputArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics/v20160301:Input", name, args ?? new InputArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:streamanalytics/v20160301:Input", name, args ?? new InputArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Input(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics/v20160301:Input", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:streamanalytics/v20160301:Input", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:streamanalytics/latest:Input"},
-                    new Pulumi.Alias { Type = "azurerm:streamanalytics/v20170401preview:Input"},
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/latest:Input"},
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:Input"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

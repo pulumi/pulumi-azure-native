@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// VpnServerConfiguration Resource.
@@ -131,12 +131,12 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpnServerConfiguration(string name, VpnServerConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:VpnServerConfiguration", name, args ?? new VpnServerConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/latest:VpnServerConfiguration", name, args ?? new VpnServerConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VpnServerConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:VpnServerConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/latest:VpnServerConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -147,14 +147,14 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:VpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:VpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:VpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:VpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:VpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:VpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VpnServerConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

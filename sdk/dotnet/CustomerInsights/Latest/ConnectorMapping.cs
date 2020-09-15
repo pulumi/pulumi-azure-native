@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.Latest
+namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
     /// <summary>
     /// The connector mapping resource format.
@@ -125,12 +125,12 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectorMapping(string name, ConnectorMappingArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/latest:ConnectorMapping", name, args ?? new ConnectorMappingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:customerinsights/latest:ConnectorMapping", name, args ?? new ConnectorMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectorMapping(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/latest:ConnectorMapping", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:customerinsights/latest:ConnectorMapping", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -141,8 +141,8 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:ConnectorMapping"},
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170426:ConnectorMapping"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:ConnectorMapping"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:ConnectorMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

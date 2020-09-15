@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.V20191001
+namespace Pulumi.AzureNextGen.Migrate.V20191001
 {
     public static class GetHyperVCollector
     {
         public static Task<GetHyperVCollectorResult> InvokeAsync(GetHyperVCollectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVCollectorResult>("azurerm:migrate/v20191001:getHyperVCollector", args ?? new GetHyperVCollectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVCollectorResult>("azure-nextgen:migrate/v20191001:getHyperVCollector", args ?? new GetHyperVCollectorArgs(), options.WithVersion());
     }
 
 

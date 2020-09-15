@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Visualstudio.V20171101Preview
+namespace Pulumi.AzureNextGen.Visualstudio.V20171101Preview
 {
     public static class GetExtension
     {
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azurerm:visualstudio/v20171101preview:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-nextgen:visualstudio/v20171101preview:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
     }
 
 

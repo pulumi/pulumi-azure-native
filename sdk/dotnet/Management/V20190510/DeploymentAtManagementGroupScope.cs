@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Management.V20190510
+namespace Pulumi.AzureNextGen.Management.V20190510
 {
     /// <summary>
     /// Deployment information.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Management.V20190510
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentAtManagementGroupScope(string name, DeploymentAtManagementGroupScopeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:management/v20190510:DeploymentAtManagementGroupScope", name, args ?? new DeploymentAtManagementGroupScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:management/v20190510:DeploymentAtManagementGroupScope", name, args ?? new DeploymentAtManagementGroupScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentAtManagementGroupScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:management/v20190510:DeploymentAtManagementGroupScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:management/v20190510:DeploymentAtManagementGroupScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,12 +63,12 @@ namespace Pulumi.AzureRM.Management.V20190510
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:management/latest:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20190501:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20190701:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20190801:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20191001:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20200601:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/latest:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20190501:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20190701:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20190801:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20191001:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20200601:DeploymentAtManagementGroupScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cache.Latest
+namespace Pulumi.AzureNextGen.Cache.Latest
 {
     public static class GetRedis
     {
         public static Task<GetRedisResult> InvokeAsync(GetRedisArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisResult>("azurerm:cache/latest:getRedis", args ?? new GetRedisArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisResult>("azure-nextgen:cache/latest:getRedis", args ?? new GetRedisArgs(), options.WithVersion());
     }
 
 

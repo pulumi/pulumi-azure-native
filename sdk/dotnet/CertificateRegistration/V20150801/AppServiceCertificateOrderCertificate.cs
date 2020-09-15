@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CertificateRegistration.V20150801
+namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
 {
     /// <summary>
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppServiceCertificateOrderCertificate(string name, AppServiceCertificateOrderCertificateArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:certificateregistration/v20150801:AppServiceCertificateOrderCertificate", name, args ?? new AppServiceCertificateOrderCertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate", name, args ?? new AppServiceCertificateOrderCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AppServiceCertificateOrderCertificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:certificateregistration/v20150801:AppServiceCertificateOrderCertificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,10 +87,10 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:certificateregistration/latest:AppServiceCertificateOrderCertificate"},
-                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},
-                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"},
-                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

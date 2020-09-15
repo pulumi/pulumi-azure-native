@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.Latest.Inputs
+namespace Pulumi.AzureNextGen.Migrate.Latest.Inputs
 {
 
     public sealed class CollectorAgentPropertiesArgs : Pulumi.ResourceArgs

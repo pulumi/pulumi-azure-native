@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabric.V20160901
+namespace Pulumi.AzureNextGen.ServiceFabric.V20160901
 {
     /// <summary>
     /// The cluster resource
@@ -161,12 +161,12 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabric/v20160901:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicefabric/v20160901:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabric/v20160901:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicefabric/v20160901:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -177,14 +177,14 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20170701preview:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20180201:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301preview:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20190601preview:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20191101preview:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20200301:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/latest:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20180201:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190601preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20191101preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200301:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

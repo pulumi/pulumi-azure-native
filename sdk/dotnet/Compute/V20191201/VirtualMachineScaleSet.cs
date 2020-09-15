@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20191201
+namespace Pulumi.AzureNextGen.Compute.V20191201
 {
     /// <summary>
     /// Describes a Virtual Machine Scale Set.
@@ -149,12 +149,12 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineScaleSet(string name, VirtualMachineScaleSetArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20191201:VirtualMachineScaleSet", name, args ?? new VirtualMachineScaleSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20191201:VirtualMachineScaleSet", name, args ?? new VirtualMachineScaleSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineScaleSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20191201:VirtualMachineScaleSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20191201:VirtualMachineScaleSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -165,18 +165,18 @@ namespace Pulumi.AzureRM.Compute.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20150615:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20160330:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20171201:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20181001:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20150615:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20160330:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineScaleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

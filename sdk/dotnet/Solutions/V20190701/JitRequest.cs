@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Solutions.V20190701
+namespace Pulumi.AzureNextGen.Solutions.V20190701
 {
     /// <summary>
     /// Information about JIT request definition.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JitRequest(string name, JitRequestArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:solutions/v20190701:JitRequest", name, args ?? new JitRequestArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:solutions/v20190701:JitRequest", name, args ?? new JitRequestArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JitRequest(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:solutions/v20190701:JitRequest", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:solutions/v20190701:JitRequest", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,8 +111,8 @@ namespace Pulumi.AzureRM.Solutions.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:solutions/latest:JitRequest"},
-                    new Pulumi.Alias { Type = "azurerm:solutions/v20200821preview:JitRequest"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/latest:JitRequest"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:JitRequest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

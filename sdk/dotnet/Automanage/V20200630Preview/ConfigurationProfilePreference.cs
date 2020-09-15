@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automanage.V20200630Preview
+namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
 {
     /// <summary>
     /// Definition of the configuration profile preference.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Automanage.V20200630Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationProfilePreference(string name, ConfigurationProfilePreferenceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:automanage/v20200630preview:ConfigurationProfilePreference", name, args ?? new ConfigurationProfilePreferenceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference", name, args ?? new ConfigurationProfilePreferenceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationProfilePreference(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:automanage/v20200630preview:ConfigurationProfilePreference", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference", name, null, MakeResourceOptions(options, id))
         {
         }
 

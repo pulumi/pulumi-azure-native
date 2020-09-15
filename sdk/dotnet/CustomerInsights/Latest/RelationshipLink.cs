@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.Latest
+namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
     /// <summary>
     /// The relationship link resource format.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RelationshipLink(string name, RelationshipLinkArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/latest:RelationshipLink", name, args ?? new RelationshipLinkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:customerinsights/latest:RelationshipLink", name, args ?? new RelationshipLinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RelationshipLink(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/latest:RelationshipLink", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:customerinsights/latest:RelationshipLink", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,8 +117,8 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:RelationshipLink"},
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170426:RelationshipLink"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:RelationshipLink"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:RelationshipLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

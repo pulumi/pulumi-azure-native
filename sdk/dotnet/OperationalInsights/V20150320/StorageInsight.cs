@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20150320
+namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
 {
     /// <summary>
     /// The top level storage insight resource container.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageInsight(string name, StorageInsightArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20150320:StorageInsight", name, args ?? new StorageInsightArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationalinsights/v20150320:StorageInsight", name, args ?? new StorageInsightArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageInsight(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20150320:StorageInsight", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationalinsights/v20150320:StorageInsight", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,9 +87,9 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:StorageInsight"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:StorageInsight"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:StorageInsight"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:StorageInsight"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:StorageInsight"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:StorageInsight"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
 {
     public static class GetBuildTask
     {
         public static Task<GetBuildTaskResult> InvokeAsync(GetBuildTaskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildTaskResult>("azurerm:containerregistry/v20180201preview:getBuildTask", args ?? new GetBuildTaskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildTaskResult>("azure-nextgen:containerregistry/v20180201preview:getBuildTask", args ?? new GetBuildTaskArgs(), options.WithVersion());
     }
 
 

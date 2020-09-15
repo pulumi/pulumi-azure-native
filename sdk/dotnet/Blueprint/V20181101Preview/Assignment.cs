@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Blueprint.V20181101Preview
+namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
 {
     /// <summary>
     /// Represents a blueprint assignment.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assignment(string name, AssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:blueprint/v20181101preview:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:blueprint/v20181101preview:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:blueprint/v20181101preview:Assignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:blueprint/v20181101preview:Assignment", name, null, MakeResourceOptions(options, id))
         {
         }
 

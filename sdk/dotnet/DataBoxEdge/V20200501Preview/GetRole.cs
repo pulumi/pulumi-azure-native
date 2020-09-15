@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
+namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
 {
     public static class GetRole
     {
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azurerm:databoxedge/v20200501preview:getRole", args ?? new GetRoleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-nextgen:databoxedge/v20200501preview:getRole", args ?? new GetRoleArgs(), options.WithVersion());
     }
 
 

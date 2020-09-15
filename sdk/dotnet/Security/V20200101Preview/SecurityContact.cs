@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20200101Preview
+namespace Pulumi.AzureNextGen.Security.V20200101Preview
 {
     /// <summary>
     /// Contact details and configurations for notifications coming from Azure Security Center.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityContact(string name, SecurityContactArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20200101preview:SecurityContact", name, args ?? new SecurityContactArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/v20200101preview:SecurityContact", name, args ?? new SecurityContactArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityContact(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20200101preview:SecurityContact", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/v20200101preview:SecurityContact", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:security/v20170801preview:SecurityContact"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:SecurityContact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

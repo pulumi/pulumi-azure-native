@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RedHatOpenShift.Latest
+namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
 {
     public static class GetOpenShiftCluster
     {
         public static Task<GetOpenShiftClusterResult> InvokeAsync(GetOpenShiftClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azurerm:redhatopenshift/latest:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azure-nextgen:redhatopenshift/latest:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithVersion());
     }
 
 

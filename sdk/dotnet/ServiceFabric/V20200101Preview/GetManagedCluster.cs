@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
+namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
 {
     public static class GetManagedCluster
     {
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azurerm:servicefabric/v20200101preview:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-nextgen:servicefabric/v20200101preview:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
     }
 
 

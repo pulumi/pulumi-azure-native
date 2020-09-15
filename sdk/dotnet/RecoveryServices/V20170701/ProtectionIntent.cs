@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RecoveryServices.V20170701
+namespace Pulumi.AzureNextGen.RecoveryServices.V20170701
 {
     /// <summary>
     /// Base class for backup ProtectionIntent.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.RecoveryServices.V20170701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectionIntent(string name, ProtectionIntentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices/v20170701:ProtectionIntent", name, args ?? new ProtectionIntentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:recoveryservices/v20170701:ProtectionIntent", name, args ?? new ProtectionIntentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProtectionIntent(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices/v20170701:ProtectionIntent", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:recoveryservices/v20170701:ProtectionIntent", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20170701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/latest:ProtectionIntent"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ProtectionIntent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

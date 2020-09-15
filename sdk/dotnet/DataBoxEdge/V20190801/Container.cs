@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.V20190801
+namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
 {
     /// <summary>
     /// Represents a container on the  Data Box Edge/Gateway device.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Container(string name, ContainerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/v20190801:Container", name, args ?? new ContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:databoxedge/v20190801:Container", name, args ?? new ContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Container(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/v20190801:Container", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:databoxedge/v20190801:Container", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/latest:Container"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Container"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Container"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Container"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

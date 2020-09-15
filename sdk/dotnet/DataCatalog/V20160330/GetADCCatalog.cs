@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataCatalog.V20160330
+namespace Pulumi.AzureNextGen.DataCatalog.V20160330
 {
     public static class GetADCCatalog
     {
         public static Task<GetADCCatalogResult> InvokeAsync(GetADCCatalogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetADCCatalogResult>("azurerm:datacatalog/v20160330:getADCCatalog", args ?? new GetADCCatalogArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetADCCatalogResult>("azure-nextgen:datacatalog/v20160330:getADCCatalog", args ?? new GetADCCatalogArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Resources.V20191001Preview
+namespace Pulumi.AzureNextGen.Resources.V20191001Preview
 {
     /// <summary>
     /// Deployment script object.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Resources.V20191001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentScript(string name, DeploymentScriptArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:resources/v20191001preview:DeploymentScript", name, args ?? new DeploymentScriptArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:resources/v20191001preview:DeploymentScript", name, args ?? new DeploymentScriptArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentScript(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:resources/v20191001preview:DeploymentScript", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:resources/v20191001preview:DeploymentScript", name, null, MakeResourceOptions(options, id))
         {
         }
 

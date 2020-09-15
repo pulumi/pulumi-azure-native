@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.V20151031
+namespace Pulumi.AzureNextGen.Automation.V20151031
 {
     public static class GetConnectionType
     {
         public static Task<GetConnectionTypeResult> InvokeAsync(GetConnectionTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionTypeResult>("azurerm:automation/v20151031:getConnectionType", args ?? new GetConnectionTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionTypeResult>("azure-nextgen:automation/v20151031:getConnectionType", args ?? new GetConnectionTypeArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 {
     public static class GetVirtualNetworkResource
     {
         public static Task<GetVirtualNetworkResourceResult> InvokeAsync(GetVirtualNetworkResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResourceResult>("azurerm:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResourceResult>("azure-nextgen:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StreamAnalytics.Latest
+namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
 {
     public static class GetOutput
     {
         public static Task<GetOutputResult> InvokeAsync(GetOutputArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azurerm:streamanalytics/latest:getOutput", args ?? new GetOutputArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azure-nextgen:streamanalytics/latest:getOutput", args ?? new GetOutputArgs(), options.WithVersion());
     }
 
 

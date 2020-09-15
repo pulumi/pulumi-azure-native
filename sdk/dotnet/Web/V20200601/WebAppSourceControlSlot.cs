@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20200601
+namespace Pulumi.AzureNextGen.Web.V20200601
 {
     /// <summary>
     /// Source control configuration for an app.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Web.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppSourceControlSlot(string name, WebAppSourceControlSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20200601:WebAppSourceControlSlot", name, args ?? new WebAppSourceControlSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20200601:WebAppSourceControlSlot", name, args ?? new WebAppSourceControlSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppSourceControlSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20200601:WebAppSourceControlSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20200601:WebAppSourceControlSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,12 +93,12 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppSourceControlSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppSourceControlSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppSourceControlSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppSourceControlSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppSourceControlSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppSourceControlSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

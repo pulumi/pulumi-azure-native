@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Scheduler.Latest.Inputs
+namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
 {
 
     public sealed class JobRecurrenceScheduleMonthlyOccurrenceArgs : Pulumi.ResourceArgs

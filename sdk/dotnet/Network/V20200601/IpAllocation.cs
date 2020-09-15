@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200601
+namespace Pulumi.AzureNextGen.Network.V20200601
 {
     /// <summary>
     /// IpAllocation resource.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IpAllocation(string name, IpAllocationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:IpAllocation", name, args ?? new IpAllocationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200601:IpAllocation", name, args ?? new IpAllocationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IpAllocation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:IpAllocation", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200601:IpAllocation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,10 +111,10 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:IpAllocation"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:IpAllocation"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:IpAllocation"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:IpAllocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

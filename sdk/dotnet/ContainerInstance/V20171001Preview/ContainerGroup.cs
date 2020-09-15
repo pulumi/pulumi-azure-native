@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerInstance.V20171001Preview
+namespace Pulumi.AzureNextGen.ContainerInstance.V20171001Preview
 {
     /// <summary>
     /// A container group.
@@ -98,12 +98,12 @@ namespace Pulumi.AzureRM.ContainerInstance.V20171001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContainerGroup(string name, ContainerGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerinstance/v20171001preview:ContainerGroup", name, args ?? new ContainerGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerinstance/v20171001preview:ContainerGroup", name, args ?? new ContainerGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ContainerGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerinstance/v20171001preview:ContainerGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerinstance/v20171001preview:ContainerGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,15 +114,15 @@ namespace Pulumi.AzureRM.ContainerInstance.V20171001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:containerinstance/latest:ContainerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20170801preview:ContainerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20171201preview:ContainerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20180201preview:ContainerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20180401:ContainerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20180601:ContainerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20180901:ContainerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20181001:ContainerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20191201:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/latest:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20170801preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20171201preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20180201preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20180401:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20180601:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20180901:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20181001:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20191201:ContainerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Billing.V20191001Preview
+namespace Pulumi.AzureNextGen.Billing.V20191001Preview
 {
     /// <summary>
     /// The role assignment
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Billing.V20191001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BillingRoleAssignmentByBillingAccount(string name, BillingRoleAssignmentByBillingAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:billing/v20191001preview:BillingRoleAssignmentByBillingAccount", name, args ?? new BillingRoleAssignmentByBillingAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByBillingAccount", name, args ?? new BillingRoleAssignmentByBillingAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BillingRoleAssignmentByBillingAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:billing/v20191001preview:BillingRoleAssignmentByBillingAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByBillingAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NotificationHubs.Latest.Inputs
+namespace Pulumi.AzureNextGen.NotificationHubs.Latest.Inputs
 {
 
     /// <summary>

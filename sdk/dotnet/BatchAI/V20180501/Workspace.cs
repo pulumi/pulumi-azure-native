@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BatchAI.V20180501
+namespace Pulumi.AzureNextGen.BatchAI.V20180501
 {
     /// <summary>
     /// Batch AI Workspace information.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:batchai/v20180501:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:batchai/v20180501:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:batchai/v20180501:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:batchai/v20180501:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:batchai/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

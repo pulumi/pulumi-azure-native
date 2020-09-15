@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.V20180915
+namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 {
     public static class GetLab
     {
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azurerm:devtestlab/v20180915:getLab", args ?? new GetLabArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-nextgen:devtestlab/v20180915:getLab", args ?? new GetLabArgs(), options.WithVersion());
     }
 
 

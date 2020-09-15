@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningServices.V20200515Preview
+namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview
 {
     /// <summary>
     /// Machine Learning service object wrapped into ARM resource envelope.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200515Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MachineLearningService(string name, MachineLearningServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices/v20200515preview:MachineLearningService", name, args ?? new MachineLearningServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService", name, args ?? new MachineLearningServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MachineLearningService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices/v20200515preview:MachineLearningService", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200515Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200501preview:MachineLearningService"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200901preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

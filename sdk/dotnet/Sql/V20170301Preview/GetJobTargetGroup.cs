@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20170301Preview
+namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 {
     public static class GetJobTargetGroup
     {
         public static Task<GetJobTargetGroupResult> InvokeAsync(GetJobTargetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobTargetGroupResult>("azurerm:sql/v20170301preview:getJobTargetGroup", args ?? new GetJobTargetGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobTargetGroupResult>("azure-nextgen:sql/v20170301preview:getJobTargetGroup", args ?? new GetJobTargetGroupArgs(), options.WithVersion());
     }
 
 

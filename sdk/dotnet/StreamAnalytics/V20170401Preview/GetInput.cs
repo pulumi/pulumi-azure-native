@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
+namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 {
     public static class GetInput
     {
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azurerm:streamanalytics/v20170401preview:getInput", args ?? new GetInputArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-nextgen:streamanalytics/v20170401preview:getInput", args ?? new GetInputArgs(), options.WithVersion());
     }
 
 

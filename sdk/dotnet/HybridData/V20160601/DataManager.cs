@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridData.V20160601
+namespace Pulumi.AzureNextGen.HybridData.V20160601
 {
     /// <summary>
     /// The DataManager resource.
@@ -62,12 +62,12 @@ namespace Pulumi.AzureRM.HybridData.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataManager(string name, DataManagerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hybriddata/v20160601:DataManager", name, args ?? new DataManagerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hybriddata/v20160601:DataManager", name, args ?? new DataManagerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataManager(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hybriddata/v20160601:DataManager", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hybriddata/v20160601:DataManager", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,8 +78,8 @@ namespace Pulumi.AzureRM.HybridData.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hybriddata/latest:DataManager"},
-                    new Pulumi.Alias { Type = "azurerm:hybriddata/v20190601:DataManager"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata/latest:DataManager"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:DataManager"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20200401Preview
+namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 {
     /// <summary>
     /// Information about a partner registration.
@@ -133,12 +133,12 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PartnerRegistration(string name, PartnerRegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20200401preview:PartnerRegistration", name, args ?? new PartnerRegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventgrid/v20200401preview:PartnerRegistration", name, args ?? new PartnerRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PartnerRegistration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20200401preview:PartnerRegistration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventgrid/v20200401preview:PartnerRegistration", name, null, MakeResourceOptions(options, id))
         {
         }
 

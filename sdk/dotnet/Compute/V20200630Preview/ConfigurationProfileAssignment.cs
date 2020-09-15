@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20200630Preview
+namespace Pulumi.AzureNextGen.Compute.V20200630Preview
 {
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Compute.V20200630Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationProfileAssignment(string name, ConfigurationProfileAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20200630preview:ConfigurationProfileAssignment", name, args ?? new ConfigurationProfileAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20200630preview:ConfigurationProfileAssignment", name, args ?? new ConfigurationProfileAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationProfileAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20200630preview:ConfigurationProfileAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20200630preview:ConfigurationProfileAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 

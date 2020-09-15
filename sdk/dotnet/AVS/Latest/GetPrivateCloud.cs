@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AVS.Latest
+namespace Pulumi.AzureNextGen.AVS.Latest
 {
     public static class GetPrivateCloud
     {
         public static Task<GetPrivateCloudResult> InvokeAsync(GetPrivateCloudArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azurerm:avs/latest:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azure-nextgen:avs/latest:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithVersion());
     }
 
 

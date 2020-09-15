@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CognitiveServices.Latest
+namespace Pulumi.AzureNextGen.CognitiveServices.Latest
 {
     /// <summary>
     /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.CognitiveServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:cognitiveservices/latest:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:cognitiveservices/latest:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:cognitiveservices/latest:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:cognitiveservices/latest:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.CognitiveServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cognitiveservices/v20160201preview:Account"},
-                    new Pulumi.Alias { Type = "azurerm:cognitiveservices/v20170418:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20160201preview:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20170418:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

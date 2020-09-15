@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20180915Preview
+namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview
 {
     /// <summary>
     /// EventGrid Domain
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20180915preview:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventgrid/v20180915preview:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Domain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20180915preview:Domain", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventgrid/v20180915preview:Domain", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,12 +87,12 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/latest:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190201preview:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190601:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200101preview:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200401preview:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200601:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

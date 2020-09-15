@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.V20170426
+namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
 {
     /// <summary>
     /// The connector resource format.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connector(string name, ConnectorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/v20170426:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:customerinsights/v20170426:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/v20170426:Connector", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:customerinsights/v20170426:Connector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,8 +117,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/latest:Connector"},
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:Connector"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Connector"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Connector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

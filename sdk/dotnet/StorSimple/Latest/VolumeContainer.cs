@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.Latest
+namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
     /// <summary>
     /// The volume container.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.StorSimple.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VolumeContainer(string name, VolumeContainerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/latest:VolumeContainer", name, args ?? new VolumeContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storsimple/latest:VolumeContainer", name, args ?? new VolumeContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VolumeContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/latest:VolumeContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storsimple/latest:VolumeContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storsimple/v20170601:VolumeContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:VolumeContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

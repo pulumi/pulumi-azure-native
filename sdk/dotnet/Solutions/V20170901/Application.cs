@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Solutions.V20170901
+namespace Pulumi.AzureNextGen.Solutions.V20170901
 {
     /// <summary>
     /// Information about managed application.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.Solutions.V20170901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:solutions/v20170901:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:solutions/v20170901:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:solutions/v20170901:Application", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:solutions/v20170901:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,10 +129,10 @@ namespace Pulumi.AzureRM.Solutions.V20170901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:solutions/latest:Application"},
-                    new Pulumi.Alias { Type = "azurerm:solutions/v20180601:Application"},
-                    new Pulumi.Alias { Type = "azurerm:solutions/v20190701:Application"},
-                    new Pulumi.Alias { Type = "azurerm:solutions/v20200821preview:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/latest:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

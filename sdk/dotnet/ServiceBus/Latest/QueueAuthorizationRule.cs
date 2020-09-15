@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceBus.Latest
+namespace Pulumi.AzureNextGen.ServiceBus.Latest
 {
     /// <summary>
     /// Description of a namespace authorization rule.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public QueueAuthorizationRule(string name, QueueAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus/latest:QueueAuthorizationRule", name, args ?? new QueueAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicebus/latest:QueueAuthorizationRule", name, args ?? new QueueAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private QueueAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus/latest:QueueAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicebus/latest:QueueAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,9 +57,9 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:QueueAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:QueueAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:QueueAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

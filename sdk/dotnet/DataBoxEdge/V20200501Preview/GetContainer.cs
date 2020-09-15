@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
+namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
 {
     public static class GetContainer
     {
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azurerm:databoxedge/v20200501preview:getContainer", args ?? new GetContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-nextgen:databoxedge/v20200501preview:getContainer", args ?? new GetContainerArgs(), options.WithVersion());
     }
 
 

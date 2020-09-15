@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.Latest
+namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
     /// <summary>
     /// The top level Linked service resource container.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedService(string name, LinkedServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/latest:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationalinsights/latest:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/latest:LinkedService", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationalinsights/latest:LinkedService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,10 +75,10 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20151101preview:LinkedService"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20190801preview:LinkedService"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:LinkedService"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:LinkedService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

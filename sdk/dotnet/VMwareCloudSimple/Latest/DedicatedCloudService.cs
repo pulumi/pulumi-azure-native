@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
+namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
 {
     /// <summary>
     /// Dedicated cloud service model
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedCloudService(string name, DedicatedCloudServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:vmwarecloudsimple/latest:DedicatedCloudService", name, args ?? new DedicatedCloudServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudService", name, args ?? new DedicatedCloudServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DedicatedCloudService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:vmwarecloudsimple/latest:DedicatedCloudService", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/v20190401:DedicatedCloudService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

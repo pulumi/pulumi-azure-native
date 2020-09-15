@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 {
     /// <summary>
     /// A formula.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FormulaResource(string name, FormulaResourceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20150521preview:FormulaResource", name, args ?? new FormulaResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devtestlab/v20150521preview:FormulaResource", name, args ?? new FormulaResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FormulaResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20150521preview:FormulaResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devtestlab/v20150521preview:FormulaResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,9 +105,9 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/latest:FormulaResource"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:FormulaResource"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:FormulaResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:FormulaResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:FormulaResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:FormulaResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

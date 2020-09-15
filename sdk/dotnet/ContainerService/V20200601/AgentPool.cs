@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerService.V20200601
+namespace Pulumi.AzureNextGen.ContainerService.V20200601
 {
     /// <summary>
     /// Agent Pool.
@@ -173,12 +173,12 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AgentPool(string name, AgentPoolArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerservice/v20200601:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerservice/v20200601:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AgentPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerservice/v20200601:AgentPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerservice/v20200601:AgentPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -189,19 +189,19 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:containerservice/latest:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190201:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190401:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190601:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190801:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20191001:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20191101:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200101:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200201:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200301:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200401:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200701:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200901:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190201:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190401:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190601:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190801:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20191001:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20191101:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200101:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200201:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200301:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200401:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200701:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200901:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

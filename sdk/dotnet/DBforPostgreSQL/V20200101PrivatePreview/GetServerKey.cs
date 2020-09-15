@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101PrivatePreview
+namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200101PrivatePreview
 {
     public static class GetServerKey
     {
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azurerm:dbforpostgresql/v20200101privatepreview:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-nextgen:dbforpostgresql/v20200101privatepreview:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
     }
 
 

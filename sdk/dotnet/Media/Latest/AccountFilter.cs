@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.Latest
+namespace Pulumi.AzureNextGen.Media.Latest
 {
     /// <summary>
     /// An Account Filter.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Media.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccountFilter(string name, AccountFilterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:media/latest:AccountFilter", name, args ?? new AccountFilterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:media/latest:AccountFilter", name, args ?? new AccountFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccountFilter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:media/latest:AccountFilter", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:media/latest:AccountFilter", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:media/v20180701:AccountFilter"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20200501:AccountFilter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:AccountFilter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:AccountFilter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

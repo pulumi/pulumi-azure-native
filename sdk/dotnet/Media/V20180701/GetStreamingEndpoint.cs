@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.V20180701
+namespace Pulumi.AzureNextGen.Media.V20180701
 {
     public static class GetStreamingEndpoint
     {
         public static Task<GetStreamingEndpointResult> InvokeAsync(GetStreamingEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingEndpointResult>("azurerm:media/v20180701:getStreamingEndpoint", args ?? new GetStreamingEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingEndpointResult>("azure-nextgen:media/v20180701:getStreamingEndpoint", args ?? new GetStreamingEndpointArgs(), options.WithVersion());
     }
 
 

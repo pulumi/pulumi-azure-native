@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AzureData.V20170301Preview
+namespace Pulumi.AzureNextGen.AzureData.V20170301Preview
 {
     /// <summary>
     /// A SQL server.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.AzureData.V20170301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlServer(string name, SqlServerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:azuredata/v20170301preview:SqlServer", name, args ?? new SqlServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:azuredata/v20170301preview:SqlServer", name, args ?? new SqlServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:azuredata/v20170301preview:SqlServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:azuredata/v20170301preview:SqlServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.AzureData.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:azuredata/v20190724preview:SqlServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20190724preview:SqlServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

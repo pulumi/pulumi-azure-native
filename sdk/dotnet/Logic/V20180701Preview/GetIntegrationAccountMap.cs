@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20180701Preview
+namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 {
     public static class GetIntegrationAccountMap
     {
         public static Task<GetIntegrationAccountMapResult> InvokeAsync(GetIntegrationAccountMapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountMapResult>("azurerm:logic/v20180701preview:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountMapResult>("azure-nextgen:logic/v20180701preview:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapArgs(), options.WithVersion());
     }
 
 

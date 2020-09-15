@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.KeyVault.V20190901
+namespace Pulumi.AzureNextGen.KeyVault.V20190901
 {
     /// <summary>
     /// Private endpoint connection resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:keyvault/v20190901:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:keyvault/v20190901:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:keyvault/v20190901:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:keyvault/v20190901:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,9 +81,9 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:keyvault/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:keyvault/v20180214:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:keyvault/v20200401preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20180214:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20200401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
+namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
 {
     public static class ListOperationalizationClusterKeys
     {
         public static Task<ListOperationalizationClusterKeysResult> InvokeAsync(ListOperationalizationClusterKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azurerm:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azure-nextgen:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithVersion());
     }
 
 

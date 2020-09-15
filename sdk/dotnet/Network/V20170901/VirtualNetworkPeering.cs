@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20170901
+namespace Pulumi.AzureNextGen.Network.V20170901
 {
     /// <summary>
     /// Peerings in a virtual network resource.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkPeering(string name, VirtualNetworkPeeringArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20170901:VirtualNetworkPeering", name, args ?? new VirtualNetworkPeeringArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20170901:VirtualNetworkPeering", name, args ?? new VirtualNetworkPeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkPeering(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20170901:VirtualNetworkPeering", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20170901:VirtualNetworkPeering", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,36 +99,36 @@ namespace Pulumi.AzureRM.Network.V20170901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160601:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160901:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20161201:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170301:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170601:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170801:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171101:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180101:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

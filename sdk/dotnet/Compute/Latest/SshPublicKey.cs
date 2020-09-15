@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.Latest
+namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Specifies information about the SSH public key.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SshPublicKey(string name, SshPublicKeyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/latest:SshPublicKey", name, args ?? new SshPublicKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/latest:SshPublicKey", name, args ?? new SshPublicKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SshPublicKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/latest:SshPublicKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/latest:SshPublicKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:SshPublicKey"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:SshPublicKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:SshPublicKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:SshPublicKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

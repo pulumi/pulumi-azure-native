@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20180630Preview
+namespace Pulumi.AzureNextGen.Compute.V20180630Preview
 {
     /// <summary>
     /// Guest configuration assignment is an association between a VM and guest configuration.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Compute.V20180630Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GuestConfigurationAssignment(string name, GuestConfigurationAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20180630preview:GuestConfigurationAssignment", name, args ?? new GuestConfigurationAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20180630preview:GuestConfigurationAssignment", name, args ?? new GuestConfigurationAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GuestConfigurationAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20180630preview:GuestConfigurationAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20180630preview:GuestConfigurationAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,9 +63,9 @@ namespace Pulumi.AzureRM.Compute.V20180630Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/latest:GuestConfigurationAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20181120:GuestConfigurationAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200625:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20181120:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200625:GuestConfigurationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

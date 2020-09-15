@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NetApp.V20200601
+namespace Pulumi.AzureNextGen.NetApp.V20200601
 {
     /// <summary>
     /// Backup of a Volume
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Backup(string name, BackupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:netapp/v20200601:Backup", name, args ?? new BackupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:netapp/v20200601:Backup", name, args ?? new BackupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Backup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:netapp/v20200601:Backup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:netapp/v20200601:Backup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:netapp/latest:Backup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Backup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

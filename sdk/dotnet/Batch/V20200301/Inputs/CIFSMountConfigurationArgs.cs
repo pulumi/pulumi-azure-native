@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Batch.V20200301.Inputs
+namespace Pulumi.AzureNextGen.Batch.V20200301.Inputs
 {
 
     public sealed class CIFSMountConfigurationArgs : Pulumi.ResourceArgs

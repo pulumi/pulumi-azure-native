@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ResourceGraph.V20200401Preview
+namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
 {
     /// <summary>
     /// Graph Query entity definition.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.ResourceGraph.V20200401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GraphQuery(string name, GraphQueryArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:resourcegraph/v20200401preview:GraphQuery", name, args ?? new GraphQueryArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:resourcegraph/v20200401preview:GraphQuery", name, args ?? new GraphQueryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GraphQuery(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:resourcegraph/v20200401preview:GraphQuery", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:resourcegraph/v20200401preview:GraphQuery", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.ResourceGraph.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:resourcegraph/v20180901preview:GraphQuery"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resourcegraph/v20180901preview:GraphQuery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

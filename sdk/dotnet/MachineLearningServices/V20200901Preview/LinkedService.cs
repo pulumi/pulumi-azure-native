@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
+namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
 {
     /// <summary>
     /// Linked service.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedService(string name, LinkedServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices/v20200901preview:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:machinelearningservices/v20200901preview:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices/v20200901preview:LinkedService", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:machinelearningservices/v20200901preview:LinkedService", name, null, MakeResourceOptions(options, id))
         {
         }
 

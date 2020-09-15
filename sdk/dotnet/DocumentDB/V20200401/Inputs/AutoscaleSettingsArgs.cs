@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20200401.Inputs
+namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Inputs
 {
 
     public sealed class AutoscaleSettingsArgs : Pulumi.ResourceArgs

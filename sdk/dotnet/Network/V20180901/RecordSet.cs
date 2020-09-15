@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20180901
+namespace Pulumi.AzureNextGen.Network.V20180901
 {
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.Network.V20180901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RecordSet(string name, RecordSetArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180901:RecordSet", name, args ?? new RecordSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20180901:RecordSet", name, args ?? new RecordSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RecordSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180901:RecordSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20180901:RecordSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,7 +129,7 @@ namespace Pulumi.AzureRM.Network.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:RecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

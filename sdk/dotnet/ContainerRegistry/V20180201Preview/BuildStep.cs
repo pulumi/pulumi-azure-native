@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
 {
     /// <summary>
     /// Build step resource properties
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BuildStep(string name, BuildStepArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20180201preview:BuildStep", name, args ?? new BuildStepArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/v20180201preview:BuildStep", name, args ?? new BuildStepArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BuildStep(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20180201preview:BuildStep", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/v20180201preview:BuildStep", name, null, MakeResourceOptions(options, id))
         {
         }
 

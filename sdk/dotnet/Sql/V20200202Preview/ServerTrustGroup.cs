@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20200202Preview
+namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 {
     /// <summary>
     /// A server trust group.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Sql.V20200202Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerTrustGroup(string name, ServerTrustGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20200202preview:ServerTrustGroup", name, args ?? new ServerTrustGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20200202preview:ServerTrustGroup", name, args ?? new ServerTrustGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerTrustGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20200202preview:ServerTrustGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20200202preview:ServerTrustGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

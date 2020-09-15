@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.V20191001Preview
+namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
 {
     /// <summary>
     /// Define the move collection.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Migrate.V20191001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MoveCollection(string name, MoveCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/v20191001preview:MoveCollection", name, args ?? new MoveCollectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:migrate/v20191001preview:MoveCollection", name, args ?? new MoveCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MoveCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/v20191001preview:MoveCollection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:migrate/v20191001preview:MoveCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 

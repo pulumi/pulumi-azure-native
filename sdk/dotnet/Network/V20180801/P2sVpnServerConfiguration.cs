@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20180801
+namespace Pulumi.AzureNextGen.Network.V20180801
 {
     /// <summary>
     /// P2SVpnServerConfiguration Resource.
@@ -92,12 +92,12 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public P2sVpnServerConfiguration(string name, P2sVpnServerConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180801:P2sVpnServerConfiguration", name, args ?? new P2sVpnServerConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20180801:P2sVpnServerConfiguration", name, args ?? new P2sVpnServerConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private P2sVpnServerConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180801:P2sVpnServerConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20180801:P2sVpnServerConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -108,14 +108,14 @@ namespace Pulumi.AzureRM.Network.V20180801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:P2sVpnServerConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabric.V20190301
+namespace Pulumi.AzureNextGen.ServiceFabric.V20190301
 {
     public static class GetApplicationType
     {
         public static Task<GetApplicationTypeResult> InvokeAsync(GetApplicationTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azurerm:servicefabric/v20190301:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-nextgen:servicefabric/v20190301:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithVersion());
     }
 
 

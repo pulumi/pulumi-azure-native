@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cache.Latest
+namespace Pulumi.AzureNextGen.Cache.Latest
 {
     public static class GetPatchSchedule
     {
         public static Task<GetPatchScheduleResult> InvokeAsync(GetPatchScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPatchScheduleResult>("azurerm:cache/latest:getPatchSchedule", args ?? new GetPatchScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPatchScheduleResult>("azure-nextgen:cache/latest:getPatchSchedule", args ?? new GetPatchScheduleArgs(), options.WithVersion());
     }
 
 

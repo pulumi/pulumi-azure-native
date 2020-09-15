@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceBus.Latest
+namespace Pulumi.AzureNextGen.ServiceBus.Latest
 {
     /// <summary>
     /// Description of topic resource.
@@ -131,12 +131,12 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Topic(string name, TopicArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus/latest:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicebus/latest:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Topic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus/latest:Topic", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicebus/latest:Topic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -147,9 +147,9 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

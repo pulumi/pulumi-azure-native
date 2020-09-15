@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
+namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview
 {
     /// <summary>
     /// The container for solution.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementConfiguration(string name, ManagementConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationsmanagement/v20151101preview:ManagementConfiguration", name, args ?? new ManagementConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration", name, args ?? new ManagementConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationsmanagement/v20151101preview:ManagementConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

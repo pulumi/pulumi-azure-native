@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20200101Preview
+namespace Pulumi.AzureNextGen.EventGrid.V20200101Preview
 {
     /// <summary>
     /// EventGrid Topic
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.EventGrid.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Topic(string name, TopicArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20200101preview:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventgrid/v20200101preview:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Topic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20200101preview:Topic", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventgrid/v20200101preview:Topic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,17 +93,17 @@ namespace Pulumi.AzureRM.EventGrid.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/latest:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20170615preview:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20170915preview:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180101:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180501preview:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180915preview:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190101:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190201preview:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190601:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200401preview:Topic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200601:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170615preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170915preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180101:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180501preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180915preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190101:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MixedReality.V20200406Preview
+namespace Pulumi.AzureNextGen.MixedReality.V20200406Preview
 {
     /// <summary>
     /// RemoteRenderingAccount Response.
@@ -62,12 +62,12 @@ namespace Pulumi.AzureRM.MixedReality.V20200406Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RemoteRenderingAccount(string name, RemoteRenderingAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:mixedreality/v20200406preview:RemoteRenderingAccount", name, args ?? new RemoteRenderingAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount", name, args ?? new RemoteRenderingAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RemoteRenderingAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:mixedreality/v20200406preview:RemoteRenderingAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.MixedReality.V20200406Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:mixedreality/v20191202preview:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

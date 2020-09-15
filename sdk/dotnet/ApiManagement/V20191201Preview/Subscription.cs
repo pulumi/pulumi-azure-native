@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
+namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 {
     /// <summary>
     /// Subscription details.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Subscription(string name, SubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201preview:Subscription", name, args ?? new SubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20191201preview:Subscription", name, args ?? new SubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Subscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201preview:Subscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20191201preview:Subscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,14 +129,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Subscription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Subscription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Subscription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Subscription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Subscription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Subscription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Subscription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Subscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Subscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Subscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Subscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Subscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Subscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Subscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Subscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
+namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Sku sub resource.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VendorSkus(string name, VendorSkusArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hybridnetwork/v20200101preview:VendorSkus", name, args ?? new VendorSkusArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hybridnetwork/v20200101preview:VendorSkus", name, args ?? new VendorSkusArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VendorSkus(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hybridnetwork/v20200101preview:VendorSkus", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hybridnetwork/v20200101preview:VendorSkus", name, null, MakeResourceOptions(options, id))
         {
         }
 

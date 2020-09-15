@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20190801Preview
+namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
 {
     /// <summary>
     /// The top level data export resource container.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20190801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataExport(string name, DataExportArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20190801preview:DataExport", name, args ?? new DataExportArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationalinsights/v20190801preview:DataExport", name, args ?? new DataExportArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataExport(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20190801preview:DataExport", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationalinsights/v20190801preview:DataExport", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,9 +99,9 @@ namespace Pulumi.AzureRM.OperationalInsights.V20190801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:DataExport"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:DataExport"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:DataExport"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:DataExport"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:DataExport"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:DataExport"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

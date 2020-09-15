@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
+namespace Pulumi.AzureNextGen.DBForMySql.V20200701PrivatePreview
 {
     public static class GetDatabase
     {
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azurerm:dbformysql/v20200701privatepreview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:dbformysql/v20200701privatepreview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }
 
 

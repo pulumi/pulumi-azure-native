@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20180601Preview
+namespace Pulumi.AzureNextGen.Insights.V20180601Preview
 {
     /// <summary>
     /// Virtual machine guest diagnostics settings resource.
@@ -62,12 +62,12 @@ namespace Pulumi.AzureRM.Insights.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GuestDiagnosticsSetting(string name, GuestDiagnosticsSettingArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20180601preview:guestDiagnosticsSetting", name, args ?? new GuestDiagnosticsSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20180601preview:guestDiagnosticsSetting", name, args ?? new GuestDiagnosticsSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GuestDiagnosticsSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20180601preview:guestDiagnosticsSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20180601preview:guestDiagnosticsSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 

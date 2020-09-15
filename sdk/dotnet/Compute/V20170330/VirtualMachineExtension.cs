@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20170330
+namespace Pulumi.AzureNextGen.Compute.V20170330
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineExtension(string name, VirtualMachineExtensionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20170330:VirtualMachineExtension", name, args ?? new VirtualMachineExtensionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20170330:VirtualMachineExtension", name, args ?? new VirtualMachineExtensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineExtension(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20170330:VirtualMachineExtension", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20170330:VirtualMachineExtension", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,18 +111,18 @@ namespace Pulumi.AzureRM.Compute.V20170330
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20150615:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20160330:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20171201:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20181001:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20150615:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20160330:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

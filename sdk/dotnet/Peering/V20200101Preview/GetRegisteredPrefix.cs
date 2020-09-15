@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Peering.V20200101Preview
+namespace Pulumi.AzureNextGen.Peering.V20200101Preview
 {
     public static class GetRegisteredPrefix
     {
         public static Task<GetRegisteredPrefixResult> InvokeAsync(GetRegisteredPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azurerm:peering/v20200101preview:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-nextgen:peering/v20200101preview:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithVersion());
     }
 
 

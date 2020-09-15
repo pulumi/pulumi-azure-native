@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
+namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
 {
     /// <summary>
     /// The manged cluster resource
@@ -175,12 +175,12 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedCluster(string name, ManagedClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabric/v20200101preview:ManagedCluster", name, args ?? new ManagedClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicefabric/v20200101preview:ManagedCluster", name, args ?? new ManagedClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabric/v20200101preview:ManagedCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicefabric/v20200101preview:ManagedCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 

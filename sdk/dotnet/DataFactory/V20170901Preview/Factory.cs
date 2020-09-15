@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataFactory.V20170901Preview
+namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 {
     /// <summary>
     /// Factory resource type.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Factory(string name, FactoryArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datafactory/v20170901preview:Factory", name, args ?? new FactoryArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datafactory/v20170901preview:Factory", name, args ?? new FactoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Factory(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datafactory/v20170901preview:Factory", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datafactory/v20170901preview:Factory", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datafactory/latest:Factory"},
-                    new Pulumi.Alias { Type = "azurerm:datafactory/v20180601:Factory"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:Factory"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:Factory"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

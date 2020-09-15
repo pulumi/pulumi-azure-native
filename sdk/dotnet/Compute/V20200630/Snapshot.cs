@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20200630
+namespace Pulumi.AzureNextGen.Compute.V20200630
 {
     /// <summary>
     /// Snapshot resource.
@@ -143,12 +143,12 @@ namespace Pulumi.AzureRM.Compute.V20200630
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Snapshot(string name, SnapshotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20200630:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20200630:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Snapshot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20200630:Snapshot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20200630:Snapshot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -159,16 +159,16 @@ namespace Pulumi.AzureRM.Compute.V20200630
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/latest:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180930:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20191101:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200501:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180930:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

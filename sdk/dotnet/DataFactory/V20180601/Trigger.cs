@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataFactory.V20180601
+namespace Pulumi.AzureNextGen.DataFactory.V20180601
 {
     /// <summary>
     /// Trigger resource type.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Trigger(string name, TriggerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datafactory/v20180601:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datafactory/v20180601:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Trigger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datafactory/v20180601:Trigger", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datafactory/v20180601:Trigger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datafactory/latest:Trigger"},
-                    new Pulumi.Alias { Type = "azurerm:datafactory/v20170901preview:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

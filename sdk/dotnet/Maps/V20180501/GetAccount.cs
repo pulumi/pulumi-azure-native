@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Maps.V20180501
+namespace Pulumi.AzureNextGen.Maps.V20180501
 {
     public static class GetAccount
     {
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azurerm:maps/v20180501:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:maps/v20180501:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

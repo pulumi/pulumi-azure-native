@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview.Inputs
+namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview.Inputs
 {
 
     /// <summary>

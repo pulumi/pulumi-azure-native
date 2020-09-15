@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20160901
+namespace Pulumi.AzureNextGen.Web.V20160901
 {
     /// <summary>
     /// App Service Environment ARM resource.
@@ -259,12 +259,12 @@ namespace Pulumi.AzureRM.Web.V20160901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppServiceEnvironment(string name, AppServiceEnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160901:AppServiceEnvironment", name, args ?? new AppServiceEnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20160901:AppServiceEnvironment", name, args ?? new AppServiceEnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AppServiceEnvironment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160901:AppServiceEnvironment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20160901:AppServiceEnvironment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -275,11 +275,11 @@ namespace Pulumi.AzureRM.Web.V20160901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:AppServiceEnvironment"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20150801:AppServiceEnvironment"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:AppServiceEnvironment"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:AppServiceEnvironment"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:AppServiceEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

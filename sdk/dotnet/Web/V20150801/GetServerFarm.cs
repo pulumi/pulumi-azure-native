@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetServerFarm
     {
         public static Task<GetServerFarmResult> InvokeAsync(GetServerFarmArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerFarmResult>("azurerm:web/v20150801:getServerFarm", args ?? new GetServerFarmArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerFarmResult>("azure-nextgen:web/v20150801:getServerFarm", args ?? new GetServerFarmArgs(), options.WithVersion());
     }
 
 

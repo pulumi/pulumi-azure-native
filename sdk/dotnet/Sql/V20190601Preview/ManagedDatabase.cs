@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20190601Preview
+namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 {
     /// <summary>
     /// A managed database resource.
@@ -137,12 +137,12 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedDatabase(string name, ManagedDatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20190601preview:ManagedDatabase", name, args ?? new ManagedDatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20190601preview:ManagedDatabase", name, args ?? new ManagedDatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedDatabase(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20190601preview:ManagedDatabase", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20190601preview:ManagedDatabase", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -153,9 +153,9 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:sql/v20170301preview:ManagedDatabase"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20180601preview:ManagedDatabase"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20200202preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

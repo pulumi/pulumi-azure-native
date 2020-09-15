@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Resources.V20200601
+namespace Pulumi.AzureNextGen.Resources.V20200601
 {
     /// <summary>
     /// Deployment information.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Resources.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentAtTenantScope(string name, DeploymentAtTenantScopeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:resources/v20200601:DeploymentAtTenantScope", name, args ?? new DeploymentAtTenantScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:resources/v20200601:DeploymentAtTenantScope", name, args ?? new DeploymentAtTenantScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentAtTenantScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:resources/v20200601:DeploymentAtTenantScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:resources/v20200601:DeploymentAtTenantScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,10 +69,10 @@ namespace Pulumi.AzureRM.Resources.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:resources/latest:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190701:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190801:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20191001:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:DeploymentAtTenantScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

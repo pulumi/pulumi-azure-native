@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kusto.V20191109
+namespace Pulumi.AzureNextGen.Kusto.V20191109
 {
     /// <summary>
     /// Class representing a cluster principal assignment.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterPrincipalAssignment(string name, ClusterPrincipalAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/v20191109:ClusterPrincipalAssignment", name, args ?? new ClusterPrincipalAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment", name, args ?? new ClusterPrincipalAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ClusterPrincipalAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/v20191109:ClusterPrincipalAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,9 +93,9 @@ namespace Pulumi.AzureRM.Kusto.V20191109
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:kusto/latest:ClusterPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200215:ClusterPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200614:ClusterPrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:ClusterPrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

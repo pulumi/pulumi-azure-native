@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
+namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
 {
     /// <summary>
     /// A SQL virtual machine.
@@ -131,12 +131,12 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlVirtualMachine(string name, SqlVirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sqlvirtualmachine/v20170301preview:SqlVirtualMachine", name, args ?? new SqlVirtualMachineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachine", name, args ?? new SqlVirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlVirtualMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sqlvirtualmachine/v20170301preview:SqlVirtualMachine", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 

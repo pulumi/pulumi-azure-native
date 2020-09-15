@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DigitalTwins.Latest
+namespace Pulumi.AzureNextGen.DigitalTwins.Latest
 {
     /// <summary>
     /// DigitalTwinsInstance endpoint resource.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.DigitalTwins.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DigitalTwinsEndpoint(string name, DigitalTwinsEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:digitaltwins/latest:DigitalTwinsEndpoint", name, args ?? new DigitalTwinsEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint", name, args ?? new DigitalTwinsEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DigitalTwinsEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:digitaltwins/latest:DigitalTwinsEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.DigitalTwins.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:digitaltwins/v20200301preview:DigitalTwinsEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:digitaltwins/v20201031:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

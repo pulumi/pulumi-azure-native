@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.Latest
+namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Specifies information about the gallery Application Definition that you want to create or update.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GalleryApplication(string name, GalleryApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/latest:GalleryApplication", name, args ?? new GalleryApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/latest:GalleryApplication", name, args ?? new GalleryApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GalleryApplication(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/latest:GalleryApplication", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/latest:GalleryApplication", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,10 +99,10 @@ namespace Pulumi.AzureRM.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:GalleryApplication"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:GalleryApplication"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:GalleryApplication"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200930:GalleryApplication"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:GalleryApplication"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:GalleryApplication"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:GalleryApplication"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:GalleryApplication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

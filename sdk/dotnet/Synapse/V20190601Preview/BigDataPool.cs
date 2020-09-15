@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Synapse.V20190601Preview
+namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     /// <summary>
     /// A Big Data pool
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BigDataPool(string name, BigDataPoolArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:synapse/v20190601preview:BigDataPool", name, args ?? new BigDataPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:synapse/v20190601preview:BigDataPool", name, args ?? new BigDataPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BigDataPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:synapse/v20190601preview:BigDataPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:synapse/v20190601preview:BigDataPool", name, null, MakeResourceOptions(options, id))
         {
         }
 

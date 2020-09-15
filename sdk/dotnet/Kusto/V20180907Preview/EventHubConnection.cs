@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kusto.V20180907Preview
+namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
 {
     /// <summary>
     /// Class representing an event hub connection.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Kusto.V20180907Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventHubConnection(string name, EventHubConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/v20180907preview:EventHubConnection", name, args ?? new EventHubConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:kusto/v20180907preview:EventHubConnection", name, args ?? new EventHubConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventHubConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/v20180907preview:EventHubConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:kusto/v20180907preview:EventHubConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.Kusto.V20180907Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20170907privatepreview:EventHubConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:EventHubConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

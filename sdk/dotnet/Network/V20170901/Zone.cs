@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20170901
+namespace Pulumi.AzureNextGen.Network.V20170901
 {
     /// <summary>
     /// Describes a DNS zone.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Zone(string name, ZoneArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20170901:Zone", name, args ?? new ZoneArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20170901:Zone", name, args ?? new ZoneArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Zone(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20170901:Zone", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20170901:Zone", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,12 +87,12 @@ namespace Pulumi.AzureRM.Network.V20170901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:Zone"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20150504preview:Zone"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160401:Zone"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:Zone"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180301preview:Zone"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180501:Zone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Zone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150504preview:Zone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160401:Zone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:Zone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180301preview:Zone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180501:Zone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

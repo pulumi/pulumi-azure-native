@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorageCache.Latest
+namespace Pulumi.AzureNextGen.StorageCache.Latest
 {
     /// <summary>
     /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.StorageCache.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cache(string name, CacheArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storagecache/latest:Cache", name, args ?? new CacheArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storagecache/latest:Cache", name, args ?? new CacheArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cache(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storagecache/latest:Cache", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storagecache/latest:Cache", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,9 +129,9 @@ namespace Pulumi.AzureRM.StorageCache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storagecache/v20190801preview:Cache"},
-                    new Pulumi.Alias { Type = "azurerm:storagecache/v20191101:Cache"},
-                    new Pulumi.Alias { Type = "azurerm:storagecache/v20200301:Cache"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20190801preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:Cache"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20200101
+namespace Pulumi.AzureNextGen.Security.V20200101
 {
     /// <summary>
     /// Security assessment metadata
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AssessmentMetadataInSubscription(string name, AssessmentMetadataInSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20200101:AssessmentMetadataInSubscription", name, args ?? new AssessmentMetadataInSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/v20200101:AssessmentMetadataInSubscription", name, args ?? new AssessmentMetadataInSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AssessmentMetadataInSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20200101:AssessmentMetadataInSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/v20200101:AssessmentMetadataInSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,8 +117,8 @@ namespace Pulumi.AzureRM.Security.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:security/latest:AssessmentMetadataInSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:security/v20190101preview:AssessmentMetadataInSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:AssessmentMetadataInSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:AssessmentMetadataInSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

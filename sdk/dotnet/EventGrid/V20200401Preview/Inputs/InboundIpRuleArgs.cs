@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20200401Preview.Inputs
+namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview.Inputs
 {
 
     public sealed class InboundIpRuleArgs : Pulumi.ResourceArgs

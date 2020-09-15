@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.PolicyInsights.Latest
+namespace Pulumi.AzureNextGen.PolicyInsights.Latest
 {
     public static class GetRemediationAtResource
     {
         public static Task<GetRemediationAtResourceResult> InvokeAsync(GetRemediationAtResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceResult>("azurerm:policyinsights/latest:getRemediationAtResource", args ?? new GetRemediationAtResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceResult>("azure-nextgen:policyinsights/latest:getRemediationAtResource", args ?? new GetRemediationAtResourceArgs(), options.WithVersion());
     }
 
 

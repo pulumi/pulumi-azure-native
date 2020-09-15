@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
+namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
 {
     /// <summary>
     /// The Managed Network Peering Policy resource
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedNetworkPeeringPolicy(string name, ManagedNetworkPeeringPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy", name, args ?? new ManagedNetworkPeeringPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy", name, args ?? new ManagedNetworkPeeringPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedNetworkPeeringPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

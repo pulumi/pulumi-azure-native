@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20191201
+namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 {
     /// <summary>
     /// Content type contract details.
@@ -35,12 +35,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContentItem(string name, ContentItemArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201:ContentItem", name, args ?? new ContentItemArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20191201:ContentItem", name, args ?? new ContentItemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ContentItem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201:ContentItem", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20191201:ContentItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ContentItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

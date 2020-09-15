@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20160601
+namespace Pulumi.AzureNextGen.Logic.V20160601
 {
     /// <summary>
     /// The integration account RosettaNet process configuration.
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RosettaNetProcessConfiguration(string name, RosettaNetProcessConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20160601:RosettaNetProcessConfiguration", name, args ?? new RosettaNetProcessConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration", name, args ?? new RosettaNetProcessConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RosettaNetProcessConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20160601:RosettaNetProcessConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,7 +123,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:logic/latest:RosettaNetProcessConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:RosettaNetProcessConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

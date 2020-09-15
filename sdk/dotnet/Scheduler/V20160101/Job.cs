@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Scheduler.V20160101
+namespace Pulumi.AzureNextGen.Scheduler.V20160101
 {
     public partial class Job : Pulumi.CustomResource
     {
@@ -38,12 +38,12 @@ namespace Pulumi.AzureRM.Scheduler.V20160101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:scheduler/v20160101:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:scheduler/v20160101:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:scheduler/v20160101:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:scheduler/v20160101:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -54,9 +54,9 @@ namespace Pulumi.AzureRM.Scheduler.V20160101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:scheduler/latest:Job"},
-                    new Pulumi.Alias { Type = "azurerm:scheduler/v20140801preview:Job"},
-                    new Pulumi.Alias { Type = "azurerm:scheduler/v20160301:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:scheduler/latest:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20140801preview:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20160301:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

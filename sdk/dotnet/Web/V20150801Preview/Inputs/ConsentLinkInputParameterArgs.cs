@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801Preview.Inputs
+namespace Pulumi.AzureNextGen.Web.V20150801Preview.Inputs
 {
 
     public sealed class ConsentLinkInputParameterArgs : Pulumi.InvokeArgs

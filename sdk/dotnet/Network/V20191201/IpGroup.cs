@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20191201
+namespace Pulumi.AzureNextGen.Network.V20191201
 {
     /// <summary>
     /// The IpGroups resource information.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IpGroup(string name, IpGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191201:IpGroup", name, args ?? new IpGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20191201:IpGroup", name, args ?? new IpGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IpGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191201:IpGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20191201:IpGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,13 +87,13 @@ namespace Pulumi.AzureRM.Network.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:IpGroup"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:IpGroup"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:IpGroup"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:IpGroup"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:IpGroup"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:IpGroup"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:IpGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
+namespace Pulumi.AzureNextGen.DBForPostgreSql.V20200214PrivatePreview
 {
     /// <summary>
     /// Represents a server firewall rule.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20200214privatepreview:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbforpostgresql/v20200214privatepreview:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20200214privatepreview:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbforpostgresql/v20200214privatepreview:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DesktopVirtualization.V20190123Preview
+namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190123Preview
 {
     /// <summary>
     /// Represents a HostPool definition.
@@ -131,12 +131,12 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190123Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HostPool(string name, HostPoolArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:desktopvirtualization/v20190123preview:HostPool", name, args ?? new HostPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:desktopvirtualization/v20190123preview:HostPool", name, args ?? new HostPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HostPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:desktopvirtualization/v20190123preview:HostPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:desktopvirtualization/v20190123preview:HostPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -147,8 +147,8 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190123Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20190924preview:HostPool"},
-                    new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20191210preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190924preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:HostPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

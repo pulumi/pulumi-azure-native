@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningServices.Latest
+namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 {
     /// <summary>
     /// Linked workspace.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedWorkspace(string name, LinkedWorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices/latest:LinkedWorkspace", name, args ?? new LinkedWorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:machinelearningservices/latest:LinkedWorkspace", name, args ?? new LinkedWorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedWorkspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices/latest:LinkedWorkspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:machinelearningservices/latest:LinkedWorkspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,7 +57,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200301:LinkedWorkspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200301:LinkedWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

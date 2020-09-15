@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BotService.Latest
+namespace Pulumi.AzureNextGen.BotService.Latest
 {
     /// <summary>
     /// Bot resource definition
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.BotService.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Bot(string name, BotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:botservice/latest:Bot", name, args ?? new BotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:botservice/latest:Bot", name, args ?? new BotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Bot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:botservice/latest:Bot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:botservice/latest:Bot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,9 +87,9 @@ namespace Pulumi.AzureRM.BotService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:botservice/v20171201:Bot"},
-                    new Pulumi.Alias { Type = "azurerm:botservice/v20180712:Bot"},
-                    new Pulumi.Alias { Type = "azurerm:botservice/v20200602:Bot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice/v20171201:Bot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice/v20180712:Bot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice/v20200602:Bot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Databricks.Latest
+namespace Pulumi.AzureNextGen.Databricks.Latest
 {
     /// <summary>
     /// Peerings in a VirtualNetwork resource
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Databricks.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VNetPeering(string name, VNetPeeringArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:databricks/latest:vNetPeering", name, args ?? new VNetPeeringArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:databricks/latest:vNetPeering", name, args ?? new VNetPeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VNetPeering(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:databricks/latest:vNetPeering", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:databricks/latest:vNetPeering", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.Databricks.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databricks/v20180401:vNetPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databricks/v20180401:vNetPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

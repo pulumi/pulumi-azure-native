@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteVNETConnectionSlot
     {
         public static Task<GetSiteVNETConnectionSlotResult> InvokeAsync(GetSiteVNETConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteVNETConnectionSlotResult>("azurerm:web/v20150801:getSiteVNETConnectionSlot", args ?? new GetSiteVNETConnectionSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteVNETConnectionSlotResult>("azure-nextgen:web/v20150801:getSiteVNETConnectionSlot", args ?? new GetSiteVNETConnectionSlotArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorageCache.V20190801Preview
+namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
 {
     public static class GetCache
     {
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azurerm:storagecache/v20190801preview:getCache", args ?? new GetCacheArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-nextgen:storagecache/v20190801preview:getCache", args ?? new GetCacheArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.V20170101
+namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 {
     /// <summary>
     /// The Role Assignment resource format.
@@ -155,12 +155,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleAssignment(string name, RoleAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/v20170101:RoleAssignment", name, args ?? new RoleAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:customerinsights/v20170101:RoleAssignment", name, args ?? new RoleAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RoleAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/v20170101:RoleAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:customerinsights/v20170101:RoleAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -171,8 +171,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/latest:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170426:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:RoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

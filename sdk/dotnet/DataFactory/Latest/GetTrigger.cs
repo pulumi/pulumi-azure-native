@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataFactory.Latest
+namespace Pulumi.AzureNextGen.DataFactory.Latest
 {
     public static class GetTrigger
     {
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azurerm:datafactory/latest:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-nextgen:datafactory/latest:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
     }
 
 

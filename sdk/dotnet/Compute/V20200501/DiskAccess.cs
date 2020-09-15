@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20200501
+namespace Pulumi.AzureNextGen.Compute.V20200501
 {
     /// <summary>
     /// disk access resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Compute.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiskAccess(string name, DiskAccessArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20200501:DiskAccess", name, args ?? new DiskAccessArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20200501:DiskAccess", name, args ?? new DiskAccessArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiskAccess(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20200501:DiskAccess", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20200501:DiskAccess", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.Compute.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/latest:DiskAccess"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200630:DiskAccess"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DiskAccess"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:DiskAccess"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

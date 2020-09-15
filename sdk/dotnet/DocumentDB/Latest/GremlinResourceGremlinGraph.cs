@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.Latest
+namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GremlinResourceGremlinGraph(string name, GremlinResourceGremlinGraphArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/latest:GremlinResourceGremlinGraph", name, args ?? new GremlinResourceGremlinGraphArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph", name, args ?? new GremlinResourceGremlinGraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GremlinResourceGremlinGraph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/latest:GremlinResourceGremlinGraph", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,11 +69,11 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

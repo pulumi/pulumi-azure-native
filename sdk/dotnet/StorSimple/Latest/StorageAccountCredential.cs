@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.Latest
+namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
     /// <summary>
     /// The storage account credential.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.StorSimple.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccountCredential(string name, StorageAccountCredentialArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/latest:StorageAccountCredential", name, args ?? new StorageAccountCredentialArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storsimple/latest:StorageAccountCredential", name, args ?? new StorageAccountCredentialArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccountCredential(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/latest:StorageAccountCredential", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storsimple/latest:StorageAccountCredential", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storsimple/v20161001:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azurerm:storsimple/v20170601:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:StorageAccountCredential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20200101Preview
+namespace Pulumi.AzureNextGen.Security.V20200101Preview
 {
     /// <summary>
     /// The connector setting
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connector(string name, ConnectorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20200101preview:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/v20200101preview:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20200101preview:Connector", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/v20200101preview:Connector", name, null, MakeResourceOptions(options, id))
         {
         }
 

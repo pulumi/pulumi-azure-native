@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20160601
+namespace Pulumi.AzureNextGen.Logic.V20160601
 {
     /// <summary>
     /// The integration account.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationAccount(string name, IntegrationAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20160601:IntegrationAccount", name, args ?? new IntegrationAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:logic/v20160601:IntegrationAccount", name, args ?? new IntegrationAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20160601:IntegrationAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:logic/v20160601:IntegrationAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,10 +69,10 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:logic/latest:IntegrationAccount"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20150801preview:IntegrationAccount"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:IntegrationAccount"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20190501:IntegrationAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

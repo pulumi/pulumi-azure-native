@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
+namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
 {
     public static class GetLinkedStorageAccount
     {
         public static Task<GetLinkedStorageAccountResult> InvokeAsync(GetLinkedStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedStorageAccountResult>("azurerm:operationalinsights/v20200301preview:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedStorageAccountResult>("azure-nextgen:operationalinsights/v20200301preview:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20190501Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
 {
     public static class GetScopeMap
     {
         public static Task<GetScopeMapResult> InvokeAsync(GetScopeMapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeMapResult>("azurerm:containerregistry/v20190501preview:getScopeMap", args ?? new GetScopeMapArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeMapResult>("azure-nextgen:containerregistry/v20190501preview:getScopeMap", args ?? new GetScopeMapArgs(), options.WithVersion());
     }
 
 

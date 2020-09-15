@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.Latest
+namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
     /// <summary>
     /// Api details.
@@ -143,12 +143,12 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Api(string name, ApiArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/latest:Api", name, args ?? new ApiArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/latest:Api", name, args ?? new ApiArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Api(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/latest:Api", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/latest:Api", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -159,14 +159,14 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Api"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Api"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Api"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Api"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Api"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Api"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Api"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:Api"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Api"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Api"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Api"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Api"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Api"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Api"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Api"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Api"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

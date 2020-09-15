@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OffAzure.Latest
+namespace Pulumi.AzureNextGen.OffAzure.Latest
 {
     public static class GetHyperVSite
     {
         public static Task<GetHyperVSiteResult> InvokeAsync(GetHyperVSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVSiteResult>("azurerm:offazure/latest:getHyperVSite", args ?? new GetHyperVSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVSiteResult>("azure-nextgen:offazure/latest:getHyperVSite", args ?? new GetHyperVSiteArgs(), options.WithVersion());
     }
 
 

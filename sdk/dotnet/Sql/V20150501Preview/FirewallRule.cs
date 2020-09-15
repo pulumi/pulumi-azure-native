@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20150501Preview
+namespace Pulumi.AzureNextGen.Sql.V20150501Preview
 {
     /// <summary>
     /// A server firewall rule.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20150501preview:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20150501preview:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20150501preview:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20150501preview:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:sql/latest:FirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20140401:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

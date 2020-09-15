@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// DSCP Configuration in a resource group.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DscpConfiguration(string name, DscpConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:DscpConfiguration", name, args ?? new DscpConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/latest:DscpConfiguration", name, args ?? new DscpConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DscpConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:DscpConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/latest:DscpConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,7 +129,7 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:DscpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:DscpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

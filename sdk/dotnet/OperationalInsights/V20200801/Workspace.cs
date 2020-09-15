@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20200801
+namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
 {
     /// <summary>
     /// The top level Workspace resource container.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20200801:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationalinsights/v20200801:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20200801:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationalinsights/v20200801:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,9 +117,9 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20151101preview:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

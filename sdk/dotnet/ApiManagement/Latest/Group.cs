@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.Latest
+namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
     /// <summary>
     /// Contract details.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/latest:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/latest:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Group(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/latest:Group", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/latest:Group", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,14 +75,14 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Group"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Group"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Group"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Group"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Group"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Group"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Group"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:Group"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Group"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Group"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Group"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Group"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Group"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Group"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Group"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Group"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

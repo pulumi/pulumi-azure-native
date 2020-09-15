@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.PowerBI.Latest.Outputs
+namespace Pulumi.AzureNextGen.PowerBI.Latest.Outputs
 {
 
     [OutputType]

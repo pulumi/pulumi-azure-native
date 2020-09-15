@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.Latest
+namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
     /// <summary>
     /// Gateway hostname configuration details.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GatewayHostnameConfiguration(string name, GatewayHostnameConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/latest:GatewayHostnameConfiguration", name, args ?? new GatewayHostnameConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration", name, args ?? new GatewayHostnameConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GatewayHostnameConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/latest:GatewayHostnameConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:GatewayHostnameConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

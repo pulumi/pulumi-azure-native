@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.V20200501
+namespace Pulumi.AzureNextGen.Media.V20200501
 {
     public static class GetAccountFilter
     {
         public static Task<GetAccountFilterResult> InvokeAsync(GetAccountFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azurerm:media/v20200501:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azure-nextgen:media/v20200501:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithVersion());
     }
 
 

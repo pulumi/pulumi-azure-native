@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200601
+namespace Pulumi.AzureNextGen.Network.V20200601
 {
     /// <summary>
     /// RouteTable resource in a virtual hub.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HubRouteTable(string name, HubRouteTableArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:HubRouteTable", name, args ?? new HubRouteTableArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200601:HubRouteTable", name, args ?? new HubRouteTableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HubRouteTable(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:HubRouteTable", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200601:HubRouteTable", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,9 +87,9 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:HubRouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

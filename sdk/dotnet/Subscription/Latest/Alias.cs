@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Subscription.Latest
+namespace Pulumi.AzureNextGen.Subscription.Latest
 {
     /// <summary>
     /// Subscription Information with the alias.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Subscription.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Alias(string name, AliasArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:subscription/latest:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:subscription/latest:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Alias(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:subscription/latest:Alias", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:subscription/latest:Alias", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Subscription.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:subscription/v20191001preview:Alias"},
-                    new Pulumi.Alias { Type = "azurerm:subscription/v20200901:Alias"},
+                    new Pulumi.Alias { Type = "azure-nextgen:subscription/v20191001preview:Alias"},
+                    new Pulumi.Alias { Type = "azure-nextgen:subscription/v20200901:Alias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

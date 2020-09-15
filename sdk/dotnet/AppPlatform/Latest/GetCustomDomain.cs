@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AppPlatform.Latest
+namespace Pulumi.AzureNextGen.AppPlatform.Latest
 {
     public static class GetCustomDomain
     {
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azurerm:appplatform/latest:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-nextgen:appplatform/latest:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithVersion());
     }
 
 

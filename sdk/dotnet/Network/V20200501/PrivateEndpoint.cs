@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200501
+namespace Pulumi.AzureNextGen.Network.V20200501
 {
     /// <summary>
     /// Private endpoint resource.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpoint(string name, PrivateEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200501:PrivateEndpoint", name, args ?? new PrivateEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200501:PrivateEndpoint", name, args ?? new PrivateEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200501:PrivateEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200501:PrivateEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,17 +105,17 @@ namespace Pulumi.AzureRM.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.V20191001
+namespace Pulumi.AzureNextGen.Migrate.V20191001
 {
     public partial class HyperVCollector : Pulumi.CustomResource
     {
@@ -32,12 +32,12 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HyperVCollector(string name, HyperVCollectorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/v20191001:HyperVCollector", name, args ?? new HyperVCollectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:migrate/v20191001:HyperVCollector", name, args ?? new HyperVCollectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HyperVCollector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/v20191001:HyperVCollector", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:migrate/v20191001:HyperVCollector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:migrate/latest:HyperVCollector"},
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:HyperVCollector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

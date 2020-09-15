@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20150501Preview
+namespace Pulumi.AzureNextGen.Sql.V20150501Preview
 {
     public static class GetSyncGroup
     {
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azurerm:sql/v20150501preview:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-nextgen:sql/v20150501preview:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithVersion());
     }
 
 

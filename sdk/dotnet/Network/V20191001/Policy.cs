@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20191001
+namespace Pulumi.AzureNextGen.Network.V20191001
 {
     /// <summary>
     /// Defines web application firewall policy.
@@ -86,12 +86,12 @@ namespace Pulumi.AzureRM.Network.V20191001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191001:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20191001:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Policy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191001:Policy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20191001:Policy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,10 +102,10 @@ namespace Pulumi.AzureRM.Network.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:Policy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:Policy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190301:Policy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:Policy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Policy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Policy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190301:Policy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
+namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
 {
     public static class GetEventSource
     {
         public static Task<GetEventSourceResult> InvokeAsync(GetEventSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceResult>("azurerm:timeseriesinsights/v20171115:getEventSource", args ?? new GetEventSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceResult>("azure-nextgen:timeseriesinsights/v20171115:getEventSource", args ?? new GetEventSourceArgs(), options.WithVersion());
     }
 
 

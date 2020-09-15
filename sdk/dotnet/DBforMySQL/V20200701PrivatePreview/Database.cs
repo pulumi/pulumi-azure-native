@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
+namespace Pulumi.AzureNextGen.DBForMySql.V20200701PrivatePreview
 {
     /// <summary>
     /// Represents a Database.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbformysql/v20200701privatepreview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbformysql/v20200701privatepreview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbformysql/v20200701privatepreview:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbformysql/v20200701privatepreview:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 

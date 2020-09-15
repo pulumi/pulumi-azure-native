@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
+namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
 {
     public static class GetBinding
     {
         public static Task<GetBindingResult> InvokeAsync(GetBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azurerm:appplatform/v20190501preview:getBinding", args ?? new GetBindingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-nextgen:appplatform/v20190501preview:getBinding", args ?? new GetBindingArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
+namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
 {
     /// <summary>
     /// The resource definition of this association.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Association(string name, AssociationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:customproviders/v20180901preview:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:customproviders/v20180901preview:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Association(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:customproviders/v20180901preview:Association", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:customproviders/v20180901preview:Association", name, null, MakeResourceOptions(options, id))
         {
         }
 

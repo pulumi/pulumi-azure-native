@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EngagementFabric.V20180901Preview
+namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
 {
     /// <summary>
     /// The EngagementFabric channel
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.EngagementFabric.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Channel(string name, ChannelArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:engagementfabric/v20180901preview:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:engagementfabric/v20180901preview:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Channel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:engagementfabric/v20180901preview:Channel", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:engagementfabric/v20180901preview:Channel", name, null, MakeResourceOptions(options, id))
         {
         }
 

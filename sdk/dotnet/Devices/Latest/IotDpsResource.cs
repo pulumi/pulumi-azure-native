@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Devices.Latest
+namespace Pulumi.AzureNextGen.Devices.Latest
 {
     /// <summary>
     /// The description of the provisioning service.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Devices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotDpsResource(string name, IotDpsResourceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devices/latest:IotDpsResource", name, args ?? new IotDpsResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devices/latest:IotDpsResource", name, args ?? new IotDpsResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotDpsResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devices/latest:IotDpsResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devices/latest:IotDpsResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,12 +81,12 @@ namespace Pulumi.AzureRM.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devices/v20170821preview:IotDpsResource"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20171115:IotDpsResource"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20180122:IotDpsResource"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200101:IotDpsResource"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200301:IotDpsResource"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200901preview:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20170821preview:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20171115:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200101:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200901preview:IotDpsResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

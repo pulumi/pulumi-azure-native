@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20180601Preview
+namespace Pulumi.AzureNextGen.Sql.V20180601Preview
 {
     public static class GetInstancePool
     {
         public static Task<GetInstancePoolResult> InvokeAsync(GetInstancePoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancePoolResult>("azurerm:sql/v20180601preview:getInstancePool", args ?? new GetInstancePoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancePoolResult>("azure-nextgen:sql/v20180601preview:getInstancePool", args ?? new GetInstancePoolArgs(), options.WithVersion());
     }
 
 

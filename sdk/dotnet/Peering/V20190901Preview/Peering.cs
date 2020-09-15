@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Peering.V20190901Preview
+namespace Pulumi.AzureNextGen.Peering.V20190901Preview
 {
     /// <summary>
     /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Peering.V20190901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Peering(string name, PeeringArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20190901preview:Peering", name, args ?? new PeeringArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:peering/v20190901preview:Peering", name, args ?? new PeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Peering(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20190901preview:Peering", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:peering/v20190901preview:Peering", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,10 +99,10 @@ namespace Pulumi.AzureRM.Peering.V20190901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:peering/latest:Peering"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20190801preview:Peering"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20200101preview:Peering"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20200401:Peering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/latest:Peering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20190801preview:Peering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:Peering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:Peering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

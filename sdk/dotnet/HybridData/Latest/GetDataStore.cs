@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridData.Latest
+namespace Pulumi.AzureNextGen.HybridData.Latest
 {
     public static class GetDataStore
     {
         public static Task<GetDataStoreResult> InvokeAsync(GetDataStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataStoreResult>("azurerm:hybriddata/latest:getDataStore", args ?? new GetDataStoreArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataStoreResult>("azure-nextgen:hybriddata/latest:getDataStore", args ?? new GetDataStoreArgs(), options.WithVersion());
     }
 
 

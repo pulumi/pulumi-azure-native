@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Batch.Latest
+namespace Pulumi.AzureNextGen.Batch.Latest
 {
     /// <summary>
     /// Contains information about an Azure Batch account.
@@ -131,12 +131,12 @@ namespace Pulumi.AzureRM.Batch.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BatchAccount(string name, BatchAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:batch/latest:BatchAccount", name, args ?? new BatchAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:batch/latest:BatchAccount", name, args ?? new BatchAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BatchAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:batch/latest:BatchAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:batch/latest:BatchAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -147,15 +147,15 @@ namespace Pulumi.AzureRM.Batch.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:batch/v20151201:BatchAccount"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20170101:BatchAccount"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20170501:BatchAccount"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20170901:BatchAccount"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20181201:BatchAccount"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20190401:BatchAccount"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20190801:BatchAccount"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20200301:BatchAccount"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20200501:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20151201:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20170101:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20170501:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:BatchAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

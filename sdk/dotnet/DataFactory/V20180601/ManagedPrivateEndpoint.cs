@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataFactory.V20180601
+namespace Pulumi.AzureNextGen.DataFactory.V20180601
 {
     /// <summary>
     /// Managed private endpoint resource type.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedPrivateEndpoint(string name, ManagedPrivateEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datafactory/v20180601:ManagedPrivateEndpoint", name, args ?? new ManagedPrivateEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datafactory/v20180601:ManagedPrivateEndpoint", name, args ?? new ManagedPrivateEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedPrivateEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datafactory/v20180601:ManagedPrivateEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datafactory/v20180601:ManagedPrivateEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datafactory/latest:ManagedPrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:ManagedPrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

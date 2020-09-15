@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HanaOnAzure.V20200207Preview
+namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
 {
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20200207Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SapMonitor(string name, SapMonitorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hanaonazure/v20200207preview:SapMonitor", name, args ?? new SapMonitorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hanaonazure/v20200207preview:SapMonitor", name, args ?? new SapMonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SapMonitor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hanaonazure/v20200207preview:SapMonitor", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hanaonazure/v20200207preview:SapMonitor", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20200207Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hanaonazure/v20171103preview:SapMonitor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hanaonazure/v20171103preview:SapMonitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.V20180301
+namespace Pulumi.AzureNextGen.Authorization.V20180301
 {
     /// <summary>
     /// The policy set definition.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Authorization.V20180301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicySetDefinition(string name, PolicySetDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/v20180301:PolicySetDefinition", name, args ?? new PolicySetDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:authorization/v20180301:PolicySetDefinition", name, args ?? new PolicySetDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicySetDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/v20180301:PolicySetDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:authorization/v20180301:PolicySetDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,13 +87,13 @@ namespace Pulumi.AzureRM.Authorization.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:authorization/latest:PolicySetDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20170601preview:PolicySetDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20180501:PolicySetDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20190101:PolicySetDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20190601:PolicySetDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20190901:PolicySetDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20200301:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20170601preview:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180501:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190101:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190601:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190901:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301:PolicySetDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

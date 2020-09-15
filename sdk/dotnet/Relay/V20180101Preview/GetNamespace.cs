@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Relay.V20180101Preview
+namespace Pulumi.AzureNextGen.Relay.V20180101Preview
 {
     public static class GetNamespace
     {
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azurerm:relay/v20180101preview:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-nextgen:relay/v20180101preview:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }
 
 

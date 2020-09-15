@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 {
     /// <summary>
     /// An object that represents an export pipeline for a container registry.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExportPipeline(string name, ExportPipelineArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20191201preview:ExportPipeline", name, args ?? new ExportPipelineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/v20191201preview:ExportPipeline", name, args ?? new ExportPipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ExportPipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20191201preview:ExportPipeline", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/v20191201preview:ExportPipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 

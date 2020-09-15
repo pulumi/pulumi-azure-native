@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataFactory.V20170901Preview
+namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 {
     public static class GetLinkedService
     {
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azurerm:datafactory/v20170901preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-nextgen:datafactory/v20170901preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
     }
 
 

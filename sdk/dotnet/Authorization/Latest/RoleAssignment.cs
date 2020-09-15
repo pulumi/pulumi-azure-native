@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.Latest
+namespace Pulumi.AzureNextGen.Authorization.Latest
 {
     /// <summary>
     /// Role Assignments
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Authorization.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleAssignment(string name, RoleAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/latest:RoleAssignment", name, args ?? new RoleAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:authorization/latest:RoleAssignment", name, args ?? new RoleAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RoleAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/latest:RoleAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:authorization/latest:RoleAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,11 +57,11 @@ namespace Pulumi.AzureRM.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20150701:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20171001preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20180101preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20180901preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20200401preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20171001preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180101preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180901preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200401preview:RoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

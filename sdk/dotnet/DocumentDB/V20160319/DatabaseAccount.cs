@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20160319
+namespace Pulumi.AzureNextGen.DocumentDB.V20160319
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
@@ -143,12 +143,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccount(string name, DatabaseAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20160319:DatabaseAccount", name, args ?? new DatabaseAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/v20160319:DatabaseAccount", name, args ?? new DatabaseAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20160319:DatabaseAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/v20160319:DatabaseAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -159,16 +159,16 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:DatabaseAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

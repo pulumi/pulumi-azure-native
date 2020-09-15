@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20191101
+namespace Pulumi.AzureNextGen.Network.V20191101
 {
     /// <summary>
     /// Defines web application firewall policy.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebApplicationFirewallPolicy(string name, WebApplicationFirewallPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191101:WebApplicationFirewallPolicy", name, args ?? new WebApplicationFirewallPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20191101:WebApplicationFirewallPolicy", name, args ?? new WebApplicationFirewallPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebApplicationFirewallPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191101:WebApplicationFirewallPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20191101:WebApplicationFirewallPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,19 +117,19 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:WebApplicationFirewallPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:WebApplicationFirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

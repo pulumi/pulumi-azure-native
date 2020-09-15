@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NetApp.V20200601
+namespace Pulumi.AzureNextGen.NetApp.V20200601
 {
     /// <summary>
     /// Snapshot policy information
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SnapshotPolicy(string name, SnapshotPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:netapp/v20200601:snapshotPolicy", name, args ?? new SnapshotPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:netapp/v20200601:snapshotPolicy", name, args ?? new SnapshotPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SnapshotPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:netapp/v20200601:snapshotPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:netapp/v20200601:snapshotPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:netapp/latest:snapshotPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:snapshotPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

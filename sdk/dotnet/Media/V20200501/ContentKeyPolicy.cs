@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.V20200501
+namespace Pulumi.AzureNextGen.Media.V20200501
 {
     /// <summary>
     /// A Content Key Policy resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContentKeyPolicy(string name, ContentKeyPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:media/v20200501:ContentKeyPolicy", name, args ?? new ContentKeyPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:media/v20200501:ContentKeyPolicy", name, args ?? new ContentKeyPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ContentKeyPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:media/v20200501:ContentKeyPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:media/v20200501:ContentKeyPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,10 +81,10 @@ namespace Pulumi.AzureRM.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:media/latest:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20180330preview:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20180601preview:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20180701:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:ContentKeyPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

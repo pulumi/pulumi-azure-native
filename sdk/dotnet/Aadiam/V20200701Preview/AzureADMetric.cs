@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Aadiam.V20200701Preview
+namespace Pulumi.AzureNextGen.Aadiam.V20200701Preview
 {
     /// <summary>
     /// AzureADMetrics resource.
@@ -50,12 +50,12 @@ namespace Pulumi.AzureRM.Aadiam.V20200701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AzureADMetric(string name, AzureADMetricArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:aadiam/v20200701preview:azureADMetric", name, args ?? new AzureADMetricArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:aadiam/v20200701preview:azureADMetric", name, args ?? new AzureADMetricArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AzureADMetric(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:aadiam/v20200701preview:azureADMetric", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:aadiam/v20200701preview:azureADMetric", name, null, MakeResourceOptions(options, id))
         {
         }
 

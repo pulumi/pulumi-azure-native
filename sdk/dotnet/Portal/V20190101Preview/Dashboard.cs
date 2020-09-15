@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Portal.V20190101Preview
+namespace Pulumi.AzureNextGen.Portal.V20190101Preview
 {
     /// <summary>
     /// The shared dashboard resource definition.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Portal.V20190101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dashboard(string name, DashboardArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:portal/v20190101preview:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:portal/v20190101preview:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Dashboard(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:portal/v20190101preview:Dashboard", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:portal/v20190101preview:Dashboard", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,9 +75,9 @@ namespace Pulumi.AzureRM.Portal.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:portal/v20150801preview:Dashboard"},
-                    new Pulumi.Alias { Type = "azurerm:portal/v20181001preview:Dashboard"},
-                    new Pulumi.Alias { Type = "azurerm:portal/v20200901preview:Dashboard"},
+                    new Pulumi.Alias { Type = "azure-nextgen:portal/v20150801preview:Dashboard"},
+                    new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001preview:Dashboard"},
+                    new Pulumi.Alias { Type = "azure-nextgen:portal/v20200901preview:Dashboard"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

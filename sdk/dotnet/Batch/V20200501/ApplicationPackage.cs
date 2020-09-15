@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Batch.V20200501
+namespace Pulumi.AzureNextGen.Batch.V20200501
 {
     /// <summary>
     /// An application package which represents a particular version of an application.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Batch.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationPackage(string name, ApplicationPackageArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:batch/v20200501:ApplicationPackage", name, args ?? new ApplicationPackageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:batch/v20200501:ApplicationPackage", name, args ?? new ApplicationPackageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationPackage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:batch/v20200501:ApplicationPackage", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:batch/v20200501:ApplicationPackage", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,15 +87,15 @@ namespace Pulumi.AzureRM.Batch.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:batch/latest:ApplicationPackage"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20151201:ApplicationPackage"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20170101:ApplicationPackage"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20170501:ApplicationPackage"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20170901:ApplicationPackage"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20181201:ApplicationPackage"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20190401:ApplicationPackage"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20190801:ApplicationPackage"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20200301:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/latest:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20151201:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20170101:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20170501:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:ApplicationPackage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

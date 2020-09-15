@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.Latest
+namespace Pulumi.AzureNextGen.Logic.Latest
 {
     public static class GetIntegrationServiceEnvironment
     {
         public static Task<GetIntegrationServiceEnvironmentResult> InvokeAsync(GetIntegrationServiceEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentResult>("azurerm:logic/latest:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentResult>("azure-nextgen:logic/latest:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetAlertRuleAction
     {
         public static Task<GetAlertRuleActionResult> InvokeAsync(GetAlertRuleActionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleActionResult>("azurerm:securityinsights/v20190101preview:getAlertRuleAction", args ?? new GetAlertRuleActionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleActionResult>("azure-nextgen:securityinsights/v20190101preview:getAlertRuleAction", args ?? new GetAlertRuleActionArgs(), options.WithVersion());
     }
 
 

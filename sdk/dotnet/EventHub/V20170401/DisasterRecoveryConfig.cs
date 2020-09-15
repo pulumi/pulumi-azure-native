@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventHub.V20170401
+namespace Pulumi.AzureNextGen.EventHub.V20170401
 {
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.EventHub.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DisasterRecoveryConfig(string name, DisasterRecoveryConfigArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20170401:DisasterRecoveryConfig", name, args ?? new DisasterRecoveryConfigArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig", name, args ?? new DisasterRecoveryConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DisasterRecoveryConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20170401:DisasterRecoveryConfig", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.EventHub.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:eventhub/latest:DisasterRecoveryConfig"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:DisasterRecoveryConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

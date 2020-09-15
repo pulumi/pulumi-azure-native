@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20180801
+namespace Pulumi.AzureNextGen.Network.V20180801
 {
     public static class GetFrontDoor
     {
         public static Task<GetFrontDoorResult> InvokeAsync(GetFrontDoorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azurerm:network/v20180801:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-nextgen:network/v20180801:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithVersion());
     }
 
 

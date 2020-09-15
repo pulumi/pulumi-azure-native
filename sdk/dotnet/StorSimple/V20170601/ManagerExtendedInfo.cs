@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.V20170601
+namespace Pulumi.AzureNextGen.StorSimple.V20170601
 {
     /// <summary>
     /// The extended info of the manager.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagerExtendedInfo(string name, ManagerExtendedInfoArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/v20170601:ManagerExtendedInfo", name, args ?? new ManagerExtendedInfoArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storsimple/v20170601:ManagerExtendedInfo", name, args ?? new ManagerExtendedInfoArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagerExtendedInfo(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/v20170601:ManagerExtendedInfo", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storsimple/v20170601:ManagerExtendedInfo", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,8 +99,8 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storsimple/latest:ManagerExtendedInfo"},
-                    new Pulumi.Alias { Type = "azurerm:storsimple/v20161001:ManagerExtendedInfo"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:ManagerExtendedInfo"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:ManagerExtendedInfo"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

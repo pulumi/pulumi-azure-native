@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20171001Preview
+namespace Pulumi.AzureNextGen.Sql.V20171001Preview
 {
     /// <summary>
     /// A managed instance key.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedInstanceKey(string name, ManagedInstanceKeyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20171001preview:ManagedInstanceKey", name, args ?? new ManagedInstanceKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20171001preview:ManagedInstanceKey", name, args ?? new ManagedInstanceKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedInstanceKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20171001preview:ManagedInstanceKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20171001preview:ManagedInstanceKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

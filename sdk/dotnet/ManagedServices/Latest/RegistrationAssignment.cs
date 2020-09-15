@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ManagedServices.Latest
+namespace Pulumi.AzureNextGen.ManagedServices.Latest
 {
     /// <summary>
     /// Registration assignment.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.ManagedServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegistrationAssignment(string name, RegistrationAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:managedservices/latest:RegistrationAssignment", name, args ?? new RegistrationAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:managedservices/latest:RegistrationAssignment", name, args ?? new RegistrationAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegistrationAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:managedservices/latest:RegistrationAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:managedservices/latest:RegistrationAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,11 +57,11 @@ namespace Pulumi.AzureRM.ManagedServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:managedservices/v20180601preview:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:managedservices/v20190401preview:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:managedservices/v20190601:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:managedservices/v20190901:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:managedservices/v20200201preview:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20180601preview:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190601:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190901:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20200201preview:RegistrationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

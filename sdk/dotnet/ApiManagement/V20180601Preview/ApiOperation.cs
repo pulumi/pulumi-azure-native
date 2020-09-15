@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
+namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Api Operation details.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiOperation(string name, ApiOperationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20180601preview:ApiOperation", name, args ?? new ApiOperationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20180601preview:ApiOperation", name, args ?? new ApiOperationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiOperation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20180601preview:ApiOperation", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20180601preview:ApiOperation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,14 +99,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ApiOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:ApiOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:ApiOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ApiOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ApiOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ApiOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiOperation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

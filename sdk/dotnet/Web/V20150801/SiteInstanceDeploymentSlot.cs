@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     /// <summary>
     /// Represents user credentials used for publishing activity
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteInstanceDeploymentSlot(string name, SiteInstanceDeploymentSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:SiteInstanceDeploymentSlot", name, args ?? new SiteInstanceDeploymentSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot", name, args ?? new SiteInstanceDeploymentSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteInstanceDeploymentSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:SiteInstanceDeploymentSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,7 +123,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:SiteInstanceDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteInstanceDeploymentSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

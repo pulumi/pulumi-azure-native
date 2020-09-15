@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
+namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 {
     /// <summary>
     /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
@@ -179,12 +179,12 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datalakeanalytics/latest:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datalakeanalytics/latest:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datalakeanalytics/latest:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datalakeanalytics/latest:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -195,7 +195,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datalakeanalytics/v20161101:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20161101:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

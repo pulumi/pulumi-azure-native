@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Relay.Latest.Inputs
+namespace Pulumi.AzureNextGen.Relay.Latest.Inputs
 {
 
     /// <summary>

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NetApp.Latest
+namespace Pulumi.AzureNextGen.NetApp.Latest
 {
     /// <summary>
     /// Snapshot of a Volume
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.NetApp.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Snapshot(string name, SnapshotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:netapp/latest:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:netapp/latest:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Snapshot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:netapp/latest:Snapshot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:netapp/latest:Snapshot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,15 +75,15 @@ namespace Pulumi.AzureRM.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20170815:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190501:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190701:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190801:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20191001:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20191101:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20200201:Snapshot"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20200601:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190701:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190801:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191001:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191101:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

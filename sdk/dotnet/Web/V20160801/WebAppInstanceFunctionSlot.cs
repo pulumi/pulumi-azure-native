@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20160801
+namespace Pulumi.AzureNextGen.Web.V20160801
 {
     /// <summary>
     /// Web Job Information.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppInstanceFunctionSlot(string name, WebAppInstanceFunctionSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160801:WebAppInstanceFunctionSlot", name, args ?? new WebAppInstanceFunctionSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot", name, args ?? new WebAppInstanceFunctionSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppInstanceFunctionSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160801:WebAppInstanceFunctionSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,11 +111,11 @@ namespace Pulumi.AzureRM.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppInstanceFunctionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppInstanceFunctionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppInstanceFunctionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppInstanceFunctionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

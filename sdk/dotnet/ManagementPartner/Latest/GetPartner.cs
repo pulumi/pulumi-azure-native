@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ManagementPartner.Latest
+namespace Pulumi.AzureNextGen.ManagementPartner.Latest
 {
     public static class GetPartner
     {
         public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azurerm:managementpartner/latest:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-nextgen:managementpartner/latest:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
     }
 
 

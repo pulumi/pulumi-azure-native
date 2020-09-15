@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.Latest
+namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
     public static class GetIscsiDisk
     {
         public static Task<GetIscsiDiskResult> InvokeAsync(GetIscsiDiskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiDiskResult>("azurerm:storsimple/latest:getIscsiDisk", args ?? new GetIscsiDiskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiDiskResult>("azure-nextgen:storsimple/latest:getIscsiDisk", args ?? new GetIscsiDiskArgs(), options.WithVersion());
     }
 
 

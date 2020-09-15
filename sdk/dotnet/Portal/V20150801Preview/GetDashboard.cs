@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Portal.V20150801Preview
+namespace Pulumi.AzureNextGen.Portal.V20150801Preview
 {
     public static class GetDashboard
     {
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azurerm:portal/v20150801preview:getDashboard", args ?? new GetDashboardArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-nextgen:portal/v20150801preview:getDashboard", args ?? new GetDashboardArgs(), options.WithVersion());
     }
 
 

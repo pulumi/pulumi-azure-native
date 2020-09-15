@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.V20190901Preview
+namespace Pulumi.AzureNextGen.Media.V20190901Preview
 {
     /// <summary>
     /// The Media Graph.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Media.V20190901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MediaGraph(string name, MediaGraphArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:media/v20190901preview:MediaGraph", name, args ?? new MediaGraphArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:media/v20190901preview:MediaGraph", name, args ?? new MediaGraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MediaGraph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:media/v20190901preview:MediaGraph", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:media/v20190901preview:MediaGraph", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.Media.V20190901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:media/v20200201preview:MediaGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20200201preview:MediaGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

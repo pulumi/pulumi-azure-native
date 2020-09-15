@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20181101
+namespace Pulumi.AzureNextGen.Network.V20181101
 {
     /// <summary>
     /// Subnet in a virtual network resource.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Subnet(string name, SubnetArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20181101:Subnet", name, args ?? new SubnetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20181101:Subnet", name, args ?? new SubnetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Subnet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20181101:Subnet", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20181101:Subnet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,39 +135,39 @@ namespace Pulumi.AzureRM.Network.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20150501preview:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20150615:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160330:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160601:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160901:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20161201:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170301:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170601:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170801:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170901:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171101:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180101:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:Subnet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:Subnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

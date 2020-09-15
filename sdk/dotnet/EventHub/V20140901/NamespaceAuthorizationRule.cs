@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventHub.V20140901
+namespace Pulumi.AzureNextGen.EventHub.V20140901
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceAuthorizationRule(string name, NamespaceAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20140901:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20140901:NamespaceAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,9 +63,9 @@ namespace Pulumi.AzureRM.EventHub.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:eventhub/latest:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:eventhub/v20150801:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

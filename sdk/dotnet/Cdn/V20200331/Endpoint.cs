@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cdn.V20200331
+namespace Pulumi.AzureNextGen.Cdn.V20200331
 {
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
@@ -161,12 +161,12 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Endpoint(string name, EndpointArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:cdn/v20200331:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:cdn/v20200331:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Endpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:cdn/v20200331:Endpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:cdn/v20200331:Endpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -177,17 +177,17 @@ namespace Pulumi.AzureRM.Cdn.V20200331
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cdn/latest:Endpoint"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20150601:Endpoint"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20160402:Endpoint"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20161002:Endpoint"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20170402:Endpoint"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20171012:Endpoint"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20190415:Endpoint"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Endpoint"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615preview:Endpoint"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20191231:Endpoint"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20200415:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20160402:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20161002:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20170402:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20171012:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190415:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

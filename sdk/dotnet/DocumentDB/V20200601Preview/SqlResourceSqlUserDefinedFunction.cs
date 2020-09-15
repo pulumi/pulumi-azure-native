@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
+namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 {
     /// <summary>
     /// An Azure Cosmos DB userDefinedFunction.
@@ -56,12 +56,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlUserDefinedFunction(string name, SqlResourceSqlUserDefinedFunctionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction", name, args ?? new SqlResourceSqlUserDefinedFunctionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction", name, args ?? new SqlResourceSqlUserDefinedFunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlUserDefinedFunction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,11 +72,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:SqlResourceSqlUserDefinedFunction"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

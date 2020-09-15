@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20190601Preview
+namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 {
     /// <summary>
     /// Workload group operations for a data warehouse
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkloadGroup(string name, WorkloadGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20190601preview:WorkloadGroup", name, args ?? new WorkloadGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20190601preview:WorkloadGroup", name, args ?? new WorkloadGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkloadGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20190601preview:WorkloadGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20190601preview:WorkloadGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

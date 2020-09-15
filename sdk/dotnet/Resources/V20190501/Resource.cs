@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Resources.V20190501
+namespace Pulumi.AzureNextGen.Resources.V20190501
 {
     /// <summary>
     /// Resource information.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Resources.V20190501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Resource(string name, ResourceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:resources/v20190501:Resource", name, args ?? new ResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:resources/v20190501:Resource", name, args ?? new ResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Resource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:resources/v20190501:Resource", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:resources/v20190501:Resource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,20 +99,20 @@ namespace Pulumi.AzureRM.Resources.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:resources/latest:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20151101:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20160201:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20160701:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20160901:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20170510:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20180201:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20180501:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190301:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190510:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190701:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190801:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20191001:Resource"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20200601:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20151101:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20160201:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20160701:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20160901:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20170510:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20180201:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20180501:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190301:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190510:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:Resource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:Resource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

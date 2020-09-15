@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Intune.V20150114PrivatePreview
+namespace Pulumi.AzureNextGen.Intune.V20150114PrivatePreview
 {
     /// <summary>
     /// iOS Policy entity for Intune MAM.
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.Intune.V20150114PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IoMAMPolicyByName(string name, IoMAMPolicyByNameArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:intune/v20150114privatepreview:IoMAMPolicyByName", name, args ?? new IoMAMPolicyByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:intune/v20150114privatepreview:IoMAMPolicyByName", name, args ?? new IoMAMPolicyByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IoMAMPolicyByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:intune/v20150114privatepreview:IoMAMPolicyByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:intune/v20150114privatepreview:IoMAMPolicyByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,7 +123,7 @@ namespace Pulumi.AzureRM.Intune.V20150114PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:intune/v20150114preview:IoMAMPolicyByName"},
+                    new Pulumi.Alias { Type = "azure-nextgen:intune/v20150114preview:IoMAMPolicyByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

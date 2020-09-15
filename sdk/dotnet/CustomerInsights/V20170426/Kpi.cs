@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.V20170426
+namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
 {
     /// <summary>
     /// The KPI resource format.
@@ -149,12 +149,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Kpi(string name, KpiArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/v20170426:Kpi", name, args ?? new KpiArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:customerinsights/v20170426:Kpi", name, args ?? new KpiArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Kpi(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/v20170426:Kpi", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:customerinsights/v20170426:Kpi", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -165,8 +165,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/latest:Kpi"},
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:Kpi"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Kpi"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Kpi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

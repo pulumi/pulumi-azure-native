@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.Latest
+namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
     /// <summary>
     /// The link resource format.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Link(string name, LinkArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/latest:Link", name, args ?? new LinkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:customerinsights/latest:Link", name, args ?? new LinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Link(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/latest:Link", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:customerinsights/latest:Link", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,8 +129,8 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:Link"},
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170426:Link"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Link"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Link"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RecoveryServices.V20180110
+namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
 {
     /// <summary>
     /// Provider details.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationRecoveryServicesProvider(string name, ReplicationRecoveryServicesProviderArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices/v20180110:ReplicationRecoveryServicesProvider", name, args ?? new ReplicationRecoveryServicesProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider", name, args ?? new ReplicationRecoveryServicesProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationRecoveryServicesProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices/v20180110:ReplicationRecoveryServicesProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/latest:ReplicationRecoveryServicesProvider"},
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/v20180710:ReplicationRecoveryServicesProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationRecoveryServicesProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

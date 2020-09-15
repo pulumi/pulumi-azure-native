@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.TimeSeriesInsights.V20170228Preview
+namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
 {
     /// <summary>
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20170228Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:timeseriesinsights/v20170228preview:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:timeseriesinsights/v20170228preview:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Environment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:timeseriesinsights/v20170228preview:Environment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:timeseriesinsights/v20170228preview:Environment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,10 +105,10 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20170228Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/latest:Environment"},
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20171115:Environment"},
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20180815preview:Environment"},
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20200515:Environment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/latest:Environment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:Environment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:Environment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:Environment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

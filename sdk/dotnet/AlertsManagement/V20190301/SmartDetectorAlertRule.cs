@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AlertsManagement.V20190301
+namespace Pulumi.AzureNextGen.AlertsManagement.V20190301
 {
     /// <summary>
     /// The alert rule information
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SmartDetectorAlertRule(string name, SmartDetectorAlertRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:alertsmanagement/v20190301:SmartDetectorAlertRule", name, args ?? new SmartDetectorAlertRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule", name, args ?? new SmartDetectorAlertRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SmartDetectorAlertRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:alertsmanagement/v20190301:SmartDetectorAlertRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,8 +99,8 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:alertsmanagement/latest:SmartDetectorAlertRule"},
-                    new Pulumi.Alias { Type = "azurerm:alertsmanagement/v20190601:SmartDetectorAlertRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

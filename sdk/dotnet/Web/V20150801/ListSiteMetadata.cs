@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class ListSiteMetadata
     {
         public static Task<ListSiteMetadataResult> InvokeAsync(ListSiteMetadataArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteMetadataResult>("azurerm:web/v20150801:listSiteMetadata", args ?? new ListSiteMetadataArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteMetadataResult>("azure-nextgen:web/v20150801:listSiteMetadata", args ?? new ListSiteMetadataArgs(), options.WithVersion());
     }
 
 

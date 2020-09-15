@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NotificationHubs.V20140901
+namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
 {
     /// <summary>
     /// Description of a NotificationHub Resource.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.NotificationHubs.V20140901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationHub(string name, NotificationHubArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:notificationhubs/v20140901:NotificationHub", name, args ?? new NotificationHubArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:notificationhubs/v20140901:NotificationHub", name, args ?? new NotificationHubArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationHub(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:notificationhubs/v20140901:NotificationHub", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:notificationhubs/v20140901:NotificationHub", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,9 +69,9 @@ namespace Pulumi.AzureRM.NotificationHubs.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/latest:NotificationHub"},
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/v20160301:NotificationHub"},
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/v20170401:NotificationHub"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:NotificationHub"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:NotificationHub"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20170401:NotificationHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

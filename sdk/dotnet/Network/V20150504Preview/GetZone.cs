@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20150504Preview
+namespace Pulumi.AzureNextGen.Network.V20150504Preview
 {
     public static class GetZone
     {
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azurerm:network/v20150504preview:getZone", args ?? new GetZoneArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure-nextgen:network/v20150504preview:getZone", args ?? new GetZoneArgs(), options.WithVersion());
     }
 
 

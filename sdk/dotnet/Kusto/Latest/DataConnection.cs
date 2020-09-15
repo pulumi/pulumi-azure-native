@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kusto.Latest
+namespace Pulumi.AzureNextGen.Kusto.Latest
 {
     /// <summary>
     /// Class representing an data connection.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Kusto.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataConnection(string name, DataConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/latest:DataConnection", name, args ?? new DataConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:kusto/latest:DataConnection", name, args ?? new DataConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/latest:DataConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:kusto/latest:DataConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,12 +63,12 @@ namespace Pulumi.AzureRM.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20190121:DataConnection"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20190515:DataConnection"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20190907:DataConnection"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20191109:DataConnection"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200215:DataConnection"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200614:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:DataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

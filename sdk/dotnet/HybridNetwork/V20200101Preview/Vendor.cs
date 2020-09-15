@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
+namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Vendor resource.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Vendor(string name, VendorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hybridnetwork/v20200101preview:Vendor", name, args ?? new VendorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hybridnetwork/v20200101preview:Vendor", name, args ?? new VendorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Vendor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hybridnetwork/v20200101preview:Vendor", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hybridnetwork/v20200101preview:Vendor", name, null, MakeResourceOptions(options, id))
         {
         }
 

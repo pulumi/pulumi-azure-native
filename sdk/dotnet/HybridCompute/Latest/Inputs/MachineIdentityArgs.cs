@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridCompute.Latest.Inputs
+namespace Pulumi.AzureNextGen.HybridCompute.Latest.Inputs
 {
 
     public sealed class MachineIdentityArgs : Pulumi.ResourceArgs

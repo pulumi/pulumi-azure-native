@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
+namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 {
     /// <summary>
     /// Single item in a List or Get VirtualNetworkRules operation
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceVirtualNetworkRule(string name, NamespaceVirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus/v20180101preview:NamespaceVirtualNetworkRule", name, args ?? new NamespaceVirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicebus/v20180101preview:NamespaceVirtualNetworkRule", name, args ?? new NamespaceVirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceVirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus/v20180101preview:NamespaceVirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicebus/v20180101preview:NamespaceVirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

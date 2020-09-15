@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridData.V20160601
+namespace Pulumi.AzureNextGen.HybridData.V20160601
 {
     public static class GetDataManager
     {
         public static Task<GetDataManagerResult> InvokeAsync(GetDataManagerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azurerm:hybriddata/v20160601:getDataManager", args ?? new GetDataManagerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-nextgen:hybriddata/v20160601:getDataManager", args ?? new GetDataManagerArgs(), options.WithVersion());
     }
 
 

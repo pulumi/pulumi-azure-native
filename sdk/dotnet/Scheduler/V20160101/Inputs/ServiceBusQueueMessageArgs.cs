@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Scheduler.V20160101.Inputs
+namespace Pulumi.AzureNextGen.Scheduler.V20160101.Inputs
 {
 
     public sealed class ServiceBusQueueMessageArgs : Pulumi.ResourceArgs

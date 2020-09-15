@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20161010
+namespace Pulumi.AzureNextGen.ApiManagement.V20161010
 {
     /// <summary>
     /// A single API Management service resource in List or Get response.
@@ -155,12 +155,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20161010
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiManagementService(string name, ApiManagementServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20161010:ApiManagementService", name, args ?? new ApiManagementServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20161010:ApiManagementService", name, args ?? new ApiManagementServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiManagementService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20161010:ApiManagementService", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20161010:ApiManagementService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -171,14 +171,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20161010
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiManagementService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

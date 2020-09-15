@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Subscription.Latest
+namespace Pulumi.AzureNextGen.Subscription.Latest
 {
     public static class GetAlias
     {
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azurerm:subscription/latest:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-nextgen:subscription/latest:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
     }
 
 

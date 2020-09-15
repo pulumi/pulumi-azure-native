@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.V20160515
+namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 {
     /// <summary>
     /// A notification.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationChannel(string name, NotificationChannelArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20160515:NotificationChannel", name, args ?? new NotificationChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devtestlab/v20160515:NotificationChannel", name, args ?? new NotificationChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20160515:NotificationChannel", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devtestlab/v20160515:NotificationChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,8 +99,8 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/latest:NotificationChannel"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:NotificationChannel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:NotificationChannel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:NotificationChannel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RecoveryServices.V20160601
+namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
 {
     public static class GetVault
     {
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azurerm:recoveryservices/v20160601:getVault", args ?? new GetVaultArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-nextgen:recoveryservices/v20160601:getVault", args ?? new GetVaultArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.Latest
+namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     /// <summary>
     /// A Policy.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/latest:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devtestlab/latest:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Policy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/latest:Policy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devtestlab/latest:Policy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,9 +117,9 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20150521preview:Policy"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:Policy"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:Policy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:Policy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Policy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

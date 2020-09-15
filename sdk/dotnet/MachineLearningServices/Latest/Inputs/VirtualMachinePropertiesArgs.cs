@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningServices.Latest.Inputs
+namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
 {
 
     public sealed class VirtualMachinePropertiesArgs : Pulumi.ResourceArgs

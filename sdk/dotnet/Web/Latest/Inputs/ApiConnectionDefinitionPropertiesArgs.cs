@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.Latest.Inputs
+namespace Pulumi.AzureNextGen.Web.Latest.Inputs
 {
 
     public sealed class ApiConnectionDefinitionPropertiesArgs : Pulumi.ResourceArgs

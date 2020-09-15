@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20190501
+namespace Pulumi.AzureNextGen.Logic.V20190501
 {
     /// <summary>
     /// The integration service environment.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationServiceEnvironment(string name, IntegrationServiceEnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20190501:IntegrationServiceEnvironment", name, args ?? new IntegrationServiceEnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:logic/v20190501:IntegrationServiceEnvironment", name, args ?? new IntegrationServiceEnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationServiceEnvironment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20190501:IntegrationServiceEnvironment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:logic/v20190501:IntegrationServiceEnvironment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:logic/latest:IntegrationServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationServiceEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

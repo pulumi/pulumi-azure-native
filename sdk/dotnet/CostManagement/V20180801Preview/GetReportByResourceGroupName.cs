@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CostManagement.V20180801Preview
+namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
 {
     public static class GetReportByResourceGroupName
     {
         public static Task<GetReportByResourceGroupNameResult> InvokeAsync(GetReportByResourceGroupNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByResourceGroupNameResult>("azurerm:costmanagement/v20180801preview:getReportByResourceGroupName", args ?? new GetReportByResourceGroupNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByResourceGroupNameResult>("azure-nextgen:costmanagement/v20180801preview:getReportByResourceGroupName", args ?? new GetReportByResourceGroupNameArgs(), options.WithVersion());
     }
 
 

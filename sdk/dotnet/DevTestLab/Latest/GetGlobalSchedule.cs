@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.Latest
+namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     public static class GetGlobalSchedule
     {
         public static Task<GetGlobalScheduleResult> InvokeAsync(GetGlobalScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalScheduleResult>("azurerm:devtestlab/latest:getGlobalSchedule", args ?? new GetGlobalScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalScheduleResult>("azure-nextgen:devtestlab/latest:getGlobalSchedule", args ?? new GetGlobalScheduleArgs(), options.WithVersion());
     }
 
 

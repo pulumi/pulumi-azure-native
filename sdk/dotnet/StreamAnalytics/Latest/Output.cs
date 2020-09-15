@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StreamAnalytics.Latest
+namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
 {
     /// <summary>
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Output(string name, OutputArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics/latest:Output", name, args ?? new OutputArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:streamanalytics/latest:Output", name, args ?? new OutputArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Output(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics/latest:Output", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:streamanalytics/latest:Output", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:streamanalytics/v20160301:Output"},
-                    new Pulumi.Alias { Type = "azurerm:streamanalytics/v20170401preview:Output"},
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:Output"},
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:Output"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Relay.V20160701
+namespace Pulumi.AzureNextGen.Relay.V20160701
 {
     public static class GetWCFRelay
     {
         public static Task<GetWCFRelayResult> InvokeAsync(GetWCFRelayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azurerm:relay/v20160701:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-nextgen:relay/v20160701:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithVersion());
     }
 
 

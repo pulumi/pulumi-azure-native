@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Search.V20200801Preview
+namespace Pulumi.AzureNextGen.Search.V20200801Preview
 {
     /// <summary>
     /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Search.V20200801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SharedPrivateLinkResource(string name, SharedPrivateLinkResourceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:search/v20200801preview:SharedPrivateLinkResource", name, args ?? new SharedPrivateLinkResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:search/v20200801preview:SharedPrivateLinkResource", name, args ?? new SharedPrivateLinkResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SharedPrivateLinkResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:search/v20200801preview:SharedPrivateLinkResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:search/v20200801preview:SharedPrivateLinkResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Search.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:search/latest:SharedPrivateLinkResource"},
-                    new Pulumi.Alias { Type = "azurerm:search/v20200801:SharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:search/latest:SharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:search/v20200801:SharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

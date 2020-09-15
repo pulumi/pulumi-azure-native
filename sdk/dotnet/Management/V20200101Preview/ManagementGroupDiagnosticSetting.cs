@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Management.V20200101Preview
+namespace Pulumi.AzureNextGen.Management.V20200101Preview
 {
     /// <summary>
     /// The management group diagnostic setting resource.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Management.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementGroupDiagnosticSetting(string name, ManagementGroupDiagnosticSettingArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:management/v20200101preview:ManagementGroupDiagnosticSetting", name, args ?? new ManagementGroupDiagnosticSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:management/v20200101preview:ManagementGroupDiagnosticSetting", name, args ?? new ManagementGroupDiagnosticSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementGroupDiagnosticSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:management/v20200101preview:ManagementGroupDiagnosticSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:management/v20200101preview:ManagementGroupDiagnosticSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 

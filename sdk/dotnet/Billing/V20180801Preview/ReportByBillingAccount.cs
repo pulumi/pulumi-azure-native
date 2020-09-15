@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Billing.V20180801Preview
+namespace Pulumi.AzureNextGen.Billing.V20180801Preview
 {
     /// <summary>
     /// A report resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Billing.V20180801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReportByBillingAccount(string name, ReportByBillingAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:billing/v20180801preview:ReportByBillingAccount", name, args ?? new ReportByBillingAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:billing/v20180801preview:ReportByBillingAccount", name, args ?? new ReportByBillingAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReportByBillingAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:billing/v20180801preview:ReportByBillingAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:billing/v20180801preview:ReportByBillingAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 

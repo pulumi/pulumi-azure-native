@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.V20190901
+namespace Pulumi.AzureNextGen.Authorization.V20190901
 {
     /// <summary>
     /// The policy assignment.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyAssignment(string name, PolicyAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/v20190901:PolicyAssignment", name, args ?? new PolicyAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:authorization/v20190901:PolicyAssignment", name, args ?? new PolicyAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicyAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/v20190901:PolicyAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:authorization/v20190901:PolicyAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,17 +117,17 @@ namespace Pulumi.AzureRM.Authorization.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:authorization/latest:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20151001preview:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20151101:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20160401:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20161201:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20170601preview:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20180301:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20180501:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20190101:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20190601:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20200301:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20151001preview:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20151101:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160401:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20161201:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20170601preview:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180301:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180501:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190101:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190601:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301:PolicyAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

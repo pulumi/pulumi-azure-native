@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20191201
+namespace Pulumi.AzureNextGen.Compute.V20191201
 {
     public static class GetDedicatedHostGroup
     {
         public static Task<GetDedicatedHostGroupResult> InvokeAsync(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azurerm:compute/v20191201:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure-nextgen:compute/v20191201:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithVersion());
     }
 
 

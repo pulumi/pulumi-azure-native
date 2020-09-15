@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200601
+namespace Pulumi.AzureNextGen.Network.V20200601
 {
     /// <summary>
     /// Peering in an ExpressRoute Cross Connection resource.
@@ -125,12 +125,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExpressRouteCrossConnectionPeering(string name, ExpressRouteCrossConnectionPeeringArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:ExpressRouteCrossConnectionPeering", name, args ?? new ExpressRouteCrossConnectionPeeringArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200601:ExpressRouteCrossConnectionPeering", name, args ?? new ExpressRouteCrossConnectionPeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ExpressRouteCrossConnectionPeering(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:ExpressRouteCrossConnectionPeering", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200601:ExpressRouteCrossConnectionPeering", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -141,26 +141,26 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ExpressRouteCrossConnectionPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

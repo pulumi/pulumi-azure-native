@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 {
     public static class ListTaskRunDetails
     {
         public static Task<ListTaskRunDetailsResult> InvokeAsync(ListTaskRunDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTaskRunDetailsResult>("azurerm:containerregistry/v20190601preview:listTaskRunDetails", args ?? new ListTaskRunDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListTaskRunDetailsResult>("azure-nextgen:containerregistry/v20190601preview:listTaskRunDetails", args ?? new ListTaskRunDetailsArgs(), options.WithVersion());
     }
 
 

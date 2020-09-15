@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20180601Preview.Inputs
+namespace Pulumi.AzureNextGen.Insights.V20180601Preview.Inputs
 {
 
     public sealed class DataSourceConfigurationArgs : Pulumi.ResourceArgs

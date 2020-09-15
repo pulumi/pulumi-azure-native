@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20150501Preview
+namespace Pulumi.AzureNextGen.Network.V20150501Preview
 {
     /// <summary>
     /// PublicIPAddress resource
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PublicIpAddress(string name, PublicIpAddressArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20150501preview:PublicIpAddress", name, args ?? new PublicIpAddressArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20150501preview:PublicIpAddress", name, args ?? new PublicIpAddressArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PublicIpAddress(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20150501preview:PublicIpAddress", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20150501preview:PublicIpAddress", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,39 +111,39 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20150615:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160330:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160601:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160901:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20161201:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170301:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170601:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170801:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170901:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171101:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180101:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:PublicIpAddress"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PublicIpAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PublicIpAddress"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
+namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
 {
     public static class GetManagedNetworkGroup
     {
         public static Task<GetManagedNetworkGroupResult> InvokeAsync(GetManagedNetworkGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkGroupResult>("azurerm:managednetwork/v20190601preview:getManagedNetworkGroup", args ?? new GetManagedNetworkGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkGroupResult>("azure-nextgen:managednetwork/v20190601preview:getManagedNetworkGroup", args ?? new GetManagedNetworkGroupArgs(), options.WithVersion());
     }
 
 

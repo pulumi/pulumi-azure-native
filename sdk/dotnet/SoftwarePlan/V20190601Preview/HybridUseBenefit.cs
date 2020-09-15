@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SoftwarePlan.V20190601Preview
+namespace Pulumi.AzureNextGen.SoftwarePlan.V20190601Preview
 {
     /// <summary>
     /// Response on GET of a hybrid use benefit
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HybridUseBenefit(string name, HybridUseBenefitArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:softwareplan/v20190601preview:HybridUseBenefit", name, args ?? new HybridUseBenefitArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:softwareplan/v20190601preview:HybridUseBenefit", name, args ?? new HybridUseBenefitArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HybridUseBenefit(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:softwareplan/v20190601preview:HybridUseBenefit", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:softwareplan/v20190601preview:HybridUseBenefit", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:softwareplan/latest:HybridUseBenefit"},
-                    new Pulumi.Alias { Type = "azurerm:softwareplan/v20191201:HybridUseBenefit"},
+                    new Pulumi.Alias { Type = "azure-nextgen:softwareplan/latest:HybridUseBenefit"},
+                    new Pulumi.Alias { Type = "azure-nextgen:softwareplan/v20191201:HybridUseBenefit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

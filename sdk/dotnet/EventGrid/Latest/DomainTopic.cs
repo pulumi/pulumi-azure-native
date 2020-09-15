@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.Latest
+namespace Pulumi.AzureNextGen.EventGrid.Latest
 {
     /// <summary>
     /// Domain Topic.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.EventGrid.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainTopic(string name, DomainTopicArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/latest:DomainTopic", name, args ?? new DomainTopicArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventgrid/latest:DomainTopic", name, args ?? new DomainTopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DomainTopic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/latest:DomainTopic", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventgrid/latest:DomainTopic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,11 +57,11 @@ namespace Pulumi.AzureRM.EventGrid.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190201preview:DomainTopic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190601:DomainTopic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200101preview:DomainTopic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200401preview:DomainTopic"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200601:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:DomainTopic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

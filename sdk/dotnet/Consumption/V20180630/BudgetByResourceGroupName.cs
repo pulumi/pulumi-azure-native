@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Consumption.V20180630
+namespace Pulumi.AzureNextGen.Consumption.V20180630
 {
     /// <summary>
     /// A budget resource.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Consumption.V20180630
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BudgetByResourceGroupName(string name, BudgetByResourceGroupNameArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:consumption/v20180630:BudgetByResourceGroupName", name, args ?? new BudgetByResourceGroupNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:consumption/v20180630:BudgetByResourceGroupName", name, args ?? new BudgetByResourceGroupNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BudgetByResourceGroupName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:consumption/v20180630:BudgetByResourceGroupName", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:consumption/v20180630:BudgetByResourceGroupName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,11 +99,11 @@ namespace Pulumi.AzureRM.Consumption.V20180630
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:consumption/latest:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azurerm:consumption/v20180131:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azurerm:consumption/v20180331:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azurerm:consumption/v20180831:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azurerm:consumption/v20181001:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-nextgen:consumption/latest:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180131:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180331:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180831:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20181001:BudgetByResourceGroupName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

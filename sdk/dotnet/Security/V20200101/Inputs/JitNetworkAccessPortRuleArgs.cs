@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20200101.Inputs
+namespace Pulumi.AzureNextGen.Security.V20200101.Inputs
 {
 
     public sealed class JitNetworkAccessPortRuleArgs : Pulumi.ResourceArgs

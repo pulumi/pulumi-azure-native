@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20180201
+namespace Pulumi.AzureNextGen.Web.V20180201
 {
     /// <summary>
     /// Virtual Network information contract.
@@ -84,12 +84,12 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppVnetConnection(string name, WebAppVnetConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20180201:WebAppVnetConnection", name, args ?? new WebAppVnetConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20180201:WebAppVnetConnection", name, args ?? new WebAppVnetConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppVnetConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20180201:WebAppVnetConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20180201:WebAppVnetConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,12 +100,12 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppVnetConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppVnetConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppVnetConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppVnetConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppVnetConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppVnetConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NotificationHubs.V20160301
+namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
 {
     /// <summary>
     /// Description of a Namespace resource.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Namespace(string name, NamespaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:notificationhubs/v20160301:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:notificationhubs/v20160301:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Namespace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:notificationhubs/v20160301:Namespace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:notificationhubs/v20160301:Namespace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,9 +129,9 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/latest:Namespace"},
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/v20140901:Namespace"},
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:Namespace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20140901:Namespace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20170401:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

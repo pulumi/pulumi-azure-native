@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20171001Preview
+namespace Pulumi.AzureNextGen.Sql.V20171001Preview
 {
     public static class GetElasticPool
     {
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azurerm:sql/v20171001preview:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure-nextgen:sql/v20171001preview:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithVersion());
     }
 
 

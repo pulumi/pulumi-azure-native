@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Aad.Latest
+namespace Pulumi.AzureNextGen.Aad.Latest
 {
     /// <summary>
     /// Resource for OuContainer.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Aad.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OuContainer(string name, OuContainerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:aad/latest:OuContainer", name, args ?? new OuContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:aad/latest:OuContainer", name, args ?? new OuContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OuContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:aad/latest:OuContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:aad/latest:OuContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,8 +111,8 @@ namespace Pulumi.AzureRM.Aad.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:aad/v20170601:OuContainer"},
-                    new Pulumi.Alias { Type = "azurerm:aad/v20200101:OuContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:aad/v20170601:OuContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:aad/v20200101:OuContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

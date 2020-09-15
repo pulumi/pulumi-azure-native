@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.V20160515
+namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 {
     public static class GetPolicy
     {
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azurerm:devtestlab/v20160515:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-nextgen:devtestlab/v20160515:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }
 
 

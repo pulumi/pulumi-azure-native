@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
+namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview
 {
     /// <summary>
     /// The description of the DigitalTwins service.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DigitalTwin(string name, DigitalTwinArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:digitaltwins/v20200301preview:DigitalTwin", name, args ?? new DigitalTwinArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:digitaltwins/v20200301preview:DigitalTwin", name, args ?? new DigitalTwinArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DigitalTwin(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:digitaltwins/v20200301preview:DigitalTwin", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:digitaltwins/v20200301preview:DigitalTwin", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:digitaltwins/latest:DigitalTwin"},
-                    new Pulumi.Alias { Type = "azurerm:digitaltwins/v20201031:DigitalTwin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/latest:DigitalTwin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201031:DigitalTwin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

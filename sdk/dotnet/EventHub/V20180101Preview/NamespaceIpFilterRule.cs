@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventHub.V20180101Preview
+namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 {
     /// <summary>
     /// Single item in a List or Get IpFilterRules operation
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceIpFilterRule(string name, NamespaceIpFilterRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20180101preview:NamespaceIpFilterRule", name, args ?? new NamespaceIpFilterRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventhub/v20180101preview:NamespaceIpFilterRule", name, args ?? new NamespaceIpFilterRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceIpFilterRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20180101preview:NamespaceIpFilterRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventhub/v20180101preview:NamespaceIpFilterRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Aadiam.Latest
+namespace Pulumi.AzureNextGen.Aadiam.Latest
 {
     /// <summary>
     /// The diagnostic setting resource.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Aadiam.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiagnosticSetting(string name, DiagnosticSettingArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:aadiam/latest:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:aadiam/latest:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiagnosticSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:aadiam/latest:DiagnosticSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:aadiam/latest:DiagnosticSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.Aadiam.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:aadiam/v20170401:DiagnosticSetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20170401:DiagnosticSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

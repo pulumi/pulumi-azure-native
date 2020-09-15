@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerService.V20160330
+namespace Pulumi.AzureNextGen.ContainerService.V20160330
 {
     public static class GetContainerService
     {
         public static Task<GetContainerServiceResult> InvokeAsync(GetContainerServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azurerm:containerservice/v20160330:getContainerService", args ?? new GetContainerServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azure-nextgen:containerservice/v20160330:getContainerService", args ?? new GetContainerServiceArgs(), options.WithVersion());
     }
 
 

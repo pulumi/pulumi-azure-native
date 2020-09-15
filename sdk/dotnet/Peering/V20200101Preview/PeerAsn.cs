@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Peering.V20200101Preview
+namespace Pulumi.AzureNextGen.Peering.V20200101Preview
 {
     /// <summary>
     /// The essential information related to the peer's ASN.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Peering.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PeerAsn(string name, PeerAsnArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20200101preview:PeerAsn", name, args ?? new PeerAsnArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:peering/v20200101preview:PeerAsn", name, args ?? new PeerAsnArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PeerAsn(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20200101preview:PeerAsn", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:peering/v20200101preview:PeerAsn", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,10 +81,10 @@ namespace Pulumi.AzureRM.Peering.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:peering/latest:PeerAsn"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20190801preview:PeerAsn"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20190901preview:PeerAsn"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20200401:PeerAsn"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/latest:PeerAsn"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20190801preview:PeerAsn"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20190901preview:PeerAsn"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:PeerAsn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

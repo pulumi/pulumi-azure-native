@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20171001Preview
+namespace Pulumi.AzureNextGen.Sql.V20171001Preview
 {
     public static class GetManagedInstanceKey
     {
         public static Task<GetManagedInstanceKeyResult> InvokeAsync(GetManagedInstanceKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceKeyResult>("azurerm:sql/v20171001preview:getManagedInstanceKey", args ?? new GetManagedInstanceKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceKeyResult>("azure-nextgen:sql/v20171001preview:getManagedInstanceKey", args ?? new GetManagedInstanceKeyArgs(), options.WithVersion());
     }
 
 

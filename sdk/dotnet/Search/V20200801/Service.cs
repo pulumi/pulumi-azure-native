@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Search.V20200801
+namespace Pulumi.AzureNextGen.Search.V20200801
 {
     /// <summary>
     /// Describes an Azure Cognitive Search service and its current state.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Search.V20200801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:search/v20200801:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:search/v20200801:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:search/v20200801:Service", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:search/v20200801:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,11 +135,11 @@ namespace Pulumi.AzureRM.Search.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:search/latest:Service"},
-                    new Pulumi.Alias { Type = "azurerm:search/v20150819:Service"},
-                    new Pulumi.Alias { Type = "azurerm:search/v20191001preview:Service"},
-                    new Pulumi.Alias { Type = "azurerm:search/v20200313:Service"},
-                    new Pulumi.Alias { Type = "azurerm:search/v20200801preview:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:search/latest:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:search/v20150819:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:search/v20191001preview:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:search/v20200313:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:search/v20200801preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

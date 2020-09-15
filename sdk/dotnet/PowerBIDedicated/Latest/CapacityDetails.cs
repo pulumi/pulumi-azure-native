@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.PowerBIDedicated.Latest
+namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
 {
     /// <summary>
     /// Represents an instance of a Dedicated Capacity resource.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.PowerBIDedicated.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CapacityDetails(string name, CapacityDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:powerbidedicated/latest:CapacityDetails", name, args ?? new CapacityDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:powerbidedicated/latest:CapacityDetails", name, args ?? new CapacityDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CapacityDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:powerbidedicated/latest:CapacityDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:powerbidedicated/latest:CapacityDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.PowerBIDedicated.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:powerbidedicated/v20171001:CapacityDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated/v20171001:CapacityDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

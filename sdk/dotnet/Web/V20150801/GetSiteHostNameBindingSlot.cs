@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteHostNameBindingSlot
     {
         public static Task<GetSiteHostNameBindingSlotResult> InvokeAsync(GetSiteHostNameBindingSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingSlotResult>("azurerm:web/v20150801:getSiteHostNameBindingSlot", args ?? new GetSiteHostNameBindingSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingSlotResult>("azure-nextgen:web/v20150801:getSiteHostNameBindingSlot", args ?? new GetSiteHostNameBindingSlotArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.Latest
+namespace Pulumi.AzureNextGen.Insights.Latest
 {
     /// <summary>
     /// Properties that define a favorite that is associated to an Application Insights component.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Favorite(string name, FavoriteArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/latest:Favorite", name, args ?? new FavoriteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/latest:Favorite", name, args ?? new FavoriteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Favorite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/latest:Favorite", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/latest:Favorite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/v20150501:Favorite"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Favorite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

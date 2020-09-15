@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
+namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201
 {
     /// <summary>
     /// Represents a server.
@@ -149,12 +149,12 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20171201:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbforpostgresql/v20171201:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20171201:Server", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbforpostgresql/v20171201:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -165,8 +165,8 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/latest:Server"},
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201preview:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

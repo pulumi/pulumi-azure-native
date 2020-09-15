@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.Latest
+namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB Table.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TableResourceTable(string name, TableResourceTableArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/latest:TableResourceTable", name, args ?? new TableResourceTableArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/latest:TableResourceTable", name, args ?? new TableResourceTableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TableResourceTable(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/latest:TableResourceTable", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/latest:TableResourceTable", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,11 +69,11 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:TableResourceTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

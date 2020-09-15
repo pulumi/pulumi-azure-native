@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview
+namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview
 {
     public static class GetOperationalizationCluster
     {
         public static Task<GetOperationalizationClusterResult> InvokeAsync(GetOperationalizationClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOperationalizationClusterResult>("azurerm:machinelearningcompute/v20170601preview:getOperationalizationCluster", args ?? new GetOperationalizationClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOperationalizationClusterResult>("azure-nextgen:machinelearningcompute/v20170601preview:getOperationalizationCluster", args ?? new GetOperationalizationClusterArgs(), options.WithVersion());
     }
 
 

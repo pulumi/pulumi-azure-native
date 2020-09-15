@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20190401
+namespace Pulumi.AzureNextGen.Network.V20190401
 {
     /// <summary>
     /// A common class for general resource information.
@@ -125,12 +125,12 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkGateway(string name, VirtualNetworkGatewayArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20190401:VirtualNetworkGateway", name, args ?? new VirtualNetworkGatewayArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20190401:VirtualNetworkGateway", name, args ?? new VirtualNetworkGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20190401:VirtualNetworkGateway", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20190401:VirtualNetworkGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -141,38 +141,38 @@ namespace Pulumi.AzureRM.Network.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20150615:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160330:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160601:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160901:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20161201:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170301:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170601:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170801:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170901:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171101:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180101:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

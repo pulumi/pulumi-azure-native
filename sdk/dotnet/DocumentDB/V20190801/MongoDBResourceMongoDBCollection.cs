@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20190801
+namespace Pulumi.AzureNextGen.DocumentDB.V20190801
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB collection.
@@ -50,12 +50,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MongoDBResourceMongoDBCollection(string name, MongoDBResourceMongoDBCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20190801:MongoDBResourceMongoDBCollection", name, args ?? new MongoDBResourceMongoDBCollectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection", name, args ?? new MongoDBResourceMongoDBCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MongoDBResourceMongoDBCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20190801:MongoDBResourceMongoDBCollection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,11 +66,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:MongoDBResourceMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:MongoDBResourceMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:MongoDBResourceMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:MongoDBResourceMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 {
     /// <summary>
     /// The task that has the ARM resource and task properties.
@@ -126,12 +126,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Task(string name, TaskArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20190601preview:Task", name, args ?? new TaskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/v20190601preview:Task", name, args ?? new TaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Task(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20190601preview:Task", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/v20190601preview:Task", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -142,9 +142,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/latest:Task"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20180901:Task"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20190401:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180901:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190401:Task"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

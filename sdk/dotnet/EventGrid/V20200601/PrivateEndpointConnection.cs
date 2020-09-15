@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20200601
+namespace Pulumi.AzureNextGen.EventGrid.V20200601
 {
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
@@ -56,12 +56,12 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20200601:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventgrid/v20200601:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20200601:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventgrid/v20200601:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,8 +72,8 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200401preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

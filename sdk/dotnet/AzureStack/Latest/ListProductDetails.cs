@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AzureStack.Latest
+namespace Pulumi.AzureNextGen.AzureStack.Latest
 {
     public static class ListProductDetails
     {
         public static Task<ListProductDetailsResult> InvokeAsync(ListProductDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azurerm:azurestack/latest:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-nextgen:azurestack/latest:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithVersion());
     }
 
 

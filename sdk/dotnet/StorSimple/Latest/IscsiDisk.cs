@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.Latest
+namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
     /// <summary>
     /// The iSCSI disk.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.StorSimple.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IscsiDisk(string name, IscsiDiskArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/latest:IscsiDisk", name, args ?? new IscsiDiskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storsimple/latest:IscsiDisk", name, args ?? new IscsiDiskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IscsiDisk(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/latest:IscsiDisk", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storsimple/latest:IscsiDisk", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storsimple/v20161001:IscsiDisk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:IscsiDisk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

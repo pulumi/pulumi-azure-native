@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.V20190901Preview
+namespace Pulumi.AzureNextGen.Media.V20190901Preview
 {
     public static class GetMediaGraph
     {
         public static Task<GetMediaGraphResult> InvokeAsync(GetMediaGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaGraphResult>("azurerm:media/v20190901preview:getMediaGraph", args ?? new GetMediaGraphArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaGraphResult>("azure-nextgen:media/v20190901preview:getMediaGraph", args ?? new GetMediaGraphArgs(), options.WithVersion());
     }
 
 

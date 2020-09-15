@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AlertsManagement.V20190505Preview
+namespace Pulumi.AzureNextGen.AlertsManagement.V20190505Preview
 {
     /// <summary>
     /// Action rule object containing target scope, conditions and suppression logic
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190505Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActionRuleByName(string name, ActionRuleByNameArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:alertsmanagement/v20190505preview:ActionRuleByName", name, args ?? new ActionRuleByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:alertsmanagement/v20190505preview:ActionRuleByName", name, args ?? new ActionRuleByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ActionRuleByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:alertsmanagement/v20190505preview:ActionRuleByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:alertsmanagement/v20190505preview:ActionRuleByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190505Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:alertsmanagement/v20181102privatepreview:ActionRuleByName"},
+                    new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20181102privatepreview:ActionRuleByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

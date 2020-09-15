@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     /// <summary>
     /// VnetRoute contract used to pass routing information for a vnet.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerFarmRouteForVnet(string name, ServerFarmRouteForVnetArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:ServerFarmRouteForVnet", name, args ?? new ServerFarmRouteForVnetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20150801:ServerFarmRouteForVnet", name, args ?? new ServerFarmRouteForVnetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerFarmRouteForVnet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:ServerFarmRouteForVnet", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20150801:ServerFarmRouteForVnet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,11 +93,11 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:ServerFarmRouteForVnet"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20160901:ServerFarmRouteForVnet"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:ServerFarmRouteForVnet"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:ServerFarmRouteForVnet"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:ServerFarmRouteForVnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

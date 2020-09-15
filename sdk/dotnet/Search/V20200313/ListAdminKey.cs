@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Search.V20200313
+namespace Pulumi.AzureNextGen.Search.V20200313
 {
     public static class ListAdminKey
     {
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azurerm:search/v20200313:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-nextgen:search/v20200313:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithVersion());
     }
 
 

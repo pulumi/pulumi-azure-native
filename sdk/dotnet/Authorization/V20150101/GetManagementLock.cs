@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.V20150101
+namespace Pulumi.AzureNextGen.Authorization.V20150101
 {
     public static class GetManagementLock
     {
         public static Task<GetManagementLockResult> InvokeAsync(GetManagementLockArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockResult>("azurerm:authorization/v20150101:getManagementLock", args ?? new GetManagementLockArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockResult>("azure-nextgen:authorization/v20150101:getManagementLock", args ?? new GetManagementLockArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AzureData.V20190724Preview
+namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
 {
     /// <summary>
     /// A SqlManagedInstance.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlManagedInstance(string name, SqlManagedInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:azuredata/v20190724preview:SqlManagedInstance", name, args ?? new SqlManagedInstanceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:azuredata/v20190724preview:SqlManagedInstance", name, args ?? new SqlManagedInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlManagedInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:azuredata/v20190724preview:SqlManagedInstance", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:azuredata/v20190724preview:SqlManagedInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 

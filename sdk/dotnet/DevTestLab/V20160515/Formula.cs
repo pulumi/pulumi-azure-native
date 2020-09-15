@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.V20160515
+namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 {
     /// <summary>
     /// A formula for creating a VM, specifying an image base and other parameters
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Formula(string name, FormulaArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20160515:Formula", name, args ?? new FormulaArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devtestlab/v20160515:Formula", name, args ?? new FormulaArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Formula(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20160515:Formula", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devtestlab/v20160515:Formula", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,9 +111,9 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/latest:Formula"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20150521preview:Formula"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:Formula"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:Formula"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:Formula"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Formula"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

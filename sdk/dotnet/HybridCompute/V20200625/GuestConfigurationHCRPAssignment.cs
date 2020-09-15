@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridCompute.V20200625
+namespace Pulumi.AzureNextGen.HybridCompute.V20200625
 {
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.HybridCompute.V20200625
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GuestConfigurationHCRPAssignment(string name, GuestConfigurationHCRPAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment", name, args ?? new GuestConfigurationHCRPAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hybridcompute/v20200625:GuestConfigurationHCRPAssignment", name, args ?? new GuestConfigurationHCRPAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GuestConfigurationHCRPAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hybridcompute/v20200625:GuestConfigurationHCRPAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.HybridCompute.V20200625
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hybridcompute/latest:GuestConfigurationHCRPAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20181120:GuestConfigurationHCRPAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/latest:GuestConfigurationHCRPAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20181120:GuestConfigurationHCRPAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

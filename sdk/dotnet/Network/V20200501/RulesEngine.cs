@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200501
+namespace Pulumi.AzureNextGen.Network.V20200501
 {
     /// <summary>
     /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RulesEngine(string name, RulesEngineArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200501:RulesEngine", name, args ?? new RulesEngineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200501:RulesEngine", name, args ?? new RulesEngineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RulesEngine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200501:RulesEngine", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200501:RulesEngine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,9 +63,9 @@ namespace Pulumi.AzureRM.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:RulesEngine"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200101:RulesEngine"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:RulesEngine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataFactory.Latest
+namespace Pulumi.AzureNextGen.DataFactory.Latest
 {
     /// <summary>
     /// Pipeline resource type.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pipeline(string name, PipelineArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datafactory/latest:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datafactory/latest:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datafactory/latest:Pipeline", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datafactory/latest:Pipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,8 +105,8 @@ namespace Pulumi.AzureRM.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datafactory/v20170901preview:Pipeline"},
-                    new Pulumi.Alias { Type = "azurerm:datafactory/v20180601:Pipeline"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Pipeline"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:Pipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

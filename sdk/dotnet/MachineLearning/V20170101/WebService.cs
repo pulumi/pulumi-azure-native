@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearning.V20170101
+namespace Pulumi.AzureNextGen.MachineLearning.V20170101
 {
     /// <summary>
     /// Instance of an Azure ML web service resource.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebService(string name, WebServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearning/v20170101:WebService", name, args ?? new WebServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:machinelearning/v20170101:WebService", name, args ?? new WebServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearning/v20170101:WebService", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:machinelearning/v20170101:WebService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:machinelearning/latest:WebService"},
-                    new Pulumi.Alias { Type = "azurerm:machinelearning/v20160501preview:WebService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearning/latest:WebService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20160501preview:WebService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

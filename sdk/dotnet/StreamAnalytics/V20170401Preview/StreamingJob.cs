@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
+namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 {
     /// <summary>
     /// A streaming job object, containing all information associated with the named streaming job.
@@ -197,12 +197,12 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamingJob(string name, StreamingJobArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics/v20170401preview:StreamingJob", name, args ?? new StreamingJobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:streamanalytics/v20170401preview:StreamingJob", name, args ?? new StreamingJobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StreamingJob(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics/v20170401preview:StreamingJob", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:streamanalytics/v20170401preview:StreamingJob", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -213,8 +213,8 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:streamanalytics/latest:StreamingJob"},
-                    new Pulumi.Alias { Type = "azurerm:streamanalytics/v20160301:StreamingJob"},
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/latest:StreamingJob"},
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:StreamingJob"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

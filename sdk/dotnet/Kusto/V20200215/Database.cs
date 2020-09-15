@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kusto.V20200215
+namespace Pulumi.AzureNextGen.Kusto.V20200215
 {
     /// <summary>
     /// Class representing a Kusto database.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Kusto.V20200215
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/v20200215:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:kusto/v20200215:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/v20200215:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:kusto/v20200215:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,14 +63,14 @@ namespace Pulumi.AzureRM.Kusto.V20200215
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:kusto/latest:Database"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20170907privatepreview:Database"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20180907preview:Database"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20190121:Database"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20190515:Database"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20190907:Database"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20191109:Database"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200614:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20180907preview:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

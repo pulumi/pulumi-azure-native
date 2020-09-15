@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.V20191001Preview
+namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
 {
     public static class GetMoveResource
     {
         public static Task<GetMoveResourceResult> InvokeAsync(GetMoveResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMoveResourceResult>("azurerm:migrate/v20191001preview:getMoveResource", args ?? new GetMoveResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMoveResourceResult>("azure-nextgen:migrate/v20191001preview:getMoveResource", args ?? new GetMoveResourceArgs(), options.WithVersion());
     }
 
 

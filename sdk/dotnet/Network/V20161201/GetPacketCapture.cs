@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20161201
+namespace Pulumi.AzureNextGen.Network.V20161201
 {
     public static class GetPacketCapture
     {
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azurerm:network/v20161201:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-nextgen:network/v20161201:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithVersion());
     }
 
 

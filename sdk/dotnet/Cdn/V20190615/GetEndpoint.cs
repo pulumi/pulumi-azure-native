@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cdn.V20190615
+namespace Pulumi.AzureNextGen.Cdn.V20190615
 {
     public static class GetEndpoint
     {
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azurerm:cdn/v20190615:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-nextgen:cdn/v20190615:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
     }
 
 

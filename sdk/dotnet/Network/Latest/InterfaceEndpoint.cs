@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Interface endpoint resource.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InterfaceEndpoint(string name, InterfaceEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:InterfaceEndpoint", name, args ?? new InterfaceEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/latest:InterfaceEndpoint", name, args ?? new InterfaceEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InterfaceEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:InterfaceEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/latest:InterfaceEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,11 +105,11 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:InterfaceEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

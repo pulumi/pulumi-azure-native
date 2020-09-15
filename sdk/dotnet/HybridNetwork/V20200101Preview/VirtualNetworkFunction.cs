@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
+namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Hybrid network virtual network function resource response.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkFunction(string name, VirtualNetworkFunctionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hybridnetwork/v20200101preview:VirtualNetworkFunction", name, args ?? new VirtualNetworkFunctionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hybridnetwork/v20200101preview:VirtualNetworkFunction", name, args ?? new VirtualNetworkFunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkFunction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hybridnetwork/v20200101preview:VirtualNetworkFunction", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hybridnetwork/v20200101preview:VirtualNetworkFunction", name, null, MakeResourceOptions(options, id))
         {
         }
 

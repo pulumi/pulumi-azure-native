@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20191212.Inputs
+namespace Pulumi.AzureNextGen.DocumentDB.V20191212.Inputs
 {
 
     public sealed class CompositePathArgs : Pulumi.ResourceArgs

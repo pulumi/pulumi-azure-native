@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200301
+namespace Pulumi.AzureNextGen.Network.V20200301
 {
     /// <summary>
     /// Virtual Router Peering resource.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualRouterPeering(string name, VirtualRouterPeeringArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200301:VirtualRouterPeering", name, args ?? new VirtualRouterPeeringArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200301:VirtualRouterPeering", name, args ?? new VirtualRouterPeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualRouterPeering(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200301:VirtualRouterPeering", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200301:VirtualRouterPeering", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,15 +75,15 @@ namespace Pulumi.AzureRM.Network.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:VirtualRouterPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:VirtualRouterPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:VirtualRouterPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:VirtualRouterPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:VirtualRouterPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:VirtualRouterPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:VirtualRouterPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualRouterPeering"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualRouterPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

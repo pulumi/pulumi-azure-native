@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CostManagement.V20200601
+namespace Pulumi.AzureNextGen.CostManagement.V20200601
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public View(string name, ViewArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20200601:View", name, args ?? new ViewArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:costmanagement/v20200601:View", name, args ?? new ViewArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private View(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20200601:View", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:costmanagement/v20200601:View", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,9 +129,9 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/latest:View"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20190401preview:View"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20191101:View"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:View"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190401preview:View"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20191101:View"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

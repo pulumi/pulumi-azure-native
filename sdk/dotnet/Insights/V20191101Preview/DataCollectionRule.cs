@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20191101Preview
+namespace Pulumi.AzureNextGen.Insights.V20191101Preview
 {
     /// <summary>
     /// Definition of ARM tracked top level resource.
@@ -84,12 +84,12 @@ namespace Pulumi.AzureRM.Insights.V20191101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataCollectionRule(string name, DataCollectionRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20191101preview:DataCollectionRule", name, args ?? new DataCollectionRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20191101preview:DataCollectionRule", name, args ?? new DataCollectionRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataCollectionRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20191101preview:DataCollectionRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20191101preview:DataCollectionRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

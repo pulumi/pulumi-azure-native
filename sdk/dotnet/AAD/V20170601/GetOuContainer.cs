@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Aad.V20170601
+namespace Pulumi.AzureNextGen.Aad.V20170601
 {
     public static class GetOuContainer
     {
         public static Task<GetOuContainerResult> InvokeAsync(GetOuContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azurerm:aad/v20170601:getOuContainer", args ?? new GetOuContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-nextgen:aad/v20170601:getOuContainer", args ?? new GetOuContainerArgs(), options.WithVersion());
     }
 
 

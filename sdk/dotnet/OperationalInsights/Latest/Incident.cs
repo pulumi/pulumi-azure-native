@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.Latest
+namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
     /// <summary>
     /// Represents an incident in Azure Security Insights.
@@ -143,12 +143,12 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Incident(string name, IncidentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/latest:Incident", name, args ?? new IncidentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationalinsights/latest:Incident", name, args ?? new IncidentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Incident(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/latest:Incident", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationalinsights/latest:Incident", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -159,7 +159,7 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200101:Incident"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200101:Incident"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

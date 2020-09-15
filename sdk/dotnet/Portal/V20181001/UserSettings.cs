@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Portal.V20181001
+namespace Pulumi.AzureNextGen.Portal.V20181001
 {
     /// <summary>
     /// Response to get user settings
@@ -29,12 +29,12 @@ namespace Pulumi.AzureRM.Portal.V20181001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserSettings(string name, UserSettingsArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:portal/v20181001:UserSettings", name, args ?? new UserSettingsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:portal/v20181001:UserSettings", name, args ?? new UserSettingsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserSettings(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:portal/v20181001:UserSettings", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:portal/v20181001:UserSettings", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -45,7 +45,7 @@ namespace Pulumi.AzureRM.Portal.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:portal/latest:UserSettings"},
+                    new Pulumi.Alias { Type = "azure-nextgen:portal/latest:UserSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

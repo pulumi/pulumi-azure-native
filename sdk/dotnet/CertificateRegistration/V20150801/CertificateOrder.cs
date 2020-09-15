@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CertificateRegistration.V20150801
+namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
 {
     /// <summary>
     /// Certificate purchase order
@@ -149,12 +149,12 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertificateOrder(string name, CertificateOrderArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:certificateregistration/v20150801:CertificateOrder", name, args ?? new CertificateOrderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:certificateregistration/v20150801:CertificateOrder", name, args ?? new CertificateOrderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CertificateOrder(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:certificateregistration/v20150801:CertificateOrder", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:certificateregistration/v20150801:CertificateOrder", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -165,10 +165,10 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:certificateregistration/latest:CertificateOrder"},
-                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20180201:CertificateOrder"},
-                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20190801:CertificateOrder"},
-                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20200601:CertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/latest:CertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20180201:CertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20190801:CertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200601:CertificateOrder"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.V20180601Preview
+namespace Pulumi.AzureNextGen.Media.V20180601Preview
 {
     public static class ListAssetContainerSas
     {
         public static Task<ListAssetContainerSasResult> InvokeAsync(ListAssetContainerSasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azurerm:media/v20180601preview:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-nextgen:media/v20180601preview:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithVersion());
     }
 
 

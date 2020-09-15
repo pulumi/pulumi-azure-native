@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20200101
+namespace Pulumi.AzureNextGen.OperationalInsights.V20200101
 {
     /// <summary>
     /// Data connector.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataConnector(string name, DataConnectorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20200101:DataConnector", name, args ?? new DataConnectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationalinsights/v20200101:DataConnector", name, args ?? new DataConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataConnector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20200101:DataConnector", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationalinsights/v20200101:DataConnector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:DataConnector"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:DataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

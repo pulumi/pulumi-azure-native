@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMySQL.V20171201.Inputs
+namespace Pulumi.AzureNextGen.DBforMySQL.V20171201.Inputs
 {
 
     /// <summary>

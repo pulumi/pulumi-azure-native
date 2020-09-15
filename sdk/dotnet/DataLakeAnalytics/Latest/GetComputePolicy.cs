@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
+namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 {
     public static class GetComputePolicy
     {
         public static Task<GetComputePolicyResult> InvokeAsync(GetComputePolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azurerm:datalakeanalytics/latest:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-nextgen:datalakeanalytics/latest:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithVersion());
     }
 
 

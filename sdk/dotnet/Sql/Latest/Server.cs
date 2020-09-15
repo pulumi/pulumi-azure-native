@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.Latest
+namespace Pulumi.AzureNextGen.Sql.Latest
 {
     /// <summary>
     /// Represents a server.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/latest:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/latest:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/latest:Server", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/latest:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,9 +111,9 @@ namespace Pulumi.AzureRM.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:sql/v20140401:Server"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20150501preview:Server"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20190601preview:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

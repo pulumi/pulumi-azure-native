@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.IoTCentral.V20180901
+namespace Pulumi.AzureNextGen.IoTCentral.V20180901
 {
     /// <summary>
     /// The IoT Central application.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public App(string name, AppArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:iotcentral/v20180901:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:iotcentral/v20180901:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private App(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:iotcentral/v20180901:App", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:iotcentral/v20180901:App", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:iotcentral/latest:App"},
-                    new Pulumi.Alias { Type = "azurerm:iotcentral/v20170701privatepreview:App"},
+                    new Pulumi.Alias { Type = "azure-nextgen:iotcentral/latest:App"},
+                    new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20170701privatepreview:App"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

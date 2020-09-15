@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.V20200701Preview
+namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
 {
     /// <summary>
     /// The policy exemption.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Authorization.V20200701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyExemption(string name, PolicyExemptionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/v20200701preview:PolicyExemption", name, args ?? new PolicyExemptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:authorization/v20200701preview:PolicyExemption", name, args ?? new PolicyExemptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicyExemption(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/v20200701preview:PolicyExemption", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:authorization/v20200701preview:PolicyExemption", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BatchAI.Latest.Outputs
+namespace Pulumi.AzureNextGen.BatchAI.Latest.Outputs
 {
 
     [OutputType]

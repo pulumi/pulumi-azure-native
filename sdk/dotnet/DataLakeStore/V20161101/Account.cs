@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataLakeStore.V20161101
+namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
 {
     /// <summary>
     /// Data Lake Store account information.
@@ -161,12 +161,12 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datalakestore/v20161101:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datalakestore/v20161101:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datalakestore/v20161101:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datalakestore/v20161101:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -177,7 +177,7 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datalakestore/latest:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakestore/latest:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

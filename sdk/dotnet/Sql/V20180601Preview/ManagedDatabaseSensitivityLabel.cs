@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20180601Preview
+namespace Pulumi.AzureNextGen.Sql.V20180601Preview
 {
     /// <summary>
     /// A sensitivity label.
@@ -68,12 +68,12 @@ namespace Pulumi.AzureRM.Sql.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedDatabaseSensitivityLabel(string name, ManagedDatabaseSensitivityLabelArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20180601preview:ManagedDatabaseSensitivityLabel", name, args ?? new ManagedDatabaseSensitivityLabelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel", name, args ?? new ManagedDatabaseSensitivityLabelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedDatabaseSensitivityLabel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20180601preview:ManagedDatabaseSensitivityLabel", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel", name, null, MakeResourceOptions(options, id))
         {
         }
 

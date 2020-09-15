@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataLakeStore.V20161101.Inputs
+namespace Pulumi.AzureNextGen.DataLakeStore.V20161101.Inputs
 {
 
     /// <summary>

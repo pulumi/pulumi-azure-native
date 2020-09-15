@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20150501
+namespace Pulumi.AzureNextGen.Insights.V20150501
 {
     /// <summary>
     /// Properties that define an Analytics item that is associated to an Application Insights component.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AnalyticsItem(string name, AnalyticsItemArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20150501:AnalyticsItem", name, args ?? new AnalyticsItemArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20150501:AnalyticsItem", name, args ?? new AnalyticsItemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AnalyticsItem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20150501:AnalyticsItem", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20150501:AnalyticsItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/latest:AnalyticsItem"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:AnalyticsItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

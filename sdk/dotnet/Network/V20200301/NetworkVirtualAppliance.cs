@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200301
+namespace Pulumi.AzureNextGen.Network.V20200301
 {
     /// <summary>
     /// NetworkVirtualAppliance Resource.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkVirtualAppliance(string name, NetworkVirtualApplianceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200301:NetworkVirtualAppliance", name, args ?? new NetworkVirtualApplianceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200301:NetworkVirtualAppliance", name, args ?? new NetworkVirtualApplianceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NetworkVirtualAppliance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200301:NetworkVirtualAppliance", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200301:NetworkVirtualAppliance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,11 +117,11 @@ namespace Pulumi.AzureRM.Network.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:NetworkVirtualAppliance"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:NetworkVirtualAppliance"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:NetworkVirtualAppliance"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:NetworkVirtualAppliance"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NetworkVirtualAppliance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

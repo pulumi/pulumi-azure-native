@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.Latest
+namespace Pulumi.AzureNextGen.Security.Latest
 {
     /// <summary>
     /// Security assessment on a resource
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Security.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assessment(string name, AssessmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/latest:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/latest:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assessment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/latest:Assessment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/latest:Assessment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.Security.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:security/v20190101preview:Assessment"},
-                    new Pulumi.Alias { Type = "azurerm:security/v20200101:Assessment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:Assessment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:Assessment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

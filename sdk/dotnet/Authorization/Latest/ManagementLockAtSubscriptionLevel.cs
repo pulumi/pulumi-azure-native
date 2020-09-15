@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.Latest
+namespace Pulumi.AzureNextGen.Authorization.Latest
 {
     /// <summary>
     /// The lock information.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Authorization.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementLockAtSubscriptionLevel(string name, ManagementLockAtSubscriptionLevelArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/latest:ManagementLockAtSubscriptionLevel", name, args ?? new ManagementLockAtSubscriptionLevelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel", name, args ?? new ManagementLockAtSubscriptionLevelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementLockAtSubscriptionLevel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/latest:ManagementLockAtSubscriptionLevel", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20150101:ManagementLockAtSubscriptionLevel"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20160901:ManagementLockAtSubscriptionLevel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

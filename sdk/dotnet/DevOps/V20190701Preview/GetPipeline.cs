@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevOps.V20190701Preview
+namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
 {
     public static class GetPipeline
     {
         public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azurerm:devops/v20190701preview:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-nextgen:devops/v20190701preview:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
     }
 
 

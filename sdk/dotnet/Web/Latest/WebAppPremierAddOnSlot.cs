@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.Latest
+namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Premier add-on.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppPremierAddOnSlot(string name, WebAppPremierAddOnSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/latest:WebAppPremierAddOnSlot", name, args ?? new WebAppPremierAddOnSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/latest:WebAppPremierAddOnSlot", name, args ?? new WebAppPremierAddOnSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppPremierAddOnSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/latest:WebAppPremierAddOnSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/latest:WebAppPremierAddOnSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,12 +99,12 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppPremierAddOnSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppPremierAddOnSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppPremierAddOnSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppPremierAddOnSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppPremierAddOnSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPremierAddOnSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

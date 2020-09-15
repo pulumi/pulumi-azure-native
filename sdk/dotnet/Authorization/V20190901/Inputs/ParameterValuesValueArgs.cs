@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.V20190901.Inputs
+namespace Pulumi.AzureNextGen.Authorization.V20190901.Inputs
 {
 
     /// <summary>

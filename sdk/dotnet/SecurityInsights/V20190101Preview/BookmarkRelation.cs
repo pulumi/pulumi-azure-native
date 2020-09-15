@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents a relation between two resources
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BookmarkRelation(string name, BookmarkRelationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:securityinsights/v20190101preview:BookmarkRelation", name, args ?? new BookmarkRelationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:securityinsights/v20190101preview:BookmarkRelation", name, args ?? new BookmarkRelationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BookmarkRelation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:securityinsights/v20190101preview:BookmarkRelation", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:securityinsights/v20190101preview:BookmarkRelation", name, null, MakeResourceOptions(options, id))
         {
         }
 

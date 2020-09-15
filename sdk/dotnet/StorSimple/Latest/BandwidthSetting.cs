@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.Latest
+namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
     /// <summary>
     /// The bandwidth setting.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.StorSimple.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BandwidthSetting(string name, BandwidthSettingArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/latest:BandwidthSetting", name, args ?? new BandwidthSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storsimple/latest:BandwidthSetting", name, args ?? new BandwidthSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BandwidthSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/latest:BandwidthSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storsimple/latest:BandwidthSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storsimple/v20170601:BandwidthSetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:BandwidthSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

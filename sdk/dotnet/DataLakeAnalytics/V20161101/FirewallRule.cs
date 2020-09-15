@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
+namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
 {
     /// <summary>
     /// Data Lake Analytics firewall rule information.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datalakeanalytics/v20161101:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datalakeanalytics/v20161101:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datalakeanalytics/v20161101:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datalakeanalytics/v20161101:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datalakeanalytics/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/latest:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

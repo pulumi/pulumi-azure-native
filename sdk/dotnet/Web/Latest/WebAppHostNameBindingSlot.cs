@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.Latest
+namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// A hostname binding object.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppHostNameBindingSlot(string name, WebAppHostNameBindingSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/latest:WebAppHostNameBindingSlot", name, args ?? new WebAppHostNameBindingSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/latest:WebAppHostNameBindingSlot", name, args ?? new WebAppHostNameBindingSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppHostNameBindingSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/latest:WebAppHostNameBindingSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/latest:WebAppHostNameBindingSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,12 +111,12 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppHostNameBindingSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

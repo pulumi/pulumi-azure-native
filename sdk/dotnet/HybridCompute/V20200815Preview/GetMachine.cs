@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridCompute.V20200815Preview
+namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
 {
     public static class GetMachine
     {
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azurerm:hybridcompute/v20200815preview:getMachine", args ?? new GetMachineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-nextgen:hybridcompute/v20200815preview:getMachine", args ?? new GetMachineArgs(), options.WithVersion());
     }
 
 

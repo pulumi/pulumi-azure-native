@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20180617Preview
+namespace Pulumi.AzureNextGen.Insights.V20180617Preview
 {
     public static class GetWorkbook
     {
         public static Task<GetWorkbookResult> InvokeAsync(GetWorkbookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookResult>("azurerm:insights/v20180617preview:getWorkbook", args ?? new GetWorkbookArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookResult>("azure-nextgen:insights/v20180617preview:getWorkbook", args ?? new GetWorkbookArgs(), options.WithVersion());
     }
 
 

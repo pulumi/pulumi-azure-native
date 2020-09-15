@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningExperimentation.V20170501Preview
+namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
 {
     /// <summary>
     /// An object that represents a machine learning team account workspace.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.MachineLearningExperimentation.V20170501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningexperimentation/v20170501preview:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:machinelearningexperimentation/v20170501preview:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningexperimentation/v20170501preview:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:machinelearningexperimentation/v20170501preview:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 

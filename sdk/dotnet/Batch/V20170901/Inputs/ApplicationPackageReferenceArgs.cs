@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Batch.V20170901.Inputs
+namespace Pulumi.AzureNextGen.Batch.V20170901.Inputs
 {
 
     public sealed class ApplicationPackageReferenceArgs : Pulumi.ResourceArgs

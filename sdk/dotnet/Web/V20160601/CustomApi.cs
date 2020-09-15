@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20160601
+namespace Pulumi.AzureNextGen.Web.V20160601
 {
     /// <summary>
     /// A custom API
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Web.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomApi(string name, CustomApiArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160601:CustomApi", name, args ?? new CustomApiArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20160601:CustomApi", name, args ?? new CustomApiArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomApi(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160601:CustomApi", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20160601:CustomApi", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.Web.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:CustomApi"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:CustomApi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

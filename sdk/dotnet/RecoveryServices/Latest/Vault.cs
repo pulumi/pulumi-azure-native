@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RecoveryServices.Latest
+namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
     /// <summary>
     /// Resource information, as returned by the resource provider.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Vault(string name, VaultArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices/latest:Vault", name, args ?? new VaultArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:recoveryservices/latest:Vault", name, args ?? new VaultArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Vault(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices/latest:Vault", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:recoveryservices/latest:Vault", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/v20160601:Vault"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160601:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Databricks.Latest
+namespace Pulumi.AzureNextGen.Databricks.Latest
 {
     public static class GetvNetPeering
     {
         public static Task<GetvNetPeeringResult> InvokeAsync(GetvNetPeeringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetvNetPeeringResult>("azurerm:databricks/latest:getvNetPeering", args ?? new GetvNetPeeringArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetvNetPeeringResult>("azure-nextgen:databricks/latest:getvNetPeering", args ?? new GetvNetPeeringArgs(), options.WithVersion());
     }
 
 

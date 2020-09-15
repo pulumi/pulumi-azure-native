@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.Latest.Inputs
+namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
 {
 
     public sealed class PatchSettingsArgs : Pulumi.ResourceArgs

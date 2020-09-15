@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.Latest
+namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
     /// <summary>
     /// Value object for saved search results.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SavedSearch(string name, SavedSearchArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/latest:SavedSearch", name, args ?? new SavedSearchArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationalinsights/latest:SavedSearch", name, args ?? new SavedSearchArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SavedSearch(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/latest:SavedSearch", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationalinsights/latest:SavedSearch", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,9 +99,9 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20150320:SavedSearch"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:SavedSearch"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:SavedSearch"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20150320:SavedSearch"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:SavedSearch"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:SavedSearch"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

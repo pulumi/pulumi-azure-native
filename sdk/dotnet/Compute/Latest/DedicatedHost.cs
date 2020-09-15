@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.Latest
+namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Specifies information about the Dedicated host.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedHost(string name, DedicatedHostArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/latest:DedicatedHost", name, args ?? new DedicatedHostArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/latest:DedicatedHost", name, args ?? new DedicatedHostArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DedicatedHost(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/latest:DedicatedHost", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/latest:DedicatedHost", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,10 +117,10 @@ namespace Pulumi.AzureRM.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:DedicatedHost"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:DedicatedHost"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:DedicatedHost"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:DedicatedHost"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.V20171111Preview
+namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
 {
     public static class GetGroup
     {
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azurerm:migrate/v20171111preview:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-nextgen:migrate/v20171111preview:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.V20151031
+namespace Pulumi.AzureNextGen.Automation.V20151031
 {
     /// <summary>
     /// Definition of the watcher type.
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Watcher(string name, WatcherArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:automation/v20151031:Watcher", name, args ?? new WatcherArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:automation/v20151031:Watcher", name, args ?? new WatcherArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Watcher(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:automation/v20151031:Watcher", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:automation/v20151031:Watcher", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,7 +123,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/latest:Watcher"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Watcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

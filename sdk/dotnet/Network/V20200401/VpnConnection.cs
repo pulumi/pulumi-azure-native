@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200401
+namespace Pulumi.AzureNextGen.Network.V20200401
 {
     /// <summary>
     /// VpnConnection Resource.
@@ -143,12 +143,12 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpnConnection(string name, VpnConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200401:VpnConnection", name, args ?? new VpnConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200401:VpnConnection", name, args ?? new VpnConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VpnConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200401:VpnConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200401:VpnConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -159,25 +159,25 @@ namespace Pulumi.AzureRM.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VpnConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VpnConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20200601
+namespace Pulumi.AzureNextGen.Web.V20200601
 {
     /// <summary>
     /// A domain specific resource identifier.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Web.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppDomainOwnershipIdentifierSlot(string name, WebAppDomainOwnershipIdentifierSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20200601:WebAppDomainOwnershipIdentifierSlot", name, args ?? new WebAppDomainOwnershipIdentifierSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot", name, args ?? new WebAppDomainOwnershipIdentifierSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppDomainOwnershipIdentifierSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20200601:WebAppDomainOwnershipIdentifierSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,11 +63,11 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

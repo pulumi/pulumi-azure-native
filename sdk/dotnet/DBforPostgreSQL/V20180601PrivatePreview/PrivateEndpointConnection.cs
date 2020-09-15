@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforPostgreSQL.V20180601PrivatePreview
+namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20180601PrivatePreview
 {
     /// <summary>
     /// A private endpoint connection
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20180601PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20180601PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20180601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20180601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

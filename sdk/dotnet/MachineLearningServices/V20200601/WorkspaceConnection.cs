@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningServices.V20200601
+namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
 {
     /// <summary>
     /// Workspace connection.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkspaceConnection(string name, WorkspaceConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices/v20200601:WorkspaceConnection", name, args ?? new WorkspaceConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection", name, args ?? new WorkspaceConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkspaceConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices/v20200601:WorkspaceConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/latest:WorkspaceConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/latest:WorkspaceConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

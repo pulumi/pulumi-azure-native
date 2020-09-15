@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevSpaces.Latest
+namespace Pulumi.AzureNextGen.DevSpaces.Latest
 {
     public static class GetController
     {
         public static Task<GetControllerResult> InvokeAsync(GetControllerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetControllerResult>("azurerm:devspaces/latest:getController", args ?? new GetControllerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetControllerResult>("azure-nextgen:devspaces/latest:getController", args ?? new GetControllerArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.Latest
+namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
     public static class ListManagerActivationKey
     {
         public static Task<ListManagerActivationKeyResult> InvokeAsync(ListManagerActivationKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListManagerActivationKeyResult>("azurerm:storsimple/latest:listManagerActivationKey", args ?? new ListManagerActivationKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListManagerActivationKeyResult>("azure-nextgen:storsimple/latest:listManagerActivationKey", args ?? new ListManagerActivationKeyArgs(), options.WithVersion());
     }
 
 

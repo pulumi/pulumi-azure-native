@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BotService.V20200602
+namespace Pulumi.AzureNextGen.BotService.V20200602
 {
     /// <summary>
     /// Bot channel resource definition
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.BotService.V20200602
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Channel(string name, ChannelArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:botservice/v20200602:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:botservice/v20200602:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Channel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:botservice/v20200602:Channel", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:botservice/v20200602:Channel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,9 +87,9 @@ namespace Pulumi.AzureRM.BotService.V20200602
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:botservice/latest:Channel"},
-                    new Pulumi.Alias { Type = "azurerm:botservice/v20171201:Channel"},
-                    new Pulumi.Alias { Type = "azurerm:botservice/v20180712:Channel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice/latest:Channel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice/v20171201:Channel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice/v20180712:Channel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

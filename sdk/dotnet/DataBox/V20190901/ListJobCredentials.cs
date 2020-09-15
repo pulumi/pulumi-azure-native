@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBox.V20190901
+namespace Pulumi.AzureNextGen.DataBox.V20190901
 {
     public static class ListJobCredentials
     {
         public static Task<ListJobCredentialsResult> InvokeAsync(ListJobCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azurerm:databox/v20190901:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-nextgen:databox/v20190901:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithVersion());
     }
 
 

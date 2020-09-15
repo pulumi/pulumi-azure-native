@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
+namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201
 {
     /// <summary>
     /// A virtual network rule.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20171201:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20171201:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/latest:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201preview:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Management.V20180301Preview
+namespace Pulumi.AzureNextGen.Management.V20180301Preview
 {
     public static class GetManagementGroup
     {
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azurerm:management/v20180301preview:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure-nextgen:management/v20180301preview:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());
     }
 
 

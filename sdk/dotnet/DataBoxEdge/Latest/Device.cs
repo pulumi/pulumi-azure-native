@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.Latest
+namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// The Data Box Edge/Gateway device.
@@ -143,12 +143,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Device(string name, DeviceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/latest:Device", name, args ?? new DeviceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:databoxedge/latest:Device", name, args ?? new DeviceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Device(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/latest:Device", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:databoxedge/latest:Device", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -159,10 +159,10 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:Device"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Device"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:Device"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Device"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Device"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Device"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Device"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Device"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Devices.Latest
+namespace Pulumi.AzureNextGen.Devices.Latest
 {
     /// <summary>
     /// The private endpoint connection of a provisioning service
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Devices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotDpsResourcePrivateEndpointConnection(string name, IotDpsResourcePrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devices/latest:IotDpsResourcePrivateEndpointConnection", name, args ?? new IotDpsResourcePrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection", name, args ?? new IotDpsResourcePrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotDpsResourcePrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devices/latest:IotDpsResourcePrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200301:IotDpsResourcePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

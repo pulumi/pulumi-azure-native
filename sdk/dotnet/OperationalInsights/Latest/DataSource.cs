@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.Latest
+namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
     /// <summary>
     /// Datasources under OMS Workspace.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSource(string name, DataSourceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/latest:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationalinsights/latest:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/latest:DataSource", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationalinsights/latest:DataSource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,9 +75,9 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20151101preview:DataSource"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:DataSource"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:DataSource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:DataSource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:DataSource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:DataSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

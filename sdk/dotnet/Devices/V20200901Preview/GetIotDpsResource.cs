@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Devices.V20200901Preview
+namespace Pulumi.AzureNextGen.Devices.V20200901Preview
 {
     public static class GetIotDpsResource
     {
         public static Task<GetIotDpsResourceResult> InvokeAsync(GetIotDpsResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azurerm:devices/v20200901preview:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azure-nextgen:devices/v20200901preview:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithVersion());
     }
 
 

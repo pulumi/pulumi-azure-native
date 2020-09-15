@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HanaOnAzure.V20200207Preview
+namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
 {
     public static class GetSapMonitor
     {
         public static Task<GetSapMonitorResult> InvokeAsync(GetSapMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azurerm:hanaonazure/v20200207preview:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azure-nextgen:hanaonazure/v20200207preview:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithVersion());
     }
 
 

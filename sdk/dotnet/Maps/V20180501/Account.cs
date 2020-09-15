@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Maps.V20180501
+namespace Pulumi.AzureNextGen.Maps.V20180501
 {
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Maps.V20180501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:maps/v20180501:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:maps/v20180501:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:maps/v20180501:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:maps/v20180501:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,9 +75,9 @@ namespace Pulumi.AzureRM.Maps.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:maps/latest:Account"},
-                    new Pulumi.Alias { Type = "azurerm:maps/v20170101preview:Account"},
-                    new Pulumi.Alias { Type = "azurerm:maps/v20200201preview:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:maps/latest:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:maps/v20170101preview:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:maps/v20200201preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CostManagement.V20191101
+namespace Pulumi.AzureNextGen.CostManagement.V20191101
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.CostManagement.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ViewByScope(string name, ViewByScopeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20191101:ViewByScope", name, args ?? new ViewByScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:costmanagement/v20191101:ViewByScope", name, args ?? new ViewByScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ViewByScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20191101:ViewByScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:costmanagement/v20191101:ViewByScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,9 +129,9 @@ namespace Pulumi.AzureRM.CostManagement.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/latest:ViewByScope"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20190401preview:ViewByScope"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20200601:ViewByScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:ViewByScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190401preview:ViewByScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200601:ViewByScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

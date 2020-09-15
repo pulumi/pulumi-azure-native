@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.V20180915
+namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 {
     /// <summary>
     /// A secret.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Secret(string name, SecretArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20180915:Secret", name, args ?? new SecretArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devtestlab/v20180915:Secret", name, args ?? new SecretArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Secret(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20180915:Secret", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devtestlab/v20180915:Secret", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/latest:Secret"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:Secret"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:Secret"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Secret"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

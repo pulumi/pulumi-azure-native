@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.Latest
+namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the connection type.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectionType(string name, ConnectionTypeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:automation/latest:ConnectionType", name, args ?? new ConnectionTypeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:automation/latest:ConnectionType", name, args ?? new ConnectionTypeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectionType(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:automation/latest:ConnectionType", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:automation/latest:ConnectionType", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/v20151031:ConnectionType"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:ConnectionType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

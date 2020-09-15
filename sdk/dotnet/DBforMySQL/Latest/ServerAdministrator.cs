@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMySQL.Latest
+namespace Pulumi.AzureNextGen.DBforMySQL.Latest
 {
     /// <summary>
     /// Represents a and external administrator to be created.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerAdministrator(string name, ServerAdministratorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbformysql/latest:ServerAdministrator", name, args ?? new ServerAdministratorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbformysql/latest:ServerAdministrator", name, args ?? new ServerAdministratorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerAdministrator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbformysql/latest:ServerAdministrator", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbformysql/latest:ServerAdministrator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:ServerAdministrator"},
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201preview:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:ServerAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

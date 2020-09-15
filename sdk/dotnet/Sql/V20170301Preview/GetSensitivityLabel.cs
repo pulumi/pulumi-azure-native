@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20170301Preview
+namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 {
     public static class GetSensitivityLabel
     {
         public static Task<GetSensitivityLabelResult> InvokeAsync(GetSensitivityLabelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSensitivityLabelResult>("azurerm:sql/v20170301preview:getSensitivityLabel", args ?? new GetSensitivityLabelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSensitivityLabelResult>("azure-nextgen:sql/v20170301preview:getSensitivityLabel", args ?? new GetSensitivityLabelArgs(), options.WithVersion());
     }
 
 

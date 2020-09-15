@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AzureStackHCI.V20200301Preview
+namespace Pulumi.AzureNextGen.AzureStackHCI.V20200301Preview
 {
     /// <summary>
     /// Cluster details.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.AzureStackHCI.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:azurestackhci/v20200301preview:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:azurestackhci/v20200301preview:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:azurestackhci/v20200301preview:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:azurestackhci/v20200301preview:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 

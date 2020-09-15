@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20170801Preview
+namespace Pulumi.AzureNextGen.Security.V20170801Preview
 {
     /// <summary>
     /// The device security group resource
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeviceSecurityGroup(string name, DeviceSecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20170801preview:DeviceSecurityGroup", name, args ?? new DeviceSecurityGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/v20170801preview:DeviceSecurityGroup", name, args ?? new DeviceSecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeviceSecurityGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20170801preview:DeviceSecurityGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/v20170801preview:DeviceSecurityGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:security/latest:DeviceSecurityGroup"},
-                    new Pulumi.Alias { Type = "azurerm:security/v20190801:DeviceSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:DeviceSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20190801:DeviceSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

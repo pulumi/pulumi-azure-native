@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cache.V20171001
+namespace Pulumi.AzureNextGen.Cache.V20171001
 {
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Cache.V20171001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedServer(string name, LinkedServerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:cache/v20171001:LinkedServer", name, args ?? new LinkedServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:cache/v20171001:LinkedServer", name, args ?? new LinkedServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:cache/v20171001:LinkedServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:cache/v20171001:LinkedServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,10 +75,10 @@ namespace Pulumi.AzureRM.Cache.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cache/latest:LinkedServer"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20170201:LinkedServer"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20180301:LinkedServer"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20190701:LinkedServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:LinkedServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:LinkedServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:LinkedServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:LinkedServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

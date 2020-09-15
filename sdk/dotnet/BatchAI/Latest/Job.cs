@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BatchAI.Latest
+namespace Pulumi.AzureNextGen.BatchAI.Latest
 {
     /// <summary>
     /// Information about a Job.
@@ -209,12 +209,12 @@ namespace Pulumi.AzureRM.BatchAI.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:batchai/latest:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:batchai/latest:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:batchai/latest:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:batchai/latest:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -225,7 +225,7 @@ namespace Pulumi.AzureRM.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:batchai/v20180501:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

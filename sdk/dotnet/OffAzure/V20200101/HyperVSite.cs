@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OffAzure.V20200101
+namespace Pulumi.AzureNextGen.OffAzure.V20200101
 {
     /// <summary>
     /// Site REST Resource.
@@ -56,12 +56,12 @@ namespace Pulumi.AzureRM.OffAzure.V20200101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HyperVSite(string name, HyperVSiteArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:offazure/v20200101:HyperVSite", name, args ?? new HyperVSiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:offazure/v20200101:HyperVSite", name, args ?? new HyperVSiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HyperVSite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:offazure/v20200101:HyperVSite", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:offazure/v20200101:HyperVSite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,8 +72,8 @@ namespace Pulumi.AzureRM.OffAzure.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:offazure/latest:HyperVSite"},
-                    new Pulumi.Alias { Type = "azurerm:offazure/v20200707:HyperVSite"},
+                    new Pulumi.Alias { Type = "azure-nextgen:offazure/latest:HyperVSite"},
+                    new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:HyperVSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

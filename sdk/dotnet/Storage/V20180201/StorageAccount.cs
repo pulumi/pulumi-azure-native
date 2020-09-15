@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Storage.V20180201
+namespace Pulumi.AzureNextGen.Storage.V20180201
 {
     /// <summary>
     /// The storage account.
@@ -155,12 +155,12 @@ namespace Pulumi.AzureRM.Storage.V20180201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccount(string name, StorageAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storage/v20180201:StorageAccount", name, args ?? new StorageAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storage/v20180201:StorageAccount", name, args ?? new StorageAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storage/v20180201:StorageAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storage/v20180201:StorageAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -171,20 +171,20 @@ namespace Pulumi.AzureRM.Storage.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storage/latest:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20150501preview:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20150615:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20160101:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20160501:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20161201:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20170601:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20171001:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20180301preview:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20180701:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20181101:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20190401:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20190601:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20150501preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20150615:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20160101:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20160501:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20161201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20170601:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20171001:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

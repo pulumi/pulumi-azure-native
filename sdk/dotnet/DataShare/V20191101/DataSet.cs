@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataShare.V20191101
+namespace Pulumi.AzureNextGen.DataShare.V20191101
 {
     /// <summary>
     /// A DataSet data transfer object.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSet(string name, DataSetArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datashare/v20191101:DataSet", name, args ?? new DataSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datashare/v20191101:DataSet", name, args ?? new DataSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datashare/v20191101:DataSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datashare/v20191101:DataSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datashare/latest:DataSet"},
-                    new Pulumi.Alias { Type = "azurerm:datashare/v20181101preview:DataSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:DataSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:DataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

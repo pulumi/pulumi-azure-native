@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20150501
+namespace Pulumi.AzureNextGen.Insights.V20150501
 {
     /// <summary>
     /// An Application Insights web test definition.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebTest(string name, WebTestArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20150501:WebTest", name, args ?? new WebTestArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20150501:WebTest", name, args ?? new WebTestArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebTest(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20150501:WebTest", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20150501:WebTest", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,7 +135,7 @@ namespace Pulumi.AzureRM.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/latest:WebTest"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:WebTest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

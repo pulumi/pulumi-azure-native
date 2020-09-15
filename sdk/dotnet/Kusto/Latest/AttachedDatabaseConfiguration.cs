@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kusto.Latest
+namespace Pulumi.AzureNextGen.Kusto.Latest
 {
     /// <summary>
     /// Class representing an attached database configuration.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Kusto.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AttachedDatabaseConfiguration(string name, AttachedDatabaseConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/latest:AttachedDatabaseConfiguration", name, args ?? new AttachedDatabaseConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:kusto/latest:AttachedDatabaseConfiguration", name, args ?? new AttachedDatabaseConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AttachedDatabaseConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/latest:AttachedDatabaseConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:kusto/latest:AttachedDatabaseConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,10 +87,10 @@ namespace Pulumi.AzureRM.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20190907:AttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20191109:AttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200215:AttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200614:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

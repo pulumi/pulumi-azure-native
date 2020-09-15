@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.Latest
+namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the module type.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Python2Package(string name, Python2PackageArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:automation/latest:Python2Package", name, args ?? new Python2PackageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:automation/latest:Python2Package", name, args ?? new Python2PackageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Python2Package(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:automation/latest:Python2Package", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:automation/latest:Python2Package", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,7 +135,7 @@ namespace Pulumi.AzureRM.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/v20180630:Python2Package"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20180630:Python2Package"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20190101
+namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 {
     /// <summary>
     /// Tag Contract details.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TagByOperation(string name, TagByOperationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20190101:TagByOperation", name, args ?? new TagByOperationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20190101:TagByOperation", name, args ?? new TagByOperationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TagByOperation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20190101:TagByOperation", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20190101:TagByOperation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,12 +57,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:TagByOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:TagByOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:TagByOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:TagByOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:TagByOperation"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:TagByOperation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

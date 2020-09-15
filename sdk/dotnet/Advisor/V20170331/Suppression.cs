@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Advisor.V20170331
+namespace Pulumi.AzureNextGen.Advisor.V20170331
 {
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Advisor.V20170331
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Suppression(string name, SuppressionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:advisor/v20170331:Suppression", name, args ?? new SuppressionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:advisor/v20170331:Suppression", name, args ?? new SuppressionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Suppression(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:advisor/v20170331:Suppression", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:advisor/v20170331:Suppression", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,10 +63,10 @@ namespace Pulumi.AzureRM.Advisor.V20170331
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:advisor/latest:Suppression"},
-                    new Pulumi.Alias { Type = "azurerm:advisor/v20160712preview:Suppression"},
-                    new Pulumi.Alias { Type = "azurerm:advisor/v20170419:Suppression"},
-                    new Pulumi.Alias { Type = "azurerm:advisor/v20200101:Suppression"},
+                    new Pulumi.Alias { Type = "azure-nextgen:advisor/latest:Suppression"},
+                    new Pulumi.Alias { Type = "azure-nextgen:advisor/v20160712preview:Suppression"},
+                    new Pulumi.Alias { Type = "azure-nextgen:advisor/v20170419:Suppression"},
+                    new Pulumi.Alias { Type = "azure-nextgen:advisor/v20200101:Suppression"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

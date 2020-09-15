@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200808Preview
+namespace Pulumi.AzureNextGen.Network.V20200808Preview
 {
     /// <summary>
     /// Delegated subnet details
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Network.V20200808Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DelegatedSubnetServiceDetails(string name, DelegatedSubnetServiceDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200808preview:DelegatedSubnetServiceDetails", name, args ?? new DelegatedSubnetServiceDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200808preview:DelegatedSubnetServiceDetails", name, args ?? new DelegatedSubnetServiceDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DelegatedSubnetServiceDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200808preview:DelegatedSubnetServiceDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200808preview:DelegatedSubnetServiceDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.V20190301.Outputs
+namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301.Outputs
 {
 
     [OutputType]

@@ -6,7 +6,7 @@ using System.IO;
 using System.Reflection;
 using Pulumi;
 
-namespace Pulumi.AzureRM
+namespace Pulumi.AzureNextGen
 {
     static class Utilities
     {
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM
         static Utilities()
         {
             var assembly = typeof(Utilities).GetTypeInfo().Assembly;
-            using var stream = assembly.GetManifestResourceStream("Pulumi.AzureRM.version.txt");
+            using var stream = assembly.GetManifestResourceStream("Pulumi.AzureNextGen.version.txt");
             using var reader = new StreamReader(stream ?? throw new NotSupportedException("Missing embedded version.txt file"));
             version = reader.ReadToEnd().Trim();
         }

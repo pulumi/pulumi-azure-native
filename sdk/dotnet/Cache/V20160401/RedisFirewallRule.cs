@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cache.V20160401
+namespace Pulumi.AzureNextGen.Cache.V20160401
 {
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Cache.V20160401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RedisFirewallRule(string name, RedisFirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:cache/v20160401:RedisFirewallRule", name, args ?? new RedisFirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:cache/v20160401:RedisFirewallRule", name, args ?? new RedisFirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RedisFirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:cache/v20160401:RedisFirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:cache/v20160401:RedisFirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,11 +63,11 @@ namespace Pulumi.AzureRM.Cache.V20160401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cache/latest:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20170201:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20171001:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20180301:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20190701:RedisFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:RedisFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:RedisFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:RedisFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:RedisFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:RedisFirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

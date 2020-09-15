@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SignalRService.Latest.Outputs
+namespace Pulumi.AzureNextGen.SignalRService.Latest.Outputs
 {
 
     [OutputType]

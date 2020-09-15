@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.Latest
+namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the credential.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Credential(string name, CredentialArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:automation/latest:Credential", name, args ?? new CredentialArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:automation/latest:Credential", name, args ?? new CredentialArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Credential(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:automation/latest:Credential", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:automation/latest:Credential", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/v20151031:Credential"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Credential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

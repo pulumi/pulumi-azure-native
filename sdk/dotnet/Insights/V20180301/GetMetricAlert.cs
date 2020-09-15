@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20180301
+namespace Pulumi.AzureNextGen.Insights.V20180301
 {
     public static class GetMetricAlert
     {
         public static Task<GetMetricAlertResult> InvokeAsync(GetMetricAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azurerm:insights/v20180301:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azure-nextgen:insights/v20180301:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataLakeStore.Latest
+namespace Pulumi.AzureNextGen.DataLakeStore.Latest
 {
     /// <summary>
     /// Data Lake Store trusted identity provider information.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.DataLakeStore.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TrustedIdProvider(string name, TrustedIdProviderArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datalakestore/latest:TrustedIdProvider", name, args ?? new TrustedIdProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datalakestore/latest:TrustedIdProvider", name, args ?? new TrustedIdProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TrustedIdProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datalakestore/latest:TrustedIdProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datalakestore/latest:TrustedIdProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,7 +57,7 @@ namespace Pulumi.AzureRM.DataLakeStore.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datalakestore/v20161101:TrustedIdProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakestore/v20161101:TrustedIdProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

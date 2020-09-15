@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.V20171111Preview
+namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
 {
     public static class GetAssessment
     {
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azurerm:migrate/v20171111preview:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-nextgen:migrate/v20171111preview:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Blockchain.V20180601Preview
+namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
 {
     public static class GetTransactionNode
     {
         public static Task<GetTransactionNodeResult> InvokeAsync(GetTransactionNodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransactionNodeResult>("azurerm:blockchain/v20180601preview:getTransactionNode", args ?? new GetTransactionNodeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTransactionNodeResult>("azure-nextgen:blockchain/v20180601preview:getTransactionNode", args ?? new GetTransactionNodeArgs(), options.WithVersion());
     }
 
 

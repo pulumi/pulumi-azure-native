@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20180101
+namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 {
     /// <summary>
     /// Certificate details.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20180101:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20180101:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20180101:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20180101:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,14 +69,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
+namespace Pulumi.AzureNextGen.DBForPostgreSQL.V20171201Preview
 {
     /// <summary>
     /// Represents a and external administrator to be created.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerAdministrator(string name, ServerAdministratorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20171201preview:ServerAdministrator", name, args ?? new ServerAdministratorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator", name, args ?? new ServerAdministratorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerAdministrator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20171201preview:ServerAdministrator", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/latest:ServerAdministrator"},
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

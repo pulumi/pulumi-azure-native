@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20160330
+namespace Pulumi.AzureNextGen.Network.V20160330
 {
     /// <summary>
     /// A common class for general resource information
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LocalNetworkGateway(string name, LocalNetworkGatewayArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20160330:LocalNetworkGateway", name, args ?? new LocalNetworkGatewayArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20160330:LocalNetworkGateway", name, args ?? new LocalNetworkGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LocalNetworkGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20160330:LocalNetworkGateway", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20160330:LocalNetworkGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,38 +99,38 @@ namespace Pulumi.AzureRM.Network.V20160330
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20150615:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160601:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160901:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20161201:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170301:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170601:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170801:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170901:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171101:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180101:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:LocalNetworkGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:LocalNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

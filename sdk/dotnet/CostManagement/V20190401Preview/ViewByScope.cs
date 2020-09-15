@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CostManagement.V20190401Preview
+namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.CostManagement.V20190401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ViewByScope(string name, ViewByScopeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20190401preview:ViewByScope", name, args ?? new ViewByScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:costmanagement/v20190401preview:ViewByScope", name, args ?? new ViewByScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ViewByScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20190401preview:ViewByScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:costmanagement/v20190401preview:ViewByScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,9 +129,9 @@ namespace Pulumi.AzureRM.CostManagement.V20190401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/latest:ViewByScope"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20191101:ViewByScope"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20200601:ViewByScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:ViewByScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20191101:ViewByScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200601:ViewByScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

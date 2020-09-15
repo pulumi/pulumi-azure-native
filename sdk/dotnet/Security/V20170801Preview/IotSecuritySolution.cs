@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20170801Preview
+namespace Pulumi.AzureNextGen.Security.V20170801Preview
 {
     /// <summary>
     /// Security Solution
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotSecuritySolution(string name, IotSecuritySolutionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20170801preview:IotSecuritySolution", name, args ?? new IotSecuritySolutionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/v20170801preview:IotSecuritySolution", name, args ?? new IotSecuritySolutionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotSecuritySolution(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20170801preview:IotSecuritySolution", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/v20170801preview:IotSecuritySolution", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,8 +117,8 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:security/latest:IotSecuritySolution"},
-                    new Pulumi.Alias { Type = "azurerm:security/v20190801:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20190801:IotSecuritySolution"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

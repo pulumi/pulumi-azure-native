@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AzureData.V20190724Preview
+namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
 {
     /// <summary>
     /// Data controller resource
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataController(string name, DataControllerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:azuredata/v20190724preview:DataController", name, args ?? new DataControllerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:azuredata/v20190724preview:DataController", name, args ?? new DataControllerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataController(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:azuredata/v20190724preview:DataController", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:azuredata/v20190724preview:DataController", name, null, MakeResourceOptions(options, id))
         {
         }
 

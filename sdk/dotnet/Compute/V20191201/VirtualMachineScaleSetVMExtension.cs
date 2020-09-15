@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20191201
+namespace Pulumi.AzureNextGen.Compute.V20191201
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineScaleSetVMExtension(string name, VirtualMachineScaleSetVMExtensionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20191201:VirtualMachineScaleSetVMExtension", name, args ?? new VirtualMachineScaleSetVMExtensionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension", name, args ?? new VirtualMachineScaleSetVMExtensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineScaleSetVMExtension(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20191201:VirtualMachineScaleSetVMExtension", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,9 +111,9 @@ namespace Pulumi.AzureRM.Compute.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachineScaleSetVMExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:VirtualMachineScaleSetVMExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

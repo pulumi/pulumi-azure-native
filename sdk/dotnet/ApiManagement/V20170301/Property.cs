@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20170301
+namespace Pulumi.AzureNextGen.ApiManagement.V20170301
 {
     /// <summary>
     /// Property details.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Property(string name, PropertyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20170301:Property", name, args ?? new PropertyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20170301:Property", name, args ?? new PropertyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Property(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20170301:Property", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20170301:Property", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,12 +75,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Property"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Property"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Property"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Property"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Property"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Property"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Property"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Property"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Property"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Property"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Property"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Property"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

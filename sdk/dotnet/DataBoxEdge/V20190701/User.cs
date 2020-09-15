@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.V20190701
+namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
 {
     /// <summary>
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/v20190701:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:databoxedge/v20190701:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private User(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/v20190701:User", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:databoxedge/v20190701:User", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,10 +63,10 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/latest:User"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:User"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:User"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

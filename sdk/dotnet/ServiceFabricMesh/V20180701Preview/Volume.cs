@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
+namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
 {
     /// <summary>
     /// This type describes a volume resource.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Volume(string name, VolumeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabricmesh/v20180701preview:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicefabricmesh/v20180701preview:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Volume(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabricmesh/v20180701preview:Volume", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicefabricmesh/v20180701preview:Volume", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:servicefabricmesh/v20180901preview:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh/v20180901preview:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

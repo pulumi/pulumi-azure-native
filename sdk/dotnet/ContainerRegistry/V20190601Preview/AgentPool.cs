@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 {
     /// <summary>
     /// The agentpool that has the ARM resource and properties.
@@ -78,12 +78,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AgentPool(string name, AgentPoolArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20190601preview:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/v20190601preview:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AgentPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20190601preview:AgentPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/v20190601preview:AgentPool", name, null, MakeResourceOptions(options, id))
         {
         }
 

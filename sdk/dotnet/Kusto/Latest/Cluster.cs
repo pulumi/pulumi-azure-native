@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kusto.Latest
+namespace Pulumi.AzureNextGen.Kusto.Latest
 {
     /// <summary>
     /// Class representing a Kusto cluster.
@@ -149,12 +149,12 @@ namespace Pulumi.AzureRM.Kusto.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:kusto/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/latest:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:kusto/latest:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -165,14 +165,14 @@ namespace Pulumi.AzureRM.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20170907privatepreview:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20180907preview:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20190121:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20190515:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20190907:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20191109:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200215:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200614:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20180907preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

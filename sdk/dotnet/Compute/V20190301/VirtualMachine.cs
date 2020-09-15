@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20190301
+namespace Pulumi.AzureNextGen.Compute.V20190301
 {
     /// <summary>
     /// Describes a Virtual Machine.
@@ -173,12 +173,12 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachine(string name, VirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20190301:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20190301:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20190301:VirtualMachine", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20190301:VirtualMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -189,18 +189,18 @@ namespace Pulumi.AzureRM.Compute.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20150615:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20160330:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20171201:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20181001:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20150615:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20160330:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

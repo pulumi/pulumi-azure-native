@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20160301
+namespace Pulumi.AzureNextGen.Insights.V20160301
 {
     /// <summary>
     /// The log profile resource.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Insights.V20160301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogProfile(string name, LogProfileArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20160301:LogProfile", name, args ?? new LogProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20160301:LogProfile", name, args ?? new LogProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LogProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20160301:LogProfile", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20160301:LogProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,7 +93,7 @@ namespace Pulumi.AzureRM.Insights.V20160301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/latest:LogProfile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:LogProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EnterpriseKnowledgeGraph.Latest
+namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
 {
     /// <summary>
     /// EnterpriseKnowledgeGraph resource definition
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.EnterpriseKnowledgeGraph.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnterpriseKnowledgeGraph(string name, EnterpriseKnowledgeGraphArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, args ?? new EnterpriseKnowledgeGraphArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, args ?? new EnterpriseKnowledgeGraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EnterpriseKnowledgeGraph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.EnterpriseKnowledgeGraph.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

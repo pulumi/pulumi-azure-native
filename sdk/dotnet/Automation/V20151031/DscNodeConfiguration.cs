@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.V20151031
+namespace Pulumi.AzureNextGen.Automation.V20151031
 {
     /// <summary>
     /// Definition of the dsc node configuration.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DscNodeConfiguration(string name, DscNodeConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:automation/v20151031:DscNodeConfiguration", name, args ?? new DscNodeConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:automation/v20151031:DscNodeConfiguration", name, args ?? new DscNodeConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DscNodeConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:automation/v20151031:DscNodeConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:automation/v20151031:DscNodeConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/latest:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:automation/v20180115:DscNodeConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:DscNodeConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20180115:DscNodeConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20150501
+namespace Pulumi.AzureNextGen.Insights.V20150501
 {
     /// <summary>
     /// An Application Insights workbook definition.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workbook(string name, WorkbookArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20150501:Workbook", name, args ?? new WorkbookArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20150501:Workbook", name, args ?? new WorkbookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workbook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20150501:Workbook", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20150501:Workbook", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,8 +117,8 @@ namespace Pulumi.AzureRM.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/latest:Workbook"},
-                    new Pulumi.Alias { Type = "azurerm:insights/v20180617preview:Workbook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:Workbook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20180617preview:Workbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Solutions.Latest
+namespace Pulumi.AzureNextGen.Solutions.Latest
 {
     /// <summary>
     /// Information about managed application definition.
@@ -143,12 +143,12 @@ namespace Pulumi.AzureRM.Solutions.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationDefinition(string name, ApplicationDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:solutions/latest:ApplicationDefinition", name, args ?? new ApplicationDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:solutions/latest:ApplicationDefinition", name, args ?? new ApplicationDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:solutions/latest:ApplicationDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:solutions/latest:ApplicationDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -159,10 +159,10 @@ namespace Pulumi.AzureRM.Solutions.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:solutions/v20170901:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:solutions/v20180601:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:solutions/v20190701:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:solutions/v20200821preview:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:ApplicationDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AppConfiguration.V20200601
+namespace Pulumi.AzureNextGen.AppConfiguration.V20200601
 {
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationStore(string name, ConfigurationStoreArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:appconfiguration/v20200601:ConfigurationStore", name, args ?? new ConfigurationStoreArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:appconfiguration/v20200601:ConfigurationStore", name, args ?? new ConfigurationStoreArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationStore(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:appconfiguration/v20200601:ConfigurationStore", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:appconfiguration/v20200601:ConfigurationStore", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,10 +111,10 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:appconfiguration/latest:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azurerm:appconfiguration/v20190201preview:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azurerm:appconfiguration/v20191001:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azurerm:appconfiguration/v20191101preview:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/latest:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20191001:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

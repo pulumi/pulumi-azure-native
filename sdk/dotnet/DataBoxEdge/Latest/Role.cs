@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.Latest
+namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// Compute role.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Role(string name, RoleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/latest:Role", name, args ?? new RoleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:databoxedge/latest:Role", name, args ?? new RoleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Role(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/latest:Role", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:databoxedge/latest:Role", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,10 +57,10 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:Role"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Role"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:Role"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Role"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Role"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Role"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Role"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Role"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

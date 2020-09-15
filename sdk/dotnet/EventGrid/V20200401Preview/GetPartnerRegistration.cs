@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20200401Preview
+namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 {
     public static class GetPartnerRegistration
     {
         public static Task<GetPartnerRegistrationResult> InvokeAsync(GetPartnerRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azurerm:eventgrid/v20200401preview:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azure-nextgen:eventgrid/v20200401preview:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithVersion());
     }
 
 

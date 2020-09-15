@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview.Inputs
+namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
 {
 
     public sealed class AzureSqlReferenceInputDataSourcePropertiesArgs : Pulumi.ResourceArgs

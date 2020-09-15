@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
+namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
 {
     /// <summary>
     /// Defines the PUT rollout request body.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Rollout(string name, RolloutArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:deploymentmanager/v20180901preview:Rollout", name, args ?? new RolloutArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:deploymentmanager/v20180901preview:Rollout", name, args ?? new RolloutArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Rollout(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:deploymentmanager/v20180901preview:Rollout", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:deploymentmanager/v20180901preview:Rollout", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,7 +93,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:deploymentmanager/v20191101preview:Rollout"},
+                    new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20191101preview:Rollout"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

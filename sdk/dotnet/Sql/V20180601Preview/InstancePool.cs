@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20180601Preview
+namespace Pulumi.AzureNextGen.Sql.V20180601Preview
 {
     /// <summary>
     /// An Azure SQL instance pool.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Sql.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstancePool(string name, InstancePoolArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20180601preview:InstancePool", name, args ?? new InstancePoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20180601preview:InstancePool", name, args ?? new InstancePoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InstancePool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20180601preview:InstancePool", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20180601preview:InstancePool", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CostManagement.V20190301Preview
+namespace Pulumi.AzureNextGen.CostManagement.V20190301Preview
 {
     /// <summary>
     /// The Connector model definition
@@ -131,12 +131,12 @@ namespace Pulumi.AzureRM.CostManagement.V20190301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CloudConnector(string name, CloudConnectorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20190301preview:CloudConnector", name, args ?? new CloudConnectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:costmanagement/v20190301preview:CloudConnector", name, args ?? new CloudConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CloudConnector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20190301preview:CloudConnector", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:costmanagement/v20190301preview:CloudConnector", name, null, MakeResourceOptions(options, id))
         {
         }
 

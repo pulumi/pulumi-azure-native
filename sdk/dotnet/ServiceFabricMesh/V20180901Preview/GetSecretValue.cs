@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
+namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 {
     public static class GetSecretValue
     {
         public static Task<GetSecretValueResult> InvokeAsync(GetSecretValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretValueResult>("azurerm:servicefabricmesh/v20180901preview:getSecretValue", args ?? new GetSecretValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretValueResult>("azure-nextgen:servicefabricmesh/v20180901preview:getSecretValue", args ?? new GetSecretValueArgs(), options.WithVersion());
     }
 
 
