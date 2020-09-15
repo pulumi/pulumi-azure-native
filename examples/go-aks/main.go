@@ -4,8 +4,8 @@ import (
 	"encoding/base64"
 
 	"github.com/pulumi/pulumi-azuread/sdk/v2/go/azuread"
-	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/latest"
-	resources "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/resources/latest"
+	containerservice "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure/containerservice/latest"
+	resources "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure/resources/latest"
 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
 	"github.com/pulumi/pulumi-tls/sdk/v2/go/tls"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -15,7 +15,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		// Create an Azure Resource Group
 		resourceGroup, err := resources.NewResourceGroup(ctx, "resourceGroup", &resources.ResourceGroupArgs{
-			ResourceGroupName: pulumi.String("azurerm-go"),
+			ResourceGroupName: pulumi.String("azure-nextgen-go"),
 			Location:          pulumi.String("WestUS"),
 		})
 		if err != nil {

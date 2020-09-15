@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
 import * as fs from "fs";
-import * as resources from "@pulumi/azurerm/resources/latest";
+import * as resources from "@pulumi/azure-nextgen/resources/latest";
 
 interface TemplateResourceArgs {
     resourceGroupName: string;
@@ -60,34 +60,34 @@ class Template extends pulumi.ComponentResource {
 
             let typeName;
             if (resource.type === "Microsoft.Compute/virtualMachines") {
-                typeName = `azurerm:compute/${version}:VirtualMachine`;
+                typeName = `azure-nextgen:compute/${version}:VirtualMachine`;
                 resourceArgs.vmName = resource.name;
             } else if (resource.type === "Microsoft.Network/networkInterfaces") {
-                typeName = `azurerm:network/${version}:NetworkInterface`;
+                typeName = `azure-nextgen:network/${version}:NetworkInterface`;
                 resourceArgs.networkInterfaceName = resource.name;
             } else if (resource.type === "Microsoft.Network/networkSecurityGroups") {
-                typeName = `azurerm:network/${version}:NetworkSecurityGroup`;
+                typeName = `azure-nextgen:network/${version}:NetworkSecurityGroup`;
                 resourceArgs.networkSecurityGroupName = resource.name;
             } else if (resource.type === "Microsoft.Network/publicIPAddresses") {
-                typeName = `azurerm:network/${version}:PublicIPAddress`;
+                typeName = `azure-nextgen:network/${version}:PublicIPAddress`;
                 resourceArgs.publicIpAddressName = resource.name;
             } else if (resource.type === "Microsoft.Network/virtualNetworks") {
-                typeName = `azurerm:network/${version}:VirtualNetwork`;
+                typeName = `azure-nextgen:network/${version}:VirtualNetwork`;
                 resourceArgs.virtualNetworkName = resource.name;
             } else if (resource.type === "Microsoft.Storage/storageAccounts") {
-                typeName = `azurerm:storage/${version}:StorageAccount`;
+                typeName = `azure-nextgen:storage/${version}:StorageAccount`;
                 resourceArgs.accountName = resource.name;
             } else if (resource.type === "Microsoft.Web/serverfarms") {
-                typeName = `azurerm:web/${version}:ServerFarm`;
+                typeName = `azure-nextgen:web/${version}:ServerFarm`;
                 resourceArgs.name = resource.name;
             } else if (resource.type === "Microsoft.Web/sites") {
-                typeName = `azurerm:web/${version}:Site`;
+                typeName = `azure-nextgen:web/${version}:Site`;
                 resourceArgs.name = resource.name;
             } else if (resource.type === "Microsoft.Cache/Redis") {
-                typeName = `azurerm:cache/${version}:Redis`;
+                typeName = `azure-nextgen:cache/${version}:Redis`;
                 resourceArgs.name = resource.name;                
             } else if (resource.type === "Microsoft.ContainerInstance/containerGroups") {
-                typeName = `azurerm:containerinstance/${version}:ContainerGroup`;
+                typeName = `azure-nextgen:containerinstance/${version}:ContainerGroup`;
                 resourceArgs.containerGroupName = resource.name;                
             } else {
                 throw new Error(`Unknown type ${resource.type}`);
@@ -105,7 +105,7 @@ const randomString = new random.RandomString("random", {
 });
 const resourceGroupName = randomString.result;
 
-const resourceGroup = new resources.ResourceGroup("azurerm", {
+const resourceGroup = new resources.ResourceGroup("azure-nextgen", {
     resourceGroupName,
     location: "westus2",
     tags: {
@@ -123,7 +123,7 @@ new Template("windowsvm", {
     fileName: "windowsvm.json",
 }, { dependsOn: [resourceGroup] });
 
-// Takes ~20 minutes to deploy Redis and may fail with timeout https://github.com/pulumi/pulumi-azurerm/issues/17
+// Takes ~20 minutes to deploy Redis and may fail with timeout https://github.com/pulumi/pulumi-azure-nextgen-provider/issues/17
 new Template("webapp", {
     resourceGroupName,
     fileName: "webapp.json",

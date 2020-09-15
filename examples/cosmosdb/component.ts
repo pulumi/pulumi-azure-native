@@ -1,8 +1,8 @@
 import * as pulumi from "@pulumi/pulumi";
 
-import * as documentdb from "@pulumi/azurerm/documentdb/latest";
-import * as resources from "@pulumi/azurerm/resources/latest";
-import { documentdb as documentdbInputs } from "@pulumi/azurerm/types/input";
+import * as documentdb from "@pulumi/azure-nextgen/documentdb/latest";
+import * as resources from "@pulumi/azure-nextgen/resources/latest";
+import { documentdb as documentdbInputs } from "@pulumi/azure-nextgen/types/input";
 
 export type Location =
     "eastasia"           |

@@ -3,9 +3,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
 
-import * as hdinsight from "@pulumi/azurerm/hdinsight/v20180601preview";
-import * as resources from "@pulumi/azurerm/resources/latest";
-import * as storage from "@pulumi/azurerm/storage/latest";
+import * as hdinsight from "@pulumi/azure-nextgen/hdinsight/v20180601preview";
+import * as resources from "@pulumi/azure-nextgen/resources/latest";
+import * as storage from "@pulumi/azure-nextgen/storage/latest";
 
 const config = new pulumi.Config();
 const location = config.require("location");
