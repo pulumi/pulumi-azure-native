@@ -44,11 +44,21 @@ func main() {
 		switch language {
 		case "schema":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-nextgen")
-			if err = emitSchema(*pkgSpec, version, outdir); err != nil {
+			if err = emitSchema(*pkgSpec, version, outdir, true); err != nil {
 				break
 			}
 			// Also, emit the resource metadata for the provider.
-			err = emitMetadata(meta, outdir)
+			if err = emitMetadata(meta, outdir, true); err != nil {
+				break
+			}
+
+			// Now emit schema and metadata as byte encoded files for arm2pulumi
+			arm2pulumiDir := path.Join(".", "provider", "cmd", "arm2pulumi")
+			if err = emitSchema(*pkgSpec, version, arm2pulumiDir, false); err != nil {
+				break
+			}
+			// Also, emit the resource metadata for the provider.
+			err = emitMetadata(meta, arm2pulumiDir, false)
 		case "docs":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-nextgen")
 			docsProviders := openapi.SingleVersion(azureProviders)
@@ -75,7 +85,7 @@ func main() {
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
-func emitSchema(pkgSpec schema.PackageSpec, version, outDir string) error {
+func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, emitJson bool) error {
 	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 	if err != nil {
 		return errors.Wrap(err, "marshaling Pulumi schema")
@@ -101,7 +111,12 @@ var pulumiSchema = %#v
 		return errors.Wrap(err, "saving metadata")
 	}
 
-	return emitFile(outDir, "schema-full.json", schemaJSON)
+	if emitJson {
+		if err := emitFile(outDir, "schema-full.json", schemaJSON); err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 // emitDocsSchema writes the Pulumi schema JSON to the 'schema-docs.json' file in the given directory.
@@ -117,7 +132,7 @@ func emitDocsSchema(pkgSpec *schema.PackageSpec, version, outDir string) error {
 	return emitFile(outDir, "schema.json", schemaJSON)
 }
 
-func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string) error {
+func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string, emitJson bool) error {
 	compressedMeta := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedMeta)
 	err := json.NewEncoder(compressedWriter).Encode(metadata)
@@ -141,7 +156,13 @@ var azureApiResources = %#v
 		return err
 	}
 
-	return emitFile(outDir, "metadata.json", formatted)
+	if emitJson {
+		err := emitFile(outDir, "metadata.json", formatted)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {

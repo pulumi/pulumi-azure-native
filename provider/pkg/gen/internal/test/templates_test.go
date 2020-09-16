@@ -24,7 +24,7 @@ import (
 var testdataPath = filepath.Join("testdata", "azure-quickstart-templates", "*", "azuredeploy.json")
 
 func TestTemplateCoverage(t *testing.T) {
-	var metadata provider.AzureApiMetadata
+	var metadata provider.AzureAPIMetadata
 	f, err := os.Open("../../../../cmd/pulumi-resource-azure-nextgen/schema/metadata.json")
 	require.NoError(t, err)
 	require.NoError(t, json.NewDecoder(f).Decode(&metadata))

@@ -36,7 +36,7 @@ func TestRenderTemplate(t *testing.T) {
 			node, err := parseJsonxTree(test.template)
 			require.NoError(t, err)
 			body, err := RenderTemplate(map[string]*jsonx.Node{
-				"example.json": node,
+				"example.json": node, 
 			}, &metadata)
 			if test.err == nil {
 				require.NoError(t, err)

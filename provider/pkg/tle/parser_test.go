@@ -53,7 +53,7 @@ func TestParseExpression(t *testing.T) {
 			name:       "Simple Function Invocation",
 			expression: "\"[parameters('dnsPrefix')]\"",
 			expected: &FunctionCallValue{
-				NameToken: &Token{
+				NameToken: Token{
 					typ: "Literal",
 					span: Span{
 						startIndex: 1,
@@ -95,7 +95,7 @@ func TestParseExpression(t *testing.T) {
 			name:       "Nested Functions",
 			expression: "\"[reference(parameters('clusterName')).fqdn]\"",
 			expected: NewPropertyAccessValue(&FunctionCallValue{
-				NameToken: &Token{
+				NameToken: Token{
 					typ:         Literal,
 					span:        Span{startIndex: 1, length: 9},
 					stringValue: "reference",
@@ -110,7 +110,7 @@ func TestParseExpression(t *testing.T) {
 				},
 				ArgumentExpressions: []Value{
 					&FunctionCallValue{
-						NameToken: &Token{
+						NameToken: Token{
 							typ:         Literal,
 							span:        Span{startIndex: 11, length: 10},
 							stringValue: "parameters",
@@ -165,7 +165,7 @@ func TestParseExpression(t *testing.T) {
 			name:       "Multiple Arguments",
 			expression: "\"[resourceId('Microsoft.Network/networkInterfaces','nic1')]\"",
 			expected: &FunctionCallValue{
-				NameToken: &Token{
+				NameToken: Token{
 					typ: "Literal",
 					span: Span{
 						startIndex: 1,
@@ -228,7 +228,7 @@ func TestParseExpression(t *testing.T) {
 			expression: "\"[parameters('dnsPrefix')[0]]\"",
 			expected: NewArrayAccessValue(
 				&FunctionCallValue{
-					NameToken: &Token{
+					NameToken: Token{
 						typ:         Literal,
 						span:        Span{startIndex: 1, length: 10},
 						stringValue: "parameters",
@@ -275,7 +275,7 @@ func TestParseExpression(t *testing.T) {
 				NewPropertyAccessValue(
 					NewArrayAccessValue(
 						&FunctionCallValue{
-							NameToken: &Token{
+							NameToken: Token{
 								typ:         Literal,
 								span:        Span{startIndex: 1, length: 10},
 								stringValue: "parameters",

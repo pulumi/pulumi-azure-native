@@ -2,15 +2,29 @@ package gen
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/pcl"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/model"
 	"github.com/sourcegraph/jsonx"
 )
+
+func Render(reader io.Reader, metadata *provider.AzureAPIMetadata) (*model.Body, error) {
+	buf := new(strings.Builder)
+	if _, err := io.Copy(buf, reader); err != nil {
+		return nil, err
+	}
+	root, err := parseJsonxTree(buf.String())
+	if err != nil {
+		return nil, err
+	}
+	return RenderTemplate(map[string]*jsonx.Node{"azure-deploy.json": root}, metadata)
+}
 
 func RenderFile(path string, metadata *provider.AzureAPIMetadata) (*model.Body, error) {
 	fileInfo, err := os.Stat(path)
