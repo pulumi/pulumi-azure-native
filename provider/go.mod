@@ -4,6 +4,7 @@ go 1.13
 
 require (
 	github.com/Azure/go-autorest/autorest v0.10.0
+	github.com/blang/semver v3.5.1+incompatible
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813
 	github.com/go-openapi/jsonreference v0.19.2
 	github.com/go-openapi/spec v0.19.7
@@ -13,9 +14,10 @@ require (
 	github.com/hashicorp/go-azure-helpers v0.10.0
 	github.com/hashicorp/hcl/v2 v2.6.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v2 v2.10.1-0.20200915115658-da1f25928d6f
+	github.com/pulumi/pulumi/pkg v1.14.1
+	github.com/pulumi/pulumi/pkg/v2 v2.10.2-0.20200916181156-0d38c6737e89
 	github.com/pulumi/pulumi/sdk v1.14.1
-	github.com/pulumi/pulumi/sdk/v2 v2.10.1-0.20200915115658-da1f25928d6f
+	github.com/pulumi/pulumi/sdk/v2 v2.10.2-0.20200916181156-0d38c6737e89
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
 	github.com/stretchr/testify v1.6.1

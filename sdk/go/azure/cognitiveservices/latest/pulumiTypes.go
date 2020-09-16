@@ -12,6 +12,10 @@ import (
 
 // The api properties for special APIs.
 type CognitiveServicesAccountApiProperties struct {
+	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+	AadClientId *string `pulumi:"aadClientId"`
+	// (Metrics Advisor Only) The Azure AD Tenant Id.
+	AadTenantId *string `pulumi:"aadTenantId"`
 	// (Personalization Only) The flag to enable statistics of Bing Search.
 	EventHubConnectionString *string `pulumi:"eventHubConnectionString"`
 	// (QnAMaker Only) The runtime endpoint of QnAMaker.
@@ -20,6 +24,10 @@ type CognitiveServicesAccountApiProperties struct {
 	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 	// (Personalization Only) The storage account connection string.
 	StorageAccountConnectionString *string `pulumi:"storageAccountConnectionString"`
+	// (Metrics Advisor Only) The super user of Metrics Advisor.
+	SuperUser *string `pulumi:"superUser"`
+	// (Metrics Advisor Only) The website name of Metrics Advisor.
+	WebsiteName *string `pulumi:"websiteName"`
 }
 
 // CognitiveServicesAccountApiPropertiesInput is an input type that accepts CognitiveServicesAccountApiPropertiesArgs and CognitiveServicesAccountApiPropertiesOutput values.
@@ -35,6 +43,10 @@ type CognitiveServicesAccountApiPropertiesInput interface {
 
 // The api properties for special APIs.
 type CognitiveServicesAccountApiPropertiesArgs struct {
+	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+	AadClientId pulumi.StringPtrInput `pulumi:"aadClientId"`
+	// (Metrics Advisor Only) The Azure AD Tenant Id.
+	AadTenantId pulumi.StringPtrInput `pulumi:"aadTenantId"`
 	// (Personalization Only) The flag to enable statistics of Bing Search.
 	EventHubConnectionString pulumi.StringPtrInput `pulumi:"eventHubConnectionString"`
 	// (QnAMaker Only) The runtime endpoint of QnAMaker.
@@ -43,6 +55,10 @@ type CognitiveServicesAccountApiPropertiesArgs struct {
 	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 	// (Personalization Only) The storage account connection string.
 	StorageAccountConnectionString pulumi.StringPtrInput `pulumi:"storageAccountConnectionString"`
+	// (Metrics Advisor Only) The super user of Metrics Advisor.
+	SuperUser pulumi.StringPtrInput `pulumi:"superUser"`
+	// (Metrics Advisor Only) The website name of Metrics Advisor.
+	WebsiteName pulumi.StringPtrInput `pulumi:"websiteName"`
 }
 
 func (CognitiveServicesAccountApiPropertiesArgs) ElementType() reflect.Type {
@@ -123,6 +139,16 @@ func (o CognitiveServicesAccountApiPropertiesOutput) ToCognitiveServicesAccountA
 	}).(CognitiveServicesAccountApiPropertiesPtrOutput)
 }
 
+// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+func (o CognitiveServicesAccountApiPropertiesOutput) AadClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.AadClientId }).(pulumi.StringPtrOutput)
+}
+
+// (Metrics Advisor Only) The Azure AD Tenant Id.
+func (o CognitiveServicesAccountApiPropertiesOutput) AadTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.AadTenantId }).(pulumi.StringPtrOutput)
+}
+
 // (Personalization Only) The flag to enable statistics of Bing Search.
 func (o CognitiveServicesAccountApiPropertiesOutput) EventHubConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.EventHubConnectionString }).(pulumi.StringPtrOutput)
@@ -143,6 +169,16 @@ func (o CognitiveServicesAccountApiPropertiesOutput) StorageAccountConnectionStr
 	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.StorageAccountConnectionString }).(pulumi.StringPtrOutput)
 }
 
+// (Metrics Advisor Only) The super user of Metrics Advisor.
+func (o CognitiveServicesAccountApiPropertiesOutput) SuperUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.SuperUser }).(pulumi.StringPtrOutput)
+}
+
+// (Metrics Advisor Only) The website name of Metrics Advisor.
+func (o CognitiveServicesAccountApiPropertiesOutput) WebsiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CognitiveServicesAccountApiProperties) *string { return v.WebsiteName }).(pulumi.StringPtrOutput)
+}
+
 type CognitiveServicesAccountApiPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (CognitiveServicesAccountApiPropertiesPtrOutput) ElementType() reflect.Type {
@@ -159,6 +195,26 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) ToCognitiveServicesAccou
 
 func (o CognitiveServicesAccountApiPropertiesPtrOutput) Elem() CognitiveServicesAccountApiPropertiesOutput {
 	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) CognitiveServicesAccountApiProperties { return *v }).(CognitiveServicesAccountApiPropertiesOutput)
+}
+
+// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+func (o CognitiveServicesAccountApiPropertiesPtrOutput) AadClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AadClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Metrics Advisor Only) The Azure AD Tenant Id.
+func (o CognitiveServicesAccountApiPropertiesPtrOutput) AadTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AadTenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // (Personalization Only) The flag to enable statistics of Bing Search.
@@ -201,8 +257,32 @@ func (o CognitiveServicesAccountApiPropertiesPtrOutput) StorageAccountConnection
 	}).(pulumi.StringPtrOutput)
 }
 
+// (Metrics Advisor Only) The super user of Metrics Advisor.
+func (o CognitiveServicesAccountApiPropertiesPtrOutput) SuperUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuperUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Metrics Advisor Only) The website name of Metrics Advisor.
+func (o CognitiveServicesAccountApiPropertiesPtrOutput) WebsiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccountApiProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebsiteName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The api properties for special APIs.
 type CognitiveServicesAccountApiPropertiesResponse struct {
+	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+	AadClientId *string `pulumi:"aadClientId"`
+	// (Metrics Advisor Only) The Azure AD Tenant Id.
+	AadTenantId *string `pulumi:"aadTenantId"`
 	// (Personalization Only) The flag to enable statistics of Bing Search.
 	EventHubConnectionString *string `pulumi:"eventHubConnectionString"`
 	// (QnAMaker Only) The runtime endpoint of QnAMaker.
@@ -211,6 +291,10 @@ type CognitiveServicesAccountApiPropertiesResponse struct {
 	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 	// (Personalization Only) The storage account connection string.
 	StorageAccountConnectionString *string `pulumi:"storageAccountConnectionString"`
+	// (Metrics Advisor Only) The super user of Metrics Advisor.
+	SuperUser *string `pulumi:"superUser"`
+	// (Metrics Advisor Only) The website name of Metrics Advisor.
+	WebsiteName *string `pulumi:"websiteName"`
 }
 
 // CognitiveServicesAccountApiPropertiesResponseInput is an input type that accepts CognitiveServicesAccountApiPropertiesResponseArgs and CognitiveServicesAccountApiPropertiesResponseOutput values.
@@ -226,6 +310,10 @@ type CognitiveServicesAccountApiPropertiesResponseInput interface {
 
 // The api properties for special APIs.
 type CognitiveServicesAccountApiPropertiesResponseArgs struct {
+	// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+	AadClientId pulumi.StringPtrInput `pulumi:"aadClientId"`
+	// (Metrics Advisor Only) The Azure AD Tenant Id.
+	AadTenantId pulumi.StringPtrInput `pulumi:"aadTenantId"`
 	// (Personalization Only) The flag to enable statistics of Bing Search.
 	EventHubConnectionString pulumi.StringPtrInput `pulumi:"eventHubConnectionString"`
 	// (QnAMaker Only) The runtime endpoint of QnAMaker.
@@ -234,6 +322,10 @@ type CognitiveServicesAccountApiPropertiesResponseArgs struct {
 	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 	// (Personalization Only) The storage account connection string.
 	StorageAccountConnectionString pulumi.StringPtrInput `pulumi:"storageAccountConnectionString"`
+	// (Metrics Advisor Only) The super user of Metrics Advisor.
+	SuperUser pulumi.StringPtrInput `pulumi:"superUser"`
+	// (Metrics Advisor Only) The website name of Metrics Advisor.
+	WebsiteName pulumi.StringPtrInput `pulumi:"websiteName"`
 }
 
 func (CognitiveServicesAccountApiPropertiesResponseArgs) ElementType() reflect.Type {
@@ -314,6 +406,16 @@ func (o CognitiveServicesAccountApiPropertiesResponseOutput) ToCognitiveServices
 	}).(CognitiveServicesAccountApiPropertiesResponsePtrOutput)
 }
 
+// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+func (o CognitiveServicesAccountApiPropertiesResponseOutput) AadClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.AadClientId }).(pulumi.StringPtrOutput)
+}
+
+// (Metrics Advisor Only) The Azure AD Tenant Id.
+func (o CognitiveServicesAccountApiPropertiesResponseOutput) AadTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.AadTenantId }).(pulumi.StringPtrOutput)
+}
+
 // (Personalization Only) The flag to enable statistics of Bing Search.
 func (o CognitiveServicesAccountApiPropertiesResponseOutput) EventHubConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.EventHubConnectionString }).(pulumi.StringPtrOutput)
@@ -334,6 +436,16 @@ func (o CognitiveServicesAccountApiPropertiesResponseOutput) StorageAccountConne
 	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.StorageAccountConnectionString }).(pulumi.StringPtrOutput)
 }
 
+// (Metrics Advisor Only) The super user of Metrics Advisor.
+func (o CognitiveServicesAccountApiPropertiesResponseOutput) SuperUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.SuperUser }).(pulumi.StringPtrOutput)
+}
+
+// (Metrics Advisor Only) The website name of Metrics Advisor.
+func (o CognitiveServicesAccountApiPropertiesResponseOutput) WebsiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CognitiveServicesAccountApiPropertiesResponse) *string { return v.WebsiteName }).(pulumi.StringPtrOutput)
+}
+
 type CognitiveServicesAccountApiPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (CognitiveServicesAccountApiPropertiesResponsePtrOutput) ElementType() reflect.Type {
@@ -352,6 +464,26 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) Elem() Cognitive
 	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) CognitiveServicesAccountApiPropertiesResponse {
 		return *v
 	}).(CognitiveServicesAccountApiPropertiesResponseOutput)
+}
+
+// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) AadClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AadClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Metrics Advisor Only) The Azure AD Tenant Id.
+func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) AadTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AadTenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // (Personalization Only) The flag to enable statistics of Bing Search.
@@ -391,6 +523,26 @@ func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) StorageAccountCo
 			return nil
 		}
 		return v.StorageAccountConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Metrics Advisor Only) The super user of Metrics Advisor.
+func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) SuperUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuperUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Metrics Advisor Only) The website name of Metrics Advisor.
+func (o CognitiveServicesAccountApiPropertiesResponsePtrOutput) WebsiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccountApiPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebsiteName
 	}).(pulumi.StringPtrOutput)
 }
 

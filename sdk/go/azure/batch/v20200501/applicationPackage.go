@@ -78,6 +78,9 @@ func NewApplicationPackage(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200301:ApplicationPackage"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:batch/v20200901:ApplicationPackage"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationPackage

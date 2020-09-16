@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Inputs
         /// The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
         /// </summary>
         [Input("providerSpecificDetails")]
-        public InputUnion<Inputs.A2AEnableProtectionInputArgs, InputUnion<Inputs.HyperVReplicaAzureEnableProtectionInputArgs, InputUnion<Inputs.InMageAzureV2EnableProtectionInputArgs, InputUnion<Inputs.InMageEnableProtectionInputArgs, Inputs.SanEnableProtectionInputArgs>>>>? ProviderSpecificDetails { get; set; }
+        public InputUnion<Inputs.A2AEnableProtectionInputArgs, InputUnion<Inputs.HyperVReplicaAzureEnableProtectionInputArgs, InputUnion<Inputs.InMageAzureV2EnableProtectionInputArgs, InputUnion<Inputs.InMageEnableProtectionInputArgs, InputUnion<Inputs.InMageRcmEnableProtectionInputArgs, Inputs.SanEnableProtectionInputArgs>>>>>? ProviderSpecificDetails { get; set; }
 
         public EnableProtectionInputPropertiesArgs()
         {

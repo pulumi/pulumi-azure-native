@@ -53,6 +53,12 @@ func NewSqlManagedInstance(ctx *pulumi.Context,
 	if args == nil {
 		args = &SqlManagedInstanceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:azuredata/v20200908preview:SqlManagedInstance"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlManagedInstance
 	err := ctx.RegisterResource("azure-nextgen:azuredata/v20190724preview:SqlManagedInstance", name, args, &resource, opts...)
 	if err != nil {

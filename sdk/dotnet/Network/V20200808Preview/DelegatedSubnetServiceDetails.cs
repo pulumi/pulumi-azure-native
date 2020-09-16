@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.Network.V20200808Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Guid for the resource(delegatedSubnet) created
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
         /// The current state of delegated subnet resource.
         /// </summary>
         [Output("state")]
@@ -84,7 +90,7 @@ namespace Pulumi.AzureNextGen.Network.V20200808Preview
     public sealed class DelegatedSubnetServiceDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Delegated Network Controller ID
+        /// Delegated Network Controller ARM resource ID
         /// </summary>
         [Input("controllerID")]
         public Input<string>? ControllerID { get; set; }

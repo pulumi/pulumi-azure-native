@@ -20,7 +20,7 @@ class GetPoolResult:
     """
     Contains information about a pool.
     """
-    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, application_licenses=None, application_packages=None, auto_scale_run=None, certificates=None, creation_time=None, current_dedicated_nodes=None, current_low_priority_nodes=None, deployment_configuration=None, display_name=None, etag=None, inter_node_communication=None, last_modified=None, max_tasks_per_node=None, metadata=None, mount_configuration=None, name=None, network_configuration=None, provisioning_state=None, provisioning_state_transition_time=None, resize_operation_status=None, scale_settings=None, start_task=None, task_scheduling_policy=None, type=None, user_accounts=None, vm_size=None):
+    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, application_licenses=None, application_packages=None, auto_scale_run=None, certificates=None, creation_time=None, current_dedicated_nodes=None, current_low_priority_nodes=None, deployment_configuration=None, display_name=None, etag=None, inter_node_communication=None, last_modified=None, metadata=None, mount_configuration=None, name=None, network_configuration=None, provisioning_state=None, provisioning_state_transition_time=None, resize_operation_status=None, scale_settings=None, start_task=None, task_scheduling_policy=None, task_slots_per_node=None, type=None, user_accounts=None, vm_size=None):
         if allocation_state and not isinstance(allocation_state, str):
             raise TypeError("Expected argument 'allocation_state' to be a str")
         pulumi.set(__self__, "allocation_state", allocation_state)
@@ -63,9 +63,6 @@ class GetPoolResult:
         if last_modified and not isinstance(last_modified, str):
             raise TypeError("Expected argument 'last_modified' to be a str")
         pulumi.set(__self__, "last_modified", last_modified)
-        if max_tasks_per_node and not isinstance(max_tasks_per_node, int):
-            raise TypeError("Expected argument 'max_tasks_per_node' to be a int")
-        pulumi.set(__self__, "max_tasks_per_node", max_tasks_per_node)
         if metadata and not isinstance(metadata, list):
             raise TypeError("Expected argument 'metadata' to be a list")
         pulumi.set(__self__, "metadata", metadata)
@@ -96,6 +93,9 @@ class GetPoolResult:
         if task_scheduling_policy and not isinstance(task_scheduling_policy, dict):
             raise TypeError("Expected argument 'task_scheduling_policy' to be a dict")
         pulumi.set(__self__, "task_scheduling_policy", task_scheduling_policy)
+        if task_slots_per_node and not isinstance(task_slots_per_node, int):
+            raise TypeError("Expected argument 'task_slots_per_node' to be a int")
+        pulumi.set(__self__, "task_slots_per_node", task_slots_per_node)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -204,14 +204,6 @@ class GetPoolResult:
         return pulumi.get(self, "last_modified")
 
     @property
-    @pulumi.getter(name="maxTasksPerNode")
-    def max_tasks_per_node(self) -> Optional[int]:
-        """
-        The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-        """
-        return pulumi.get(self, "max_tasks_per_node")
-
-    @property
     @pulumi.getter
     def metadata(self) -> Optional[Sequence['outputs.MetadataItemResponse']]:
         """
@@ -286,6 +278,14 @@ class GetPoolResult:
         return pulumi.get(self, "task_scheduling_policy")
 
     @property
+    @pulumi.getter(name="taskSlotsPerNode")
+    def task_slots_per_node(self) -> Optional[int]:
+        """
+        The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+        """
+        return pulumi.get(self, "task_slots_per_node")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -327,7 +327,6 @@ class AwaitableGetPoolResult(GetPoolResult):
             etag=self.etag,
             inter_node_communication=self.inter_node_communication,
             last_modified=self.last_modified,
-            max_tasks_per_node=self.max_tasks_per_node,
             metadata=self.metadata,
             mount_configuration=self.mount_configuration,
             name=self.name,
@@ -338,6 +337,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             scale_settings=self.scale_settings,
             start_task=self.start_task,
             task_scheduling_policy=self.task_scheduling_policy,
+            task_slots_per_node=self.task_slots_per_node,
             type=self.type,
             user_accounts=self.user_accounts,
             vm_size=self.vm_size)
@@ -379,7 +379,6 @@ def get_pool(account_name: Optional[str] = None,
         etag=__ret__.etag,
         inter_node_communication=__ret__.inter_node_communication,
         last_modified=__ret__.last_modified,
-        max_tasks_per_node=__ret__.max_tasks_per_node,
         metadata=__ret__.metadata,
         mount_configuration=__ret__.mount_configuration,
         name=__ret__.name,
@@ -390,6 +389,7 @@ def get_pool(account_name: Optional[str] = None,
         scale_settings=__ret__.scale_settings,
         start_task=__ret__.start_task,
         task_scheduling_policy=__ret__.task_scheduling_policy,
+        task_slots_per_node=__ret__.task_slots_per_node,
         type=__ret__.type,
         user_accounts=__ret__.user_accounts,
         vm_size=__ret__.vm_size)

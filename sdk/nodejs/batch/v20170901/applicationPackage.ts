@@ -105,7 +105,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/latest:ApplicationPackage" }, { type: "azure-nextgen:batch/v20151201:ApplicationPackage" }, { type: "azure-nextgen:batch/v20170101:ApplicationPackage" }, { type: "azure-nextgen:batch/v20170501:ApplicationPackage" }, { type: "azure-nextgen:batch/v20181201:ApplicationPackage" }, { type: "azure-nextgen:batch/v20190401:ApplicationPackage" }, { type: "azure-nextgen:batch/v20190801:ApplicationPackage" }, { type: "azure-nextgen:batch/v20200301:ApplicationPackage" }, { type: "azure-nextgen:batch/v20200501:ApplicationPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/latest:ApplicationPackage" }, { type: "azure-nextgen:batch/v20151201:ApplicationPackage" }, { type: "azure-nextgen:batch/v20170101:ApplicationPackage" }, { type: "azure-nextgen:batch/v20170501:ApplicationPackage" }, { type: "azure-nextgen:batch/v20181201:ApplicationPackage" }, { type: "azure-nextgen:batch/v20190401:ApplicationPackage" }, { type: "azure-nextgen:batch/v20190801:ApplicationPackage" }, { type: "azure-nextgen:batch/v20200301:ApplicationPackage" }, { type: "azure-nextgen:batch/v20200501:ApplicationPackage" }, { type: "azure-nextgen:batch/v20200901:ApplicationPackage" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationPackage.__pulumiType, name, inputs, opts);
     }

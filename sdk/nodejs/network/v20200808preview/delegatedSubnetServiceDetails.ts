@@ -43,6 +43,10 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Guid for the resource(delegatedSubnet) created
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
      * The current state of delegated subnet resource.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -80,11 +84,13 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
             inputs["vnetName"] = args ? args.vnetName : undefined;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -104,7 +110,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
  */
 export interface DelegatedSubnetServiceDetailsArgs {
     /**
-     * Delegated Network Controller ID
+     * Delegated Network Controller ARM resource ID
      */
     readonly controllerID?: pulumi.Input<string>;
     /**

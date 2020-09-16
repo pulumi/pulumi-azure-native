@@ -92,13 +92,14 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 	singleVersion := AzureProviders{}
 
 	for providerName, allVersionMap := range providers {
+		latest := allVersionMap["latest"]
 		versions := ProviderVersions{
-			"latest": allVersionMap["latest"],
+			"latest": latest,
 		}
 
 		findVersion := func(resource *ResourceSpec) *VersionResources {
 			apiVersion := "v" + strings.ReplaceAll(resource.Swagger.Info.Version, "-", "")
-			if !strings.Contains(apiVersion, "preview") {
+			if !strings.Contains(apiVersion, "preview") || strings.Contains(apiVersion, "privatepreview") {
 				return nil
 			}
 			version, ok := versions[apiVersion]
@@ -114,6 +115,10 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 
 		previewResources := calculateLatestVersions(allVersionMap, false /* invokes */, true /* preview */)
 		for resourceName, resource := range previewResources {
+			if _, ok := latest.Resources[resourceName]; ok {
+				continue
+			}
+
 			version := findVersion(resource)
 			if version != nil {
 				version.Resources[resourceName] = resource
@@ -121,10 +126,14 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 		}
 
 		previewInvokes := calculateLatestVersions(allVersionMap, true /* invokes */, true /* preview */)
-		for resourceName, invoke := range previewInvokes {
+		for invokeName, invoke := range previewInvokes {
+			if _, ok := latest.Invokes[invokeName]; ok {
+				continue
+			}
+
 			version := findVersion(invoke)
 			if version != nil {
-				version.Invokes[resourceName] = invoke
+				version.Invokes[invokeName] = invoke
 			}
 		}
 

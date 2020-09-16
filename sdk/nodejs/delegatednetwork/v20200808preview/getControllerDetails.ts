@@ -36,11 +36,11 @@ export interface GetControllerDetailsArgs {
  */
 export interface GetControllerDetailsResult {
     /**
-     * Get controller AAD ID.
+     * The current state of dnc controller resource.
      */
-    readonly dncAppID?: string;
+    readonly dncAppId?: string;
     /**
-     * Dnc Endpoint url.
+     * dnc endpoint url that customers can use to connect to
      */
     readonly dncEndpoint?: string;
     /**
@@ -51,10 +51,6 @@ export interface GetControllerDetailsResult {
      * The name of the DNC controller resource.
      */
     readonly name: string;
-    /**
-     * Gets or sets resource GUID property of the controller resource.
-     */
-    readonly resourceGuid?: string;
     /**
      * The current state of dnc controller resource.
      */

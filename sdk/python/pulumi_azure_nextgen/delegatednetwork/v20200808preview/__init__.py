@@ -5,4 +5,3 @@
 # Export this package's modules as members:
 from .controller_details import *
 from .get_controller_details import *
-from ._inputs import *

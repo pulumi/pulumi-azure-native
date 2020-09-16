@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Outputs
     public sealed class PoolEndpointConfigurationResponse
     {
         /// <summary>
-        /// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+        /// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
         /// </summary>
         public readonly ImmutableArray<Outputs.InboundNatPoolResponse> InboundNatPools;
 

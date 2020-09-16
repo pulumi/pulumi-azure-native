@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,11 +35,11 @@ export class ControllerDetails extends pulumi.CustomResource {
     }
 
     /**
-     * Get controller AAD ID.
+     * The current state of dnc controller resource.
      */
-    public /*out*/ readonly dncAppID!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly dncAppId!: pulumi.Output<string | undefined>;
     /**
-     * Dnc Endpoint url.
+     * dnc endpoint url that customers can use to connect to
      */
     public /*out*/ readonly dncEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -52,10 +50,6 @@ export class ControllerDetails extends pulumi.CustomResource {
      * The name of the DNC controller resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * Gets or sets resource GUID property of the controller resource.
-     */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string | undefined>;
     /**
      * The current state of dnc controller resource.
      */
@@ -81,23 +75,24 @@ export class ControllerDetails extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
+            inputs["apiServerEndpoint"] = args ? args.apiServerEndpoint : undefined;
+            inputs["clusterRootCA"] = args ? args.clusterRootCA : undefined;
             inputs["controllerType"] = args ? args.controllerType : undefined;
-            inputs["kubernetesProperties"] = args ? args.kubernetesProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["dncAppID"] = undefined /*out*/;
+            inputs["serverAppID"] = args ? args.serverAppID : undefined;
+            inputs["serverTenantID"] = args ? args.serverTenantID : undefined;
+            inputs["dncAppId"] = undefined /*out*/;
             inputs["dncEndpoint"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["dncAppID"] = undefined /*out*/;
+            inputs["dncAppId"] = undefined /*out*/;
             inputs["dncEndpoint"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -117,13 +112,17 @@ export class ControllerDetails extends pulumi.CustomResource {
  */
 export interface ControllerDetailsArgs {
     /**
-     * Type of Delegated controller.
+     * APIServer url
+     */
+    readonly apiServerEndpoint?: pulumi.Input<string>;
+    /**
+     * RootCA certificate of kubernetes cluster
+     */
+    readonly clusterRootCA?: pulumi.Input<string>;
+    /**
+     * Type of controller
      */
     readonly controllerType?: pulumi.Input<string>;
-    /**
-     * properties of kubernetes clusters
-     */
-    readonly kubernetesProperties?: pulumi.Input<pulumi.Input<inputs.delegatednetwork.v20200808preview.KubernetesProperties>[]>;
     /**
      * The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
      */
@@ -132,4 +131,12 @@ export interface ControllerDetailsArgs {
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
     readonly resourceName: pulumi.Input<string>;
+    /**
+     * AAD ID used with apiserver
+     */
+    readonly serverAppID?: pulumi.Input<string>;
+    /**
+     * TenantID of server App ID
+     */
+    readonly serverTenantID?: pulumi.Input<string>;
 }

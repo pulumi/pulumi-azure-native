@@ -16,6 +16,8 @@ __all__ = [
     'A2AProtectionContainerMappingDetailsResponse',
     'A2AReplicationDetailsResponse',
     'A2AUnprotectedDiskDetailsResponse',
+    'AgentDetailsResponse',
+    'AgentDiskDetailsResponse',
     'AzureFabricSpecificDetailsResponse',
     'AzureFileshareProtectedItemExtendedInfoResponse',
     'AzureFileshareProtectedItemResponse',
@@ -51,6 +53,7 @@ __all__ = [
     'DiskExclusionPropertiesResponse',
     'DistributedNodesInfoResponse',
     'DpmContainerResponse',
+    'DraDetailsResponse',
     'EncryptionDetailsResponse',
     'ErrorDetailResponse',
     'ExtendedPropertiesResponse',
@@ -80,6 +83,14 @@ __all__ = [
     'InMageBasePolicyDetailsResponse',
     'InMagePolicyDetailsResponse',
     'InMageProtectedDiskDetailsResponse',
+    'InMageRcmAgentUpgradeBlockingErrorDetailsResponse',
+    'InMageRcmFabricSpecificDetailsResponse',
+    'InMageRcmLastAgentUpgradeErrorDetailsResponse',
+    'InMageRcmMobilityAgentDetailsResponse',
+    'InMageRcmNicDetailsResponse',
+    'InMageRcmPolicyDetailsResponse',
+    'InMageRcmProtectedDiskDetailsResponse',
+    'InMageRcmReplicationDetailsResponse',
     'InMageReplicationDetailsResponse',
     'InitialReplicationDetailsResponse',
     'InnerHealthErrorResponse',
@@ -107,9 +118,12 @@ __all__ = [
     'PrivateEndpointConnectionVaultPropertiesResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ProcessServerDetailsResponse',
     'ProcessServerResponse',
     'ProtectionContainerMappingPropertiesResponse',
+    'PushInstallerDetailsResponse',
     'RcmAzureMigrationPolicyDetailsResponse',
+    'RcmProxyDetailsResponse',
     'RecoveryPlanA2ADetailsResponse',
     'RecoveryPlanActionResponse',
     'RecoveryPlanAutomationRunbookActionDetailsResponse',
@@ -119,7 +133,9 @@ __all__ = [
     'RecoveryPlanProtectedItemResponse',
     'RecoveryPlanScriptActionDetailsResponse',
     'RecoveryServicesProviderPropertiesResponse',
+    'ReplicationAgentDetailsResponse',
     'ReplicationProtectedItemPropertiesResponse',
+    'ReprotectAgentDetailsResponse',
     'ResourceHealthDetailsResponse',
     'RetentionDurationResponse',
     'RetentionVolumeResponse',
@@ -1432,6 +1448,144 @@ class A2AUnprotectedDiskDetailsResponse(dict):
         The source lun Id for the data disk.
         """
         return pulumi.get(self, "disk_lun_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AgentDetailsResponse(dict):
+    """
+    Agent details.
+    """
+    def __init__(__self__, *,
+                 agent_id: str,
+                 bios_id: str,
+                 disks: Sequence['outputs.AgentDiskDetailsResponse'],
+                 fqdn: str,
+                 machine_id: str):
+        """
+        Agent details.
+        :param str agent_id: The Id of the agent running on the server.
+        :param str bios_id: The machine BIOS Id.
+        :param Sequence['AgentDiskDetailsResponseArgs'] disks: The details of agent disks.
+        :param str fqdn: The machine FQDN.
+        :param str machine_id: The Id of the machine to which the agent is registered.
+        """
+        pulumi.set(__self__, "agent_id", agent_id)
+        pulumi.set(__self__, "bios_id", bios_id)
+        pulumi.set(__self__, "disks", disks)
+        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "machine_id", machine_id)
+
+    @property
+    @pulumi.getter(name="agentId")
+    def agent_id(self) -> str:
+        """
+        The Id of the agent running on the server.
+        """
+        return pulumi.get(self, "agent_id")
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> str:
+        """
+        The machine BIOS Id.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @property
+    @pulumi.getter
+    def disks(self) -> Sequence['outputs.AgentDiskDetailsResponse']:
+        """
+        The details of agent disks.
+        """
+        return pulumi.get(self, "disks")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The machine FQDN.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="machineId")
+    def machine_id(self) -> str:
+        """
+        The Id of the machine to which the agent is registered.
+        """
+        return pulumi.get(self, "machine_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AgentDiskDetailsResponse(dict):
+    """
+    Agent disk details.
+    """
+    def __init__(__self__, *,
+                 capacity_in_bytes: int,
+                 disk_id: str,
+                 disk_name: str,
+                 is_os_disk: str,
+                 lun_id: int):
+        """
+        Agent disk details.
+        :param int capacity_in_bytes: The disk capacity in bytes.
+        :param str disk_id: The disk Id.
+        :param str disk_name: The disk name.
+        :param str is_os_disk: A value indicating whether the disk is the OS disk.
+        :param int lun_id: The lun of disk.
+        """
+        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
+        pulumi.set(__self__, "disk_id", disk_id)
+        pulumi.set(__self__, "disk_name", disk_name)
+        pulumi.set(__self__, "is_os_disk", is_os_disk)
+        pulumi.set(__self__, "lun_id", lun_id)
+
+    @property
+    @pulumi.getter(name="capacityInBytes")
+    def capacity_in_bytes(self) -> int:
+        """
+        The disk capacity in bytes.
+        """
+        return pulumi.get(self, "capacity_in_bytes")
+
+    @property
+    @pulumi.getter(name="diskId")
+    def disk_id(self) -> str:
+        """
+        The disk Id.
+        """
+        return pulumi.get(self, "disk_id")
+
+    @property
+    @pulumi.getter(name="diskName")
+    def disk_name(self) -> str:
+        """
+        The disk name.
+        """
+        return pulumi.get(self, "disk_name")
+
+    @property
+    @pulumi.getter(name="isOSDisk")
+    def is_os_disk(self) -> str:
+        """
+        A value indicating whether the disk is the OS disk.
+        """
+        return pulumi.get(self, "is_os_disk")
+
+    @property
+    @pulumi.getter(name="lunId")
+    def lun_id(self) -> int:
+        """
+        The lun of disk.
+        """
+        return pulumi.get(self, "lun_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4905,6 +5059,86 @@ class DpmContainerResponse(dict):
 
 
 @pulumi.output_type
+class DraDetailsResponse(dict):
+    """
+    DRA details.
+    """
+    def __init__(__self__, *,
+                 health: str,
+                 health_errors: Sequence['outputs.HealthErrorResponse'],
+                 id: str,
+                 last_heartbeat_utc: str,
+                 name: str,
+                 version: str):
+        """
+        DRA details.
+        :param str health: The health of the DRA.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param str id: The DRA Id.
+        :param str last_heartbeat_utc: The last heartbeat received from the DRA.
+        :param str name: The DRA name.
+        :param str version: The DRA version.
+        """
+        pulumi.set(__self__, "health", health)
+        pulumi.set(__self__, "health_errors", health_errors)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def health(self) -> str:
+        """
+        The health of the DRA.
+        """
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter(name="healthErrors")
+    def health_errors(self) -> Sequence['outputs.HealthErrorResponse']:
+        """
+        The health errors.
+        """
+        return pulumi.get(self, "health_errors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The DRA Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastHeartbeatUtc")
+    def last_heartbeat_utc(self) -> str:
+        """
+        The last heartbeat received from the DRA.
+        """
+        return pulumi.get(self, "last_heartbeat_utc")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The DRA name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The DRA version.
+        """
+        return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class EncryptionDetailsResponse(dict):
     """
     Encryption details for the fabric.
@@ -5044,7 +5278,7 @@ class FabricPropertiesResponse(dict):
         """
         Fabric properties.
         :param str bcdr_state: BCDR state of the fabric.
-        :param Union['AzureFabricSpecificDetailsResponseArgs', 'HyperVSiteDetailsResponseArgs', 'VMwareDetailsResponseArgs', 'VMwareV2FabricSpecificDetailsResponseArgs', 'VmmDetailsResponseArgs'] custom_details: Fabric specific settings.
+        :param Union['AzureFabricSpecificDetailsResponseArgs', 'HyperVSiteDetailsResponseArgs', 'InMageRcmFabricSpecificDetailsResponseArgs', 'VMwareDetailsResponseArgs', 'VMwareV2FabricSpecificDetailsResponseArgs', 'VmmDetailsResponseArgs'] custom_details: Fabric specific settings.
         :param 'EncryptionDetailsResponseArgs' encryption_details: Encryption details for the fabric.
         :param str friendly_name: Friendly name of the fabric.
         :param str health: Health of fabric.
@@ -8662,6 +8896,1306 @@ class InMageProtectedDiskDetailsResponse(dict):
 
 
 @pulumi.output_type
+class InMageRcmAgentUpgradeBlockingErrorDetailsResponse(dict):
+    """
+    InMageRcm source agent upgrade blocking error details.
+    """
+    def __init__(__self__, *,
+                 error_code: str,
+                 error_message: str,
+                 error_message_parameters: Mapping[str, str],
+                 error_tags: Mapping[str, str],
+                 possible_causes: str,
+                 recommended_action: str):
+        """
+        InMageRcm source agent upgrade blocking error details.
+        :param str error_code: The error code.
+        :param str error_message: The error message.
+        :param Mapping[str, str] error_message_parameters: The error message parameters.
+        :param Mapping[str, str] error_tags: The error tags.
+        :param str possible_causes: The possible causes.
+        :param str recommended_action: The recommended action.
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
+        pulumi.set(__self__, "error_tags", error_tags)
+        pulumi.set(__self__, "possible_causes", possible_causes)
+        pulumi.set(__self__, "recommended_action", recommended_action)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="errorMessageParameters")
+    def error_message_parameters(self) -> Mapping[str, str]:
+        """
+        The error message parameters.
+        """
+        return pulumi.get(self, "error_message_parameters")
+
+    @property
+    @pulumi.getter(name="errorTags")
+    def error_tags(self) -> Mapping[str, str]:
+        """
+        The error tags.
+        """
+        return pulumi.get(self, "error_tags")
+
+    @property
+    @pulumi.getter(name="possibleCauses")
+    def possible_causes(self) -> str:
+        """
+        The possible causes.
+        """
+        return pulumi.get(self, "possible_causes")
+
+    @property
+    @pulumi.getter(name="recommendedAction")
+    def recommended_action(self) -> str:
+        """
+        The recommended action.
+        """
+        return pulumi.get(self, "recommended_action")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InMageRcmFabricSpecificDetailsResponse(dict):
+    """
+    InMageRcm fabric specific details.
+    """
+    def __init__(__self__, *,
+                 agent_details: Sequence['outputs.AgentDetailsResponse'],
+                 control_plane_uri: str,
+                 data_plane_uri: str,
+                 dras: Sequence['outputs.DraDetailsResponse'],
+                 instance_type: str,
+                 physical_site_id: str,
+                 process_servers: Sequence['outputs.ProcessServerDetailsResponse'],
+                 push_installers: Sequence['outputs.PushInstallerDetailsResponse'],
+                 rcm_proxies: Sequence['outputs.RcmProxyDetailsResponse'],
+                 replication_agents: Sequence['outputs.ReplicationAgentDetailsResponse'],
+                 reprotect_agents: Sequence['outputs.ReprotectAgentDetailsResponse'],
+                 service_container_id: str,
+                 service_endpoint: str,
+                 service_resource_id: str,
+                 vmware_site_id: str):
+        """
+        InMageRcm fabric specific details.
+        :param Sequence['AgentDetailsResponseArgs'] agent_details: The list of agent details.
+        :param str control_plane_uri: The control plane Uri.
+        :param str data_plane_uri: The data plane Uri.
+        :param Sequence['DraDetailsResponseArgs'] dras: The list of DRAs.
+        :param str instance_type: Gets the class type. Overridden in derived classes.
+        :param str physical_site_id: The ARM Id of the physical site.
+        :param Sequence['ProcessServerDetailsResponseArgs'] process_servers: The list of process servers.
+        :param Sequence['PushInstallerDetailsResponseArgs'] push_installers: The list of push installers.
+        :param Sequence['RcmProxyDetailsResponseArgs'] rcm_proxies: The list of RCM proxies.
+        :param Sequence['ReplicationAgentDetailsResponseArgs'] replication_agents: The list of replication agents.
+        :param Sequence['ReprotectAgentDetailsResponseArgs'] reprotect_agents: The list of reprotect agents.
+        :param str service_container_id: The service container Id.
+        :param str service_endpoint: The service endpoint.
+        :param str service_resource_id: The service resource Id.
+        :param str vmware_site_id: The ARM Id of the VMware site.
+        """
+        pulumi.set(__self__, "agent_details", agent_details)
+        pulumi.set(__self__, "control_plane_uri", control_plane_uri)
+        pulumi.set(__self__, "data_plane_uri", data_plane_uri)
+        pulumi.set(__self__, "dras", dras)
+        pulumi.set(__self__, "instance_type", 'InMageRcm')
+        pulumi.set(__self__, "physical_site_id", physical_site_id)
+        pulumi.set(__self__, "process_servers", process_servers)
+        pulumi.set(__self__, "push_installers", push_installers)
+        pulumi.set(__self__, "rcm_proxies", rcm_proxies)
+        pulumi.set(__self__, "replication_agents", replication_agents)
+        pulumi.set(__self__, "reprotect_agents", reprotect_agents)
+        pulumi.set(__self__, "service_container_id", service_container_id)
+        pulumi.set(__self__, "service_endpoint", service_endpoint)
+        pulumi.set(__self__, "service_resource_id", service_resource_id)
+        pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+
+    @property
+    @pulumi.getter(name="agentDetails")
+    def agent_details(self) -> Sequence['outputs.AgentDetailsResponse']:
+        """
+        The list of agent details.
+        """
+        return pulumi.get(self, "agent_details")
+
+    @property
+    @pulumi.getter(name="controlPlaneUri")
+    def control_plane_uri(self) -> str:
+        """
+        The control plane Uri.
+        """
+        return pulumi.get(self, "control_plane_uri")
+
+    @property
+    @pulumi.getter(name="dataPlaneUri")
+    def data_plane_uri(self) -> str:
+        """
+        The data plane Uri.
+        """
+        return pulumi.get(self, "data_plane_uri")
+
+    @property
+    @pulumi.getter
+    def dras(self) -> Sequence['outputs.DraDetailsResponse']:
+        """
+        The list of DRAs.
+        """
+        return pulumi.get(self, "dras")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Gets the class type. Overridden in derived classes.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="physicalSiteId")
+    def physical_site_id(self) -> str:
+        """
+        The ARM Id of the physical site.
+        """
+        return pulumi.get(self, "physical_site_id")
+
+    @property
+    @pulumi.getter(name="processServers")
+    def process_servers(self) -> Sequence['outputs.ProcessServerDetailsResponse']:
+        """
+        The list of process servers.
+        """
+        return pulumi.get(self, "process_servers")
+
+    @property
+    @pulumi.getter(name="pushInstallers")
+    def push_installers(self) -> Sequence['outputs.PushInstallerDetailsResponse']:
+        """
+        The list of push installers.
+        """
+        return pulumi.get(self, "push_installers")
+
+    @property
+    @pulumi.getter(name="rcmProxies")
+    def rcm_proxies(self) -> Sequence['outputs.RcmProxyDetailsResponse']:
+        """
+        The list of RCM proxies.
+        """
+        return pulumi.get(self, "rcm_proxies")
+
+    @property
+    @pulumi.getter(name="replicationAgents")
+    def replication_agents(self) -> Sequence['outputs.ReplicationAgentDetailsResponse']:
+        """
+        The list of replication agents.
+        """
+        return pulumi.get(self, "replication_agents")
+
+    @property
+    @pulumi.getter(name="reprotectAgents")
+    def reprotect_agents(self) -> Sequence['outputs.ReprotectAgentDetailsResponse']:
+        """
+        The list of reprotect agents.
+        """
+        return pulumi.get(self, "reprotect_agents")
+
+    @property
+    @pulumi.getter(name="serviceContainerId")
+    def service_container_id(self) -> str:
+        """
+        The service container Id.
+        """
+        return pulumi.get(self, "service_container_id")
+
+    @property
+    @pulumi.getter(name="serviceEndpoint")
+    def service_endpoint(self) -> str:
+        """
+        The service endpoint.
+        """
+        return pulumi.get(self, "service_endpoint")
+
+    @property
+    @pulumi.getter(name="serviceResourceId")
+    def service_resource_id(self) -> str:
+        """
+        The service resource Id.
+        """
+        return pulumi.get(self, "service_resource_id")
+
+    @property
+    @pulumi.getter(name="vmwareSiteId")
+    def vmware_site_id(self) -> str:
+        """
+        The ARM Id of the VMware site.
+        """
+        return pulumi.get(self, "vmware_site_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InMageRcmLastAgentUpgradeErrorDetailsResponse(dict):
+    """
+    InMageRcm last source agent upgrade error details.
+    """
+    def __init__(__self__, *,
+                 error_code: str,
+                 error_message: str,
+                 error_message_parameters: Mapping[str, str],
+                 error_tags: Mapping[str, str],
+                 possible_causes: str,
+                 recommended_action: str):
+        """
+        InMageRcm last source agent upgrade error details.
+        :param str error_code: The error code.
+        :param str error_message: The error message.
+        :param Mapping[str, str] error_message_parameters: The error message parameters.
+        :param Mapping[str, str] error_tags: The error tags.
+        :param str possible_causes: The possible causes.
+        :param str recommended_action: The recommended action.
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
+        pulumi.set(__self__, "error_tags", error_tags)
+        pulumi.set(__self__, "possible_causes", possible_causes)
+        pulumi.set(__self__, "recommended_action", recommended_action)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="errorMessageParameters")
+    def error_message_parameters(self) -> Mapping[str, str]:
+        """
+        The error message parameters.
+        """
+        return pulumi.get(self, "error_message_parameters")
+
+    @property
+    @pulumi.getter(name="errorTags")
+    def error_tags(self) -> Mapping[str, str]:
+        """
+        The error tags.
+        """
+        return pulumi.get(self, "error_tags")
+
+    @property
+    @pulumi.getter(name="possibleCauses")
+    def possible_causes(self) -> str:
+        """
+        The possible causes.
+        """
+        return pulumi.get(self, "possible_causes")
+
+    @property
+    @pulumi.getter(name="recommendedAction")
+    def recommended_action(self) -> str:
+        """
+        The recommended action.
+        """
+        return pulumi.get(self, "recommended_action")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InMageRcmMobilityAgentDetailsResponse(dict):
+    """
+    InMageRcm mobility agent details.
+    """
+    def __init__(__self__, *,
+                 agent_version_expiry_date: str,
+                 driver_version: str,
+                 driver_version_expiry_date: str,
+                 is_upgradeable: str,
+                 last_heartbeat_utc: str,
+                 latest_upgradable_version_without_reboot: str,
+                 latest_version: str,
+                 reasons_blocking_upgrade: Sequence[str],
+                 version: str):
+        """
+        InMageRcm mobility agent details.
+        :param str agent_version_expiry_date: The agent version expiry date.
+        :param str driver_version: The driver version.
+        :param str driver_version_expiry_date: The driver version expiry date.
+        :param str is_upgradeable: A value indicating whether agent is upgradeable or not.
+        :param str last_heartbeat_utc: The time of the last heartbeat received from the agent.
+        :param str latest_upgradable_version_without_reboot: The latest upgradeable version available without reboot.
+        :param str latest_version: The latest agent version available.
+        :param Sequence[str] reasons_blocking_upgrade: The whether update is possible or not.
+        :param str version: The agent version.
+        """
+        pulumi.set(__self__, "agent_version_expiry_date", agent_version_expiry_date)
+        pulumi.set(__self__, "driver_version", driver_version)
+        pulumi.set(__self__, "driver_version_expiry_date", driver_version_expiry_date)
+        pulumi.set(__self__, "is_upgradeable", is_upgradeable)
+        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        pulumi.set(__self__, "latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
+        pulumi.set(__self__, "latest_version", latest_version)
+        pulumi.set(__self__, "reasons_blocking_upgrade", reasons_blocking_upgrade)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="agentVersionExpiryDate")
+    def agent_version_expiry_date(self) -> str:
+        """
+        The agent version expiry date.
+        """
+        return pulumi.get(self, "agent_version_expiry_date")
+
+    @property
+    @pulumi.getter(name="driverVersion")
+    def driver_version(self) -> str:
+        """
+        The driver version.
+        """
+        return pulumi.get(self, "driver_version")
+
+    @property
+    @pulumi.getter(name="driverVersionExpiryDate")
+    def driver_version_expiry_date(self) -> str:
+        """
+        The driver version expiry date.
+        """
+        return pulumi.get(self, "driver_version_expiry_date")
+
+    @property
+    @pulumi.getter(name="isUpgradeable")
+    def is_upgradeable(self) -> str:
+        """
+        A value indicating whether agent is upgradeable or not.
+        """
+        return pulumi.get(self, "is_upgradeable")
+
+    @property
+    @pulumi.getter(name="lastHeartbeatUtc")
+    def last_heartbeat_utc(self) -> str:
+        """
+        The time of the last heartbeat received from the agent.
+        """
+        return pulumi.get(self, "last_heartbeat_utc")
+
+    @property
+    @pulumi.getter(name="latestUpgradableVersionWithoutReboot")
+    def latest_upgradable_version_without_reboot(self) -> str:
+        """
+        The latest upgradeable version available without reboot.
+        """
+        return pulumi.get(self, "latest_upgradable_version_without_reboot")
+
+    @property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> str:
+        """
+        The latest agent version available.
+        """
+        return pulumi.get(self, "latest_version")
+
+    @property
+    @pulumi.getter(name="reasonsBlockingUpgrade")
+    def reasons_blocking_upgrade(self) -> Sequence[str]:
+        """
+        The whether update is possible or not.
+        """
+        return pulumi.get(self, "reasons_blocking_upgrade")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The agent version.
+        """
+        return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InMageRcmNicDetailsResponse(dict):
+    """
+    InMageRcm NIC details.
+    """
+    def __init__(__self__, *,
+                 is_primary_nic: str,
+                 is_selected_for_failover: str,
+                 nic_id: str,
+                 source_ip_address: str,
+                 source_ip_address_type: str,
+                 source_network_id: str,
+                 source_subnet_name: str,
+                 target_ip_address: str,
+                 target_ip_address_type: str,
+                 target_subnet_name: str,
+                 test_ip_address: str,
+                 test_ip_address_type: str,
+                 test_subnet_name: str):
+        """
+        InMageRcm NIC details.
+        :param str is_primary_nic: A value indicating whether this is the primary NIC.
+        :param str is_selected_for_failover: A value indicating whether this NIC is selected for failover.
+        :param str nic_id: The NIC Id.
+        :param str source_ip_address: The source IP address.
+        :param str source_ip_address_type: The source IP address type.
+        :param str source_network_id: Source network Id.
+        :param str source_subnet_name: Source subnet name.
+        :param str target_ip_address: The target IP address.
+        :param str target_ip_address_type: The target IP address type.
+        :param str target_subnet_name: Target subnet name.
+        :param str test_ip_address: The test IP address.
+        :param str test_ip_address_type: The test IP address type.
+        :param str test_subnet_name: Test subnet name.
+        """
+        pulumi.set(__self__, "is_primary_nic", is_primary_nic)
+        pulumi.set(__self__, "is_selected_for_failover", is_selected_for_failover)
+        pulumi.set(__self__, "nic_id", nic_id)
+        pulumi.set(__self__, "source_ip_address", source_ip_address)
+        pulumi.set(__self__, "source_ip_address_type", source_ip_address_type)
+        pulumi.set(__self__, "source_network_id", source_network_id)
+        pulumi.set(__self__, "source_subnet_name", source_subnet_name)
+        pulumi.set(__self__, "target_ip_address", target_ip_address)
+        pulumi.set(__self__, "target_ip_address_type", target_ip_address_type)
+        pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+        pulumi.set(__self__, "test_ip_address", test_ip_address)
+        pulumi.set(__self__, "test_ip_address_type", test_ip_address_type)
+        pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+
+    @property
+    @pulumi.getter(name="isPrimaryNic")
+    def is_primary_nic(self) -> str:
+        """
+        A value indicating whether this is the primary NIC.
+        """
+        return pulumi.get(self, "is_primary_nic")
+
+    @property
+    @pulumi.getter(name="isSelectedForFailover")
+    def is_selected_for_failover(self) -> str:
+        """
+        A value indicating whether this NIC is selected for failover.
+        """
+        return pulumi.get(self, "is_selected_for_failover")
+
+    @property
+    @pulumi.getter(name="nicId")
+    def nic_id(self) -> str:
+        """
+        The NIC Id.
+        """
+        return pulumi.get(self, "nic_id")
+
+    @property
+    @pulumi.getter(name="sourceIPAddress")
+    def source_ip_address(self) -> str:
+        """
+        The source IP address.
+        """
+        return pulumi.get(self, "source_ip_address")
+
+    @property
+    @pulumi.getter(name="sourceIPAddressType")
+    def source_ip_address_type(self) -> str:
+        """
+        The source IP address type.
+        """
+        return pulumi.get(self, "source_ip_address_type")
+
+    @property
+    @pulumi.getter(name="sourceNetworkId")
+    def source_network_id(self) -> str:
+        """
+        Source network Id.
+        """
+        return pulumi.get(self, "source_network_id")
+
+    @property
+    @pulumi.getter(name="sourceSubnetName")
+    def source_subnet_name(self) -> str:
+        """
+        Source subnet name.
+        """
+        return pulumi.get(self, "source_subnet_name")
+
+    @property
+    @pulumi.getter(name="targetIPAddress")
+    def target_ip_address(self) -> str:
+        """
+        The target IP address.
+        """
+        return pulumi.get(self, "target_ip_address")
+
+    @property
+    @pulumi.getter(name="targetIPAddressType")
+    def target_ip_address_type(self) -> str:
+        """
+        The target IP address type.
+        """
+        return pulumi.get(self, "target_ip_address_type")
+
+    @property
+    @pulumi.getter(name="targetSubnetName")
+    def target_subnet_name(self) -> str:
+        """
+        Target subnet name.
+        """
+        return pulumi.get(self, "target_subnet_name")
+
+    @property
+    @pulumi.getter(name="testIPAddress")
+    def test_ip_address(self) -> str:
+        """
+        The test IP address.
+        """
+        return pulumi.get(self, "test_ip_address")
+
+    @property
+    @pulumi.getter(name="testIPAddressType")
+    def test_ip_address_type(self) -> str:
+        """
+        The test IP address type.
+        """
+        return pulumi.get(self, "test_ip_address_type")
+
+    @property
+    @pulumi.getter(name="testSubnetName")
+    def test_subnet_name(self) -> str:
+        """
+        Test subnet name.
+        """
+        return pulumi.get(self, "test_subnet_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InMageRcmPolicyDetailsResponse(dict):
+    """
+    InMageRcm specific policy details.
+    """
+    def __init__(__self__, *,
+                 app_consistent_frequency_in_minutes: int,
+                 crash_consistent_frequency_in_minutes: int,
+                 enable_multi_vm_sync: str,
+                 instance_type: str,
+                 recovery_point_history_in_minutes: int):
+        """
+        InMageRcm specific policy details.
+        :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
+        :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
+        :param str enable_multi_vm_sync: A value indicating whether multi-VM sync has to be enabled.
+        :param str instance_type: Gets the class type. Overridden in derived classes.
+        :param int recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
+        """
+        pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+        pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+        pulumi.set(__self__, "enable_multi_vm_sync", enable_multi_vm_sync)
+        pulumi.set(__self__, "instance_type", 'InMageRcm')
+        pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+
+    @property
+    @pulumi.getter(name="appConsistentFrequencyInMinutes")
+    def app_consistent_frequency_in_minutes(self) -> int:
+        """
+        The app consistent snapshot frequency in minutes.
+        """
+        return pulumi.get(self, "app_consistent_frequency_in_minutes")
+
+    @property
+    @pulumi.getter(name="crashConsistentFrequencyInMinutes")
+    def crash_consistent_frequency_in_minutes(self) -> int:
+        """
+        The crash consistent snapshot frequency in minutes.
+        """
+        return pulumi.get(self, "crash_consistent_frequency_in_minutes")
+
+    @property
+    @pulumi.getter(name="enableMultiVmSync")
+    def enable_multi_vm_sync(self) -> str:
+        """
+        A value indicating whether multi-VM sync has to be enabled.
+        """
+        return pulumi.get(self, "enable_multi_vm_sync")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Gets the class type. Overridden in derived classes.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="recoveryPointHistoryInMinutes")
+    def recovery_point_history_in_minutes(self) -> int:
+        """
+        The duration in minutes until which the recovery points need to be stored.
+        """
+        return pulumi.get(self, "recovery_point_history_in_minutes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InMageRcmProtectedDiskDetailsResponse(dict):
+    """
+    InMageRcm protected disk details.
+    """
+    def __init__(__self__, *,
+                 capacity_in_bytes: int,
+                 disk_encryption_set_id: str,
+                 disk_id: str,
+                 disk_name: str,
+                 disk_type: str,
+                 is_os_disk: str,
+                 log_storage_account_id: str,
+                 seed_managed_disk_id: str,
+                 target_managed_disk_id: str):
+        """
+        InMageRcm protected disk details.
+        :param int capacity_in_bytes: The disk capacity in bytes.
+        :param str disk_encryption_set_id: The disk encryption set ARM Id.
+        :param str disk_id: The disk Id.
+        :param str disk_name: The disk name.
+        :param str disk_type: The disk type.
+        :param str is_os_disk: A value indicating whether the disk is the OS disk.
+        :param str log_storage_account_id: The log storage account ARM Id.
+        :param str seed_managed_disk_id: The ARM Id of the seed managed disk.
+        :param str target_managed_disk_id: The ARM Id of the target managed disk.
+        """
+        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
+        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        pulumi.set(__self__, "disk_id", disk_id)
+        pulumi.set(__self__, "disk_name", disk_name)
+        pulumi.set(__self__, "disk_type", disk_type)
+        pulumi.set(__self__, "is_os_disk", is_os_disk)
+        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+        pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
+        pulumi.set(__self__, "target_managed_disk_id", target_managed_disk_id)
+
+    @property
+    @pulumi.getter(name="capacityInBytes")
+    def capacity_in_bytes(self) -> int:
+        """
+        The disk capacity in bytes.
+        """
+        return pulumi.get(self, "capacity_in_bytes")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> str:
+        """
+        The disk encryption set ARM Id.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="diskId")
+    def disk_id(self) -> str:
+        """
+        The disk Id.
+        """
+        return pulumi.get(self, "disk_id")
+
+    @property
+    @pulumi.getter(name="diskName")
+    def disk_name(self) -> str:
+        """
+        The disk name.
+        """
+        return pulumi.get(self, "disk_name")
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> str:
+        """
+        The disk type.
+        """
+        return pulumi.get(self, "disk_type")
+
+    @property
+    @pulumi.getter(name="isOSDisk")
+    def is_os_disk(self) -> str:
+        """
+        A value indicating whether the disk is the OS disk.
+        """
+        return pulumi.get(self, "is_os_disk")
+
+    @property
+    @pulumi.getter(name="logStorageAccountId")
+    def log_storage_account_id(self) -> str:
+        """
+        The log storage account ARM Id.
+        """
+        return pulumi.get(self, "log_storage_account_id")
+
+    @property
+    @pulumi.getter(name="seedManagedDiskId")
+    def seed_managed_disk_id(self) -> str:
+        """
+        The ARM Id of the seed managed disk.
+        """
+        return pulumi.get(self, "seed_managed_disk_id")
+
+    @property
+    @pulumi.getter(name="targetManagedDiskId")
+    def target_managed_disk_id(self) -> str:
+        """
+        The ARM Id of the target managed disk.
+        """
+        return pulumi.get(self, "target_managed_disk_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InMageRcmReplicationDetailsResponse(dict):
+    """
+    InMageRcm provider specific details.
+    """
+    def __init__(__self__, *,
+                 agent_upgrade_blocking_error_details: Sequence['outputs.InMageRcmAgentUpgradeBlockingErrorDetailsResponse'],
+                 agent_upgrade_state: str,
+                 allocated_memory_in_mb: float,
+                 discovery_type: str,
+                 fabric_discovery_machine_id: str,
+                 failover_recovery_point_id: str,
+                 firmware_type: str,
+                 initial_replication_processed_bytes: int,
+                 initial_replication_progress_percentage: int,
+                 initial_replication_transferred_bytes: int,
+                 instance_type: str,
+                 internal_identifier: str,
+                 is_last_upgrade_successful: str,
+                 last_agent_upgrade_error_details: Sequence['outputs.InMageRcmLastAgentUpgradeErrorDetailsResponse'],
+                 last_agent_upgrade_failed_job_id: str,
+                 last_agent_upgrade_type: str,
+                 last_recovery_point_id: str,
+                 last_recovery_point_received: str,
+                 last_rpo_calculated_time: str,
+                 last_rpo_in_seconds: int,
+                 license_type: str,
+                 mobility_agent_details: 'outputs.InMageRcmMobilityAgentDetailsResponse',
+                 multi_vm_group_name: str,
+                 os_type: str,
+                 process_server_id: str,
+                 process_server_name: str,
+                 processor_core_count: int,
+                 protected_disks: Sequence['outputs.InMageRcmProtectedDiskDetailsResponse'],
+                 resync_processed_bytes: int,
+                 resync_progress_percentage: int,
+                 resync_required: str,
+                 resync_state: str,
+                 resync_transferred_bytes: int,
+                 run_as_account_id: str,
+                 target_availability_set_id: str,
+                 target_availability_zone: str,
+                 target_boot_diagnostics_storage_account_id: str,
+                 target_generation: str,
+                 target_network_id: str,
+                 target_proximity_placement_group_id: str,
+                 target_resource_group_id: str,
+                 target_vm_name: str,
+                 target_vm_size: str,
+                 test_network_id: str,
+                 vm_nics: Sequence['outputs.InMageRcmNicDetailsResponse']):
+        """
+        InMageRcm provider specific details.
+        :param Sequence['InMageRcmAgentUpgradeBlockingErrorDetailsResponseArgs'] agent_upgrade_blocking_error_details: The agent upgrade blocking error information.
+        :param str agent_upgrade_state: The agent auto upgrade state.
+        :param float allocated_memory_in_mb: The allocated memory in MB.
+        :param str discovery_type: The type of the discovered VM.
+        :param str fabric_discovery_machine_id: The ARM Id of the discovered VM.
+        :param str failover_recovery_point_id: The recovery point Id to which the VM was failed over.
+        :param str firmware_type: The firmware type.
+        :param int initial_replication_processed_bytes: The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        :param int initial_replication_progress_percentage: The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
+        :param int initial_replication_transferred_bytes: The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
+        :param str instance_type: Gets the Instance type.
+        :param str internal_identifier: The virtual machine internal identifier.
+        :param str is_last_upgrade_successful: A value indicating whether last agent upgrade was successful or not.
+        :param Sequence['InMageRcmLastAgentUpgradeErrorDetailsResponseArgs'] last_agent_upgrade_error_details: The last agent upgrade error information.
+        :param str last_agent_upgrade_failed_job_id: The last agent upgrade failed or cancelled job Id.
+        :param str last_agent_upgrade_type: The last agent upgrade type.
+        :param str last_recovery_point_id: The last recovery point Id.
+        :param str last_recovery_point_received: The last recovery point received time.
+        :param str last_rpo_calculated_time: The last recovery point objective calculated time.
+        :param int last_rpo_in_seconds: The last recovery point objective value.
+        :param str license_type: License Type of the VM to be used.
+        :param 'InMageRcmMobilityAgentDetailsResponseArgs' mobility_agent_details: The mobility agent information.
+        :param str multi_vm_group_name: The multi VM group name.
+        :param str os_type: The type of the OS on the VM.
+        :param str process_server_id: The process server Id.
+        :param str process_server_name: The process server name.
+        :param int processor_core_count: The processor core count.
+        :param Sequence['InMageRcmProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
+        :param int resync_processed_bytes: The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        :param int resync_progress_percentage: The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
+        :param str resync_required: A value indicating whether resync is required.
+        :param str resync_state: The resync state.
+        :param int resync_transferred_bytes: The resync transferred bytes from source VM to azure for all selected disks on source VM.
+        :param str run_as_account_id: The run-as account Id.
+        :param str target_availability_set_id: The target availability set Id.
+        :param str target_availability_zone: The target availability zone.
+        :param str target_boot_diagnostics_storage_account_id: The target boot diagnostics storage account ARM Id.
+        :param str target_generation: The target generation.
+        :param str target_network_id: The target network Id.
+        :param str target_proximity_placement_group_id: The target proximity placement group Id.
+        :param str target_resource_group_id: The target resource group Id.
+        :param str target_vm_name: Target VM name.
+        :param str target_vm_size: The target VM size.
+        :param str test_network_id: The test network Id.
+        :param Sequence['InMageRcmNicDetailsResponseArgs'] vm_nics: The network details.
+        """
+        pulumi.set(__self__, "agent_upgrade_blocking_error_details", agent_upgrade_blocking_error_details)
+        pulumi.set(__self__, "agent_upgrade_state", agent_upgrade_state)
+        pulumi.set(__self__, "allocated_memory_in_mb", allocated_memory_in_mb)
+        pulumi.set(__self__, "discovery_type", discovery_type)
+        pulumi.set(__self__, "fabric_discovery_machine_id", fabric_discovery_machine_id)
+        pulumi.set(__self__, "failover_recovery_point_id", failover_recovery_point_id)
+        pulumi.set(__self__, "firmware_type", firmware_type)
+        pulumi.set(__self__, "initial_replication_processed_bytes", initial_replication_processed_bytes)
+        pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
+        pulumi.set(__self__, "initial_replication_transferred_bytes", initial_replication_transferred_bytes)
+        pulumi.set(__self__, "instance_type", 'InMageRcm')
+        pulumi.set(__self__, "internal_identifier", internal_identifier)
+        pulumi.set(__self__, "is_last_upgrade_successful", is_last_upgrade_successful)
+        pulumi.set(__self__, "last_agent_upgrade_error_details", last_agent_upgrade_error_details)
+        pulumi.set(__self__, "last_agent_upgrade_failed_job_id", last_agent_upgrade_failed_job_id)
+        pulumi.set(__self__, "last_agent_upgrade_type", last_agent_upgrade_type)
+        pulumi.set(__self__, "last_recovery_point_id", last_recovery_point_id)
+        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
+        pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+        pulumi.set(__self__, "last_rpo_in_seconds", last_rpo_in_seconds)
+        pulumi.set(__self__, "license_type", license_type)
+        pulumi.set(__self__, "mobility_agent_details", mobility_agent_details)
+        pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "process_server_id", process_server_id)
+        pulumi.set(__self__, "process_server_name", process_server_name)
+        pulumi.set(__self__, "processor_core_count", processor_core_count)
+        pulumi.set(__self__, "protected_disks", protected_disks)
+        pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
+        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
+        pulumi.set(__self__, "resync_required", resync_required)
+        pulumi.set(__self__, "resync_state", resync_state)
+        pulumi.set(__self__, "resync_transferred_bytes", resync_transferred_bytes)
+        pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+        pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+        pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+        pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+        pulumi.set(__self__, "target_generation", target_generation)
+        pulumi.set(__self__, "target_network_id", target_network_id)
+        pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+        pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        pulumi.set(__self__, "target_vm_name", target_vm_name)
+        pulumi.set(__self__, "target_vm_size", target_vm_size)
+        pulumi.set(__self__, "test_network_id", test_network_id)
+        pulumi.set(__self__, "vm_nics", vm_nics)
+
+    @property
+    @pulumi.getter(name="agentUpgradeBlockingErrorDetails")
+    def agent_upgrade_blocking_error_details(self) -> Sequence['outputs.InMageRcmAgentUpgradeBlockingErrorDetailsResponse']:
+        """
+        The agent upgrade blocking error information.
+        """
+        return pulumi.get(self, "agent_upgrade_blocking_error_details")
+
+    @property
+    @pulumi.getter(name="agentUpgradeState")
+    def agent_upgrade_state(self) -> str:
+        """
+        The agent auto upgrade state.
+        """
+        return pulumi.get(self, "agent_upgrade_state")
+
+    @property
+    @pulumi.getter(name="allocatedMemoryInMB")
+    def allocated_memory_in_mb(self) -> float:
+        """
+        The allocated memory in MB.
+        """
+        return pulumi.get(self, "allocated_memory_in_mb")
+
+    @property
+    @pulumi.getter(name="discoveryType")
+    def discovery_type(self) -> str:
+        """
+        The type of the discovered VM.
+        """
+        return pulumi.get(self, "discovery_type")
+
+    @property
+    @pulumi.getter(name="fabricDiscoveryMachineId")
+    def fabric_discovery_machine_id(self) -> str:
+        """
+        The ARM Id of the discovered VM.
+        """
+        return pulumi.get(self, "fabric_discovery_machine_id")
+
+    @property
+    @pulumi.getter(name="failoverRecoveryPointId")
+    def failover_recovery_point_id(self) -> str:
+        """
+        The recovery point Id to which the VM was failed over.
+        """
+        return pulumi.get(self, "failover_recovery_point_id")
+
+    @property
+    @pulumi.getter(name="firmwareType")
+    def firmware_type(self) -> str:
+        """
+        The firmware type.
+        """
+        return pulumi.get(self, "firmware_type")
+
+    @property
+    @pulumi.getter(name="initialReplicationProcessedBytes")
+    def initial_replication_processed_bytes(self) -> int:
+        """
+        The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        """
+        return pulumi.get(self, "initial_replication_processed_bytes")
+
+    @property
+    @pulumi.getter(name="initialReplicationProgressPercentage")
+    def initial_replication_progress_percentage(self) -> int:
+        """
+        The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
+        """
+        return pulumi.get(self, "initial_replication_progress_percentage")
+
+    @property
+    @pulumi.getter(name="initialReplicationTransferredBytes")
+    def initial_replication_transferred_bytes(self) -> int:
+        """
+        The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
+        """
+        return pulumi.get(self, "initial_replication_transferred_bytes")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Gets the Instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="internalIdentifier")
+    def internal_identifier(self) -> str:
+        """
+        The virtual machine internal identifier.
+        """
+        return pulumi.get(self, "internal_identifier")
+
+    @property
+    @pulumi.getter(name="isLastUpgradeSuccessful")
+    def is_last_upgrade_successful(self) -> str:
+        """
+        A value indicating whether last agent upgrade was successful or not.
+        """
+        return pulumi.get(self, "is_last_upgrade_successful")
+
+    @property
+    @pulumi.getter(name="lastAgentUpgradeErrorDetails")
+    def last_agent_upgrade_error_details(self) -> Sequence['outputs.InMageRcmLastAgentUpgradeErrorDetailsResponse']:
+        """
+        The last agent upgrade error information.
+        """
+        return pulumi.get(self, "last_agent_upgrade_error_details")
+
+    @property
+    @pulumi.getter(name="lastAgentUpgradeFailedJobId")
+    def last_agent_upgrade_failed_job_id(self) -> str:
+        """
+        The last agent upgrade failed or cancelled job Id.
+        """
+        return pulumi.get(self, "last_agent_upgrade_failed_job_id")
+
+    @property
+    @pulumi.getter(name="lastAgentUpgradeType")
+    def last_agent_upgrade_type(self) -> str:
+        """
+        The last agent upgrade type.
+        """
+        return pulumi.get(self, "last_agent_upgrade_type")
+
+    @property
+    @pulumi.getter(name="lastRecoveryPointId")
+    def last_recovery_point_id(self) -> str:
+        """
+        The last recovery point Id.
+        """
+        return pulumi.get(self, "last_recovery_point_id")
+
+    @property
+    @pulumi.getter(name="lastRecoveryPointReceived")
+    def last_recovery_point_received(self) -> str:
+        """
+        The last recovery point received time.
+        """
+        return pulumi.get(self, "last_recovery_point_received")
+
+    @property
+    @pulumi.getter(name="lastRpoCalculatedTime")
+    def last_rpo_calculated_time(self) -> str:
+        """
+        The last recovery point objective calculated time.
+        """
+        return pulumi.get(self, "last_rpo_calculated_time")
+
+    @property
+    @pulumi.getter(name="lastRpoInSeconds")
+    def last_rpo_in_seconds(self) -> int:
+        """
+        The last recovery point objective value.
+        """
+        return pulumi.get(self, "last_rpo_in_seconds")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> str:
+        """
+        License Type of the VM to be used.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter(name="mobilityAgentDetails")
+    def mobility_agent_details(self) -> 'outputs.InMageRcmMobilityAgentDetailsResponse':
+        """
+        The mobility agent information.
+        """
+        return pulumi.get(self, "mobility_agent_details")
+
+    @property
+    @pulumi.getter(name="multiVmGroupName")
+    def multi_vm_group_name(self) -> str:
+        """
+        The multi VM group name.
+        """
+        return pulumi.get(self, "multi_vm_group_name")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        The type of the OS on the VM.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="processServerId")
+    def process_server_id(self) -> str:
+        """
+        The process server Id.
+        """
+        return pulumi.get(self, "process_server_id")
+
+    @property
+    @pulumi.getter(name="processServerName")
+    def process_server_name(self) -> str:
+        """
+        The process server name.
+        """
+        return pulumi.get(self, "process_server_name")
+
+    @property
+    @pulumi.getter(name="processorCoreCount")
+    def processor_core_count(self) -> int:
+        """
+        The processor core count.
+        """
+        return pulumi.get(self, "processor_core_count")
+
+    @property
+    @pulumi.getter(name="protectedDisks")
+    def protected_disks(self) -> Sequence['outputs.InMageRcmProtectedDiskDetailsResponse']:
+        """
+        The list of protected disks.
+        """
+        return pulumi.get(self, "protected_disks")
+
+    @property
+    @pulumi.getter(name="resyncProcessedBytes")
+    def resync_processed_bytes(self) -> int:
+        """
+        The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        """
+        return pulumi.get(self, "resync_processed_bytes")
+
+    @property
+    @pulumi.getter(name="resyncProgressPercentage")
+    def resync_progress_percentage(self) -> int:
+        """
+        The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
+        """
+        return pulumi.get(self, "resync_progress_percentage")
+
+    @property
+    @pulumi.getter(name="resyncRequired")
+    def resync_required(self) -> str:
+        """
+        A value indicating whether resync is required.
+        """
+        return pulumi.get(self, "resync_required")
+
+    @property
+    @pulumi.getter(name="resyncState")
+    def resync_state(self) -> str:
+        """
+        The resync state.
+        """
+        return pulumi.get(self, "resync_state")
+
+    @property
+    @pulumi.getter(name="resyncTransferredBytes")
+    def resync_transferred_bytes(self) -> int:
+        """
+        The resync transferred bytes from source VM to azure for all selected disks on source VM.
+        """
+        return pulumi.get(self, "resync_transferred_bytes")
+
+    @property
+    @pulumi.getter(name="runAsAccountId")
+    def run_as_account_id(self) -> str:
+        """
+        The run-as account Id.
+        """
+        return pulumi.get(self, "run_as_account_id")
+
+    @property
+    @pulumi.getter(name="targetAvailabilitySetId")
+    def target_availability_set_id(self) -> str:
+        """
+        The target availability set Id.
+        """
+        return pulumi.get(self, "target_availability_set_id")
+
+    @property
+    @pulumi.getter(name="targetAvailabilityZone")
+    def target_availability_zone(self) -> str:
+        """
+        The target availability zone.
+        """
+        return pulumi.get(self, "target_availability_zone")
+
+    @property
+    @pulumi.getter(name="targetBootDiagnosticsStorageAccountId")
+    def target_boot_diagnostics_storage_account_id(self) -> str:
+        """
+        The target boot diagnostics storage account ARM Id.
+        """
+        return pulumi.get(self, "target_boot_diagnostics_storage_account_id")
+
+    @property
+    @pulumi.getter(name="targetGeneration")
+    def target_generation(self) -> str:
+        """
+        The target generation.
+        """
+        return pulumi.get(self, "target_generation")
+
+    @property
+    @pulumi.getter(name="targetNetworkId")
+    def target_network_id(self) -> str:
+        """
+        The target network Id.
+        """
+        return pulumi.get(self, "target_network_id")
+
+    @property
+    @pulumi.getter(name="targetProximityPlacementGroupId")
+    def target_proximity_placement_group_id(self) -> str:
+        """
+        The target proximity placement group Id.
+        """
+        return pulumi.get(self, "target_proximity_placement_group_id")
+
+    @property
+    @pulumi.getter(name="targetResourceGroupId")
+    def target_resource_group_id(self) -> str:
+        """
+        The target resource group Id.
+        """
+        return pulumi.get(self, "target_resource_group_id")
+
+    @property
+    @pulumi.getter(name="targetVmName")
+    def target_vm_name(self) -> str:
+        """
+        Target VM name.
+        """
+        return pulumi.get(self, "target_vm_name")
+
+    @property
+    @pulumi.getter(name="targetVmSize")
+    def target_vm_size(self) -> str:
+        """
+        The target VM size.
+        """
+        return pulumi.get(self, "target_vm_size")
+
+    @property
+    @pulumi.getter(name="testNetworkId")
+    def test_network_id(self) -> str:
+        """
+        The test network Id.
+        """
+        return pulumi.get(self, "test_network_id")
+
+    @property
+    @pulumi.getter(name="vmNics")
+    def vm_nics(self) -> Sequence['outputs.InMageRcmNicDetailsResponse']:
+        """
+        The network details.
+        """
+        return pulumi.get(self, "vm_nics")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class InMageReplicationDetailsResponse(dict):
     """
     InMage provider specific settings
@@ -11087,7 +12621,7 @@ class PolicyPropertiesResponse(dict):
         """
         Protection profile custom data details.
         :param str friendly_name: The FriendlyName.
-        :param Union['A2APolicyDetailsResponseArgs', 'HyperVReplicaAzurePolicyDetailsResponseArgs', 'HyperVReplicaBasePolicyDetailsResponseArgs', 'HyperVReplicaBluePolicyDetailsResponseArgs', 'HyperVReplicaPolicyDetailsResponseArgs', 'InMageAzureV2PolicyDetailsResponseArgs', 'InMageBasePolicyDetailsResponseArgs', 'InMagePolicyDetailsResponseArgs', 'RcmAzureMigrationPolicyDetailsResponseArgs', 'VmwareCbtPolicyDetailsResponseArgs'] provider_specific_details: The ReplicationChannelSetting.
+        :param Union['A2APolicyDetailsResponseArgs', 'HyperVReplicaAzurePolicyDetailsResponseArgs', 'HyperVReplicaBasePolicyDetailsResponseArgs', 'HyperVReplicaBluePolicyDetailsResponseArgs', 'HyperVReplicaPolicyDetailsResponseArgs', 'InMageAzureV2PolicyDetailsResponseArgs', 'InMageBasePolicyDetailsResponseArgs', 'InMagePolicyDetailsResponseArgs', 'InMageRcmPolicyDetailsResponseArgs', 'RcmAzureMigrationPolicyDetailsResponseArgs', 'VmwareCbtPolicyDetailsResponseArgs'] provider_specific_details: The ReplicationChannelSetting.
         """
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
@@ -11267,6 +12801,218 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Gets or sets the status.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ProcessServerDetailsResponse(dict):
+    """
+    Process server details.
+    """
+    def __init__(__self__, *,
+                 available_memory_in_bytes: int,
+                 available_space_in_bytes: int,
+                 free_space_percentage: float,
+                 health: str,
+                 health_errors: Sequence['outputs.HealthErrorResponse'],
+                 historic_health: str,
+                 id: str,
+                 last_heartbeat_utc: str,
+                 memory_usage_percentage: float,
+                 name: str,
+                 processor_usage_percentage: float,
+                 throughput_in_bytes: int,
+                 throughput_upload_pending_data_in_bytes: int,
+                 total_memory_in_bytes: int,
+                 total_space_in_bytes: int,
+                 used_memory_in_bytes: int,
+                 used_space_in_bytes: int,
+                 version: str):
+        """
+        Process server details.
+        :param int available_memory_in_bytes: The available memory.
+        :param int available_space_in_bytes: The available disk space.
+        :param float free_space_percentage: The free disk space percentage.
+        :param str health: The health of the process server.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param str historic_health: The historic health of the process server based on the health in last 24 hours.
+        :param str id: The process server Id.
+        :param str last_heartbeat_utc: The last heartbeat received from the process server.
+        :param float memory_usage_percentage: The memory usage percentage.
+        :param str name: The process server name.
+        :param float processor_usage_percentage: The processor usage percentage.
+        :param int throughput_in_bytes: The throughput in bytes.
+        :param int throughput_upload_pending_data_in_bytes: The uploading pending data in bytes.
+        :param int total_memory_in_bytes: The total memory.
+        :param int total_space_in_bytes: The total disk space.
+        :param int used_memory_in_bytes: The used memory.
+        :param int used_space_in_bytes: The used disk space.
+        :param str version: The process server version.
+        """
+        pulumi.set(__self__, "available_memory_in_bytes", available_memory_in_bytes)
+        pulumi.set(__self__, "available_space_in_bytes", available_space_in_bytes)
+        pulumi.set(__self__, "free_space_percentage", free_space_percentage)
+        pulumi.set(__self__, "health", health)
+        pulumi.set(__self__, "health_errors", health_errors)
+        pulumi.set(__self__, "historic_health", historic_health)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        pulumi.set(__self__, "memory_usage_percentage", memory_usage_percentage)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "processor_usage_percentage", processor_usage_percentage)
+        pulumi.set(__self__, "throughput_in_bytes", throughput_in_bytes)
+        pulumi.set(__self__, "throughput_upload_pending_data_in_bytes", throughput_upload_pending_data_in_bytes)
+        pulumi.set(__self__, "total_memory_in_bytes", total_memory_in_bytes)
+        pulumi.set(__self__, "total_space_in_bytes", total_space_in_bytes)
+        pulumi.set(__self__, "used_memory_in_bytes", used_memory_in_bytes)
+        pulumi.set(__self__, "used_space_in_bytes", used_space_in_bytes)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="availableMemoryInBytes")
+    def available_memory_in_bytes(self) -> int:
+        """
+        The available memory.
+        """
+        return pulumi.get(self, "available_memory_in_bytes")
+
+    @property
+    @pulumi.getter(name="availableSpaceInBytes")
+    def available_space_in_bytes(self) -> int:
+        """
+        The available disk space.
+        """
+        return pulumi.get(self, "available_space_in_bytes")
+
+    @property
+    @pulumi.getter(name="freeSpacePercentage")
+    def free_space_percentage(self) -> float:
+        """
+        The free disk space percentage.
+        """
+        return pulumi.get(self, "free_space_percentage")
+
+    @property
+    @pulumi.getter
+    def health(self) -> str:
+        """
+        The health of the process server.
+        """
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter(name="healthErrors")
+    def health_errors(self) -> Sequence['outputs.HealthErrorResponse']:
+        """
+        The health errors.
+        """
+        return pulumi.get(self, "health_errors")
+
+    @property
+    @pulumi.getter(name="historicHealth")
+    def historic_health(self) -> str:
+        """
+        The historic health of the process server based on the health in last 24 hours.
+        """
+        return pulumi.get(self, "historic_health")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The process server Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastHeartbeatUtc")
+    def last_heartbeat_utc(self) -> str:
+        """
+        The last heartbeat received from the process server.
+        """
+        return pulumi.get(self, "last_heartbeat_utc")
+
+    @property
+    @pulumi.getter(name="memoryUsagePercentage")
+    def memory_usage_percentage(self) -> float:
+        """
+        The memory usage percentage.
+        """
+        return pulumi.get(self, "memory_usage_percentage")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The process server name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="processorUsagePercentage")
+    def processor_usage_percentage(self) -> float:
+        """
+        The processor usage percentage.
+        """
+        return pulumi.get(self, "processor_usage_percentage")
+
+    @property
+    @pulumi.getter(name="throughputInBytes")
+    def throughput_in_bytes(self) -> int:
+        """
+        The throughput in bytes.
+        """
+        return pulumi.get(self, "throughput_in_bytes")
+
+    @property
+    @pulumi.getter(name="throughputUploadPendingDataInBytes")
+    def throughput_upload_pending_data_in_bytes(self) -> int:
+        """
+        The uploading pending data in bytes.
+        """
+        return pulumi.get(self, "throughput_upload_pending_data_in_bytes")
+
+    @property
+    @pulumi.getter(name="totalMemoryInBytes")
+    def total_memory_in_bytes(self) -> int:
+        """
+        The total memory.
+        """
+        return pulumi.get(self, "total_memory_in_bytes")
+
+    @property
+    @pulumi.getter(name="totalSpaceInBytes")
+    def total_space_in_bytes(self) -> int:
+        """
+        The total disk space.
+        """
+        return pulumi.get(self, "total_space_in_bytes")
+
+    @property
+    @pulumi.getter(name="usedMemoryInBytes")
+    def used_memory_in_bytes(self) -> int:
+        """
+        The used memory.
+        """
+        return pulumi.get(self, "used_memory_in_bytes")
+
+    @property
+    @pulumi.getter(name="usedSpaceInBytes")
+    def used_space_in_bytes(self) -> int:
+        """
+        The used disk space.
+        """
+        return pulumi.get(self, "used_space_in_bytes")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The process server version.
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -11857,6 +13603,86 @@ class ProtectionContainerMappingPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class PushInstallerDetailsResponse(dict):
+    """
+    Push installer details.
+    """
+    def __init__(__self__, *,
+                 health: str,
+                 health_errors: Sequence['outputs.HealthErrorResponse'],
+                 id: str,
+                 last_heartbeat_utc: str,
+                 name: str,
+                 version: str):
+        """
+        Push installer details.
+        :param str health: The health of the push installer.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param str id: The push installer Id.
+        :param str last_heartbeat_utc: The last heartbeat received from the push installer.
+        :param str name: The push installer name.
+        :param str version: The push installer version.
+        """
+        pulumi.set(__self__, "health", health)
+        pulumi.set(__self__, "health_errors", health_errors)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def health(self) -> str:
+        """
+        The health of the push installer.
+        """
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter(name="healthErrors")
+    def health_errors(self) -> Sequence['outputs.HealthErrorResponse']:
+        """
+        The health errors.
+        """
+        return pulumi.get(self, "health_errors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The push installer Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastHeartbeatUtc")
+    def last_heartbeat_utc(self) -> str:
+        """
+        The last heartbeat received from the push installer.
+        """
+        return pulumi.get(self, "last_heartbeat_utc")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The push installer name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The push installer version.
+        """
+        return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RcmAzureMigrationPolicyDetailsResponse(dict):
     """
     RCM based Azure migration specific policy details.
@@ -11936,6 +13762,86 @@ class RcmAzureMigrationPolicyDetailsResponse(dict):
         The recovery point threshold in minutes.
         """
         return pulumi.get(self, "recovery_point_threshold_in_minutes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RcmProxyDetailsResponse(dict):
+    """
+    RCM proxy details.
+    """
+    def __init__(__self__, *,
+                 health: str,
+                 health_errors: Sequence['outputs.HealthErrorResponse'],
+                 id: str,
+                 last_heartbeat_utc: str,
+                 name: str,
+                 version: str):
+        """
+        RCM proxy details.
+        :param str health: The health of the RCM proxy.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param str id: The RCM proxy Id.
+        :param str last_heartbeat_utc: The last heartbeat received from the RCM proxy.
+        :param str name: The RCM proxy name.
+        :param str version: The RCM proxy version.
+        """
+        pulumi.set(__self__, "health", health)
+        pulumi.set(__self__, "health_errors", health_errors)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def health(self) -> str:
+        """
+        The health of the RCM proxy.
+        """
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter(name="healthErrors")
+    def health_errors(self) -> Sequence['outputs.HealthErrorResponse']:
+        """
+        The health errors.
+        """
+        return pulumi.get(self, "health_errors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The RCM proxy Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastHeartbeatUtc")
+    def last_heartbeat_utc(self) -> str:
+        """
+        The last heartbeat received from the RCM proxy.
+        """
+        return pulumi.get(self, "last_heartbeat_utc")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The RCM proxy name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The RCM proxy version.
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -12715,6 +14621,86 @@ class RecoveryServicesProviderPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ReplicationAgentDetailsResponse(dict):
+    """
+    Replication agent details.
+    """
+    def __init__(__self__, *,
+                 health: str,
+                 health_errors: Sequence['outputs.HealthErrorResponse'],
+                 id: str,
+                 last_heartbeat_utc: str,
+                 name: str,
+                 version: str):
+        """
+        Replication agent details.
+        :param str health: The health of the replication agent.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param str id: The replication agent Id.
+        :param str last_heartbeat_utc: The last heartbeat received from the replication agent.
+        :param str name: The replication agent name.
+        :param str version: The replication agent version.
+        """
+        pulumi.set(__self__, "health", health)
+        pulumi.set(__self__, "health_errors", health_errors)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def health(self) -> str:
+        """
+        The health of the replication agent.
+        """
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter(name="healthErrors")
+    def health_errors(self) -> Sequence['outputs.HealthErrorResponse']:
+        """
+        The health errors.
+        """
+        return pulumi.get(self, "health_errors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The replication agent Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastHeartbeatUtc")
+    def last_heartbeat_utc(self) -> str:
+        """
+        The last heartbeat received from the replication agent.
+        """
+        return pulumi.get(self, "last_heartbeat_utc")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The replication agent name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The replication agent version.
+        """
+        return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ReplicationProtectedItemPropertiesResponse(dict):
     """
     Replication protected item custom data details.
@@ -12767,7 +14753,7 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         :param str protected_item_type: The type of protected item type.
         :param str protection_state: The protection status.
         :param str protection_state_description: The protection state description.
-        :param Union['A2AReplicationDetailsResponseArgs', 'HyperVReplicaAzureReplicationDetailsResponseArgs', 'HyperVReplicaBaseReplicationDetailsResponseArgs', 'HyperVReplicaBlueReplicationDetailsResponseArgs', 'HyperVReplicaReplicationDetailsResponseArgs', 'InMageAzureV2ReplicationDetailsResponseArgs', 'InMageReplicationDetailsResponseArgs'] provider_specific_details: The Replication provider custom settings.
+        :param Union['A2AReplicationDetailsResponseArgs', 'HyperVReplicaAzureReplicationDetailsResponseArgs', 'HyperVReplicaBaseReplicationDetailsResponseArgs', 'HyperVReplicaBlueReplicationDetailsResponseArgs', 'HyperVReplicaReplicationDetailsResponseArgs', 'InMageAzureV2ReplicationDetailsResponseArgs', 'InMageRcmReplicationDetailsResponseArgs', 'InMageReplicationDetailsResponseArgs'] provider_specific_details: The Replication provider custom settings.
         :param str recovery_container_id: The recovery container Id.
         :param str recovery_fabric_friendly_name: The friendly name of recovery fabric.
         :param str recovery_fabric_id: The Arm Id of recovery fabric.
@@ -13047,6 +15033,86 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         The Test failover state description.
         """
         return pulumi.get(self, "test_failover_state_description")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ReprotectAgentDetailsResponse(dict):
+    """
+    Reprotect agent details.
+    """
+    def __init__(__self__, *,
+                 health: str,
+                 health_errors: Sequence['outputs.HealthErrorResponse'],
+                 id: str,
+                 last_heartbeat_utc: str,
+                 name: str,
+                 version: str):
+        """
+        Reprotect agent details.
+        :param str health: The health of the reprotect agent.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors.
+        :param str id: The reprotect agent Id.
+        :param str last_heartbeat_utc: The last heartbeat received from the reprotect agent.
+        :param str name: The reprotect agent name.
+        :param str version: The version.
+        """
+        pulumi.set(__self__, "health", health)
+        pulumi.set(__self__, "health_errors", health_errors)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def health(self) -> str:
+        """
+        The health of the reprotect agent.
+        """
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter(name="healthErrors")
+    def health_errors(self) -> Sequence['outputs.HealthErrorResponse']:
+        """
+        The health errors.
+        """
+        return pulumi.get(self, "health_errors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The reprotect agent Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastHeartbeatUtc")
+    def last_heartbeat_utc(self) -> str:
+        """
+        The last heartbeat received from the reprotect agent.
+        """
+        return pulumi.get(self, "last_heartbeat_utc")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The reprotect agent name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version.
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

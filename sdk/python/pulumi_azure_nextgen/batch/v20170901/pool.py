@@ -110,7 +110,7 @@ class Pool(pulumi.CustomResource):
             __props__['provisioning_state_transition_time'] = None
             __props__['resize_operation_status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/latest:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/latest:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-nextgen:batch/v20170901:Pool',

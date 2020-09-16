@@ -14,6 +14,14 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Outputs
     public sealed class CognitiveServicesAccountApiPropertiesResponse
     {
         /// <summary>
+        /// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+        /// </summary>
+        public readonly string? AadClientId;
+        /// <summary>
+        /// (Metrics Advisor Only) The Azure AD Tenant Id.
+        /// </summary>
+        public readonly string? AadTenantId;
+        /// <summary>
         /// (Personalization Only) The flag to enable statistics of Bing Search.
         /// </summary>
         public readonly string? EventHubConnectionString;
@@ -29,21 +37,41 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Outputs
         /// (Personalization Only) The storage account connection string.
         /// </summary>
         public readonly string? StorageAccountConnectionString;
+        /// <summary>
+        /// (Metrics Advisor Only) The super user of Metrics Advisor.
+        /// </summary>
+        public readonly string? SuperUser;
+        /// <summary>
+        /// (Metrics Advisor Only) The website name of Metrics Advisor.
+        /// </summary>
+        public readonly string? WebsiteName;
 
         [OutputConstructor]
         private CognitiveServicesAccountApiPropertiesResponse(
+            string? aadClientId,
+
+            string? aadTenantId,
+
             string? eventHubConnectionString,
 
             string? qnaRuntimeEndpoint,
 
             bool? statisticsEnabled,
 
-            string? storageAccountConnectionString)
+            string? storageAccountConnectionString,
+
+            string? superUser,
+
+            string? websiteName)
         {
+            AadClientId = aadClientId;
+            AadTenantId = aadTenantId;
             EventHubConnectionString = eventHubConnectionString;
             QnaRuntimeEndpoint = qnaRuntimeEndpoint;
             StatisticsEnabled = statisticsEnabled;
             StorageAccountConnectionString = storageAccountConnectionString;
+            SuperUser = superUser;
+            WebsiteName = websiteName;
         }
     }
 }

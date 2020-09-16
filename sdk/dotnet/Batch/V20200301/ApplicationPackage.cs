@@ -96,6 +96,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:ApplicationPackage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

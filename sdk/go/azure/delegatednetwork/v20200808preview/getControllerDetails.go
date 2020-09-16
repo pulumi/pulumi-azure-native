@@ -25,16 +25,14 @@ type LookupControllerDetailsArgs struct {
 
 // Represents an instance of a DNC controller.
 type LookupControllerDetailsResult struct {
-	// Get controller AAD ID.
-	DncAppID *string `pulumi:"dncAppID"`
-	// Dnc Endpoint url.
+	// The current state of dnc controller resource.
+	DncAppId *string `pulumi:"dncAppId"`
+	// dnc endpoint url that customers can use to connect to
 	DncEndpoint *string `pulumi:"dncEndpoint"`
 	// Location of the DNC controller resource.
 	Location *string `pulumi:"location"`
 	// The name of the DNC controller resource.
 	Name string `pulumi:"name"`
-	// Gets or sets resource GUID property of the controller resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The current state of dnc controller resource.
 	State string `pulumi:"state"`
 	// The type of the DNC controller  resource.(Microsoft.DelegatedNetwork/controller)

@@ -71,6 +71,9 @@ func NewApplication(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200301:Application"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:batch/v20200901:Application"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Application

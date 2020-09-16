@@ -109,6 +109,10 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20200908preview:SqlServerInstance"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -81,6 +81,8 @@ class SqlManagedInstance(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azuredata/v20200908preview:SqlManagedInstance")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlManagedInstance, __self__).__init__(
             'azure-nextgen:azuredata/v20190724preview:SqlManagedInstance',
             resource_name,

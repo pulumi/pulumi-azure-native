@@ -79,6 +79,11 @@ namespace Pulumi.AzureNextGen.Resources.V20191001Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentScript"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentScript"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

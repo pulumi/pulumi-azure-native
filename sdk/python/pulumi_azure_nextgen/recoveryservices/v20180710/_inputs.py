@@ -39,6 +39,11 @@ __all__ = [
     'InMageDiskSignatureExclusionOptionsArgs',
     'InMageEnableProtectionInputArgs',
     'InMagePolicyInputArgs',
+    'InMageRcmDiskInputArgs',
+    'InMageRcmDisksDefaultInputArgs',
+    'InMageRcmEnableProtectionInputArgs',
+    'InMageRcmFabricCreationInputArgs',
+    'InMageRcmPolicyCreationInputArgs',
     'InMageVolumeExclusionOptionsArgs',
     'KeyEncryptionKeyInfoArgs',
     'RecoveryPlanA2AInputArgs',
@@ -628,16 +633,24 @@ class AddRecoveryServicesProviderInputPropertiesArgs:
     def __init__(__self__, *,
                  authentication_identity_input: pulumi.Input['IdentityProviderInputArgs'],
                  machine_name: pulumi.Input[str],
-                 resource_access_identity_input: pulumi.Input['IdentityProviderInputArgs']):
+                 resource_access_identity_input: pulumi.Input['IdentityProviderInputArgs'],
+                 data_plane_authentication_identity_input: Optional[pulumi.Input['IdentityProviderInputArgs']] = None,
+                 machine_id: Optional[pulumi.Input[str]] = None):
         """
         The properties of an add provider request.
         :param pulumi.Input['IdentityProviderInputArgs'] authentication_identity_input: The identity provider input for DRA authentication.
         :param pulumi.Input[str] machine_name: The name of the machine where the provider is getting added.
         :param pulumi.Input['IdentityProviderInputArgs'] resource_access_identity_input: The identity provider input for resource access.
+        :param pulumi.Input['IdentityProviderInputArgs'] data_plane_authentication_identity_input: The identity provider input for data plane authentication.
+        :param pulumi.Input[str] machine_id: The Id of the machine where the provider is getting added.
         """
         pulumi.set(__self__, "authentication_identity_input", authentication_identity_input)
         pulumi.set(__self__, "machine_name", machine_name)
         pulumi.set(__self__, "resource_access_identity_input", resource_access_identity_input)
+        if data_plane_authentication_identity_input is not None:
+            pulumi.set(__self__, "data_plane_authentication_identity_input", data_plane_authentication_identity_input)
+        if machine_id is not None:
+            pulumi.set(__self__, "machine_id", machine_id)
 
     @property
     @pulumi.getter(name="authenticationIdentityInput")
@@ -674,6 +687,30 @@ class AddRecoveryServicesProviderInputPropertiesArgs:
     @resource_access_identity_input.setter
     def resource_access_identity_input(self, value: pulumi.Input['IdentityProviderInputArgs']):
         pulumi.set(self, "resource_access_identity_input", value)
+
+    @property
+    @pulumi.getter(name="dataPlaneAuthenticationIdentityInput")
+    def data_plane_authentication_identity_input(self) -> Optional[pulumi.Input['IdentityProviderInputArgs']]:
+        """
+        The identity provider input for data plane authentication.
+        """
+        return pulumi.get(self, "data_plane_authentication_identity_input")
+
+    @data_plane_authentication_identity_input.setter
+    def data_plane_authentication_identity_input(self, value: Optional[pulumi.Input['IdentityProviderInputArgs']]):
+        pulumi.set(self, "data_plane_authentication_identity_input", value)
+
+    @property
+    @pulumi.getter(name="machineId")
+    def machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Id of the machine where the provider is getting added.
+        """
+        return pulumi.get(self, "machine_id")
+
+    @machine_id.setter
+    def machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "machine_id", value)
 
 
 @pulumi.input_type
@@ -903,24 +940,24 @@ class CreateNetworkMappingInputPropertiesArgs:
 @pulumi.input_type
 class CreatePolicyInputPropertiesArgs:
     def __init__(__self__, *,
-                 provider_specific_input: Optional[pulumi.Input[Union['A2APolicyCreationInputArgs', 'HyperVReplicaAzurePolicyInputArgs', 'HyperVReplicaBluePolicyInputArgs', 'HyperVReplicaPolicyInputArgs', 'InMageAzureV2PolicyInputArgs', 'InMagePolicyInputArgs', 'VMwareCbtPolicyCreationInputArgs']]] = None):
+                 provider_specific_input: Optional[pulumi.Input[Union['A2APolicyCreationInputArgs', 'HyperVReplicaAzurePolicyInputArgs', 'HyperVReplicaBluePolicyInputArgs', 'HyperVReplicaPolicyInputArgs', 'InMageAzureV2PolicyInputArgs', 'InMagePolicyInputArgs', 'InMageRcmPolicyCreationInputArgs', 'VMwareCbtPolicyCreationInputArgs']]] = None):
         """
         Policy creation properties.
-        :param pulumi.Input[Union['A2APolicyCreationInputArgs', 'HyperVReplicaAzurePolicyInputArgs', 'HyperVReplicaBluePolicyInputArgs', 'HyperVReplicaPolicyInputArgs', 'InMageAzureV2PolicyInputArgs', 'InMagePolicyInputArgs', 'VMwareCbtPolicyCreationInputArgs']] provider_specific_input: The ReplicationProviderSettings.
+        :param pulumi.Input[Union['A2APolicyCreationInputArgs', 'HyperVReplicaAzurePolicyInputArgs', 'HyperVReplicaBluePolicyInputArgs', 'HyperVReplicaPolicyInputArgs', 'InMageAzureV2PolicyInputArgs', 'InMagePolicyInputArgs', 'InMageRcmPolicyCreationInputArgs', 'VMwareCbtPolicyCreationInputArgs']] provider_specific_input: The ReplicationProviderSettings.
         """
         if provider_specific_input is not None:
             pulumi.set(__self__, "provider_specific_input", provider_specific_input)
 
     @property
     @pulumi.getter(name="providerSpecificInput")
-    def provider_specific_input(self) -> Optional[pulumi.Input[Union['A2APolicyCreationInputArgs', 'HyperVReplicaAzurePolicyInputArgs', 'HyperVReplicaBluePolicyInputArgs', 'HyperVReplicaPolicyInputArgs', 'InMageAzureV2PolicyInputArgs', 'InMagePolicyInputArgs', 'VMwareCbtPolicyCreationInputArgs']]]:
+    def provider_specific_input(self) -> Optional[pulumi.Input[Union['A2APolicyCreationInputArgs', 'HyperVReplicaAzurePolicyInputArgs', 'HyperVReplicaBluePolicyInputArgs', 'HyperVReplicaPolicyInputArgs', 'InMageAzureV2PolicyInputArgs', 'InMagePolicyInputArgs', 'InMageRcmPolicyCreationInputArgs', 'VMwareCbtPolicyCreationInputArgs']]]:
         """
         The ReplicationProviderSettings.
         """
         return pulumi.get(self, "provider_specific_input")
 
     @provider_specific_input.setter
-    def provider_specific_input(self, value: Optional[pulumi.Input[Union['A2APolicyCreationInputArgs', 'HyperVReplicaAzurePolicyInputArgs', 'HyperVReplicaBluePolicyInputArgs', 'HyperVReplicaPolicyInputArgs', 'InMageAzureV2PolicyInputArgs', 'InMagePolicyInputArgs', 'VMwareCbtPolicyCreationInputArgs']]]):
+    def provider_specific_input(self, value: Optional[pulumi.Input[Union['A2APolicyCreationInputArgs', 'HyperVReplicaAzurePolicyInputArgs', 'HyperVReplicaBluePolicyInputArgs', 'HyperVReplicaPolicyInputArgs', 'InMageAzureV2PolicyInputArgs', 'InMagePolicyInputArgs', 'InMageRcmPolicyCreationInputArgs', 'VMwareCbtPolicyCreationInputArgs']]]):
         pulumi.set(self, "provider_specific_input", value)
 
 
@@ -1112,8 +1149,8 @@ class DiskEncryptionKeyInfoArgs:
                  secret_identifier: Optional[pulumi.Input[str]] = None):
         """
         Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
-        :param pulumi.Input[str] key_vault_resource_arm_id: The KeyVault resource ARM id for secret.
-        :param pulumi.Input[str] secret_identifier: The secret url / identifier.
+        :param pulumi.Input[str] key_vault_resource_arm_id: The KeyVault resource ARM Id for secret.
+        :param pulumi.Input[str] secret_identifier: The secret URL / identifier.
         """
         if key_vault_resource_arm_id is not None:
             pulumi.set(__self__, "key_vault_resource_arm_id", key_vault_resource_arm_id)
@@ -1124,7 +1161,7 @@ class DiskEncryptionKeyInfoArgs:
     @pulumi.getter(name="keyVaultResourceArmId")
     def key_vault_resource_arm_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The KeyVault resource ARM id for secret.
+        The KeyVault resource ARM Id for secret.
         """
         return pulumi.get(self, "key_vault_resource_arm_id")
 
@@ -1136,7 +1173,7 @@ class DiskEncryptionKeyInfoArgs:
     @pulumi.getter(name="secretIdentifier")
     def secret_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The secret url / identifier.
+        The secret URL / identifier.
         """
         return pulumi.get(self, "secret_identifier")
 
@@ -1188,12 +1225,12 @@ class EnableProtectionInputPropertiesArgs:
     def __init__(__self__, *,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  protectable_item_id: Optional[pulumi.Input[str]] = None,
-                 provider_specific_details: Optional[pulumi.Input[Union['A2AEnableProtectionInputArgs', 'HyperVReplicaAzureEnableProtectionInputArgs', 'InMageAzureV2EnableProtectionInputArgs', 'InMageEnableProtectionInputArgs', 'SanEnableProtectionInputArgs']]] = None):
+                 provider_specific_details: Optional[pulumi.Input[Union['A2AEnableProtectionInputArgs', 'HyperVReplicaAzureEnableProtectionInputArgs', 'InMageAzureV2EnableProtectionInputArgs', 'InMageEnableProtectionInputArgs', 'InMageRcmEnableProtectionInputArgs', 'SanEnableProtectionInputArgs']]] = None):
         """
         Enable protection input properties.
         :param pulumi.Input[str] policy_id: The Policy Id.
         :param pulumi.Input[str] protectable_item_id: The protectable item Id.
-        :param pulumi.Input[Union['A2AEnableProtectionInputArgs', 'HyperVReplicaAzureEnableProtectionInputArgs', 'InMageAzureV2EnableProtectionInputArgs', 'InMageEnableProtectionInputArgs', 'SanEnableProtectionInputArgs']] provider_specific_details: The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
+        :param pulumi.Input[Union['A2AEnableProtectionInputArgs', 'HyperVReplicaAzureEnableProtectionInputArgs', 'InMageAzureV2EnableProtectionInputArgs', 'InMageEnableProtectionInputArgs', 'InMageRcmEnableProtectionInputArgs', 'SanEnableProtectionInputArgs']] provider_specific_details: The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
         """
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
@@ -1228,38 +1265,38 @@ class EnableProtectionInputPropertiesArgs:
 
     @property
     @pulumi.getter(name="providerSpecificDetails")
-    def provider_specific_details(self) -> Optional[pulumi.Input[Union['A2AEnableProtectionInputArgs', 'HyperVReplicaAzureEnableProtectionInputArgs', 'InMageAzureV2EnableProtectionInputArgs', 'InMageEnableProtectionInputArgs', 'SanEnableProtectionInputArgs']]]:
+    def provider_specific_details(self) -> Optional[pulumi.Input[Union['A2AEnableProtectionInputArgs', 'HyperVReplicaAzureEnableProtectionInputArgs', 'InMageAzureV2EnableProtectionInputArgs', 'InMageEnableProtectionInputArgs', 'InMageRcmEnableProtectionInputArgs', 'SanEnableProtectionInputArgs']]]:
         """
         The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
         """
         return pulumi.get(self, "provider_specific_details")
 
     @provider_specific_details.setter
-    def provider_specific_details(self, value: Optional[pulumi.Input[Union['A2AEnableProtectionInputArgs', 'HyperVReplicaAzureEnableProtectionInputArgs', 'InMageAzureV2EnableProtectionInputArgs', 'InMageEnableProtectionInputArgs', 'SanEnableProtectionInputArgs']]]):
+    def provider_specific_details(self, value: Optional[pulumi.Input[Union['A2AEnableProtectionInputArgs', 'HyperVReplicaAzureEnableProtectionInputArgs', 'InMageAzureV2EnableProtectionInputArgs', 'InMageEnableProtectionInputArgs', 'InMageRcmEnableProtectionInputArgs', 'SanEnableProtectionInputArgs']]]):
         pulumi.set(self, "provider_specific_details", value)
 
 
 @pulumi.input_type
 class FabricCreationInputPropertiesArgs:
     def __init__(__self__, *,
-                 custom_details: Optional[pulumi.Input[Union['AzureFabricCreationInputArgs', 'VMwareV2FabricCreationInputArgs']]] = None):
+                 custom_details: Optional[pulumi.Input[Union['AzureFabricCreationInputArgs', 'InMageRcmFabricCreationInputArgs', 'VMwareV2FabricCreationInputArgs']]] = None):
         """
         Properties of site details provided during the time of site creation
-        :param pulumi.Input[Union['AzureFabricCreationInputArgs', 'VMwareV2FabricCreationInputArgs']] custom_details: Fabric provider specific creation input.
+        :param pulumi.Input[Union['AzureFabricCreationInputArgs', 'InMageRcmFabricCreationInputArgs', 'VMwareV2FabricCreationInputArgs']] custom_details: Fabric provider specific creation input.
         """
         if custom_details is not None:
             pulumi.set(__self__, "custom_details", custom_details)
 
     @property
     @pulumi.getter(name="customDetails")
-    def custom_details(self) -> Optional[pulumi.Input[Union['AzureFabricCreationInputArgs', 'VMwareV2FabricCreationInputArgs']]]:
+    def custom_details(self) -> Optional[pulumi.Input[Union['AzureFabricCreationInputArgs', 'InMageRcmFabricCreationInputArgs', 'VMwareV2FabricCreationInputArgs']]]:
         """
         Fabric provider specific creation input.
         """
         return pulumi.get(self, "custom_details")
 
     @custom_details.setter
-    def custom_details(self, value: Optional[pulumi.Input[Union['AzureFabricCreationInputArgs', 'VMwareV2FabricCreationInputArgs']]]):
+    def custom_details(self, value: Optional[pulumi.Input[Union['AzureFabricCreationInputArgs', 'InMageRcmFabricCreationInputArgs', 'VMwareV2FabricCreationInputArgs']]]):
         pulumi.set(self, "custom_details", value)
 
 
@@ -2932,6 +2969,622 @@ class InMagePolicyInputArgs:
 
 
 @pulumi.input_type
+class InMageRcmDiskInputArgs:
+    def __init__(__self__, *,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_id: Optional[pulumi.Input[str]] = None,
+                 disk_type: Optional[pulumi.Input[str]] = None,
+                 log_storage_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        InMageRcm disk input.
+        :param pulumi.Input[str] disk_encryption_set_id: The disk encryption set ARM Id.
+        :param pulumi.Input[str] disk_id: The disk Id.
+        :param pulumi.Input[str] disk_type: The disk type.
+        :param pulumi.Input[str] log_storage_account_id: The log storage account ARM Id.
+        """
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_id is not None:
+            pulumi.set(__self__, "disk_id", disk_id)
+        if disk_type is not None:
+            pulumi.set(__self__, "disk_type", disk_type)
+        if log_storage_account_id is not None:
+            pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The disk encryption set ARM Id.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="diskId")
+    def disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The disk Id.
+        """
+        return pulumi.get(self, "disk_id")
+
+    @disk_id.setter
+    def disk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_id", value)
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The disk type.
+        """
+        return pulumi.get(self, "disk_type")
+
+    @disk_type.setter
+    def disk_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_type", value)
+
+    @property
+    @pulumi.getter(name="logStorageAccountId")
+    def log_storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The log storage account ARM Id.
+        """
+        return pulumi.get(self, "log_storage_account_id")
+
+    @log_storage_account_id.setter
+    def log_storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_storage_account_id", value)
+
+
+@pulumi.input_type
+class InMageRcmDisksDefaultInputArgs:
+    def __init__(__self__, *,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_type: Optional[pulumi.Input[str]] = None,
+                 log_storage_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        InMageRcm disk input.
+        :param pulumi.Input[str] disk_encryption_set_id: The disk encryption set ARM Id.
+        :param pulumi.Input[str] disk_type: The disk type.
+        :param pulumi.Input[str] log_storage_account_id: The log storage account ARM Id.
+        """
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_type is not None:
+            pulumi.set(__self__, "disk_type", disk_type)
+        if log_storage_account_id is not None:
+            pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The disk encryption set ARM Id.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The disk type.
+        """
+        return pulumi.get(self, "disk_type")
+
+    @disk_type.setter
+    def disk_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_type", value)
+
+    @property
+    @pulumi.getter(name="logStorageAccountId")
+    def log_storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The log storage account ARM Id.
+        """
+        return pulumi.get(self, "log_storage_account_id")
+
+    @log_storage_account_id.setter
+    def log_storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_storage_account_id", value)
+
+
+@pulumi.input_type
+class InMageRcmEnableProtectionInputArgs:
+    def __init__(__self__, *,
+                 disks_default: Optional[pulumi.Input['InMageRcmDisksDefaultInputArgs']] = None,
+                 disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]]] = None,
+                 fabric_discovery_machine_id: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 multi_vm_group_name: Optional[pulumi.Input[str]] = None,
+                 process_server_id: Optional[pulumi.Input[str]] = None,
+                 run_as_account_id: Optional[pulumi.Input[str]] = None,
+                 target_availability_set_id: Optional[pulumi.Input[str]] = None,
+                 target_availability_zone: Optional[pulumi.Input[str]] = None,
+                 target_boot_diagnostics_storage_account_id: Optional[pulumi.Input[str]] = None,
+                 target_network_id: Optional[pulumi.Input[str]] = None,
+                 target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 target_resource_group_id: Optional[pulumi.Input[str]] = None,
+                 target_subnet_name: Optional[pulumi.Input[str]] = None,
+                 target_vm_name: Optional[pulumi.Input[str]] = None,
+                 target_vm_size: Optional[pulumi.Input[str]] = None,
+                 test_network_id: Optional[pulumi.Input[str]] = None,
+                 test_subnet_name: Optional[pulumi.Input[str]] = None):
+        """
+        InMageRcm specific enable protection input.
+        :param pulumi.Input['InMageRcmDisksDefaultInputArgs'] disks_default: The default disk input.
+        :param pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]] disks_to_include: The disks to include list.
+        :param pulumi.Input[str] fabric_discovery_machine_id: The ARM Id of discovered machine.
+        :param pulumi.Input[str] instance_type: The class type.
+        :param pulumi.Input[str] license_type: The license type.
+        :param pulumi.Input[str] multi_vm_group_name: The multi VM group name.
+        :param pulumi.Input[str] process_server_id: The process server Id.
+        :param pulumi.Input[str] run_as_account_id: The run-as account Id.
+        :param pulumi.Input[str] target_availability_set_id: The target availability set ARM Id.
+        :param pulumi.Input[str] target_availability_zone: The target availability zone.
+        :param pulumi.Input[str] target_boot_diagnostics_storage_account_id: The target boot diagnostics storage account ARM Id.
+        :param pulumi.Input[str] target_network_id: The selected target network ARM Id.
+        :param pulumi.Input[str] target_proximity_placement_group_id: The target proximity placement group Id.
+        :param pulumi.Input[str] target_resource_group_id: The target resource group ARM Id.
+        :param pulumi.Input[str] target_subnet_name: The selected target subnet name.
+        :param pulumi.Input[str] target_vm_name: The target VM name.
+        :param pulumi.Input[str] target_vm_size: The target VM size.
+        :param pulumi.Input[str] test_network_id: The selected test network ARM Id.
+        :param pulumi.Input[str] test_subnet_name: The selected test subnet name.
+        """
+        if disks_default is not None:
+            pulumi.set(__self__, "disks_default", disks_default)
+        if disks_to_include is not None:
+            pulumi.set(__self__, "disks_to_include", disks_to_include)
+        if fabric_discovery_machine_id is not None:
+            pulumi.set(__self__, "fabric_discovery_machine_id", fabric_discovery_machine_id)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", 'InMageRcm')
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+        if multi_vm_group_name is not None:
+            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+        if process_server_id is not None:
+            pulumi.set(__self__, "process_server_id", process_server_id)
+        if run_as_account_id is not None:
+            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+        if target_availability_set_id is not None:
+            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+        if target_availability_zone is not None:
+            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+        if target_boot_diagnostics_storage_account_id is not None:
+            pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+        if target_network_id is not None:
+            pulumi.set(__self__, "target_network_id", target_network_id)
+        if target_proximity_placement_group_id is not None:
+            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+        if target_resource_group_id is not None:
+            pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        if target_subnet_name is not None:
+            pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+        if target_vm_name is not None:
+            pulumi.set(__self__, "target_vm_name", target_vm_name)
+        if target_vm_size is not None:
+            pulumi.set(__self__, "target_vm_size", target_vm_size)
+        if test_network_id is not None:
+            pulumi.set(__self__, "test_network_id", test_network_id)
+        if test_subnet_name is not None:
+            pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+
+    @property
+    @pulumi.getter(name="disksDefault")
+    def disks_default(self) -> Optional[pulumi.Input['InMageRcmDisksDefaultInputArgs']]:
+        """
+        The default disk input.
+        """
+        return pulumi.get(self, "disks_default")
+
+    @disks_default.setter
+    def disks_default(self, value: Optional[pulumi.Input['InMageRcmDisksDefaultInputArgs']]):
+        pulumi.set(self, "disks_default", value)
+
+    @property
+    @pulumi.getter(name="disksToInclude")
+    def disks_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]]]:
+        """
+        The disks to include list.
+        """
+        return pulumi.get(self, "disks_to_include")
+
+    @disks_to_include.setter
+    def disks_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]]]):
+        pulumi.set(self, "disks_to_include", value)
+
+    @property
+    @pulumi.getter(name="fabricDiscoveryMachineId")
+    def fabric_discovery_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM Id of discovered machine.
+        """
+        return pulumi.get(self, "fabric_discovery_machine_id")
+
+    @fabric_discovery_machine_id.setter
+    def fabric_discovery_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fabric_discovery_machine_id", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The class type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The license type.
+        """
+        return pulumi.get(self, "license_type")
+
+    @license_type.setter
+    def license_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license_type", value)
+
+    @property
+    @pulumi.getter(name="multiVmGroupName")
+    def multi_vm_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The multi VM group name.
+        """
+        return pulumi.get(self, "multi_vm_group_name")
+
+    @multi_vm_group_name.setter
+    def multi_vm_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multi_vm_group_name", value)
+
+    @property
+    @pulumi.getter(name="processServerId")
+    def process_server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The process server Id.
+        """
+        return pulumi.get(self, "process_server_id")
+
+    @process_server_id.setter
+    def process_server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "process_server_id", value)
+
+    @property
+    @pulumi.getter(name="runAsAccountId")
+    def run_as_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The run-as account Id.
+        """
+        return pulumi.get(self, "run_as_account_id")
+
+    @run_as_account_id.setter
+    def run_as_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_account_id", value)
+
+    @property
+    @pulumi.getter(name="targetAvailabilitySetId")
+    def target_availability_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target availability set ARM Id.
+        """
+        return pulumi.get(self, "target_availability_set_id")
+
+    @target_availability_set_id.setter
+    def target_availability_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_availability_set_id", value)
+
+    @property
+    @pulumi.getter(name="targetAvailabilityZone")
+    def target_availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target availability zone.
+        """
+        return pulumi.get(self, "target_availability_zone")
+
+    @target_availability_zone.setter
+    def target_availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_availability_zone", value)
+
+    @property
+    @pulumi.getter(name="targetBootDiagnosticsStorageAccountId")
+    def target_boot_diagnostics_storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target boot diagnostics storage account ARM Id.
+        """
+        return pulumi.get(self, "target_boot_diagnostics_storage_account_id")
+
+    @target_boot_diagnostics_storage_account_id.setter
+    def target_boot_diagnostics_storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_boot_diagnostics_storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="targetNetworkId")
+    def target_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The selected target network ARM Id.
+        """
+        return pulumi.get(self, "target_network_id")
+
+    @target_network_id.setter
+    def target_network_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_network_id", value)
+
+    @property
+    @pulumi.getter(name="targetProximityPlacementGroupId")
+    def target_proximity_placement_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target proximity placement group Id.
+        """
+        return pulumi.get(self, "target_proximity_placement_group_id")
+
+    @target_proximity_placement_group_id.setter
+    def target_proximity_placement_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_proximity_placement_group_id", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupId")
+    def target_resource_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target resource group ARM Id.
+        """
+        return pulumi.get(self, "target_resource_group_id")
+
+    @target_resource_group_id.setter
+    def target_resource_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_id", value)
+
+    @property
+    @pulumi.getter(name="targetSubnetName")
+    def target_subnet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The selected target subnet name.
+        """
+        return pulumi.get(self, "target_subnet_name")
+
+    @target_subnet_name.setter
+    def target_subnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_subnet_name", value)
+
+    @property
+    @pulumi.getter(name="targetVmName")
+    def target_vm_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target VM name.
+        """
+        return pulumi.get(self, "target_vm_name")
+
+    @target_vm_name.setter
+    def target_vm_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_vm_name", value)
+
+    @property
+    @pulumi.getter(name="targetVmSize")
+    def target_vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target VM size.
+        """
+        return pulumi.get(self, "target_vm_size")
+
+    @target_vm_size.setter
+    def target_vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_vm_size", value)
+
+    @property
+    @pulumi.getter(name="testNetworkId")
+    def test_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The selected test network ARM Id.
+        """
+        return pulumi.get(self, "test_network_id")
+
+    @test_network_id.setter
+    def test_network_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "test_network_id", value)
+
+    @property
+    @pulumi.getter(name="testSubnetName")
+    def test_subnet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The selected test subnet name.
+        """
+        return pulumi.get(self, "test_subnet_name")
+
+    @test_subnet_name.setter
+    def test_subnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "test_subnet_name", value)
+
+
+@pulumi.input_type
+class InMageRcmFabricCreationInputArgs:
+    def __init__(__self__, *,
+                 auth_certificate: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 physical_site_id: Optional[pulumi.Input[str]] = None,
+                 source_agent_identity: Optional[pulumi.Input['IdentityProviderInputArgs']] = None,
+                 vmware_site_id: Optional[pulumi.Input[str]] = None):
+        """
+        InMageRcm fabric provider specific settings.
+        :param pulumi.Input[str] auth_certificate: The certificate to be used for AAD authentication.
+        :param pulumi.Input[str] instance_type: Gets the class type.
+        :param pulumi.Input[str] physical_site_id: The ARM Id of the physical site.
+        :param pulumi.Input['IdentityProviderInputArgs'] source_agent_identity: The identity provider input for source agent authentication.
+        :param pulumi.Input[str] vmware_site_id: The ARM Id of the VMware site.
+        """
+        if auth_certificate is not None:
+            pulumi.set(__self__, "auth_certificate", auth_certificate)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", 'InMageRcm')
+        if physical_site_id is not None:
+            pulumi.set(__self__, "physical_site_id", physical_site_id)
+        if source_agent_identity is not None:
+            pulumi.set(__self__, "source_agent_identity", source_agent_identity)
+        if vmware_site_id is not None:
+            pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+
+    @property
+    @pulumi.getter(name="authCertificate")
+    def auth_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate to be used for AAD authentication.
+        """
+        return pulumi.get(self, "auth_certificate")
+
+    @auth_certificate.setter
+    def auth_certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_certificate", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets the class type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="physicalSiteId")
+    def physical_site_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM Id of the physical site.
+        """
+        return pulumi.get(self, "physical_site_id")
+
+    @physical_site_id.setter
+    def physical_site_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "physical_site_id", value)
+
+    @property
+    @pulumi.getter(name="sourceAgentIdentity")
+    def source_agent_identity(self) -> Optional[pulumi.Input['IdentityProviderInputArgs']]:
+        """
+        The identity provider input for source agent authentication.
+        """
+        return pulumi.get(self, "source_agent_identity")
+
+    @source_agent_identity.setter
+    def source_agent_identity(self, value: Optional[pulumi.Input['IdentityProviderInputArgs']]):
+        pulumi.set(self, "source_agent_identity", value)
+
+    @property
+    @pulumi.getter(name="vmwareSiteId")
+    def vmware_site_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM Id of the VMware site.
+        """
+        return pulumi.get(self, "vmware_site_id")
+
+    @vmware_site_id.setter
+    def vmware_site_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vmware_site_id", value)
+
+
+@pulumi.input_type
+class InMageRcmPolicyCreationInputArgs:
+    def __init__(__self__, *,
+                 app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+                 crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+                 enable_multi_vm_sync: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 recovery_point_history_in_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        InMageRcm policy creation input.
+        :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
+        :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
+        :param pulumi.Input[str] enable_multi_vm_sync: A value indicating whether multi-VM sync has to be enabled.
+        :param pulumi.Input[str] instance_type: The class type.
+        :param pulumi.Input[int] recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
+        """
+        if app_consistent_frequency_in_minutes is not None:
+            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+        if crash_consistent_frequency_in_minutes is not None:
+            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+        if enable_multi_vm_sync is not None:
+            pulumi.set(__self__, "enable_multi_vm_sync", enable_multi_vm_sync)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", 'InMageRcm')
+        if recovery_point_history_in_minutes is not None:
+            pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+
+    @property
+    @pulumi.getter(name="appConsistentFrequencyInMinutes")
+    def app_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The app consistent snapshot frequency (in minutes).
+        """
+        return pulumi.get(self, "app_consistent_frequency_in_minutes")
+
+    @app_consistent_frequency_in_minutes.setter
+    def app_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "app_consistent_frequency_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="crashConsistentFrequencyInMinutes")
+    def crash_consistent_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The crash consistent snapshot frequency (in minutes).
+        """
+        return pulumi.get(self, "crash_consistent_frequency_in_minutes")
+
+    @crash_consistent_frequency_in_minutes.setter
+    def crash_consistent_frequency_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "crash_consistent_frequency_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="enableMultiVmSync")
+    def enable_multi_vm_sync(self) -> Optional[pulumi.Input[str]]:
+        """
+        A value indicating whether multi-VM sync has to be enabled.
+        """
+        return pulumi.get(self, "enable_multi_vm_sync")
+
+    @enable_multi_vm_sync.setter
+    def enable_multi_vm_sync(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enable_multi_vm_sync", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The class type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="recoveryPointHistoryInMinutes")
+    def recovery_point_history_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration in minutes until which the recovery points need to be stored.
+        """
+        return pulumi.get(self, "recovery_point_history_in_minutes")
+
+    @recovery_point_history_in_minutes.setter
+    def recovery_point_history_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recovery_point_history_in_minutes", value)
+
+
+@pulumi.input_type
 class InMageVolumeExclusionOptionsArgs:
     def __init__(__self__, *,
                  only_exclude_if_single_volume: Optional[pulumi.Input[str]] = None,
@@ -2978,8 +3631,8 @@ class KeyEncryptionKeyInfoArgs:
                  key_vault_resource_arm_id: Optional[pulumi.Input[str]] = None):
         """
         Key Encryption Key (KEK) information.
-        :param pulumi.Input[str] key_identifier: The key url / identifier.
-        :param pulumi.Input[str] key_vault_resource_arm_id: The KeyVault resource ARM id for key.
+        :param pulumi.Input[str] key_identifier: The key URL / identifier.
+        :param pulumi.Input[str] key_vault_resource_arm_id: The KeyVault resource ARM Id for key.
         """
         if key_identifier is not None:
             pulumi.set(__self__, "key_identifier", key_identifier)
@@ -2990,7 +3643,7 @@ class KeyEncryptionKeyInfoArgs:
     @pulumi.getter(name="keyIdentifier")
     def key_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The key url / identifier.
+        The key URL / identifier.
         """
         return pulumi.get(self, "key_identifier")
 
@@ -3002,7 +3655,7 @@ class KeyEncryptionKeyInfoArgs:
     @pulumi.getter(name="keyVaultResourceArmId")
     def key_vault_resource_arm_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The KeyVault resource ARM id for key.
+        The KeyVault resource ARM Id for key.
         """
         return pulumi.get(self, "key_vault_resource_arm_id")
 

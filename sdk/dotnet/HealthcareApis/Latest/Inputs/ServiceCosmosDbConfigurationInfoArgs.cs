@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Inputs
     public sealed class ServiceCosmosDbConfigurationInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The URI of the customer-managed key for the backing database.
+        /// </summary>
+        [Input("keyVaultKeyUri")]
+        public Input<string>? KeyVaultKeyUri { get; set; }
+
+        /// <summary>
         /// The provisioned throughput for the backing database.
         /// </summary>
         [Input("offerThroughput")]

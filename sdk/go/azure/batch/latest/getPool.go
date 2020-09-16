@@ -50,8 +50,6 @@ type LookupPoolResult struct {
 	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
 	// This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
 	LastModified string `pulumi:"lastModified"`
-	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-	MaxTasksPerNode *int `pulumi:"maxTasksPerNode"`
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
 	Metadata []MetadataItemResponse `pulumi:"metadata"`
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
@@ -70,6 +68,8 @@ type LookupPoolResult struct {
 	StartTask *StartTaskResponse `pulumi:"startTask"`
 	// If not specified, the default is spread.
 	TaskSchedulingPolicy *TaskSchedulingPolicyResponse `pulumi:"taskSchedulingPolicy"`
+	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+	TaskSlotsPerNode *int `pulumi:"taskSlotsPerNode"`
 	// The type of the resource.
 	Type         string                `pulumi:"type"`
 	UserAccounts []UserAccountResponse `pulumi:"userAccounts"`

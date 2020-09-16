@@ -64,13 +64,18 @@ func main() {
 			docsProviders := openapi.SingleVersion(azureProviders)
 			var docsPkgSpec *schema.PackageSpec
 			var resExamples map[string][]provider.AzureAPIExample
-			docsPkgSpec, _, resExamples, err = gen.PulumiSchema(docsProviders)
+			var docsMeta *provider.AzureAPIMetadata
+			docsPkgSpec, docsMeta, resExamples, err = gen.PulumiSchema(docsProviders)
 			if err != nil {
 				break
 			}
-			err = gen.Examples(docsPkgSpec, meta, resExamples, []string{"nodejs", "dotnet", "python", "go"})
+			err = gen.Examples(docsPkgSpec, docsMeta, resExamples, []string{"nodejs", "dotnet", "python", "go"})
 			if err != nil {
 				break
+			}
+			// This module format switches off version breakdown in the docs.
+			docsPkgSpec.Meta = &schema.MetadataSpec{
+				ModuleFormat: "(.*)(?:/[^/]*)",
 			}
 			err = emitDocsSchema(docsPkgSpec, version, outdir)
 		default:

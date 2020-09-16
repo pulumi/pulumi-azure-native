@@ -33,6 +33,8 @@ type LookupDelegatedSubnetServiceDetailsResult struct {
 	Location *string `pulumi:"location"`
 	// The name of the DelegatedSubnet resource.
 	Name string `pulumi:"name"`
+	// Guid for the resource(delegatedSubnet) created
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The current state of delegated subnet resource.
 	State string `pulumi:"state"`
 	// The type of the DelegatedSubnet  resource.(Microsoft.DelegatedNetwork/delegatedSubnet)

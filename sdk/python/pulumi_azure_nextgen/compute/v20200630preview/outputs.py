@@ -45,7 +45,7 @@ class ConfigurationProfileAssignmentPropertiesResponse(dict):
     Automanage configuration profile assignment properties.
     """
     def __init__(__self__, *,
-                 provisioning_status: str,
+                 provisioning_state: str,
                  account_id: Optional[str] = None,
                  compliance: Optional['outputs.ConfigurationProfileAssignmentComplianceResponse'] = None,
                  configuration_profile: Optional[str] = None,
@@ -53,14 +53,14 @@ class ConfigurationProfileAssignmentPropertiesResponse(dict):
                  target_id: Optional[str] = None):
         """
         Automanage configuration profile assignment properties.
-        :param str provisioning_status: The state of onboarding, which only appears in the response.
+        :param str provisioning_state: The state of onboarding, which only appears in the response.
         :param str account_id: The Automanage account ARM Resource URI
         :param 'ConfigurationProfileAssignmentComplianceResponseArgs' compliance: The configuration setting for the configuration profile.
         :param str configuration_profile: A value indicating configuration profile.
         :param str configuration_profile_preference_id: The configuration profile custom preferences ARM resource URI
         :param str target_id: The target VM resource URI
         """
-        pulumi.set(__self__, "provisioning_status", provisioning_status)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if compliance is not None:
@@ -73,12 +73,12 @@ class ConfigurationProfileAssignmentPropertiesResponse(dict):
             pulumi.set(__self__, "target_id", target_id)
 
     @property
-    @pulumi.getter(name="provisioningStatus")
-    def provisioning_status(self) -> str:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The state of onboarding, which only appears in the response.
         """
-        return pulumi.get(self, "provisioning_status")
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="accountId")
