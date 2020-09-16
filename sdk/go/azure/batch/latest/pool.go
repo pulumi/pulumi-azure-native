@@ -37,8 +37,6 @@ type Pool struct {
 	InterNodeCommunication pulumi.StringPtrOutput `pulumi:"interNodeCommunication"`
 	// This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-	MaxTasksPerNode pulumi.IntPtrOutput `pulumi:"maxTasksPerNode"`
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
 	Metadata MetadataItemResponseArrayOutput `pulumi:"metadata"`
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
@@ -57,6 +55,8 @@ type Pool struct {
 	StartTask StartTaskResponsePtrOutput `pulumi:"startTask"`
 	// If not specified, the default is spread.
 	TaskSchedulingPolicy TaskSchedulingPolicyResponsePtrOutput `pulumi:"taskSchedulingPolicy"`
+	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+	TaskSlotsPerNode pulumi.IntPtrOutput `pulumi:"taskSlotsPerNode"`
 	// The type of the resource.
 	Type         pulumi.StringOutput            `pulumi:"type"`
 	UserAccounts UserAccountResponseArrayOutput `pulumi:"userAccounts"`
@@ -97,6 +97,9 @@ func NewPool(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200501:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:batch/v20200901:Pool"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -145,8 +148,6 @@ type poolState struct {
 	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
 	// This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
 	LastModified *string `pulumi:"lastModified"`
-	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-	MaxTasksPerNode *int `pulumi:"maxTasksPerNode"`
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
 	Metadata []MetadataItemResponse `pulumi:"metadata"`
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
@@ -165,6 +166,8 @@ type poolState struct {
 	StartTask *StartTaskResponse `pulumi:"startTask"`
 	// If not specified, the default is spread.
 	TaskSchedulingPolicy *TaskSchedulingPolicyResponse `pulumi:"taskSchedulingPolicy"`
+	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+	TaskSlotsPerNode *int `pulumi:"taskSlotsPerNode"`
 	// The type of the resource.
 	Type         *string               `pulumi:"type"`
 	UserAccounts []UserAccountResponse `pulumi:"userAccounts"`
@@ -196,8 +199,6 @@ type PoolState struct {
 	InterNodeCommunication pulumi.StringPtrInput
 	// This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
 	LastModified pulumi.StringPtrInput
-	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-	MaxTasksPerNode pulumi.IntPtrInput
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
 	Metadata MetadataItemResponseArrayInput
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
@@ -216,6 +217,8 @@ type PoolState struct {
 	StartTask StartTaskResponsePtrInput
 	// If not specified, the default is spread.
 	TaskSchedulingPolicy TaskSchedulingPolicyResponsePtrInput
+	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+	TaskSlotsPerNode pulumi.IntPtrInput
 	// The type of the resource.
 	Type         pulumi.StringPtrInput
 	UserAccounts UserAccountResponseArrayInput
@@ -242,8 +245,6 @@ type poolArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
 	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
-	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-	MaxTasksPerNode *int `pulumi:"maxTasksPerNode"`
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
 	Metadata []MetadataItem `pulumi:"metadata"`
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
@@ -260,7 +261,9 @@ type poolArgs struct {
 	StartTask *StartTask `pulumi:"startTask"`
 	// If not specified, the default is spread.
 	TaskSchedulingPolicy *TaskSchedulingPolicy `pulumi:"taskSchedulingPolicy"`
-	UserAccounts         []UserAccount         `pulumi:"userAccounts"`
+	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+	TaskSlotsPerNode *int          `pulumi:"taskSlotsPerNode"`
+	UserAccounts     []UserAccount `pulumi:"userAccounts"`
 	// For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
 	VmSize *string `pulumi:"vmSize"`
 }
@@ -281,8 +284,6 @@ type PoolArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
 	InterNodeCommunication pulumi.StringPtrInput
-	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-	MaxTasksPerNode pulumi.IntPtrInput
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
 	Metadata MetadataItemArrayInput
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
@@ -299,7 +300,9 @@ type PoolArgs struct {
 	StartTask StartTaskPtrInput
 	// If not specified, the default is spread.
 	TaskSchedulingPolicy TaskSchedulingPolicyPtrInput
-	UserAccounts         UserAccountArrayInput
+	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+	TaskSlotsPerNode pulumi.IntPtrInput
+	UserAccounts     UserAccountArrayInput
 	// For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
 	VmSize pulumi.StringPtrInput
 }

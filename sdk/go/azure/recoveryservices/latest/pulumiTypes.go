@@ -1957,6 +1957,10 @@ func (o A2AVmManagedDiskInputDetailsArrayOutput) Index(i pulumi.IntInput) A2AVmM
 type AddRecoveryServicesProviderInputProperties struct {
 	// The identity provider input for DRA authentication.
 	AuthenticationIdentityInput IdentityProviderInput `pulumi:"authenticationIdentityInput"`
+	// The identity provider input for data plane authentication.
+	DataPlaneAuthenticationIdentityInput *IdentityProviderInput `pulumi:"dataPlaneAuthenticationIdentityInput"`
+	// The Id of the machine where the provider is getting added.
+	MachineId *string `pulumi:"machineId"`
 	// The name of the machine where the provider is getting added.
 	MachineName string `pulumi:"machineName"`
 	// The identity provider input for resource access.
@@ -1978,6 +1982,10 @@ type AddRecoveryServicesProviderInputPropertiesInput interface {
 type AddRecoveryServicesProviderInputPropertiesArgs struct {
 	// The identity provider input for DRA authentication.
 	AuthenticationIdentityInput IdentityProviderInputInput `pulumi:"authenticationIdentityInput"`
+	// The identity provider input for data plane authentication.
+	DataPlaneAuthenticationIdentityInput IdentityProviderInputPtrInput `pulumi:"dataPlaneAuthenticationIdentityInput"`
+	// The Id of the machine where the provider is getting added.
+	MachineId pulumi.StringPtrInput `pulumi:"machineId"`
 	// The name of the machine where the provider is getting added.
 	MachineName pulumi.StringInput `pulumi:"machineName"`
 	// The identity provider input for resource access.
@@ -2069,6 +2077,18 @@ func (o AddRecoveryServicesProviderInputPropertiesOutput) AuthenticationIdentity
 	}).(IdentityProviderInputOutput)
 }
 
+// The identity provider input for data plane authentication.
+func (o AddRecoveryServicesProviderInputPropertiesOutput) DataPlaneAuthenticationIdentityInput() IdentityProviderInputPtrOutput {
+	return o.ApplyT(func(v AddRecoveryServicesProviderInputProperties) *IdentityProviderInput {
+		return v.DataPlaneAuthenticationIdentityInput
+	}).(IdentityProviderInputPtrOutput)
+}
+
+// The Id of the machine where the provider is getting added.
+func (o AddRecoveryServicesProviderInputPropertiesOutput) MachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddRecoveryServicesProviderInputProperties) *string { return v.MachineId }).(pulumi.StringPtrOutput)
+}
+
 // The name of the machine where the provider is getting added.
 func (o AddRecoveryServicesProviderInputPropertiesOutput) MachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v AddRecoveryServicesProviderInputProperties) string { return v.MachineName }).(pulumi.StringOutput)
@@ -2109,6 +2129,26 @@ func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) AuthenticationIdent
 		}
 		return &v.AuthenticationIdentityInput
 	}).(IdentityProviderInputPtrOutput)
+}
+
+// The identity provider input for data plane authentication.
+func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) DataPlaneAuthenticationIdentityInput() IdentityProviderInputPtrOutput {
+	return o.ApplyT(func(v *AddRecoveryServicesProviderInputProperties) *IdentityProviderInput {
+		if v == nil {
+			return nil
+		}
+		return v.DataPlaneAuthenticationIdentityInput
+	}).(IdentityProviderInputPtrOutput)
+}
+
+// The Id of the machine where the provider is getting added.
+func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) MachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AddRecoveryServicesProviderInputProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MachineId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the machine where the provider is getting added.
@@ -2339,6 +2379,278 @@ func (o AddVCenterRequestPropertiesPtrOutput) RunAsAccountId() pulumi.StringPtrO
 		}
 		return v.RunAsAccountId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Agent details.
+type AgentDetailsResponse struct {
+	// The Id of the agent running on the server.
+	AgentId string `pulumi:"agentId"`
+	// The machine BIOS Id.
+	BiosId string `pulumi:"biosId"`
+	// The details of agent disks.
+	Disks []AgentDiskDetailsResponse `pulumi:"disks"`
+	// The machine FQDN.
+	Fqdn string `pulumi:"fqdn"`
+	// The Id of the machine to which the agent is registered.
+	MachineId string `pulumi:"machineId"`
+}
+
+// AgentDetailsResponseInput is an input type that accepts AgentDetailsResponseArgs and AgentDetailsResponseOutput values.
+// You can construct a concrete instance of `AgentDetailsResponseInput` via:
+//
+//          AgentDetailsResponseArgs{...}
+type AgentDetailsResponseInput interface {
+	pulumi.Input
+
+	ToAgentDetailsResponseOutput() AgentDetailsResponseOutput
+	ToAgentDetailsResponseOutputWithContext(context.Context) AgentDetailsResponseOutput
+}
+
+// Agent details.
+type AgentDetailsResponseArgs struct {
+	// The Id of the agent running on the server.
+	AgentId pulumi.StringInput `pulumi:"agentId"`
+	// The machine BIOS Id.
+	BiosId pulumi.StringInput `pulumi:"biosId"`
+	// The details of agent disks.
+	Disks AgentDiskDetailsResponseArrayInput `pulumi:"disks"`
+	// The machine FQDN.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// The Id of the machine to which the agent is registered.
+	MachineId pulumi.StringInput `pulumi:"machineId"`
+}
+
+func (AgentDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDetailsResponse)(nil)).Elem()
+}
+
+func (i AgentDetailsResponseArgs) ToAgentDetailsResponseOutput() AgentDetailsResponseOutput {
+	return i.ToAgentDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i AgentDetailsResponseArgs) ToAgentDetailsResponseOutputWithContext(ctx context.Context) AgentDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDetailsResponseOutput)
+}
+
+// AgentDetailsResponseArrayInput is an input type that accepts AgentDetailsResponseArray and AgentDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `AgentDetailsResponseArrayInput` via:
+//
+//          AgentDetailsResponseArray{ AgentDetailsResponseArgs{...} }
+type AgentDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToAgentDetailsResponseArrayOutput() AgentDetailsResponseArrayOutput
+	ToAgentDetailsResponseArrayOutputWithContext(context.Context) AgentDetailsResponseArrayOutput
+}
+
+type AgentDetailsResponseArray []AgentDetailsResponseInput
+
+func (AgentDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDetailsResponse)(nil)).Elem()
+}
+
+func (i AgentDetailsResponseArray) ToAgentDetailsResponseArrayOutput() AgentDetailsResponseArrayOutput {
+	return i.ToAgentDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AgentDetailsResponseArray) ToAgentDetailsResponseArrayOutputWithContext(ctx context.Context) AgentDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDetailsResponseArrayOutput)
+}
+
+// Agent details.
+type AgentDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (AgentDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDetailsResponse)(nil)).Elem()
+}
+
+func (o AgentDetailsResponseOutput) ToAgentDetailsResponseOutput() AgentDetailsResponseOutput {
+	return o
+}
+
+func (o AgentDetailsResponseOutput) ToAgentDetailsResponseOutputWithContext(ctx context.Context) AgentDetailsResponseOutput {
+	return o
+}
+
+// The Id of the agent running on the server.
+func (o AgentDetailsResponseOutput) AgentId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDetailsResponse) string { return v.AgentId }).(pulumi.StringOutput)
+}
+
+// The machine BIOS Id.
+func (o AgentDetailsResponseOutput) BiosId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDetailsResponse) string { return v.BiosId }).(pulumi.StringOutput)
+}
+
+// The details of agent disks.
+func (o AgentDetailsResponseOutput) Disks() AgentDiskDetailsResponseArrayOutput {
+	return o.ApplyT(func(v AgentDetailsResponse) []AgentDiskDetailsResponse { return v.Disks }).(AgentDiskDetailsResponseArrayOutput)
+}
+
+// The machine FQDN.
+func (o AgentDetailsResponseOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDetailsResponse) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The Id of the machine to which the agent is registered.
+func (o AgentDetailsResponseOutput) MachineId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDetailsResponse) string { return v.MachineId }).(pulumi.StringOutput)
+}
+
+type AgentDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDetailsResponse)(nil)).Elem()
+}
+
+func (o AgentDetailsResponseArrayOutput) ToAgentDetailsResponseArrayOutput() AgentDetailsResponseArrayOutput {
+	return o
+}
+
+func (o AgentDetailsResponseArrayOutput) ToAgentDetailsResponseArrayOutputWithContext(ctx context.Context) AgentDetailsResponseArrayOutput {
+	return o
+}
+
+func (o AgentDetailsResponseArrayOutput) Index(i pulumi.IntInput) AgentDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentDetailsResponse {
+		return vs[0].([]AgentDetailsResponse)[vs[1].(int)]
+	}).(AgentDetailsResponseOutput)
+}
+
+// Agent disk details.
+type AgentDiskDetailsResponse struct {
+	// The disk capacity in bytes.
+	CapacityInBytes int `pulumi:"capacityInBytes"`
+	// The disk Id.
+	DiskId string `pulumi:"diskId"`
+	// The disk name.
+	DiskName string `pulumi:"diskName"`
+	// A value indicating whether the disk is the OS disk.
+	IsOSDisk string `pulumi:"isOSDisk"`
+	// The lun of disk.
+	LunId int `pulumi:"lunId"`
+}
+
+// AgentDiskDetailsResponseInput is an input type that accepts AgentDiskDetailsResponseArgs and AgentDiskDetailsResponseOutput values.
+// You can construct a concrete instance of `AgentDiskDetailsResponseInput` via:
+//
+//          AgentDiskDetailsResponseArgs{...}
+type AgentDiskDetailsResponseInput interface {
+	pulumi.Input
+
+	ToAgentDiskDetailsResponseOutput() AgentDiskDetailsResponseOutput
+	ToAgentDiskDetailsResponseOutputWithContext(context.Context) AgentDiskDetailsResponseOutput
+}
+
+// Agent disk details.
+type AgentDiskDetailsResponseArgs struct {
+	// The disk capacity in bytes.
+	CapacityInBytes pulumi.IntInput `pulumi:"capacityInBytes"`
+	// The disk Id.
+	DiskId pulumi.StringInput `pulumi:"diskId"`
+	// The disk name.
+	DiskName pulumi.StringInput `pulumi:"diskName"`
+	// A value indicating whether the disk is the OS disk.
+	IsOSDisk pulumi.StringInput `pulumi:"isOSDisk"`
+	// The lun of disk.
+	LunId pulumi.IntInput `pulumi:"lunId"`
+}
+
+func (AgentDiskDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDiskDetailsResponse)(nil)).Elem()
+}
+
+func (i AgentDiskDetailsResponseArgs) ToAgentDiskDetailsResponseOutput() AgentDiskDetailsResponseOutput {
+	return i.ToAgentDiskDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i AgentDiskDetailsResponseArgs) ToAgentDiskDetailsResponseOutputWithContext(ctx context.Context) AgentDiskDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDiskDetailsResponseOutput)
+}
+
+// AgentDiskDetailsResponseArrayInput is an input type that accepts AgentDiskDetailsResponseArray and AgentDiskDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `AgentDiskDetailsResponseArrayInput` via:
+//
+//          AgentDiskDetailsResponseArray{ AgentDiskDetailsResponseArgs{...} }
+type AgentDiskDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToAgentDiskDetailsResponseArrayOutput() AgentDiskDetailsResponseArrayOutput
+	ToAgentDiskDetailsResponseArrayOutputWithContext(context.Context) AgentDiskDetailsResponseArrayOutput
+}
+
+type AgentDiskDetailsResponseArray []AgentDiskDetailsResponseInput
+
+func (AgentDiskDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDiskDetailsResponse)(nil)).Elem()
+}
+
+func (i AgentDiskDetailsResponseArray) ToAgentDiskDetailsResponseArrayOutput() AgentDiskDetailsResponseArrayOutput {
+	return i.ToAgentDiskDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AgentDiskDetailsResponseArray) ToAgentDiskDetailsResponseArrayOutputWithContext(ctx context.Context) AgentDiskDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDiskDetailsResponseArrayOutput)
+}
+
+// Agent disk details.
+type AgentDiskDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (AgentDiskDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDiskDetailsResponse)(nil)).Elem()
+}
+
+func (o AgentDiskDetailsResponseOutput) ToAgentDiskDetailsResponseOutput() AgentDiskDetailsResponseOutput {
+	return o
+}
+
+func (o AgentDiskDetailsResponseOutput) ToAgentDiskDetailsResponseOutputWithContext(ctx context.Context) AgentDiskDetailsResponseOutput {
+	return o
+}
+
+// The disk capacity in bytes.
+func (o AgentDiskDetailsResponseOutput) CapacityInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentDiskDetailsResponse) int { return v.CapacityInBytes }).(pulumi.IntOutput)
+}
+
+// The disk Id.
+func (o AgentDiskDetailsResponseOutput) DiskId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDiskDetailsResponse) string { return v.DiskId }).(pulumi.StringOutput)
+}
+
+// The disk name.
+func (o AgentDiskDetailsResponseOutput) DiskName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDiskDetailsResponse) string { return v.DiskName }).(pulumi.StringOutput)
+}
+
+// A value indicating whether the disk is the OS disk.
+func (o AgentDiskDetailsResponseOutput) IsOSDisk() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDiskDetailsResponse) string { return v.IsOSDisk }).(pulumi.StringOutput)
+}
+
+// The lun of disk.
+func (o AgentDiskDetailsResponseOutput) LunId() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentDiskDetailsResponse) int { return v.LunId }).(pulumi.IntOutput)
+}
+
+type AgentDiskDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentDiskDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDiskDetailsResponse)(nil)).Elem()
+}
+
+func (o AgentDiskDetailsResponseArrayOutput) ToAgentDiskDetailsResponseArrayOutput() AgentDiskDetailsResponseArrayOutput {
+	return o
+}
+
+func (o AgentDiskDetailsResponseArrayOutput) ToAgentDiskDetailsResponseArrayOutputWithContext(ctx context.Context) AgentDiskDetailsResponseArrayOutput {
+	return o
+}
+
+func (o AgentDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) AgentDiskDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentDiskDetailsResponse {
+		return vs[0].([]AgentDiskDetailsResponse)[vs[1].(int)]
+	}).(AgentDiskDetailsResponseOutput)
 }
 
 // Fabric provider specific settings.
@@ -12391,9 +12703,9 @@ func (o DiskEncryptionInfoPtrOutput) KeyEncryptionKeyInfo() KeyEncryptionKeyInfo
 
 // Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
 type DiskEncryptionKeyInfo struct {
-	// The KeyVault resource ARM id for secret.
+	// The KeyVault resource ARM Id for secret.
 	KeyVaultResourceArmId *string `pulumi:"keyVaultResourceArmId"`
-	// The secret url / identifier.
+	// The secret URL / identifier.
 	SecretIdentifier *string `pulumi:"secretIdentifier"`
 }
 
@@ -12410,9 +12722,9 @@ type DiskEncryptionKeyInfoInput interface {
 
 // Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
 type DiskEncryptionKeyInfoArgs struct {
-	// The KeyVault resource ARM id for secret.
+	// The KeyVault resource ARM Id for secret.
 	KeyVaultResourceArmId pulumi.StringPtrInput `pulumi:"keyVaultResourceArmId"`
-	// The secret url / identifier.
+	// The secret URL / identifier.
 	SecretIdentifier pulumi.StringPtrInput `pulumi:"secretIdentifier"`
 }
 
@@ -12494,12 +12806,12 @@ func (o DiskEncryptionKeyInfoOutput) ToDiskEncryptionKeyInfoPtrOutputWithContext
 	}).(DiskEncryptionKeyInfoPtrOutput)
 }
 
-// The KeyVault resource ARM id for secret.
+// The KeyVault resource ARM Id for secret.
 func (o DiskEncryptionKeyInfoOutput) KeyVaultResourceArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionKeyInfo) *string { return v.KeyVaultResourceArmId }).(pulumi.StringPtrOutput)
 }
 
-// The secret url / identifier.
+// The secret URL / identifier.
 func (o DiskEncryptionKeyInfoOutput) SecretIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionKeyInfo) *string { return v.SecretIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -12522,7 +12834,7 @@ func (o DiskEncryptionKeyInfoPtrOutput) Elem() DiskEncryptionKeyInfoOutput {
 	return o.ApplyT(func(v *DiskEncryptionKeyInfo) DiskEncryptionKeyInfo { return *v }).(DiskEncryptionKeyInfoOutput)
 }
 
-// The KeyVault resource ARM id for secret.
+// The KeyVault resource ARM Id for secret.
 func (o DiskEncryptionKeyInfoPtrOutput) KeyVaultResourceArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionKeyInfo) *string {
 		if v == nil {
@@ -12532,7 +12844,7 @@ func (o DiskEncryptionKeyInfoPtrOutput) KeyVaultResourceArmId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret url / identifier.
+// The secret URL / identifier.
 func (o DiskEncryptionKeyInfoPtrOutput) SecretIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionKeyInfo) *string {
 		if v == nil {
@@ -13417,6 +13729,151 @@ func (o DpmContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput 
 // To check if upgrade available
 func (o DpmContainerResponseOutput) UpgradeAvailable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DpmContainerResponse) *bool { return v.UpgradeAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// DRA details.
+type DraDetailsResponse struct {
+	// The health of the DRA.
+	Health string `pulumi:"health"`
+	// The health errors.
+	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
+	// The DRA Id.
+	Id string `pulumi:"id"`
+	// The last heartbeat received from the DRA.
+	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
+	// The DRA name.
+	Name string `pulumi:"name"`
+	// The DRA version.
+	Version string `pulumi:"version"`
+}
+
+// DraDetailsResponseInput is an input type that accepts DraDetailsResponseArgs and DraDetailsResponseOutput values.
+// You can construct a concrete instance of `DraDetailsResponseInput` via:
+//
+//          DraDetailsResponseArgs{...}
+type DraDetailsResponseInput interface {
+	pulumi.Input
+
+	ToDraDetailsResponseOutput() DraDetailsResponseOutput
+	ToDraDetailsResponseOutputWithContext(context.Context) DraDetailsResponseOutput
+}
+
+// DRA details.
+type DraDetailsResponseArgs struct {
+	// The health of the DRA.
+	Health pulumi.StringInput `pulumi:"health"`
+	// The health errors.
+	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
+	// The DRA Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The last heartbeat received from the DRA.
+	LastHeartbeatUtc pulumi.StringInput `pulumi:"lastHeartbeatUtc"`
+	// The DRA name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The DRA version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (DraDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DraDetailsResponse)(nil)).Elem()
+}
+
+func (i DraDetailsResponseArgs) ToDraDetailsResponseOutput() DraDetailsResponseOutput {
+	return i.ToDraDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i DraDetailsResponseArgs) ToDraDetailsResponseOutputWithContext(ctx context.Context) DraDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DraDetailsResponseOutput)
+}
+
+// DraDetailsResponseArrayInput is an input type that accepts DraDetailsResponseArray and DraDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `DraDetailsResponseArrayInput` via:
+//
+//          DraDetailsResponseArray{ DraDetailsResponseArgs{...} }
+type DraDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToDraDetailsResponseArrayOutput() DraDetailsResponseArrayOutput
+	ToDraDetailsResponseArrayOutputWithContext(context.Context) DraDetailsResponseArrayOutput
+}
+
+type DraDetailsResponseArray []DraDetailsResponseInput
+
+func (DraDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DraDetailsResponse)(nil)).Elem()
+}
+
+func (i DraDetailsResponseArray) ToDraDetailsResponseArrayOutput() DraDetailsResponseArrayOutput {
+	return i.ToDraDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DraDetailsResponseArray) ToDraDetailsResponseArrayOutputWithContext(ctx context.Context) DraDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DraDetailsResponseArrayOutput)
+}
+
+// DRA details.
+type DraDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (DraDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DraDetailsResponse)(nil)).Elem()
+}
+
+func (o DraDetailsResponseOutput) ToDraDetailsResponseOutput() DraDetailsResponseOutput {
+	return o
+}
+
+func (o DraDetailsResponseOutput) ToDraDetailsResponseOutputWithContext(ctx context.Context) DraDetailsResponseOutput {
+	return o
+}
+
+// The health of the DRA.
+func (o DraDetailsResponseOutput) Health() pulumi.StringOutput {
+	return o.ApplyT(func(v DraDetailsResponse) string { return v.Health }).(pulumi.StringOutput)
+}
+
+// The health errors.
+func (o DraDetailsResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
+	return o.ApplyT(func(v DraDetailsResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
+}
+
+// The DRA Id.
+func (o DraDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DraDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The last heartbeat received from the DRA.
+func (o DraDetailsResponseOutput) LastHeartbeatUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v DraDetailsResponse) string { return v.LastHeartbeatUtc }).(pulumi.StringOutput)
+}
+
+// The DRA name.
+func (o DraDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DraDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The DRA version.
+func (o DraDetailsResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v DraDetailsResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type DraDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DraDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DraDetailsResponse)(nil)).Elem()
+}
+
+func (o DraDetailsResponseArrayOutput) ToDraDetailsResponseArrayOutput() DraDetailsResponseArrayOutput {
+	return o
+}
+
+func (o DraDetailsResponseArrayOutput) ToDraDetailsResponseArrayOutputWithContext(ctx context.Context) DraDetailsResponseArrayOutput {
+	return o
+}
+
+func (o DraDetailsResponseArrayOutput) Index(i pulumi.IntInput) DraDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DraDetailsResponse {
+		return vs[0].([]DraDetailsResponse)[vs[1].(int)]
+	}).(DraDetailsResponseOutput)
 }
 
 // Enable migration input properties.
@@ -21507,6 +21964,2240 @@ func (o InMageProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(InMageProtectedDiskDetailsResponseOutput)
 }
 
+// InMageRcm source agent upgrade blocking error details.
+type InMageRcmAgentUpgradeBlockingErrorDetailsResponse struct {
+	// The error code.
+	ErrorCode string `pulumi:"errorCode"`
+	// The error message.
+	ErrorMessage string `pulumi:"errorMessage"`
+	// The error message parameters.
+	ErrorMessageParameters map[string]string `pulumi:"errorMessageParameters"`
+	// The error tags.
+	ErrorTags map[string]string `pulumi:"errorTags"`
+	// The possible causes.
+	PossibleCauses string `pulumi:"possibleCauses"`
+	// The recommended action.
+	RecommendedAction string `pulumi:"recommendedAction"`
+}
+
+// InMageRcmAgentUpgradeBlockingErrorDetailsResponseInput is an input type that accepts InMageRcmAgentUpgradeBlockingErrorDetailsResponseArgs and InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput values.
+// You can construct a concrete instance of `InMageRcmAgentUpgradeBlockingErrorDetailsResponseInput` via:
+//
+//          InMageRcmAgentUpgradeBlockingErrorDetailsResponseArgs{...}
+type InMageRcmAgentUpgradeBlockingErrorDetailsResponseInput interface {
+	pulumi.Input
+
+	ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput() InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput
+	ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseOutputWithContext(context.Context) InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput
+}
+
+// InMageRcm source agent upgrade blocking error details.
+type InMageRcmAgentUpgradeBlockingErrorDetailsResponseArgs struct {
+	// The error code.
+	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
+	// The error message.
+	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// The error message parameters.
+	ErrorMessageParameters pulumi.StringMapInput `pulumi:"errorMessageParameters"`
+	// The error tags.
+	ErrorTags pulumi.StringMapInput `pulumi:"errorTags"`
+	// The possible causes.
+	PossibleCauses pulumi.StringInput `pulumi:"possibleCauses"`
+	// The recommended action.
+	RecommendedAction pulumi.StringInput `pulumi:"recommendedAction"`
+}
+
+func (InMageRcmAgentUpgradeBlockingErrorDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmAgentUpgradeBlockingErrorDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmAgentUpgradeBlockingErrorDetailsResponseArgs) ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput() InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput {
+	return i.ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i InMageRcmAgentUpgradeBlockingErrorDetailsResponseArgs) ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseOutputWithContext(ctx context.Context) InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput)
+}
+
+// InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayInput is an input type that accepts InMageRcmAgentUpgradeBlockingErrorDetailsResponseArray and InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayInput` via:
+//
+//          InMageRcmAgentUpgradeBlockingErrorDetailsResponseArray{ InMageRcmAgentUpgradeBlockingErrorDetailsResponseArgs{...} }
+type InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput() InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput
+	ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutputWithContext(context.Context) InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput
+}
+
+type InMageRcmAgentUpgradeBlockingErrorDetailsResponseArray []InMageRcmAgentUpgradeBlockingErrorDetailsResponseInput
+
+func (InMageRcmAgentUpgradeBlockingErrorDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InMageRcmAgentUpgradeBlockingErrorDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmAgentUpgradeBlockingErrorDetailsResponseArray) ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput() InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput {
+	return i.ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i InMageRcmAgentUpgradeBlockingErrorDetailsResponseArray) ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutputWithContext(ctx context.Context) InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput)
+}
+
+// InMageRcm source agent upgrade blocking error details.
+type InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmAgentUpgradeBlockingErrorDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput) ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput() InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput {
+	return o
+}
+
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput) ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseOutputWithContext(ctx context.Context) InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput {
+	return o
+}
+
+// The error code.
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput) ErrorCode() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmAgentUpgradeBlockingErrorDetailsResponse) string { return v.ErrorCode }).(pulumi.StringOutput)
+}
+
+// The error message.
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmAgentUpgradeBlockingErrorDetailsResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// The error message parameters.
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput) ErrorMessageParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InMageRcmAgentUpgradeBlockingErrorDetailsResponse) map[string]string {
+		return v.ErrorMessageParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// The error tags.
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput) ErrorTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InMageRcmAgentUpgradeBlockingErrorDetailsResponse) map[string]string { return v.ErrorTags }).(pulumi.StringMapOutput)
+}
+
+// The possible causes.
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput) PossibleCauses() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmAgentUpgradeBlockingErrorDetailsResponse) string { return v.PossibleCauses }).(pulumi.StringOutput)
+}
+
+// The recommended action.
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput) RecommendedAction() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmAgentUpgradeBlockingErrorDetailsResponse) string { return v.RecommendedAction }).(pulumi.StringOutput)
+}
+
+type InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InMageRcmAgentUpgradeBlockingErrorDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput) ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput() InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput {
+	return o
+}
+
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput) ToInMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutputWithContext(ctx context.Context) InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput {
+	return o
+}
+
+func (o InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput) Index(i pulumi.IntInput) InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InMageRcmAgentUpgradeBlockingErrorDetailsResponse {
+		return vs[0].([]InMageRcmAgentUpgradeBlockingErrorDetailsResponse)[vs[1].(int)]
+	}).(InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput)
+}
+
+// InMageRcm disk input.
+type InMageRcmDiskInput struct {
+	// The disk encryption set ARM Id.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The disk Id.
+	DiskId *string `pulumi:"diskId"`
+	// The disk type.
+	DiskType *string `pulumi:"diskType"`
+	// The log storage account ARM Id.
+	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
+}
+
+// InMageRcmDiskInputInput is an input type that accepts InMageRcmDiskInputArgs and InMageRcmDiskInputOutput values.
+// You can construct a concrete instance of `InMageRcmDiskInputInput` via:
+//
+//          InMageRcmDiskInputArgs{...}
+type InMageRcmDiskInputInput interface {
+	pulumi.Input
+
+	ToInMageRcmDiskInputOutput() InMageRcmDiskInputOutput
+	ToInMageRcmDiskInputOutputWithContext(context.Context) InMageRcmDiskInputOutput
+}
+
+// InMageRcm disk input.
+type InMageRcmDiskInputArgs struct {
+	// The disk encryption set ARM Id.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// The disk Id.
+	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
+	// The disk type.
+	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
+	// The log storage account ARM Id.
+	LogStorageAccountId pulumi.StringPtrInput `pulumi:"logStorageAccountId"`
+}
+
+func (InMageRcmDiskInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmDiskInput)(nil)).Elem()
+}
+
+func (i InMageRcmDiskInputArgs) ToInMageRcmDiskInputOutput() InMageRcmDiskInputOutput {
+	return i.ToInMageRcmDiskInputOutputWithContext(context.Background())
+}
+
+func (i InMageRcmDiskInputArgs) ToInMageRcmDiskInputOutputWithContext(ctx context.Context) InMageRcmDiskInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmDiskInputOutput)
+}
+
+// InMageRcmDiskInputArrayInput is an input type that accepts InMageRcmDiskInputArray and InMageRcmDiskInputArrayOutput values.
+// You can construct a concrete instance of `InMageRcmDiskInputArrayInput` via:
+//
+//          InMageRcmDiskInputArray{ InMageRcmDiskInputArgs{...} }
+type InMageRcmDiskInputArrayInput interface {
+	pulumi.Input
+
+	ToInMageRcmDiskInputArrayOutput() InMageRcmDiskInputArrayOutput
+	ToInMageRcmDiskInputArrayOutputWithContext(context.Context) InMageRcmDiskInputArrayOutput
+}
+
+type InMageRcmDiskInputArray []InMageRcmDiskInputInput
+
+func (InMageRcmDiskInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InMageRcmDiskInput)(nil)).Elem()
+}
+
+func (i InMageRcmDiskInputArray) ToInMageRcmDiskInputArrayOutput() InMageRcmDiskInputArrayOutput {
+	return i.ToInMageRcmDiskInputArrayOutputWithContext(context.Background())
+}
+
+func (i InMageRcmDiskInputArray) ToInMageRcmDiskInputArrayOutputWithContext(ctx context.Context) InMageRcmDiskInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmDiskInputArrayOutput)
+}
+
+// InMageRcm disk input.
+type InMageRcmDiskInputOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmDiskInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmDiskInput)(nil)).Elem()
+}
+
+func (o InMageRcmDiskInputOutput) ToInMageRcmDiskInputOutput() InMageRcmDiskInputOutput {
+	return o
+}
+
+func (o InMageRcmDiskInputOutput) ToInMageRcmDiskInputOutputWithContext(ctx context.Context) InMageRcmDiskInputOutput {
+	return o
+}
+
+// The disk encryption set ARM Id.
+func (o InMageRcmDiskInputOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmDiskInput) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// The disk Id.
+func (o InMageRcmDiskInputOutput) DiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmDiskInput) *string { return v.DiskId }).(pulumi.StringPtrOutput)
+}
+
+// The disk type.
+func (o InMageRcmDiskInputOutput) DiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmDiskInput) *string { return v.DiskType }).(pulumi.StringPtrOutput)
+}
+
+// The log storage account ARM Id.
+func (o InMageRcmDiskInputOutput) LogStorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmDiskInput) *string { return v.LogStorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+type InMageRcmDiskInputArrayOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmDiskInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InMageRcmDiskInput)(nil)).Elem()
+}
+
+func (o InMageRcmDiskInputArrayOutput) ToInMageRcmDiskInputArrayOutput() InMageRcmDiskInputArrayOutput {
+	return o
+}
+
+func (o InMageRcmDiskInputArrayOutput) ToInMageRcmDiskInputArrayOutputWithContext(ctx context.Context) InMageRcmDiskInputArrayOutput {
+	return o
+}
+
+func (o InMageRcmDiskInputArrayOutput) Index(i pulumi.IntInput) InMageRcmDiskInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InMageRcmDiskInput {
+		return vs[0].([]InMageRcmDiskInput)[vs[1].(int)]
+	}).(InMageRcmDiskInputOutput)
+}
+
+// InMageRcm disk input.
+type InMageRcmDisksDefaultInput struct {
+	// The disk encryption set ARM Id.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The disk type.
+	DiskType *string `pulumi:"diskType"`
+	// The log storage account ARM Id.
+	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
+}
+
+// InMageRcmDisksDefaultInputInput is an input type that accepts InMageRcmDisksDefaultInputArgs and InMageRcmDisksDefaultInputOutput values.
+// You can construct a concrete instance of `InMageRcmDisksDefaultInputInput` via:
+//
+//          InMageRcmDisksDefaultInputArgs{...}
+type InMageRcmDisksDefaultInputInput interface {
+	pulumi.Input
+
+	ToInMageRcmDisksDefaultInputOutput() InMageRcmDisksDefaultInputOutput
+	ToInMageRcmDisksDefaultInputOutputWithContext(context.Context) InMageRcmDisksDefaultInputOutput
+}
+
+// InMageRcm disk input.
+type InMageRcmDisksDefaultInputArgs struct {
+	// The disk encryption set ARM Id.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// The disk type.
+	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
+	// The log storage account ARM Id.
+	LogStorageAccountId pulumi.StringPtrInput `pulumi:"logStorageAccountId"`
+}
+
+func (InMageRcmDisksDefaultInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmDisksDefaultInput)(nil)).Elem()
+}
+
+func (i InMageRcmDisksDefaultInputArgs) ToInMageRcmDisksDefaultInputOutput() InMageRcmDisksDefaultInputOutput {
+	return i.ToInMageRcmDisksDefaultInputOutputWithContext(context.Background())
+}
+
+func (i InMageRcmDisksDefaultInputArgs) ToInMageRcmDisksDefaultInputOutputWithContext(ctx context.Context) InMageRcmDisksDefaultInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmDisksDefaultInputOutput)
+}
+
+func (i InMageRcmDisksDefaultInputArgs) ToInMageRcmDisksDefaultInputPtrOutput() InMageRcmDisksDefaultInputPtrOutput {
+	return i.ToInMageRcmDisksDefaultInputPtrOutputWithContext(context.Background())
+}
+
+func (i InMageRcmDisksDefaultInputArgs) ToInMageRcmDisksDefaultInputPtrOutputWithContext(ctx context.Context) InMageRcmDisksDefaultInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmDisksDefaultInputOutput).ToInMageRcmDisksDefaultInputPtrOutputWithContext(ctx)
+}
+
+// InMageRcmDisksDefaultInputPtrInput is an input type that accepts InMageRcmDisksDefaultInputArgs, InMageRcmDisksDefaultInputPtr and InMageRcmDisksDefaultInputPtrOutput values.
+// You can construct a concrete instance of `InMageRcmDisksDefaultInputPtrInput` via:
+//
+//          InMageRcmDisksDefaultInputArgs{...}
+//
+//  or:
+//
+//          nil
+type InMageRcmDisksDefaultInputPtrInput interface {
+	pulumi.Input
+
+	ToInMageRcmDisksDefaultInputPtrOutput() InMageRcmDisksDefaultInputPtrOutput
+	ToInMageRcmDisksDefaultInputPtrOutputWithContext(context.Context) InMageRcmDisksDefaultInputPtrOutput
+}
+
+type inMageRcmDisksDefaultInputPtrType InMageRcmDisksDefaultInputArgs
+
+func InMageRcmDisksDefaultInputPtr(v *InMageRcmDisksDefaultInputArgs) InMageRcmDisksDefaultInputPtrInput {
+	return (*inMageRcmDisksDefaultInputPtrType)(v)
+}
+
+func (*inMageRcmDisksDefaultInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InMageRcmDisksDefaultInput)(nil)).Elem()
+}
+
+func (i *inMageRcmDisksDefaultInputPtrType) ToInMageRcmDisksDefaultInputPtrOutput() InMageRcmDisksDefaultInputPtrOutput {
+	return i.ToInMageRcmDisksDefaultInputPtrOutputWithContext(context.Background())
+}
+
+func (i *inMageRcmDisksDefaultInputPtrType) ToInMageRcmDisksDefaultInputPtrOutputWithContext(ctx context.Context) InMageRcmDisksDefaultInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmDisksDefaultInputPtrOutput)
+}
+
+// InMageRcm disk input.
+type InMageRcmDisksDefaultInputOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmDisksDefaultInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmDisksDefaultInput)(nil)).Elem()
+}
+
+func (o InMageRcmDisksDefaultInputOutput) ToInMageRcmDisksDefaultInputOutput() InMageRcmDisksDefaultInputOutput {
+	return o
+}
+
+func (o InMageRcmDisksDefaultInputOutput) ToInMageRcmDisksDefaultInputOutputWithContext(ctx context.Context) InMageRcmDisksDefaultInputOutput {
+	return o
+}
+
+func (o InMageRcmDisksDefaultInputOutput) ToInMageRcmDisksDefaultInputPtrOutput() InMageRcmDisksDefaultInputPtrOutput {
+	return o.ToInMageRcmDisksDefaultInputPtrOutputWithContext(context.Background())
+}
+
+func (o InMageRcmDisksDefaultInputOutput) ToInMageRcmDisksDefaultInputPtrOutputWithContext(ctx context.Context) InMageRcmDisksDefaultInputPtrOutput {
+	return o.ApplyT(func(v InMageRcmDisksDefaultInput) *InMageRcmDisksDefaultInput {
+		return &v
+	}).(InMageRcmDisksDefaultInputPtrOutput)
+}
+
+// The disk encryption set ARM Id.
+func (o InMageRcmDisksDefaultInputOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmDisksDefaultInput) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// The disk type.
+func (o InMageRcmDisksDefaultInputOutput) DiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmDisksDefaultInput) *string { return v.DiskType }).(pulumi.StringPtrOutput)
+}
+
+// The log storage account ARM Id.
+func (o InMageRcmDisksDefaultInputOutput) LogStorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmDisksDefaultInput) *string { return v.LogStorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+type InMageRcmDisksDefaultInputPtrOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmDisksDefaultInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InMageRcmDisksDefaultInput)(nil)).Elem()
+}
+
+func (o InMageRcmDisksDefaultInputPtrOutput) ToInMageRcmDisksDefaultInputPtrOutput() InMageRcmDisksDefaultInputPtrOutput {
+	return o
+}
+
+func (o InMageRcmDisksDefaultInputPtrOutput) ToInMageRcmDisksDefaultInputPtrOutputWithContext(ctx context.Context) InMageRcmDisksDefaultInputPtrOutput {
+	return o
+}
+
+func (o InMageRcmDisksDefaultInputPtrOutput) Elem() InMageRcmDisksDefaultInputOutput {
+	return o.ApplyT(func(v *InMageRcmDisksDefaultInput) InMageRcmDisksDefaultInput { return *v }).(InMageRcmDisksDefaultInputOutput)
+}
+
+// The disk encryption set ARM Id.
+func (o InMageRcmDisksDefaultInputPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InMageRcmDisksDefaultInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskEncryptionSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The disk type.
+func (o InMageRcmDisksDefaultInputPtrOutput) DiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InMageRcmDisksDefaultInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The log storage account ARM Id.
+func (o InMageRcmDisksDefaultInputPtrOutput) LogStorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InMageRcmDisksDefaultInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStorageAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// InMageRcm specific enable protection input.
+type InMageRcmEnableProtectionInput struct {
+	// The default disk input.
+	DisksDefault *InMageRcmDisksDefaultInput `pulumi:"disksDefault"`
+	// The disks to include list.
+	DisksToInclude []InMageRcmDiskInput `pulumi:"disksToInclude"`
+	// The ARM Id of discovered machine.
+	FabricDiscoveryMachineId *string `pulumi:"fabricDiscoveryMachineId"`
+	// The class type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The license type.
+	LicenseType *string `pulumi:"licenseType"`
+	// The multi VM group name.
+	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
+	// The process server Id.
+	ProcessServerId *string `pulumi:"processServerId"`
+	// The run-as account Id.
+	RunAsAccountId *string `pulumi:"runAsAccountId"`
+	// The target availability set ARM Id.
+	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
+	// The target availability zone.
+	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
+	// The target boot diagnostics storage account ARM Id.
+	TargetBootDiagnosticsStorageAccountId *string `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	// The selected target network ARM Id.
+	TargetNetworkId *string `pulumi:"targetNetworkId"`
+	// The target proximity placement group Id.
+	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
+	// The target resource group ARM Id.
+	TargetResourceGroupId *string `pulumi:"targetResourceGroupId"`
+	// The selected target subnet name.
+	TargetSubnetName *string `pulumi:"targetSubnetName"`
+	// The target VM name.
+	TargetVmName *string `pulumi:"targetVmName"`
+	// The target VM size.
+	TargetVmSize *string `pulumi:"targetVmSize"`
+	// The selected test network ARM Id.
+	TestNetworkId *string `pulumi:"testNetworkId"`
+	// The selected test subnet name.
+	TestSubnetName *string `pulumi:"testSubnetName"`
+}
+
+// InMageRcmEnableProtectionInputInput is an input type that accepts InMageRcmEnableProtectionInputArgs and InMageRcmEnableProtectionInputOutput values.
+// You can construct a concrete instance of `InMageRcmEnableProtectionInputInput` via:
+//
+//          InMageRcmEnableProtectionInputArgs{...}
+type InMageRcmEnableProtectionInputInput interface {
+	pulumi.Input
+
+	ToInMageRcmEnableProtectionInputOutput() InMageRcmEnableProtectionInputOutput
+	ToInMageRcmEnableProtectionInputOutputWithContext(context.Context) InMageRcmEnableProtectionInputOutput
+}
+
+// InMageRcm specific enable protection input.
+type InMageRcmEnableProtectionInputArgs struct {
+	// The default disk input.
+	DisksDefault InMageRcmDisksDefaultInputPtrInput `pulumi:"disksDefault"`
+	// The disks to include list.
+	DisksToInclude InMageRcmDiskInputArrayInput `pulumi:"disksToInclude"`
+	// The ARM Id of discovered machine.
+	FabricDiscoveryMachineId pulumi.StringPtrInput `pulumi:"fabricDiscoveryMachineId"`
+	// The class type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The license type.
+	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
+	// The multi VM group name.
+	MultiVmGroupName pulumi.StringPtrInput `pulumi:"multiVmGroupName"`
+	// The process server Id.
+	ProcessServerId pulumi.StringPtrInput `pulumi:"processServerId"`
+	// The run-as account Id.
+	RunAsAccountId pulumi.StringPtrInput `pulumi:"runAsAccountId"`
+	// The target availability set ARM Id.
+	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
+	// The target availability zone.
+	TargetAvailabilityZone pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
+	// The target boot diagnostics storage account ARM Id.
+	TargetBootDiagnosticsStorageAccountId pulumi.StringPtrInput `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	// The selected target network ARM Id.
+	TargetNetworkId pulumi.StringPtrInput `pulumi:"targetNetworkId"`
+	// The target proximity placement group Id.
+	TargetProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"targetProximityPlacementGroupId"`
+	// The target resource group ARM Id.
+	TargetResourceGroupId pulumi.StringPtrInput `pulumi:"targetResourceGroupId"`
+	// The selected target subnet name.
+	TargetSubnetName pulumi.StringPtrInput `pulumi:"targetSubnetName"`
+	// The target VM name.
+	TargetVmName pulumi.StringPtrInput `pulumi:"targetVmName"`
+	// The target VM size.
+	TargetVmSize pulumi.StringPtrInput `pulumi:"targetVmSize"`
+	// The selected test network ARM Id.
+	TestNetworkId pulumi.StringPtrInput `pulumi:"testNetworkId"`
+	// The selected test subnet name.
+	TestSubnetName pulumi.StringPtrInput `pulumi:"testSubnetName"`
+}
+
+func (InMageRcmEnableProtectionInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmEnableProtectionInput)(nil)).Elem()
+}
+
+func (i InMageRcmEnableProtectionInputArgs) ToInMageRcmEnableProtectionInputOutput() InMageRcmEnableProtectionInputOutput {
+	return i.ToInMageRcmEnableProtectionInputOutputWithContext(context.Background())
+}
+
+func (i InMageRcmEnableProtectionInputArgs) ToInMageRcmEnableProtectionInputOutputWithContext(ctx context.Context) InMageRcmEnableProtectionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmEnableProtectionInputOutput)
+}
+
+// InMageRcm specific enable protection input.
+type InMageRcmEnableProtectionInputOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmEnableProtectionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmEnableProtectionInput)(nil)).Elem()
+}
+
+func (o InMageRcmEnableProtectionInputOutput) ToInMageRcmEnableProtectionInputOutput() InMageRcmEnableProtectionInputOutput {
+	return o
+}
+
+func (o InMageRcmEnableProtectionInputOutput) ToInMageRcmEnableProtectionInputOutputWithContext(ctx context.Context) InMageRcmEnableProtectionInputOutput {
+	return o
+}
+
+// The default disk input.
+func (o InMageRcmEnableProtectionInputOutput) DisksDefault() InMageRcmDisksDefaultInputPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *InMageRcmDisksDefaultInput { return v.DisksDefault }).(InMageRcmDisksDefaultInputPtrOutput)
+}
+
+// The disks to include list.
+func (o InMageRcmEnableProtectionInputOutput) DisksToInclude() InMageRcmDiskInputArrayOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) []InMageRcmDiskInput { return v.DisksToInclude }).(InMageRcmDiskInputArrayOutput)
+}
+
+// The ARM Id of discovered machine.
+func (o InMageRcmEnableProtectionInputOutput) FabricDiscoveryMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.FabricDiscoveryMachineId }).(pulumi.StringPtrOutput)
+}
+
+// The class type.
+func (o InMageRcmEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The license type.
+func (o InMageRcmEnableProtectionInputOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
+}
+
+// The multi VM group name.
+func (o InMageRcmEnableProtectionInputOutput) MultiVmGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.MultiVmGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The process server Id.
+func (o InMageRcmEnableProtectionInputOutput) ProcessServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.ProcessServerId }).(pulumi.StringPtrOutput)
+}
+
+// The run-as account Id.
+func (o InMageRcmEnableProtectionInputOutput) RunAsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.RunAsAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The target availability set ARM Id.
+func (o InMageRcmEnableProtectionInputOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
+}
+
+// The target availability zone.
+func (o InMageRcmEnableProtectionInputOutput) TargetAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TargetAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The target boot diagnostics storage account ARM Id.
+func (o InMageRcmEnableProtectionInputOutput) TargetBootDiagnosticsStorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TargetBootDiagnosticsStorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The selected target network ARM Id.
+func (o InMageRcmEnableProtectionInputOutput) TargetNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TargetNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// The target proximity placement group Id.
+func (o InMageRcmEnableProtectionInputOutput) TargetProximityPlacementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TargetProximityPlacementGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The target resource group ARM Id.
+func (o InMageRcmEnableProtectionInputOutput) TargetResourceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TargetResourceGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The selected target subnet name.
+func (o InMageRcmEnableProtectionInputOutput) TargetSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TargetSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// The target VM name.
+func (o InMageRcmEnableProtectionInputOutput) TargetVmName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TargetVmName }).(pulumi.StringPtrOutput)
+}
+
+// The target VM size.
+func (o InMageRcmEnableProtectionInputOutput) TargetVmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
+}
+
+// The selected test network ARM Id.
+func (o InMageRcmEnableProtectionInputOutput) TestNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TestNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// The selected test subnet name.
+func (o InMageRcmEnableProtectionInputOutput) TestSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmEnableProtectionInput) *string { return v.TestSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// InMageRcm fabric provider specific settings.
+type InMageRcmFabricCreationInput struct {
+	// The certificate to be used for AAD authentication.
+	AuthCertificate *string `pulumi:"authCertificate"`
+	// Gets the class type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The ARM Id of the physical site.
+	PhysicalSiteId *string `pulumi:"physicalSiteId"`
+	// The identity provider input for source agent authentication.
+	SourceAgentIdentity *IdentityProviderInput `pulumi:"sourceAgentIdentity"`
+	// The ARM Id of the VMware site.
+	VmwareSiteId *string `pulumi:"vmwareSiteId"`
+}
+
+// InMageRcmFabricCreationInputInput is an input type that accepts InMageRcmFabricCreationInputArgs and InMageRcmFabricCreationInputOutput values.
+// You can construct a concrete instance of `InMageRcmFabricCreationInputInput` via:
+//
+//          InMageRcmFabricCreationInputArgs{...}
+type InMageRcmFabricCreationInputInput interface {
+	pulumi.Input
+
+	ToInMageRcmFabricCreationInputOutput() InMageRcmFabricCreationInputOutput
+	ToInMageRcmFabricCreationInputOutputWithContext(context.Context) InMageRcmFabricCreationInputOutput
+}
+
+// InMageRcm fabric provider specific settings.
+type InMageRcmFabricCreationInputArgs struct {
+	// The certificate to be used for AAD authentication.
+	AuthCertificate pulumi.StringPtrInput `pulumi:"authCertificate"`
+	// Gets the class type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The ARM Id of the physical site.
+	PhysicalSiteId pulumi.StringPtrInput `pulumi:"physicalSiteId"`
+	// The identity provider input for source agent authentication.
+	SourceAgentIdentity IdentityProviderInputPtrInput `pulumi:"sourceAgentIdentity"`
+	// The ARM Id of the VMware site.
+	VmwareSiteId pulumi.StringPtrInput `pulumi:"vmwareSiteId"`
+}
+
+func (InMageRcmFabricCreationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmFabricCreationInput)(nil)).Elem()
+}
+
+func (i InMageRcmFabricCreationInputArgs) ToInMageRcmFabricCreationInputOutput() InMageRcmFabricCreationInputOutput {
+	return i.ToInMageRcmFabricCreationInputOutputWithContext(context.Background())
+}
+
+func (i InMageRcmFabricCreationInputArgs) ToInMageRcmFabricCreationInputOutputWithContext(ctx context.Context) InMageRcmFabricCreationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmFabricCreationInputOutput)
+}
+
+// InMageRcm fabric provider specific settings.
+type InMageRcmFabricCreationInputOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmFabricCreationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmFabricCreationInput)(nil)).Elem()
+}
+
+func (o InMageRcmFabricCreationInputOutput) ToInMageRcmFabricCreationInputOutput() InMageRcmFabricCreationInputOutput {
+	return o
+}
+
+func (o InMageRcmFabricCreationInputOutput) ToInMageRcmFabricCreationInputOutputWithContext(ctx context.Context) InMageRcmFabricCreationInputOutput {
+	return o
+}
+
+// The certificate to be used for AAD authentication.
+func (o InMageRcmFabricCreationInputOutput) AuthCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmFabricCreationInput) *string { return v.AuthCertificate }).(pulumi.StringPtrOutput)
+}
+
+// Gets the class type.
+func (o InMageRcmFabricCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmFabricCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The ARM Id of the physical site.
+func (o InMageRcmFabricCreationInputOutput) PhysicalSiteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmFabricCreationInput) *string { return v.PhysicalSiteId }).(pulumi.StringPtrOutput)
+}
+
+// The identity provider input for source agent authentication.
+func (o InMageRcmFabricCreationInputOutput) SourceAgentIdentity() IdentityProviderInputPtrOutput {
+	return o.ApplyT(func(v InMageRcmFabricCreationInput) *IdentityProviderInput { return v.SourceAgentIdentity }).(IdentityProviderInputPtrOutput)
+}
+
+// The ARM Id of the VMware site.
+func (o InMageRcmFabricCreationInputOutput) VmwareSiteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmFabricCreationInput) *string { return v.VmwareSiteId }).(pulumi.StringPtrOutput)
+}
+
+// InMageRcm fabric specific details.
+type InMageRcmFabricSpecificDetailsResponse struct {
+	// The list of agent details.
+	AgentDetails []AgentDetailsResponse `pulumi:"agentDetails"`
+	// The control plane Uri.
+	ControlPlaneUri string `pulumi:"controlPlaneUri"`
+	// The data plane Uri.
+	DataPlaneUri string `pulumi:"dataPlaneUri"`
+	// The list of DRAs.
+	Dras []DraDetailsResponse `pulumi:"dras"`
+	// Gets the class type. Overridden in derived classes.
+	InstanceType string `pulumi:"instanceType"`
+	// The ARM Id of the physical site.
+	PhysicalSiteId string `pulumi:"physicalSiteId"`
+	// The list of process servers.
+	ProcessServers []ProcessServerDetailsResponse `pulumi:"processServers"`
+	// The list of push installers.
+	PushInstallers []PushInstallerDetailsResponse `pulumi:"pushInstallers"`
+	// The list of RCM proxies.
+	RcmProxies []RcmProxyDetailsResponse `pulumi:"rcmProxies"`
+	// The list of replication agents.
+	ReplicationAgents []ReplicationAgentDetailsResponse `pulumi:"replicationAgents"`
+	// The list of reprotect agents.
+	ReprotectAgents []ReprotectAgentDetailsResponse `pulumi:"reprotectAgents"`
+	// The service container Id.
+	ServiceContainerId string `pulumi:"serviceContainerId"`
+	// The service endpoint.
+	ServiceEndpoint string `pulumi:"serviceEndpoint"`
+	// The service resource Id.
+	ServiceResourceId string `pulumi:"serviceResourceId"`
+	// The ARM Id of the VMware site.
+	VmwareSiteId string `pulumi:"vmwareSiteId"`
+}
+
+// InMageRcmFabricSpecificDetailsResponseInput is an input type that accepts InMageRcmFabricSpecificDetailsResponseArgs and InMageRcmFabricSpecificDetailsResponseOutput values.
+// You can construct a concrete instance of `InMageRcmFabricSpecificDetailsResponseInput` via:
+//
+//          InMageRcmFabricSpecificDetailsResponseArgs{...}
+type InMageRcmFabricSpecificDetailsResponseInput interface {
+	pulumi.Input
+
+	ToInMageRcmFabricSpecificDetailsResponseOutput() InMageRcmFabricSpecificDetailsResponseOutput
+	ToInMageRcmFabricSpecificDetailsResponseOutputWithContext(context.Context) InMageRcmFabricSpecificDetailsResponseOutput
+}
+
+// InMageRcm fabric specific details.
+type InMageRcmFabricSpecificDetailsResponseArgs struct {
+	// The list of agent details.
+	AgentDetails AgentDetailsResponseArrayInput `pulumi:"agentDetails"`
+	// The control plane Uri.
+	ControlPlaneUri pulumi.StringInput `pulumi:"controlPlaneUri"`
+	// The data plane Uri.
+	DataPlaneUri pulumi.StringInput `pulumi:"dataPlaneUri"`
+	// The list of DRAs.
+	Dras DraDetailsResponseArrayInput `pulumi:"dras"`
+	// Gets the class type. Overridden in derived classes.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The ARM Id of the physical site.
+	PhysicalSiteId pulumi.StringInput `pulumi:"physicalSiteId"`
+	// The list of process servers.
+	ProcessServers ProcessServerDetailsResponseArrayInput `pulumi:"processServers"`
+	// The list of push installers.
+	PushInstallers PushInstallerDetailsResponseArrayInput `pulumi:"pushInstallers"`
+	// The list of RCM proxies.
+	RcmProxies RcmProxyDetailsResponseArrayInput `pulumi:"rcmProxies"`
+	// The list of replication agents.
+	ReplicationAgents ReplicationAgentDetailsResponseArrayInput `pulumi:"replicationAgents"`
+	// The list of reprotect agents.
+	ReprotectAgents ReprotectAgentDetailsResponseArrayInput `pulumi:"reprotectAgents"`
+	// The service container Id.
+	ServiceContainerId pulumi.StringInput `pulumi:"serviceContainerId"`
+	// The service endpoint.
+	ServiceEndpoint pulumi.StringInput `pulumi:"serviceEndpoint"`
+	// The service resource Id.
+	ServiceResourceId pulumi.StringInput `pulumi:"serviceResourceId"`
+	// The ARM Id of the VMware site.
+	VmwareSiteId pulumi.StringInput `pulumi:"vmwareSiteId"`
+}
+
+func (InMageRcmFabricSpecificDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmFabricSpecificDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmFabricSpecificDetailsResponseArgs) ToInMageRcmFabricSpecificDetailsResponseOutput() InMageRcmFabricSpecificDetailsResponseOutput {
+	return i.ToInMageRcmFabricSpecificDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i InMageRcmFabricSpecificDetailsResponseArgs) ToInMageRcmFabricSpecificDetailsResponseOutputWithContext(ctx context.Context) InMageRcmFabricSpecificDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmFabricSpecificDetailsResponseOutput)
+}
+
+// InMageRcm fabric specific details.
+type InMageRcmFabricSpecificDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmFabricSpecificDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmFabricSpecificDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmFabricSpecificDetailsResponseOutput) ToInMageRcmFabricSpecificDetailsResponseOutput() InMageRcmFabricSpecificDetailsResponseOutput {
+	return o
+}
+
+func (o InMageRcmFabricSpecificDetailsResponseOutput) ToInMageRcmFabricSpecificDetailsResponseOutputWithContext(ctx context.Context) InMageRcmFabricSpecificDetailsResponseOutput {
+	return o
+}
+
+// The list of agent details.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) AgentDetails() AgentDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) []AgentDetailsResponse { return v.AgentDetails }).(AgentDetailsResponseArrayOutput)
+}
+
+// The control plane Uri.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) ControlPlaneUri() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) string { return v.ControlPlaneUri }).(pulumi.StringOutput)
+}
+
+// The data plane Uri.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) DataPlaneUri() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) string { return v.DataPlaneUri }).(pulumi.StringOutput)
+}
+
+// The list of DRAs.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) Dras() DraDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) []DraDetailsResponse { return v.Dras }).(DraDetailsResponseArrayOutput)
+}
+
+// Gets the class type. Overridden in derived classes.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The ARM Id of the physical site.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) PhysicalSiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) string { return v.PhysicalSiteId }).(pulumi.StringOutput)
+}
+
+// The list of process servers.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) ProcessServers() ProcessServerDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) []ProcessServerDetailsResponse { return v.ProcessServers }).(ProcessServerDetailsResponseArrayOutput)
+}
+
+// The list of push installers.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) PushInstallers() PushInstallerDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) []PushInstallerDetailsResponse { return v.PushInstallers }).(PushInstallerDetailsResponseArrayOutput)
+}
+
+// The list of RCM proxies.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) RcmProxies() RcmProxyDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) []RcmProxyDetailsResponse { return v.RcmProxies }).(RcmProxyDetailsResponseArrayOutput)
+}
+
+// The list of replication agents.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) ReplicationAgents() ReplicationAgentDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) []ReplicationAgentDetailsResponse {
+		return v.ReplicationAgents
+	}).(ReplicationAgentDetailsResponseArrayOutput)
+}
+
+// The list of reprotect agents.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) ReprotectAgents() ReprotectAgentDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) []ReprotectAgentDetailsResponse {
+		return v.ReprotectAgents
+	}).(ReprotectAgentDetailsResponseArrayOutput)
+}
+
+// The service container Id.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) ServiceContainerId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) string { return v.ServiceContainerId }).(pulumi.StringOutput)
+}
+
+// The service endpoint.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) ServiceEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) string { return v.ServiceEndpoint }).(pulumi.StringOutput)
+}
+
+// The service resource Id.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) ServiceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) string { return v.ServiceResourceId }).(pulumi.StringOutput)
+}
+
+// The ARM Id of the VMware site.
+func (o InMageRcmFabricSpecificDetailsResponseOutput) VmwareSiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmFabricSpecificDetailsResponse) string { return v.VmwareSiteId }).(pulumi.StringOutput)
+}
+
+// InMageRcm last source agent upgrade error details.
+type InMageRcmLastAgentUpgradeErrorDetailsResponse struct {
+	// The error code.
+	ErrorCode string `pulumi:"errorCode"`
+	// The error message.
+	ErrorMessage string `pulumi:"errorMessage"`
+	// The error message parameters.
+	ErrorMessageParameters map[string]string `pulumi:"errorMessageParameters"`
+	// The error tags.
+	ErrorTags map[string]string `pulumi:"errorTags"`
+	// The possible causes.
+	PossibleCauses string `pulumi:"possibleCauses"`
+	// The recommended action.
+	RecommendedAction string `pulumi:"recommendedAction"`
+}
+
+// InMageRcmLastAgentUpgradeErrorDetailsResponseInput is an input type that accepts InMageRcmLastAgentUpgradeErrorDetailsResponseArgs and InMageRcmLastAgentUpgradeErrorDetailsResponseOutput values.
+// You can construct a concrete instance of `InMageRcmLastAgentUpgradeErrorDetailsResponseInput` via:
+//
+//          InMageRcmLastAgentUpgradeErrorDetailsResponseArgs{...}
+type InMageRcmLastAgentUpgradeErrorDetailsResponseInput interface {
+	pulumi.Input
+
+	ToInMageRcmLastAgentUpgradeErrorDetailsResponseOutput() InMageRcmLastAgentUpgradeErrorDetailsResponseOutput
+	ToInMageRcmLastAgentUpgradeErrorDetailsResponseOutputWithContext(context.Context) InMageRcmLastAgentUpgradeErrorDetailsResponseOutput
+}
+
+// InMageRcm last source agent upgrade error details.
+type InMageRcmLastAgentUpgradeErrorDetailsResponseArgs struct {
+	// The error code.
+	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
+	// The error message.
+	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// The error message parameters.
+	ErrorMessageParameters pulumi.StringMapInput `pulumi:"errorMessageParameters"`
+	// The error tags.
+	ErrorTags pulumi.StringMapInput `pulumi:"errorTags"`
+	// The possible causes.
+	PossibleCauses pulumi.StringInput `pulumi:"possibleCauses"`
+	// The recommended action.
+	RecommendedAction pulumi.StringInput `pulumi:"recommendedAction"`
+}
+
+func (InMageRcmLastAgentUpgradeErrorDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmLastAgentUpgradeErrorDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmLastAgentUpgradeErrorDetailsResponseArgs) ToInMageRcmLastAgentUpgradeErrorDetailsResponseOutput() InMageRcmLastAgentUpgradeErrorDetailsResponseOutput {
+	return i.ToInMageRcmLastAgentUpgradeErrorDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i InMageRcmLastAgentUpgradeErrorDetailsResponseArgs) ToInMageRcmLastAgentUpgradeErrorDetailsResponseOutputWithContext(ctx context.Context) InMageRcmLastAgentUpgradeErrorDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmLastAgentUpgradeErrorDetailsResponseOutput)
+}
+
+// InMageRcmLastAgentUpgradeErrorDetailsResponseArrayInput is an input type that accepts InMageRcmLastAgentUpgradeErrorDetailsResponseArray and InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `InMageRcmLastAgentUpgradeErrorDetailsResponseArrayInput` via:
+//
+//          InMageRcmLastAgentUpgradeErrorDetailsResponseArray{ InMageRcmLastAgentUpgradeErrorDetailsResponseArgs{...} }
+type InMageRcmLastAgentUpgradeErrorDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToInMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput() InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput
+	ToInMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutputWithContext(context.Context) InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput
+}
+
+type InMageRcmLastAgentUpgradeErrorDetailsResponseArray []InMageRcmLastAgentUpgradeErrorDetailsResponseInput
+
+func (InMageRcmLastAgentUpgradeErrorDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InMageRcmLastAgentUpgradeErrorDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmLastAgentUpgradeErrorDetailsResponseArray) ToInMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput() InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput {
+	return i.ToInMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i InMageRcmLastAgentUpgradeErrorDetailsResponseArray) ToInMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutputWithContext(ctx context.Context) InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput)
+}
+
+// InMageRcm last source agent upgrade error details.
+type InMageRcmLastAgentUpgradeErrorDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmLastAgentUpgradeErrorDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmLastAgentUpgradeErrorDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseOutput) ToInMageRcmLastAgentUpgradeErrorDetailsResponseOutput() InMageRcmLastAgentUpgradeErrorDetailsResponseOutput {
+	return o
+}
+
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseOutput) ToInMageRcmLastAgentUpgradeErrorDetailsResponseOutputWithContext(ctx context.Context) InMageRcmLastAgentUpgradeErrorDetailsResponseOutput {
+	return o
+}
+
+// The error code.
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseOutput) ErrorCode() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmLastAgentUpgradeErrorDetailsResponse) string { return v.ErrorCode }).(pulumi.StringOutput)
+}
+
+// The error message.
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmLastAgentUpgradeErrorDetailsResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// The error message parameters.
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseOutput) ErrorMessageParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InMageRcmLastAgentUpgradeErrorDetailsResponse) map[string]string {
+		return v.ErrorMessageParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// The error tags.
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseOutput) ErrorTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InMageRcmLastAgentUpgradeErrorDetailsResponse) map[string]string { return v.ErrorTags }).(pulumi.StringMapOutput)
+}
+
+// The possible causes.
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseOutput) PossibleCauses() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmLastAgentUpgradeErrorDetailsResponse) string { return v.PossibleCauses }).(pulumi.StringOutput)
+}
+
+// The recommended action.
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseOutput) RecommendedAction() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmLastAgentUpgradeErrorDetailsResponse) string { return v.RecommendedAction }).(pulumi.StringOutput)
+}
+
+type InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InMageRcmLastAgentUpgradeErrorDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput) ToInMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput() InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput {
+	return o
+}
+
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput) ToInMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutputWithContext(ctx context.Context) InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput {
+	return o
+}
+
+func (o InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput) Index(i pulumi.IntInput) InMageRcmLastAgentUpgradeErrorDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InMageRcmLastAgentUpgradeErrorDetailsResponse {
+		return vs[0].([]InMageRcmLastAgentUpgradeErrorDetailsResponse)[vs[1].(int)]
+	}).(InMageRcmLastAgentUpgradeErrorDetailsResponseOutput)
+}
+
+// InMageRcm mobility agent details.
+type InMageRcmMobilityAgentDetailsResponse struct {
+	// The agent version expiry date.
+	AgentVersionExpiryDate string `pulumi:"agentVersionExpiryDate"`
+	// The driver version.
+	DriverVersion string `pulumi:"driverVersion"`
+	// The driver version expiry date.
+	DriverVersionExpiryDate string `pulumi:"driverVersionExpiryDate"`
+	// A value indicating whether agent is upgradeable or not.
+	IsUpgradeable string `pulumi:"isUpgradeable"`
+	// The time of the last heartbeat received from the agent.
+	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
+	// The latest upgradeable version available without reboot.
+	LatestUpgradableVersionWithoutReboot string `pulumi:"latestUpgradableVersionWithoutReboot"`
+	// The latest agent version available.
+	LatestVersion string `pulumi:"latestVersion"`
+	// The whether update is possible or not.
+	ReasonsBlockingUpgrade []string `pulumi:"reasonsBlockingUpgrade"`
+	// The agent version.
+	Version string `pulumi:"version"`
+}
+
+// InMageRcmMobilityAgentDetailsResponseInput is an input type that accepts InMageRcmMobilityAgentDetailsResponseArgs and InMageRcmMobilityAgentDetailsResponseOutput values.
+// You can construct a concrete instance of `InMageRcmMobilityAgentDetailsResponseInput` via:
+//
+//          InMageRcmMobilityAgentDetailsResponseArgs{...}
+type InMageRcmMobilityAgentDetailsResponseInput interface {
+	pulumi.Input
+
+	ToInMageRcmMobilityAgentDetailsResponseOutput() InMageRcmMobilityAgentDetailsResponseOutput
+	ToInMageRcmMobilityAgentDetailsResponseOutputWithContext(context.Context) InMageRcmMobilityAgentDetailsResponseOutput
+}
+
+// InMageRcm mobility agent details.
+type InMageRcmMobilityAgentDetailsResponseArgs struct {
+	// The agent version expiry date.
+	AgentVersionExpiryDate pulumi.StringInput `pulumi:"agentVersionExpiryDate"`
+	// The driver version.
+	DriverVersion pulumi.StringInput `pulumi:"driverVersion"`
+	// The driver version expiry date.
+	DriverVersionExpiryDate pulumi.StringInput `pulumi:"driverVersionExpiryDate"`
+	// A value indicating whether agent is upgradeable or not.
+	IsUpgradeable pulumi.StringInput `pulumi:"isUpgradeable"`
+	// The time of the last heartbeat received from the agent.
+	LastHeartbeatUtc pulumi.StringInput `pulumi:"lastHeartbeatUtc"`
+	// The latest upgradeable version available without reboot.
+	LatestUpgradableVersionWithoutReboot pulumi.StringInput `pulumi:"latestUpgradableVersionWithoutReboot"`
+	// The latest agent version available.
+	LatestVersion pulumi.StringInput `pulumi:"latestVersion"`
+	// The whether update is possible or not.
+	ReasonsBlockingUpgrade pulumi.StringArrayInput `pulumi:"reasonsBlockingUpgrade"`
+	// The agent version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (InMageRcmMobilityAgentDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmMobilityAgentDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmMobilityAgentDetailsResponseArgs) ToInMageRcmMobilityAgentDetailsResponseOutput() InMageRcmMobilityAgentDetailsResponseOutput {
+	return i.ToInMageRcmMobilityAgentDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i InMageRcmMobilityAgentDetailsResponseArgs) ToInMageRcmMobilityAgentDetailsResponseOutputWithContext(ctx context.Context) InMageRcmMobilityAgentDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmMobilityAgentDetailsResponseOutput)
+}
+
+// InMageRcm mobility agent details.
+type InMageRcmMobilityAgentDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmMobilityAgentDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmMobilityAgentDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmMobilityAgentDetailsResponseOutput) ToInMageRcmMobilityAgentDetailsResponseOutput() InMageRcmMobilityAgentDetailsResponseOutput {
+	return o
+}
+
+func (o InMageRcmMobilityAgentDetailsResponseOutput) ToInMageRcmMobilityAgentDetailsResponseOutputWithContext(ctx context.Context) InMageRcmMobilityAgentDetailsResponseOutput {
+	return o
+}
+
+// The agent version expiry date.
+func (o InMageRcmMobilityAgentDetailsResponseOutput) AgentVersionExpiryDate() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmMobilityAgentDetailsResponse) string { return v.AgentVersionExpiryDate }).(pulumi.StringOutput)
+}
+
+// The driver version.
+func (o InMageRcmMobilityAgentDetailsResponseOutput) DriverVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmMobilityAgentDetailsResponse) string { return v.DriverVersion }).(pulumi.StringOutput)
+}
+
+// The driver version expiry date.
+func (o InMageRcmMobilityAgentDetailsResponseOutput) DriverVersionExpiryDate() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmMobilityAgentDetailsResponse) string { return v.DriverVersionExpiryDate }).(pulumi.StringOutput)
+}
+
+// A value indicating whether agent is upgradeable or not.
+func (o InMageRcmMobilityAgentDetailsResponseOutput) IsUpgradeable() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmMobilityAgentDetailsResponse) string { return v.IsUpgradeable }).(pulumi.StringOutput)
+}
+
+// The time of the last heartbeat received from the agent.
+func (o InMageRcmMobilityAgentDetailsResponseOutput) LastHeartbeatUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmMobilityAgentDetailsResponse) string { return v.LastHeartbeatUtc }).(pulumi.StringOutput)
+}
+
+// The latest upgradeable version available without reboot.
+func (o InMageRcmMobilityAgentDetailsResponseOutput) LatestUpgradableVersionWithoutReboot() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmMobilityAgentDetailsResponse) string { return v.LatestUpgradableVersionWithoutReboot }).(pulumi.StringOutput)
+}
+
+// The latest agent version available.
+func (o InMageRcmMobilityAgentDetailsResponseOutput) LatestVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmMobilityAgentDetailsResponse) string { return v.LatestVersion }).(pulumi.StringOutput)
+}
+
+// The whether update is possible or not.
+func (o InMageRcmMobilityAgentDetailsResponseOutput) ReasonsBlockingUpgrade() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InMageRcmMobilityAgentDetailsResponse) []string { return v.ReasonsBlockingUpgrade }).(pulumi.StringArrayOutput)
+}
+
+// The agent version.
+func (o InMageRcmMobilityAgentDetailsResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmMobilityAgentDetailsResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// InMageRcm NIC details.
+type InMageRcmNicDetailsResponse struct {
+	// A value indicating whether this is the primary NIC.
+	IsPrimaryNic string `pulumi:"isPrimaryNic"`
+	// A value indicating whether this NIC is selected for failover.
+	IsSelectedForFailover string `pulumi:"isSelectedForFailover"`
+	// The NIC Id.
+	NicId string `pulumi:"nicId"`
+	// The source IP address.
+	SourceIPAddress string `pulumi:"sourceIPAddress"`
+	// The source IP address type.
+	SourceIPAddressType string `pulumi:"sourceIPAddressType"`
+	// Source network Id.
+	SourceNetworkId string `pulumi:"sourceNetworkId"`
+	// Source subnet name.
+	SourceSubnetName string `pulumi:"sourceSubnetName"`
+	// The target IP address.
+	TargetIPAddress string `pulumi:"targetIPAddress"`
+	// The target IP address type.
+	TargetIPAddressType string `pulumi:"targetIPAddressType"`
+	// Target subnet name.
+	TargetSubnetName string `pulumi:"targetSubnetName"`
+	// The test IP address.
+	TestIPAddress string `pulumi:"testIPAddress"`
+	// The test IP address type.
+	TestIPAddressType string `pulumi:"testIPAddressType"`
+	// Test subnet name.
+	TestSubnetName string `pulumi:"testSubnetName"`
+}
+
+// InMageRcmNicDetailsResponseInput is an input type that accepts InMageRcmNicDetailsResponseArgs and InMageRcmNicDetailsResponseOutput values.
+// You can construct a concrete instance of `InMageRcmNicDetailsResponseInput` via:
+//
+//          InMageRcmNicDetailsResponseArgs{...}
+type InMageRcmNicDetailsResponseInput interface {
+	pulumi.Input
+
+	ToInMageRcmNicDetailsResponseOutput() InMageRcmNicDetailsResponseOutput
+	ToInMageRcmNicDetailsResponseOutputWithContext(context.Context) InMageRcmNicDetailsResponseOutput
+}
+
+// InMageRcm NIC details.
+type InMageRcmNicDetailsResponseArgs struct {
+	// A value indicating whether this is the primary NIC.
+	IsPrimaryNic pulumi.StringInput `pulumi:"isPrimaryNic"`
+	// A value indicating whether this NIC is selected for failover.
+	IsSelectedForFailover pulumi.StringInput `pulumi:"isSelectedForFailover"`
+	// The NIC Id.
+	NicId pulumi.StringInput `pulumi:"nicId"`
+	// The source IP address.
+	SourceIPAddress pulumi.StringInput `pulumi:"sourceIPAddress"`
+	// The source IP address type.
+	SourceIPAddressType pulumi.StringInput `pulumi:"sourceIPAddressType"`
+	// Source network Id.
+	SourceNetworkId pulumi.StringInput `pulumi:"sourceNetworkId"`
+	// Source subnet name.
+	SourceSubnetName pulumi.StringInput `pulumi:"sourceSubnetName"`
+	// The target IP address.
+	TargetIPAddress pulumi.StringInput `pulumi:"targetIPAddress"`
+	// The target IP address type.
+	TargetIPAddressType pulumi.StringInput `pulumi:"targetIPAddressType"`
+	// Target subnet name.
+	TargetSubnetName pulumi.StringInput `pulumi:"targetSubnetName"`
+	// The test IP address.
+	TestIPAddress pulumi.StringInput `pulumi:"testIPAddress"`
+	// The test IP address type.
+	TestIPAddressType pulumi.StringInput `pulumi:"testIPAddressType"`
+	// Test subnet name.
+	TestSubnetName pulumi.StringInput `pulumi:"testSubnetName"`
+}
+
+func (InMageRcmNicDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmNicDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmNicDetailsResponseArgs) ToInMageRcmNicDetailsResponseOutput() InMageRcmNicDetailsResponseOutput {
+	return i.ToInMageRcmNicDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i InMageRcmNicDetailsResponseArgs) ToInMageRcmNicDetailsResponseOutputWithContext(ctx context.Context) InMageRcmNicDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmNicDetailsResponseOutput)
+}
+
+// InMageRcmNicDetailsResponseArrayInput is an input type that accepts InMageRcmNicDetailsResponseArray and InMageRcmNicDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `InMageRcmNicDetailsResponseArrayInput` via:
+//
+//          InMageRcmNicDetailsResponseArray{ InMageRcmNicDetailsResponseArgs{...} }
+type InMageRcmNicDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToInMageRcmNicDetailsResponseArrayOutput() InMageRcmNicDetailsResponseArrayOutput
+	ToInMageRcmNicDetailsResponseArrayOutputWithContext(context.Context) InMageRcmNicDetailsResponseArrayOutput
+}
+
+type InMageRcmNicDetailsResponseArray []InMageRcmNicDetailsResponseInput
+
+func (InMageRcmNicDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InMageRcmNicDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmNicDetailsResponseArray) ToInMageRcmNicDetailsResponseArrayOutput() InMageRcmNicDetailsResponseArrayOutput {
+	return i.ToInMageRcmNicDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i InMageRcmNicDetailsResponseArray) ToInMageRcmNicDetailsResponseArrayOutputWithContext(ctx context.Context) InMageRcmNicDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmNicDetailsResponseArrayOutput)
+}
+
+// InMageRcm NIC details.
+type InMageRcmNicDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmNicDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmNicDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmNicDetailsResponseOutput) ToInMageRcmNicDetailsResponseOutput() InMageRcmNicDetailsResponseOutput {
+	return o
+}
+
+func (o InMageRcmNicDetailsResponseOutput) ToInMageRcmNicDetailsResponseOutputWithContext(ctx context.Context) InMageRcmNicDetailsResponseOutput {
+	return o
+}
+
+// A value indicating whether this is the primary NIC.
+func (o InMageRcmNicDetailsResponseOutput) IsPrimaryNic() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.IsPrimaryNic }).(pulumi.StringOutput)
+}
+
+// A value indicating whether this NIC is selected for failover.
+func (o InMageRcmNicDetailsResponseOutput) IsSelectedForFailover() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.IsSelectedForFailover }).(pulumi.StringOutput)
+}
+
+// The NIC Id.
+func (o InMageRcmNicDetailsResponseOutput) NicId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.NicId }).(pulumi.StringOutput)
+}
+
+// The source IP address.
+func (o InMageRcmNicDetailsResponseOutput) SourceIPAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.SourceIPAddress }).(pulumi.StringOutput)
+}
+
+// The source IP address type.
+func (o InMageRcmNicDetailsResponseOutput) SourceIPAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.SourceIPAddressType }).(pulumi.StringOutput)
+}
+
+// Source network Id.
+func (o InMageRcmNicDetailsResponseOutput) SourceNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.SourceNetworkId }).(pulumi.StringOutput)
+}
+
+// Source subnet name.
+func (o InMageRcmNicDetailsResponseOutput) SourceSubnetName() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.SourceSubnetName }).(pulumi.StringOutput)
+}
+
+// The target IP address.
+func (o InMageRcmNicDetailsResponseOutput) TargetIPAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.TargetIPAddress }).(pulumi.StringOutput)
+}
+
+// The target IP address type.
+func (o InMageRcmNicDetailsResponseOutput) TargetIPAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.TargetIPAddressType }).(pulumi.StringOutput)
+}
+
+// Target subnet name.
+func (o InMageRcmNicDetailsResponseOutput) TargetSubnetName() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.TargetSubnetName }).(pulumi.StringOutput)
+}
+
+// The test IP address.
+func (o InMageRcmNicDetailsResponseOutput) TestIPAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.TestIPAddress }).(pulumi.StringOutput)
+}
+
+// The test IP address type.
+func (o InMageRcmNicDetailsResponseOutput) TestIPAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.TestIPAddressType }).(pulumi.StringOutput)
+}
+
+// Test subnet name.
+func (o InMageRcmNicDetailsResponseOutput) TestSubnetName() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmNicDetailsResponse) string { return v.TestSubnetName }).(pulumi.StringOutput)
+}
+
+type InMageRcmNicDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmNicDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InMageRcmNicDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmNicDetailsResponseArrayOutput) ToInMageRcmNicDetailsResponseArrayOutput() InMageRcmNicDetailsResponseArrayOutput {
+	return o
+}
+
+func (o InMageRcmNicDetailsResponseArrayOutput) ToInMageRcmNicDetailsResponseArrayOutputWithContext(ctx context.Context) InMageRcmNicDetailsResponseArrayOutput {
+	return o
+}
+
+func (o InMageRcmNicDetailsResponseArrayOutput) Index(i pulumi.IntInput) InMageRcmNicDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InMageRcmNicDetailsResponse {
+		return vs[0].([]InMageRcmNicDetailsResponse)[vs[1].(int)]
+	}).(InMageRcmNicDetailsResponseOutput)
+}
+
+// InMageRcm policy creation input.
+type InMageRcmPolicyCreationInput struct {
+	// The app consistent snapshot frequency (in minutes).
+	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
+	// The crash consistent snapshot frequency (in minutes).
+	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
+	// A value indicating whether multi-VM sync has to be enabled.
+	EnableMultiVmSync *string `pulumi:"enableMultiVmSync"`
+	// The class type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The duration in minutes until which the recovery points need to be stored.
+	RecoveryPointHistoryInMinutes *int `pulumi:"recoveryPointHistoryInMinutes"`
+}
+
+// InMageRcmPolicyCreationInputInput is an input type that accepts InMageRcmPolicyCreationInputArgs and InMageRcmPolicyCreationInputOutput values.
+// You can construct a concrete instance of `InMageRcmPolicyCreationInputInput` via:
+//
+//          InMageRcmPolicyCreationInputArgs{...}
+type InMageRcmPolicyCreationInputInput interface {
+	pulumi.Input
+
+	ToInMageRcmPolicyCreationInputOutput() InMageRcmPolicyCreationInputOutput
+	ToInMageRcmPolicyCreationInputOutputWithContext(context.Context) InMageRcmPolicyCreationInputOutput
+}
+
+// InMageRcm policy creation input.
+type InMageRcmPolicyCreationInputArgs struct {
+	// The app consistent snapshot frequency (in minutes).
+	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
+	// The crash consistent snapshot frequency (in minutes).
+	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
+	// A value indicating whether multi-VM sync has to be enabled.
+	EnableMultiVmSync pulumi.StringPtrInput `pulumi:"enableMultiVmSync"`
+	// The class type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The duration in minutes until which the recovery points need to be stored.
+	RecoveryPointHistoryInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointHistoryInMinutes"`
+}
+
+func (InMageRcmPolicyCreationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmPolicyCreationInput)(nil)).Elem()
+}
+
+func (i InMageRcmPolicyCreationInputArgs) ToInMageRcmPolicyCreationInputOutput() InMageRcmPolicyCreationInputOutput {
+	return i.ToInMageRcmPolicyCreationInputOutputWithContext(context.Background())
+}
+
+func (i InMageRcmPolicyCreationInputArgs) ToInMageRcmPolicyCreationInputOutputWithContext(ctx context.Context) InMageRcmPolicyCreationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmPolicyCreationInputOutput)
+}
+
+// InMageRcm policy creation input.
+type InMageRcmPolicyCreationInputOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmPolicyCreationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmPolicyCreationInput)(nil)).Elem()
+}
+
+func (o InMageRcmPolicyCreationInputOutput) ToInMageRcmPolicyCreationInputOutput() InMageRcmPolicyCreationInputOutput {
+	return o
+}
+
+func (o InMageRcmPolicyCreationInputOutput) ToInMageRcmPolicyCreationInputOutputWithContext(ctx context.Context) InMageRcmPolicyCreationInputOutput {
+	return o
+}
+
+// The app consistent snapshot frequency (in minutes).
+func (o InMageRcmPolicyCreationInputOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InMageRcmPolicyCreationInput) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The crash consistent snapshot frequency (in minutes).
+func (o InMageRcmPolicyCreationInputOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InMageRcmPolicyCreationInput) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// A value indicating whether multi-VM sync has to be enabled.
+func (o InMageRcmPolicyCreationInputOutput) EnableMultiVmSync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmPolicyCreationInput) *string { return v.EnableMultiVmSync }).(pulumi.StringPtrOutput)
+}
+
+// The class type.
+func (o InMageRcmPolicyCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageRcmPolicyCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The duration in minutes until which the recovery points need to be stored.
+func (o InMageRcmPolicyCreationInputOutput) RecoveryPointHistoryInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InMageRcmPolicyCreationInput) *int { return v.RecoveryPointHistoryInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// InMageRcm specific policy details.
+type InMageRcmPolicyDetailsResponse struct {
+	// The app consistent snapshot frequency in minutes.
+	AppConsistentFrequencyInMinutes int `pulumi:"appConsistentFrequencyInMinutes"`
+	// The crash consistent snapshot frequency in minutes.
+	CrashConsistentFrequencyInMinutes int `pulumi:"crashConsistentFrequencyInMinutes"`
+	// A value indicating whether multi-VM sync has to be enabled.
+	EnableMultiVmSync string `pulumi:"enableMultiVmSync"`
+	// Gets the class type. Overridden in derived classes.
+	InstanceType string `pulumi:"instanceType"`
+	// The duration in minutes until which the recovery points need to be stored.
+	RecoveryPointHistoryInMinutes int `pulumi:"recoveryPointHistoryInMinutes"`
+}
+
+// InMageRcmPolicyDetailsResponseInput is an input type that accepts InMageRcmPolicyDetailsResponseArgs and InMageRcmPolicyDetailsResponseOutput values.
+// You can construct a concrete instance of `InMageRcmPolicyDetailsResponseInput` via:
+//
+//          InMageRcmPolicyDetailsResponseArgs{...}
+type InMageRcmPolicyDetailsResponseInput interface {
+	pulumi.Input
+
+	ToInMageRcmPolicyDetailsResponseOutput() InMageRcmPolicyDetailsResponseOutput
+	ToInMageRcmPolicyDetailsResponseOutputWithContext(context.Context) InMageRcmPolicyDetailsResponseOutput
+}
+
+// InMageRcm specific policy details.
+type InMageRcmPolicyDetailsResponseArgs struct {
+	// The app consistent snapshot frequency in minutes.
+	AppConsistentFrequencyInMinutes pulumi.IntInput `pulumi:"appConsistentFrequencyInMinutes"`
+	// The crash consistent snapshot frequency in minutes.
+	CrashConsistentFrequencyInMinutes pulumi.IntInput `pulumi:"crashConsistentFrequencyInMinutes"`
+	// A value indicating whether multi-VM sync has to be enabled.
+	EnableMultiVmSync pulumi.StringInput `pulumi:"enableMultiVmSync"`
+	// Gets the class type. Overridden in derived classes.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The duration in minutes until which the recovery points need to be stored.
+	RecoveryPointHistoryInMinutes pulumi.IntInput `pulumi:"recoveryPointHistoryInMinutes"`
+}
+
+func (InMageRcmPolicyDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmPolicyDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmPolicyDetailsResponseArgs) ToInMageRcmPolicyDetailsResponseOutput() InMageRcmPolicyDetailsResponseOutput {
+	return i.ToInMageRcmPolicyDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i InMageRcmPolicyDetailsResponseArgs) ToInMageRcmPolicyDetailsResponseOutputWithContext(ctx context.Context) InMageRcmPolicyDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmPolicyDetailsResponseOutput)
+}
+
+// InMageRcm specific policy details.
+type InMageRcmPolicyDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmPolicyDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmPolicyDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmPolicyDetailsResponseOutput) ToInMageRcmPolicyDetailsResponseOutput() InMageRcmPolicyDetailsResponseOutput {
+	return o
+}
+
+func (o InMageRcmPolicyDetailsResponseOutput) ToInMageRcmPolicyDetailsResponseOutputWithContext(ctx context.Context) InMageRcmPolicyDetailsResponseOutput {
+	return o
+}
+
+// The app consistent snapshot frequency in minutes.
+func (o InMageRcmPolicyDetailsResponseOutput) AppConsistentFrequencyInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmPolicyDetailsResponse) int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntOutput)
+}
+
+// The crash consistent snapshot frequency in minutes.
+func (o InMageRcmPolicyDetailsResponseOutput) CrashConsistentFrequencyInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmPolicyDetailsResponse) int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntOutput)
+}
+
+// A value indicating whether multi-VM sync has to be enabled.
+func (o InMageRcmPolicyDetailsResponseOutput) EnableMultiVmSync() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmPolicyDetailsResponse) string { return v.EnableMultiVmSync }).(pulumi.StringOutput)
+}
+
+// Gets the class type. Overridden in derived classes.
+func (o InMageRcmPolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmPolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The duration in minutes until which the recovery points need to be stored.
+func (o InMageRcmPolicyDetailsResponseOutput) RecoveryPointHistoryInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmPolicyDetailsResponse) int { return v.RecoveryPointHistoryInMinutes }).(pulumi.IntOutput)
+}
+
+// InMageRcm protected disk details.
+type InMageRcmProtectedDiskDetailsResponse struct {
+	// The disk capacity in bytes.
+	CapacityInBytes int `pulumi:"capacityInBytes"`
+	// The disk encryption set ARM Id.
+	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
+	// The disk Id.
+	DiskId string `pulumi:"diskId"`
+	// The disk name.
+	DiskName string `pulumi:"diskName"`
+	// The disk type.
+	DiskType string `pulumi:"diskType"`
+	// A value indicating whether the disk is the OS disk.
+	IsOSDisk string `pulumi:"isOSDisk"`
+	// The log storage account ARM Id.
+	LogStorageAccountId string `pulumi:"logStorageAccountId"`
+	// The ARM Id of the seed managed disk.
+	SeedManagedDiskId string `pulumi:"seedManagedDiskId"`
+	// The ARM Id of the target managed disk.
+	TargetManagedDiskId string `pulumi:"targetManagedDiskId"`
+}
+
+// InMageRcmProtectedDiskDetailsResponseInput is an input type that accepts InMageRcmProtectedDiskDetailsResponseArgs and InMageRcmProtectedDiskDetailsResponseOutput values.
+// You can construct a concrete instance of `InMageRcmProtectedDiskDetailsResponseInput` via:
+//
+//          InMageRcmProtectedDiskDetailsResponseArgs{...}
+type InMageRcmProtectedDiskDetailsResponseInput interface {
+	pulumi.Input
+
+	ToInMageRcmProtectedDiskDetailsResponseOutput() InMageRcmProtectedDiskDetailsResponseOutput
+	ToInMageRcmProtectedDiskDetailsResponseOutputWithContext(context.Context) InMageRcmProtectedDiskDetailsResponseOutput
+}
+
+// InMageRcm protected disk details.
+type InMageRcmProtectedDiskDetailsResponseArgs struct {
+	// The disk capacity in bytes.
+	CapacityInBytes pulumi.IntInput `pulumi:"capacityInBytes"`
+	// The disk encryption set ARM Id.
+	DiskEncryptionSetId pulumi.StringInput `pulumi:"diskEncryptionSetId"`
+	// The disk Id.
+	DiskId pulumi.StringInput `pulumi:"diskId"`
+	// The disk name.
+	DiskName pulumi.StringInput `pulumi:"diskName"`
+	// The disk type.
+	DiskType pulumi.StringInput `pulumi:"diskType"`
+	// A value indicating whether the disk is the OS disk.
+	IsOSDisk pulumi.StringInput `pulumi:"isOSDisk"`
+	// The log storage account ARM Id.
+	LogStorageAccountId pulumi.StringInput `pulumi:"logStorageAccountId"`
+	// The ARM Id of the seed managed disk.
+	SeedManagedDiskId pulumi.StringInput `pulumi:"seedManagedDiskId"`
+	// The ARM Id of the target managed disk.
+	TargetManagedDiskId pulumi.StringInput `pulumi:"targetManagedDiskId"`
+}
+
+func (InMageRcmProtectedDiskDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmProtectedDiskDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmProtectedDiskDetailsResponseArgs) ToInMageRcmProtectedDiskDetailsResponseOutput() InMageRcmProtectedDiskDetailsResponseOutput {
+	return i.ToInMageRcmProtectedDiskDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i InMageRcmProtectedDiskDetailsResponseArgs) ToInMageRcmProtectedDiskDetailsResponseOutputWithContext(ctx context.Context) InMageRcmProtectedDiskDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmProtectedDiskDetailsResponseOutput)
+}
+
+// InMageRcmProtectedDiskDetailsResponseArrayInput is an input type that accepts InMageRcmProtectedDiskDetailsResponseArray and InMageRcmProtectedDiskDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `InMageRcmProtectedDiskDetailsResponseArrayInput` via:
+//
+//          InMageRcmProtectedDiskDetailsResponseArray{ InMageRcmProtectedDiskDetailsResponseArgs{...} }
+type InMageRcmProtectedDiskDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToInMageRcmProtectedDiskDetailsResponseArrayOutput() InMageRcmProtectedDiskDetailsResponseArrayOutput
+	ToInMageRcmProtectedDiskDetailsResponseArrayOutputWithContext(context.Context) InMageRcmProtectedDiskDetailsResponseArrayOutput
+}
+
+type InMageRcmProtectedDiskDetailsResponseArray []InMageRcmProtectedDiskDetailsResponseInput
+
+func (InMageRcmProtectedDiskDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InMageRcmProtectedDiskDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmProtectedDiskDetailsResponseArray) ToInMageRcmProtectedDiskDetailsResponseArrayOutput() InMageRcmProtectedDiskDetailsResponseArrayOutput {
+	return i.ToInMageRcmProtectedDiskDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i InMageRcmProtectedDiskDetailsResponseArray) ToInMageRcmProtectedDiskDetailsResponseArrayOutputWithContext(ctx context.Context) InMageRcmProtectedDiskDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmProtectedDiskDetailsResponseArrayOutput)
+}
+
+// InMageRcm protected disk details.
+type InMageRcmProtectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmProtectedDiskDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmProtectedDiskDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmProtectedDiskDetailsResponseOutput) ToInMageRcmProtectedDiskDetailsResponseOutput() InMageRcmProtectedDiskDetailsResponseOutput {
+	return o
+}
+
+func (o InMageRcmProtectedDiskDetailsResponseOutput) ToInMageRcmProtectedDiskDetailsResponseOutputWithContext(ctx context.Context) InMageRcmProtectedDiskDetailsResponseOutput {
+	return o
+}
+
+// The disk capacity in bytes.
+func (o InMageRcmProtectedDiskDetailsResponseOutput) CapacityInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmProtectedDiskDetailsResponse) int { return v.CapacityInBytes }).(pulumi.IntOutput)
+}
+
+// The disk encryption set ARM Id.
+func (o InMageRcmProtectedDiskDetailsResponseOutput) DiskEncryptionSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmProtectedDiskDetailsResponse) string { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
+}
+
+// The disk Id.
+func (o InMageRcmProtectedDiskDetailsResponseOutput) DiskId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmProtectedDiskDetailsResponse) string { return v.DiskId }).(pulumi.StringOutput)
+}
+
+// The disk name.
+func (o InMageRcmProtectedDiskDetailsResponseOutput) DiskName() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmProtectedDiskDetailsResponse) string { return v.DiskName }).(pulumi.StringOutput)
+}
+
+// The disk type.
+func (o InMageRcmProtectedDiskDetailsResponseOutput) DiskType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmProtectedDiskDetailsResponse) string { return v.DiskType }).(pulumi.StringOutput)
+}
+
+// A value indicating whether the disk is the OS disk.
+func (o InMageRcmProtectedDiskDetailsResponseOutput) IsOSDisk() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmProtectedDiskDetailsResponse) string { return v.IsOSDisk }).(pulumi.StringOutput)
+}
+
+// The log storage account ARM Id.
+func (o InMageRcmProtectedDiskDetailsResponseOutput) LogStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmProtectedDiskDetailsResponse) string { return v.LogStorageAccountId }).(pulumi.StringOutput)
+}
+
+// The ARM Id of the seed managed disk.
+func (o InMageRcmProtectedDiskDetailsResponseOutput) SeedManagedDiskId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmProtectedDiskDetailsResponse) string { return v.SeedManagedDiskId }).(pulumi.StringOutput)
+}
+
+// The ARM Id of the target managed disk.
+func (o InMageRcmProtectedDiskDetailsResponseOutput) TargetManagedDiskId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmProtectedDiskDetailsResponse) string { return v.TargetManagedDiskId }).(pulumi.StringOutput)
+}
+
+type InMageRcmProtectedDiskDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmProtectedDiskDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InMageRcmProtectedDiskDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmProtectedDiskDetailsResponseArrayOutput) ToInMageRcmProtectedDiskDetailsResponseArrayOutput() InMageRcmProtectedDiskDetailsResponseArrayOutput {
+	return o
+}
+
+func (o InMageRcmProtectedDiskDetailsResponseArrayOutput) ToInMageRcmProtectedDiskDetailsResponseArrayOutputWithContext(ctx context.Context) InMageRcmProtectedDiskDetailsResponseArrayOutput {
+	return o
+}
+
+func (o InMageRcmProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) InMageRcmProtectedDiskDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InMageRcmProtectedDiskDetailsResponse {
+		return vs[0].([]InMageRcmProtectedDiskDetailsResponse)[vs[1].(int)]
+	}).(InMageRcmProtectedDiskDetailsResponseOutput)
+}
+
+// InMageRcm provider specific details.
+type InMageRcmReplicationDetailsResponse struct {
+	// The agent upgrade blocking error information.
+	AgentUpgradeBlockingErrorDetails []InMageRcmAgentUpgradeBlockingErrorDetailsResponse `pulumi:"agentUpgradeBlockingErrorDetails"`
+	// The agent auto upgrade state.
+	AgentUpgradeState string `pulumi:"agentUpgradeState"`
+	// The allocated memory in MB.
+	AllocatedMemoryInMB float64 `pulumi:"allocatedMemoryInMB"`
+	// The type of the discovered VM.
+	DiscoveryType string `pulumi:"discoveryType"`
+	// The ARM Id of the discovered VM.
+	FabricDiscoveryMachineId string `pulumi:"fabricDiscoveryMachineId"`
+	// The recovery point Id to which the VM was failed over.
+	FailoverRecoveryPointId string `pulumi:"failoverRecoveryPointId"`
+	// The firmware type.
+	FirmwareType string `pulumi:"firmwareType"`
+	// The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+	InitialReplicationProcessedBytes int `pulumi:"initialReplicationProcessedBytes"`
+	// The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
+	InitialReplicationProgressPercentage int `pulumi:"initialReplicationProgressPercentage"`
+	// The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
+	InitialReplicationTransferredBytes int `pulumi:"initialReplicationTransferredBytes"`
+	// Gets the Instance type.
+	InstanceType string `pulumi:"instanceType"`
+	// The virtual machine internal identifier.
+	InternalIdentifier string `pulumi:"internalIdentifier"`
+	// A value indicating whether last agent upgrade was successful or not.
+	IsLastUpgradeSuccessful string `pulumi:"isLastUpgradeSuccessful"`
+	// The last agent upgrade error information.
+	LastAgentUpgradeErrorDetails []InMageRcmLastAgentUpgradeErrorDetailsResponse `pulumi:"lastAgentUpgradeErrorDetails"`
+	// The last agent upgrade failed or cancelled job Id.
+	LastAgentUpgradeFailedJobId string `pulumi:"lastAgentUpgradeFailedJobId"`
+	// The last agent upgrade type.
+	LastAgentUpgradeType string `pulumi:"lastAgentUpgradeType"`
+	// The last recovery point Id.
+	LastRecoveryPointId string `pulumi:"lastRecoveryPointId"`
+	// The last recovery point received time.
+	LastRecoveryPointReceived string `pulumi:"lastRecoveryPointReceived"`
+	// The last recovery point objective calculated time.
+	LastRpoCalculatedTime string `pulumi:"lastRpoCalculatedTime"`
+	// The last recovery point objective value.
+	LastRpoInSeconds int `pulumi:"lastRpoInSeconds"`
+	// License Type of the VM to be used.
+	LicenseType string `pulumi:"licenseType"`
+	// The mobility agent information.
+	MobilityAgentDetails InMageRcmMobilityAgentDetailsResponse `pulumi:"mobilityAgentDetails"`
+	// The multi VM group name.
+	MultiVmGroupName string `pulumi:"multiVmGroupName"`
+	// The type of the OS on the VM.
+	OsType string `pulumi:"osType"`
+	// The process server Id.
+	ProcessServerId string `pulumi:"processServerId"`
+	// The process server name.
+	ProcessServerName string `pulumi:"processServerName"`
+	// The processor core count.
+	ProcessorCoreCount int `pulumi:"processorCoreCount"`
+	// The list of protected disks.
+	ProtectedDisks []InMageRcmProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
+	// The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+	ResyncProcessedBytes int `pulumi:"resyncProcessedBytes"`
+	// The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
+	ResyncProgressPercentage int `pulumi:"resyncProgressPercentage"`
+	// A value indicating whether resync is required.
+	ResyncRequired string `pulumi:"resyncRequired"`
+	// The resync state.
+	ResyncState string `pulumi:"resyncState"`
+	// The resync transferred bytes from source VM to azure for all selected disks on source VM.
+	ResyncTransferredBytes int `pulumi:"resyncTransferredBytes"`
+	// The run-as account Id.
+	RunAsAccountId string `pulumi:"runAsAccountId"`
+	// The target availability set Id.
+	TargetAvailabilitySetId string `pulumi:"targetAvailabilitySetId"`
+	// The target availability zone.
+	TargetAvailabilityZone string `pulumi:"targetAvailabilityZone"`
+	// The target boot diagnostics storage account ARM Id.
+	TargetBootDiagnosticsStorageAccountId string `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	// The target generation.
+	TargetGeneration string `pulumi:"targetGeneration"`
+	// The target network Id.
+	TargetNetworkId string `pulumi:"targetNetworkId"`
+	// The target proximity placement group Id.
+	TargetProximityPlacementGroupId string `pulumi:"targetProximityPlacementGroupId"`
+	// The target resource group Id.
+	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
+	// Target VM name.
+	TargetVmName string `pulumi:"targetVmName"`
+	// The target VM size.
+	TargetVmSize string `pulumi:"targetVmSize"`
+	// The test network Id.
+	TestNetworkId string `pulumi:"testNetworkId"`
+	// The network details.
+	VmNics []InMageRcmNicDetailsResponse `pulumi:"vmNics"`
+}
+
+// InMageRcmReplicationDetailsResponseInput is an input type that accepts InMageRcmReplicationDetailsResponseArgs and InMageRcmReplicationDetailsResponseOutput values.
+// You can construct a concrete instance of `InMageRcmReplicationDetailsResponseInput` via:
+//
+//          InMageRcmReplicationDetailsResponseArgs{...}
+type InMageRcmReplicationDetailsResponseInput interface {
+	pulumi.Input
+
+	ToInMageRcmReplicationDetailsResponseOutput() InMageRcmReplicationDetailsResponseOutput
+	ToInMageRcmReplicationDetailsResponseOutputWithContext(context.Context) InMageRcmReplicationDetailsResponseOutput
+}
+
+// InMageRcm provider specific details.
+type InMageRcmReplicationDetailsResponseArgs struct {
+	// The agent upgrade blocking error information.
+	AgentUpgradeBlockingErrorDetails InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayInput `pulumi:"agentUpgradeBlockingErrorDetails"`
+	// The agent auto upgrade state.
+	AgentUpgradeState pulumi.StringInput `pulumi:"agentUpgradeState"`
+	// The allocated memory in MB.
+	AllocatedMemoryInMB pulumi.Float64Input `pulumi:"allocatedMemoryInMB"`
+	// The type of the discovered VM.
+	DiscoveryType pulumi.StringInput `pulumi:"discoveryType"`
+	// The ARM Id of the discovered VM.
+	FabricDiscoveryMachineId pulumi.StringInput `pulumi:"fabricDiscoveryMachineId"`
+	// The recovery point Id to which the VM was failed over.
+	FailoverRecoveryPointId pulumi.StringInput `pulumi:"failoverRecoveryPointId"`
+	// The firmware type.
+	FirmwareType pulumi.StringInput `pulumi:"firmwareType"`
+	// The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+	InitialReplicationProcessedBytes pulumi.IntInput `pulumi:"initialReplicationProcessedBytes"`
+	// The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
+	InitialReplicationProgressPercentage pulumi.IntInput `pulumi:"initialReplicationProgressPercentage"`
+	// The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
+	InitialReplicationTransferredBytes pulumi.IntInput `pulumi:"initialReplicationTransferredBytes"`
+	// Gets the Instance type.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The virtual machine internal identifier.
+	InternalIdentifier pulumi.StringInput `pulumi:"internalIdentifier"`
+	// A value indicating whether last agent upgrade was successful or not.
+	IsLastUpgradeSuccessful pulumi.StringInput `pulumi:"isLastUpgradeSuccessful"`
+	// The last agent upgrade error information.
+	LastAgentUpgradeErrorDetails InMageRcmLastAgentUpgradeErrorDetailsResponseArrayInput `pulumi:"lastAgentUpgradeErrorDetails"`
+	// The last agent upgrade failed or cancelled job Id.
+	LastAgentUpgradeFailedJobId pulumi.StringInput `pulumi:"lastAgentUpgradeFailedJobId"`
+	// The last agent upgrade type.
+	LastAgentUpgradeType pulumi.StringInput `pulumi:"lastAgentUpgradeType"`
+	// The last recovery point Id.
+	LastRecoveryPointId pulumi.StringInput `pulumi:"lastRecoveryPointId"`
+	// The last recovery point received time.
+	LastRecoveryPointReceived pulumi.StringInput `pulumi:"lastRecoveryPointReceived"`
+	// The last recovery point objective calculated time.
+	LastRpoCalculatedTime pulumi.StringInput `pulumi:"lastRpoCalculatedTime"`
+	// The last recovery point objective value.
+	LastRpoInSeconds pulumi.IntInput `pulumi:"lastRpoInSeconds"`
+	// License Type of the VM to be used.
+	LicenseType pulumi.StringInput `pulumi:"licenseType"`
+	// The mobility agent information.
+	MobilityAgentDetails InMageRcmMobilityAgentDetailsResponseInput `pulumi:"mobilityAgentDetails"`
+	// The multi VM group name.
+	MultiVmGroupName pulumi.StringInput `pulumi:"multiVmGroupName"`
+	// The type of the OS on the VM.
+	OsType pulumi.StringInput `pulumi:"osType"`
+	// The process server Id.
+	ProcessServerId pulumi.StringInput `pulumi:"processServerId"`
+	// The process server name.
+	ProcessServerName pulumi.StringInput `pulumi:"processServerName"`
+	// The processor core count.
+	ProcessorCoreCount pulumi.IntInput `pulumi:"processorCoreCount"`
+	// The list of protected disks.
+	ProtectedDisks InMageRcmProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
+	// The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+	ResyncProcessedBytes pulumi.IntInput `pulumi:"resyncProcessedBytes"`
+	// The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
+	ResyncProgressPercentage pulumi.IntInput `pulumi:"resyncProgressPercentage"`
+	// A value indicating whether resync is required.
+	ResyncRequired pulumi.StringInput `pulumi:"resyncRequired"`
+	// The resync state.
+	ResyncState pulumi.StringInput `pulumi:"resyncState"`
+	// The resync transferred bytes from source VM to azure for all selected disks on source VM.
+	ResyncTransferredBytes pulumi.IntInput `pulumi:"resyncTransferredBytes"`
+	// The run-as account Id.
+	RunAsAccountId pulumi.StringInput `pulumi:"runAsAccountId"`
+	// The target availability set Id.
+	TargetAvailabilitySetId pulumi.StringInput `pulumi:"targetAvailabilitySetId"`
+	// The target availability zone.
+	TargetAvailabilityZone pulumi.StringInput `pulumi:"targetAvailabilityZone"`
+	// The target boot diagnostics storage account ARM Id.
+	TargetBootDiagnosticsStorageAccountId pulumi.StringInput `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	// The target generation.
+	TargetGeneration pulumi.StringInput `pulumi:"targetGeneration"`
+	// The target network Id.
+	TargetNetworkId pulumi.StringInput `pulumi:"targetNetworkId"`
+	// The target proximity placement group Id.
+	TargetProximityPlacementGroupId pulumi.StringInput `pulumi:"targetProximityPlacementGroupId"`
+	// The target resource group Id.
+	TargetResourceGroupId pulumi.StringInput `pulumi:"targetResourceGroupId"`
+	// Target VM name.
+	TargetVmName pulumi.StringInput `pulumi:"targetVmName"`
+	// The target VM size.
+	TargetVmSize pulumi.StringInput `pulumi:"targetVmSize"`
+	// The test network Id.
+	TestNetworkId pulumi.StringInput `pulumi:"testNetworkId"`
+	// The network details.
+	VmNics InMageRcmNicDetailsResponseArrayInput `pulumi:"vmNics"`
+}
+
+func (InMageRcmReplicationDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmReplicationDetailsResponse)(nil)).Elem()
+}
+
+func (i InMageRcmReplicationDetailsResponseArgs) ToInMageRcmReplicationDetailsResponseOutput() InMageRcmReplicationDetailsResponseOutput {
+	return i.ToInMageRcmReplicationDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i InMageRcmReplicationDetailsResponseArgs) ToInMageRcmReplicationDetailsResponseOutputWithContext(ctx context.Context) InMageRcmReplicationDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InMageRcmReplicationDetailsResponseOutput)
+}
+
+// InMageRcm provider specific details.
+type InMageRcmReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (InMageRcmReplicationDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InMageRcmReplicationDetailsResponse)(nil)).Elem()
+}
+
+func (o InMageRcmReplicationDetailsResponseOutput) ToInMageRcmReplicationDetailsResponseOutput() InMageRcmReplicationDetailsResponseOutput {
+	return o
+}
+
+func (o InMageRcmReplicationDetailsResponseOutput) ToInMageRcmReplicationDetailsResponseOutputWithContext(ctx context.Context) InMageRcmReplicationDetailsResponseOutput {
+	return o
+}
+
+// The agent upgrade blocking error information.
+func (o InMageRcmReplicationDetailsResponseOutput) AgentUpgradeBlockingErrorDetails() InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) []InMageRcmAgentUpgradeBlockingErrorDetailsResponse {
+		return v.AgentUpgradeBlockingErrorDetails
+	}).(InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput)
+}
+
+// The agent auto upgrade state.
+func (o InMageRcmReplicationDetailsResponseOutput) AgentUpgradeState() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.AgentUpgradeState }).(pulumi.StringOutput)
+}
+
+// The allocated memory in MB.
+func (o InMageRcmReplicationDetailsResponseOutput) AllocatedMemoryInMB() pulumi.Float64Output {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) float64 { return v.AllocatedMemoryInMB }).(pulumi.Float64Output)
+}
+
+// The type of the discovered VM.
+func (o InMageRcmReplicationDetailsResponseOutput) DiscoveryType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.DiscoveryType }).(pulumi.StringOutput)
+}
+
+// The ARM Id of the discovered VM.
+func (o InMageRcmReplicationDetailsResponseOutput) FabricDiscoveryMachineId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.FabricDiscoveryMachineId }).(pulumi.StringOutput)
+}
+
+// The recovery point Id to which the VM was failed over.
+func (o InMageRcmReplicationDetailsResponseOutput) FailoverRecoveryPointId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.FailoverRecoveryPointId }).(pulumi.StringOutput)
+}
+
+// The firmware type.
+func (o InMageRcmReplicationDetailsResponseOutput) FirmwareType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.FirmwareType }).(pulumi.StringOutput)
+}
+
+// The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+func (o InMageRcmReplicationDetailsResponseOutput) InitialReplicationProcessedBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) int { return v.InitialReplicationProcessedBytes }).(pulumi.IntOutput)
+}
+
+// The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
+func (o InMageRcmReplicationDetailsResponseOutput) InitialReplicationProgressPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) int { return v.InitialReplicationProgressPercentage }).(pulumi.IntOutput)
+}
+
+// The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
+func (o InMageRcmReplicationDetailsResponseOutput) InitialReplicationTransferredBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) int { return v.InitialReplicationTransferredBytes }).(pulumi.IntOutput)
+}
+
+// Gets the Instance type.
+func (o InMageRcmReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The virtual machine internal identifier.
+func (o InMageRcmReplicationDetailsResponseOutput) InternalIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.InternalIdentifier }).(pulumi.StringOutput)
+}
+
+// A value indicating whether last agent upgrade was successful or not.
+func (o InMageRcmReplicationDetailsResponseOutput) IsLastUpgradeSuccessful() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.IsLastUpgradeSuccessful }).(pulumi.StringOutput)
+}
+
+// The last agent upgrade error information.
+func (o InMageRcmReplicationDetailsResponseOutput) LastAgentUpgradeErrorDetails() InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) []InMageRcmLastAgentUpgradeErrorDetailsResponse {
+		return v.LastAgentUpgradeErrorDetails
+	}).(InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput)
+}
+
+// The last agent upgrade failed or cancelled job Id.
+func (o InMageRcmReplicationDetailsResponseOutput) LastAgentUpgradeFailedJobId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.LastAgentUpgradeFailedJobId }).(pulumi.StringOutput)
+}
+
+// The last agent upgrade type.
+func (o InMageRcmReplicationDetailsResponseOutput) LastAgentUpgradeType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.LastAgentUpgradeType }).(pulumi.StringOutput)
+}
+
+// The last recovery point Id.
+func (o InMageRcmReplicationDetailsResponseOutput) LastRecoveryPointId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.LastRecoveryPointId }).(pulumi.StringOutput)
+}
+
+// The last recovery point received time.
+func (o InMageRcmReplicationDetailsResponseOutput) LastRecoveryPointReceived() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.LastRecoveryPointReceived }).(pulumi.StringOutput)
+}
+
+// The last recovery point objective calculated time.
+func (o InMageRcmReplicationDetailsResponseOutput) LastRpoCalculatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.LastRpoCalculatedTime }).(pulumi.StringOutput)
+}
+
+// The last recovery point objective value.
+func (o InMageRcmReplicationDetailsResponseOutput) LastRpoInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) int { return v.LastRpoInSeconds }).(pulumi.IntOutput)
+}
+
+// License Type of the VM to be used.
+func (o InMageRcmReplicationDetailsResponseOutput) LicenseType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.LicenseType }).(pulumi.StringOutput)
+}
+
+// The mobility agent information.
+func (o InMageRcmReplicationDetailsResponseOutput) MobilityAgentDetails() InMageRcmMobilityAgentDetailsResponseOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) InMageRcmMobilityAgentDetailsResponse {
+		return v.MobilityAgentDetails
+	}).(InMageRcmMobilityAgentDetailsResponseOutput)
+}
+
+// The multi VM group name.
+func (o InMageRcmReplicationDetailsResponseOutput) MultiVmGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.MultiVmGroupName }).(pulumi.StringOutput)
+}
+
+// The type of the OS on the VM.
+func (o InMageRcmReplicationDetailsResponseOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// The process server Id.
+func (o InMageRcmReplicationDetailsResponseOutput) ProcessServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.ProcessServerId }).(pulumi.StringOutput)
+}
+
+// The process server name.
+func (o InMageRcmReplicationDetailsResponseOutput) ProcessServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.ProcessServerName }).(pulumi.StringOutput)
+}
+
+// The processor core count.
+func (o InMageRcmReplicationDetailsResponseOutput) ProcessorCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) int { return v.ProcessorCoreCount }).(pulumi.IntOutput)
+}
+
+// The list of protected disks.
+func (o InMageRcmReplicationDetailsResponseOutput) ProtectedDisks() InMageRcmProtectedDiskDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) []InMageRcmProtectedDiskDetailsResponse {
+		return v.ProtectedDisks
+	}).(InMageRcmProtectedDiskDetailsResponseArrayOutput)
+}
+
+// The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+func (o InMageRcmReplicationDetailsResponseOutput) ResyncProcessedBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) int { return v.ResyncProcessedBytes }).(pulumi.IntOutput)
+}
+
+// The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
+func (o InMageRcmReplicationDetailsResponseOutput) ResyncProgressPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) int { return v.ResyncProgressPercentage }).(pulumi.IntOutput)
+}
+
+// A value indicating whether resync is required.
+func (o InMageRcmReplicationDetailsResponseOutput) ResyncRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.ResyncRequired }).(pulumi.StringOutput)
+}
+
+// The resync state.
+func (o InMageRcmReplicationDetailsResponseOutput) ResyncState() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.ResyncState }).(pulumi.StringOutput)
+}
+
+// The resync transferred bytes from source VM to azure for all selected disks on source VM.
+func (o InMageRcmReplicationDetailsResponseOutput) ResyncTransferredBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) int { return v.ResyncTransferredBytes }).(pulumi.IntOutput)
+}
+
+// The run-as account Id.
+func (o InMageRcmReplicationDetailsResponseOutput) RunAsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.RunAsAccountId }).(pulumi.StringOutput)
+}
+
+// The target availability set Id.
+func (o InMageRcmReplicationDetailsResponseOutput) TargetAvailabilitySetId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.TargetAvailabilitySetId }).(pulumi.StringOutput)
+}
+
+// The target availability zone.
+func (o InMageRcmReplicationDetailsResponseOutput) TargetAvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.TargetAvailabilityZone }).(pulumi.StringOutput)
+}
+
+// The target boot diagnostics storage account ARM Id.
+func (o InMageRcmReplicationDetailsResponseOutput) TargetBootDiagnosticsStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.TargetBootDiagnosticsStorageAccountId }).(pulumi.StringOutput)
+}
+
+// The target generation.
+func (o InMageRcmReplicationDetailsResponseOutput) TargetGeneration() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.TargetGeneration }).(pulumi.StringOutput)
+}
+
+// The target network Id.
+func (o InMageRcmReplicationDetailsResponseOutput) TargetNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.TargetNetworkId }).(pulumi.StringOutput)
+}
+
+// The target proximity placement group Id.
+func (o InMageRcmReplicationDetailsResponseOutput) TargetProximityPlacementGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.TargetProximityPlacementGroupId }).(pulumi.StringOutput)
+}
+
+// The target resource group Id.
+func (o InMageRcmReplicationDetailsResponseOutput) TargetResourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.TargetResourceGroupId }).(pulumi.StringOutput)
+}
+
+// Target VM name.
+func (o InMageRcmReplicationDetailsResponseOutput) TargetVmName() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.TargetVmName }).(pulumi.StringOutput)
+}
+
+// The target VM size.
+func (o InMageRcmReplicationDetailsResponseOutput) TargetVmSize() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.TargetVmSize }).(pulumi.StringOutput)
+}
+
+// The test network Id.
+func (o InMageRcmReplicationDetailsResponseOutput) TestNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) string { return v.TestNetworkId }).(pulumi.StringOutput)
+}
+
+// The network details.
+func (o InMageRcmReplicationDetailsResponseOutput) VmNics() InMageRcmNicDetailsResponseArrayOutput {
+	return o.ApplyT(func(v InMageRcmReplicationDetailsResponse) []InMageRcmNicDetailsResponse { return v.VmNics }).(InMageRcmNicDetailsResponseArrayOutput)
+}
+
 // InMage provider specific settings
 type InMageReplicationDetailsResponse struct {
 	// The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
@@ -23343,9 +26034,9 @@ func (o KPIResourceHealthDetailsResponseMapOutput) MapIndex(k pulumi.StringInput
 
 // Key Encryption Key (KEK) information.
 type KeyEncryptionKeyInfo struct {
-	// The key url / identifier.
+	// The key URL / identifier.
 	KeyIdentifier *string `pulumi:"keyIdentifier"`
-	// The KeyVault resource ARM id for key.
+	// The KeyVault resource ARM Id for key.
 	KeyVaultResourceArmId *string `pulumi:"keyVaultResourceArmId"`
 }
 
@@ -23362,9 +26053,9 @@ type KeyEncryptionKeyInfoInput interface {
 
 // Key Encryption Key (KEK) information.
 type KeyEncryptionKeyInfoArgs struct {
-	// The key url / identifier.
+	// The key URL / identifier.
 	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
-	// The KeyVault resource ARM id for key.
+	// The KeyVault resource ARM Id for key.
 	KeyVaultResourceArmId pulumi.StringPtrInput `pulumi:"keyVaultResourceArmId"`
 }
 
@@ -23446,12 +26137,12 @@ func (o KeyEncryptionKeyInfoOutput) ToKeyEncryptionKeyInfoPtrOutputWithContext(c
 	}).(KeyEncryptionKeyInfoPtrOutput)
 }
 
-// The key url / identifier.
+// The key URL / identifier.
 func (o KeyEncryptionKeyInfoOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyEncryptionKeyInfo) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The KeyVault resource ARM id for key.
+// The KeyVault resource ARM Id for key.
 func (o KeyEncryptionKeyInfoOutput) KeyVaultResourceArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyEncryptionKeyInfo) *string { return v.KeyVaultResourceArmId }).(pulumi.StringPtrOutput)
 }
@@ -23474,7 +26165,7 @@ func (o KeyEncryptionKeyInfoPtrOutput) Elem() KeyEncryptionKeyInfoOutput {
 	return o.ApplyT(func(v *KeyEncryptionKeyInfo) KeyEncryptionKeyInfo { return *v }).(KeyEncryptionKeyInfoOutput)
 }
 
-// The key url / identifier.
+// The key URL / identifier.
 func (o KeyEncryptionKeyInfoPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyEncryptionKeyInfo) *string {
 		if v == nil {
@@ -23484,7 +26175,7 @@ func (o KeyEncryptionKeyInfoPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The KeyVault resource ARM id for key.
+// The KeyVault resource ARM Id for key.
 func (o KeyEncryptionKeyInfoPtrOutput) KeyVaultResourceArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyEncryptionKeyInfo) *string {
 		if v == nil {
@@ -28840,6 +31531,259 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Process server details.
+type ProcessServerDetailsResponse struct {
+	// The available memory.
+	AvailableMemoryInBytes int `pulumi:"availableMemoryInBytes"`
+	// The available disk space.
+	AvailableSpaceInBytes int `pulumi:"availableSpaceInBytes"`
+	// The free disk space percentage.
+	FreeSpacePercentage float64 `pulumi:"freeSpacePercentage"`
+	// The health of the process server.
+	Health string `pulumi:"health"`
+	// The health errors.
+	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
+	// The historic health of the process server based on the health in last 24 hours.
+	HistoricHealth string `pulumi:"historicHealth"`
+	// The process server Id.
+	Id string `pulumi:"id"`
+	// The last heartbeat received from the process server.
+	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
+	// The memory usage percentage.
+	MemoryUsagePercentage float64 `pulumi:"memoryUsagePercentage"`
+	// The process server name.
+	Name string `pulumi:"name"`
+	// The processor usage percentage.
+	ProcessorUsagePercentage float64 `pulumi:"processorUsagePercentage"`
+	// The throughput in bytes.
+	ThroughputInBytes int `pulumi:"throughputInBytes"`
+	// The uploading pending data in bytes.
+	ThroughputUploadPendingDataInBytes int `pulumi:"throughputUploadPendingDataInBytes"`
+	// The total memory.
+	TotalMemoryInBytes int `pulumi:"totalMemoryInBytes"`
+	// The total disk space.
+	TotalSpaceInBytes int `pulumi:"totalSpaceInBytes"`
+	// The used memory.
+	UsedMemoryInBytes int `pulumi:"usedMemoryInBytes"`
+	// The used disk space.
+	UsedSpaceInBytes int `pulumi:"usedSpaceInBytes"`
+	// The process server version.
+	Version string `pulumi:"version"`
+}
+
+// ProcessServerDetailsResponseInput is an input type that accepts ProcessServerDetailsResponseArgs and ProcessServerDetailsResponseOutput values.
+// You can construct a concrete instance of `ProcessServerDetailsResponseInput` via:
+//
+//          ProcessServerDetailsResponseArgs{...}
+type ProcessServerDetailsResponseInput interface {
+	pulumi.Input
+
+	ToProcessServerDetailsResponseOutput() ProcessServerDetailsResponseOutput
+	ToProcessServerDetailsResponseOutputWithContext(context.Context) ProcessServerDetailsResponseOutput
+}
+
+// Process server details.
+type ProcessServerDetailsResponseArgs struct {
+	// The available memory.
+	AvailableMemoryInBytes pulumi.IntInput `pulumi:"availableMemoryInBytes"`
+	// The available disk space.
+	AvailableSpaceInBytes pulumi.IntInput `pulumi:"availableSpaceInBytes"`
+	// The free disk space percentage.
+	FreeSpacePercentage pulumi.Float64Input `pulumi:"freeSpacePercentage"`
+	// The health of the process server.
+	Health pulumi.StringInput `pulumi:"health"`
+	// The health errors.
+	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
+	// The historic health of the process server based on the health in last 24 hours.
+	HistoricHealth pulumi.StringInput `pulumi:"historicHealth"`
+	// The process server Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The last heartbeat received from the process server.
+	LastHeartbeatUtc pulumi.StringInput `pulumi:"lastHeartbeatUtc"`
+	// The memory usage percentage.
+	MemoryUsagePercentage pulumi.Float64Input `pulumi:"memoryUsagePercentage"`
+	// The process server name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The processor usage percentage.
+	ProcessorUsagePercentage pulumi.Float64Input `pulumi:"processorUsagePercentage"`
+	// The throughput in bytes.
+	ThroughputInBytes pulumi.IntInput `pulumi:"throughputInBytes"`
+	// The uploading pending data in bytes.
+	ThroughputUploadPendingDataInBytes pulumi.IntInput `pulumi:"throughputUploadPendingDataInBytes"`
+	// The total memory.
+	TotalMemoryInBytes pulumi.IntInput `pulumi:"totalMemoryInBytes"`
+	// The total disk space.
+	TotalSpaceInBytes pulumi.IntInput `pulumi:"totalSpaceInBytes"`
+	// The used memory.
+	UsedMemoryInBytes pulumi.IntInput `pulumi:"usedMemoryInBytes"`
+	// The used disk space.
+	UsedSpaceInBytes pulumi.IntInput `pulumi:"usedSpaceInBytes"`
+	// The process server version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (ProcessServerDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessServerDetailsResponse)(nil)).Elem()
+}
+
+func (i ProcessServerDetailsResponseArgs) ToProcessServerDetailsResponseOutput() ProcessServerDetailsResponseOutput {
+	return i.ToProcessServerDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i ProcessServerDetailsResponseArgs) ToProcessServerDetailsResponseOutputWithContext(ctx context.Context) ProcessServerDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessServerDetailsResponseOutput)
+}
+
+// ProcessServerDetailsResponseArrayInput is an input type that accepts ProcessServerDetailsResponseArray and ProcessServerDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `ProcessServerDetailsResponseArrayInput` via:
+//
+//          ProcessServerDetailsResponseArray{ ProcessServerDetailsResponseArgs{...} }
+type ProcessServerDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToProcessServerDetailsResponseArrayOutput() ProcessServerDetailsResponseArrayOutput
+	ToProcessServerDetailsResponseArrayOutputWithContext(context.Context) ProcessServerDetailsResponseArrayOutput
+}
+
+type ProcessServerDetailsResponseArray []ProcessServerDetailsResponseInput
+
+func (ProcessServerDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProcessServerDetailsResponse)(nil)).Elem()
+}
+
+func (i ProcessServerDetailsResponseArray) ToProcessServerDetailsResponseArrayOutput() ProcessServerDetailsResponseArrayOutput {
+	return i.ToProcessServerDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ProcessServerDetailsResponseArray) ToProcessServerDetailsResponseArrayOutputWithContext(ctx context.Context) ProcessServerDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessServerDetailsResponseArrayOutput)
+}
+
+// Process server details.
+type ProcessServerDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ProcessServerDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessServerDetailsResponse)(nil)).Elem()
+}
+
+func (o ProcessServerDetailsResponseOutput) ToProcessServerDetailsResponseOutput() ProcessServerDetailsResponseOutput {
+	return o
+}
+
+func (o ProcessServerDetailsResponseOutput) ToProcessServerDetailsResponseOutputWithContext(ctx context.Context) ProcessServerDetailsResponseOutput {
+	return o
+}
+
+// The available memory.
+func (o ProcessServerDetailsResponseOutput) AvailableMemoryInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) int { return v.AvailableMemoryInBytes }).(pulumi.IntOutput)
+}
+
+// The available disk space.
+func (o ProcessServerDetailsResponseOutput) AvailableSpaceInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) int { return v.AvailableSpaceInBytes }).(pulumi.IntOutput)
+}
+
+// The free disk space percentage.
+func (o ProcessServerDetailsResponseOutput) FreeSpacePercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) float64 { return v.FreeSpacePercentage }).(pulumi.Float64Output)
+}
+
+// The health of the process server.
+func (o ProcessServerDetailsResponseOutput) Health() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) string { return v.Health }).(pulumi.StringOutput)
+}
+
+// The health errors.
+func (o ProcessServerDetailsResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
+}
+
+// The historic health of the process server based on the health in last 24 hours.
+func (o ProcessServerDetailsResponseOutput) HistoricHealth() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) string { return v.HistoricHealth }).(pulumi.StringOutput)
+}
+
+// The process server Id.
+func (o ProcessServerDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The last heartbeat received from the process server.
+func (o ProcessServerDetailsResponseOutput) LastHeartbeatUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) string { return v.LastHeartbeatUtc }).(pulumi.StringOutput)
+}
+
+// The memory usage percentage.
+func (o ProcessServerDetailsResponseOutput) MemoryUsagePercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) float64 { return v.MemoryUsagePercentage }).(pulumi.Float64Output)
+}
+
+// The process server name.
+func (o ProcessServerDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The processor usage percentage.
+func (o ProcessServerDetailsResponseOutput) ProcessorUsagePercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) float64 { return v.ProcessorUsagePercentage }).(pulumi.Float64Output)
+}
+
+// The throughput in bytes.
+func (o ProcessServerDetailsResponseOutput) ThroughputInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) int { return v.ThroughputInBytes }).(pulumi.IntOutput)
+}
+
+// The uploading pending data in bytes.
+func (o ProcessServerDetailsResponseOutput) ThroughputUploadPendingDataInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) int { return v.ThroughputUploadPendingDataInBytes }).(pulumi.IntOutput)
+}
+
+// The total memory.
+func (o ProcessServerDetailsResponseOutput) TotalMemoryInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) int { return v.TotalMemoryInBytes }).(pulumi.IntOutput)
+}
+
+// The total disk space.
+func (o ProcessServerDetailsResponseOutput) TotalSpaceInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) int { return v.TotalSpaceInBytes }).(pulumi.IntOutput)
+}
+
+// The used memory.
+func (o ProcessServerDetailsResponseOutput) UsedMemoryInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) int { return v.UsedMemoryInBytes }).(pulumi.IntOutput)
+}
+
+// The used disk space.
+func (o ProcessServerDetailsResponseOutput) UsedSpaceInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) int { return v.UsedSpaceInBytes }).(pulumi.IntOutput)
+}
+
+// The process server version.
+func (o ProcessServerDetailsResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessServerDetailsResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type ProcessServerDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProcessServerDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProcessServerDetailsResponse)(nil)).Elem()
+}
+
+func (o ProcessServerDetailsResponseArrayOutput) ToProcessServerDetailsResponseArrayOutput() ProcessServerDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ProcessServerDetailsResponseArrayOutput) ToProcessServerDetailsResponseArrayOutputWithContext(ctx context.Context) ProcessServerDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ProcessServerDetailsResponseArrayOutput) Index(i pulumi.IntInput) ProcessServerDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcessServerDetailsResponse {
+		return vs[0].([]ProcessServerDetailsResponse)[vs[1].(int)]
+	}).(ProcessServerDetailsResponseOutput)
+}
+
 // Details of the Process Server.
 type ProcessServerResponse struct {
 	// Agent expiry date.
@@ -29587,6 +32531,151 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) TargetProtectionC
 	}).(pulumi.StringPtrOutput)
 }
 
+// Push installer details.
+type PushInstallerDetailsResponse struct {
+	// The health of the push installer.
+	Health string `pulumi:"health"`
+	// The health errors.
+	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
+	// The push installer Id.
+	Id string `pulumi:"id"`
+	// The last heartbeat received from the push installer.
+	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
+	// The push installer name.
+	Name string `pulumi:"name"`
+	// The push installer version.
+	Version string `pulumi:"version"`
+}
+
+// PushInstallerDetailsResponseInput is an input type that accepts PushInstallerDetailsResponseArgs and PushInstallerDetailsResponseOutput values.
+// You can construct a concrete instance of `PushInstallerDetailsResponseInput` via:
+//
+//          PushInstallerDetailsResponseArgs{...}
+type PushInstallerDetailsResponseInput interface {
+	pulumi.Input
+
+	ToPushInstallerDetailsResponseOutput() PushInstallerDetailsResponseOutput
+	ToPushInstallerDetailsResponseOutputWithContext(context.Context) PushInstallerDetailsResponseOutput
+}
+
+// Push installer details.
+type PushInstallerDetailsResponseArgs struct {
+	// The health of the push installer.
+	Health pulumi.StringInput `pulumi:"health"`
+	// The health errors.
+	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
+	// The push installer Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The last heartbeat received from the push installer.
+	LastHeartbeatUtc pulumi.StringInput `pulumi:"lastHeartbeatUtc"`
+	// The push installer name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The push installer version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (PushInstallerDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushInstallerDetailsResponse)(nil)).Elem()
+}
+
+func (i PushInstallerDetailsResponseArgs) ToPushInstallerDetailsResponseOutput() PushInstallerDetailsResponseOutput {
+	return i.ToPushInstallerDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i PushInstallerDetailsResponseArgs) ToPushInstallerDetailsResponseOutputWithContext(ctx context.Context) PushInstallerDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushInstallerDetailsResponseOutput)
+}
+
+// PushInstallerDetailsResponseArrayInput is an input type that accepts PushInstallerDetailsResponseArray and PushInstallerDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `PushInstallerDetailsResponseArrayInput` via:
+//
+//          PushInstallerDetailsResponseArray{ PushInstallerDetailsResponseArgs{...} }
+type PushInstallerDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToPushInstallerDetailsResponseArrayOutput() PushInstallerDetailsResponseArrayOutput
+	ToPushInstallerDetailsResponseArrayOutputWithContext(context.Context) PushInstallerDetailsResponseArrayOutput
+}
+
+type PushInstallerDetailsResponseArray []PushInstallerDetailsResponseInput
+
+func (PushInstallerDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PushInstallerDetailsResponse)(nil)).Elem()
+}
+
+func (i PushInstallerDetailsResponseArray) ToPushInstallerDetailsResponseArrayOutput() PushInstallerDetailsResponseArrayOutput {
+	return i.ToPushInstallerDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PushInstallerDetailsResponseArray) ToPushInstallerDetailsResponseArrayOutputWithContext(ctx context.Context) PushInstallerDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushInstallerDetailsResponseArrayOutput)
+}
+
+// Push installer details.
+type PushInstallerDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (PushInstallerDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushInstallerDetailsResponse)(nil)).Elem()
+}
+
+func (o PushInstallerDetailsResponseOutput) ToPushInstallerDetailsResponseOutput() PushInstallerDetailsResponseOutput {
+	return o
+}
+
+func (o PushInstallerDetailsResponseOutput) ToPushInstallerDetailsResponseOutputWithContext(ctx context.Context) PushInstallerDetailsResponseOutput {
+	return o
+}
+
+// The health of the push installer.
+func (o PushInstallerDetailsResponseOutput) Health() pulumi.StringOutput {
+	return o.ApplyT(func(v PushInstallerDetailsResponse) string { return v.Health }).(pulumi.StringOutput)
+}
+
+// The health errors.
+func (o PushInstallerDetailsResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
+	return o.ApplyT(func(v PushInstallerDetailsResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
+}
+
+// The push installer Id.
+func (o PushInstallerDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PushInstallerDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The last heartbeat received from the push installer.
+func (o PushInstallerDetailsResponseOutput) LastHeartbeatUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v PushInstallerDetailsResponse) string { return v.LastHeartbeatUtc }).(pulumi.StringOutput)
+}
+
+// The push installer name.
+func (o PushInstallerDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PushInstallerDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The push installer version.
+func (o PushInstallerDetailsResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v PushInstallerDetailsResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type PushInstallerDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PushInstallerDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PushInstallerDetailsResponse)(nil)).Elem()
+}
+
+func (o PushInstallerDetailsResponseArrayOutput) ToPushInstallerDetailsResponseArrayOutput() PushInstallerDetailsResponseArrayOutput {
+	return o
+}
+
+func (o PushInstallerDetailsResponseArrayOutput) ToPushInstallerDetailsResponseArrayOutputWithContext(ctx context.Context) PushInstallerDetailsResponseArrayOutput {
+	return o
+}
+
+func (o PushInstallerDetailsResponseArrayOutput) Index(i pulumi.IntInput) PushInstallerDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PushInstallerDetailsResponse {
+		return vs[0].([]PushInstallerDetailsResponse)[vs[1].(int)]
+	}).(PushInstallerDetailsResponseOutput)
+}
+
 // RCM based Azure migration specific policy details.
 type RcmAzureMigrationPolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
@@ -29685,6 +32774,151 @@ func (o RcmAzureMigrationPolicyDetailsResponseOutput) RecoveryPointHistory() pul
 // The recovery point threshold in minutes.
 func (o RcmAzureMigrationPolicyDetailsResponseOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RcmAzureMigrationPolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// RCM proxy details.
+type RcmProxyDetailsResponse struct {
+	// The health of the RCM proxy.
+	Health string `pulumi:"health"`
+	// The health errors.
+	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
+	// The RCM proxy Id.
+	Id string `pulumi:"id"`
+	// The last heartbeat received from the RCM proxy.
+	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
+	// The RCM proxy name.
+	Name string `pulumi:"name"`
+	// The RCM proxy version.
+	Version string `pulumi:"version"`
+}
+
+// RcmProxyDetailsResponseInput is an input type that accepts RcmProxyDetailsResponseArgs and RcmProxyDetailsResponseOutput values.
+// You can construct a concrete instance of `RcmProxyDetailsResponseInput` via:
+//
+//          RcmProxyDetailsResponseArgs{...}
+type RcmProxyDetailsResponseInput interface {
+	pulumi.Input
+
+	ToRcmProxyDetailsResponseOutput() RcmProxyDetailsResponseOutput
+	ToRcmProxyDetailsResponseOutputWithContext(context.Context) RcmProxyDetailsResponseOutput
+}
+
+// RCM proxy details.
+type RcmProxyDetailsResponseArgs struct {
+	// The health of the RCM proxy.
+	Health pulumi.StringInput `pulumi:"health"`
+	// The health errors.
+	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
+	// The RCM proxy Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The last heartbeat received from the RCM proxy.
+	LastHeartbeatUtc pulumi.StringInput `pulumi:"lastHeartbeatUtc"`
+	// The RCM proxy name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The RCM proxy version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (RcmProxyDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RcmProxyDetailsResponse)(nil)).Elem()
+}
+
+func (i RcmProxyDetailsResponseArgs) ToRcmProxyDetailsResponseOutput() RcmProxyDetailsResponseOutput {
+	return i.ToRcmProxyDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i RcmProxyDetailsResponseArgs) ToRcmProxyDetailsResponseOutputWithContext(ctx context.Context) RcmProxyDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RcmProxyDetailsResponseOutput)
+}
+
+// RcmProxyDetailsResponseArrayInput is an input type that accepts RcmProxyDetailsResponseArray and RcmProxyDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `RcmProxyDetailsResponseArrayInput` via:
+//
+//          RcmProxyDetailsResponseArray{ RcmProxyDetailsResponseArgs{...} }
+type RcmProxyDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToRcmProxyDetailsResponseArrayOutput() RcmProxyDetailsResponseArrayOutput
+	ToRcmProxyDetailsResponseArrayOutputWithContext(context.Context) RcmProxyDetailsResponseArrayOutput
+}
+
+type RcmProxyDetailsResponseArray []RcmProxyDetailsResponseInput
+
+func (RcmProxyDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RcmProxyDetailsResponse)(nil)).Elem()
+}
+
+func (i RcmProxyDetailsResponseArray) ToRcmProxyDetailsResponseArrayOutput() RcmProxyDetailsResponseArrayOutput {
+	return i.ToRcmProxyDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RcmProxyDetailsResponseArray) ToRcmProxyDetailsResponseArrayOutputWithContext(ctx context.Context) RcmProxyDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RcmProxyDetailsResponseArrayOutput)
+}
+
+// RCM proxy details.
+type RcmProxyDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (RcmProxyDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RcmProxyDetailsResponse)(nil)).Elem()
+}
+
+func (o RcmProxyDetailsResponseOutput) ToRcmProxyDetailsResponseOutput() RcmProxyDetailsResponseOutput {
+	return o
+}
+
+func (o RcmProxyDetailsResponseOutput) ToRcmProxyDetailsResponseOutputWithContext(ctx context.Context) RcmProxyDetailsResponseOutput {
+	return o
+}
+
+// The health of the RCM proxy.
+func (o RcmProxyDetailsResponseOutput) Health() pulumi.StringOutput {
+	return o.ApplyT(func(v RcmProxyDetailsResponse) string { return v.Health }).(pulumi.StringOutput)
+}
+
+// The health errors.
+func (o RcmProxyDetailsResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
+	return o.ApplyT(func(v RcmProxyDetailsResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
+}
+
+// The RCM proxy Id.
+func (o RcmProxyDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RcmProxyDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The last heartbeat received from the RCM proxy.
+func (o RcmProxyDetailsResponseOutput) LastHeartbeatUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v RcmProxyDetailsResponse) string { return v.LastHeartbeatUtc }).(pulumi.StringOutput)
+}
+
+// The RCM proxy name.
+func (o RcmProxyDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RcmProxyDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The RCM proxy version.
+func (o RcmProxyDetailsResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v RcmProxyDetailsResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type RcmProxyDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RcmProxyDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RcmProxyDetailsResponse)(nil)).Elem()
+}
+
+func (o RcmProxyDetailsResponseArrayOutput) ToRcmProxyDetailsResponseArrayOutput() RcmProxyDetailsResponseArrayOutput {
+	return o
+}
+
+func (o RcmProxyDetailsResponseArrayOutput) ToRcmProxyDetailsResponseArrayOutputWithContext(ctx context.Context) RcmProxyDetailsResponseArrayOutput {
+	return o
+}
+
+func (o RcmProxyDetailsResponseArrayOutput) Index(i pulumi.IntInput) RcmProxyDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RcmProxyDetailsResponse {
+		return vs[0].([]RcmProxyDetailsResponse)[vs[1].(int)]
+	}).(RcmProxyDetailsResponseOutput)
 }
 
 // Recovery plan A2A specific details.
@@ -31718,6 +34952,151 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ServerVersion() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Replication agent details.
+type ReplicationAgentDetailsResponse struct {
+	// The health of the replication agent.
+	Health string `pulumi:"health"`
+	// The health errors.
+	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
+	// The replication agent Id.
+	Id string `pulumi:"id"`
+	// The last heartbeat received from the replication agent.
+	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
+	// The replication agent name.
+	Name string `pulumi:"name"`
+	// The replication agent version.
+	Version string `pulumi:"version"`
+}
+
+// ReplicationAgentDetailsResponseInput is an input type that accepts ReplicationAgentDetailsResponseArgs and ReplicationAgentDetailsResponseOutput values.
+// You can construct a concrete instance of `ReplicationAgentDetailsResponseInput` via:
+//
+//          ReplicationAgentDetailsResponseArgs{...}
+type ReplicationAgentDetailsResponseInput interface {
+	pulumi.Input
+
+	ToReplicationAgentDetailsResponseOutput() ReplicationAgentDetailsResponseOutput
+	ToReplicationAgentDetailsResponseOutputWithContext(context.Context) ReplicationAgentDetailsResponseOutput
+}
+
+// Replication agent details.
+type ReplicationAgentDetailsResponseArgs struct {
+	// The health of the replication agent.
+	Health pulumi.StringInput `pulumi:"health"`
+	// The health errors.
+	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
+	// The replication agent Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The last heartbeat received from the replication agent.
+	LastHeartbeatUtc pulumi.StringInput `pulumi:"lastHeartbeatUtc"`
+	// The replication agent name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The replication agent version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (ReplicationAgentDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationAgentDetailsResponse)(nil)).Elem()
+}
+
+func (i ReplicationAgentDetailsResponseArgs) ToReplicationAgentDetailsResponseOutput() ReplicationAgentDetailsResponseOutput {
+	return i.ToReplicationAgentDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i ReplicationAgentDetailsResponseArgs) ToReplicationAgentDetailsResponseOutputWithContext(ctx context.Context) ReplicationAgentDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationAgentDetailsResponseOutput)
+}
+
+// ReplicationAgentDetailsResponseArrayInput is an input type that accepts ReplicationAgentDetailsResponseArray and ReplicationAgentDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `ReplicationAgentDetailsResponseArrayInput` via:
+//
+//          ReplicationAgentDetailsResponseArray{ ReplicationAgentDetailsResponseArgs{...} }
+type ReplicationAgentDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToReplicationAgentDetailsResponseArrayOutput() ReplicationAgentDetailsResponseArrayOutput
+	ToReplicationAgentDetailsResponseArrayOutputWithContext(context.Context) ReplicationAgentDetailsResponseArrayOutput
+}
+
+type ReplicationAgentDetailsResponseArray []ReplicationAgentDetailsResponseInput
+
+func (ReplicationAgentDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationAgentDetailsResponse)(nil)).Elem()
+}
+
+func (i ReplicationAgentDetailsResponseArray) ToReplicationAgentDetailsResponseArrayOutput() ReplicationAgentDetailsResponseArrayOutput {
+	return i.ToReplicationAgentDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationAgentDetailsResponseArray) ToReplicationAgentDetailsResponseArrayOutputWithContext(ctx context.Context) ReplicationAgentDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationAgentDetailsResponseArrayOutput)
+}
+
+// Replication agent details.
+type ReplicationAgentDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ReplicationAgentDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationAgentDetailsResponse)(nil)).Elem()
+}
+
+func (o ReplicationAgentDetailsResponseOutput) ToReplicationAgentDetailsResponseOutput() ReplicationAgentDetailsResponseOutput {
+	return o
+}
+
+func (o ReplicationAgentDetailsResponseOutput) ToReplicationAgentDetailsResponseOutputWithContext(ctx context.Context) ReplicationAgentDetailsResponseOutput {
+	return o
+}
+
+// The health of the replication agent.
+func (o ReplicationAgentDetailsResponseOutput) Health() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationAgentDetailsResponse) string { return v.Health }).(pulumi.StringOutput)
+}
+
+// The health errors.
+func (o ReplicationAgentDetailsResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
+	return o.ApplyT(func(v ReplicationAgentDetailsResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
+}
+
+// The replication agent Id.
+func (o ReplicationAgentDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationAgentDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The last heartbeat received from the replication agent.
+func (o ReplicationAgentDetailsResponseOutput) LastHeartbeatUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationAgentDetailsResponse) string { return v.LastHeartbeatUtc }).(pulumi.StringOutput)
+}
+
+// The replication agent name.
+func (o ReplicationAgentDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationAgentDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The replication agent version.
+func (o ReplicationAgentDetailsResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationAgentDetailsResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type ReplicationAgentDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationAgentDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationAgentDetailsResponse)(nil)).Elem()
+}
+
+func (o ReplicationAgentDetailsResponseArrayOutput) ToReplicationAgentDetailsResponseArrayOutput() ReplicationAgentDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ReplicationAgentDetailsResponseArrayOutput) ToReplicationAgentDetailsResponseArrayOutputWithContext(ctx context.Context) ReplicationAgentDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ReplicationAgentDetailsResponseArrayOutput) Index(i pulumi.IntInput) ReplicationAgentDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationAgentDetailsResponse {
+		return vs[0].([]ReplicationAgentDetailsResponse)[vs[1].(int)]
+	}).(ReplicationAgentDetailsResponseOutput)
+}
+
 // Replication protected item custom data details.
 type ReplicationProtectedItemPropertiesResponse struct {
 	// The Current active location of the PE.
@@ -32352,6 +35731,151 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) TestFailoverStateDe
 		}
 		return v.TestFailoverStateDescription
 	}).(pulumi.StringPtrOutput)
+}
+
+// Reprotect agent details.
+type ReprotectAgentDetailsResponse struct {
+	// The health of the reprotect agent.
+	Health string `pulumi:"health"`
+	// The health errors.
+	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
+	// The reprotect agent Id.
+	Id string `pulumi:"id"`
+	// The last heartbeat received from the reprotect agent.
+	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
+	// The reprotect agent name.
+	Name string `pulumi:"name"`
+	// The version.
+	Version string `pulumi:"version"`
+}
+
+// ReprotectAgentDetailsResponseInput is an input type that accepts ReprotectAgentDetailsResponseArgs and ReprotectAgentDetailsResponseOutput values.
+// You can construct a concrete instance of `ReprotectAgentDetailsResponseInput` via:
+//
+//          ReprotectAgentDetailsResponseArgs{...}
+type ReprotectAgentDetailsResponseInput interface {
+	pulumi.Input
+
+	ToReprotectAgentDetailsResponseOutput() ReprotectAgentDetailsResponseOutput
+	ToReprotectAgentDetailsResponseOutputWithContext(context.Context) ReprotectAgentDetailsResponseOutput
+}
+
+// Reprotect agent details.
+type ReprotectAgentDetailsResponseArgs struct {
+	// The health of the reprotect agent.
+	Health pulumi.StringInput `pulumi:"health"`
+	// The health errors.
+	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
+	// The reprotect agent Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The last heartbeat received from the reprotect agent.
+	LastHeartbeatUtc pulumi.StringInput `pulumi:"lastHeartbeatUtc"`
+	// The reprotect agent name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (ReprotectAgentDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReprotectAgentDetailsResponse)(nil)).Elem()
+}
+
+func (i ReprotectAgentDetailsResponseArgs) ToReprotectAgentDetailsResponseOutput() ReprotectAgentDetailsResponseOutput {
+	return i.ToReprotectAgentDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i ReprotectAgentDetailsResponseArgs) ToReprotectAgentDetailsResponseOutputWithContext(ctx context.Context) ReprotectAgentDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReprotectAgentDetailsResponseOutput)
+}
+
+// ReprotectAgentDetailsResponseArrayInput is an input type that accepts ReprotectAgentDetailsResponseArray and ReprotectAgentDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `ReprotectAgentDetailsResponseArrayInput` via:
+//
+//          ReprotectAgentDetailsResponseArray{ ReprotectAgentDetailsResponseArgs{...} }
+type ReprotectAgentDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToReprotectAgentDetailsResponseArrayOutput() ReprotectAgentDetailsResponseArrayOutput
+	ToReprotectAgentDetailsResponseArrayOutputWithContext(context.Context) ReprotectAgentDetailsResponseArrayOutput
+}
+
+type ReprotectAgentDetailsResponseArray []ReprotectAgentDetailsResponseInput
+
+func (ReprotectAgentDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReprotectAgentDetailsResponse)(nil)).Elem()
+}
+
+func (i ReprotectAgentDetailsResponseArray) ToReprotectAgentDetailsResponseArrayOutput() ReprotectAgentDetailsResponseArrayOutput {
+	return i.ToReprotectAgentDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ReprotectAgentDetailsResponseArray) ToReprotectAgentDetailsResponseArrayOutputWithContext(ctx context.Context) ReprotectAgentDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReprotectAgentDetailsResponseArrayOutput)
+}
+
+// Reprotect agent details.
+type ReprotectAgentDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ReprotectAgentDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReprotectAgentDetailsResponse)(nil)).Elem()
+}
+
+func (o ReprotectAgentDetailsResponseOutput) ToReprotectAgentDetailsResponseOutput() ReprotectAgentDetailsResponseOutput {
+	return o
+}
+
+func (o ReprotectAgentDetailsResponseOutput) ToReprotectAgentDetailsResponseOutputWithContext(ctx context.Context) ReprotectAgentDetailsResponseOutput {
+	return o
+}
+
+// The health of the reprotect agent.
+func (o ReprotectAgentDetailsResponseOutput) Health() pulumi.StringOutput {
+	return o.ApplyT(func(v ReprotectAgentDetailsResponse) string { return v.Health }).(pulumi.StringOutput)
+}
+
+// The health errors.
+func (o ReprotectAgentDetailsResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
+	return o.ApplyT(func(v ReprotectAgentDetailsResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
+}
+
+// The reprotect agent Id.
+func (o ReprotectAgentDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ReprotectAgentDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The last heartbeat received from the reprotect agent.
+func (o ReprotectAgentDetailsResponseOutput) LastHeartbeatUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v ReprotectAgentDetailsResponse) string { return v.LastHeartbeatUtc }).(pulumi.StringOutput)
+}
+
+// The reprotect agent name.
+func (o ReprotectAgentDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReprotectAgentDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The version.
+func (o ReprotectAgentDetailsResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ReprotectAgentDetailsResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type ReprotectAgentDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ReprotectAgentDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReprotectAgentDetailsResponse)(nil)).Elem()
+}
+
+func (o ReprotectAgentDetailsResponseArrayOutput) ToReprotectAgentDetailsResponseArrayOutput() ReprotectAgentDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ReprotectAgentDetailsResponseArrayOutput) ToReprotectAgentDetailsResponseArrayOutputWithContext(ctx context.Context) ReprotectAgentDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ReprotectAgentDetailsResponseArrayOutput) Index(i pulumi.IntInput) ReprotectAgentDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReprotectAgentDetailsResponse {
+		return vs[0].([]ReprotectAgentDetailsResponse)[vs[1].(int)]
+	}).(ReprotectAgentDetailsResponseOutput)
 }
 
 // Health Details for backup items.
@@ -39088,6 +42612,10 @@ func init() {
 	pulumi.RegisterOutputType(AddRecoveryServicesProviderInputPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AddVCenterRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(AddVCenterRequestPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AgentDetailsResponseOutput{})
+	pulumi.RegisterOutputType(AgentDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(AgentDiskDetailsResponseOutput{})
+	pulumi.RegisterOutputType(AgentDiskDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureFabricCreationInputOutput{})
 	pulumi.RegisterOutputType(AzureFabricSpecificDetailsResponseOutput{})
 	pulumi.RegisterOutputType(AzureFileshareProtectedItemOutput{})
@@ -39196,6 +42724,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributedNodesInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(DpmContainerOutput{})
 	pulumi.RegisterOutputType(DpmContainerResponseOutput{})
+	pulumi.RegisterOutputType(DraDetailsResponseOutput{})
+	pulumi.RegisterOutputType(DraDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(EnableMigrationInputPropertiesOutput{})
 	pulumi.RegisterOutputType(EnableMigrationInputPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnableProtectionInputPropertiesOutput{})
@@ -39269,6 +42799,25 @@ func init() {
 	pulumi.RegisterOutputType(InMagePolicyInputOutput{})
 	pulumi.RegisterOutputType(InMageProtectedDiskDetailsResponseOutput{})
 	pulumi.RegisterOutputType(InMageProtectedDiskDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(InMageRcmAgentUpgradeBlockingErrorDetailsResponseOutput{})
+	pulumi.RegisterOutputType(InMageRcmAgentUpgradeBlockingErrorDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(InMageRcmDiskInputOutput{})
+	pulumi.RegisterOutputType(InMageRcmDiskInputArrayOutput{})
+	pulumi.RegisterOutputType(InMageRcmDisksDefaultInputOutput{})
+	pulumi.RegisterOutputType(InMageRcmDisksDefaultInputPtrOutput{})
+	pulumi.RegisterOutputType(InMageRcmEnableProtectionInputOutput{})
+	pulumi.RegisterOutputType(InMageRcmFabricCreationInputOutput{})
+	pulumi.RegisterOutputType(InMageRcmFabricSpecificDetailsResponseOutput{})
+	pulumi.RegisterOutputType(InMageRcmLastAgentUpgradeErrorDetailsResponseOutput{})
+	pulumi.RegisterOutputType(InMageRcmLastAgentUpgradeErrorDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(InMageRcmMobilityAgentDetailsResponseOutput{})
+	pulumi.RegisterOutputType(InMageRcmNicDetailsResponseOutput{})
+	pulumi.RegisterOutputType(InMageRcmNicDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(InMageRcmPolicyCreationInputOutput{})
+	pulumi.RegisterOutputType(InMageRcmPolicyDetailsResponseOutput{})
+	pulumi.RegisterOutputType(InMageRcmProtectedDiskDetailsResponseOutput{})
+	pulumi.RegisterOutputType(InMageRcmProtectedDiskDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(InMageRcmReplicationDetailsResponseOutput{})
 	pulumi.RegisterOutputType(InMageReplicationDetailsResponseOutput{})
 	pulumi.RegisterOutputType(InMageVolumeExclusionOptionsOutput{})
 	pulumi.RegisterOutputType(InMageVolumeExclusionOptionsArrayOutput{})
@@ -39346,11 +42895,17 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProcessServerDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ProcessServerDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProcessServerResponseOutput{})
 	pulumi.RegisterOutputType(ProcessServerResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PushInstallerDetailsResponseOutput{})
+	pulumi.RegisterOutputType(PushInstallerDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(RcmAzureMigrationPolicyDetailsResponseOutput{})
+	pulumi.RegisterOutputType(RcmProxyDetailsResponseOutput{})
+	pulumi.RegisterOutputType(RcmProxyDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(RecoveryPlanA2ADetailsResponseOutput{})
 	pulumi.RegisterOutputType(RecoveryPlanA2ADetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(RecoveryPlanA2AInputOutput{})
@@ -39374,8 +42929,12 @@ func init() {
 	pulumi.RegisterOutputType(RecoveryPlanScriptActionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(RecoveryServicesProviderPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RecoveryServicesProviderPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationAgentDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ReplicationAgentDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationProtectedItemPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ReplicationProtectedItemPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReprotectAgentDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ReprotectAgentDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceHealthDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceHealthDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(RetentionDurationOutput{})

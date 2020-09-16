@@ -74,6 +74,9 @@ func NewCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200301:Certificate"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:batch/v20200901:Certificate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Certificate

@@ -18,6 +18,8 @@ type DelegatedSubnetServiceDetails struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the DelegatedSubnet resource.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Guid for the resource(delegatedSubnet) created
+	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
 	// The current state of delegated subnet resource.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The type of the DelegatedSubnet  resource.(Microsoft.DelegatedNetwork/delegatedSubnet)
@@ -68,6 +70,8 @@ type delegatedSubnetServiceDetailsState struct {
 	Location *string `pulumi:"location"`
 	// The name of the DelegatedSubnet resource.
 	Name *string `pulumi:"name"`
+	// Guid for the resource(delegatedSubnet) created
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The current state of delegated subnet resource.
 	State *string `pulumi:"state"`
 	// The type of the DelegatedSubnet  resource.(Microsoft.DelegatedNetwork/delegatedSubnet)
@@ -79,6 +83,8 @@ type DelegatedSubnetServiceDetailsState struct {
 	Location pulumi.StringPtrInput
 	// The name of the DelegatedSubnet resource.
 	Name pulumi.StringPtrInput
+	// Guid for the resource(delegatedSubnet) created
+	ResourceGuid pulumi.StringPtrInput
 	// The current state of delegated subnet resource.
 	State pulumi.StringPtrInput
 	// The type of the DelegatedSubnet  resource.(Microsoft.DelegatedNetwork/delegatedSubnet)
@@ -90,7 +96,7 @@ func (DelegatedSubnetServiceDetailsState) ElementType() reflect.Type {
 }
 
 type delegatedSubnetServiceDetailsArgs struct {
-	// Delegated Network Controller ID
+	// Delegated Network Controller ARM resource ID
 	ControllerID *string `pulumi:"controllerID"`
 	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -104,7 +110,7 @@ type delegatedSubnetServiceDetailsArgs struct {
 
 // The set of arguments for constructing a DelegatedSubnetServiceDetails resource.
 type DelegatedSubnetServiceDetailsArgs struct {
-	// Delegated Network Controller ID
+	// Delegated Network Controller ARM resource ID
 	ControllerID pulumi.StringPtrInput
 	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
