@@ -3,6 +3,7 @@ archives:
     name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
 before:
   hooks:
+    - make init_submodules
     - make codegen
     - make generate_schema
 blobs:
