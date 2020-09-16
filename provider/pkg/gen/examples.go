@@ -9,7 +9,9 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/blang/semver"
 	"github.com/hashicorp/hcl/v2"
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/pcl"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
@@ -48,6 +50,15 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 
 	// cache to speed up code generation
 	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
+	pkg, err := schema.ImportSpec(*pkgSpec, nil)
+	if err != nil {
+		return err
+	}
+	loaderOption := hcl2.Loader(&inMemoryLoader{
+		pkgs: map[string]*schema.Package{
+			"azure-nextgen": pkg,
+		},
+	})
 	for _, pulumiToken := range sortedKeys {
 		err := bar.Add(1)
 		if err != nil {
@@ -132,7 +143,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 			}
 			body := &model.Body{Items: []model.BodyItem{&block}}
 			pcl.FormatBody(body)
-			languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache)
+			languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache, loaderOption)
 			if err != nil {
 				return err
 			}
@@ -154,6 +165,18 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 	}
 
 	return nil
+}
+
+type inMemoryLoader struct {
+	pkgs map[string]*schema.Package
+}
+
+func (l *inMemoryLoader) LoadPackage(pkg string, _ *semver.Version) (*schema.Package, error) {
+	if p, ok := l.pkgs[pkg]; ok {
+		return p, nil
+	}
+
+	return nil, errors.Errorf("package %s not found in the in-memory map", pkg)
 }
 
 type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
