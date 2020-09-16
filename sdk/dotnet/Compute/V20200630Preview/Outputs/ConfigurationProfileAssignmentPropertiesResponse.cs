@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630Preview.Outputs
         /// <summary>
         /// The state of onboarding, which only appears in the response.
         /// </summary>
-        public readonly string ProvisioningStatus;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The target VM resource URI
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630Preview.Outputs
 
             string? configurationProfilePreferenceId,
 
-            string provisioningStatus,
+            string provisioningState,
 
             string? targetId)
         {
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630Preview.Outputs
             Compliance = compliance;
             ConfigurationProfile = configurationProfile;
             ConfigurationProfilePreferenceId = configurationProfilePreferenceId;
-            ProvisioningStatus = provisioningStatus;
+            ProvisioningState = provisioningState;
             TargetId = targetId;
         }
     }

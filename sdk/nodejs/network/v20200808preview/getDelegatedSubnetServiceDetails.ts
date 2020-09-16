@@ -54,6 +54,10 @@ export interface GetDelegatedSubnetServiceDetailsResult {
      */
     readonly name: string;
     /**
+     * Guid for the resource(delegatedSubnet) created
+     */
+    readonly resourceGuid?: string;
+    /**
      * The current state of delegated subnet resource.
      */
     readonly state: string;

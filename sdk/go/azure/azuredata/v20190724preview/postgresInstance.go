@@ -40,6 +40,12 @@ func NewPostgresInstance(ctx *pulumi.Context,
 	if args == nil {
 		args = &PostgresInstanceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:azuredata/v20200908preview:PostgresInstance"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PostgresInstance
 	err := ctx.RegisterResource("azure-nextgen:azuredata/v20190724preview:PostgresInstance", name, args, &resource, opts...)
 	if err != nil {

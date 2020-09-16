@@ -82,10 +82,6 @@ export interface GetPoolResult {
      */
     readonly lastModified: string;
     /**
-     * The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-     */
-    readonly maxTasksPerNode?: number;
-    /**
      * The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
      */
     readonly metadata?: outputs.batch.latest.MetadataItemResponse[];
@@ -119,6 +115,10 @@ export interface GetPoolResult {
      * If not specified, the default is spread.
      */
     readonly taskSchedulingPolicy?: outputs.batch.latest.TaskSchedulingPolicyResponse;
+    /**
+     * The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+     */
+    readonly taskSlotsPerNode?: number;
     /**
      * The type of the resource.
      */

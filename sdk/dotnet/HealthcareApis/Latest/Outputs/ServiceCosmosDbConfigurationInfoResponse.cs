@@ -14,13 +14,21 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Outputs
     public sealed class ServiceCosmosDbConfigurationInfoResponse
     {
         /// <summary>
+        /// The URI of the customer-managed key for the backing database.
+        /// </summary>
+        public readonly string? KeyVaultKeyUri;
+        /// <summary>
         /// The provisioned throughput for the backing database.
         /// </summary>
         public readonly int? OfferThroughput;
 
         [OutputConstructor]
-        private ServiceCosmosDbConfigurationInfoResponse(int? offerThroughput)
+        private ServiceCosmosDbConfigurationInfoResponse(
+            string? keyVaultKeyUri,
+
+            int? offerThroughput)
         {
+            KeyVaultKeyUri = keyVaultKeyUri;
             OfferThroughput = offerThroughput;
         }
     }

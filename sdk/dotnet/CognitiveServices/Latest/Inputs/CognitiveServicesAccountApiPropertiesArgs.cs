@@ -16,6 +16,18 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest.Inputs
     public sealed class CognitiveServicesAccountApiPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+        /// </summary>
+        [Input("aadClientId")]
+        public Input<string>? AadClientId { get; set; }
+
+        /// <summary>
+        /// (Metrics Advisor Only) The Azure AD Tenant Id.
+        /// </summary>
+        [Input("aadTenantId")]
+        public Input<string>? AadTenantId { get; set; }
+
+        /// <summary>
         /// (Personalization Only) The flag to enable statistics of Bing Search.
         /// </summary>
         [Input("eventHubConnectionString")]
@@ -38,6 +50,18 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest.Inputs
         /// </summary>
         [Input("storageAccountConnectionString")]
         public Input<string>? StorageAccountConnectionString { get; set; }
+
+        /// <summary>
+        /// (Metrics Advisor Only) The super user of Metrics Advisor.
+        /// </summary>
+        [Input("superUser")]
+        public Input<string>? SuperUser { get; set; }
+
+        /// <summary>
+        /// (Metrics Advisor Only) The website name of Metrics Advisor.
+        /// </summary>
+        [Input("websiteName")]
+        public Input<string>? WebsiteName { get; set; }
 
         public CognitiveServicesAccountApiPropertiesArgs()
         {

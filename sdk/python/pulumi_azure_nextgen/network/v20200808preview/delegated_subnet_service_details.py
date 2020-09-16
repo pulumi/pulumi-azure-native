@@ -28,7 +28,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] controller_id: Delegated Network Controller ID
+        :param pulumi.Input[str] controller_id: Delegated Network Controller ARM resource ID
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input[str] resource_name_: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[str] subnet_name: The name of the delegated subnet. This name must be at least 1 character in length, and no more than 90.
@@ -66,6 +66,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
             __props__['vnet_name'] = vnet_name
             __props__['location'] = None
             __props__['name'] = None
+            __props__['resource_guid'] = None
             __props__['state'] = None
             __props__['type'] = None
         super(DelegatedSubnetServiceDetails, __self__).__init__(
@@ -107,6 +108,14 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
         The name of the DelegatedSubnet resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[Optional[str]]:
+        """
+        Guid for the resource(delegatedSubnet) created
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter

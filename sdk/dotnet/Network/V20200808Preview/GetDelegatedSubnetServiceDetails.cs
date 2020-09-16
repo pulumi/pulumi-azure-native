@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Network.V20200808Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Guid for the resource(delegatedSubnet) created
+        /// </summary>
+        public readonly string? ResourceGuid;
+        /// <summary>
         /// The current state of delegated subnet resource.
         /// </summary>
         public readonly string State;
@@ -74,12 +78,15 @@ namespace Pulumi.AzureNextGen.Network.V20200808Preview
 
             string name,
 
+            string? resourceGuid,
+
             string state,
 
             string type)
         {
             Location = location;
             Name = name;
+            ResourceGuid = resourceGuid;
             State = state;
             Type = type;
         }

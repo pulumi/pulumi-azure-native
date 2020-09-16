@@ -78,10 +78,6 @@ export class Pool extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**
-     * The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-     */
-    public readonly maxTasksPerNode!: pulumi.Output<number | undefined>;
-    /**
      * The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
      */
     public readonly metadata!: pulumi.Output<outputs.batch.latest.MetadataItemResponse[] | undefined>;
@@ -115,6 +111,10 @@ export class Pool extends pulumi.CustomResource {
      * If not specified, the default is spread.
      */
     public readonly taskSchedulingPolicy!: pulumi.Output<outputs.batch.latest.TaskSchedulingPolicyResponse | undefined>;
+    /**
+     * The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+     */
+    public readonly taskSlotsPerNode!: pulumi.Output<number | undefined>;
     /**
      * The type of the resource.
      */
@@ -151,7 +151,6 @@ export class Pool extends pulumi.CustomResource {
             inputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["interNodeCommunication"] = args ? args.interNodeCommunication : undefined;
-            inputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["mountConfiguration"] = args ? args.mountConfiguration : undefined;
             inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
@@ -160,6 +159,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["scaleSettings"] = args ? args.scaleSettings : undefined;
             inputs["startTask"] = args ? args.startTask : undefined;
             inputs["taskSchedulingPolicy"] = args ? args.taskSchedulingPolicy : undefined;
+            inputs["taskSlotsPerNode"] = args ? args.taskSlotsPerNode : undefined;
             inputs["userAccounts"] = args ? args.userAccounts : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["allocationState"] = undefined /*out*/;
@@ -190,7 +190,6 @@ export class Pool extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["interNodeCommunication"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
-            inputs["maxTasksPerNode"] = undefined /*out*/;
             inputs["metadata"] = undefined /*out*/;
             inputs["mountConfiguration"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -201,6 +200,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["scaleSettings"] = undefined /*out*/;
             inputs["startTask"] = undefined /*out*/;
             inputs["taskSchedulingPolicy"] = undefined /*out*/;
+            inputs["taskSlotsPerNode"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userAccounts"] = undefined /*out*/;
             inputs["vmSize"] = undefined /*out*/;
@@ -212,7 +212,7 @@ export class Pool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/v20170901:Pool" }, { type: "azure-nextgen:batch/v20181201:Pool" }, { type: "azure-nextgen:batch/v20190401:Pool" }, { type: "azure-nextgen:batch/v20190801:Pool" }, { type: "azure-nextgen:batch/v20200301:Pool" }, { type: "azure-nextgen:batch/v20200501:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/v20170901:Pool" }, { type: "azure-nextgen:batch/v20181201:Pool" }, { type: "azure-nextgen:batch/v20190401:Pool" }, { type: "azure-nextgen:batch/v20190801:Pool" }, { type: "azure-nextgen:batch/v20200301:Pool" }, { type: "azure-nextgen:batch/v20200501:Pool" }, { type: "azure-nextgen:batch/v20200901:Pool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Pool.__pulumiType, name, inputs, opts);
     }
@@ -251,10 +251,6 @@ export interface PoolArgs {
      */
     readonly interNodeCommunication?: pulumi.Input<string>;
     /**
-     * The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-     */
-    readonly maxTasksPerNode?: pulumi.Input<number>;
-    /**
      * The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
      */
     readonly metadata?: pulumi.Input<pulumi.Input<inputs.batch.latest.MetadataItem>[]>;
@@ -286,6 +282,10 @@ export interface PoolArgs {
      * If not specified, the default is spread.
      */
     readonly taskSchedulingPolicy?: pulumi.Input<inputs.batch.latest.TaskSchedulingPolicy>;
+    /**
+     * The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+     */
+    readonly taskSlotsPerNode?: pulumi.Input<number>;
     readonly userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.latest.UserAccount>[]>;
     /**
      * For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).

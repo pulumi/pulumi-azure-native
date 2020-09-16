@@ -19,7 +19,7 @@ class GetControllerDetailsResult:
     """
     Represents an instance of a DNC controller.
     """
-    def __init__(__self__, dnc_app_id=None, dnc_endpoint=None, location=None, name=None, resource_guid=None, state=None, type=None):
+    def __init__(__self__, dnc_app_id=None, dnc_endpoint=None, location=None, name=None, state=None, type=None):
         if dnc_app_id and not isinstance(dnc_app_id, str):
             raise TypeError("Expected argument 'dnc_app_id' to be a str")
         pulumi.set(__self__, "dnc_app_id", dnc_app_id)
@@ -32,9 +32,6 @@ class GetControllerDetailsResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if resource_guid and not isinstance(resource_guid, str):
-            raise TypeError("Expected argument 'resource_guid' to be a str")
-        pulumi.set(__self__, "resource_guid", resource_guid)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -43,10 +40,10 @@ class GetControllerDetailsResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="dncAppID")
+    @pulumi.getter(name="dncAppId")
     def dnc_app_id(self) -> Optional[str]:
         """
-        Get controller AAD ID.
+        The current state of dnc controller resource.
         """
         return pulumi.get(self, "dnc_app_id")
 
@@ -54,7 +51,7 @@ class GetControllerDetailsResult:
     @pulumi.getter(name="dncEndpoint")
     def dnc_endpoint(self) -> Optional[str]:
         """
-        Dnc Endpoint url.
+        dnc endpoint url that customers can use to connect to
         """
         return pulumi.get(self, "dnc_endpoint")
 
@@ -73,14 +70,6 @@ class GetControllerDetailsResult:
         The name of the DNC controller resource.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> Optional[str]:
-        """
-        Gets or sets resource GUID property of the controller resource.
-        """
-        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter
@@ -109,7 +98,6 @@ class AwaitableGetControllerDetailsResult(GetControllerDetailsResult):
             dnc_endpoint=self.dnc_endpoint,
             location=self.location,
             name=self.name,
-            resource_guid=self.resource_guid,
             state=self.state,
             type=self.type)
 
@@ -137,6 +125,5 @@ def get_controller_details(resource_group_name: Optional[str] = None,
         dnc_endpoint=__ret__.dnc_endpoint,
         location=__ret__.location,
         name=__ret__.name,
-        resource_guid=__ret__.resource_guid,
         state=__ret__.state,
         type=__ret__.type)

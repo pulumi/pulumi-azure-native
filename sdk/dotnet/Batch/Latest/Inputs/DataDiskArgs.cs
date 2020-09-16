@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
         public Input<int> DiskSizeGB { get; set; } = null!;
 
         /// <summary>
-        /// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
+        /// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
         /// </summary>
         [Input("lun", required: true)]
         public Input<int> Lun { get; set; } = null!;

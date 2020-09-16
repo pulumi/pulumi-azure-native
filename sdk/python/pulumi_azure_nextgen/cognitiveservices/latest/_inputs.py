@@ -28,17 +28,29 @@ __all__ = [
 @pulumi.input_type
 class CognitiveServicesAccountApiPropertiesArgs:
     def __init__(__self__, *,
+                 aad_client_id: Optional[pulumi.Input[str]] = None,
+                 aad_tenant_id: Optional[pulumi.Input[str]] = None,
                  event_hub_connection_string: Optional[pulumi.Input[str]] = None,
                  qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
                  statistics_enabled: Optional[pulumi.Input[bool]] = None,
-                 storage_account_connection_string: Optional[pulumi.Input[str]] = None):
+                 storage_account_connection_string: Optional[pulumi.Input[str]] = None,
+                 super_user: Optional[pulumi.Input[str]] = None,
+                 website_name: Optional[pulumi.Input[str]] = None):
         """
         The api properties for special APIs.
+        :param pulumi.Input[str] aad_client_id: (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+        :param pulumi.Input[str] aad_tenant_id: (Metrics Advisor Only) The Azure AD Tenant Id.
         :param pulumi.Input[str] event_hub_connection_string: (Personalization Only) The flag to enable statistics of Bing Search.
         :param pulumi.Input[str] qna_runtime_endpoint: (QnAMaker Only) The runtime endpoint of QnAMaker.
         :param pulumi.Input[bool] statistics_enabled: (Bing Search Only) The flag to enable statistics of Bing Search.
         :param pulumi.Input[str] storage_account_connection_string: (Personalization Only) The storage account connection string.
+        :param pulumi.Input[str] super_user: (Metrics Advisor Only) The super user of Metrics Advisor.
+        :param pulumi.Input[str] website_name: (Metrics Advisor Only) The website name of Metrics Advisor.
         """
+        if aad_client_id is not None:
+            pulumi.set(__self__, "aad_client_id", aad_client_id)
+        if aad_tenant_id is not None:
+            pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
         if event_hub_connection_string is not None:
             pulumi.set(__self__, "event_hub_connection_string", event_hub_connection_string)
         if qna_runtime_endpoint is not None:
@@ -47,6 +59,34 @@ class CognitiveServicesAccountApiPropertiesArgs:
             pulumi.set(__self__, "statistics_enabled", statistics_enabled)
         if storage_account_connection_string is not None:
             pulumi.set(__self__, "storage_account_connection_string", storage_account_connection_string)
+        if super_user is not None:
+            pulumi.set(__self__, "super_user", super_user)
+        if website_name is not None:
+            pulumi.set(__self__, "website_name", website_name)
+
+    @property
+    @pulumi.getter(name="aadClientId")
+    def aad_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+        """
+        return pulumi.get(self, "aad_client_id")
+
+    @aad_client_id.setter
+    def aad_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aad_client_id", value)
+
+    @property
+    @pulumi.getter(name="aadTenantId")
+    def aad_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Metrics Advisor Only) The Azure AD Tenant Id.
+        """
+        return pulumi.get(self, "aad_tenant_id")
+
+    @aad_tenant_id.setter
+    def aad_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aad_tenant_id", value)
 
     @property
     @pulumi.getter(name="eventHubConnectionString")
@@ -95,6 +135,30 @@ class CognitiveServicesAccountApiPropertiesArgs:
     @storage_account_connection_string.setter
     def storage_account_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_connection_string", value)
+
+    @property
+    @pulumi.getter(name="superUser")
+    def super_user(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Metrics Advisor Only) The super user of Metrics Advisor.
+        """
+        return pulumi.get(self, "super_user")
+
+    @super_user.setter
+    def super_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "super_user", value)
+
+    @property
+    @pulumi.getter(name="websiteName")
+    def website_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Metrics Advisor Only) The website name of Metrics Advisor.
+        """
+        return pulumi.get(self, "website_name")
+
+    @website_name.setter
+    def website_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "website_name", value)
 
 
 @pulumi.input_type

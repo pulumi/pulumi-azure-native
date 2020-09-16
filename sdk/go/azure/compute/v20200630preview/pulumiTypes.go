@@ -348,7 +348,7 @@ type ConfigurationProfileAssignmentPropertiesResponse struct {
 	// The configuration profile custom preferences ARM resource URI
 	ConfigurationProfilePreferenceId *string `pulumi:"configurationProfilePreferenceId"`
 	// The state of onboarding, which only appears in the response.
-	ProvisioningStatus string `pulumi:"provisioningStatus"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The target VM resource URI
 	TargetId *string `pulumi:"targetId"`
 }
@@ -375,7 +375,7 @@ type ConfigurationProfileAssignmentPropertiesResponseArgs struct {
 	// The configuration profile custom preferences ARM resource URI
 	ConfigurationProfilePreferenceId pulumi.StringPtrInput `pulumi:"configurationProfilePreferenceId"`
 	// The state of onboarding, which only appears in the response.
-	ProvisioningStatus pulumi.StringInput `pulumi:"provisioningStatus"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The target VM resource URI
 	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
 }
@@ -483,8 +483,8 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ConfigurationPro
 }
 
 // The state of onboarding, which only appears in the response.
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ProvisioningStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) string { return v.ProvisioningStatus }).(pulumi.StringOutput)
+func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The target VM resource URI
@@ -553,12 +553,12 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Configuration
 }
 
 // The state of onboarding, which only appears in the response.
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ProvisioningStatus() pulumi.StringPtrOutput {
+func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ProvisioningStatus
+		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 

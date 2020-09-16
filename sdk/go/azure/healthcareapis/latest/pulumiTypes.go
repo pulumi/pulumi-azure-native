@@ -1284,6 +1284,8 @@ func (o ServiceCorsConfigurationInfoResponsePtrOutput) Origins() pulumi.StringAr
 
 // The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfo struct {
+	// The URI of the customer-managed key for the backing database.
+	KeyVaultKeyUri *string `pulumi:"keyVaultKeyUri"`
 	// The provisioned throughput for the backing database.
 	OfferThroughput *int `pulumi:"offerThroughput"`
 }
@@ -1301,6 +1303,8 @@ type ServiceCosmosDbConfigurationInfoInput interface {
 
 // The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfoArgs struct {
+	// The URI of the customer-managed key for the backing database.
+	KeyVaultKeyUri pulumi.StringPtrInput `pulumi:"keyVaultKeyUri"`
 	// The provisioned throughput for the backing database.
 	OfferThroughput pulumi.IntPtrInput `pulumi:"offerThroughput"`
 }
@@ -1383,6 +1387,11 @@ func (o ServiceCosmosDbConfigurationInfoOutput) ToServiceCosmosDbConfigurationIn
 	}).(ServiceCosmosDbConfigurationInfoPtrOutput)
 }
 
+// The URI of the customer-managed key for the backing database.
+func (o ServiceCosmosDbConfigurationInfoOutput) KeyVaultKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCosmosDbConfigurationInfo) *string { return v.KeyVaultKeyUri }).(pulumi.StringPtrOutput)
+}
+
 // The provisioned throughput for the backing database.
 func (o ServiceCosmosDbConfigurationInfoOutput) OfferThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCosmosDbConfigurationInfo) *int { return v.OfferThroughput }).(pulumi.IntPtrOutput)
@@ -1406,6 +1415,16 @@ func (o ServiceCosmosDbConfigurationInfoPtrOutput) Elem() ServiceCosmosDbConfigu
 	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfo) ServiceCosmosDbConfigurationInfo { return *v }).(ServiceCosmosDbConfigurationInfoOutput)
 }
 
+// The URI of the customer-managed key for the backing database.
+func (o ServiceCosmosDbConfigurationInfoPtrOutput) KeyVaultKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultKeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
 // The provisioned throughput for the backing database.
 func (o ServiceCosmosDbConfigurationInfoPtrOutput) OfferThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfo) *int {
@@ -1418,6 +1437,8 @@ func (o ServiceCosmosDbConfigurationInfoPtrOutput) OfferThroughput() pulumi.IntP
 
 // The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfoResponse struct {
+	// The URI of the customer-managed key for the backing database.
+	KeyVaultKeyUri *string `pulumi:"keyVaultKeyUri"`
 	// The provisioned throughput for the backing database.
 	OfferThroughput *int `pulumi:"offerThroughput"`
 }
@@ -1435,6 +1456,8 @@ type ServiceCosmosDbConfigurationInfoResponseInput interface {
 
 // The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfoResponseArgs struct {
+	// The URI of the customer-managed key for the backing database.
+	KeyVaultKeyUri pulumi.StringPtrInput `pulumi:"keyVaultKeyUri"`
 	// The provisioned throughput for the backing database.
 	OfferThroughput pulumi.IntPtrInput `pulumi:"offerThroughput"`
 }
@@ -1517,6 +1540,11 @@ func (o ServiceCosmosDbConfigurationInfoResponseOutput) ToServiceCosmosDbConfigu
 	}).(ServiceCosmosDbConfigurationInfoResponsePtrOutput)
 }
 
+// The URI of the customer-managed key for the backing database.
+func (o ServiceCosmosDbConfigurationInfoResponseOutput) KeyVaultKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCosmosDbConfigurationInfoResponse) *string { return v.KeyVaultKeyUri }).(pulumi.StringPtrOutput)
+}
+
 // The provisioned throughput for the backing database.
 func (o ServiceCosmosDbConfigurationInfoResponseOutput) OfferThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCosmosDbConfigurationInfoResponse) *int { return v.OfferThroughput }).(pulumi.IntPtrOutput)
@@ -1538,6 +1566,16 @@ func (o ServiceCosmosDbConfigurationInfoResponsePtrOutput) ToServiceCosmosDbConf
 
 func (o ServiceCosmosDbConfigurationInfoResponsePtrOutput) Elem() ServiceCosmosDbConfigurationInfoResponseOutput {
 	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfoResponse) ServiceCosmosDbConfigurationInfoResponse { return *v }).(ServiceCosmosDbConfigurationInfoResponseOutput)
+}
+
+// The URI of the customer-managed key for the backing database.
+func (o ServiceCosmosDbConfigurationInfoResponsePtrOutput) KeyVaultKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultKeyUri
+	}).(pulumi.StringPtrOutput)
 }
 
 // The provisioned throughput for the backing database.

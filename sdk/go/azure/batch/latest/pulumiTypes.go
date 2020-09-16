@@ -4280,7 +4280,7 @@ type DataDisk struct {
 	//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
 	Caching    *string `pulumi:"caching"`
 	DiskSizeGB int     `pulumi:"diskSizeGB"`
-	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
+	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 	Lun int `pulumi:"lun"`
 	// If omitted, the default is "Standard_LRS". Values are:
 	//
@@ -4311,7 +4311,7 @@ type DataDiskArgs struct {
 	//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
 	Caching    pulumi.StringPtrInput `pulumi:"caching"`
 	DiskSizeGB pulumi.IntInput       `pulumi:"diskSizeGB"`
-	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
+	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// If omitted, the default is "Standard_LRS". Values are:
 	//
@@ -4387,7 +4387,7 @@ func (o DataDiskOutput) DiskSizeGB() pulumi.IntOutput {
 	return o.ApplyT(func(v DataDisk) int { return v.DiskSizeGB }).(pulumi.IntOutput)
 }
 
-// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
+// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 func (o DataDiskOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v DataDisk) int { return v.Lun }).(pulumi.IntOutput)
 }
@@ -4431,7 +4431,7 @@ type DataDiskResponse struct {
 	//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
 	Caching    *string `pulumi:"caching"`
 	DiskSizeGB int     `pulumi:"diskSizeGB"`
-	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
+	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 	Lun int `pulumi:"lun"`
 	// If omitted, the default is "Standard_LRS". Values are:
 	//
@@ -4462,7 +4462,7 @@ type DataDiskResponseArgs struct {
 	//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
 	Caching    pulumi.StringPtrInput `pulumi:"caching"`
 	DiskSizeGB pulumi.IntInput       `pulumi:"diskSizeGB"`
-	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
+	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// If omitted, the default is "Standard_LRS". Values are:
 	//
@@ -4538,7 +4538,7 @@ func (o DataDiskResponseOutput) DiskSizeGB() pulumi.IntOutput {
 	return o.ApplyT(func(v DataDiskResponse) int { return v.DiskSizeGB }).(pulumi.IntOutput)
 }
 
-// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
+// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 func (o DataDiskResponseOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v DataDiskResponse) int { return v.Lun }).(pulumi.IntOutput)
 }
@@ -9278,7 +9278,7 @@ func (o NetworkSecurityGroupRuleResponseArrayOutput) Index(i pulumi.IntInput) Ne
 }
 
 type PoolEndpointConfiguration struct {
-	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
 	InboundNatPools []InboundNatPool `pulumi:"inboundNatPools"`
 }
 
@@ -9294,7 +9294,7 @@ type PoolEndpointConfigurationInput interface {
 }
 
 type PoolEndpointConfigurationArgs struct {
-	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
 	InboundNatPools InboundNatPoolArrayInput `pulumi:"inboundNatPools"`
 }
 
@@ -9375,7 +9375,7 @@ func (o PoolEndpointConfigurationOutput) ToPoolEndpointConfigurationPtrOutputWit
 	}).(PoolEndpointConfigurationPtrOutput)
 }
 
-// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
 func (o PoolEndpointConfigurationOutput) InboundNatPools() InboundNatPoolArrayOutput {
 	return o.ApplyT(func(v PoolEndpointConfiguration) []InboundNatPool { return v.InboundNatPools }).(InboundNatPoolArrayOutput)
 }
@@ -9398,7 +9398,7 @@ func (o PoolEndpointConfigurationPtrOutput) Elem() PoolEndpointConfigurationOutp
 	return o.ApplyT(func(v *PoolEndpointConfiguration) PoolEndpointConfiguration { return *v }).(PoolEndpointConfigurationOutput)
 }
 
-// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
 func (o PoolEndpointConfigurationPtrOutput) InboundNatPools() InboundNatPoolArrayOutput {
 	return o.ApplyT(func(v *PoolEndpointConfiguration) []InboundNatPool {
 		if v == nil {
@@ -9409,7 +9409,7 @@ func (o PoolEndpointConfigurationPtrOutput) InboundNatPools() InboundNatPoolArra
 }
 
 type PoolEndpointConfigurationResponse struct {
-	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
 	InboundNatPools []InboundNatPoolResponse `pulumi:"inboundNatPools"`
 }
 
@@ -9425,7 +9425,7 @@ type PoolEndpointConfigurationResponseInput interface {
 }
 
 type PoolEndpointConfigurationResponseArgs struct {
-	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
 	InboundNatPools InboundNatPoolResponseArrayInput `pulumi:"inboundNatPools"`
 }
 
@@ -9506,7 +9506,7 @@ func (o PoolEndpointConfigurationResponseOutput) ToPoolEndpointConfigurationResp
 	}).(PoolEndpointConfigurationResponsePtrOutput)
 }
 
-// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
 func (o PoolEndpointConfigurationResponseOutput) InboundNatPools() InboundNatPoolResponseArrayOutput {
 	return o.ApplyT(func(v PoolEndpointConfigurationResponse) []InboundNatPoolResponse { return v.InboundNatPools }).(InboundNatPoolResponseArrayOutput)
 }
@@ -9529,7 +9529,7 @@ func (o PoolEndpointConfigurationResponsePtrOutput) Elem() PoolEndpointConfigura
 	return o.ApplyT(func(v *PoolEndpointConfigurationResponse) PoolEndpointConfigurationResponse { return *v }).(PoolEndpointConfigurationResponseOutput)
 }
 
-// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
+// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
 func (o PoolEndpointConfigurationResponsePtrOutput) InboundNatPools() InboundNatPoolResponseArrayOutput {
 	return o.ApplyT(func(v *PoolEndpointConfigurationResponse) []InboundNatPoolResponse {
 		if v == nil {
@@ -9984,7 +9984,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 
 // The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfiguration struct {
-	// The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds []string `pulumi:"ipAddressIds"`
 	// The default value is BatchManaged
 	Provision *string `pulumi:"provision"`
@@ -10003,7 +10003,7 @@ type PublicIPAddressConfigurationInput interface {
 
 // The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfigurationArgs struct {
-	// The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds pulumi.StringArrayInput `pulumi:"ipAddressIds"`
 	// The default value is BatchManaged
 	Provision pulumi.StringPtrInput `pulumi:"provision"`
@@ -10087,7 +10087,7 @@ func (o PublicIPAddressConfigurationOutput) ToPublicIPAddressConfigurationPtrOut
 	}).(PublicIPAddressConfigurationPtrOutput)
 }
 
-// The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 func (o PublicIPAddressConfigurationOutput) IpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PublicIPAddressConfiguration) []string { return v.IpAddressIds }).(pulumi.StringArrayOutput)
 }
@@ -10115,7 +10115,7 @@ func (o PublicIPAddressConfigurationPtrOutput) Elem() PublicIPAddressConfigurati
 	return o.ApplyT(func(v *PublicIPAddressConfiguration) PublicIPAddressConfiguration { return *v }).(PublicIPAddressConfigurationOutput)
 }
 
-// The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 func (o PublicIPAddressConfigurationPtrOutput) IpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PublicIPAddressConfiguration) []string {
 		if v == nil {
@@ -10137,7 +10137,7 @@ func (o PublicIPAddressConfigurationPtrOutput) Provision() pulumi.StringPtrOutpu
 
 // The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfigurationResponse struct {
-	// The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds []string `pulumi:"ipAddressIds"`
 	// The default value is BatchManaged
 	Provision *string `pulumi:"provision"`
@@ -10156,7 +10156,7 @@ type PublicIPAddressConfigurationResponseInput interface {
 
 // The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfigurationResponseArgs struct {
-	// The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds pulumi.StringArrayInput `pulumi:"ipAddressIds"`
 	// The default value is BatchManaged
 	Provision pulumi.StringPtrInput `pulumi:"provision"`
@@ -10240,7 +10240,7 @@ func (o PublicIPAddressConfigurationResponseOutput) ToPublicIPAddressConfigurati
 	}).(PublicIPAddressConfigurationResponsePtrOutput)
 }
 
-// The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 func (o PublicIPAddressConfigurationResponseOutput) IpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PublicIPAddressConfigurationResponse) []string { return v.IpAddressIds }).(pulumi.StringArrayOutput)
 }
@@ -10268,7 +10268,7 @@ func (o PublicIPAddressConfigurationResponsePtrOutput) Elem() PublicIPAddressCon
 	return o.ApplyT(func(v *PublicIPAddressConfigurationResponse) PublicIPAddressConfigurationResponse { return *v }).(PublicIPAddressConfigurationResponseOutput)
 }
 
-// The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 func (o PublicIPAddressConfigurationResponsePtrOutput) IpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PublicIPAddressConfigurationResponse) []string {
 		if v == nil {

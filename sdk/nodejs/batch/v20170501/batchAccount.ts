@@ -133,7 +133,7 @@ export class BatchAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/latest:BatchAccount" }, { type: "azure-nextgen:batch/v20151201:BatchAccount" }, { type: "azure-nextgen:batch/v20170101:BatchAccount" }, { type: "azure-nextgen:batch/v20170901:BatchAccount" }, { type: "azure-nextgen:batch/v20181201:BatchAccount" }, { type: "azure-nextgen:batch/v20190401:BatchAccount" }, { type: "azure-nextgen:batch/v20190801:BatchAccount" }, { type: "azure-nextgen:batch/v20200301:BatchAccount" }, { type: "azure-nextgen:batch/v20200501:BatchAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/latest:BatchAccount" }, { type: "azure-nextgen:batch/v20151201:BatchAccount" }, { type: "azure-nextgen:batch/v20170101:BatchAccount" }, { type: "azure-nextgen:batch/v20170901:BatchAccount" }, { type: "azure-nextgen:batch/v20181201:BatchAccount" }, { type: "azure-nextgen:batch/v20190401:BatchAccount" }, { type: "azure-nextgen:batch/v20190801:BatchAccount" }, { type: "azure-nextgen:batch/v20200301:BatchAccount" }, { type: "azure-nextgen:batch/v20200501:BatchAccount" }, { type: "azure-nextgen:batch/v20200901:BatchAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BatchAccount.__pulumiType, name, inputs, opts);
     }

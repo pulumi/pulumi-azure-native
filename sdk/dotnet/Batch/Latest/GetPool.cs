@@ -87,10 +87,6 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// </summary>
         public readonly string LastModified;
         /// <summary>
-        /// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-        /// </summary>
-        public readonly int? MaxTasksPerNode;
-        /// <summary>
         /// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         /// </summary>
         public readonly ImmutableArray<Outputs.MetadataItemResponse> Metadata;
@@ -124,6 +120,10 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// If not specified, the default is spread.
         /// </summary>
         public readonly Outputs.TaskSchedulingPolicyResponse? TaskSchedulingPolicy;
+        /// <summary>
+        /// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+        /// </summary>
+        public readonly int? TaskSlotsPerNode;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -164,8 +164,6 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 
             string lastModified,
 
-            int? maxTasksPerNode,
-
             ImmutableArray<Outputs.MetadataItemResponse> metadata,
 
             ImmutableArray<Outputs.MountConfigurationResponse> mountConfiguration,
@@ -185,6 +183,8 @@ namespace Pulumi.AzureNextGen.Batch.Latest
             Outputs.StartTaskResponse? startTask,
 
             Outputs.TaskSchedulingPolicyResponse? taskSchedulingPolicy,
+
+            int? taskSlotsPerNode,
 
             string type,
 
@@ -206,7 +206,6 @@ namespace Pulumi.AzureNextGen.Batch.Latest
             Etag = etag;
             InterNodeCommunication = interNodeCommunication;
             LastModified = lastModified;
-            MaxTasksPerNode = maxTasksPerNode;
             Metadata = metadata;
             MountConfiguration = mountConfiguration;
             Name = name;
@@ -217,6 +216,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
             ScaleSettings = scaleSettings;
             StartTask = startTask;
             TaskSchedulingPolicy = taskSchedulingPolicy;
+            TaskSlotsPerNode = taskSlotsPerNode;
             Type = type;
             UserAccounts = userAccounts;
             VmSize = vmSize;

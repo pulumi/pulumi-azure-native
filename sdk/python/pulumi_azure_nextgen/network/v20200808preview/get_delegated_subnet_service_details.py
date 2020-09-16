@@ -19,13 +19,16 @@ class GetDelegatedSubnetServiceDetailsResult:
     """
     Delegated subnet details
     """
-    def __init__(__self__, location=None, name=None, state=None, type=None):
+    def __init__(__self__, location=None, name=None, resource_guid=None, state=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -48,6 +51,14 @@ class GetDelegatedSubnetServiceDetailsResult:
         The name of the DelegatedSubnet resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        Guid for the resource(delegatedSubnet) created
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter
@@ -74,6 +85,7 @@ class AwaitableGetDelegatedSubnetServiceDetailsResult(GetDelegatedSubnetServiceD
         return GetDelegatedSubnetServiceDetailsResult(
             location=self.location,
             name=self.name,
+            resource_guid=self.resource_guid,
             state=self.state,
             type=self.type)
 
@@ -105,5 +117,6 @@ def get_delegated_subnet_service_details(resource_group_name: Optional[str] = No
     return AwaitableGetDelegatedSubnetServiceDetailsResult(
         location=__ret__.location,
         name=__ret__.name,
+        resource_guid=__ret__.resource_guid,
         state=__ret__.state,
         type=__ret__.type)

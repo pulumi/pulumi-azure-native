@@ -84,12 +84,6 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         public Output<string> LastModified { get; private set; } = null!;
 
         /// <summary>
-        /// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-        /// </summary>
-        [Output("maxTasksPerNode")]
-        public Output<int?> MaxTasksPerNode { get; private set; } = null!;
-
-        /// <summary>
         /// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         /// </summary>
         [Output("metadata")]
@@ -144,6 +138,12 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         public Output<Outputs.TaskSchedulingPolicyResponse?> TaskSchedulingPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+        /// </summary>
+        [Output("taskSlotsPerNode")]
+        public Output<int?> TaskSlotsPerNode { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
@@ -189,6 +189,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -272,12 +273,6 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         [Input("interNodeCommunication")]
         public Input<string>? InterNodeCommunication { get; set; }
 
-        /// <summary>
-        /// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-        /// </summary>
-        [Input("maxTasksPerNode")]
-        public Input<int>? MaxTasksPerNode { get; set; }
-
         [Input("metadata")]
         private InputList<Inputs.MetadataItemArgs>? _metadata;
 
@@ -337,6 +332,12 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// </summary>
         [Input("taskSchedulingPolicy")]
         public Input<Inputs.TaskSchedulingPolicyArgs>? TaskSchedulingPolicy { get; set; }
+
+        /// <summary>
+        /// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+        /// </summary>
+        [Input("taskSlotsPerNode")]
+        public Input<int>? TaskSlotsPerNode { get; set; }
 
         [Input("userAccounts")]
         private InputList<Inputs.UserAccountArgs>? _userAccounts;

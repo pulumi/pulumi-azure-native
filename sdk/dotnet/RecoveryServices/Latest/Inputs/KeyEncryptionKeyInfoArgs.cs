@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     public sealed class KeyEncryptionKeyInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key url / identifier.
+        /// The key URL / identifier.
         /// </summary>
         [Input("keyIdentifier")]
         public Input<string>? KeyIdentifier { get; set; }
 
         /// <summary>
-        /// The KeyVault resource ARM id for key.
+        /// The KeyVault resource ARM Id for key.
         /// </summary>
         [Input("keyVaultResourceArmId")]
         public Input<string>? KeyVaultResourceArmId { get; set; }
