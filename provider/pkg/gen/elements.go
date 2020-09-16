@@ -419,31 +419,21 @@ type cachedTemplateExpression struct {
 func (t *TemplateElements) EvaluateExpressions(preliminaryPhase bool) error {
 	for name, el := range t.elements {
 		args := el.TemplateElement.Args()
-		var referenced codegen.StringSet
 		var err error
 		if preliminaryPhase {
-			args, referenced, err = t.evalTemplateExpressions(args, "", "reference")
+			args, err = t.evalTemplateExpressions(el, args, "", "reference")
 		} else {
-			args, referenced, err = t.evalTemplateExpressions(args, "")
+			args, err = t.evalTemplateExpressions(el, args, "")
 		}
 		if err != nil {
 			return fmt.Errorf("failed to evaluate template expression for %s: %w", name, err)
 		}
 		el.SetArgs(args)
-		for ref := range referenced {
-			dep, ok := t.elements[ref]
-			if !ok {
-				return fmt.Errorf("unknown element %s referenced in %s", ref, el.Name())
-			}
-			el.RefersTo(dep)
-		}
 	}
 	return nil
 }
 
-func (t *TemplateElements) evalTemplateExpressions(args interface{}, crumbs string, excludeFuncs ...string) (interface{}, codegen.StringSet, error) {
-	referenced := codegen.NewStringSet()
-
+func (t *TemplateElements) evalTemplateExpressions(d *dependencyTracking, args interface{}, crumbs string, excludeFuncs ...string) (interface{}, error) {
 	val := reflect.ValueOf(args)
 	exclusions := codegen.NewStringSet()
 	for _, excl := range excludeFuncs {
@@ -451,7 +441,7 @@ func (t *TemplateElements) evalTemplateExpressions(args interface{}, crumbs stri
 	}
 	typ := reflect.TypeOf(args)
 	if typ == nil {
-		return args, nil, nil
+		return args, nil
 	}
 	switch typ.Kind() {
 	case reflect.Map:
@@ -461,115 +451,38 @@ func (t *TemplateElements) evalTemplateExpressions(args interface{}, crumbs stri
 			k := iter.Key()
 			v := iter.Value()
 			curr := fmt.Sprintf(".%s", k.String())
-			updated, ref, err := t.evalTemplateExpressions(v.Interface(), curr, excludeFuncs...)
+			updated, err := t.evalTemplateExpressions(d, v.Interface(), curr, excludeFuncs...)
 			if err != nil {
-				return nil, nil, err
+				return nil, err
 			}
 			ret[k.String()] = updated
-
-			for k := range ref {
-				referenced.Add(k)
-			}
 		}
-		return ret, referenced, nil
+		return ret, nil
 	case reflect.Slice, reflect.Array:
 		var ret []interface{}
 		for i := 0; i < val.Len(); i++ {
 			curr := fmt.Sprintf("%s[%d]", crumbs, i)
-			updated, ref, err := t.evalTemplateExpressions(val.Index(i).Interface(), curr, excludeFuncs...)
+			updated, err := t.evalTemplateExpressions(d, val.Index(i).Interface(), curr, excludeFuncs...)
 			if err != nil {
-				return nil, nil, err
+				return nil, err
 			}
 			ret = append(ret, updated)
-			for k := range ref {
-				referenced.Add(k)
-			}
 		}
-		return ret, referenced, nil
+		return ret, nil
 	case reflect.String:
 		s := val.String()
-		//if isTemplateExpression(s) {
-		// Check if we already have a conversion cached
-		//cached, seen := t.knownTemplateExpressions[s]
-		//if seen {
-		//	return cached.evaled, cached.referenced, nil
-		//}
-		evaled, ref, err := t.EvalGlobal(s, exclusions)
+		evaled, err := t.eval(d, s, exclusions)
 		if err != nil {
-			return nil, nil, err
+			return nil, err
 		}
 		// Record template to conversion so we avoid
 		// emitting duplicates
 		//t.knownTemplateExpressions[s] = &cachedTemplateExpression{evaled: evaled, referenced: ref}
-		return evaled, ref, nil
+		return evaled, nil
 		//}
 	}
 
-	return args, nil, nil
-}
-
-func (t *TemplateElements) extractTemplateExpressionsAsVars(args interface{}, crumbs []string, excludeKeys ...string) (interface{}, map[string]model.Expression, error) {
-	variables := map[string]model.Expression{}
-	val := reflect.ValueOf(args)
-	exclusions := codegen.NewStringSet()
-	for _, excl := range excludeKeys {
-		exclusions.Add(excl)
-	}
-	switch typ := reflect.TypeOf(args); typ.Kind() {
-	case reflect.Map:
-		ret := map[string]interface{}{}
-		iter := val.MapRange()
-		for iter.Next() {
-			k := iter.Key()
-			v := iter.Value()
-			if exclusions.Has(k.String()) {
-				ret[k.String()] = v.Interface()
-				continue
-			}
-			nextCrumbs := append(crumbs, k.String())
-			updated, vars, err := t.extractTemplateExpressionsAsVars(v.Interface(), nextCrumbs)
-			if err != nil {
-				return nil, nil, err
-			}
-			ret[k.String()] = updated
-			for k, v := range vars {
-				variables[k] = v
-			}
-		}
-		return ret, variables, nil
-	case reflect.Slice, reflect.Array:
-		var ret []interface{}
-		for i := 0; i < val.Len(); i++ {
-			updated, vars, err := t.extractTemplateExpressionsAsVars(val.Index(i).Interface(), crumbs)
-			if err != nil {
-				return nil, nil, err
-			}
-			ret = append(ret, updated)
-			for k, v := range vars {
-				variables[k] = v
-			}
-		}
-		return ret, variables, nil
-	case reflect.String:
-		s := val.String()
-		if isTemplateExpression(s) {
-			varName := t.assignName(crumbs)
-			v := &model.Variable{
-				Name:         varName,
-				VariableType: model.DynamicType,
-			}
-			val, err := pcl.RenderValue(s)
-			if err != nil {
-				return nil, nil, err
-			}
-			return model.VariableReference(v),
-				map[string]model.Expression{
-					varName: val,
-				}, nil
-		}
-	}
-
-	return args, nil, nil
+	return args, nil
 }
 
 func (t *TemplateElements) assignName(crumbs []string) string {
@@ -592,36 +505,6 @@ func (t *TemplateElements) assignName(crumbs []string) string {
 		i++
 	}
 	return varName
-}
-
-func (t *TemplateElements) detectTemplateExpressions(srcName string, in *dependencyTracking, args interface{}, exclusionList ...string) (interface{}, error) {
-	typ := reflect.TypeOf(args)
-	kind := typ.Kind()
-
-	var exprs map[string]model.Expression
-	var err error
-	switch kind {
-	case reflect.Map, reflect.Slice, reflect.String:
-		args, exprs, err = t.extractTemplateExpressionsAsVars(
-			args,
-			[]string{srcName},
-			exclusionList...)
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	for name, expr := range exprs {
-		dep, ok := t.elements[name]
-		if !ok {
-			v := newVariable(name, expr)
-			dep = newDependencyTracking(v)
-			t.elements[name] = dep
-		}
-		in.RefersTo(dep)
-	}
-
-	return args, nil
 }
 
 func (t *TemplateElements) AddParameter(name string, args map[string]interface{}) error {
