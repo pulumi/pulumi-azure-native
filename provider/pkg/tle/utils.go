@@ -1,10 +1,28 @@
 package tle
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/pulumi/pulumi/sdk/go/common/util/contract"
 )
+
+func quote(s string) string {
+	if s == "" {
+		return "\"\""
+	}
+
+	if s[0] == '"' && s[len(s)-1] == '"' {
+		return s
+	}
+	if s[0] == '\'' && s[len(s)-1] == '\'' {
+		return s
+	}
+	if strings.IndexAny(s, "\"") != -1 {
+		return fmt.Sprintf("'%s'", s)
+	}
+	return fmt.Sprintf("\"%s\"", s)
+}
 
 func isQuoteCharacter(character byte) bool {
 	return character == '\'' ||
@@ -71,25 +89,4 @@ func readQuotedTLEString(iterator TokenIterator) []*basicToken {
 	}
 
 	return quotedStringTokens
-}
-
-func unquote(value string) string {
-	if value == "" {
-		return ""
-	}
-
-	if strings.HasPrefix(value, "\"") {
-		if strings.HasSuffix(value, "\"") {
-			return value[1 : len(value)-1]
-		} else {
-			return value[1:]
-		}
-	} else if strings.HasPrefix(value, "'") {
-		if strings.HasSuffix(value, "'") {
-			return value[1 : len(value)-1]
-		}
-		return value[1:]
-	}
-
-	return value
 }

@@ -14,6 +14,41 @@ func TestParseExpression(t *testing.T) {
 		expected   Value
 		err        error
 	}{
+		{name: "Literal unquoted",
+			expression: "hello there",
+			expected: &StringValue{
+				token: Token{typ: "QuotedString",
+					span:        Span{startIndex: 0, length: 13},
+					stringValue: "\"hello there\""}},
+		},
+		{name: "Literal double quoted",
+			expression: "\"hello there\"",
+			expected: &StringValue{
+				token: Token{typ: "QuotedString",
+					span:        Span{startIndex: 0, length: 13},
+					stringValue: "\"hello there\""}},
+		},
+		{name: "Literal single quoted",
+			expression: "'hello there'",
+			expected: &StringValue{
+				token: Token{typ: "QuotedString",
+					span:        Span{startIndex: 0, length: 13},
+					stringValue: "'hello there'"}},
+		},
+		{name: "Literal unquoted with internal single quote",
+			expression: "hello 'there'",
+			expected: &StringValue{
+				token: Token{typ: "QuotedString",
+					span:        Span{startIndex: 0, length: 15},
+					stringValue: "\"hello 'there'\""}},
+		},
+		{name: "Literal unquoted with internal double quote",
+			expression: "hello \"there\"",
+			expected: &StringValue{
+				token: Token{typ: "QuotedString",
+					span:        Span{startIndex: 0, length: 15},
+					stringValue: "'hello \"there\"'"}},
+		},
 		{
 			name:       "Simple Function Invocation",
 			expression: "\"[parameters('dnsPrefix')]\"",
