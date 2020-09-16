@@ -5,7 +5,8 @@ PACKDIR         := sdk
 PROJECT         := github.com/pulumi/pulumi-azure-nextgen
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
-VERSION         := $(shell pulumictl get version)
+VERSION         := 0.1.0
+#VERSION         := $(shell pulumictl get version)
 
 PROVIDER_PKGS    := $(shell cd ./provider && go list ./...)
 WORKING_DIR     := $(shell pwd)
@@ -42,6 +43,9 @@ generate_schema::
 generate_docs::
 	$(WORKING_DIR)/bin/$(CODEGEN) docs ${VERSION}
 
+arm2pulumi::
+	(cd provider && go build -a -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi)
+
 codegen::
 	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN))
 
@@ -57,7 +61,7 @@ lint_provider:: provider # lint the provider code
 generate_nodejs::
 	$(WORKING_DIR)/bin/$(CODEGEN) nodejs ${VERSION}
 
-build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
+#build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
@@ -69,7 +73,7 @@ build_nodejs::
 generate_python::
 	$(WORKING_DIR)/bin/$(CODEGEN) python ${VERSION}
 
-build_python:: VERSION := $(shell pulumictl get version --language python)
+#build_python:: VERSION := $(shell pulumictl get version --language python)
 build_python::
 	cd sdk/python/ && \
         cp ../../README.md . && \
@@ -82,7 +86,7 @@ build_python::
 generate_dotnet::
 	$(WORKING_DIR)/bin/$(CODEGEN) dotnet ${VERSION}
 
-build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
+#build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
 		echo "${VERSION:v%=%}" >version.txt && \

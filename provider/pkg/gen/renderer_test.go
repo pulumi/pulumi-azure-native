@@ -21,8 +21,6 @@ import (
 )
 
 func TestRenderTemplate(t *testing.T) {
-	//debugEnable := true
-	//debug.Debug = &debugEnable
 	var metadata provider.AzureAPIMetadata
 	f, err := os.Open("../../cmd/pulumi-resource-azure-nextgen/metadata.json")
 	require.NoError(t, err)
@@ -36,7 +34,7 @@ func TestRenderTemplate(t *testing.T) {
 			node, err := parseJsonxTree(test.template)
 			require.NoError(t, err)
 			body, err := RenderTemplate(map[string]*jsonx.Node{
-				"example.json": node, 
+				"example.json": node,
 			}, &metadata)
 			if test.err == nil {
 				require.NoError(t, err)
@@ -245,6 +243,7 @@ var (
     }
 }`,
 		expected: `import * as pulumi from "@pulumi/pulumi";
+import * as azure_nextgen from "@pulumi/azure_nextgen";
 import * as azure_nextgen from "@pulumi/azure_nextgen";
 
 const config = new pulumi.Config();
