@@ -5,7 +5,7 @@ before:
   hooks:
     - make init_submodules
     - make codegen
-    - make generate_schema
+    - make generate
 blobs:
   - bucket: get.pulumi.com
     folder: releases/plugins/
