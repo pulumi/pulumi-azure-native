@@ -28,7 +28,7 @@ func isTemplateExpression(s string) bool {
 // it to the most basic level possible given current knowledge. So,
 // the first returned result may be a variable reference if
 // it refers to an existing (or new variable). If not an expression, the input
-// is returned unmodified. The second argument - exclusions is an optional
+// is returned unmodified. The third argument - exclusions is an optional
 // set of exclusion for template functions. If a template function matches
 // something in the exclusion set, the resulting
 func (t *TemplateElements) eval(source *dependencyTracking, expression string, exclusions codegen.StringSet) (interface{}, error) {
@@ -42,6 +42,12 @@ func (t *TemplateElements) eval(source *dependencyTracking, expression string, e
 		var nyi *notYetImplementedError
 		var excluded *excludedError
 		if errors.As(err, &nyi) {
+			t.addDiagnostic(Diagnostic{
+				SourceElement: source.Name(),
+				SourceToken: expression,
+				Severity: SevMed,
+				Description: err.Error(),
+			})
 			return expression, nil
 		}
 		if errors.As(err, &excluded) {
@@ -194,7 +200,7 @@ func (t *TemplateElements) evalFunctionCall(d *dependencyTracking, target *inter
 			if rgNameParam == nil {
 				if err := t.AddParameter("resourceGroupNameParam", map[string]interface{}{
 					"type": "string",
-				}); err != nil {
+				}, false); err != nil {
 					return err
 				}
 				rgNameParam = t.lookup("resourceGroupNameParam")
@@ -211,7 +217,7 @@ func (t *TemplateElements) evalFunctionCall(d *dependencyTracking, target *inter
 					pcl.ObjectConsItem("resourceGroupName", model.VariableReference(resourceGroupName)))
 
 				var err error
-				rg, err = t.AddVariable("resourceGroupVar", invoke)
+				rg, err = t.AddVariable("resourceGroupVar", invoke, false)
 				if err != nil {
 					return err
 				}
@@ -229,10 +235,10 @@ func (t *TemplateElements) evalFunctionCall(d *dependencyTracking, target *inter
 			// Invoke the TF azure provider's "azure:core/getSubscription:getSubscription" to get subscription?
 			/* TODO invoke for subscription? */
 
-			return fmt.Errorf("NYI: subscription functions not supported")
+			return nyiError("subscription")
 
 		case "deployment":
-			return fmt.Errorf("NYI: deployment functions not supported")
+			return nyiError("deployment")
 
 		case "variables":
 			if len(f.ArgumentExpressions) != 1 {
@@ -290,7 +296,6 @@ func (t *TemplateElements) evalFunctionCall(d *dependencyTracking, target *inter
 			return nil
 		case "resourceId":
 			// TODO: Add subscriptionid and resource group id to the concat list
-			// return t.evalConcat(funcParams, exclusions)
 		case "reference":
 			var referencedResource interface{}
 			var version string

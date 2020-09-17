@@ -3,6 +3,7 @@ package gen
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"log"
 	"os"
 	"strings"
@@ -23,8 +24,15 @@ import (
 func TestRenderTemplate(t *testing.T) {
 	var metadata provider.AzureAPIMetadata
 	f, err := os.Open("../../cmd/pulumi-resource-azure-nextgen/metadata.json")
+	os.Setenv("PATH", "../../../bin")
 	require.NoError(t, err)
 	require.NoError(t, json.NewDecoder(f).Decode(&metadata))
+	f.Close()
+
+	var pkgSpec schema.PackageSpec
+	f, err = os.Open("../../cmd/pulumi-resource-azure-nextgen/schema-full.json")
+	require.NoError(t, err)
+	require.NoError(t, json.NewDecoder(f).Decode(&pkgSpec))
 	f.Close()
 
 	for _, test := range []testcase{
@@ -33,9 +41,9 @@ func TestRenderTemplate(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			node, err := parseJsonxTree(test.template)
 			require.NoError(t, err)
-			body, err := RenderTemplate(map[string]*jsonx.Node{
+			body, _, err := RenderTemplate(map[string]*jsonx.Node{
 				"example.json": node,
-			}, &metadata)
+			}, &metadata, &pkgSpec)
 			if test.err == nil {
 				require.NoError(t, err)
 			} else {
@@ -243,7 +251,7 @@ var (
     }
 }`,
 		expected: `import * as pulumi from "@pulumi/pulumi";
-import * as azure_nextgen from "@pulumi/azure_nextgen";
+import * as azure_nextgen from "@pulumi/azure-nextgen";
 import * as azure_nextgen from "@pulumi/azure_nextgen";
 
 const config = new pulumi.Config();
@@ -261,7 +269,7 @@ const osTypeParam = config.get("osTypeParam") || "Linux";
 const servicePrincipalClientIdParam = config.require("servicePrincipalClientIdParam");
 const servicePrincipalClientSecretParam = config.require("servicePrincipalClientSecretParam");
 const sshRSAPublicKeyParam = config.require("sshRSAPublicKeyParam");
-const managedClusterResource = new azure_nextgen.containerservice.v20200301.ManagedCluster("managedClusterResource", {
+const managedClusterResource0 = new azure_nextgen.containerservice.v20200301.ManagedCluster("managedClusterResource0", {
     agentPoolProfiles: [{
         count: agentCountParam,
         name: "agentpool",
@@ -284,7 +292,7 @@ const managedClusterResource = new azure_nextgen.containerservice.v20200301.Mana
         clientId: servicePrincipalClientIdParam,
     },
 });
-export const controlPlaneFQDNOut = managedClusterResource.fqdn;
+export const controlPlaneFQDNOut = managedClusterResource0.fqdn;
 `,
 	}
 )

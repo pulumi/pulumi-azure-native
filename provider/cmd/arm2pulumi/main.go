@@ -69,7 +69,7 @@ func main() {
 		log.Fatalf("Failure Closing uncompress stream for resource map: %+v", err)
 	}
 
-	body, err := gen.Render(readFrom, metadata, &pkgSpec)
+	body, diagnostics, err := gen.Render(readFrom, metadata, &pkgSpec)
 	if err != nil {
 		log.Fatalf("Failure rendering IR from template: %+v", err)
 	}
@@ -83,6 +83,13 @@ func main() {
 		fmt.Println()
 		fmt.Printf("%s\n", v)
 		fmt.Println()
+		fmt.Println()
+	}
+	for k, diags := range diagnostics {
+		fmt.Printf("Diagnostics for %s\n", k)
+		for _, diag := range diags {
+			fmt.Printf("WARN: [%s] at '%s' - '%s'\n", diag.Severity, diag.SourceToken, diag.Description)
+		}
 		fmt.Println()
 	}
 	return

@@ -22,6 +22,10 @@ type TemplateElement interface {
 	Name() string
 	Args() interface{}
 	SetArgs(interface{})
+	// RequiresManualConversion is called after all elements are loaded but before
+	// any rendering of PCL has occurred. If an element has fundamental issues being
+	// converted, it should return true and provide an optional diagnostic.
+	RequiresManualConversion(ctx *pclRenderContext) (bool, *Diagnostic)
 	PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error)
 }
 
@@ -126,13 +130,17 @@ func (p *parameter) SetArgs(body interface{}) {
 	p.rawBody = body.(map[string]interface{})
 }
 
+func (p *parameter) RequiresManualConversion(ctx *pclRenderContext) (bool, *Diagnostic) {
+	return false, nil
+}
+
 func (p *parameter) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
 	typ, err := extractType(p.rawBody)
 	if err != nil {
 		return nil, fmt.Errorf("invalid parameter %s: %w", p.paramName, err)
 	}
 
-	typeExpr := typ // TODO handle secure variants
+	typeExpr := typ // TODO handle secure variants or return diagnostics for unsupported.
 
 	var defaultValue model.Expression
 	if def, ok := p.rawBody["defaultValue"]; ok {
@@ -184,6 +192,10 @@ func (v *variable) SetArgs(body interface{}) {
 	v.rawBody = body
 }
 
+func (v *variable) RequiresManualConversion(ctx *pclRenderContext) (bool, *Diagnostic) {
+	return false, nil
+}
+
 func (v *variable) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
 	fObj := v.rawBody
 	m, err := pcl.RenderValue(fObj)
@@ -219,6 +231,10 @@ func (o *output) Args() interface{} {
 
 func (o *output) SetArgs(body interface{}) {
 	o.rawBody = body.(map[string]interface{})
+}
+
+func (o *output) RequiresManualConversion(ctx *pclRenderContext) (bool, *Diagnostic) {
+	return false, nil
 }
 
 func (o *output) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
@@ -261,16 +277,19 @@ func (o *output) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
 	}}, nil
 }
 
-func newResource(name string, rawBody map[string]interface{}) *resource {
+func newResource(name string, rawBody map[string]interface{}, resourceToken string) *resource {
 	return &resource{
-		resourceName: name,
-		rawBody:      rawBody,
+		resourceName:  name,
+		rawBody:       rawBody,
+		resourceToken: resourceToken,
 	}
 }
 
 type resource struct {
-	resourceName string
-	rawBody      map[string]interface{}
+	resourceName  string
+	rawBody       map[string]interface{}
+	resourceToken string // initial guess at pulumi resource token
+	exclude       bool
 }
 
 func (r *resource) Name() string {
@@ -285,9 +304,36 @@ func (r *resource) SetArgs(body interface{}) {
 	r.rawBody = body.(map[string]interface{})
 }
 
-func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error) {
-	var items []model.BodyItem
+func (r *resource) RequiresManualConversion(ctx *pclRenderContext) (bool, *Diagnostic) {
+	actualToken, _, found := ctx.lookupResource(r.resourceToken)
+	diag := Diagnostic{
+		SourceElement: r.resourceName,
+		SourceToken:   r.resourceToken,
+		Severity:      SevHigh,
+		Description:   "this resource can't be automatically converted at this time",
+	}
+	if !found || shouldExclude(actualToken) {
+		r.exclude = true
+		return true, &diag
+	}
 
+	return false, nil
+}
+
+func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error) {
+	if r.exclude {
+		needsManualConversion := &model.Variable{
+			Name:         "null",
+			VariableType: model.NoneType,
+		}
+
+		return []model.BodyItem{&model.Attribute{
+			Name:  r.Name(),
+			Value: model.VariableReference(needsManualConversion),
+		}}, nil
+	}
+
+	var items []model.BodyItem
 	var resourceParams map[string]interface{}
 	var location interface{}
 	var apiVersion, typ string
@@ -362,7 +408,7 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 		return nil, fmt.Errorf("no metadata found for resource %s", token)
 	}
 	token = actual
-	
+
 	metadataResParams := map[string]provider.AzureAPIParameter{}
 	for _, param := range res.PutParameters {
 		metadataResParams[param.Name] = param
@@ -446,6 +492,7 @@ func NewTemplateElements() *TemplateElements {
 	return &TemplateElements{
 		elements:               map[string]*dependencyTracking{},
 		nameCaseInsensitiveMap: map[string]string{},
+		diagnostics:            map[string][]Diagnostic{},
 	}
 }
 
@@ -454,6 +501,7 @@ func NewTemplateElements() *TemplateElements {
 type TemplateElements struct {
 	elements               map[string]*dependencyTracking
 	nameCaseInsensitiveMap map[string]string
+	diagnostics            map[string][]Diagnostic
 }
 
 func (t *TemplateElements) lookup(name string) *dependencyTracking {
@@ -568,9 +616,11 @@ func (t *TemplateElements) assignName(crumbs []string) string {
 	return varName
 }
 
-func (t *TemplateElements) AddParameter(name string, args map[string]interface{}) error {
-	if !strings.HasSuffix(strings.ToLower(name), "param") {
-		name = name + "Param"
+func (t *TemplateElements) AddParameter(name string, args map[string]interface{}, addSuffix bool) error {
+	if addSuffix {
+		if !strings.HasSuffix(strings.ToLower(name), "param") {
+			name = name + "Param"
+		}
 	}
 
 	if el := t.lookup(name); el != nil {
@@ -585,9 +635,11 @@ func (t *TemplateElements) AddParameter(name string, args map[string]interface{}
 	return nil
 }
 
-func (t *TemplateElements) AddVariable(name string, args interface{}) (*dependencyTracking, error) {
-	if !strings.HasSuffix(strings.ToLower(name), "var") {
-		name = name + "Var"
+func (t *TemplateElements) AddVariable(name string, args interface{}, addSuffix bool) (*dependencyTracking, error) {
+	if addSuffix {
+		if !strings.HasSuffix(strings.ToLower(name), "var") {
+			name = name + "Var"
+		}
 	}
 
 	if el := t.lookup(name); el != nil {
@@ -603,9 +655,11 @@ func (t *TemplateElements) AddVariable(name string, args interface{}) (*dependen
 	return dep, nil
 }
 
-func (t *TemplateElements) AddOutput(name string, args map[string]interface{}) error {
-	if !strings.HasSuffix(strings.ToLower(name), "out") {
-		name = name + "Out"
+func (t *TemplateElements) AddOutput(name string, args map[string]interface{}, addSuffix bool) error {
+	if addSuffix {
+		if !strings.HasSuffix(strings.ToLower(name), "out") {
+			name = name + "Out"
+		}
 	}
 
 	if el := t.lookup(name); el != nil {
@@ -627,14 +681,15 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 		return errors.New("missing required name field in resource")
 	}
 
-	namestr := name.(string)
-	var prefix []string
+	var typestr string
 
 	// we often have names as template expressions. We don't want to rely on evaluating the name
 	// as the resource variable name so we create a reasonable variable name to house the resource
 	// instead. In this case we use the type to help define the variable name, unless that is also
 	// a template expression - in which case we just add a 'Resource' suffix.
 	// Otherwise just use the resource name field.
+	namestr := name.(string)
+	var prefix []string
 	if !isTemplateExpression(namestr) {
 		prefix = []string{namestr}
 	} else {
@@ -642,7 +697,7 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 		if !ok {
 			return errors.New("missing required type field in resource")
 		}
-		typestr := typ.(string)
+		typestr = typ.(string)
 
 		// Microsoft.ContainerService/managedClusters -> managedClusterResource
 		if !isTemplateExpression(typestr) {
@@ -655,23 +710,52 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 	}
 
 	varName := t.assignName(prefix)
-
 	if el := t.lookup(varName); el != nil {
 		// Don't expect name collision with resources
 		return fmt.Errorf("another resource with name: %s already defined", name)
 	}
-	r := newResource(varName, args)
+
+	var resourceToken string
+	apiVersion, ok := args["apiVersion"]
+	if !ok {
+		return fmt.Errorf("required field 'apiVersion' missing for %s", name)
+	}
+	apiVersionStr, ok := apiVersion.(string)
+	if ok {
+		if !isTemplateExpression(apiVersionStr) && !isTemplateExpression(typestr) {
+			resourceToken = toResourceToken(typestr, apiVersionStr)
+		}
+	}
+
+	r := newResource(varName, args, resourceToken)
 	dep := newDependencyTracking(r)
 	t.elements[varName] = dep
 	t.recordCaseInsensitiveName(varName)
 	return nil
 }
 
+func (t *TemplateElements) handleExclusions(ctx *pclRenderContext) bool {
+	haveExclusions := false
+	for _, el := range t.elements {
+		if exclude, diag := el.RequiresManualConversion(ctx); exclude {
+			t.addDiagnostic(*diag)
+			haveExclusions = true
+		}
+	}
+	return haveExclusions
+}
+
+func (t *TemplateElements) GetDiagnostics() map[string][]Diagnostic {
+	return t.diagnostics
+}
+
 func (t *TemplateElements) RenderPCL(metadata *provider.AzureAPIMetadata, pkgSpec *schema.PackageSpec) (*model.Body, error) {
 	ctx := pclRenderContext{
 		metadata: metadata,
-		pkgSpec: pkgSpec,
+		pkgSpec:  pkgSpec,
 	}
+
+	t.handleExclusions(&ctx)
 
 	elements, err := t.topologicalOrder()
 	if err != nil {

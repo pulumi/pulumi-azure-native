@@ -5,8 +5,7 @@ PACKDIR         := sdk
 PROJECT         := github.com/pulumi/pulumi-azure-nextgen
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
-VERSION         := 0.1.0
-#VERSION         := $(shell pulumictl get version)
+VERSION         := $(shell pulumictl get version)
 
 PROVIDER_PKGS    := $(shell cd ./provider && go list ./...)
 WORKING_DIR     := $(shell pwd)
