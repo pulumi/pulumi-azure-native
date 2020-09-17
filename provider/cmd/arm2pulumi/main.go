@@ -5,6 +5,7 @@ import (
 	"compress/gzip"
 	"encoding/json"
 	"fmt"
+	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/debug"
 	"io"
 	"log"
 	"os"
@@ -26,6 +27,9 @@ import (
 func main() {
 	var readFrom io.Reader
 	var langs string
+
+	var debugFlag = true
+	debug.Debug = &debugFlag
 
 	if len(os.Args) < 2 {
 		fmt.Printf("Usage: %s [arm-template path] lang\n", os.Args[0])
@@ -65,11 +69,10 @@ func main() {
 		log.Fatalf("Failure Closing uncompress stream for resource map: %+v", err)
 	}
 
-	body, err := gen.Render(readFrom, metadata)
+	body, err := gen.Render(readFrom, metadata, &pkgSpec)
 	if err != nil {
 		log.Fatalf("Failure rendering IR from template: %+v", err)
 	}
-	fmt.Printf("langs: %s", langs)
 	languages := strings.Split(langs, ",")
 	programsMap, err := renderPrograms(body, &pkgSpec, languages)
 	if err != nil {
@@ -88,6 +91,7 @@ func main() {
 
 func renderPrograms(body *model.Body, pkgSpec *schema.PackageSpec, languages []string) (map[string]string, error) {
 	programBody := fmt.Sprintf("%v", body)
+	debug.Log("%s\n", programBody)
 	pkg, err := schema.ImportSpec(*pkgSpec, nil)
 	if err != nil {
 		return nil, fmt.Errorf("importing package spec: %w", err)
