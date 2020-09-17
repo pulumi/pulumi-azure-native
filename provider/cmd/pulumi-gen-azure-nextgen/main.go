@@ -59,15 +59,19 @@ func main() {
 			if err != nil {
 				break
 			}
+			// Ensure the spec is stamped with a version - Go gen needs it.
+			pkgSpec.Version = version
 			err = gen.Examples(docsPkgSpec, docsMeta, resExamples, []string{"nodejs", "dotnet", "python", "go"})
 			if err != nil {
 				break
 			}
+			// Remove the version again.
+			pkgSpec.Version = ""
 			// This module format switches off version breakdown in the docs.
 			docsPkgSpec.Meta = &schema.MetadataSpec{
 				ModuleFormat: "(.*)(?:/[^/]*)",
 			}
-			err = emitDocsSchema(docsPkgSpec, version, outdir)
+			err = emitDocsSchema(docsPkgSpec, outdir)
 		default:
 			outdir := path.Join(".", "sdk", language)
 			pkgSpec.Version = version
@@ -110,14 +114,11 @@ var pulumiSchema = %#v
 }
 
 // emitDocsSchema writes the Pulumi schema JSON to the 'schema-docs.json' file in the given directory.
-func emitDocsSchema(pkgSpec *schema.PackageSpec, version, outDir string) error {
+func emitDocsSchema(pkgSpec *schema.PackageSpec, outDir string) error {
 	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 	if err != nil {
 		return errors.Wrap(err, "marshaling Pulumi schema")
 	}
-
-	// Ensure the spec is stamped with a version.
-	pkgSpec.Version = version
 
 	return emitFile(outDir, "schema.json", schemaJSON)
 }
