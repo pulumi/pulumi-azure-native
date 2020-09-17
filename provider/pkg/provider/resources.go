@@ -83,6 +83,17 @@ type AzureAPIMetadata struct {
 	Invokes   map[string]AzureAPIInvoke   `json:"invokes"`
 }
 
+// Some resource providers changed capitalization between API versions, but we should map them to the
+// same spelling so that folder names and namespaces are consistent. The map below provides such
+// canonical names based on which names seems to be used prominently as of 2020.
+var wellKnownProviderNames = map[string]string{
+	"aad":             "Aad",
+	"aadiam":          "AadIam",
+	"dbformysql":      "DBforMySQL",
+	"dbforpostgresql": "DBforPostgreSQL",
+	"visualstudio":    "VisualStudio",
+}
+
 // ResourceProvider returns a provider name given resource's PUT path.
 func ResourceProvider(path string) string {
 	parts := strings.Split(path, "/")
@@ -92,10 +103,18 @@ func ResourceProvider(path string) string {
 
 	for _, part := range parts {
 		if strings.HasPrefix(part, "Microsoft.") {
-			return strings.TrimPrefix(part, "Microsoft.")
+			name := strings.TrimPrefix(part, "Microsoft.")
+			if knownName, ok := wellKnownProviderNames[strings.ToLower(name)]; ok {
+				return knownName
+			}
+			return name
 		}
 		if strings.HasPrefix(part, "microsoft.") {
-			return strings.Title(strings.TrimPrefix(part, "microsoft."))
+			name := strings.Title(strings.TrimPrefix(part, "microsoft."))
+			if knownName, ok := wellKnownProviderNames[strings.ToLower(name)]; ok {
+				return knownName
+			}
+			return name
 		}
 	}
 
