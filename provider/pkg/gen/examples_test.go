@@ -328,7 +328,7 @@ func TestFlattenInput(t *testing.T) {
 			for _, param := range metadata.Resources[test.resourceName].PutParameters {
 				params[param.Name] = param
 			}
-			out, err := flattenInput(in, params, metadata.Types)
+			out, err := FlattenInput(in, params, metadata.Types)
 			if test.err != nil {
 				require.Error(t, err)
 				require.Empty(t, out)

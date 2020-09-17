@@ -89,17 +89,16 @@ var excludeResourcePatterns = []string{
 	"azure-nextgen:hybridcompute/v20200625:GuestConfigurationHCRPAssignment", // python name mismatch
 	"azure-nextgen:hybridcompute/latest:GuestConfigurationHCRPAssignment",    // python name mismatch
 }
-var excludeRegexes []*regexp.Regexp
 
-func init() {
+// ShouldExclude checks if the given pulumi resource token matches known-broken
+// resources with respect to program generation.
+func ShouldExclude(pulumiResourceToken string) bool {
+	var excludeRegexes []*regexp.Regexp
 	for _, pattern := range excludeResourcePatterns {
 		excludeRegexes = append(excludeRegexes, regexp.MustCompile(pattern))
 	}
-}
-
-func shouldExclude(pulumiToken string) bool {
 	for _, re := range excludeRegexes {
-		if re.MatchString(pulumiToken) {
+		if re.MatchString(pulumiResourceToken) {
 			return true
 		}
 	}

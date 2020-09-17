@@ -654,7 +654,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			}
 
 			// Change the name to lowerCamelCase.
-			name = toLowerCamel(name)
+			name = ToLowerCamel(name)
 			if name != param.Name {
 				apiParameter.Value.SdkName = name
 			}
@@ -762,7 +762,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			sdkName = firstToLower(clientName)
 		}
 		// Change the name to lowerCamelCase.
-		sdkName = toLowerCamel(sdkName)
+		sdkName = ToLowerCamel(sdkName)
 
 		// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
 		if flatten, ok := property.Extensions.GetBool(extensionClientFlatten); ok && flatten {
@@ -1134,7 +1134,7 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 	if isOutput {
 		suffix = "Response"
 	}
-	return fmt.Sprintf("azure-nextgen:%s:%s%s", m.module, makeLegalIdentifier(ctx.ReferenceName), suffix)
+	return fmt.Sprintf("azure-nextgen:%s:%s%s", m.module, MakeLegalIdentifier(ctx.ReferenceName), suffix)
 }
 
 // parameterBag keeps the schema and metadata parameters for a single resource or invocation.

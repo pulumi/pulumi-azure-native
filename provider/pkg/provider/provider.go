@@ -91,6 +91,8 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	}, nil
 }
 
+// LoadMetadata deserializes the provided compressed json byte array into
+// an AzureAPIMetadata in memory
 func LoadMetadata(azureAPIResourcesBytes []byte) (*AzureAPIMetadata, error) {
 	var resourceMap AzureAPIMetadata
 

@@ -60,7 +60,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 			log.Printf("error in the progress bar %v", err)
 		}
 
-		if shouldExclude(pulumiToken) {
+		if ShouldExclude(pulumiToken) {
 			log.Printf("Skipping '%s' since it matches exclusion pattern", pulumiToken)
 			continue
 		}
@@ -112,7 +112,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 			}
 			exampleParams := exampleJSON["parameters"].(map[string]interface{})
 
-			flattened, err := flattenInput(exampleParams, resourceParams, metadata.Types)
+			flattened, err := FlattenInput(exampleParams, resourceParams, metadata.Types)
 			if err != nil {
 				fmt.Printf("tranforming input for example %s for resource %s: %v", example.Description, pulumiToken, err)
 				continue

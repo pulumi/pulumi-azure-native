@@ -15,7 +15,7 @@ import (
 // of API parameter names to provider.AzureApiParameter and types is a mapping for
 // the API type names to provider.AzureApiType. The latter two can be derived from
 // the metadata generated during schema generation.
-func flattenInput(
+func FlattenInput(
 	input map[string]interface{},
 	resourceParams map[string]provider.AzureAPIParameter,
 	types map[string]provider.AzureAPIType,
@@ -44,7 +44,7 @@ func flattenInput(
 			if !ok {
 				return nil, fmt.Errorf("property %s is expected to be a map, recieved: %T", k, v)
 			}
-			flattened, err := flattenInput(contained, resourceParams, types)
+			flattened, err := FlattenInput(contained, resourceParams, types)
 			if err != nil {
 				return nil, err
 			}

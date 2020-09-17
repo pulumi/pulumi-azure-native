@@ -3,6 +3,8 @@ package test
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"log"
 	"os"
 	"path/filepath"
@@ -10,7 +12,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
@@ -21,20 +22,27 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-var testdataPath = filepath.Join("testdata", "azure-quickstart-templates", "*", "azuredeploy.json")
+var testdataPath = filepath.Join("../../../../../../", "azure-quickstart-templates", "*", "azuredeploy.json")
 
 func TestTemplateCoverage(t *testing.T) {
 	var metadata provider.AzureAPIMetadata
-	f, err := os.Open("../../../../cmd/pulumi-resource-azure-nextgen/schema/metadata.json")
+	wd, err := os.Getwd()
+	require.NoError(t, err)
+	t.Log(wd)
+	f, err := os.Open("../../../../cmd/pulumi-resource-azure-nextgen/metadata.json")
 	require.NoError(t, err)
 	require.NoError(t, json.NewDecoder(f).Decode(&metadata))
 	f.Close()
+	var pkgSpec schema.PackageSpec
+	f, err = os.Open("../../../../cmd/pulumi-resource-azure-nextgen/schema-full.json")
+	require.NoError(t, err)
+	require.NoError(t, json.NewDecoder(f).Decode(&pkgSpec))
+	f.Close()
 	matches, err := filepath.Glob(testdataPath)
 	require.NoError(t, err)
-	matches = []string{"testdata/azure-quickstart-templates/101-acs-swarm/azuredeploy.json"}
 	for _, match := range matches {
 		t.Run(match, func(t *testing.T) {
-			body, err := gen.RenderFile(match, &metadata)
+			body, _, err := arm2pulumi.RenderFileIR(match, &metadata, &pkgSpec)
 			require.NoError(t, err)
 			fmt.Println(body)
 
