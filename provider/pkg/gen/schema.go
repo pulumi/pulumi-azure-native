@@ -218,7 +218,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 				},
 			},
 		},
-		Types:     map[string]pschema.ObjectTypeSpec{},
+		Types:     map[string]pschema.ComplexTypeSpec{},
 		Resources: map[string]pschema.ResourceSpec{},
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]json.RawMessage{},
@@ -1030,11 +1030,13 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 				return nil, nil
 			}
 
-			m.pkg.Types[tok] = pschema.ObjectTypeSpec{
-				Description: resolvedSchema.Description,
-				Type:        "object",
-				Properties:  props.specs,
-				Required:    props.requiredSpecs.SortedValues(),
+			m.pkg.Types[tok] = pschema.ComplexTypeSpec{
+				ObjectTypeSpec: pschema.ObjectTypeSpec{
+					Description: resolvedSchema.Description,
+					Type:        "object",
+					Properties:  props.specs,
+					Required:    props.requiredSpecs.SortedValues(),
+				},
 			}
 
 			m.metadata.Types[tok] = provider.AzureAPIType{

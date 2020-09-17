@@ -3,7 +3,6 @@ package arm2pulumi
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/gen"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"log"
 	"os"
@@ -74,7 +73,7 @@ func TestRenderTemplate(t *testing.T) {
 			}
 
 			languages := []string{"nodejs"}
-			languageExample := gen.languageToExampleProgram{}
+			languageExample := map[string]string{}
 			for _, lang := range languages {
 				var files map[string][]byte
 
@@ -104,7 +103,7 @@ func TestRenderTemplate(t *testing.T) {
 					_, err := buf.Write(f)
 					require.NoError(t, err)
 				}
-				languageExample[gen.language(lang)] = gen.programText(buf.String())
+				languageExample[lang] = buf.String()
 				fmt.Printf("%s\n", buf.String())
 				assert.Equal(t, test.expected, buf.String())
 			}
@@ -253,7 +252,6 @@ var (
 }`,
 		expected: `import * as pulumi from "@pulumi/pulumi";
 import * as azure_nextgen from "@pulumi/azure-nextgen";
-import * as azure_nextgen from "@pulumi/azure_nextgen";
 
 const config = new pulumi.Config();
 const agentCountParam = config.getNumber("agentCountParam") || "3";
