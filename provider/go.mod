@@ -14,8 +14,8 @@ require (
 	github.com/hashicorp/go-azure-helpers v0.10.0
 	github.com/hashicorp/hcl/v2 v2.6.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v2 v2.10.2-0.20200916181156-0d38c6737e89
-	github.com/pulumi/pulumi/sdk/v2 v2.10.2-0.20200916181156-0d38c6737e89
+	github.com/pulumi/pulumi/pkg/v2 v2.10.2-0.20200917182150-ab70dd3d645d
+	github.com/pulumi/pulumi/sdk/v2 v2.10.2-0.20200917182150-ab70dd3d645d
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/stretchr/testify v1.6.1
 	github.com/zclconf/go-cty v1.3.1
