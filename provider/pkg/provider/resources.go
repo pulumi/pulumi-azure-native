@@ -89,6 +89,7 @@ type AzureAPIMetadata struct {
 var wellKnownProviderNames = map[string]string{
 	"aad":             "Aad",
 	"aadiam":          "AadIam",
+	"dbformariadb":    "DBforMariaDB",
 	"dbformysql":      "DBforMySQL",
 	"dbforpostgresql": "DBforPostgreSQL",
 	"visualstudio":    "VisualStudio",
