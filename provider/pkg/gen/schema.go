@@ -262,6 +262,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 			// Populate C#, Python and Go module mapping.
 			module := gen.providerToModule(providerName)
 			csVersion := strings.Title(csharpVersionReplacer.Replace(version))
+			csharpNamespaces[strings.ToLower(providerName)] = providerName
 			csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
 			pythonModuleNames[module] = module
 			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)

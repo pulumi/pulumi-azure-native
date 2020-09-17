@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBForMariaDB.V20180601Preview.Inputs
+namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.Inputs
 {
 
     /// <summary>
