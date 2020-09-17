@@ -87,11 +87,11 @@ type AzureAPIMetadata struct {
 // same spelling so that folder names and namespaces are consistent. The map below provides such
 // canonical names based on which names seems to be used prominently as of 2020.
 var wellKnownProviderNames = map[string]string{
-	"aad": "Aad",
-	"aadiam": "AadIam",
-	"dbformysql": "DBforMySQL",
+	"aad":             "Aad",
+	"aadiam":          "AadIam",
+	"dbformysql":      "DBforMySQL",
 	"dbforpostgresql": "DBforPostgreSQL",
-	"visualstudio": "VisualStudio",
+	"visualstudio":    "VisualStudio",
 }
 
 // ResourceProvider returns a provider name given resource's PUT path.
