@@ -2,6 +2,7 @@ package gen
 
 import (
 	"fmt"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"io"
 	"io/ioutil"
 	"os"
@@ -14,7 +15,7 @@ import (
 	"github.com/sourcegraph/jsonx"
 )
 
-func Render(reader io.Reader, metadata *provider.AzureAPIMetadata) (*model.Body, error) {
+func Render(reader io.Reader, metadata *provider.AzureAPIMetadata, pkgSpec *schema.PackageSpec) (*model.Body, error) {
 	buf := new(strings.Builder)
 	if _, err := io.Copy(buf, reader); err != nil {
 		return nil, err
@@ -23,10 +24,10 @@ func Render(reader io.Reader, metadata *provider.AzureAPIMetadata) (*model.Body,
 	if err != nil {
 		return nil, err
 	}
-	return RenderTemplate(map[string]*jsonx.Node{"azure-deploy.json": root}, metadata)
+	return RenderTemplate(map[string]*jsonx.Node{"azure-deploy.json": root}, metadata, pkgSpec)
 }
 
-func RenderFile(path string, metadata *provider.AzureAPIMetadata) (*model.Body, error) {
+func RenderFile(path string, metadata *provider.AzureAPIMetadata, pkgSpec *schema.PackageSpec) (*model.Body, error) {
 	fileInfo, err := os.Stat(path)
 	if err != nil {
 		return nil, err
@@ -65,12 +66,12 @@ func RenderFile(path string, metadata *provider.AzureAPIMetadata) (*model.Body, 
 
 	}
 
-	return RenderTemplate(parseTrees, metadata)
+	return RenderTemplate(parseTrees, metadata, pkgSpec)
 }
 
 // RenderTemplate renders a parsed CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderTemplate(templates map[string]*jsonx.Node, metadata *provider.AzureAPIMetadata) (*model.Body, error) {
+func RenderTemplate(templates map[string]*jsonx.Node, metadata *provider.AzureAPIMetadata, pkgSpec *schema.PackageSpec) (*model.Body, error) {
 	switch len(templates) {
 	case 0:
 		return &model.Body{}, nil
@@ -107,7 +108,7 @@ func RenderTemplate(templates map[string]*jsonx.Node, metadata *provider.AzureAP
 			}
 
 			for varName, f := range fObj {
-				if err := templ.AddVariable(varName, f); err != nil {
+				if _, err := templ.AddVariable(varName, f); err != nil {
 					return nil, err
 				}
 			}
@@ -155,7 +156,7 @@ func RenderTemplate(templates map[string]*jsonx.Node, metadata *provider.AzureAP
 		return nil, err
 	}
 
-	body, err := templ.RenderPCL(metadata)
+	body, err := templ.RenderPCL(metadata, pkgSpec)
 	if err != nil {
 		return nil, err
 	}

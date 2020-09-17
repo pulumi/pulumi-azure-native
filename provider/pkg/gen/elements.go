@@ -3,6 +3,7 @@ package gen
 import (
 	"errors"
 	"fmt"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"reflect"
 	"sort"
 	"strings"
@@ -15,6 +16,8 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/syntax"
 )
 
+// TemplateElement is a top-level item in the template, e.g. parameters, variables,
+// resources and outputs.
 type TemplateElement interface {
 	Name() string
 	Args() interface{}
@@ -23,8 +26,51 @@ type TemplateElement interface {
 }
 
 type pclRenderContext struct {
-	vars     map[string]*model.Variable
 	metadata *provider.AzureAPIMetadata
+	pkgSpec  *schema.PackageSpec
+}
+
+// lookupResources looks up the specified resource token and
+// returns a corresponding resource if found.
+// We don't have every resource in metadata so this does a slower
+// lookup for aliases in the package spec if the metadata misses.
+// Also, since the templates seem to be case insensitive, we allow
+// a slow case insensitive lookup.
+func (p *pclRenderContext) lookupResource(resourceToken string) (string, *provider.AzureAPIResource, bool) {
+	var actualResourceToken string
+	res, ok := p.metadata.Resources[resourceToken]
+	if !ok {
+		resourceToken = strings.ToLower(resourceToken)
+		// first search for case insensitive hit on metadata
+		for k := range p.metadata.Resources {
+			if strings.ToLower(k) == resourceToken {
+				actualResourceToken = k
+				break
+			}
+		}
+		// next search for aliases in pkgSpec
+		for name, r := range p.pkgSpec.Resources {
+			if actualResourceToken != "" {
+				break // detect inner loop break
+			}
+			if strings.ToLower(actualResourceToken) == resourceToken {
+				actualResourceToken = name
+				break
+			}
+			for _, a := range r.Aliases {
+				if a.Type != nil && strings.ToLower(*a.Type) == resourceToken {
+					actualResourceToken = name
+					break
+				}
+			}
+		}
+		if actualResourceToken != "" {
+			res, ok = p.metadata.Resources[actualResourceToken]
+		}
+	} else {
+		actualResourceToken = resourceToken
+	}
+	return actualResourceToken, &res, ok
 }
 
 func newDependencyTracking(e TemplateElement) *dependencyTracking {
@@ -304,24 +350,23 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 		}
 	}
 
-	if resourceParams == nil {
-		return nil, fmt.Errorf("expect parameters for resource %s", r.resourceName)
-	}
 	if typ == "" || apiVersion == "" {
 		return nil, fmt.Errorf("expect type and apiVersion fields to be specified for resource: %s", r.resourceName)
 	}
 
+	// Can't trust the casing in the template.
+	// Need to do a soft-match against resources supported
 	token := toResourceToken(typ, apiVersion)
-	res, ok := ctx.metadata.Resources[token]
+	actual, res, ok := ctx.lookupResource(token)
 	if !ok {
 		return nil, fmt.Errorf("no metadata found for resource %s", token)
 	}
-
+	token = actual
+	
 	metadataResParams := map[string]provider.AzureAPIParameter{}
 	for _, param := range res.PutParameters {
 		metadataResParams[param.Name] = param
 	}
-
 	_, foundProperties := metadataResParams["properties"]
 
 	// block specified under properties seem to be converted to body payload
@@ -393,29 +438,46 @@ func toResourceToken(resourceType, apiVersion string) string {
 	if strings.HasPrefix(prov, "Microsoft.") {
 		prov = strings.TrimPrefix(strings.ToLower(prov), "microsoft.")
 	}
-	res := inflector.Singularize((strings.Title(toLowerCamel(resource))))
+	res := inflector.Singularize(strings.Title(toLowerCamel(resource)))
 	return fmt.Sprintf("azure-nextgen:%s/%s:%s", prov, apiVersion, res)
 }
 
 func NewTemplateElements() *TemplateElements {
 	return &TemplateElements{
-		elements:                 map[string]*dependencyTracking{},
-		knownTemplateExpressions: map[string]*cachedTemplateExpression{},
+		elements:               map[string]*dependencyTracking{},
+		nameCaseInsensitiveMap: map[string]string{},
 	}
 }
 
 // TemplateElements keeps an internal state of template elements to be rendered to PCL,
 // including maintaining dependency ordering of the elements
 type TemplateElements struct {
-	elements                 map[string]*dependencyTracking
-	knownTemplateExpressions map[string]*cachedTemplateExpression
+	elements               map[string]*dependencyTracking
+	nameCaseInsensitiveMap map[string]string
 }
 
-type cachedTemplateExpression struct {
-	evaled     interface{}
-	referenced codegen.StringSet
+func (t *TemplateElements) lookup(name string) *dependencyTracking {
+	if el, ok := t.elements[name]; ok {
+		return el
+	}
+	name, ok := t.nameCaseInsensitiveMap[strings.ToLower(name)]
+	if ok {
+		return t.elements[name]
+	}
+	return nil
 }
 
+func (t *TemplateElements) recordCaseInsensitiveName(name string) {
+	ciName := strings.ToLower(name)
+	t.nameCaseInsensitiveMap[ciName] = name
+}
+
+// EvaluateExpressions evaluates template expressions. By default, it tries
+// to evaluate all templates if preliminaryPhase is true, it will skip resolving
+// evaluating templates with certain functions. This is required for instance,
+// with functions like reference. Since we may add additional elements due to
+// template evaluation and the order of evaluation is random, we wait to perform
+// referential evaluations till after all other evaluations are complete.
 func (t *TemplateElements) EvaluateExpressions(preliminaryPhase bool) error {
 	for name, el := range t.elements {
 		args := el.TemplateElement.Args()
@@ -475,9 +537,6 @@ func (t *TemplateElements) evalTemplateExpressions(d *dependencyTracking, args i
 		if err != nil {
 			return nil, err
 		}
-		// Record template to conversion so we avoid
-		// emitting duplicates
-		//t.knownTemplateExpressions[s] = &cachedTemplateExpression{evaled: evaled, referenced: ref}
 		return evaled, nil
 		//}
 	}
@@ -485,13 +544,15 @@ func (t *TemplateElements) evalTemplateExpressions(d *dependencyTracking, args i
 	return args, nil
 }
 
+// assignName tries to create a unique name elements based on the
+// nesting information in crumbs
 func (t *TemplateElements) assignName(crumbs []string) string {
 	varName := ""
 	for _, c := range crumbs {
 		varName += strings.Title(c)
 	}
 	varName = toLowerCamel(makeLegalIdentifier(varName))
-	if _, has := t.elements[varName]; !has {
+	if el := t.lookup(varName); el == nil {
 		return varName
 	}
 
@@ -499,7 +560,7 @@ func (t *TemplateElements) assignName(crumbs []string) string {
 	i := 0
 	for {
 		varName = fmt.Sprintf("%s%d", base, i)
-		if _, has := t.elements[varName]; !has {
+		if el := t.lookup(varName); el == nil {
 			break
 		}
 		i++
@@ -512,31 +573,34 @@ func (t *TemplateElements) AddParameter(name string, args map[string]interface{}
 		name = name + "Param"
 	}
 
-	if _, exists := t.elements[name]; exists {
+	if el := t.lookup(name); el != nil {
 		// Don't expect name collision with params
 		return fmt.Errorf("another item with the same name as parameter %s already defined", name)
 	}
 	p := newParameter(name, args)
 	dep := newDependencyTracking(p)
 
+	t.recordCaseInsensitiveName(name)
 	t.elements[name] = dep
 	return nil
 }
 
-func (t *TemplateElements) AddVariable(name string, args interface{}) error {
+func (t *TemplateElements) AddVariable(name string, args interface{}) (*dependencyTracking, error) {
 	if !strings.HasSuffix(strings.ToLower(name), "var") {
 		name = name + "Var"
 	}
 
-	if _, exists := t.elements[name]; exists {
-		return fmt.Errorf("another item with the same name as variable %s already defined", name)
+	if el := t.lookup(name); el != nil {
+		return nil, fmt.Errorf("another item with the same name as variable %s already defined", name)
 	}
 
 	v := newVariable(name, args)
 	dep := newDependencyTracking(v)
 
+	t.recordCaseInsensitiveName(name)
 	t.elements[name] = dep
-	return nil
+
+	return dep, nil
 }
 
 func (t *TemplateElements) AddOutput(name string, args map[string]interface{}) error {
@@ -544,7 +608,7 @@ func (t *TemplateElements) AddOutput(name string, args map[string]interface{}) e
 		name = name + "Out"
 	}
 
-	if _, exists := t.elements[name]; exists {
+	if el := t.lookup(name); el != nil {
 		// Don't expect name collision with outputs
 		return fmt.Errorf("another item with the same name as output %s already defined", name)
 	}
@@ -552,6 +616,7 @@ func (t *TemplateElements) AddOutput(name string, args map[string]interface{}) e
 	o := newOutput(name, args)
 	dep := newDependencyTracking(o)
 
+	t.recordCaseInsensitiveName(name)
 	t.elements[name] = dep
 	return nil
 }
@@ -563,7 +628,7 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 	}
 
 	namestr := name.(string)
-	prefix := []string{}
+	var prefix []string
 
 	// we often have names as template expressions. We don't want to rely on evaluating the name
 	// as the resource variable name so we create a reasonable variable name to house the resource
@@ -583,7 +648,7 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 		if !isTemplateExpression(typestr) {
 			resource := strings.Split(typestr, "/")
 			res := resource[len(resource)-1]
-			res = inflector.Singularize((strings.Title(toLowerCamel(res))))
+			res = inflector.Singularize(strings.Title(toLowerCamel(res)))
 			prefix = append(prefix, res)
 		}
 		prefix = append(prefix, "Resource")
@@ -591,26 +656,21 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 
 	varName := t.assignName(prefix)
 
-	if _, exists := t.elements[varName]; exists {
+	if el := t.lookup(varName); el != nil {
 		// Don't expect name collision with resources
 		return fmt.Errorf("another resource with name: %s already defined", name)
 	}
 	r := newResource(varName, args)
 	dep := newDependencyTracking(r)
 	t.elements[varName] = dep
+	t.recordCaseInsensitiveName(varName)
 	return nil
 }
 
-func (t *TemplateElements) RenderPCL(metadata *provider.AzureAPIMetadata) (*model.Body, error) {
+func (t *TemplateElements) RenderPCL(metadata *provider.AzureAPIMetadata, pkgSpec *schema.PackageSpec) (*model.Body, error) {
 	ctx := pclRenderContext{
-		vars:     map[string]*model.Variable{},
 		metadata: metadata,
-	}
-	for k := range t.elements {
-		ctx.vars[k] = &model.Variable{
-			Name:         k,
-			VariableType: model.DynamicType,
-		}
+		pkgSpec: pkgSpec,
 	}
 
 	elements, err := t.topologicalOrder()
@@ -690,7 +750,7 @@ func extractDescription(info map[string]interface{}) string {
 	return ""
 }
 
-// TODO: Looks like trivia is never processed in program gen? :(
+// TODO: Looks like trivia is never serialized by HCL when rendered... :(
 func getLeadingTriviaTokens(comment string) *syntax.BlockTokens {
 	if comment == "" {
 		return nil
@@ -712,6 +772,8 @@ func extractType(info map[string]interface{}) (string, error) {
 	if !ok {
 		return "", errors.New("expect type to be a string")
 	}
+
+	typeStr = strings.ToLower(typeStr)
 
 	switch typeStr {
 	case "int":
