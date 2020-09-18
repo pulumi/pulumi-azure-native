@@ -7,6 +7,7 @@ import (
 	"compress/gzip"
 	"encoding/json"
 	"fmt"
+	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/debug"
 	"os"
 	"path"
 	"strings"
@@ -26,6 +27,12 @@ import (
 )
 
 func main() {
+	var debugEnabled bool
+	debugEnv := os.Getenv("DEBUG")
+	if debugEnabled = debugEnv == "true"; debugEnabled {
+		debug.Debug = &debugEnabled
+	}
+
 	languages := os.Args[1]
 
 	version := ""
