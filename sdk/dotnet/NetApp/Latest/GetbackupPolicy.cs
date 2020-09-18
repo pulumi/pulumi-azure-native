@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.NetApp.Latest
 {
-    public static class GetbackupPolicy
+    public static class GetBackupPolicy
     {
-        public static Task<GetbackupPolicyResult> InvokeAsync(GetbackupPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetbackupPolicyResult>("azure-nextgen:netapp/latest:getbackupPolicy", args ?? new GetbackupPolicyArgs(), options.WithVersion());
+        public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-nextgen:netapp/latest:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetbackupPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -36,14 +36,14 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetbackupPolicyArgs()
+        public GetBackupPolicyArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetbackupPolicyResult
+    public sealed class GetBackupPolicyResult
     {
         /// <summary>
         /// Daily backups count to keep
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         public readonly int? YearlyBackupsToKeep;
 
         [OutputConstructor]
-        private GetbackupPolicyResult(
+        private GetBackupPolicyResult(
             int? dailyBackupsToKeep,
 
             bool? enabled,

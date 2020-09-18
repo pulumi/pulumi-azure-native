@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.NetApp.Latest
 {
-    public static class GetsnapshotPolicy
+    public static class GetSnapshotPolicy
     {
-        public static Task<GetsnapshotPolicyResult> InvokeAsync(GetsnapshotPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetsnapshotPolicyResult>("azure-nextgen:netapp/latest:getsnapshotPolicy", args ?? new GetsnapshotPolicyArgs(), options.WithVersion());
+        public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure-nextgen:netapp/latest:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetsnapshotPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -36,14 +36,14 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         [Input("snapshotPolicyName", required: true)]
         public string SnapshotPolicyName { get; set; } = null!;
 
-        public GetsnapshotPolicyArgs()
+        public GetSnapshotPolicyArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetsnapshotPolicyResult
+    public sealed class GetSnapshotPolicyResult
     {
         /// <summary>
         /// Schedule for daily snapshots
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         public readonly Outputs.WeeklyScheduleResponse? WeeklySchedule;
 
         [OutputConstructor]
-        private GetsnapshotPolicyResult(
+        private GetSnapshotPolicyResult(
             Outputs.DailyScheduleResponse? dailySchedule,
 
             bool? enabled,

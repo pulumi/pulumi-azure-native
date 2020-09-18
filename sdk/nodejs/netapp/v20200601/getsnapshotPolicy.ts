@@ -6,7 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export function getsnapshotPolicy(args: GetsnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetsnapshotPolicyResult> {
+export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,14 +14,14 @@ export function getsnapshotPolicy(args: GetsnapshotPolicyArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp/v20200601:getsnapshotPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:netapp/v20200601:getSnapshotPolicy", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "snapshotPolicyName": args.snapshotPolicyName,
     }, opts);
 }
 
-export interface GetsnapshotPolicyArgs {
+export interface GetSnapshotPolicyArgs {
     /**
      * The name of the NetApp account
      */
@@ -39,7 +39,7 @@ export interface GetsnapshotPolicyArgs {
 /**
  * Snapshot policy information
  */
-export interface GetsnapshotPolicyResult {
+export interface GetSnapshotPolicyResult {
     /**
      * Schedule for daily snapshots
      */
