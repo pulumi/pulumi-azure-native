@@ -43,34 +43,6 @@ var excludeResourcePatterns = []string{
 
 	"azure-nextgen:migrate/.*:MoveResource",
 
-	"azure-nextgen:network/.*:ApplicationGateway",
-	"azure-nextgen:network/.*:InboundNatRule",
-	"azure-nextgen:network/.*:LoadBalancer",
-	"azure-nextgen:network/.*:NetworkInterface",
-	"azure-nextgen:network/.*:NetworkSecurityGroup",
-	"azure-nextgen:network/.*:PublicIPAddress",
-	"azure-nextgen:network/.*:PrivateEndpoint",
-	"azure-nextgen:network/.*:RouteTable",
-	"azure-nextgen:network/.*:Subnet",
-	"azure-nextgen:network/.*:VirtualNetwork",
-	"azure-nextgen:network/.*:RouteFilter",
-	"azure-nextgen:network/.*:ExpressRouteCircuit",
-	"azure-nextgen:network/.*:ExpressRouteCircuitPeering",
-	"azure-nextgen:network/.*:ExpressRouteCrossConnectionPeering",
-	"azure-nextgen:network/.*:InterfaceEndpoint",
-	"azure-nextgen:network/.*:NetworkInterfaceTapConfiguration",
-	"azure-nextgen:network/.*:NetworkProfile",
-	"azure-nextgen:network/.*:ServiceEndpointPolicy",
-	"azure-nextgen:network/.*:VirtualNetworkTap",
-	"azure-nextgen:network/.*:WebApplicationFirewallPolicy",
-	"azure-nextgen:network/.*:PrivateLinkService",
-	"azure-nextgen:network/.*:PrivateLinkServicePrivateEndpointConnection",
-	"azure-nextgen:network/.*:LoadBalancerBackendAddressPool",
-	"azure-nextgen:network/.*:VirtualHubIpConfiguration",
-	"azure-nextgen:network/.*:VpnSite",
-	"azure-nextgen:network/.*:ApplicationGatewayPrivateEndpointConnection",
-	"azure-nextgen:network/.*:DscpConfiguration",
-
 	"azure-nextgen:powerbidedicated/.*:CapacityDetails",
 
 	"azure-nextgen:recoveryservices/.*:ReplicationFabric",
@@ -82,6 +54,7 @@ var excludeResourcePatterns = []string{
 	"azure-nextgen:resources/.*:DeploymentAtTenantScope",
 	"azure-nextgen:resources/.*:DeploymentAtSubscriptionScope",
 	// ^ recursive references in schema
+	// TODO: Recompile this list after https://github.com/pulumi/pulumi/pull/5404 is merged.
 
 	"azure-nextgen:botservice/v20200602:BotConnection", // malformed body
 
