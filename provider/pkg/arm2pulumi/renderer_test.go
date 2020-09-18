@@ -1,111 +1,37 @@
 package arm2pulumi
 
 import (
-	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
-	"log"
-	"os"
-	"strings"
 	"testing"
 
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
-	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/syntax"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/nodejs"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/python"
 	"github.com/sourcegraph/jsonx"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
 func TestRenderTemplate(t *testing.T) {
-	var metadata provider.AzureAPIMetadata
-	f, err := os.Open("../../cmd/pulumi-resource-azure-nextgen/metadata.json")
-	os.Setenv("PATH", "../../../bin")
-	require.NoError(t, err)
-	require.NoError(t, json.NewDecoder(f).Decode(&metadata))
-	f.Close()
-
-	var pkgSpec schema.PackageSpec
-	f, err = os.Open("../../cmd/pulumi-resource-azure-nextgen/schema-full.json")
-	require.NoError(t, err)
-	require.NoError(t, json.NewDecoder(f).Decode(&pkgSpec))
-	f.Close()
-
 	for _, test := range []testcase{
 		aksCluster,
 	} {
 		t.Run(test.name, func(t *testing.T) {
+			assert.NotNil(t, metadata)
+			assert.NotNil(t, pkgSpec)
 			node, err := parseJsonxTree(test.template)
 			require.NoError(t, err)
 			body, _, err := renderTemplate(map[string]*jsonx.Node{
 				"example.json": node,
-			}, &metadata, &pkgSpec)
+			})
 			if test.err == nil {
 				require.NoError(t, err)
 			} else {
 				require.Error(t, err)
 				assert.EqualError(t, err, test.err.Error())
 			}
-			programBody := fmt.Sprintf("%v", body)
-			fmt.Println(programBody)
-
-			parser := syntax.NewParser()
-			require.NoError(t, parser.ParseFile(strings.NewReader(programBody), "program.pp"))
-
-			if parser.Diagnostics.HasErrors() {
-				fmt.Print(programBody)
-				parser.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(parser.Diagnostics)
-				t.Fail()
-			}
-
-			program, diags, err := hcl2.BindProgram(parser.Files, hcl2.Cache(hcl2.NewPackageCache()))
-			if err != nil {
-				log.Fatalf("failed to bind program: %v", err)
-			}
-			if diags.HasErrors() {
-				log.Printf(programBody)
-				program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
-				t.Fail()
-			}
-
-			languages := []string{"nodejs"}
-			languageExample := map[string]string{}
-			for _, lang := range languages {
-				var files map[string][]byte
-
-				switch lang {
-				case "dotnet":
-					files, diags, err = dotnet.GenerateProgram(program)
-				case "go":
-					files, diags, err = gogen.GenerateProgram(program)
-				case "nodejs":
-					files, diags, err = nodejs.GenerateProgram(program)
-				case "python":
-					files, diags, err = python.GenerateProgram(program)
-				case "schema":
-					continue
-				}
-				if err != nil {
-					log.Fatalf("failed to generate program: %v", err)
-				}
-				if diags.HasErrors() {
-					log.Printf(programBody)
-					program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
-					os.Exit(-1)
-				}
-
-				buf := strings.Builder{}
-				for _, f := range files {
-					_, err := buf.Write(f)
-					require.NoError(t, err)
-				}
-				languageExample[lang] = buf.String()
-				fmt.Printf("%s\n", buf.String())
-				assert.Equal(t, test.expected, buf.String())
+			fmt.Printf("%#v\n", body)
+			rendered, _, err := RenderPrograms(body, test.languages)
+			require.NoError(t, err)
+			for _, lang := range test.languages {
+				t.Log(rendered[lang])
 			}
 		})
 
@@ -117,12 +43,14 @@ type testcase struct {
 	name     string
 	template string
 	expected string
+	languages []string
 	err      error
 }
 
 var (
 	aksCluster = testcase{
 		name: "aksCluster",
+		languages: []string{"nodejs"},
 		template: `{
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",

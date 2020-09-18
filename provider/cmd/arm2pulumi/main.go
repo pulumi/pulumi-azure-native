@@ -44,9 +44,9 @@ func main() {
 
 	languages := strings.Split(langs, ",")
 	dpro := time.Now()
-	programsMap, err := arm2pulumi.RenderPrograms(body, languages)
+	programsMap, _, err := arm2pulumi.RenderPrograms(body, languages)
 	if err != nil {
-		log.Fatalf("Failure rendering programs: %+v", err)
+		log.Printf("Failure rendering programs: %+v", err)
 	}
 	dproComplete := time.Since(dpro)
 

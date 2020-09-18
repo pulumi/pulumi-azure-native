@@ -207,6 +207,12 @@ func renderTemplate(templates map[string]*jsonx.Node) (*model.Body, map[string][
 		return nil, nil, err
 	}
 
+	// We may not have a version when called from arm2pulumi website.
+	// Set it here so go program gen doesn't barf
+	if pkgSpec.Version == "" {
+		pkgSpec.Version = "0.1.0"
+	}
+
 	body, err := templ.RenderPCL(metadata, pkgSpec)
 	if err != nil {
 		return nil, nil, err
@@ -225,21 +231,17 @@ func parseJsonxTree(text string) (*jsonx.Node, error) {
 
 // RenderPrograms takes a program model.Body and generates program text for each of the languages
 // provided in the 'languages' argument. Result is a mapping from language name to program code.
-// Partial failure rendering in a particular language is currently ignored.
-func RenderPrograms(body *model.Body, languages []string) (map[string]string, error) {
+// Partial failure rendering in a particular language is returned in error. If any language failed,
+// the second return value is set to 'false' and an error is returned but partial successes are
+// returned in the map.
+// If all languages succeeded, true is returned for success and error is nil.
+func RenderPrograms(body *model.Body, languages []string) (map[string]string, bool, error) {
 	programBody := fmt.Sprintf("%v", body)
 	debug.Log("%s\n", programBody)
 
-	if pkgSpec == nil {
-		var err error
-		pkgSpec, err = loadSchema()
-		if err != nil {
-			return nil, err
-		}
-	}
 	pkg, err := schema.ImportSpec(*pkgSpec, nil)
 	if err != nil {
-		return nil, fmt.Errorf("importing package spec: %w", err)
+		return nil, false, fmt.Errorf("importing package spec: %w", err)
 	}
 	loaderOption := hcl2.Loader(gen.InMemoryPackageLoader(map[string]*schema.Package{
 		"azure-nextgen": pkg,
@@ -247,7 +249,7 @@ func RenderPrograms(body *model.Body, languages []string) (map[string]string, er
 
 	parser := syntax.NewParser()
 	if err := parser.ParseFile(strings.NewReader(programBody), "program.pp"); err != nil {
-		return nil, fmt.Errorf("parse IR: %v", err)
+		return nil, false, fmt.Errorf("parse IR: %v", err)
 	}
 	if parser.Diagnostics.HasErrors() {
 		err := parser.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(parser.Diagnostics)
@@ -258,7 +260,7 @@ func RenderPrograms(body *model.Body, languages []string) (map[string]string, er
 
 	program, diags, err := hcl2.BindProgram(parser.Files, loaderOption)
 	if err != nil {
-		log.Fatalf("failed to bind program: %v", err)
+		return nil, false, fmt.Errorf("bind program: %v", err)
 	}
 	if diags.HasErrors() {
 		err := program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
@@ -269,6 +271,7 @@ func RenderPrograms(body *model.Body, languages []string) (map[string]string, er
 
 	languageToProgram := map[string]string{}
 
+	var errs []error
 	for _, lang := range languages {
 		var files map[string][]byte
 
@@ -285,7 +288,9 @@ func RenderPrograms(body *model.Body, languages []string) (map[string]string, er
 			continue
 		}
 		if err != nil {
-			log.Printf("Program generation failed for language: %s, continuing", lang)
+			log.Printf("Program generation failed for language: %s, %+v", lang, err)
+			err = fmt.Errorf("generating program for language %s: %w", lang, err)
+			errs = append(errs, err)
 			continue
 		}
 
@@ -293,13 +298,23 @@ func RenderPrograms(body *model.Body, languages []string) (map[string]string, er
 		for _, f := range files {
 			_, err := buf.Write(f)
 			if err != nil {
-				return nil, err
+				// unlikely to ever happen.
+				return nil, false, err
 			}
 		}
 		languageToProgram[lang] = buf.String()
 	}
 
-	return languageToProgram, nil
+	if len(errs) > 0 {
+		var errStrs []string
+		for _, e := range errs {
+			errStrs = append(errStrs, e.Error())
+		}
+		// kinda gross - returning partial success
+		return languageToProgram, false, fmt.Errorf("program generation errors" + strings.Join(errStrs, "\n"))
+	}
+
+	return languageToProgram, true, nil
 }
 
 type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
