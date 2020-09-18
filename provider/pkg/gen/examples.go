@@ -329,8 +329,10 @@ func flattenInput(
 	resourceParams map[string]provider.AzureAPIParameter,
 	types map[string]provider.AzureAPIType,
 ) (map[string]interface{}, error) {
+	sortedResourceParamKeys := codegen.SortedKeys(resourceParams)
 	containers := map[string]codegen.StringSet{}
-	for k, v := range resourceParams {
+	for _, k := range sortedResourceParamKeys {
+		v := resourceParams[k]
 		if v.Value != nil && v.Value.Container != "" {
 			if _, ok := containers[v.Value.Container]; !ok {
 				containers[v.Value.Container] = codegen.NewStringSet()
@@ -339,8 +341,10 @@ func flattenInput(
 		}
 	}
 
+	sortedInputKeys := codegen.SortedKeys(input)
 	out := map[string]interface{}{}
-	for k, v := range input {
+	for _, k := range sortedInputKeys {
+		v := input[k]
 		switch k {
 		case "If-Match": // TODO: Not handled in schema
 			continue
@@ -379,16 +383,18 @@ func flattenInput(
 				bodyVals = inBody
 			} else if len(inBody) > 1 {
 				debug.Log("items in body outside of 'properties' field, will merge them into properties")
-				for k, v := range inBody {
+				sortedBodyKeys := codegen.SortedKeys(inBody)
+				for _, k := range sortedBodyKeys {
 					if k != "properties" {
-						bodyVals.(map[string]interface{})[k] = v
+						bodyVals.(map[string]interface{})[k] = inBody[k]
 					}
 				}
 			}
 			bodyValsMap := bodyVals.(map[string]interface{})
 			bodyProps := map[string]provider.AzureAPIProperty{}
-			for k, v := range paramMetadata.Body.Properties {
-				props := v
+			sortedBodyPropertyKeys := codegen.SortedKeys(paramMetadata.Body.Properties)
+			for _, k := range sortedBodyPropertyKeys {
+				props := paramMetadata.Body.Properties[k]
 				props.Container = ""
 				bodyProps[k] = props
 			}
@@ -446,8 +452,10 @@ func transformProperties(props map[string]provider.AzureAPIProperty, types map[s
 		}
 	}
 
+	sortedValueKeys := codegen.SortedKeys(values)
 	result := map[string]interface{}{}
-	for k, v := range values {
+	for _, k := range sortedValueKeys {
+		v := values[k]
 		prop, ok := props[k]
 		if !ok {
 			debug.Log("missing '%s' in props: %#v", k, props)

@@ -60,13 +60,13 @@ func main() {
 				break
 			}
 			// Ensure the spec is stamped with a version - Go gen needs it.
-			pkgSpec.Version = version
+			docsPkgSpec.Version = version
 			err = gen.Examples(docsPkgSpec, docsMeta, resExamples, []string{"nodejs", "dotnet", "python", "go"})
 			if err != nil {
 				break
 			}
 			// Remove the version again.
-			pkgSpec.Version = ""
+			docsPkgSpec.Version = ""
 			// This module format switches off version breakdown in the docs.
 			docsPkgSpec.Meta = &schema.MetadataSpec{
 				ModuleFormat: "(.*)(?:/[^/]*)",
