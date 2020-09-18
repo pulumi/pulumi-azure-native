@@ -3134,6 +3134,2460 @@ func (o AmlComputeResponsePropertiesPtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AzureDataLakeSectionResponse struct {
+	// The authority URL used for authentication.
+	AuthorityUrl *string `pulumi:"authorityUrl"`
+	// The content of the certificate used for authentication.
+	Certificate *string `pulumi:"certificate"`
+	// The Client ID/Application ID
+	ClientId *string `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The Azure Data Lake credential type.
+	CredentialType *string `pulumi:"credentialType"`
+	//  Is it using certificate to authenticate. If false then use client secret.
+	IsCertAuth *bool `pulumi:"isCertAuth"`
+	// Resource Group.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// The resource the service principal/app has access to.
+	ResourceUri *string `pulumi:"resourceUri"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// The Azure Data Lake store name.
+	StoreName *string `pulumi:"storeName"`
+	// Subscription ID.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The ID of the tenant the service principal/app belongs to.
+	TenantId *string `pulumi:"tenantId"`
+	// The thumbprint of the certificate above.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// AzureDataLakeSectionResponseInput is an input type that accepts AzureDataLakeSectionResponseArgs and AzureDataLakeSectionResponseOutput values.
+// You can construct a concrete instance of `AzureDataLakeSectionResponseInput` via:
+//
+//          AzureDataLakeSectionResponseArgs{...}
+type AzureDataLakeSectionResponseInput interface {
+	pulumi.Input
+
+	ToAzureDataLakeSectionResponseOutput() AzureDataLakeSectionResponseOutput
+	ToAzureDataLakeSectionResponseOutputWithContext(context.Context) AzureDataLakeSectionResponseOutput
+}
+
+type AzureDataLakeSectionResponseArgs struct {
+	// The authority URL used for authentication.
+	AuthorityUrl pulumi.StringPtrInput `pulumi:"authorityUrl"`
+	// The content of the certificate used for authentication.
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The Client ID/Application ID
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// The Azure Data Lake credential type.
+	CredentialType pulumi.StringPtrInput `pulumi:"credentialType"`
+	//  Is it using certificate to authenticate. If false then use client secret.
+	IsCertAuth pulumi.BoolPtrInput `pulumi:"isCertAuth"`
+	// Resource Group.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// The resource the service principal/app has access to.
+	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity pulumi.StringPtrInput `pulumi:"serviceDataAccessAuthIdentity"`
+	// The Azure Data Lake store name.
+	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
+	// Subscription ID.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The ID of the tenant the service principal/app belongs to.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The thumbprint of the certificate above.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (AzureDataLakeSectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDataLakeSectionResponse)(nil)).Elem()
+}
+
+func (i AzureDataLakeSectionResponseArgs) ToAzureDataLakeSectionResponseOutput() AzureDataLakeSectionResponseOutput {
+	return i.ToAzureDataLakeSectionResponseOutputWithContext(context.Background())
+}
+
+func (i AzureDataLakeSectionResponseArgs) ToAzureDataLakeSectionResponseOutputWithContext(ctx context.Context) AzureDataLakeSectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDataLakeSectionResponseOutput)
+}
+
+func (i AzureDataLakeSectionResponseArgs) ToAzureDataLakeSectionResponsePtrOutput() AzureDataLakeSectionResponsePtrOutput {
+	return i.ToAzureDataLakeSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureDataLakeSectionResponseArgs) ToAzureDataLakeSectionResponsePtrOutputWithContext(ctx context.Context) AzureDataLakeSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDataLakeSectionResponseOutput).ToAzureDataLakeSectionResponsePtrOutputWithContext(ctx)
+}
+
+// AzureDataLakeSectionResponsePtrInput is an input type that accepts AzureDataLakeSectionResponseArgs, AzureDataLakeSectionResponsePtr and AzureDataLakeSectionResponsePtrOutput values.
+// You can construct a concrete instance of `AzureDataLakeSectionResponsePtrInput` via:
+//
+//          AzureDataLakeSectionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureDataLakeSectionResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureDataLakeSectionResponsePtrOutput() AzureDataLakeSectionResponsePtrOutput
+	ToAzureDataLakeSectionResponsePtrOutputWithContext(context.Context) AzureDataLakeSectionResponsePtrOutput
+}
+
+type azureDataLakeSectionResponsePtrType AzureDataLakeSectionResponseArgs
+
+func AzureDataLakeSectionResponsePtr(v *AzureDataLakeSectionResponseArgs) AzureDataLakeSectionResponsePtrInput {
+	return (*azureDataLakeSectionResponsePtrType)(v)
+}
+
+func (*azureDataLakeSectionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureDataLakeSectionResponse)(nil)).Elem()
+}
+
+func (i *azureDataLakeSectionResponsePtrType) ToAzureDataLakeSectionResponsePtrOutput() AzureDataLakeSectionResponsePtrOutput {
+	return i.ToAzureDataLakeSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureDataLakeSectionResponsePtrType) ToAzureDataLakeSectionResponsePtrOutputWithContext(ctx context.Context) AzureDataLakeSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDataLakeSectionResponsePtrOutput)
+}
+
+type AzureDataLakeSectionResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureDataLakeSectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDataLakeSectionResponse)(nil)).Elem()
+}
+
+func (o AzureDataLakeSectionResponseOutput) ToAzureDataLakeSectionResponseOutput() AzureDataLakeSectionResponseOutput {
+	return o
+}
+
+func (o AzureDataLakeSectionResponseOutput) ToAzureDataLakeSectionResponseOutputWithContext(ctx context.Context) AzureDataLakeSectionResponseOutput {
+	return o
+}
+
+func (o AzureDataLakeSectionResponseOutput) ToAzureDataLakeSectionResponsePtrOutput() AzureDataLakeSectionResponsePtrOutput {
+	return o.ToAzureDataLakeSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureDataLakeSectionResponseOutput) ToAzureDataLakeSectionResponsePtrOutputWithContext(ctx context.Context) AzureDataLakeSectionResponsePtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *AzureDataLakeSectionResponse {
+		return &v
+	}).(AzureDataLakeSectionResponsePtrOutput)
+}
+
+// The authority URL used for authentication.
+func (o AzureDataLakeSectionResponseOutput) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
+}
+
+// The content of the certificate used for authentication.
+func (o AzureDataLakeSectionResponseOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The Client ID/Application ID
+func (o AzureDataLakeSectionResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o AzureDataLakeSectionResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Data Lake credential type.
+func (o AzureDataLakeSectionResponseOutput) CredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.CredentialType }).(pulumi.StringPtrOutput)
+}
+
+//  Is it using certificate to authenticate. If false then use client secret.
+func (o AzureDataLakeSectionResponseOutput) IsCertAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *bool { return v.IsCertAuth }).(pulumi.BoolPtrOutput)
+}
+
+// Resource Group.
+func (o AzureDataLakeSectionResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// The resource the service principal/app has access to.
+func (o AzureDataLakeSectionResponseOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o AzureDataLakeSectionResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Data Lake store name.
+func (o AzureDataLakeSectionResponseOutput) StoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.StoreName }).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o AzureDataLakeSectionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the tenant the service principal/app belongs to.
+func (o AzureDataLakeSectionResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate above.
+func (o AzureDataLakeSectionResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type AzureDataLakeSectionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureDataLakeSectionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureDataLakeSectionResponse)(nil)).Elem()
+}
+
+func (o AzureDataLakeSectionResponsePtrOutput) ToAzureDataLakeSectionResponsePtrOutput() AzureDataLakeSectionResponsePtrOutput {
+	return o
+}
+
+func (o AzureDataLakeSectionResponsePtrOutput) ToAzureDataLakeSectionResponsePtrOutputWithContext(ctx context.Context) AzureDataLakeSectionResponsePtrOutput {
+	return o
+}
+
+func (o AzureDataLakeSectionResponsePtrOutput) Elem() AzureDataLakeSectionResponseOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) AzureDataLakeSectionResponse { return *v }).(AzureDataLakeSectionResponseOutput)
+}
+
+// The authority URL used for authentication.
+func (o AzureDataLakeSectionResponsePtrOutput) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorityUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of the certificate used for authentication.
+func (o AzureDataLakeSectionResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Client ID/Application ID
+func (o AzureDataLakeSectionResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o AzureDataLakeSectionResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Data Lake credential type.
+func (o AzureDataLakeSectionResponsePtrOutput) CredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialType
+	}).(pulumi.StringPtrOutput)
+}
+
+//  Is it using certificate to authenticate. If false then use client secret.
+func (o AzureDataLakeSectionResponsePtrOutput) IsCertAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCertAuth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Resource Group.
+func (o AzureDataLakeSectionResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource the service principal/app has access to.
+func (o AzureDataLakeSectionResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o AzureDataLakeSectionResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDataAccessAuthIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Data Lake store name.
+func (o AzureDataLakeSectionResponsePtrOutput) StoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StoreName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o AzureDataLakeSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the tenant the service principal/app belongs to.
+func (o AzureDataLakeSectionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate above.
+func (o AzureDataLakeSectionResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Thumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureMySqlSectionResponse struct {
+	// The authority URL used for authentication.
+	AuthorityUrl *string `pulumi:"authorityUrl"`
+	// The content of the certificate used for authentication.
+	Certificate *string `pulumi:"certificate"`
+	// The Client ID/Application ID
+	ClientId *string `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// Sql Authentication type.
+	CredentialType *string `pulumi:"credentialType"`
+	// The Azure SQL database name.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The server host endpoint.
+	Endpoint *string `pulumi:"endpoint"`
+	//  Is it using certificate to authenticate. If false then use client secret.
+	IsCertAuth *bool `pulumi:"isCertAuth"`
+	// / The Azure SQL port number.
+	PortNumber *string `pulumi:"portNumber"`
+	// Resource Group.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// The resource the service principal/app has access to.
+	ResourceUri *string `pulumi:"resourceUri"`
+	// The Azure SQL server name.
+	ServerName *string `pulumi:"serverName"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// Subscription ID.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The ID of the tenant the service principal/app belongs to.
+	TenantId *string `pulumi:"tenantId"`
+	// The thumbprint of the certificate above.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// The Azure SQL user id.
+	UserId *string `pulumi:"userId"`
+	// The Azure SQL user password.
+	UserPassword *string `pulumi:"userPassword"`
+}
+
+// AzureMySqlSectionResponseInput is an input type that accepts AzureMySqlSectionResponseArgs and AzureMySqlSectionResponseOutput values.
+// You can construct a concrete instance of `AzureMySqlSectionResponseInput` via:
+//
+//          AzureMySqlSectionResponseArgs{...}
+type AzureMySqlSectionResponseInput interface {
+	pulumi.Input
+
+	ToAzureMySqlSectionResponseOutput() AzureMySqlSectionResponseOutput
+	ToAzureMySqlSectionResponseOutputWithContext(context.Context) AzureMySqlSectionResponseOutput
+}
+
+type AzureMySqlSectionResponseArgs struct {
+	// The authority URL used for authentication.
+	AuthorityUrl pulumi.StringPtrInput `pulumi:"authorityUrl"`
+	// The content of the certificate used for authentication.
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The Client ID/Application ID
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// Sql Authentication type.
+	CredentialType pulumi.StringPtrInput `pulumi:"credentialType"`
+	// The Azure SQL database name.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// The server host endpoint.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	//  Is it using certificate to authenticate. If false then use client secret.
+	IsCertAuth pulumi.BoolPtrInput `pulumi:"isCertAuth"`
+	// / The Azure SQL port number.
+	PortNumber pulumi.StringPtrInput `pulumi:"portNumber"`
+	// Resource Group.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// The resource the service principal/app has access to.
+	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
+	// The Azure SQL server name.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity pulumi.StringPtrInput `pulumi:"serviceDataAccessAuthIdentity"`
+	// Subscription ID.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The ID of the tenant the service principal/app belongs to.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The thumbprint of the certificate above.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	// The Azure SQL user id.
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
+	// The Azure SQL user password.
+	UserPassword pulumi.StringPtrInput `pulumi:"userPassword"`
+}
+
+func (AzureMySqlSectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMySqlSectionResponse)(nil)).Elem()
+}
+
+func (i AzureMySqlSectionResponseArgs) ToAzureMySqlSectionResponseOutput() AzureMySqlSectionResponseOutput {
+	return i.ToAzureMySqlSectionResponseOutputWithContext(context.Background())
+}
+
+func (i AzureMySqlSectionResponseArgs) ToAzureMySqlSectionResponseOutputWithContext(ctx context.Context) AzureMySqlSectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMySqlSectionResponseOutput)
+}
+
+func (i AzureMySqlSectionResponseArgs) ToAzureMySqlSectionResponsePtrOutput() AzureMySqlSectionResponsePtrOutput {
+	return i.ToAzureMySqlSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureMySqlSectionResponseArgs) ToAzureMySqlSectionResponsePtrOutputWithContext(ctx context.Context) AzureMySqlSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMySqlSectionResponseOutput).ToAzureMySqlSectionResponsePtrOutputWithContext(ctx)
+}
+
+// AzureMySqlSectionResponsePtrInput is an input type that accepts AzureMySqlSectionResponseArgs, AzureMySqlSectionResponsePtr and AzureMySqlSectionResponsePtrOutput values.
+// You can construct a concrete instance of `AzureMySqlSectionResponsePtrInput` via:
+//
+//          AzureMySqlSectionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureMySqlSectionResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureMySqlSectionResponsePtrOutput() AzureMySqlSectionResponsePtrOutput
+	ToAzureMySqlSectionResponsePtrOutputWithContext(context.Context) AzureMySqlSectionResponsePtrOutput
+}
+
+type azureMySqlSectionResponsePtrType AzureMySqlSectionResponseArgs
+
+func AzureMySqlSectionResponsePtr(v *AzureMySqlSectionResponseArgs) AzureMySqlSectionResponsePtrInput {
+	return (*azureMySqlSectionResponsePtrType)(v)
+}
+
+func (*azureMySqlSectionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMySqlSectionResponse)(nil)).Elem()
+}
+
+func (i *azureMySqlSectionResponsePtrType) ToAzureMySqlSectionResponsePtrOutput() AzureMySqlSectionResponsePtrOutput {
+	return i.ToAzureMySqlSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureMySqlSectionResponsePtrType) ToAzureMySqlSectionResponsePtrOutputWithContext(ctx context.Context) AzureMySqlSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMySqlSectionResponsePtrOutput)
+}
+
+type AzureMySqlSectionResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMySqlSectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMySqlSectionResponse)(nil)).Elem()
+}
+
+func (o AzureMySqlSectionResponseOutput) ToAzureMySqlSectionResponseOutput() AzureMySqlSectionResponseOutput {
+	return o
+}
+
+func (o AzureMySqlSectionResponseOutput) ToAzureMySqlSectionResponseOutputWithContext(ctx context.Context) AzureMySqlSectionResponseOutput {
+	return o
+}
+
+func (o AzureMySqlSectionResponseOutput) ToAzureMySqlSectionResponsePtrOutput() AzureMySqlSectionResponsePtrOutput {
+	return o.ToAzureMySqlSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureMySqlSectionResponseOutput) ToAzureMySqlSectionResponsePtrOutputWithContext(ctx context.Context) AzureMySqlSectionResponsePtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *AzureMySqlSectionResponse {
+		return &v
+	}).(AzureMySqlSectionResponsePtrOutput)
+}
+
+// The authority URL used for authentication.
+func (o AzureMySqlSectionResponseOutput) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
+}
+
+// The content of the certificate used for authentication.
+func (o AzureMySqlSectionResponseOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The Client ID/Application ID
+func (o AzureMySqlSectionResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o AzureMySqlSectionResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Sql Authentication type.
+func (o AzureMySqlSectionResponseOutput) CredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.CredentialType }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL database name.
+func (o AzureMySqlSectionResponseOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// The server host endpoint.
+func (o AzureMySqlSectionResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+//  Is it using certificate to authenticate. If false then use client secret.
+func (o AzureMySqlSectionResponseOutput) IsCertAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *bool { return v.IsCertAuth }).(pulumi.BoolPtrOutput)
+}
+
+// / The Azure SQL port number.
+func (o AzureMySqlSectionResponseOutput) PortNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.PortNumber }).(pulumi.StringPtrOutput)
+}
+
+// Resource Group.
+func (o AzureMySqlSectionResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// The resource the service principal/app has access to.
+func (o AzureMySqlSectionResponseOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL server name.
+func (o AzureMySqlSectionResponseOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o AzureMySqlSectionResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o AzureMySqlSectionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the tenant the service principal/app belongs to.
+func (o AzureMySqlSectionResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate above.
+func (o AzureMySqlSectionResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user id.
+func (o AzureMySqlSectionResponseOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user password.
+func (o AzureMySqlSectionResponseOutput) UserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.UserPassword }).(pulumi.StringPtrOutput)
+}
+
+type AzureMySqlSectionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureMySqlSectionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMySqlSectionResponse)(nil)).Elem()
+}
+
+func (o AzureMySqlSectionResponsePtrOutput) ToAzureMySqlSectionResponsePtrOutput() AzureMySqlSectionResponsePtrOutput {
+	return o
+}
+
+func (o AzureMySqlSectionResponsePtrOutput) ToAzureMySqlSectionResponsePtrOutputWithContext(ctx context.Context) AzureMySqlSectionResponsePtrOutput {
+	return o
+}
+
+func (o AzureMySqlSectionResponsePtrOutput) Elem() AzureMySqlSectionResponseOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) AzureMySqlSectionResponse { return *v }).(AzureMySqlSectionResponseOutput)
+}
+
+// The authority URL used for authentication.
+func (o AzureMySqlSectionResponsePtrOutput) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorityUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of the certificate used for authentication.
+func (o AzureMySqlSectionResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Client ID/Application ID
+func (o AzureMySqlSectionResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o AzureMySqlSectionResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sql Authentication type.
+func (o AzureMySqlSectionResponsePtrOutput) CredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL database name.
+func (o AzureMySqlSectionResponsePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The server host endpoint.
+func (o AzureMySqlSectionResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+//  Is it using certificate to authenticate. If false then use client secret.
+func (o AzureMySqlSectionResponsePtrOutput) IsCertAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCertAuth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// / The Azure SQL port number.
+func (o AzureMySqlSectionResponsePtrOutput) PortNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PortNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Group.
+func (o AzureMySqlSectionResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource the service principal/app has access to.
+func (o AzureMySqlSectionResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL server name.
+func (o AzureMySqlSectionResponsePtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o AzureMySqlSectionResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDataAccessAuthIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o AzureMySqlSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the tenant the service principal/app belongs to.
+func (o AzureMySqlSectionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate above.
+func (o AzureMySqlSectionResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Thumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user id.
+func (o AzureMySqlSectionResponsePtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user password.
+func (o AzureMySqlSectionResponsePtrOutput) UserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzurePostgreSqlSectionResponse struct {
+	// The authority URL used for authentication.
+	AuthorityUrl *string `pulumi:"authorityUrl"`
+	// The content of the certificate used for authentication.
+	Certificate *string `pulumi:"certificate"`
+	// The Client ID/Application ID
+	ClientId *string `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// Sql Authentication type.
+	CredentialType *string `pulumi:"credentialType"`
+	// The Azure SQL database name.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Indicates SSL requirement of Azure Postgresql server.
+	EnableSsl *bool `pulumi:"enableSsl"`
+	// The server host endpoint.
+	Endpoint *string `pulumi:"endpoint"`
+	//  Is it using certificate to authenticate. If false then use client secret.
+	IsCertAuth *bool `pulumi:"isCertAuth"`
+	// / The Azure SQL port number.
+	PortNumber *string `pulumi:"portNumber"`
+	// Resource Group.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// The resource the service principal/app has access to.
+	ResourceUri *string `pulumi:"resourceUri"`
+	// The Azure SQL server name.
+	ServerName *string `pulumi:"serverName"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// Subscription ID.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The ID of the tenant the service principal/app belongs to.
+	TenantId *string `pulumi:"tenantId"`
+	// The thumbprint of the certificate above.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// The Azure SQL user id.
+	UserId *string `pulumi:"userId"`
+	// The Azure SQL user password.
+	UserPassword *string `pulumi:"userPassword"`
+}
+
+// AzurePostgreSqlSectionResponseInput is an input type that accepts AzurePostgreSqlSectionResponseArgs and AzurePostgreSqlSectionResponseOutput values.
+// You can construct a concrete instance of `AzurePostgreSqlSectionResponseInput` via:
+//
+//          AzurePostgreSqlSectionResponseArgs{...}
+type AzurePostgreSqlSectionResponseInput interface {
+	pulumi.Input
+
+	ToAzurePostgreSqlSectionResponseOutput() AzurePostgreSqlSectionResponseOutput
+	ToAzurePostgreSqlSectionResponseOutputWithContext(context.Context) AzurePostgreSqlSectionResponseOutput
+}
+
+type AzurePostgreSqlSectionResponseArgs struct {
+	// The authority URL used for authentication.
+	AuthorityUrl pulumi.StringPtrInput `pulumi:"authorityUrl"`
+	// The content of the certificate used for authentication.
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The Client ID/Application ID
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// Sql Authentication type.
+	CredentialType pulumi.StringPtrInput `pulumi:"credentialType"`
+	// The Azure SQL database name.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Indicates SSL requirement of Azure Postgresql server.
+	EnableSsl pulumi.BoolPtrInput `pulumi:"enableSsl"`
+	// The server host endpoint.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	//  Is it using certificate to authenticate. If false then use client secret.
+	IsCertAuth pulumi.BoolPtrInput `pulumi:"isCertAuth"`
+	// / The Azure SQL port number.
+	PortNumber pulumi.StringPtrInput `pulumi:"portNumber"`
+	// Resource Group.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// The resource the service principal/app has access to.
+	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
+	// The Azure SQL server name.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity pulumi.StringPtrInput `pulumi:"serviceDataAccessAuthIdentity"`
+	// Subscription ID.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The ID of the tenant the service principal/app belongs to.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The thumbprint of the certificate above.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	// The Azure SQL user id.
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
+	// The Azure SQL user password.
+	UserPassword pulumi.StringPtrInput `pulumi:"userPassword"`
+}
+
+func (AzurePostgreSqlSectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzurePostgreSqlSectionResponse)(nil)).Elem()
+}
+
+func (i AzurePostgreSqlSectionResponseArgs) ToAzurePostgreSqlSectionResponseOutput() AzurePostgreSqlSectionResponseOutput {
+	return i.ToAzurePostgreSqlSectionResponseOutputWithContext(context.Background())
+}
+
+func (i AzurePostgreSqlSectionResponseArgs) ToAzurePostgreSqlSectionResponseOutputWithContext(ctx context.Context) AzurePostgreSqlSectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzurePostgreSqlSectionResponseOutput)
+}
+
+func (i AzurePostgreSqlSectionResponseArgs) ToAzurePostgreSqlSectionResponsePtrOutput() AzurePostgreSqlSectionResponsePtrOutput {
+	return i.ToAzurePostgreSqlSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzurePostgreSqlSectionResponseArgs) ToAzurePostgreSqlSectionResponsePtrOutputWithContext(ctx context.Context) AzurePostgreSqlSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzurePostgreSqlSectionResponseOutput).ToAzurePostgreSqlSectionResponsePtrOutputWithContext(ctx)
+}
+
+// AzurePostgreSqlSectionResponsePtrInput is an input type that accepts AzurePostgreSqlSectionResponseArgs, AzurePostgreSqlSectionResponsePtr and AzurePostgreSqlSectionResponsePtrOutput values.
+// You can construct a concrete instance of `AzurePostgreSqlSectionResponsePtrInput` via:
+//
+//          AzurePostgreSqlSectionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzurePostgreSqlSectionResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzurePostgreSqlSectionResponsePtrOutput() AzurePostgreSqlSectionResponsePtrOutput
+	ToAzurePostgreSqlSectionResponsePtrOutputWithContext(context.Context) AzurePostgreSqlSectionResponsePtrOutput
+}
+
+type azurePostgreSqlSectionResponsePtrType AzurePostgreSqlSectionResponseArgs
+
+func AzurePostgreSqlSectionResponsePtr(v *AzurePostgreSqlSectionResponseArgs) AzurePostgreSqlSectionResponsePtrInput {
+	return (*azurePostgreSqlSectionResponsePtrType)(v)
+}
+
+func (*azurePostgreSqlSectionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzurePostgreSqlSectionResponse)(nil)).Elem()
+}
+
+func (i *azurePostgreSqlSectionResponsePtrType) ToAzurePostgreSqlSectionResponsePtrOutput() AzurePostgreSqlSectionResponsePtrOutput {
+	return i.ToAzurePostgreSqlSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azurePostgreSqlSectionResponsePtrType) ToAzurePostgreSqlSectionResponsePtrOutputWithContext(ctx context.Context) AzurePostgreSqlSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzurePostgreSqlSectionResponsePtrOutput)
+}
+
+type AzurePostgreSqlSectionResponseOutput struct{ *pulumi.OutputState }
+
+func (AzurePostgreSqlSectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzurePostgreSqlSectionResponse)(nil)).Elem()
+}
+
+func (o AzurePostgreSqlSectionResponseOutput) ToAzurePostgreSqlSectionResponseOutput() AzurePostgreSqlSectionResponseOutput {
+	return o
+}
+
+func (o AzurePostgreSqlSectionResponseOutput) ToAzurePostgreSqlSectionResponseOutputWithContext(ctx context.Context) AzurePostgreSqlSectionResponseOutput {
+	return o
+}
+
+func (o AzurePostgreSqlSectionResponseOutput) ToAzurePostgreSqlSectionResponsePtrOutput() AzurePostgreSqlSectionResponsePtrOutput {
+	return o.ToAzurePostgreSqlSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzurePostgreSqlSectionResponseOutput) ToAzurePostgreSqlSectionResponsePtrOutputWithContext(ctx context.Context) AzurePostgreSqlSectionResponsePtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *AzurePostgreSqlSectionResponse {
+		return &v
+	}).(AzurePostgreSqlSectionResponsePtrOutput)
+}
+
+// The authority URL used for authentication.
+func (o AzurePostgreSqlSectionResponseOutput) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
+}
+
+// The content of the certificate used for authentication.
+func (o AzurePostgreSqlSectionResponseOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The Client ID/Application ID
+func (o AzurePostgreSqlSectionResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o AzurePostgreSqlSectionResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Sql Authentication type.
+func (o AzurePostgreSqlSectionResponseOutput) CredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.CredentialType }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL database name.
+func (o AzurePostgreSqlSectionResponseOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates SSL requirement of Azure Postgresql server.
+func (o AzurePostgreSqlSectionResponseOutput) EnableSsl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *bool { return v.EnableSsl }).(pulumi.BoolPtrOutput)
+}
+
+// The server host endpoint.
+func (o AzurePostgreSqlSectionResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+//  Is it using certificate to authenticate. If false then use client secret.
+func (o AzurePostgreSqlSectionResponseOutput) IsCertAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *bool { return v.IsCertAuth }).(pulumi.BoolPtrOutput)
+}
+
+// / The Azure SQL port number.
+func (o AzurePostgreSqlSectionResponseOutput) PortNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.PortNumber }).(pulumi.StringPtrOutput)
+}
+
+// Resource Group.
+func (o AzurePostgreSqlSectionResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// The resource the service principal/app has access to.
+func (o AzurePostgreSqlSectionResponseOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL server name.
+func (o AzurePostgreSqlSectionResponseOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o AzurePostgreSqlSectionResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o AzurePostgreSqlSectionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the tenant the service principal/app belongs to.
+func (o AzurePostgreSqlSectionResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate above.
+func (o AzurePostgreSqlSectionResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user id.
+func (o AzurePostgreSqlSectionResponseOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user password.
+func (o AzurePostgreSqlSectionResponseOutput) UserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.UserPassword }).(pulumi.StringPtrOutput)
+}
+
+type AzurePostgreSqlSectionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzurePostgreSqlSectionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzurePostgreSqlSectionResponse)(nil)).Elem()
+}
+
+func (o AzurePostgreSqlSectionResponsePtrOutput) ToAzurePostgreSqlSectionResponsePtrOutput() AzurePostgreSqlSectionResponsePtrOutput {
+	return o
+}
+
+func (o AzurePostgreSqlSectionResponsePtrOutput) ToAzurePostgreSqlSectionResponsePtrOutputWithContext(ctx context.Context) AzurePostgreSqlSectionResponsePtrOutput {
+	return o
+}
+
+func (o AzurePostgreSqlSectionResponsePtrOutput) Elem() AzurePostgreSqlSectionResponseOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) AzurePostgreSqlSectionResponse { return *v }).(AzurePostgreSqlSectionResponseOutput)
+}
+
+// The authority URL used for authentication.
+func (o AzurePostgreSqlSectionResponsePtrOutput) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorityUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of the certificate used for authentication.
+func (o AzurePostgreSqlSectionResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Client ID/Application ID
+func (o AzurePostgreSqlSectionResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o AzurePostgreSqlSectionResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sql Authentication type.
+func (o AzurePostgreSqlSectionResponsePtrOutput) CredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL database name.
+func (o AzurePostgreSqlSectionResponsePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates SSL requirement of Azure Postgresql server.
+func (o AzurePostgreSqlSectionResponsePtrOutput) EnableSsl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableSsl
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The server host endpoint.
+func (o AzurePostgreSqlSectionResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+//  Is it using certificate to authenticate. If false then use client secret.
+func (o AzurePostgreSqlSectionResponsePtrOutput) IsCertAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCertAuth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// / The Azure SQL port number.
+func (o AzurePostgreSqlSectionResponsePtrOutput) PortNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PortNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Group.
+func (o AzurePostgreSqlSectionResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource the service principal/app has access to.
+func (o AzurePostgreSqlSectionResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL server name.
+func (o AzurePostgreSqlSectionResponsePtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o AzurePostgreSqlSectionResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDataAccessAuthIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o AzurePostgreSqlSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the tenant the service principal/app belongs to.
+func (o AzurePostgreSqlSectionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate above.
+func (o AzurePostgreSqlSectionResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Thumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user id.
+func (o AzurePostgreSqlSectionResponsePtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user password.
+func (o AzurePostgreSqlSectionResponsePtrOutput) UserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureSqlDatabaseSectionResponse struct {
+	// The authority URL used for authentication.
+	AuthorityUrl *string `pulumi:"authorityUrl"`
+	// The content of the certificate used for authentication.
+	Certificate *string `pulumi:"certificate"`
+	// The Client ID/Application ID
+	ClientId *string `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// Sql Authentication type.
+	CredentialType *string `pulumi:"credentialType"`
+	// The Azure SQL database name.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The server host endpoint.
+	Endpoint *string `pulumi:"endpoint"`
+	//  Is it using certificate to authenticate. If false then use client secret.
+	IsCertAuth *bool `pulumi:"isCertAuth"`
+	// / The Azure SQL port number.
+	PortNumber *string `pulumi:"portNumber"`
+	// Resource Group.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// The resource the service principal/app has access to.
+	ResourceUri *string `pulumi:"resourceUri"`
+	// The Azure SQL server name.
+	ServerName *string `pulumi:"serverName"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// Subscription ID.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The ID of the tenant the service principal/app belongs to.
+	TenantId *string `pulumi:"tenantId"`
+	// The thumbprint of the certificate above.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// The Azure SQL user id.
+	UserId *string `pulumi:"userId"`
+	// The Azure SQL user password.
+	UserPassword *string `pulumi:"userPassword"`
+}
+
+// AzureSqlDatabaseSectionResponseInput is an input type that accepts AzureSqlDatabaseSectionResponseArgs and AzureSqlDatabaseSectionResponseOutput values.
+// You can construct a concrete instance of `AzureSqlDatabaseSectionResponseInput` via:
+//
+//          AzureSqlDatabaseSectionResponseArgs{...}
+type AzureSqlDatabaseSectionResponseInput interface {
+	pulumi.Input
+
+	ToAzureSqlDatabaseSectionResponseOutput() AzureSqlDatabaseSectionResponseOutput
+	ToAzureSqlDatabaseSectionResponseOutputWithContext(context.Context) AzureSqlDatabaseSectionResponseOutput
+}
+
+type AzureSqlDatabaseSectionResponseArgs struct {
+	// The authority URL used for authentication.
+	AuthorityUrl pulumi.StringPtrInput `pulumi:"authorityUrl"`
+	// The content of the certificate used for authentication.
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The Client ID/Application ID
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// Sql Authentication type.
+	CredentialType pulumi.StringPtrInput `pulumi:"credentialType"`
+	// The Azure SQL database name.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// The server host endpoint.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	//  Is it using certificate to authenticate. If false then use client secret.
+	IsCertAuth pulumi.BoolPtrInput `pulumi:"isCertAuth"`
+	// / The Azure SQL port number.
+	PortNumber pulumi.StringPtrInput `pulumi:"portNumber"`
+	// Resource Group.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// The resource the service principal/app has access to.
+	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
+	// The Azure SQL server name.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity pulumi.StringPtrInput `pulumi:"serviceDataAccessAuthIdentity"`
+	// Subscription ID.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The ID of the tenant the service principal/app belongs to.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The thumbprint of the certificate above.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	// The Azure SQL user id.
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
+	// The Azure SQL user password.
+	UserPassword pulumi.StringPtrInput `pulumi:"userPassword"`
+}
+
+func (AzureSqlDatabaseSectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlDatabaseSectionResponse)(nil)).Elem()
+}
+
+func (i AzureSqlDatabaseSectionResponseArgs) ToAzureSqlDatabaseSectionResponseOutput() AzureSqlDatabaseSectionResponseOutput {
+	return i.ToAzureSqlDatabaseSectionResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSqlDatabaseSectionResponseArgs) ToAzureSqlDatabaseSectionResponseOutputWithContext(ctx context.Context) AzureSqlDatabaseSectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlDatabaseSectionResponseOutput)
+}
+
+func (i AzureSqlDatabaseSectionResponseArgs) ToAzureSqlDatabaseSectionResponsePtrOutput() AzureSqlDatabaseSectionResponsePtrOutput {
+	return i.ToAzureSqlDatabaseSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureSqlDatabaseSectionResponseArgs) ToAzureSqlDatabaseSectionResponsePtrOutputWithContext(ctx context.Context) AzureSqlDatabaseSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlDatabaseSectionResponseOutput).ToAzureSqlDatabaseSectionResponsePtrOutputWithContext(ctx)
+}
+
+// AzureSqlDatabaseSectionResponsePtrInput is an input type that accepts AzureSqlDatabaseSectionResponseArgs, AzureSqlDatabaseSectionResponsePtr and AzureSqlDatabaseSectionResponsePtrOutput values.
+// You can construct a concrete instance of `AzureSqlDatabaseSectionResponsePtrInput` via:
+//
+//          AzureSqlDatabaseSectionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureSqlDatabaseSectionResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureSqlDatabaseSectionResponsePtrOutput() AzureSqlDatabaseSectionResponsePtrOutput
+	ToAzureSqlDatabaseSectionResponsePtrOutputWithContext(context.Context) AzureSqlDatabaseSectionResponsePtrOutput
+}
+
+type azureSqlDatabaseSectionResponsePtrType AzureSqlDatabaseSectionResponseArgs
+
+func AzureSqlDatabaseSectionResponsePtr(v *AzureSqlDatabaseSectionResponseArgs) AzureSqlDatabaseSectionResponsePtrInput {
+	return (*azureSqlDatabaseSectionResponsePtrType)(v)
+}
+
+func (*azureSqlDatabaseSectionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSqlDatabaseSectionResponse)(nil)).Elem()
+}
+
+func (i *azureSqlDatabaseSectionResponsePtrType) ToAzureSqlDatabaseSectionResponsePtrOutput() AzureSqlDatabaseSectionResponsePtrOutput {
+	return i.ToAzureSqlDatabaseSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureSqlDatabaseSectionResponsePtrType) ToAzureSqlDatabaseSectionResponsePtrOutputWithContext(ctx context.Context) AzureSqlDatabaseSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlDatabaseSectionResponsePtrOutput)
+}
+
+type AzureSqlDatabaseSectionResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlDatabaseSectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlDatabaseSectionResponse)(nil)).Elem()
+}
+
+func (o AzureSqlDatabaseSectionResponseOutput) ToAzureSqlDatabaseSectionResponseOutput() AzureSqlDatabaseSectionResponseOutput {
+	return o
+}
+
+func (o AzureSqlDatabaseSectionResponseOutput) ToAzureSqlDatabaseSectionResponseOutputWithContext(ctx context.Context) AzureSqlDatabaseSectionResponseOutput {
+	return o
+}
+
+func (o AzureSqlDatabaseSectionResponseOutput) ToAzureSqlDatabaseSectionResponsePtrOutput() AzureSqlDatabaseSectionResponsePtrOutput {
+	return o.ToAzureSqlDatabaseSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureSqlDatabaseSectionResponseOutput) ToAzureSqlDatabaseSectionResponsePtrOutputWithContext(ctx context.Context) AzureSqlDatabaseSectionResponsePtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *AzureSqlDatabaseSectionResponse {
+		return &v
+	}).(AzureSqlDatabaseSectionResponsePtrOutput)
+}
+
+// The authority URL used for authentication.
+func (o AzureSqlDatabaseSectionResponseOutput) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
+}
+
+// The content of the certificate used for authentication.
+func (o AzureSqlDatabaseSectionResponseOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The Client ID/Application ID
+func (o AzureSqlDatabaseSectionResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o AzureSqlDatabaseSectionResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Sql Authentication type.
+func (o AzureSqlDatabaseSectionResponseOutput) CredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.CredentialType }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL database name.
+func (o AzureSqlDatabaseSectionResponseOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// The server host endpoint.
+func (o AzureSqlDatabaseSectionResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+//  Is it using certificate to authenticate. If false then use client secret.
+func (o AzureSqlDatabaseSectionResponseOutput) IsCertAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *bool { return v.IsCertAuth }).(pulumi.BoolPtrOutput)
+}
+
+// / The Azure SQL port number.
+func (o AzureSqlDatabaseSectionResponseOutput) PortNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.PortNumber }).(pulumi.StringPtrOutput)
+}
+
+// Resource Group.
+func (o AzureSqlDatabaseSectionResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// The resource the service principal/app has access to.
+func (o AzureSqlDatabaseSectionResponseOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL server name.
+func (o AzureSqlDatabaseSectionResponseOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o AzureSqlDatabaseSectionResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o AzureSqlDatabaseSectionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the tenant the service principal/app belongs to.
+func (o AzureSqlDatabaseSectionResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate above.
+func (o AzureSqlDatabaseSectionResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user id.
+func (o AzureSqlDatabaseSectionResponseOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user password.
+func (o AzureSqlDatabaseSectionResponseOutput) UserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.UserPassword }).(pulumi.StringPtrOutput)
+}
+
+type AzureSqlDatabaseSectionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlDatabaseSectionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSqlDatabaseSectionResponse)(nil)).Elem()
+}
+
+func (o AzureSqlDatabaseSectionResponsePtrOutput) ToAzureSqlDatabaseSectionResponsePtrOutput() AzureSqlDatabaseSectionResponsePtrOutput {
+	return o
+}
+
+func (o AzureSqlDatabaseSectionResponsePtrOutput) ToAzureSqlDatabaseSectionResponsePtrOutputWithContext(ctx context.Context) AzureSqlDatabaseSectionResponsePtrOutput {
+	return o
+}
+
+func (o AzureSqlDatabaseSectionResponsePtrOutput) Elem() AzureSqlDatabaseSectionResponseOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) AzureSqlDatabaseSectionResponse { return *v }).(AzureSqlDatabaseSectionResponseOutput)
+}
+
+// The authority URL used for authentication.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorityUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of the certificate used for authentication.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Client ID/Application ID
+func (o AzureSqlDatabaseSectionResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sql Authentication type.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) CredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL database name.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The server host endpoint.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+//  Is it using certificate to authenticate. If false then use client secret.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) IsCertAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCertAuth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// / The Azure SQL port number.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) PortNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PortNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Group.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource the service principal/app has access to.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL server name.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDataAccessAuthIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the tenant the service principal/app belongs to.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate above.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Thumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user id.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure SQL user password.
+func (o AzureSqlDatabaseSectionResponsePtrOutput) UserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureStorageSectionResponse struct {
+	//  Storage Account Key (Deprecated).
+	AccountKey *string `pulumi:"accountKey"`
+	// Storage Account Name.
+	AccountName *string `pulumi:"accountName"`
+	// Indicate if we are using Workspace ManagedIdentities/MSI token (Deprecated).
+	AreWorkspaceManagedIdentitiesAllowed *bool `pulumi:"areWorkspaceManagedIdentitiesAllowed"`
+	//  If this is an "DataStoreType.AzureBlob", the length of time (in seconds) to cache files locally after they are accessed (downloaded).
+	BlobCacheTimeout  *int                       `pulumi:"blobCacheTimeout"`
+	ClientCredentials *ClientCredentialsResponse `pulumi:"clientCredentials"`
+	// The storage container name.
+	ContainerName *string `pulumi:"containerName"`
+	// The credential.
+	Credential *string `pulumi:"credential"`
+	//  The credential type.
+	CredentialType *string `pulumi:"credentialType"`
+	// The host of the container.
+	Endpoint *string `pulumi:"endpoint"`
+	// Indicate if we are using SAS token or Account Key (Deprecated).
+	IsSas *bool `pulumi:"isSas"`
+	// The protocol to use. Defaults to https.
+	Protocol *string `pulumi:"protocol"`
+	// Resource Group.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	//  SAS Token for the container (Deprecated).
+	SasToken *string `pulumi:"sasToken"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// Subscription ID.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+}
+
+// AzureStorageSectionResponseInput is an input type that accepts AzureStorageSectionResponseArgs and AzureStorageSectionResponseOutput values.
+// You can construct a concrete instance of `AzureStorageSectionResponseInput` via:
+//
+//          AzureStorageSectionResponseArgs{...}
+type AzureStorageSectionResponseInput interface {
+	pulumi.Input
+
+	ToAzureStorageSectionResponseOutput() AzureStorageSectionResponseOutput
+	ToAzureStorageSectionResponseOutputWithContext(context.Context) AzureStorageSectionResponseOutput
+}
+
+type AzureStorageSectionResponseArgs struct {
+	//  Storage Account Key (Deprecated).
+	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
+	// Storage Account Name.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Indicate if we are using Workspace ManagedIdentities/MSI token (Deprecated).
+	AreWorkspaceManagedIdentitiesAllowed pulumi.BoolPtrInput `pulumi:"areWorkspaceManagedIdentitiesAllowed"`
+	//  If this is an "DataStoreType.AzureBlob", the length of time (in seconds) to cache files locally after they are accessed (downloaded).
+	BlobCacheTimeout  pulumi.IntPtrInput                `pulumi:"blobCacheTimeout"`
+	ClientCredentials ClientCredentialsResponsePtrInput `pulumi:"clientCredentials"`
+	// The storage container name.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// The credential.
+	Credential pulumi.StringPtrInput `pulumi:"credential"`
+	//  The credential type.
+	CredentialType pulumi.StringPtrInput `pulumi:"credentialType"`
+	// The host of the container.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// Indicate if we are using SAS token or Account Key (Deprecated).
+	IsSas pulumi.BoolPtrInput `pulumi:"isSas"`
+	// The protocol to use. Defaults to https.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// Resource Group.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	//  SAS Token for the container (Deprecated).
+	SasToken pulumi.StringPtrInput `pulumi:"sasToken"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity pulumi.StringPtrInput `pulumi:"serviceDataAccessAuthIdentity"`
+	// Subscription ID.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+}
+
+func (AzureStorageSectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStorageSectionResponse)(nil)).Elem()
+}
+
+func (i AzureStorageSectionResponseArgs) ToAzureStorageSectionResponseOutput() AzureStorageSectionResponseOutput {
+	return i.ToAzureStorageSectionResponseOutputWithContext(context.Background())
+}
+
+func (i AzureStorageSectionResponseArgs) ToAzureStorageSectionResponseOutputWithContext(ctx context.Context) AzureStorageSectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageSectionResponseOutput)
+}
+
+func (i AzureStorageSectionResponseArgs) ToAzureStorageSectionResponsePtrOutput() AzureStorageSectionResponsePtrOutput {
+	return i.ToAzureStorageSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureStorageSectionResponseArgs) ToAzureStorageSectionResponsePtrOutputWithContext(ctx context.Context) AzureStorageSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageSectionResponseOutput).ToAzureStorageSectionResponsePtrOutputWithContext(ctx)
+}
+
+// AzureStorageSectionResponsePtrInput is an input type that accepts AzureStorageSectionResponseArgs, AzureStorageSectionResponsePtr and AzureStorageSectionResponsePtrOutput values.
+// You can construct a concrete instance of `AzureStorageSectionResponsePtrInput` via:
+//
+//          AzureStorageSectionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureStorageSectionResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureStorageSectionResponsePtrOutput() AzureStorageSectionResponsePtrOutput
+	ToAzureStorageSectionResponsePtrOutputWithContext(context.Context) AzureStorageSectionResponsePtrOutput
+}
+
+type azureStorageSectionResponsePtrType AzureStorageSectionResponseArgs
+
+func AzureStorageSectionResponsePtr(v *AzureStorageSectionResponseArgs) AzureStorageSectionResponsePtrInput {
+	return (*azureStorageSectionResponsePtrType)(v)
+}
+
+func (*azureStorageSectionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStorageSectionResponse)(nil)).Elem()
+}
+
+func (i *azureStorageSectionResponsePtrType) ToAzureStorageSectionResponsePtrOutput() AzureStorageSectionResponsePtrOutput {
+	return i.ToAzureStorageSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureStorageSectionResponsePtrType) ToAzureStorageSectionResponsePtrOutputWithContext(ctx context.Context) AzureStorageSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageSectionResponsePtrOutput)
+}
+
+type AzureStorageSectionResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureStorageSectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStorageSectionResponse)(nil)).Elem()
+}
+
+func (o AzureStorageSectionResponseOutput) ToAzureStorageSectionResponseOutput() AzureStorageSectionResponseOutput {
+	return o
+}
+
+func (o AzureStorageSectionResponseOutput) ToAzureStorageSectionResponseOutputWithContext(ctx context.Context) AzureStorageSectionResponseOutput {
+	return o
+}
+
+func (o AzureStorageSectionResponseOutput) ToAzureStorageSectionResponsePtrOutput() AzureStorageSectionResponsePtrOutput {
+	return o.ToAzureStorageSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureStorageSectionResponseOutput) ToAzureStorageSectionResponsePtrOutputWithContext(ctx context.Context) AzureStorageSectionResponsePtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *AzureStorageSectionResponse {
+		return &v
+	}).(AzureStorageSectionResponsePtrOutput)
+}
+
+//  Storage Account Key (Deprecated).
+func (o AzureStorageSectionResponseOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
+}
+
+// Storage Account Name.
+func (o AzureStorageSectionResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Indicate if we are using Workspace ManagedIdentities/MSI token (Deprecated).
+func (o AzureStorageSectionResponseOutput) AreWorkspaceManagedIdentitiesAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *bool { return v.AreWorkspaceManagedIdentitiesAllowed }).(pulumi.BoolPtrOutput)
+}
+
+//  If this is an "DataStoreType.AzureBlob", the length of time (in seconds) to cache files locally after they are accessed (downloaded).
+func (o AzureStorageSectionResponseOutput) BlobCacheTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *int { return v.BlobCacheTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o AzureStorageSectionResponseOutput) ClientCredentials() ClientCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *ClientCredentialsResponse { return v.ClientCredentials }).(ClientCredentialsResponsePtrOutput)
+}
+
+// The storage container name.
+func (o AzureStorageSectionResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// The credential.
+func (o AzureStorageSectionResponseOutput) Credential() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.Credential }).(pulumi.StringPtrOutput)
+}
+
+//  The credential type.
+func (o AzureStorageSectionResponseOutput) CredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.CredentialType }).(pulumi.StringPtrOutput)
+}
+
+// The host of the container.
+func (o AzureStorageSectionResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// Indicate if we are using SAS token or Account Key (Deprecated).
+func (o AzureStorageSectionResponseOutput) IsSas() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *bool { return v.IsSas }).(pulumi.BoolPtrOutput)
+}
+
+// The protocol to use. Defaults to https.
+func (o AzureStorageSectionResponseOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Resource Group.
+func (o AzureStorageSectionResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+//  SAS Token for the container (Deprecated).
+func (o AzureStorageSectionResponseOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.SasToken }).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o AzureStorageSectionResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o AzureStorageSectionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+type AzureStorageSectionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureStorageSectionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStorageSectionResponse)(nil)).Elem()
+}
+
+func (o AzureStorageSectionResponsePtrOutput) ToAzureStorageSectionResponsePtrOutput() AzureStorageSectionResponsePtrOutput {
+	return o
+}
+
+func (o AzureStorageSectionResponsePtrOutput) ToAzureStorageSectionResponsePtrOutputWithContext(ctx context.Context) AzureStorageSectionResponsePtrOutput {
+	return o
+}
+
+func (o AzureStorageSectionResponsePtrOutput) Elem() AzureStorageSectionResponseOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) AzureStorageSectionResponse { return *v }).(AzureStorageSectionResponseOutput)
+}
+
+//  Storage Account Key (Deprecated).
+func (o AzureStorageSectionResponsePtrOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Storage Account Name.
+func (o AzureStorageSectionResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicate if we are using Workspace ManagedIdentities/MSI token (Deprecated).
+func (o AzureStorageSectionResponsePtrOutput) AreWorkspaceManagedIdentitiesAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AreWorkspaceManagedIdentitiesAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+//  If this is an "DataStoreType.AzureBlob", the length of time (in seconds) to cache files locally after they are accessed (downloaded).
+func (o AzureStorageSectionResponsePtrOutput) BlobCacheTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BlobCacheTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AzureStorageSectionResponsePtrOutput) ClientCredentials() ClientCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *ClientCredentialsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCredentials
+	}).(ClientCredentialsResponsePtrOutput)
+}
+
+// The storage container name.
+func (o AzureStorageSectionResponsePtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The credential.
+func (o AzureStorageSectionResponsePtrOutput) Credential() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Credential
+	}).(pulumi.StringPtrOutput)
+}
+
+//  The credential type.
+func (o AzureStorageSectionResponsePtrOutput) CredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The host of the container.
+func (o AzureStorageSectionResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicate if we are using SAS token or Account Key (Deprecated).
+func (o AzureStorageSectionResponsePtrOutput) IsSas() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsSas
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The protocol to use. Defaults to https.
+func (o AzureStorageSectionResponsePtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Group.
+func (o AzureStorageSectionResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+//  SAS Token for the container (Deprecated).
+func (o AzureStorageSectionResponsePtrOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o AzureStorageSectionResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDataAccessAuthIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o AzureStorageSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientCredentialsResponse struct {
+	// The authority URL used for authentication.
+	AuthorityUrl *string `pulumi:"authorityUrl"`
+	// The content of the certificate used for authentication.
+	Certificate *string `pulumi:"certificate"`
+	// The Client ID/Application ID
+	ClientId *string `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret *string `pulumi:"clientSecret"`
+	//  Is it using certificate to authenticate. If false then use client secret.
+	IsCertAuth *bool `pulumi:"isCertAuth"`
+	// Resource Group.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// The resource the service principal/app has access to.
+	ResourceUri *string `pulumi:"resourceUri"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// Subscription ID.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The ID of the tenant the service principal/app belongs to.
+	TenantId *string `pulumi:"tenantId"`
+	// The thumbprint of the certificate above.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// ClientCredentialsResponseInput is an input type that accepts ClientCredentialsResponseArgs and ClientCredentialsResponseOutput values.
+// You can construct a concrete instance of `ClientCredentialsResponseInput` via:
+//
+//          ClientCredentialsResponseArgs{...}
+type ClientCredentialsResponseInput interface {
+	pulumi.Input
+
+	ToClientCredentialsResponseOutput() ClientCredentialsResponseOutput
+	ToClientCredentialsResponseOutputWithContext(context.Context) ClientCredentialsResponseOutput
+}
+
+type ClientCredentialsResponseArgs struct {
+	// The authority URL used for authentication.
+	AuthorityUrl pulumi.StringPtrInput `pulumi:"authorityUrl"`
+	// The content of the certificate used for authentication.
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The Client ID/Application ID
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	//  Is it using certificate to authenticate. If false then use client secret.
+	IsCertAuth pulumi.BoolPtrInput `pulumi:"isCertAuth"`
+	// Resource Group.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// The resource the service principal/app has access to.
+	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity pulumi.StringPtrInput `pulumi:"serviceDataAccessAuthIdentity"`
+	// Subscription ID.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The ID of the tenant the service principal/app belongs to.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The thumbprint of the certificate above.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (ClientCredentialsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCredentialsResponse)(nil)).Elem()
+}
+
+func (i ClientCredentialsResponseArgs) ToClientCredentialsResponseOutput() ClientCredentialsResponseOutput {
+	return i.ToClientCredentialsResponseOutputWithContext(context.Background())
+}
+
+func (i ClientCredentialsResponseArgs) ToClientCredentialsResponseOutputWithContext(ctx context.Context) ClientCredentialsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCredentialsResponseOutput)
+}
+
+func (i ClientCredentialsResponseArgs) ToClientCredentialsResponsePtrOutput() ClientCredentialsResponsePtrOutput {
+	return i.ToClientCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ClientCredentialsResponseArgs) ToClientCredentialsResponsePtrOutputWithContext(ctx context.Context) ClientCredentialsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCredentialsResponseOutput).ToClientCredentialsResponsePtrOutputWithContext(ctx)
+}
+
+// ClientCredentialsResponsePtrInput is an input type that accepts ClientCredentialsResponseArgs, ClientCredentialsResponsePtr and ClientCredentialsResponsePtrOutput values.
+// You can construct a concrete instance of `ClientCredentialsResponsePtrInput` via:
+//
+//          ClientCredentialsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientCredentialsResponsePtrInput interface {
+	pulumi.Input
+
+	ToClientCredentialsResponsePtrOutput() ClientCredentialsResponsePtrOutput
+	ToClientCredentialsResponsePtrOutputWithContext(context.Context) ClientCredentialsResponsePtrOutput
+}
+
+type clientCredentialsResponsePtrType ClientCredentialsResponseArgs
+
+func ClientCredentialsResponsePtr(v *ClientCredentialsResponseArgs) ClientCredentialsResponsePtrInput {
+	return (*clientCredentialsResponsePtrType)(v)
+}
+
+func (*clientCredentialsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientCredentialsResponse)(nil)).Elem()
+}
+
+func (i *clientCredentialsResponsePtrType) ToClientCredentialsResponsePtrOutput() ClientCredentialsResponsePtrOutput {
+	return i.ToClientCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *clientCredentialsResponsePtrType) ToClientCredentialsResponsePtrOutputWithContext(ctx context.Context) ClientCredentialsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCredentialsResponsePtrOutput)
+}
+
+type ClientCredentialsResponseOutput struct{ *pulumi.OutputState }
+
+func (ClientCredentialsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCredentialsResponse)(nil)).Elem()
+}
+
+func (o ClientCredentialsResponseOutput) ToClientCredentialsResponseOutput() ClientCredentialsResponseOutput {
+	return o
+}
+
+func (o ClientCredentialsResponseOutput) ToClientCredentialsResponseOutputWithContext(ctx context.Context) ClientCredentialsResponseOutput {
+	return o
+}
+
+func (o ClientCredentialsResponseOutput) ToClientCredentialsResponsePtrOutput() ClientCredentialsResponsePtrOutput {
+	return o.ToClientCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ClientCredentialsResponseOutput) ToClientCredentialsResponsePtrOutputWithContext(ctx context.Context) ClientCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *ClientCredentialsResponse {
+		return &v
+	}).(ClientCredentialsResponsePtrOutput)
+}
+
+// The authority URL used for authentication.
+func (o ClientCredentialsResponseOutput) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
+}
+
+// The content of the certificate used for authentication.
+func (o ClientCredentialsResponseOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The Client ID/Application ID
+func (o ClientCredentialsResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o ClientCredentialsResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+//  Is it using certificate to authenticate. If false then use client secret.
+func (o ClientCredentialsResponseOutput) IsCertAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *bool { return v.IsCertAuth }).(pulumi.BoolPtrOutput)
+}
+
+// Resource Group.
+func (o ClientCredentialsResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// The resource the service principal/app has access to.
+func (o ClientCredentialsResponseOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o ClientCredentialsResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o ClientCredentialsResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the tenant the service principal/app belongs to.
+func (o ClientCredentialsResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate above.
+func (o ClientCredentialsResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type ClientCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ClientCredentialsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientCredentialsResponse)(nil)).Elem()
+}
+
+func (o ClientCredentialsResponsePtrOutput) ToClientCredentialsResponsePtrOutput() ClientCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o ClientCredentialsResponsePtrOutput) ToClientCredentialsResponsePtrOutputWithContext(ctx context.Context) ClientCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o ClientCredentialsResponsePtrOutput) Elem() ClientCredentialsResponseOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) ClientCredentialsResponse { return *v }).(ClientCredentialsResponseOutput)
+}
+
+// The authority URL used for authentication.
+func (o ClientCredentialsResponsePtrOutput) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorityUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of the certificate used for authentication.
+func (o ClientCredentialsResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Client ID/Application ID
+func (o ClientCredentialsResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o ClientCredentialsResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+//  Is it using certificate to authenticate. If false then use client secret.
+func (o ClientCredentialsResponsePtrOutput) IsCertAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCertAuth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Resource Group.
+func (o ClientCredentialsResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource the service principal/app has access to.
+func (o ClientCredentialsResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+func (o ClientCredentialsResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDataAccessAuthIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID.
+func (o ClientCredentialsResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the tenant the service principal/app belongs to.
+func (o ClientCredentialsResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate above.
+func (o ClientCredentialsResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Thumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
 // The resource requirements for the container (cpu and memory).
 type ContainerResourceRequirements struct {
 	// The number of CPU cores on the container.
@@ -5079,6 +7533,1007 @@ func (o DatabricksResponsePropertiesPtrOutput) DatabricksAccessToken() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type DatasetCreateRequestDataPath struct {
+	// The datastore name.
+	DatastoreName *string `pulumi:"datastoreName"`
+	// Path within the datastore.
+	RelativePath *string `pulumi:"relativePath"`
+}
+
+// DatasetCreateRequestDataPathInput is an input type that accepts DatasetCreateRequestDataPathArgs and DatasetCreateRequestDataPathOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestDataPathInput` via:
+//
+//          DatasetCreateRequestDataPathArgs{...}
+type DatasetCreateRequestDataPathInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestDataPathOutput() DatasetCreateRequestDataPathOutput
+	ToDatasetCreateRequestDataPathOutputWithContext(context.Context) DatasetCreateRequestDataPathOutput
+}
+
+type DatasetCreateRequestDataPathArgs struct {
+	// The datastore name.
+	DatastoreName pulumi.StringPtrInput `pulumi:"datastoreName"`
+	// Path within the datastore.
+	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
+}
+
+func (DatasetCreateRequestDataPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestDataPath)(nil)).Elem()
+}
+
+func (i DatasetCreateRequestDataPathArgs) ToDatasetCreateRequestDataPathOutput() DatasetCreateRequestDataPathOutput {
+	return i.ToDatasetCreateRequestDataPathOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestDataPathArgs) ToDatasetCreateRequestDataPathOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestDataPathOutput)
+}
+
+func (i DatasetCreateRequestDataPathArgs) ToDatasetCreateRequestDataPathPtrOutput() DatasetCreateRequestDataPathPtrOutput {
+	return i.ToDatasetCreateRequestDataPathPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestDataPathArgs) ToDatasetCreateRequestDataPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestDataPathOutput).ToDatasetCreateRequestDataPathPtrOutputWithContext(ctx)
+}
+
+// DatasetCreateRequestDataPathPtrInput is an input type that accepts DatasetCreateRequestDataPathArgs, DatasetCreateRequestDataPathPtr and DatasetCreateRequestDataPathPtrOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestDataPathPtrInput` via:
+//
+//          DatasetCreateRequestDataPathArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetCreateRequestDataPathPtrInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestDataPathPtrOutput() DatasetCreateRequestDataPathPtrOutput
+	ToDatasetCreateRequestDataPathPtrOutputWithContext(context.Context) DatasetCreateRequestDataPathPtrOutput
+}
+
+type datasetCreateRequestDataPathPtrType DatasetCreateRequestDataPathArgs
+
+func DatasetCreateRequestDataPathPtr(v *DatasetCreateRequestDataPathArgs) DatasetCreateRequestDataPathPtrInput {
+	return (*datasetCreateRequestDataPathPtrType)(v)
+}
+
+func (*datasetCreateRequestDataPathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestDataPath)(nil)).Elem()
+}
+
+func (i *datasetCreateRequestDataPathPtrType) ToDatasetCreateRequestDataPathPtrOutput() DatasetCreateRequestDataPathPtrOutput {
+	return i.ToDatasetCreateRequestDataPathPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetCreateRequestDataPathPtrType) ToDatasetCreateRequestDataPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestDataPathPtrOutput)
+}
+
+type DatasetCreateRequestDataPathOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestDataPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestDataPath)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestDataPathOutput) ToDatasetCreateRequestDataPathOutput() DatasetCreateRequestDataPathOutput {
+	return o
+}
+
+func (o DatasetCreateRequestDataPathOutput) ToDatasetCreateRequestDataPathOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathOutput {
+	return o
+}
+
+func (o DatasetCreateRequestDataPathOutput) ToDatasetCreateRequestDataPathPtrOutput() DatasetCreateRequestDataPathPtrOutput {
+	return o.ToDatasetCreateRequestDataPathPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetCreateRequestDataPathOutput) ToDatasetCreateRequestDataPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestDataPath) *DatasetCreateRequestDataPath {
+		return &v
+	}).(DatasetCreateRequestDataPathPtrOutput)
+}
+
+// The datastore name.
+func (o DatasetCreateRequestDataPathOutput) DatastoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestDataPath) *string { return v.DatastoreName }).(pulumi.StringPtrOutput)
+}
+
+// Path within the datastore.
+func (o DatasetCreateRequestDataPathOutput) RelativePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestDataPath) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
+}
+
+type DatasetCreateRequestDataPathPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestDataPathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestDataPath)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestDataPathPtrOutput) ToDatasetCreateRequestDataPathPtrOutput() DatasetCreateRequestDataPathPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestDataPathPtrOutput) ToDatasetCreateRequestDataPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestDataPathPtrOutput) Elem() DatasetCreateRequestDataPathOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestDataPath) DatasetCreateRequestDataPath { return *v }).(DatasetCreateRequestDataPathOutput)
+}
+
+// The datastore name.
+func (o DatasetCreateRequestDataPathPtrOutput) DatastoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestDataPath) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatastoreName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path within the datastore.
+func (o DatasetCreateRequestDataPathPtrOutput) RelativePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestDataPath) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RelativePath
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetCreateRequestParameters struct {
+	// Header type.
+	Header *string `pulumi:"header"`
+	// Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
+	IncludePath *bool `pulumi:"includePath"`
+	// The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.parquet' where the partition is by country/region and time, partition_format='/{CountryOrRegion}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'CountryOrRegion' with the value 'USA' and a datetime column 'PartitionDate' with the value '2019-01-01
+	PartitionFormat *string                    `pulumi:"partitionFormat"`
+	Path            *DatasetCreateRequestPath  `pulumi:"path"`
+	Query           *DatasetCreateRequestQuery `pulumi:"query"`
+	// The separator used to split columns for 'delimited_files' sourceType.
+	Separator *string `pulumi:"separator"`
+	// Data source type.
+	SourceType *string `pulumi:"sourceType"`
+}
+
+// DatasetCreateRequestParametersInput is an input type that accepts DatasetCreateRequestParametersArgs and DatasetCreateRequestParametersOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestParametersInput` via:
+//
+//          DatasetCreateRequestParametersArgs{...}
+type DatasetCreateRequestParametersInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestParametersOutput() DatasetCreateRequestParametersOutput
+	ToDatasetCreateRequestParametersOutputWithContext(context.Context) DatasetCreateRequestParametersOutput
+}
+
+type DatasetCreateRequestParametersArgs struct {
+	// Header type.
+	Header pulumi.StringPtrInput `pulumi:"header"`
+	// Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
+	IncludePath pulumi.BoolPtrInput `pulumi:"includePath"`
+	// The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.parquet' where the partition is by country/region and time, partition_format='/{CountryOrRegion}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'CountryOrRegion' with the value 'USA' and a datetime column 'PartitionDate' with the value '2019-01-01
+	PartitionFormat pulumi.StringPtrInput             `pulumi:"partitionFormat"`
+	Path            DatasetCreateRequestPathPtrInput  `pulumi:"path"`
+	Query           DatasetCreateRequestQueryPtrInput `pulumi:"query"`
+	// The separator used to split columns for 'delimited_files' sourceType.
+	Separator pulumi.StringPtrInput `pulumi:"separator"`
+	// Data source type.
+	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
+}
+
+func (DatasetCreateRequestParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestParameters)(nil)).Elem()
+}
+
+func (i DatasetCreateRequestParametersArgs) ToDatasetCreateRequestParametersOutput() DatasetCreateRequestParametersOutput {
+	return i.ToDatasetCreateRequestParametersOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestParametersArgs) ToDatasetCreateRequestParametersOutputWithContext(ctx context.Context) DatasetCreateRequestParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestParametersOutput)
+}
+
+func (i DatasetCreateRequestParametersArgs) ToDatasetCreateRequestParametersPtrOutput() DatasetCreateRequestParametersPtrOutput {
+	return i.ToDatasetCreateRequestParametersPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestParametersArgs) ToDatasetCreateRequestParametersPtrOutputWithContext(ctx context.Context) DatasetCreateRequestParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestParametersOutput).ToDatasetCreateRequestParametersPtrOutputWithContext(ctx)
+}
+
+// DatasetCreateRequestParametersPtrInput is an input type that accepts DatasetCreateRequestParametersArgs, DatasetCreateRequestParametersPtr and DatasetCreateRequestParametersPtrOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestParametersPtrInput` via:
+//
+//          DatasetCreateRequestParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetCreateRequestParametersPtrInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestParametersPtrOutput() DatasetCreateRequestParametersPtrOutput
+	ToDatasetCreateRequestParametersPtrOutputWithContext(context.Context) DatasetCreateRequestParametersPtrOutput
+}
+
+type datasetCreateRequestParametersPtrType DatasetCreateRequestParametersArgs
+
+func DatasetCreateRequestParametersPtr(v *DatasetCreateRequestParametersArgs) DatasetCreateRequestParametersPtrInput {
+	return (*datasetCreateRequestParametersPtrType)(v)
+}
+
+func (*datasetCreateRequestParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestParameters)(nil)).Elem()
+}
+
+func (i *datasetCreateRequestParametersPtrType) ToDatasetCreateRequestParametersPtrOutput() DatasetCreateRequestParametersPtrOutput {
+	return i.ToDatasetCreateRequestParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetCreateRequestParametersPtrType) ToDatasetCreateRequestParametersPtrOutputWithContext(ctx context.Context) DatasetCreateRequestParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestParametersPtrOutput)
+}
+
+type DatasetCreateRequestParametersOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestParameters)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestParametersOutput) ToDatasetCreateRequestParametersOutput() DatasetCreateRequestParametersOutput {
+	return o
+}
+
+func (o DatasetCreateRequestParametersOutput) ToDatasetCreateRequestParametersOutputWithContext(ctx context.Context) DatasetCreateRequestParametersOutput {
+	return o
+}
+
+func (o DatasetCreateRequestParametersOutput) ToDatasetCreateRequestParametersPtrOutput() DatasetCreateRequestParametersPtrOutput {
+	return o.ToDatasetCreateRequestParametersPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetCreateRequestParametersOutput) ToDatasetCreateRequestParametersPtrOutputWithContext(ctx context.Context) DatasetCreateRequestParametersPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestParameters) *DatasetCreateRequestParameters {
+		return &v
+	}).(DatasetCreateRequestParametersPtrOutput)
+}
+
+// Header type.
+func (o DatasetCreateRequestParametersOutput) Header() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestParameters) *string { return v.Header }).(pulumi.StringPtrOutput)
+}
+
+// Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
+func (o DatasetCreateRequestParametersOutput) IncludePath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestParameters) *bool { return v.IncludePath }).(pulumi.BoolPtrOutput)
+}
+
+// The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.parquet' where the partition is by country/region and time, partition_format='/{CountryOrRegion}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'CountryOrRegion' with the value 'USA' and a datetime column 'PartitionDate' with the value '2019-01-01
+func (o DatasetCreateRequestParametersOutput) PartitionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestParameters) *string { return v.PartitionFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasetCreateRequestParametersOutput) Path() DatasetCreateRequestPathPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestParameters) *DatasetCreateRequestPath { return v.Path }).(DatasetCreateRequestPathPtrOutput)
+}
+
+func (o DatasetCreateRequestParametersOutput) Query() DatasetCreateRequestQueryPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestParameters) *DatasetCreateRequestQuery { return v.Query }).(DatasetCreateRequestQueryPtrOutput)
+}
+
+// The separator used to split columns for 'delimited_files' sourceType.
+func (o DatasetCreateRequestParametersOutput) Separator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestParameters) *string { return v.Separator }).(pulumi.StringPtrOutput)
+}
+
+// Data source type.
+func (o DatasetCreateRequestParametersOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestParameters) *string { return v.SourceType }).(pulumi.StringPtrOutput)
+}
+
+type DatasetCreateRequestParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestParameters)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestParametersPtrOutput) ToDatasetCreateRequestParametersPtrOutput() DatasetCreateRequestParametersPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestParametersPtrOutput) ToDatasetCreateRequestParametersPtrOutputWithContext(ctx context.Context) DatasetCreateRequestParametersPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestParametersPtrOutput) Elem() DatasetCreateRequestParametersOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestParameters) DatasetCreateRequestParameters { return *v }).(DatasetCreateRequestParametersOutput)
+}
+
+// Header type.
+func (o DatasetCreateRequestParametersPtrOutput) Header() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.StringPtrOutput)
+}
+
+// Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
+func (o DatasetCreateRequestParametersPtrOutput) IncludePath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePath
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.parquet' where the partition is by country/region and time, partition_format='/{CountryOrRegion}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'CountryOrRegion' with the value 'USA' and a datetime column 'PartitionDate' with the value '2019-01-01
+func (o DatasetCreateRequestParametersPtrOutput) PartitionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasetCreateRequestParametersPtrOutput) Path() DatasetCreateRequestPathPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestParameters) *DatasetCreateRequestPath {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(DatasetCreateRequestPathPtrOutput)
+}
+
+func (o DatasetCreateRequestParametersPtrOutput) Query() DatasetCreateRequestQueryPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestParameters) *DatasetCreateRequestQuery {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(DatasetCreateRequestQueryPtrOutput)
+}
+
+// The separator used to split columns for 'delimited_files' sourceType.
+func (o DatasetCreateRequestParametersPtrOutput) Separator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Separator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data source type.
+func (o DatasetCreateRequestParametersPtrOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetCreateRequestPath struct {
+	DataPath *DatasetCreateRequestDataPath `pulumi:"dataPath"`
+	// The Http URL.
+	HttpUrl *string `pulumi:"httpUrl"`
+}
+
+// DatasetCreateRequestPathInput is an input type that accepts DatasetCreateRequestPathArgs and DatasetCreateRequestPathOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestPathInput` via:
+//
+//          DatasetCreateRequestPathArgs{...}
+type DatasetCreateRequestPathInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestPathOutput() DatasetCreateRequestPathOutput
+	ToDatasetCreateRequestPathOutputWithContext(context.Context) DatasetCreateRequestPathOutput
+}
+
+type DatasetCreateRequestPathArgs struct {
+	DataPath DatasetCreateRequestDataPathPtrInput `pulumi:"dataPath"`
+	// The Http URL.
+	HttpUrl pulumi.StringPtrInput `pulumi:"httpUrl"`
+}
+
+func (DatasetCreateRequestPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestPath)(nil)).Elem()
+}
+
+func (i DatasetCreateRequestPathArgs) ToDatasetCreateRequestPathOutput() DatasetCreateRequestPathOutput {
+	return i.ToDatasetCreateRequestPathOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestPathArgs) ToDatasetCreateRequestPathOutputWithContext(ctx context.Context) DatasetCreateRequestPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestPathOutput)
+}
+
+func (i DatasetCreateRequestPathArgs) ToDatasetCreateRequestPathPtrOutput() DatasetCreateRequestPathPtrOutput {
+	return i.ToDatasetCreateRequestPathPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestPathArgs) ToDatasetCreateRequestPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestPathOutput).ToDatasetCreateRequestPathPtrOutputWithContext(ctx)
+}
+
+// DatasetCreateRequestPathPtrInput is an input type that accepts DatasetCreateRequestPathArgs, DatasetCreateRequestPathPtr and DatasetCreateRequestPathPtrOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestPathPtrInput` via:
+//
+//          DatasetCreateRequestPathArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetCreateRequestPathPtrInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestPathPtrOutput() DatasetCreateRequestPathPtrOutput
+	ToDatasetCreateRequestPathPtrOutputWithContext(context.Context) DatasetCreateRequestPathPtrOutput
+}
+
+type datasetCreateRequestPathPtrType DatasetCreateRequestPathArgs
+
+func DatasetCreateRequestPathPtr(v *DatasetCreateRequestPathArgs) DatasetCreateRequestPathPtrInput {
+	return (*datasetCreateRequestPathPtrType)(v)
+}
+
+func (*datasetCreateRequestPathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestPath)(nil)).Elem()
+}
+
+func (i *datasetCreateRequestPathPtrType) ToDatasetCreateRequestPathPtrOutput() DatasetCreateRequestPathPtrOutput {
+	return i.ToDatasetCreateRequestPathPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetCreateRequestPathPtrType) ToDatasetCreateRequestPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestPathPtrOutput)
+}
+
+type DatasetCreateRequestPathOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestPath)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestPathOutput) ToDatasetCreateRequestPathOutput() DatasetCreateRequestPathOutput {
+	return o
+}
+
+func (o DatasetCreateRequestPathOutput) ToDatasetCreateRequestPathOutputWithContext(ctx context.Context) DatasetCreateRequestPathOutput {
+	return o
+}
+
+func (o DatasetCreateRequestPathOutput) ToDatasetCreateRequestPathPtrOutput() DatasetCreateRequestPathPtrOutput {
+	return o.ToDatasetCreateRequestPathPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetCreateRequestPathOutput) ToDatasetCreateRequestPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestPathPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestPath) *DatasetCreateRequestPath {
+		return &v
+	}).(DatasetCreateRequestPathPtrOutput)
+}
+func (o DatasetCreateRequestPathOutput) DataPath() DatasetCreateRequestDataPathPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestPath) *DatasetCreateRequestDataPath { return v.DataPath }).(DatasetCreateRequestDataPathPtrOutput)
+}
+
+// The Http URL.
+func (o DatasetCreateRequestPathOutput) HttpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestPath) *string { return v.HttpUrl }).(pulumi.StringPtrOutput)
+}
+
+type DatasetCreateRequestPathPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestPathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestPath)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestPathPtrOutput) ToDatasetCreateRequestPathPtrOutput() DatasetCreateRequestPathPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestPathPtrOutput) ToDatasetCreateRequestPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestPathPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestPathPtrOutput) Elem() DatasetCreateRequestPathOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestPath) DatasetCreateRequestPath { return *v }).(DatasetCreateRequestPathOutput)
+}
+
+func (o DatasetCreateRequestPathPtrOutput) DataPath() DatasetCreateRequestDataPathPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestPath) *DatasetCreateRequestDataPath {
+		if v == nil {
+			return nil
+		}
+		return v.DataPath
+	}).(DatasetCreateRequestDataPathPtrOutput)
+}
+
+// The Http URL.
+func (o DatasetCreateRequestPathPtrOutput) HttpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestPath) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetCreateRequestQuery struct {
+	// The SQL/PostgreSQL/MySQL datastore name.
+	DatastoreName *string `pulumi:"datastoreName"`
+	// SQL Quey.
+	Query *string `pulumi:"query"`
+}
+
+// DatasetCreateRequestQueryInput is an input type that accepts DatasetCreateRequestQueryArgs and DatasetCreateRequestQueryOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestQueryInput` via:
+//
+//          DatasetCreateRequestQueryArgs{...}
+type DatasetCreateRequestQueryInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestQueryOutput() DatasetCreateRequestQueryOutput
+	ToDatasetCreateRequestQueryOutputWithContext(context.Context) DatasetCreateRequestQueryOutput
+}
+
+type DatasetCreateRequestQueryArgs struct {
+	// The SQL/PostgreSQL/MySQL datastore name.
+	DatastoreName pulumi.StringPtrInput `pulumi:"datastoreName"`
+	// SQL Quey.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (DatasetCreateRequestQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestQuery)(nil)).Elem()
+}
+
+func (i DatasetCreateRequestQueryArgs) ToDatasetCreateRequestQueryOutput() DatasetCreateRequestQueryOutput {
+	return i.ToDatasetCreateRequestQueryOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestQueryArgs) ToDatasetCreateRequestQueryOutputWithContext(ctx context.Context) DatasetCreateRequestQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestQueryOutput)
+}
+
+func (i DatasetCreateRequestQueryArgs) ToDatasetCreateRequestQueryPtrOutput() DatasetCreateRequestQueryPtrOutput {
+	return i.ToDatasetCreateRequestQueryPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestQueryArgs) ToDatasetCreateRequestQueryPtrOutputWithContext(ctx context.Context) DatasetCreateRequestQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestQueryOutput).ToDatasetCreateRequestQueryPtrOutputWithContext(ctx)
+}
+
+// DatasetCreateRequestQueryPtrInput is an input type that accepts DatasetCreateRequestQueryArgs, DatasetCreateRequestQueryPtr and DatasetCreateRequestQueryPtrOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestQueryPtrInput` via:
+//
+//          DatasetCreateRequestQueryArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetCreateRequestQueryPtrInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestQueryPtrOutput() DatasetCreateRequestQueryPtrOutput
+	ToDatasetCreateRequestQueryPtrOutputWithContext(context.Context) DatasetCreateRequestQueryPtrOutput
+}
+
+type datasetCreateRequestQueryPtrType DatasetCreateRequestQueryArgs
+
+func DatasetCreateRequestQueryPtr(v *DatasetCreateRequestQueryArgs) DatasetCreateRequestQueryPtrInput {
+	return (*datasetCreateRequestQueryPtrType)(v)
+}
+
+func (*datasetCreateRequestQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestQuery)(nil)).Elem()
+}
+
+func (i *datasetCreateRequestQueryPtrType) ToDatasetCreateRequestQueryPtrOutput() DatasetCreateRequestQueryPtrOutput {
+	return i.ToDatasetCreateRequestQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetCreateRequestQueryPtrType) ToDatasetCreateRequestQueryPtrOutputWithContext(ctx context.Context) DatasetCreateRequestQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestQueryPtrOutput)
+}
+
+type DatasetCreateRequestQueryOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestQuery)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestQueryOutput) ToDatasetCreateRequestQueryOutput() DatasetCreateRequestQueryOutput {
+	return o
+}
+
+func (o DatasetCreateRequestQueryOutput) ToDatasetCreateRequestQueryOutputWithContext(ctx context.Context) DatasetCreateRequestQueryOutput {
+	return o
+}
+
+func (o DatasetCreateRequestQueryOutput) ToDatasetCreateRequestQueryPtrOutput() DatasetCreateRequestQueryPtrOutput {
+	return o.ToDatasetCreateRequestQueryPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetCreateRequestQueryOutput) ToDatasetCreateRequestQueryPtrOutputWithContext(ctx context.Context) DatasetCreateRequestQueryPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestQuery) *DatasetCreateRequestQuery {
+		return &v
+	}).(DatasetCreateRequestQueryPtrOutput)
+}
+
+// The SQL/PostgreSQL/MySQL datastore name.
+func (o DatasetCreateRequestQueryOutput) DatastoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestQuery) *string { return v.DatastoreName }).(pulumi.StringPtrOutput)
+}
+
+// SQL Quey.
+func (o DatasetCreateRequestQueryOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestQuery) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type DatasetCreateRequestQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestQuery)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestQueryPtrOutput) ToDatasetCreateRequestQueryPtrOutput() DatasetCreateRequestQueryPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestQueryPtrOutput) ToDatasetCreateRequestQueryPtrOutputWithContext(ctx context.Context) DatasetCreateRequestQueryPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestQueryPtrOutput) Elem() DatasetCreateRequestQueryOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestQuery) DatasetCreateRequestQuery { return *v }).(DatasetCreateRequestQueryOutput)
+}
+
+// The SQL/PostgreSQL/MySQL datastore name.
+func (o DatasetCreateRequestQueryPtrOutput) DatastoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatastoreName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SQL Quey.
+func (o DatasetCreateRequestQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetCreateRequestRegistration struct {
+	// The description for the dataset.
+	Description *string `pulumi:"description"`
+	// The name of the dataset.
+	Name *string `pulumi:"name"`
+	// Tags associated with the dataset.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// DatasetCreateRequestRegistrationInput is an input type that accepts DatasetCreateRequestRegistrationArgs and DatasetCreateRequestRegistrationOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestRegistrationInput` via:
+//
+//          DatasetCreateRequestRegistrationArgs{...}
+type DatasetCreateRequestRegistrationInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestRegistrationOutput() DatasetCreateRequestRegistrationOutput
+	ToDatasetCreateRequestRegistrationOutputWithContext(context.Context) DatasetCreateRequestRegistrationOutput
+}
+
+type DatasetCreateRequestRegistrationArgs struct {
+	// The description for the dataset.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the dataset.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Tags associated with the dataset.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (DatasetCreateRequestRegistrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestRegistration)(nil)).Elem()
+}
+
+func (i DatasetCreateRequestRegistrationArgs) ToDatasetCreateRequestRegistrationOutput() DatasetCreateRequestRegistrationOutput {
+	return i.ToDatasetCreateRequestRegistrationOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestRegistrationArgs) ToDatasetCreateRequestRegistrationOutputWithContext(ctx context.Context) DatasetCreateRequestRegistrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestRegistrationOutput)
+}
+
+func (i DatasetCreateRequestRegistrationArgs) ToDatasetCreateRequestRegistrationPtrOutput() DatasetCreateRequestRegistrationPtrOutput {
+	return i.ToDatasetCreateRequestRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestRegistrationArgs) ToDatasetCreateRequestRegistrationPtrOutputWithContext(ctx context.Context) DatasetCreateRequestRegistrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestRegistrationOutput).ToDatasetCreateRequestRegistrationPtrOutputWithContext(ctx)
+}
+
+// DatasetCreateRequestRegistrationPtrInput is an input type that accepts DatasetCreateRequestRegistrationArgs, DatasetCreateRequestRegistrationPtr and DatasetCreateRequestRegistrationPtrOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestRegistrationPtrInput` via:
+//
+//          DatasetCreateRequestRegistrationArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetCreateRequestRegistrationPtrInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestRegistrationPtrOutput() DatasetCreateRequestRegistrationPtrOutput
+	ToDatasetCreateRequestRegistrationPtrOutputWithContext(context.Context) DatasetCreateRequestRegistrationPtrOutput
+}
+
+type datasetCreateRequestRegistrationPtrType DatasetCreateRequestRegistrationArgs
+
+func DatasetCreateRequestRegistrationPtr(v *DatasetCreateRequestRegistrationArgs) DatasetCreateRequestRegistrationPtrInput {
+	return (*datasetCreateRequestRegistrationPtrType)(v)
+}
+
+func (*datasetCreateRequestRegistrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestRegistration)(nil)).Elem()
+}
+
+func (i *datasetCreateRequestRegistrationPtrType) ToDatasetCreateRequestRegistrationPtrOutput() DatasetCreateRequestRegistrationPtrOutput {
+	return i.ToDatasetCreateRequestRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetCreateRequestRegistrationPtrType) ToDatasetCreateRequestRegistrationPtrOutputWithContext(ctx context.Context) DatasetCreateRequestRegistrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestRegistrationPtrOutput)
+}
+
+type DatasetCreateRequestRegistrationOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestRegistrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestRegistration)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestRegistrationOutput) ToDatasetCreateRequestRegistrationOutput() DatasetCreateRequestRegistrationOutput {
+	return o
+}
+
+func (o DatasetCreateRequestRegistrationOutput) ToDatasetCreateRequestRegistrationOutputWithContext(ctx context.Context) DatasetCreateRequestRegistrationOutput {
+	return o
+}
+
+func (o DatasetCreateRequestRegistrationOutput) ToDatasetCreateRequestRegistrationPtrOutput() DatasetCreateRequestRegistrationPtrOutput {
+	return o.ToDatasetCreateRequestRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetCreateRequestRegistrationOutput) ToDatasetCreateRequestRegistrationPtrOutputWithContext(ctx context.Context) DatasetCreateRequestRegistrationPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestRegistration) *DatasetCreateRequestRegistration {
+		return &v
+	}).(DatasetCreateRequestRegistrationPtrOutput)
+}
+
+// The description for the dataset.
+func (o DatasetCreateRequestRegistrationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestRegistration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the dataset.
+func (o DatasetCreateRequestRegistrationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestRegistration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Tags associated with the dataset.
+func (o DatasetCreateRequestRegistrationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DatasetCreateRequestRegistration) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type DatasetCreateRequestRegistrationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestRegistrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestRegistration)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestRegistrationPtrOutput) ToDatasetCreateRequestRegistrationPtrOutput() DatasetCreateRequestRegistrationPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestRegistrationPtrOutput) ToDatasetCreateRequestRegistrationPtrOutputWithContext(ctx context.Context) DatasetCreateRequestRegistrationPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestRegistrationPtrOutput) Elem() DatasetCreateRequestRegistrationOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestRegistration) DatasetCreateRequestRegistration { return *v }).(DatasetCreateRequestRegistrationOutput)
+}
+
+// The description for the dataset.
+func (o DatasetCreateRequestRegistrationPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestRegistration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the dataset.
+func (o DatasetCreateRequestRegistrationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestRegistration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tags associated with the dataset.
+func (o DatasetCreateRequestRegistrationPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestRegistration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+type DatasetCreateRequestTimeSeries struct {
+	// Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
+	CoarseGrainTimestamp *string `pulumi:"coarseGrainTimestamp"`
+	//  Column name to be used as FineGrainTimestamp
+	FineGrainTimestamp *string `pulumi:"fineGrainTimestamp"`
+}
+
+// DatasetCreateRequestTimeSeriesInput is an input type that accepts DatasetCreateRequestTimeSeriesArgs and DatasetCreateRequestTimeSeriesOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestTimeSeriesInput` via:
+//
+//          DatasetCreateRequestTimeSeriesArgs{...}
+type DatasetCreateRequestTimeSeriesInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestTimeSeriesOutput() DatasetCreateRequestTimeSeriesOutput
+	ToDatasetCreateRequestTimeSeriesOutputWithContext(context.Context) DatasetCreateRequestTimeSeriesOutput
+}
+
+type DatasetCreateRequestTimeSeriesArgs struct {
+	// Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
+	CoarseGrainTimestamp pulumi.StringPtrInput `pulumi:"coarseGrainTimestamp"`
+	//  Column name to be used as FineGrainTimestamp
+	FineGrainTimestamp pulumi.StringPtrInput `pulumi:"fineGrainTimestamp"`
+}
+
+func (DatasetCreateRequestTimeSeriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestTimeSeries)(nil)).Elem()
+}
+
+func (i DatasetCreateRequestTimeSeriesArgs) ToDatasetCreateRequestTimeSeriesOutput() DatasetCreateRequestTimeSeriesOutput {
+	return i.ToDatasetCreateRequestTimeSeriesOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestTimeSeriesArgs) ToDatasetCreateRequestTimeSeriesOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestTimeSeriesOutput)
+}
+
+func (i DatasetCreateRequestTimeSeriesArgs) ToDatasetCreateRequestTimeSeriesPtrOutput() DatasetCreateRequestTimeSeriesPtrOutput {
+	return i.ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetCreateRequestTimeSeriesArgs) ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestTimeSeriesOutput).ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(ctx)
+}
+
+// DatasetCreateRequestTimeSeriesPtrInput is an input type that accepts DatasetCreateRequestTimeSeriesArgs, DatasetCreateRequestTimeSeriesPtr and DatasetCreateRequestTimeSeriesPtrOutput values.
+// You can construct a concrete instance of `DatasetCreateRequestTimeSeriesPtrInput` via:
+//
+//          DatasetCreateRequestTimeSeriesArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetCreateRequestTimeSeriesPtrInput interface {
+	pulumi.Input
+
+	ToDatasetCreateRequestTimeSeriesPtrOutput() DatasetCreateRequestTimeSeriesPtrOutput
+	ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(context.Context) DatasetCreateRequestTimeSeriesPtrOutput
+}
+
+type datasetCreateRequestTimeSeriesPtrType DatasetCreateRequestTimeSeriesArgs
+
+func DatasetCreateRequestTimeSeriesPtr(v *DatasetCreateRequestTimeSeriesArgs) DatasetCreateRequestTimeSeriesPtrInput {
+	return (*datasetCreateRequestTimeSeriesPtrType)(v)
+}
+
+func (*datasetCreateRequestTimeSeriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestTimeSeries)(nil)).Elem()
+}
+
+func (i *datasetCreateRequestTimeSeriesPtrType) ToDatasetCreateRequestTimeSeriesPtrOutput() DatasetCreateRequestTimeSeriesPtrOutput {
+	return i.ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetCreateRequestTimeSeriesPtrType) ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestTimeSeriesPtrOutput)
+}
+
+type DatasetCreateRequestTimeSeriesOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestTimeSeriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCreateRequestTimeSeries)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestTimeSeriesOutput) ToDatasetCreateRequestTimeSeriesOutput() DatasetCreateRequestTimeSeriesOutput {
+	return o
+}
+
+func (o DatasetCreateRequestTimeSeriesOutput) ToDatasetCreateRequestTimeSeriesOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesOutput {
+	return o
+}
+
+func (o DatasetCreateRequestTimeSeriesOutput) ToDatasetCreateRequestTimeSeriesPtrOutput() DatasetCreateRequestTimeSeriesPtrOutput {
+	return o.ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetCreateRequestTimeSeriesOutput) ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestTimeSeries) *DatasetCreateRequestTimeSeries {
+		return &v
+	}).(DatasetCreateRequestTimeSeriesPtrOutput)
+}
+
+// Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
+func (o DatasetCreateRequestTimeSeriesOutput) CoarseGrainTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestTimeSeries) *string { return v.CoarseGrainTimestamp }).(pulumi.StringPtrOutput)
+}
+
+//  Column name to be used as FineGrainTimestamp
+func (o DatasetCreateRequestTimeSeriesOutput) FineGrainTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCreateRequestTimeSeries) *string { return v.FineGrainTimestamp }).(pulumi.StringPtrOutput)
+}
+
+type DatasetCreateRequestTimeSeriesPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetCreateRequestTimeSeriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCreateRequestTimeSeries)(nil)).Elem()
+}
+
+func (o DatasetCreateRequestTimeSeriesPtrOutput) ToDatasetCreateRequestTimeSeriesPtrOutput() DatasetCreateRequestTimeSeriesPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestTimeSeriesPtrOutput) ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesPtrOutput {
+	return o
+}
+
+func (o DatasetCreateRequestTimeSeriesPtrOutput) Elem() DatasetCreateRequestTimeSeriesOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestTimeSeries) DatasetCreateRequestTimeSeries { return *v }).(DatasetCreateRequestTimeSeriesOutput)
+}
+
+// Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
+func (o DatasetCreateRequestTimeSeriesPtrOutput) CoarseGrainTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestTimeSeries) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CoarseGrainTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+//  Column name to be used as FineGrainTimestamp
+func (o DatasetCreateRequestTimeSeriesPtrOutput) FineGrainTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCreateRequestTimeSeries) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FineGrainTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
 // The dataset reference object.
 type DatasetReference struct {
 	// The id of the dataset reference.
@@ -5295,6 +8750,2006 @@ func (o DatasetReferenceResponseArrayOutput) Index(i pulumi.IntInput) DatasetRef
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetReferenceResponse {
 		return vs[0].([]DatasetReferenceResponse)[vs[1].(int)]
 	}).(DatasetReferenceResponseOutput)
+}
+
+// Machine Learning dataset object.
+type DatasetResponse struct {
+	// The dataset creation time (UTC).
+	CreatedTime string `pulumi:"createdTime"`
+	// Unique Dataset identifier.
+	DatasetId string `pulumi:"datasetId"`
+	// Dataset state
+	DatasetState *DatasetStateResponse `pulumi:"datasetState"`
+	// Dataset Type.
+	DatasetType string `pulumi:"datasetType"`
+	// Name of the default compute to be used for any Dataset actions (such as Profile, Write).
+	DefaultCompute string `pulumi:"defaultCompute"`
+	// Description about this dataset version.
+	Description string `pulumi:"description"`
+	// eTag description
+	Etag string `pulumi:"etag"`
+	// Flag to hide Dataset in UI
+	IsVisible bool `pulumi:"isVisible"`
+	// Last created Dataset definition.
+	Latest *DatasetResponseLatest `pulumi:"latest"`
+	// The dataset last modified time (UTC).
+	ModifiedTime string `pulumi:"modifiedTime"`
+	// Unique dataset name
+	Name string `pulumi:"name"`
+	// Tags for this dataset version.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// DatasetResponseInput is an input type that accepts DatasetResponseArgs and DatasetResponseOutput values.
+// You can construct a concrete instance of `DatasetResponseInput` via:
+//
+//          DatasetResponseArgs{...}
+type DatasetResponseInput interface {
+	pulumi.Input
+
+	ToDatasetResponseOutput() DatasetResponseOutput
+	ToDatasetResponseOutputWithContext(context.Context) DatasetResponseOutput
+}
+
+// Machine Learning dataset object.
+type DatasetResponseArgs struct {
+	// The dataset creation time (UTC).
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// Unique Dataset identifier.
+	DatasetId pulumi.StringInput `pulumi:"datasetId"`
+	// Dataset state
+	DatasetState DatasetStateResponsePtrInput `pulumi:"datasetState"`
+	// Dataset Type.
+	DatasetType pulumi.StringInput `pulumi:"datasetType"`
+	// Name of the default compute to be used for any Dataset actions (such as Profile, Write).
+	DefaultCompute pulumi.StringInput `pulumi:"defaultCompute"`
+	// Description about this dataset version.
+	Description pulumi.StringInput `pulumi:"description"`
+	// eTag description
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Flag to hide Dataset in UI
+	IsVisible pulumi.BoolInput `pulumi:"isVisible"`
+	// Last created Dataset definition.
+	Latest DatasetResponseLatestPtrInput `pulumi:"latest"`
+	// The dataset last modified time (UTC).
+	ModifiedTime pulumi.StringInput `pulumi:"modifiedTime"`
+	// Unique dataset name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Tags for this dataset version.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (DatasetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetResponse)(nil)).Elem()
+}
+
+func (i DatasetResponseArgs) ToDatasetResponseOutput() DatasetResponseOutput {
+	return i.ToDatasetResponseOutputWithContext(context.Background())
+}
+
+func (i DatasetResponseArgs) ToDatasetResponseOutputWithContext(ctx context.Context) DatasetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseOutput)
+}
+
+func (i DatasetResponseArgs) ToDatasetResponsePtrOutput() DatasetResponsePtrOutput {
+	return i.ToDatasetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DatasetResponseArgs) ToDatasetResponsePtrOutputWithContext(ctx context.Context) DatasetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseOutput).ToDatasetResponsePtrOutputWithContext(ctx)
+}
+
+// DatasetResponsePtrInput is an input type that accepts DatasetResponseArgs, DatasetResponsePtr and DatasetResponsePtrOutput values.
+// You can construct a concrete instance of `DatasetResponsePtrInput` via:
+//
+//          DatasetResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetResponsePtrInput interface {
+	pulumi.Input
+
+	ToDatasetResponsePtrOutput() DatasetResponsePtrOutput
+	ToDatasetResponsePtrOutputWithContext(context.Context) DatasetResponsePtrOutput
+}
+
+type datasetResponsePtrType DatasetResponseArgs
+
+func DatasetResponsePtr(v *DatasetResponseArgs) DatasetResponsePtrInput {
+	return (*datasetResponsePtrType)(v)
+}
+
+func (*datasetResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetResponse)(nil)).Elem()
+}
+
+func (i *datasetResponsePtrType) ToDatasetResponsePtrOutput() DatasetResponsePtrOutput {
+	return i.ToDatasetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *datasetResponsePtrType) ToDatasetResponsePtrOutputWithContext(ctx context.Context) DatasetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponsePtrOutput)
+}
+
+// Machine Learning dataset object.
+type DatasetResponseOutput struct{ *pulumi.OutputState }
+
+func (DatasetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetResponse)(nil)).Elem()
+}
+
+func (o DatasetResponseOutput) ToDatasetResponseOutput() DatasetResponseOutput {
+	return o
+}
+
+func (o DatasetResponseOutput) ToDatasetResponseOutputWithContext(ctx context.Context) DatasetResponseOutput {
+	return o
+}
+
+func (o DatasetResponseOutput) ToDatasetResponsePtrOutput() DatasetResponsePtrOutput {
+	return o.ToDatasetResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DatasetResponseOutput) ToDatasetResponsePtrOutputWithContext(ctx context.Context) DatasetResponsePtrOutput {
+	return o.ApplyT(func(v DatasetResponse) *DatasetResponse {
+		return &v
+	}).(DatasetResponsePtrOutput)
+}
+
+// The dataset creation time (UTC).
+func (o DatasetResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Unique Dataset identifier.
+func (o DatasetResponseOutput) DatasetId() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponse) string { return v.DatasetId }).(pulumi.StringOutput)
+}
+
+// Dataset state
+func (o DatasetResponseOutput) DatasetState() DatasetStateResponsePtrOutput {
+	return o.ApplyT(func(v DatasetResponse) *DatasetStateResponse { return v.DatasetState }).(DatasetStateResponsePtrOutput)
+}
+
+// Dataset Type.
+func (o DatasetResponseOutput) DatasetType() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponse) string { return v.DatasetType }).(pulumi.StringOutput)
+}
+
+// Name of the default compute to be used for any Dataset actions (such as Profile, Write).
+func (o DatasetResponseOutput) DefaultCompute() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponse) string { return v.DefaultCompute }).(pulumi.StringOutput)
+}
+
+// Description about this dataset version.
+func (o DatasetResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// eTag description
+func (o DatasetResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Flag to hide Dataset in UI
+func (o DatasetResponseOutput) IsVisible() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatasetResponse) bool { return v.IsVisible }).(pulumi.BoolOutput)
+}
+
+// Last created Dataset definition.
+func (o DatasetResponseOutput) Latest() DatasetResponseLatestPtrOutput {
+	return o.ApplyT(func(v DatasetResponse) *DatasetResponseLatest { return v.Latest }).(DatasetResponseLatestPtrOutput)
+}
+
+// The dataset last modified time (UTC).
+func (o DatasetResponseOutput) ModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponse) string { return v.ModifiedTime }).(pulumi.StringOutput)
+}
+
+// Unique dataset name
+func (o DatasetResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tags for this dataset version.
+func (o DatasetResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DatasetResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type DatasetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetResponse)(nil)).Elem()
+}
+
+func (o DatasetResponsePtrOutput) ToDatasetResponsePtrOutput() DatasetResponsePtrOutput {
+	return o
+}
+
+func (o DatasetResponsePtrOutput) ToDatasetResponsePtrOutputWithContext(ctx context.Context) DatasetResponsePtrOutput {
+	return o
+}
+
+func (o DatasetResponsePtrOutput) Elem() DatasetResponseOutput {
+	return o.ApplyT(func(v *DatasetResponse) DatasetResponse { return *v }).(DatasetResponseOutput)
+}
+
+// The dataset creation time (UTC).
+func (o DatasetResponsePtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique Dataset identifier.
+func (o DatasetResponsePtrOutput) DatasetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dataset state
+func (o DatasetResponsePtrOutput) DatasetState() DatasetStateResponsePtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *DatasetStateResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DatasetState
+	}).(DatasetStateResponsePtrOutput)
+}
+
+// Dataset Type.
+func (o DatasetResponsePtrOutput) DatasetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the default compute to be used for any Dataset actions (such as Profile, Write).
+func (o DatasetResponsePtrOutput) DefaultCompute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultCompute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description about this dataset version.
+func (o DatasetResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// eTag description
+func (o DatasetResponsePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Flag to hide Dataset in UI
+func (o DatasetResponsePtrOutput) IsVisible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsVisible
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Last created Dataset definition.
+func (o DatasetResponsePtrOutput) Latest() DatasetResponseLatestPtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *DatasetResponseLatest {
+		if v == nil {
+			return nil
+		}
+		return v.Latest
+	}).(DatasetResponseLatestPtrOutput)
+}
+
+// The dataset last modified time (UTC).
+func (o DatasetResponsePtrOutput) ModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModifiedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique dataset name
+func (o DatasetResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tags for this dataset version.
+func (o DatasetResponsePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatasetResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
+type DatasetResponseDataPath struct {
+	// Additional Properties.
+	AdditionalProperties map[string]map[string]interface{} `pulumi:"additionalProperties"`
+	// Azure path for Azure Blob or File
+	AzureFilePath string `pulumi:"azureFilePath"`
+	// Data store Name
+	DatastoreName string `pulumi:"datastoreName"`
+	// HTTP URL.
+	HttpUrl string `pulumi:"httpUrl"`
+	// Specify the partition format of path. Defaults to None.
+	PartitionFormat string `pulumi:"partitionFormat"`
+	// Whether or not to ignore unmatched path.
+	PartitionFormatIgnoreError bool `pulumi:"partitionFormatIgnoreError"`
+	// List of files expanded from a file GLOB specified
+	Paths []string `pulumi:"paths"`
+	// Relative path in the data store
+	RelativePath string `pulumi:"relativePath"`
+	// Sql Query/Table/Stored Procedure details.
+	SqlDataPath *DatasetResponseSqlDataPath `pulumi:"sqlDataPath"`
+}
+
+// DatasetResponseDataPathInput is an input type that accepts DatasetResponseDataPathArgs and DatasetResponseDataPathOutput values.
+// You can construct a concrete instance of `DatasetResponseDataPathInput` via:
+//
+//          DatasetResponseDataPathArgs{...}
+type DatasetResponseDataPathInput interface {
+	pulumi.Input
+
+	ToDatasetResponseDataPathOutput() DatasetResponseDataPathOutput
+	ToDatasetResponseDataPathOutputWithContext(context.Context) DatasetResponseDataPathOutput
+}
+
+//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
+type DatasetResponseDataPathArgs struct {
+	// Additional Properties.
+	AdditionalProperties pulumi.MapMapInput `pulumi:"additionalProperties"`
+	// Azure path for Azure Blob or File
+	AzureFilePath pulumi.StringInput `pulumi:"azureFilePath"`
+	// Data store Name
+	DatastoreName pulumi.StringInput `pulumi:"datastoreName"`
+	// HTTP URL.
+	HttpUrl pulumi.StringInput `pulumi:"httpUrl"`
+	// Specify the partition format of path. Defaults to None.
+	PartitionFormat pulumi.StringInput `pulumi:"partitionFormat"`
+	// Whether or not to ignore unmatched path.
+	PartitionFormatIgnoreError pulumi.BoolInput `pulumi:"partitionFormatIgnoreError"`
+	// List of files expanded from a file GLOB specified
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+	// Relative path in the data store
+	RelativePath pulumi.StringInput `pulumi:"relativePath"`
+	// Sql Query/Table/Stored Procedure details.
+	SqlDataPath DatasetResponseSqlDataPathPtrInput `pulumi:"sqlDataPath"`
+}
+
+func (DatasetResponseDataPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetResponseDataPath)(nil)).Elem()
+}
+
+func (i DatasetResponseDataPathArgs) ToDatasetResponseDataPathOutput() DatasetResponseDataPathOutput {
+	return i.ToDatasetResponseDataPathOutputWithContext(context.Background())
+}
+
+func (i DatasetResponseDataPathArgs) ToDatasetResponseDataPathOutputWithContext(ctx context.Context) DatasetResponseDataPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseDataPathOutput)
+}
+
+func (i DatasetResponseDataPathArgs) ToDatasetResponseDataPathPtrOutput() DatasetResponseDataPathPtrOutput {
+	return i.ToDatasetResponseDataPathPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetResponseDataPathArgs) ToDatasetResponseDataPathPtrOutputWithContext(ctx context.Context) DatasetResponseDataPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseDataPathOutput).ToDatasetResponseDataPathPtrOutputWithContext(ctx)
+}
+
+// DatasetResponseDataPathPtrInput is an input type that accepts DatasetResponseDataPathArgs, DatasetResponseDataPathPtr and DatasetResponseDataPathPtrOutput values.
+// You can construct a concrete instance of `DatasetResponseDataPathPtrInput` via:
+//
+//          DatasetResponseDataPathArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetResponseDataPathPtrInput interface {
+	pulumi.Input
+
+	ToDatasetResponseDataPathPtrOutput() DatasetResponseDataPathPtrOutput
+	ToDatasetResponseDataPathPtrOutputWithContext(context.Context) DatasetResponseDataPathPtrOutput
+}
+
+type datasetResponseDataPathPtrType DatasetResponseDataPathArgs
+
+func DatasetResponseDataPathPtr(v *DatasetResponseDataPathArgs) DatasetResponseDataPathPtrInput {
+	return (*datasetResponseDataPathPtrType)(v)
+}
+
+func (*datasetResponseDataPathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetResponseDataPath)(nil)).Elem()
+}
+
+func (i *datasetResponseDataPathPtrType) ToDatasetResponseDataPathPtrOutput() DatasetResponseDataPathPtrOutput {
+	return i.ToDatasetResponseDataPathPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetResponseDataPathPtrType) ToDatasetResponseDataPathPtrOutputWithContext(ctx context.Context) DatasetResponseDataPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseDataPathPtrOutput)
+}
+
+//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
+type DatasetResponseDataPathOutput struct{ *pulumi.OutputState }
+
+func (DatasetResponseDataPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetResponseDataPath)(nil)).Elem()
+}
+
+func (o DatasetResponseDataPathOutput) ToDatasetResponseDataPathOutput() DatasetResponseDataPathOutput {
+	return o
+}
+
+func (o DatasetResponseDataPathOutput) ToDatasetResponseDataPathOutputWithContext(ctx context.Context) DatasetResponseDataPathOutput {
+	return o
+}
+
+func (o DatasetResponseDataPathOutput) ToDatasetResponseDataPathPtrOutput() DatasetResponseDataPathPtrOutput {
+	return o.ToDatasetResponseDataPathPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetResponseDataPathOutput) ToDatasetResponseDataPathPtrOutputWithContext(ctx context.Context) DatasetResponseDataPathPtrOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) *DatasetResponseDataPath {
+		return &v
+	}).(DatasetResponseDataPathPtrOutput)
+}
+
+// Additional Properties.
+func (o DatasetResponseDataPathOutput) AdditionalProperties() pulumi.MapMapOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) map[string]map[string]interface{} { return v.AdditionalProperties }).(pulumi.MapMapOutput)
+}
+
+// Azure path for Azure Blob or File
+func (o DatasetResponseDataPathOutput) AzureFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) string { return v.AzureFilePath }).(pulumi.StringOutput)
+}
+
+// Data store Name
+func (o DatasetResponseDataPathOutput) DatastoreName() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) string { return v.DatastoreName }).(pulumi.StringOutput)
+}
+
+// HTTP URL.
+func (o DatasetResponseDataPathOutput) HttpUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) string { return v.HttpUrl }).(pulumi.StringOutput)
+}
+
+// Specify the partition format of path. Defaults to None.
+func (o DatasetResponseDataPathOutput) PartitionFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) string { return v.PartitionFormat }).(pulumi.StringOutput)
+}
+
+// Whether or not to ignore unmatched path.
+func (o DatasetResponseDataPathOutput) PartitionFormatIgnoreError() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) bool { return v.PartitionFormatIgnoreError }).(pulumi.BoolOutput)
+}
+
+// List of files expanded from a file GLOB specified
+func (o DatasetResponseDataPathOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+// Relative path in the data store
+func (o DatasetResponseDataPathOutput) RelativePath() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) string { return v.RelativePath }).(pulumi.StringOutput)
+}
+
+// Sql Query/Table/Stored Procedure details.
+func (o DatasetResponseDataPathOutput) SqlDataPath() DatasetResponseSqlDataPathPtrOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) *DatasetResponseSqlDataPath { return v.SqlDataPath }).(DatasetResponseSqlDataPathPtrOutput)
+}
+
+type DatasetResponseDataPathPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetResponseDataPathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetResponseDataPath)(nil)).Elem()
+}
+
+func (o DatasetResponseDataPathPtrOutput) ToDatasetResponseDataPathPtrOutput() DatasetResponseDataPathPtrOutput {
+	return o
+}
+
+func (o DatasetResponseDataPathPtrOutput) ToDatasetResponseDataPathPtrOutputWithContext(ctx context.Context) DatasetResponseDataPathPtrOutput {
+	return o
+}
+
+func (o DatasetResponseDataPathPtrOutput) Elem() DatasetResponseDataPathOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) DatasetResponseDataPath { return *v }).(DatasetResponseDataPathOutput)
+}
+
+// Additional Properties.
+func (o DatasetResponseDataPathPtrOutput) AdditionalProperties() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) map[string]map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalProperties
+	}).(pulumi.MapMapOutput)
+}
+
+// Azure path for Azure Blob or File
+func (o DatasetResponseDataPathPtrOutput) AzureFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AzureFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data store Name
+func (o DatasetResponseDataPathPtrOutput) DatastoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatastoreName
+	}).(pulumi.StringPtrOutput)
+}
+
+// HTTP URL.
+func (o DatasetResponseDataPathPtrOutput) HttpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HttpUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify the partition format of path. Defaults to None.
+func (o DatasetResponseDataPathPtrOutput) PartitionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartitionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to ignore unmatched path.
+func (o DatasetResponseDataPathPtrOutput) PartitionFormatIgnoreError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PartitionFormatIgnoreError
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of files expanded from a file GLOB specified
+func (o DatasetResponseDataPathPtrOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Paths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Relative path in the data store
+func (o DatasetResponseDataPathPtrOutput) RelativePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RelativePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sql Query/Table/Stored Procedure details.
+func (o DatasetResponseDataPathPtrOutput) SqlDataPath() DatasetResponseSqlDataPathPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) *DatasetResponseSqlDataPath {
+		if v == nil {
+			return nil
+		}
+		return v.SqlDataPath
+	}).(DatasetResponseSqlDataPathPtrOutput)
+}
+
+// Last created Dataset definition.
+type DatasetResponseLatest struct {
+	// User who created.
+	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
+	// The dataset creation time (UTC).
+	CreatedTime string `pulumi:"createdTime"`
+	//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
+	DataPath *DatasetResponseDataPath `pulumi:"dataPath"`
+	// Dataflow Json
+	Dataflow string `pulumi:"dataflow"`
+	// Dataset state
+	DatasetDefinitionState *DatasetStateResponse `pulumi:"datasetDefinitionState"`
+	// Unique Dataset identifier.
+	DatasetId string `pulumi:"datasetId"`
+	// Description about the dataset.
+	Description string `pulumi:"description"`
+	// eTag description
+	Etag string `pulumi:"etag"`
+	// Dataset FileType, specified by user.
+	FileType string `pulumi:"fileType"`
+	// The dataset last modified time (UTC).
+	ModifiedTime string `pulumi:"modifiedTime"`
+	// Summary of Definition changes.
+	Notes string `pulumi:"notes"`
+	// Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
+	PartitionFormatInPath bool `pulumi:"partitionFormatInPath"`
+	// Properties stores information like name of time series column for time series dataset.
+	Properties map[string]map[string]interface{} `pulumi:"properties"`
+	// Indicates the saved dataset this definition is mapping to, populated on Get.
+	SavedDatasetId string `pulumi:"savedDatasetId"`
+	// Tags associated with the dataset.
+	Tags map[string]string `pulumi:"tags"`
+	//  Telemetry information about the dataset including information like which service the dataset was created from.
+	TelemetryInfo map[string]string `pulumi:"telemetryInfo"`
+	//  Whether to use description and tags from the definition level as opposed to dataset level (old behavior).
+	UseDescriptionTagsFromDefinition bool `pulumi:"useDescriptionTagsFromDefinition"`
+	// An identifier uniquely identifies a definition change.
+	VersionId string `pulumi:"versionId"`
+}
+
+// DatasetResponseLatestInput is an input type that accepts DatasetResponseLatestArgs and DatasetResponseLatestOutput values.
+// You can construct a concrete instance of `DatasetResponseLatestInput` via:
+//
+//          DatasetResponseLatestArgs{...}
+type DatasetResponseLatestInput interface {
+	pulumi.Input
+
+	ToDatasetResponseLatestOutput() DatasetResponseLatestOutput
+	ToDatasetResponseLatestOutputWithContext(context.Context) DatasetResponseLatestOutput
+}
+
+// Last created Dataset definition.
+type DatasetResponseLatestArgs struct {
+	// User who created.
+	CreatedBy UserInfoResponsePtrInput `pulumi:"createdBy"`
+	// The dataset creation time (UTC).
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
+	DataPath DatasetResponseDataPathPtrInput `pulumi:"dataPath"`
+	// Dataflow Json
+	Dataflow pulumi.StringInput `pulumi:"dataflow"`
+	// Dataset state
+	DatasetDefinitionState DatasetStateResponsePtrInput `pulumi:"datasetDefinitionState"`
+	// Unique Dataset identifier.
+	DatasetId pulumi.StringInput `pulumi:"datasetId"`
+	// Description about the dataset.
+	Description pulumi.StringInput `pulumi:"description"`
+	// eTag description
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Dataset FileType, specified by user.
+	FileType pulumi.StringInput `pulumi:"fileType"`
+	// The dataset last modified time (UTC).
+	ModifiedTime pulumi.StringInput `pulumi:"modifiedTime"`
+	// Summary of Definition changes.
+	Notes pulumi.StringInput `pulumi:"notes"`
+	// Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
+	PartitionFormatInPath pulumi.BoolInput `pulumi:"partitionFormatInPath"`
+	// Properties stores information like name of time series column for time series dataset.
+	Properties pulumi.MapMapInput `pulumi:"properties"`
+	// Indicates the saved dataset this definition is mapping to, populated on Get.
+	SavedDatasetId pulumi.StringInput `pulumi:"savedDatasetId"`
+	// Tags associated with the dataset.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	//  Telemetry information about the dataset including information like which service the dataset was created from.
+	TelemetryInfo pulumi.StringMapInput `pulumi:"telemetryInfo"`
+	//  Whether to use description and tags from the definition level as opposed to dataset level (old behavior).
+	UseDescriptionTagsFromDefinition pulumi.BoolInput `pulumi:"useDescriptionTagsFromDefinition"`
+	// An identifier uniquely identifies a definition change.
+	VersionId pulumi.StringInput `pulumi:"versionId"`
+}
+
+func (DatasetResponseLatestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetResponseLatest)(nil)).Elem()
+}
+
+func (i DatasetResponseLatestArgs) ToDatasetResponseLatestOutput() DatasetResponseLatestOutput {
+	return i.ToDatasetResponseLatestOutputWithContext(context.Background())
+}
+
+func (i DatasetResponseLatestArgs) ToDatasetResponseLatestOutputWithContext(ctx context.Context) DatasetResponseLatestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseLatestOutput)
+}
+
+func (i DatasetResponseLatestArgs) ToDatasetResponseLatestPtrOutput() DatasetResponseLatestPtrOutput {
+	return i.ToDatasetResponseLatestPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetResponseLatestArgs) ToDatasetResponseLatestPtrOutputWithContext(ctx context.Context) DatasetResponseLatestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseLatestOutput).ToDatasetResponseLatestPtrOutputWithContext(ctx)
+}
+
+// DatasetResponseLatestPtrInput is an input type that accepts DatasetResponseLatestArgs, DatasetResponseLatestPtr and DatasetResponseLatestPtrOutput values.
+// You can construct a concrete instance of `DatasetResponseLatestPtrInput` via:
+//
+//          DatasetResponseLatestArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetResponseLatestPtrInput interface {
+	pulumi.Input
+
+	ToDatasetResponseLatestPtrOutput() DatasetResponseLatestPtrOutput
+	ToDatasetResponseLatestPtrOutputWithContext(context.Context) DatasetResponseLatestPtrOutput
+}
+
+type datasetResponseLatestPtrType DatasetResponseLatestArgs
+
+func DatasetResponseLatestPtr(v *DatasetResponseLatestArgs) DatasetResponseLatestPtrInput {
+	return (*datasetResponseLatestPtrType)(v)
+}
+
+func (*datasetResponseLatestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetResponseLatest)(nil)).Elem()
+}
+
+func (i *datasetResponseLatestPtrType) ToDatasetResponseLatestPtrOutput() DatasetResponseLatestPtrOutput {
+	return i.ToDatasetResponseLatestPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetResponseLatestPtrType) ToDatasetResponseLatestPtrOutputWithContext(ctx context.Context) DatasetResponseLatestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseLatestPtrOutput)
+}
+
+// Last created Dataset definition.
+type DatasetResponseLatestOutput struct{ *pulumi.OutputState }
+
+func (DatasetResponseLatestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetResponseLatest)(nil)).Elem()
+}
+
+func (o DatasetResponseLatestOutput) ToDatasetResponseLatestOutput() DatasetResponseLatestOutput {
+	return o
+}
+
+func (o DatasetResponseLatestOutput) ToDatasetResponseLatestOutputWithContext(ctx context.Context) DatasetResponseLatestOutput {
+	return o
+}
+
+func (o DatasetResponseLatestOutput) ToDatasetResponseLatestPtrOutput() DatasetResponseLatestPtrOutput {
+	return o.ToDatasetResponseLatestPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetResponseLatestOutput) ToDatasetResponseLatestPtrOutputWithContext(ctx context.Context) DatasetResponseLatestPtrOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) *DatasetResponseLatest {
+		return &v
+	}).(DatasetResponseLatestPtrOutput)
+}
+
+// User who created.
+func (o DatasetResponseLatestOutput) CreatedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) *UserInfoResponse { return v.CreatedBy }).(UserInfoResponsePtrOutput)
+}
+
+// The dataset creation time (UTC).
+func (o DatasetResponseLatestOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
+func (o DatasetResponseLatestOutput) DataPath() DatasetResponseDataPathPtrOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) *DatasetResponseDataPath { return v.DataPath }).(DatasetResponseDataPathPtrOutput)
+}
+
+// Dataflow Json
+func (o DatasetResponseLatestOutput) Dataflow() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) string { return v.Dataflow }).(pulumi.StringOutput)
+}
+
+// Dataset state
+func (o DatasetResponseLatestOutput) DatasetDefinitionState() DatasetStateResponsePtrOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) *DatasetStateResponse { return v.DatasetDefinitionState }).(DatasetStateResponsePtrOutput)
+}
+
+// Unique Dataset identifier.
+func (o DatasetResponseLatestOutput) DatasetId() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) string { return v.DatasetId }).(pulumi.StringOutput)
+}
+
+// Description about the dataset.
+func (o DatasetResponseLatestOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// eTag description
+func (o DatasetResponseLatestOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Dataset FileType, specified by user.
+func (o DatasetResponseLatestOutput) FileType() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) string { return v.FileType }).(pulumi.StringOutput)
+}
+
+// The dataset last modified time (UTC).
+func (o DatasetResponseLatestOutput) ModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) string { return v.ModifiedTime }).(pulumi.StringOutput)
+}
+
+// Summary of Definition changes.
+func (o DatasetResponseLatestOutput) Notes() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) string { return v.Notes }).(pulumi.StringOutput)
+}
+
+// Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
+func (o DatasetResponseLatestOutput) PartitionFormatInPath() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) bool { return v.PartitionFormatInPath }).(pulumi.BoolOutput)
+}
+
+// Properties stores information like name of time series column for time series dataset.
+func (o DatasetResponseLatestOutput) Properties() pulumi.MapMapOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) map[string]map[string]interface{} { return v.Properties }).(pulumi.MapMapOutput)
+}
+
+// Indicates the saved dataset this definition is mapping to, populated on Get.
+func (o DatasetResponseLatestOutput) SavedDatasetId() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) string { return v.SavedDatasetId }).(pulumi.StringOutput)
+}
+
+// Tags associated with the dataset.
+func (o DatasetResponseLatestOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+//  Telemetry information about the dataset including information like which service the dataset was created from.
+func (o DatasetResponseLatestOutput) TelemetryInfo() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) map[string]string { return v.TelemetryInfo }).(pulumi.StringMapOutput)
+}
+
+//  Whether to use description and tags from the definition level as opposed to dataset level (old behavior).
+func (o DatasetResponseLatestOutput) UseDescriptionTagsFromDefinition() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) bool { return v.UseDescriptionTagsFromDefinition }).(pulumi.BoolOutput)
+}
+
+// An identifier uniquely identifies a definition change.
+func (o DatasetResponseLatestOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) string { return v.VersionId }).(pulumi.StringOutput)
+}
+
+type DatasetResponseLatestPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetResponseLatestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetResponseLatest)(nil)).Elem()
+}
+
+func (o DatasetResponseLatestPtrOutput) ToDatasetResponseLatestPtrOutput() DatasetResponseLatestPtrOutput {
+	return o
+}
+
+func (o DatasetResponseLatestPtrOutput) ToDatasetResponseLatestPtrOutputWithContext(ctx context.Context) DatasetResponseLatestPtrOutput {
+	return o
+}
+
+func (o DatasetResponseLatestPtrOutput) Elem() DatasetResponseLatestOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) DatasetResponseLatest { return *v }).(DatasetResponseLatestOutput)
+}
+
+// User who created.
+func (o DatasetResponseLatestPtrOutput) CreatedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *UserInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(UserInfoResponsePtrOutput)
+}
+
+// The dataset creation time (UTC).
+func (o DatasetResponseLatestPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
+func (o DatasetResponseLatestPtrOutput) DataPath() DatasetResponseDataPathPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *DatasetResponseDataPath {
+		if v == nil {
+			return nil
+		}
+		return v.DataPath
+	}).(DatasetResponseDataPathPtrOutput)
+}
+
+// Dataflow Json
+func (o DatasetResponseLatestPtrOutput) Dataflow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Dataflow
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dataset state
+func (o DatasetResponseLatestPtrOutput) DatasetDefinitionState() DatasetStateResponsePtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *DatasetStateResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DatasetDefinitionState
+	}).(DatasetStateResponsePtrOutput)
+}
+
+// Unique Dataset identifier.
+func (o DatasetResponseLatestPtrOutput) DatasetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description about the dataset.
+func (o DatasetResponseLatestPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// eTag description
+func (o DatasetResponseLatestPtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dataset FileType, specified by user.
+func (o DatasetResponseLatestPtrOutput) FileType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The dataset last modified time (UTC).
+func (o DatasetResponseLatestPtrOutput) ModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModifiedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Summary of Definition changes.
+func (o DatasetResponseLatestPtrOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Notes
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
+func (o DatasetResponseLatestPtrOutput) PartitionFormatInPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PartitionFormatInPath
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Properties stores information like name of time series column for time series dataset.
+func (o DatasetResponseLatestPtrOutput) Properties() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) map[string]map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.MapMapOutput)
+}
+
+// Indicates the saved dataset this definition is mapping to, populated on Get.
+func (o DatasetResponseLatestPtrOutput) SavedDatasetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SavedDatasetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tags associated with the dataset.
+func (o DatasetResponseLatestPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+//  Telemetry information about the dataset including information like which service the dataset was created from.
+func (o DatasetResponseLatestPtrOutput) TelemetryInfo() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TelemetryInfo
+	}).(pulumi.StringMapOutput)
+}
+
+//  Whether to use description and tags from the definition level as opposed to dataset level (old behavior).
+func (o DatasetResponseLatestPtrOutput) UseDescriptionTagsFromDefinition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UseDescriptionTagsFromDefinition
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An identifier uniquely identifies a definition change.
+func (o DatasetResponseLatestPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sql Query/Table/Stored Procedure details.
+type DatasetResponseSqlDataPath struct {
+	// SQL query timeout. Unit in seconds.
+	QueryTimeout int `pulumi:"queryTimeout"`
+	// SQL query
+	SqlQuery string `pulumi:"sqlQuery"`
+	// SQL storedProcedure name
+	SqlStoredProcedureName string `pulumi:"sqlStoredProcedureName"`
+	// SQL table name
+	SqlTableName string `pulumi:"sqlTableName"`
+}
+
+// DatasetResponseSqlDataPathInput is an input type that accepts DatasetResponseSqlDataPathArgs and DatasetResponseSqlDataPathOutput values.
+// You can construct a concrete instance of `DatasetResponseSqlDataPathInput` via:
+//
+//          DatasetResponseSqlDataPathArgs{...}
+type DatasetResponseSqlDataPathInput interface {
+	pulumi.Input
+
+	ToDatasetResponseSqlDataPathOutput() DatasetResponseSqlDataPathOutput
+	ToDatasetResponseSqlDataPathOutputWithContext(context.Context) DatasetResponseSqlDataPathOutput
+}
+
+// Sql Query/Table/Stored Procedure details.
+type DatasetResponseSqlDataPathArgs struct {
+	// SQL query timeout. Unit in seconds.
+	QueryTimeout pulumi.IntInput `pulumi:"queryTimeout"`
+	// SQL query
+	SqlQuery pulumi.StringInput `pulumi:"sqlQuery"`
+	// SQL storedProcedure name
+	SqlStoredProcedureName pulumi.StringInput `pulumi:"sqlStoredProcedureName"`
+	// SQL table name
+	SqlTableName pulumi.StringInput `pulumi:"sqlTableName"`
+}
+
+func (DatasetResponseSqlDataPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetResponseSqlDataPath)(nil)).Elem()
+}
+
+func (i DatasetResponseSqlDataPathArgs) ToDatasetResponseSqlDataPathOutput() DatasetResponseSqlDataPathOutput {
+	return i.ToDatasetResponseSqlDataPathOutputWithContext(context.Background())
+}
+
+func (i DatasetResponseSqlDataPathArgs) ToDatasetResponseSqlDataPathOutputWithContext(ctx context.Context) DatasetResponseSqlDataPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseSqlDataPathOutput)
+}
+
+func (i DatasetResponseSqlDataPathArgs) ToDatasetResponseSqlDataPathPtrOutput() DatasetResponseSqlDataPathPtrOutput {
+	return i.ToDatasetResponseSqlDataPathPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetResponseSqlDataPathArgs) ToDatasetResponseSqlDataPathPtrOutputWithContext(ctx context.Context) DatasetResponseSqlDataPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseSqlDataPathOutput).ToDatasetResponseSqlDataPathPtrOutputWithContext(ctx)
+}
+
+// DatasetResponseSqlDataPathPtrInput is an input type that accepts DatasetResponseSqlDataPathArgs, DatasetResponseSqlDataPathPtr and DatasetResponseSqlDataPathPtrOutput values.
+// You can construct a concrete instance of `DatasetResponseSqlDataPathPtrInput` via:
+//
+//          DatasetResponseSqlDataPathArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetResponseSqlDataPathPtrInput interface {
+	pulumi.Input
+
+	ToDatasetResponseSqlDataPathPtrOutput() DatasetResponseSqlDataPathPtrOutput
+	ToDatasetResponseSqlDataPathPtrOutputWithContext(context.Context) DatasetResponseSqlDataPathPtrOutput
+}
+
+type datasetResponseSqlDataPathPtrType DatasetResponseSqlDataPathArgs
+
+func DatasetResponseSqlDataPathPtr(v *DatasetResponseSqlDataPathArgs) DatasetResponseSqlDataPathPtrInput {
+	return (*datasetResponseSqlDataPathPtrType)(v)
+}
+
+func (*datasetResponseSqlDataPathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetResponseSqlDataPath)(nil)).Elem()
+}
+
+func (i *datasetResponseSqlDataPathPtrType) ToDatasetResponseSqlDataPathPtrOutput() DatasetResponseSqlDataPathPtrOutput {
+	return i.ToDatasetResponseSqlDataPathPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetResponseSqlDataPathPtrType) ToDatasetResponseSqlDataPathPtrOutputWithContext(ctx context.Context) DatasetResponseSqlDataPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetResponseSqlDataPathPtrOutput)
+}
+
+// Sql Query/Table/Stored Procedure details.
+type DatasetResponseSqlDataPathOutput struct{ *pulumi.OutputState }
+
+func (DatasetResponseSqlDataPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetResponseSqlDataPath)(nil)).Elem()
+}
+
+func (o DatasetResponseSqlDataPathOutput) ToDatasetResponseSqlDataPathOutput() DatasetResponseSqlDataPathOutput {
+	return o
+}
+
+func (o DatasetResponseSqlDataPathOutput) ToDatasetResponseSqlDataPathOutputWithContext(ctx context.Context) DatasetResponseSqlDataPathOutput {
+	return o
+}
+
+func (o DatasetResponseSqlDataPathOutput) ToDatasetResponseSqlDataPathPtrOutput() DatasetResponseSqlDataPathPtrOutput {
+	return o.ToDatasetResponseSqlDataPathPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetResponseSqlDataPathOutput) ToDatasetResponseSqlDataPathPtrOutputWithContext(ctx context.Context) DatasetResponseSqlDataPathPtrOutput {
+	return o.ApplyT(func(v DatasetResponseSqlDataPath) *DatasetResponseSqlDataPath {
+		return &v
+	}).(DatasetResponseSqlDataPathPtrOutput)
+}
+
+// SQL query timeout. Unit in seconds.
+func (o DatasetResponseSqlDataPathOutput) QueryTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v DatasetResponseSqlDataPath) int { return v.QueryTimeout }).(pulumi.IntOutput)
+}
+
+// SQL query
+func (o DatasetResponseSqlDataPathOutput) SqlQuery() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseSqlDataPath) string { return v.SqlQuery }).(pulumi.StringOutput)
+}
+
+// SQL storedProcedure name
+func (o DatasetResponseSqlDataPathOutput) SqlStoredProcedureName() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseSqlDataPath) string { return v.SqlStoredProcedureName }).(pulumi.StringOutput)
+}
+
+// SQL table name
+func (o DatasetResponseSqlDataPathOutput) SqlTableName() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetResponseSqlDataPath) string { return v.SqlTableName }).(pulumi.StringOutput)
+}
+
+type DatasetResponseSqlDataPathPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetResponseSqlDataPathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetResponseSqlDataPath)(nil)).Elem()
+}
+
+func (o DatasetResponseSqlDataPathPtrOutput) ToDatasetResponseSqlDataPathPtrOutput() DatasetResponseSqlDataPathPtrOutput {
+	return o
+}
+
+func (o DatasetResponseSqlDataPathPtrOutput) ToDatasetResponseSqlDataPathPtrOutputWithContext(ctx context.Context) DatasetResponseSqlDataPathPtrOutput {
+	return o
+}
+
+func (o DatasetResponseSqlDataPathPtrOutput) Elem() DatasetResponseSqlDataPathOutput {
+	return o.ApplyT(func(v *DatasetResponseSqlDataPath) DatasetResponseSqlDataPath { return *v }).(DatasetResponseSqlDataPathOutput)
+}
+
+// SQL query timeout. Unit in seconds.
+func (o DatasetResponseSqlDataPathPtrOutput) QueryTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseSqlDataPath) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// SQL query
+func (o DatasetResponseSqlDataPathPtrOutput) SqlQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseSqlDataPath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SqlQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+// SQL storedProcedure name
+func (o DatasetResponseSqlDataPathPtrOutput) SqlStoredProcedureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseSqlDataPath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SqlStoredProcedureName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SQL table name
+func (o DatasetResponseSqlDataPathPtrOutput) SqlTableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetResponseSqlDataPath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SqlTableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dataset state
+type DatasetStateResponse struct {
+	// Reference to better Dataset or a Definition
+	DeprecatedBy *DatasetStateResponseDeprecatedBy `pulumi:"deprecatedBy"`
+	// eTag description
+	Etag string `pulumi:"etag"`
+	// Dataset state
+	State *string `pulumi:"state"`
+}
+
+// DatasetStateResponseInput is an input type that accepts DatasetStateResponseArgs and DatasetStateResponseOutput values.
+// You can construct a concrete instance of `DatasetStateResponseInput` via:
+//
+//          DatasetStateResponseArgs{...}
+type DatasetStateResponseInput interface {
+	pulumi.Input
+
+	ToDatasetStateResponseOutput() DatasetStateResponseOutput
+	ToDatasetStateResponseOutputWithContext(context.Context) DatasetStateResponseOutput
+}
+
+// Dataset state
+type DatasetStateResponseArgs struct {
+	// Reference to better Dataset or a Definition
+	DeprecatedBy DatasetStateResponseDeprecatedByPtrInput `pulumi:"deprecatedBy"`
+	// eTag description
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Dataset state
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (DatasetStateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetStateResponse)(nil)).Elem()
+}
+
+func (i DatasetStateResponseArgs) ToDatasetStateResponseOutput() DatasetStateResponseOutput {
+	return i.ToDatasetStateResponseOutputWithContext(context.Background())
+}
+
+func (i DatasetStateResponseArgs) ToDatasetStateResponseOutputWithContext(ctx context.Context) DatasetStateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetStateResponseOutput)
+}
+
+func (i DatasetStateResponseArgs) ToDatasetStateResponsePtrOutput() DatasetStateResponsePtrOutput {
+	return i.ToDatasetStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DatasetStateResponseArgs) ToDatasetStateResponsePtrOutputWithContext(ctx context.Context) DatasetStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetStateResponseOutput).ToDatasetStateResponsePtrOutputWithContext(ctx)
+}
+
+// DatasetStateResponsePtrInput is an input type that accepts DatasetStateResponseArgs, DatasetStateResponsePtr and DatasetStateResponsePtrOutput values.
+// You can construct a concrete instance of `DatasetStateResponsePtrInput` via:
+//
+//          DatasetStateResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetStateResponsePtrInput interface {
+	pulumi.Input
+
+	ToDatasetStateResponsePtrOutput() DatasetStateResponsePtrOutput
+	ToDatasetStateResponsePtrOutputWithContext(context.Context) DatasetStateResponsePtrOutput
+}
+
+type datasetStateResponsePtrType DatasetStateResponseArgs
+
+func DatasetStateResponsePtr(v *DatasetStateResponseArgs) DatasetStateResponsePtrInput {
+	return (*datasetStateResponsePtrType)(v)
+}
+
+func (*datasetStateResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetStateResponse)(nil)).Elem()
+}
+
+func (i *datasetStateResponsePtrType) ToDatasetStateResponsePtrOutput() DatasetStateResponsePtrOutput {
+	return i.ToDatasetStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *datasetStateResponsePtrType) ToDatasetStateResponsePtrOutputWithContext(ctx context.Context) DatasetStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetStateResponsePtrOutput)
+}
+
+// Dataset state
+type DatasetStateResponseOutput struct{ *pulumi.OutputState }
+
+func (DatasetStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetStateResponse)(nil)).Elem()
+}
+
+func (o DatasetStateResponseOutput) ToDatasetStateResponseOutput() DatasetStateResponseOutput {
+	return o
+}
+
+func (o DatasetStateResponseOutput) ToDatasetStateResponseOutputWithContext(ctx context.Context) DatasetStateResponseOutput {
+	return o
+}
+
+func (o DatasetStateResponseOutput) ToDatasetStateResponsePtrOutput() DatasetStateResponsePtrOutput {
+	return o.ToDatasetStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DatasetStateResponseOutput) ToDatasetStateResponsePtrOutputWithContext(ctx context.Context) DatasetStateResponsePtrOutput {
+	return o.ApplyT(func(v DatasetStateResponse) *DatasetStateResponse {
+		return &v
+	}).(DatasetStateResponsePtrOutput)
+}
+
+// Reference to better Dataset or a Definition
+func (o DatasetStateResponseOutput) DeprecatedBy() DatasetStateResponseDeprecatedByPtrOutput {
+	return o.ApplyT(func(v DatasetStateResponse) *DatasetStateResponseDeprecatedBy { return v.DeprecatedBy }).(DatasetStateResponseDeprecatedByPtrOutput)
+}
+
+// eTag description
+func (o DatasetStateResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetStateResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Dataset state
+func (o DatasetStateResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetStateResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type DatasetStateResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetStateResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetStateResponse)(nil)).Elem()
+}
+
+func (o DatasetStateResponsePtrOutput) ToDatasetStateResponsePtrOutput() DatasetStateResponsePtrOutput {
+	return o
+}
+
+func (o DatasetStateResponsePtrOutput) ToDatasetStateResponsePtrOutputWithContext(ctx context.Context) DatasetStateResponsePtrOutput {
+	return o
+}
+
+func (o DatasetStateResponsePtrOutput) Elem() DatasetStateResponseOutput {
+	return o.ApplyT(func(v *DatasetStateResponse) DatasetStateResponse { return *v }).(DatasetStateResponseOutput)
+}
+
+// Reference to better Dataset or a Definition
+func (o DatasetStateResponsePtrOutput) DeprecatedBy() DatasetStateResponseDeprecatedByPtrOutput {
+	return o.ApplyT(func(v *DatasetStateResponse) *DatasetStateResponseDeprecatedBy {
+		if v == nil {
+			return nil
+		}
+		return v.DeprecatedBy
+	}).(DatasetStateResponseDeprecatedByPtrOutput)
+}
+
+// eTag description
+func (o DatasetStateResponsePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dataset state
+func (o DatasetStateResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Reference to better Dataset or a Definition
+type DatasetStateResponseDeprecatedBy struct {
+	// Unique Dataset identifier.
+	DatasetId string `pulumi:"datasetId"`
+	// Definition Version
+	DefinitionVersion *string `pulumi:"definitionVersion"`
+}
+
+// DatasetStateResponseDeprecatedByInput is an input type that accepts DatasetStateResponseDeprecatedByArgs and DatasetStateResponseDeprecatedByOutput values.
+// You can construct a concrete instance of `DatasetStateResponseDeprecatedByInput` via:
+//
+//          DatasetStateResponseDeprecatedByArgs{...}
+type DatasetStateResponseDeprecatedByInput interface {
+	pulumi.Input
+
+	ToDatasetStateResponseDeprecatedByOutput() DatasetStateResponseDeprecatedByOutput
+	ToDatasetStateResponseDeprecatedByOutputWithContext(context.Context) DatasetStateResponseDeprecatedByOutput
+}
+
+// Reference to better Dataset or a Definition
+type DatasetStateResponseDeprecatedByArgs struct {
+	// Unique Dataset identifier.
+	DatasetId pulumi.StringInput `pulumi:"datasetId"`
+	// Definition Version
+	DefinitionVersion pulumi.StringPtrInput `pulumi:"definitionVersion"`
+}
+
+func (DatasetStateResponseDeprecatedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetStateResponseDeprecatedBy)(nil)).Elem()
+}
+
+func (i DatasetStateResponseDeprecatedByArgs) ToDatasetStateResponseDeprecatedByOutput() DatasetStateResponseDeprecatedByOutput {
+	return i.ToDatasetStateResponseDeprecatedByOutputWithContext(context.Background())
+}
+
+func (i DatasetStateResponseDeprecatedByArgs) ToDatasetStateResponseDeprecatedByOutputWithContext(ctx context.Context) DatasetStateResponseDeprecatedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetStateResponseDeprecatedByOutput)
+}
+
+func (i DatasetStateResponseDeprecatedByArgs) ToDatasetStateResponseDeprecatedByPtrOutput() DatasetStateResponseDeprecatedByPtrOutput {
+	return i.ToDatasetStateResponseDeprecatedByPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetStateResponseDeprecatedByArgs) ToDatasetStateResponseDeprecatedByPtrOutputWithContext(ctx context.Context) DatasetStateResponseDeprecatedByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetStateResponseDeprecatedByOutput).ToDatasetStateResponseDeprecatedByPtrOutputWithContext(ctx)
+}
+
+// DatasetStateResponseDeprecatedByPtrInput is an input type that accepts DatasetStateResponseDeprecatedByArgs, DatasetStateResponseDeprecatedByPtr and DatasetStateResponseDeprecatedByPtrOutput values.
+// You can construct a concrete instance of `DatasetStateResponseDeprecatedByPtrInput` via:
+//
+//          DatasetStateResponseDeprecatedByArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetStateResponseDeprecatedByPtrInput interface {
+	pulumi.Input
+
+	ToDatasetStateResponseDeprecatedByPtrOutput() DatasetStateResponseDeprecatedByPtrOutput
+	ToDatasetStateResponseDeprecatedByPtrOutputWithContext(context.Context) DatasetStateResponseDeprecatedByPtrOutput
+}
+
+type datasetStateResponseDeprecatedByPtrType DatasetStateResponseDeprecatedByArgs
+
+func DatasetStateResponseDeprecatedByPtr(v *DatasetStateResponseDeprecatedByArgs) DatasetStateResponseDeprecatedByPtrInput {
+	return (*datasetStateResponseDeprecatedByPtrType)(v)
+}
+
+func (*datasetStateResponseDeprecatedByPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetStateResponseDeprecatedBy)(nil)).Elem()
+}
+
+func (i *datasetStateResponseDeprecatedByPtrType) ToDatasetStateResponseDeprecatedByPtrOutput() DatasetStateResponseDeprecatedByPtrOutput {
+	return i.ToDatasetStateResponseDeprecatedByPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetStateResponseDeprecatedByPtrType) ToDatasetStateResponseDeprecatedByPtrOutputWithContext(ctx context.Context) DatasetStateResponseDeprecatedByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetStateResponseDeprecatedByPtrOutput)
+}
+
+// Reference to better Dataset or a Definition
+type DatasetStateResponseDeprecatedByOutput struct{ *pulumi.OutputState }
+
+func (DatasetStateResponseDeprecatedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetStateResponseDeprecatedBy)(nil)).Elem()
+}
+
+func (o DatasetStateResponseDeprecatedByOutput) ToDatasetStateResponseDeprecatedByOutput() DatasetStateResponseDeprecatedByOutput {
+	return o
+}
+
+func (o DatasetStateResponseDeprecatedByOutput) ToDatasetStateResponseDeprecatedByOutputWithContext(ctx context.Context) DatasetStateResponseDeprecatedByOutput {
+	return o
+}
+
+func (o DatasetStateResponseDeprecatedByOutput) ToDatasetStateResponseDeprecatedByPtrOutput() DatasetStateResponseDeprecatedByPtrOutput {
+	return o.ToDatasetStateResponseDeprecatedByPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetStateResponseDeprecatedByOutput) ToDatasetStateResponseDeprecatedByPtrOutputWithContext(ctx context.Context) DatasetStateResponseDeprecatedByPtrOutput {
+	return o.ApplyT(func(v DatasetStateResponseDeprecatedBy) *DatasetStateResponseDeprecatedBy {
+		return &v
+	}).(DatasetStateResponseDeprecatedByPtrOutput)
+}
+
+// Unique Dataset identifier.
+func (o DatasetStateResponseDeprecatedByOutput) DatasetId() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetStateResponseDeprecatedBy) string { return v.DatasetId }).(pulumi.StringOutput)
+}
+
+// Definition Version
+func (o DatasetStateResponseDeprecatedByOutput) DefinitionVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetStateResponseDeprecatedBy) *string { return v.DefinitionVersion }).(pulumi.StringPtrOutput)
+}
+
+type DatasetStateResponseDeprecatedByPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetStateResponseDeprecatedByPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetStateResponseDeprecatedBy)(nil)).Elem()
+}
+
+func (o DatasetStateResponseDeprecatedByPtrOutput) ToDatasetStateResponseDeprecatedByPtrOutput() DatasetStateResponseDeprecatedByPtrOutput {
+	return o
+}
+
+func (o DatasetStateResponseDeprecatedByPtrOutput) ToDatasetStateResponseDeprecatedByPtrOutputWithContext(ctx context.Context) DatasetStateResponseDeprecatedByPtrOutput {
+	return o
+}
+
+func (o DatasetStateResponseDeprecatedByPtrOutput) Elem() DatasetStateResponseDeprecatedByOutput {
+	return o.ApplyT(func(v *DatasetStateResponseDeprecatedBy) DatasetStateResponseDeprecatedBy { return *v }).(DatasetStateResponseDeprecatedByOutput)
+}
+
+// Unique Dataset identifier.
+func (o DatasetStateResponseDeprecatedByPtrOutput) DatasetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetStateResponseDeprecatedBy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Definition Version
+func (o DatasetStateResponseDeprecatedByPtrOutput) DefinitionVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetStateResponseDeprecatedBy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefinitionVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Machine Learning datastore object.
+type DatastoreResponse struct {
+	AzureDataLakeSection    *AzureDataLakeSectionResponse    `pulumi:"azureDataLakeSection"`
+	AzureMySqlSection       *AzureMySqlSectionResponse       `pulumi:"azureMySqlSection"`
+	AzurePostgreSqlSection  *AzurePostgreSqlSectionResponse  `pulumi:"azurePostgreSqlSection"`
+	AzureSqlDatabaseSection *AzureSqlDatabaseSectionResponse `pulumi:"azureSqlDatabaseSection"`
+	AzureStorageSection     *AzureStorageSectionResponse     `pulumi:"azureStorageSection"`
+	// The User who created the datastore.
+	CreatedBy UserInfoResponse `pulumi:"createdBy"`
+	// The date and time when the datastore was created.
+	CreatedTime string `pulumi:"createdTime"`
+	// The datastore type.
+	DataStoreType *string `pulumi:"dataStoreType"`
+	// Description of the datastore.
+	Description *string `pulumi:"description"`
+	// Data specific to GlusterFS.
+	GlusterFsSection *GlusterFsSectionResponse `pulumi:"glusterFsSection"`
+	// A read only property that denotes whether the service datastore has been validated with credentials.
+	HasBeenValidated *bool `pulumi:"hasBeenValidated"`
+	// Info about origin if it is linked.
+	LinkedInfo *LinkedInfoResponse `pulumi:"linkedInfo"`
+	// The User who modified the datastore.
+	ModifiedBy UserInfoResponse `pulumi:"modifiedBy"`
+	// The date and time when the datastore was last modified.
+	ModifiedTime string `pulumi:"modifiedTime"`
+	// Name of the datastore.
+	Name *string `pulumi:"name"`
+	// Tags for this datastore.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// DatastoreResponseInput is an input type that accepts DatastoreResponseArgs and DatastoreResponseOutput values.
+// You can construct a concrete instance of `DatastoreResponseInput` via:
+//
+//          DatastoreResponseArgs{...}
+type DatastoreResponseInput interface {
+	pulumi.Input
+
+	ToDatastoreResponseOutput() DatastoreResponseOutput
+	ToDatastoreResponseOutputWithContext(context.Context) DatastoreResponseOutput
+}
+
+// Machine Learning datastore object.
+type DatastoreResponseArgs struct {
+	AzureDataLakeSection    AzureDataLakeSectionResponsePtrInput    `pulumi:"azureDataLakeSection"`
+	AzureMySqlSection       AzureMySqlSectionResponsePtrInput       `pulumi:"azureMySqlSection"`
+	AzurePostgreSqlSection  AzurePostgreSqlSectionResponsePtrInput  `pulumi:"azurePostgreSqlSection"`
+	AzureSqlDatabaseSection AzureSqlDatabaseSectionResponsePtrInput `pulumi:"azureSqlDatabaseSection"`
+	AzureStorageSection     AzureStorageSectionResponsePtrInput     `pulumi:"azureStorageSection"`
+	// The User who created the datastore.
+	CreatedBy UserInfoResponseInput `pulumi:"createdBy"`
+	// The date and time when the datastore was created.
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// The datastore type.
+	DataStoreType pulumi.StringPtrInput `pulumi:"dataStoreType"`
+	// Description of the datastore.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Data specific to GlusterFS.
+	GlusterFsSection GlusterFsSectionResponsePtrInput `pulumi:"glusterFsSection"`
+	// A read only property that denotes whether the service datastore has been validated with credentials.
+	HasBeenValidated pulumi.BoolPtrInput `pulumi:"hasBeenValidated"`
+	// Info about origin if it is linked.
+	LinkedInfo LinkedInfoResponsePtrInput `pulumi:"linkedInfo"`
+	// The User who modified the datastore.
+	ModifiedBy UserInfoResponseInput `pulumi:"modifiedBy"`
+	// The date and time when the datastore was last modified.
+	ModifiedTime pulumi.StringInput `pulumi:"modifiedTime"`
+	// Name of the datastore.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Tags for this datastore.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (DatastoreResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatastoreResponse)(nil)).Elem()
+}
+
+func (i DatastoreResponseArgs) ToDatastoreResponseOutput() DatastoreResponseOutput {
+	return i.ToDatastoreResponseOutputWithContext(context.Background())
+}
+
+func (i DatastoreResponseArgs) ToDatastoreResponseOutputWithContext(ctx context.Context) DatastoreResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastoreResponseOutput)
+}
+
+func (i DatastoreResponseArgs) ToDatastoreResponsePtrOutput() DatastoreResponsePtrOutput {
+	return i.ToDatastoreResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DatastoreResponseArgs) ToDatastoreResponsePtrOutputWithContext(ctx context.Context) DatastoreResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastoreResponseOutput).ToDatastoreResponsePtrOutputWithContext(ctx)
+}
+
+// DatastoreResponsePtrInput is an input type that accepts DatastoreResponseArgs, DatastoreResponsePtr and DatastoreResponsePtrOutput values.
+// You can construct a concrete instance of `DatastoreResponsePtrInput` via:
+//
+//          DatastoreResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DatastoreResponsePtrInput interface {
+	pulumi.Input
+
+	ToDatastoreResponsePtrOutput() DatastoreResponsePtrOutput
+	ToDatastoreResponsePtrOutputWithContext(context.Context) DatastoreResponsePtrOutput
+}
+
+type datastoreResponsePtrType DatastoreResponseArgs
+
+func DatastoreResponsePtr(v *DatastoreResponseArgs) DatastoreResponsePtrInput {
+	return (*datastoreResponsePtrType)(v)
+}
+
+func (*datastoreResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatastoreResponse)(nil)).Elem()
+}
+
+func (i *datastoreResponsePtrType) ToDatastoreResponsePtrOutput() DatastoreResponsePtrOutput {
+	return i.ToDatastoreResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *datastoreResponsePtrType) ToDatastoreResponsePtrOutputWithContext(ctx context.Context) DatastoreResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastoreResponsePtrOutput)
+}
+
+// Machine Learning datastore object.
+type DatastoreResponseOutput struct{ *pulumi.OutputState }
+
+func (DatastoreResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatastoreResponse)(nil)).Elem()
+}
+
+func (o DatastoreResponseOutput) ToDatastoreResponseOutput() DatastoreResponseOutput {
+	return o
+}
+
+func (o DatastoreResponseOutput) ToDatastoreResponseOutputWithContext(ctx context.Context) DatastoreResponseOutput {
+	return o
+}
+
+func (o DatastoreResponseOutput) ToDatastoreResponsePtrOutput() DatastoreResponsePtrOutput {
+	return o.ToDatastoreResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DatastoreResponseOutput) ToDatastoreResponsePtrOutputWithContext(ctx context.Context) DatastoreResponsePtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *DatastoreResponse {
+		return &v
+	}).(DatastoreResponsePtrOutput)
+}
+func (o DatastoreResponseOutput) AzureDataLakeSection() AzureDataLakeSectionResponsePtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *AzureDataLakeSectionResponse { return v.AzureDataLakeSection }).(AzureDataLakeSectionResponsePtrOutput)
+}
+
+func (o DatastoreResponseOutput) AzureMySqlSection() AzureMySqlSectionResponsePtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *AzureMySqlSectionResponse { return v.AzureMySqlSection }).(AzureMySqlSectionResponsePtrOutput)
+}
+
+func (o DatastoreResponseOutput) AzurePostgreSqlSection() AzurePostgreSqlSectionResponsePtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *AzurePostgreSqlSectionResponse { return v.AzurePostgreSqlSection }).(AzurePostgreSqlSectionResponsePtrOutput)
+}
+
+func (o DatastoreResponseOutput) AzureSqlDatabaseSection() AzureSqlDatabaseSectionResponsePtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *AzureSqlDatabaseSectionResponse { return v.AzureSqlDatabaseSection }).(AzureSqlDatabaseSectionResponsePtrOutput)
+}
+
+func (o DatastoreResponseOutput) AzureStorageSection() AzureStorageSectionResponsePtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *AzureStorageSectionResponse { return v.AzureStorageSection }).(AzureStorageSectionResponsePtrOutput)
+}
+
+// The User who created the datastore.
+func (o DatastoreResponseOutput) CreatedBy() UserInfoResponseOutput {
+	return o.ApplyT(func(v DatastoreResponse) UserInfoResponse { return v.CreatedBy }).(UserInfoResponseOutput)
+}
+
+// The date and time when the datastore was created.
+func (o DatastoreResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DatastoreResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The datastore type.
+func (o DatastoreResponseOutput) DataStoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *string { return v.DataStoreType }).(pulumi.StringPtrOutput)
+}
+
+// Description of the datastore.
+func (o DatastoreResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Data specific to GlusterFS.
+func (o DatastoreResponseOutput) GlusterFsSection() GlusterFsSectionResponsePtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *GlusterFsSectionResponse { return v.GlusterFsSection }).(GlusterFsSectionResponsePtrOutput)
+}
+
+// A read only property that denotes whether the service datastore has been validated with credentials.
+func (o DatastoreResponseOutput) HasBeenValidated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *bool { return v.HasBeenValidated }).(pulumi.BoolPtrOutput)
+}
+
+// Info about origin if it is linked.
+func (o DatastoreResponseOutput) LinkedInfo() LinkedInfoResponsePtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *LinkedInfoResponse { return v.LinkedInfo }).(LinkedInfoResponsePtrOutput)
+}
+
+// The User who modified the datastore.
+func (o DatastoreResponseOutput) ModifiedBy() UserInfoResponseOutput {
+	return o.ApplyT(func(v DatastoreResponse) UserInfoResponse { return v.ModifiedBy }).(UserInfoResponseOutput)
+}
+
+// The date and time when the datastore was last modified.
+func (o DatastoreResponseOutput) ModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DatastoreResponse) string { return v.ModifiedTime }).(pulumi.StringOutput)
+}
+
+// Name of the datastore.
+func (o DatastoreResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatastoreResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Tags for this datastore.
+func (o DatastoreResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DatastoreResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type DatastoreResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DatastoreResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatastoreResponse)(nil)).Elem()
+}
+
+func (o DatastoreResponsePtrOutput) ToDatastoreResponsePtrOutput() DatastoreResponsePtrOutput {
+	return o
+}
+
+func (o DatastoreResponsePtrOutput) ToDatastoreResponsePtrOutputWithContext(ctx context.Context) DatastoreResponsePtrOutput {
+	return o
+}
+
+func (o DatastoreResponsePtrOutput) Elem() DatastoreResponseOutput {
+	return o.ApplyT(func(v *DatastoreResponse) DatastoreResponse { return *v }).(DatastoreResponseOutput)
+}
+
+func (o DatastoreResponsePtrOutput) AzureDataLakeSection() AzureDataLakeSectionResponsePtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *AzureDataLakeSectionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureDataLakeSection
+	}).(AzureDataLakeSectionResponsePtrOutput)
+}
+
+func (o DatastoreResponsePtrOutput) AzureMySqlSection() AzureMySqlSectionResponsePtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *AzureMySqlSectionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureMySqlSection
+	}).(AzureMySqlSectionResponsePtrOutput)
+}
+
+func (o DatastoreResponsePtrOutput) AzurePostgreSqlSection() AzurePostgreSqlSectionResponsePtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *AzurePostgreSqlSectionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzurePostgreSqlSection
+	}).(AzurePostgreSqlSectionResponsePtrOutput)
+}
+
+func (o DatastoreResponsePtrOutput) AzureSqlDatabaseSection() AzureSqlDatabaseSectionResponsePtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *AzureSqlDatabaseSectionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureSqlDatabaseSection
+	}).(AzureSqlDatabaseSectionResponsePtrOutput)
+}
+
+func (o DatastoreResponsePtrOutput) AzureStorageSection() AzureStorageSectionResponsePtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *AzureStorageSectionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureStorageSection
+	}).(AzureStorageSectionResponsePtrOutput)
+}
+
+// The User who created the datastore.
+func (o DatastoreResponsePtrOutput) CreatedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *UserInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedBy
+	}).(UserInfoResponsePtrOutput)
+}
+
+// The date and time when the datastore was created.
+func (o DatastoreResponsePtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The datastore type.
+func (o DatastoreResponsePtrOutput) DataStoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataStoreType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description of the datastore.
+func (o DatastoreResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data specific to GlusterFS.
+func (o DatastoreResponsePtrOutput) GlusterFsSection() GlusterFsSectionResponsePtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *GlusterFsSectionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.GlusterFsSection
+	}).(GlusterFsSectionResponsePtrOutput)
+}
+
+// A read only property that denotes whether the service datastore has been validated with credentials.
+func (o DatastoreResponsePtrOutput) HasBeenValidated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HasBeenValidated
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Info about origin if it is linked.
+func (o DatastoreResponsePtrOutput) LinkedInfo() LinkedInfoResponsePtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *LinkedInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedInfo
+	}).(LinkedInfoResponsePtrOutput)
+}
+
+// The User who modified the datastore.
+func (o DatastoreResponsePtrOutput) ModifiedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *UserInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ModifiedBy
+	}).(UserInfoResponsePtrOutput)
+}
+
+// The date and time when the datastore was last modified.
+func (o DatastoreResponsePtrOutput) ModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModifiedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the datastore.
+func (o DatastoreResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatastoreResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tags for this datastore.
+func (o DatastoreResponsePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatastoreResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
 }
 
 type EncryptionProperty struct {
@@ -6631,6 +12086,159 @@ func (o ErrorResponseResponseOutput) Details() ErrorDetailResponseArrayOutput {
 // Error message.
 func (o ErrorResponseResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorResponseResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Data specific to GlusterFS.
+type GlusterFsSectionResponse struct {
+	// The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
+	ServerAddress string `pulumi:"serverAddress"`
+	// The name of the created GlusterFS volume.
+	VolumeName string `pulumi:"volumeName"`
+}
+
+// GlusterFsSectionResponseInput is an input type that accepts GlusterFsSectionResponseArgs and GlusterFsSectionResponseOutput values.
+// You can construct a concrete instance of `GlusterFsSectionResponseInput` via:
+//
+//          GlusterFsSectionResponseArgs{...}
+type GlusterFsSectionResponseInput interface {
+	pulumi.Input
+
+	ToGlusterFsSectionResponseOutput() GlusterFsSectionResponseOutput
+	ToGlusterFsSectionResponseOutputWithContext(context.Context) GlusterFsSectionResponseOutput
+}
+
+// Data specific to GlusterFS.
+type GlusterFsSectionResponseArgs struct {
+	// The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
+	ServerAddress pulumi.StringInput `pulumi:"serverAddress"`
+	// The name of the created GlusterFS volume.
+	VolumeName pulumi.StringInput `pulumi:"volumeName"`
+}
+
+func (GlusterFsSectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlusterFsSectionResponse)(nil)).Elem()
+}
+
+func (i GlusterFsSectionResponseArgs) ToGlusterFsSectionResponseOutput() GlusterFsSectionResponseOutput {
+	return i.ToGlusterFsSectionResponseOutputWithContext(context.Background())
+}
+
+func (i GlusterFsSectionResponseArgs) ToGlusterFsSectionResponseOutputWithContext(ctx context.Context) GlusterFsSectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlusterFsSectionResponseOutput)
+}
+
+func (i GlusterFsSectionResponseArgs) ToGlusterFsSectionResponsePtrOutput() GlusterFsSectionResponsePtrOutput {
+	return i.ToGlusterFsSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GlusterFsSectionResponseArgs) ToGlusterFsSectionResponsePtrOutputWithContext(ctx context.Context) GlusterFsSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlusterFsSectionResponseOutput).ToGlusterFsSectionResponsePtrOutputWithContext(ctx)
+}
+
+// GlusterFsSectionResponsePtrInput is an input type that accepts GlusterFsSectionResponseArgs, GlusterFsSectionResponsePtr and GlusterFsSectionResponsePtrOutput values.
+// You can construct a concrete instance of `GlusterFsSectionResponsePtrInput` via:
+//
+//          GlusterFsSectionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GlusterFsSectionResponsePtrInput interface {
+	pulumi.Input
+
+	ToGlusterFsSectionResponsePtrOutput() GlusterFsSectionResponsePtrOutput
+	ToGlusterFsSectionResponsePtrOutputWithContext(context.Context) GlusterFsSectionResponsePtrOutput
+}
+
+type glusterFsSectionResponsePtrType GlusterFsSectionResponseArgs
+
+func GlusterFsSectionResponsePtr(v *GlusterFsSectionResponseArgs) GlusterFsSectionResponsePtrInput {
+	return (*glusterFsSectionResponsePtrType)(v)
+}
+
+func (*glusterFsSectionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlusterFsSectionResponse)(nil)).Elem()
+}
+
+func (i *glusterFsSectionResponsePtrType) ToGlusterFsSectionResponsePtrOutput() GlusterFsSectionResponsePtrOutput {
+	return i.ToGlusterFsSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *glusterFsSectionResponsePtrType) ToGlusterFsSectionResponsePtrOutputWithContext(ctx context.Context) GlusterFsSectionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlusterFsSectionResponsePtrOutput)
+}
+
+// Data specific to GlusterFS.
+type GlusterFsSectionResponseOutput struct{ *pulumi.OutputState }
+
+func (GlusterFsSectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlusterFsSectionResponse)(nil)).Elem()
+}
+
+func (o GlusterFsSectionResponseOutput) ToGlusterFsSectionResponseOutput() GlusterFsSectionResponseOutput {
+	return o
+}
+
+func (o GlusterFsSectionResponseOutput) ToGlusterFsSectionResponseOutputWithContext(ctx context.Context) GlusterFsSectionResponseOutput {
+	return o
+}
+
+func (o GlusterFsSectionResponseOutput) ToGlusterFsSectionResponsePtrOutput() GlusterFsSectionResponsePtrOutput {
+	return o.ToGlusterFsSectionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GlusterFsSectionResponseOutput) ToGlusterFsSectionResponsePtrOutputWithContext(ctx context.Context) GlusterFsSectionResponsePtrOutput {
+	return o.ApplyT(func(v GlusterFsSectionResponse) *GlusterFsSectionResponse {
+		return &v
+	}).(GlusterFsSectionResponsePtrOutput)
+}
+
+// The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
+func (o GlusterFsSectionResponseOutput) ServerAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GlusterFsSectionResponse) string { return v.ServerAddress }).(pulumi.StringOutput)
+}
+
+// The name of the created GlusterFS volume.
+func (o GlusterFsSectionResponseOutput) VolumeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GlusterFsSectionResponse) string { return v.VolumeName }).(pulumi.StringOutput)
+}
+
+type GlusterFsSectionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GlusterFsSectionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlusterFsSectionResponse)(nil)).Elem()
+}
+
+func (o GlusterFsSectionResponsePtrOutput) ToGlusterFsSectionResponsePtrOutput() GlusterFsSectionResponsePtrOutput {
+	return o
+}
+
+func (o GlusterFsSectionResponsePtrOutput) ToGlusterFsSectionResponsePtrOutputWithContext(ctx context.Context) GlusterFsSectionResponsePtrOutput {
+	return o
+}
+
+func (o GlusterFsSectionResponsePtrOutput) Elem() GlusterFsSectionResponseOutput {
+	return o.ApplyT(func(v *GlusterFsSectionResponse) GlusterFsSectionResponse { return *v }).(GlusterFsSectionResponseOutput)
+}
+
+// The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
+func (o GlusterFsSectionResponsePtrOutput) ServerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlusterFsSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the created GlusterFS volume.
+func (o GlusterFsSectionResponsePtrOutput) VolumeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlusterFsSectionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VolumeName
+	}).(pulumi.StringPtrOutput)
 }
 
 // A HDInsight compute.
@@ -8108,6 +13716,178 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultArmId() pulumi.StringPtrOut
 			return nil
 		}
 		return &v.KeyVaultArmId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Info about origin if it is linked.
+type LinkedInfoResponse struct {
+	// LinkedId id.
+	LinkedId *string `pulumi:"linkedId"`
+	// Linked resource name.
+	LinkedResourceName *string `pulumi:"linkedResourceName"`
+	// Datastore origin
+	Origin *string `pulumi:"origin"`
+}
+
+// LinkedInfoResponseInput is an input type that accepts LinkedInfoResponseArgs and LinkedInfoResponseOutput values.
+// You can construct a concrete instance of `LinkedInfoResponseInput` via:
+//
+//          LinkedInfoResponseArgs{...}
+type LinkedInfoResponseInput interface {
+	pulumi.Input
+
+	ToLinkedInfoResponseOutput() LinkedInfoResponseOutput
+	ToLinkedInfoResponseOutputWithContext(context.Context) LinkedInfoResponseOutput
+}
+
+// Info about origin if it is linked.
+type LinkedInfoResponseArgs struct {
+	// LinkedId id.
+	LinkedId pulumi.StringPtrInput `pulumi:"linkedId"`
+	// Linked resource name.
+	LinkedResourceName pulumi.StringPtrInput `pulumi:"linkedResourceName"`
+	// Datastore origin
+	Origin pulumi.StringPtrInput `pulumi:"origin"`
+}
+
+func (LinkedInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedInfoResponse)(nil)).Elem()
+}
+
+func (i LinkedInfoResponseArgs) ToLinkedInfoResponseOutput() LinkedInfoResponseOutput {
+	return i.ToLinkedInfoResponseOutputWithContext(context.Background())
+}
+
+func (i LinkedInfoResponseArgs) ToLinkedInfoResponseOutputWithContext(ctx context.Context) LinkedInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedInfoResponseOutput)
+}
+
+func (i LinkedInfoResponseArgs) ToLinkedInfoResponsePtrOutput() LinkedInfoResponsePtrOutput {
+	return i.ToLinkedInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LinkedInfoResponseArgs) ToLinkedInfoResponsePtrOutputWithContext(ctx context.Context) LinkedInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedInfoResponseOutput).ToLinkedInfoResponsePtrOutputWithContext(ctx)
+}
+
+// LinkedInfoResponsePtrInput is an input type that accepts LinkedInfoResponseArgs, LinkedInfoResponsePtr and LinkedInfoResponsePtrOutput values.
+// You can construct a concrete instance of `LinkedInfoResponsePtrInput` via:
+//
+//          LinkedInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToLinkedInfoResponsePtrOutput() LinkedInfoResponsePtrOutput
+	ToLinkedInfoResponsePtrOutputWithContext(context.Context) LinkedInfoResponsePtrOutput
+}
+
+type linkedInfoResponsePtrType LinkedInfoResponseArgs
+
+func LinkedInfoResponsePtr(v *LinkedInfoResponseArgs) LinkedInfoResponsePtrInput {
+	return (*linkedInfoResponsePtrType)(v)
+}
+
+func (*linkedInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedInfoResponse)(nil)).Elem()
+}
+
+func (i *linkedInfoResponsePtrType) ToLinkedInfoResponsePtrOutput() LinkedInfoResponsePtrOutput {
+	return i.ToLinkedInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *linkedInfoResponsePtrType) ToLinkedInfoResponsePtrOutputWithContext(ctx context.Context) LinkedInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedInfoResponsePtrOutput)
+}
+
+// Info about origin if it is linked.
+type LinkedInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (LinkedInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedInfoResponse)(nil)).Elem()
+}
+
+func (o LinkedInfoResponseOutput) ToLinkedInfoResponseOutput() LinkedInfoResponseOutput {
+	return o
+}
+
+func (o LinkedInfoResponseOutput) ToLinkedInfoResponseOutputWithContext(ctx context.Context) LinkedInfoResponseOutput {
+	return o
+}
+
+func (o LinkedInfoResponseOutput) ToLinkedInfoResponsePtrOutput() LinkedInfoResponsePtrOutput {
+	return o.ToLinkedInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LinkedInfoResponseOutput) ToLinkedInfoResponsePtrOutputWithContext(ctx context.Context) LinkedInfoResponsePtrOutput {
+	return o.ApplyT(func(v LinkedInfoResponse) *LinkedInfoResponse {
+		return &v
+	}).(LinkedInfoResponsePtrOutput)
+}
+
+// LinkedId id.
+func (o LinkedInfoResponseOutput) LinkedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedInfoResponse) *string { return v.LinkedId }).(pulumi.StringPtrOutput)
+}
+
+// Linked resource name.
+func (o LinkedInfoResponseOutput) LinkedResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedInfoResponse) *string { return v.LinkedResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Datastore origin
+func (o LinkedInfoResponseOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedInfoResponse) *string { return v.Origin }).(pulumi.StringPtrOutput)
+}
+
+type LinkedInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedInfoResponse)(nil)).Elem()
+}
+
+func (o LinkedInfoResponsePtrOutput) ToLinkedInfoResponsePtrOutput() LinkedInfoResponsePtrOutput {
+	return o
+}
+
+func (o LinkedInfoResponsePtrOutput) ToLinkedInfoResponsePtrOutputWithContext(ctx context.Context) LinkedInfoResponsePtrOutput {
+	return o
+}
+
+func (o LinkedInfoResponsePtrOutput) Elem() LinkedInfoResponseOutput {
+	return o.ApplyT(func(v *LinkedInfoResponse) LinkedInfoResponse { return *v }).(LinkedInfoResponseOutput)
+}
+
+// LinkedId id.
+func (o LinkedInfoResponsePtrOutput) LinkedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Linked resource name.
+func (o LinkedInfoResponsePtrOutput) LinkedResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Datastore origin
+func (o LinkedInfoResponsePtrOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Origin
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14884,6 +20664,254 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 	}).(UserAssignedIdentityResponseOutput)
 }
 
+// User who created.
+type UserInfoResponse struct {
+	// A user alternate sec id. This represents the user in a different identity provider system Eg.1:live.com:puid
+	UserAltSecId *string `pulumi:"userAltSecId"`
+	// A user identity provider. Eg live.com
+	UserIdp *string `pulumi:"userIdp"`
+	// The issuer which issued the token for this user.
+	UserIss *string `pulumi:"userIss"`
+	//  A user's full name or a service principal's app ID.
+	UserName *string `pulumi:"userName"`
+	// A user or service principal's object ID..
+	UserObjectId *string `pulumi:"userObjectId"`
+	// A user or service principal's PuID.
+	UserPuId *string `pulumi:"userPuId"`
+	// A user or service principal's tenant ID.
+	UserTenantId *string `pulumi:"userTenantId"`
+}
+
+// UserInfoResponseInput is an input type that accepts UserInfoResponseArgs and UserInfoResponseOutput values.
+// You can construct a concrete instance of `UserInfoResponseInput` via:
+//
+//          UserInfoResponseArgs{...}
+type UserInfoResponseInput interface {
+	pulumi.Input
+
+	ToUserInfoResponseOutput() UserInfoResponseOutput
+	ToUserInfoResponseOutputWithContext(context.Context) UserInfoResponseOutput
+}
+
+// User who created.
+type UserInfoResponseArgs struct {
+	// A user alternate sec id. This represents the user in a different identity provider system Eg.1:live.com:puid
+	UserAltSecId pulumi.StringPtrInput `pulumi:"userAltSecId"`
+	// A user identity provider. Eg live.com
+	UserIdp pulumi.StringPtrInput `pulumi:"userIdp"`
+	// The issuer which issued the token for this user.
+	UserIss pulumi.StringPtrInput `pulumi:"userIss"`
+	//  A user's full name or a service principal's app ID.
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+	// A user or service principal's object ID..
+	UserObjectId pulumi.StringPtrInput `pulumi:"userObjectId"`
+	// A user or service principal's PuID.
+	UserPuId pulumi.StringPtrInput `pulumi:"userPuId"`
+	// A user or service principal's tenant ID.
+	UserTenantId pulumi.StringPtrInput `pulumi:"userTenantId"`
+}
+
+func (UserInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInfoResponse)(nil)).Elem()
+}
+
+func (i UserInfoResponseArgs) ToUserInfoResponseOutput() UserInfoResponseOutput {
+	return i.ToUserInfoResponseOutputWithContext(context.Background())
+}
+
+func (i UserInfoResponseArgs) ToUserInfoResponseOutputWithContext(ctx context.Context) UserInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponseOutput)
+}
+
+func (i UserInfoResponseArgs) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
+	return i.ToUserInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UserInfoResponseArgs) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponseOutput).ToUserInfoResponsePtrOutputWithContext(ctx)
+}
+
+// UserInfoResponsePtrInput is an input type that accepts UserInfoResponseArgs, UserInfoResponsePtr and UserInfoResponsePtrOutput values.
+// You can construct a concrete instance of `UserInfoResponsePtrInput` via:
+//
+//          UserInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UserInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput
+	ToUserInfoResponsePtrOutputWithContext(context.Context) UserInfoResponsePtrOutput
+}
+
+type userInfoResponsePtrType UserInfoResponseArgs
+
+func UserInfoResponsePtr(v *UserInfoResponseArgs) UserInfoResponsePtrInput {
+	return (*userInfoResponsePtrType)(v)
+}
+
+func (*userInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserInfoResponse)(nil)).Elem()
+}
+
+func (i *userInfoResponsePtrType) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
+	return i.ToUserInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *userInfoResponsePtrType) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponsePtrOutput)
+}
+
+// User who created.
+type UserInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (UserInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInfoResponse)(nil)).Elem()
+}
+
+func (o UserInfoResponseOutput) ToUserInfoResponseOutput() UserInfoResponseOutput {
+	return o
+}
+
+func (o UserInfoResponseOutput) ToUserInfoResponseOutputWithContext(ctx context.Context) UserInfoResponseOutput {
+	return o
+}
+
+func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
+	return o.ToUserInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v UserInfoResponse) *UserInfoResponse {
+		return &v
+	}).(UserInfoResponsePtrOutput)
+}
+
+// A user alternate sec id. This represents the user in a different identity provider system Eg.1:live.com:puid
+func (o UserInfoResponseOutput) UserAltSecId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserAltSecId }).(pulumi.StringPtrOutput)
+}
+
+// A user identity provider. Eg live.com
+func (o UserInfoResponseOutput) UserIdp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserIdp }).(pulumi.StringPtrOutput)
+}
+
+// The issuer which issued the token for this user.
+func (o UserInfoResponseOutput) UserIss() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserIss }).(pulumi.StringPtrOutput)
+}
+
+//  A user's full name or a service principal's app ID.
+func (o UserInfoResponseOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+// A user or service principal's object ID..
+func (o UserInfoResponseOutput) UserObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserObjectId }).(pulumi.StringPtrOutput)
+}
+
+// A user or service principal's PuID.
+func (o UserInfoResponseOutput) UserPuId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserPuId }).(pulumi.StringPtrOutput)
+}
+
+// A user or service principal's tenant ID.
+func (o UserInfoResponseOutput) UserTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserTenantId }).(pulumi.StringPtrOutput)
+}
+
+type UserInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserInfoResponse)(nil)).Elem()
+}
+
+func (o UserInfoResponsePtrOutput) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
+	return o
+}
+
+func (o UserInfoResponsePtrOutput) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
+	return o
+}
+
+func (o UserInfoResponsePtrOutput) Elem() UserInfoResponseOutput {
+	return o.ApplyT(func(v *UserInfoResponse) UserInfoResponse { return *v }).(UserInfoResponseOutput)
+}
+
+// A user alternate sec id. This represents the user in a different identity provider system Eg.1:live.com:puid
+func (o UserInfoResponsePtrOutput) UserAltSecId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAltSecId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A user identity provider. Eg live.com
+func (o UserInfoResponsePtrOutput) UserIdp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIdp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The issuer which issued the token for this user.
+func (o UserInfoResponsePtrOutput) UserIss() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIss
+	}).(pulumi.StringPtrOutput)
+}
+
+//  A user's full name or a service principal's app ID.
+func (o UserInfoResponsePtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A user or service principal's object ID..
+func (o UserInfoResponsePtrOutput) UserObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A user or service principal's PuID.
+func (o UserInfoResponsePtrOutput) UserPuId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPuId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A user or service principal's tenant ID.
+func (o UserInfoResponsePtrOutput) UserTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 // A Machine Learning compute based on Azure Virtual Machines.
 type VirtualMachine struct {
 	// Location for the underlying compute
@@ -15894,6 +21922,18 @@ func init() {
 	pulumi.RegisterOutputType(AmlComputeResponseOutput{})
 	pulumi.RegisterOutputType(AmlComputeResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(AmlComputeResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AzureDataLakeSectionResponseOutput{})
+	pulumi.RegisterOutputType(AzureDataLakeSectionResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureMySqlSectionResponseOutput{})
+	pulumi.RegisterOutputType(AzureMySqlSectionResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzurePostgreSqlSectionResponseOutput{})
+	pulumi.RegisterOutputType(AzurePostgreSqlSectionResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureSqlDatabaseSectionResponseOutput{})
+	pulumi.RegisterOutputType(AzureSqlDatabaseSectionResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureStorageSectionResponseOutput{})
+	pulumi.RegisterOutputType(AzureStorageSectionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ClientCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(ClientCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerResourceRequirementsOutput{})
 	pulumi.RegisterOutputType(ContainerResourceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(ContainerResourceRequirementsResponseOutput{})
@@ -15916,10 +21956,36 @@ func init() {
 	pulumi.RegisterOutputType(DatabricksResponseOutput{})
 	pulumi.RegisterOutputType(DatabricksResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(DatabricksResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestDataPathOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestDataPathPtrOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestParametersOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestParametersPtrOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestPathOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestPathPtrOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestQueryOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestQueryPtrOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestRegistrationOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestRegistrationPtrOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestTimeSeriesOutput{})
+	pulumi.RegisterOutputType(DatasetCreateRequestTimeSeriesPtrOutput{})
 	pulumi.RegisterOutputType(DatasetReferenceOutput{})
 	pulumi.RegisterOutputType(DatasetReferenceArrayOutput{})
 	pulumi.RegisterOutputType(DatasetReferenceResponseOutput{})
 	pulumi.RegisterOutputType(DatasetReferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatasetResponseOutput{})
+	pulumi.RegisterOutputType(DatasetResponsePtrOutput{})
+	pulumi.RegisterOutputType(DatasetResponseDataPathOutput{})
+	pulumi.RegisterOutputType(DatasetResponseDataPathPtrOutput{})
+	pulumi.RegisterOutputType(DatasetResponseLatestOutput{})
+	pulumi.RegisterOutputType(DatasetResponseLatestPtrOutput{})
+	pulumi.RegisterOutputType(DatasetResponseSqlDataPathOutput{})
+	pulumi.RegisterOutputType(DatasetResponseSqlDataPathPtrOutput{})
+	pulumi.RegisterOutputType(DatasetStateResponseOutput{})
+	pulumi.RegisterOutputType(DatasetStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(DatasetStateResponseDeprecatedByOutput{})
+	pulumi.RegisterOutputType(DatasetStateResponseDeprecatedByPtrOutput{})
+	pulumi.RegisterOutputType(DatastoreResponseOutput{})
+	pulumi.RegisterOutputType(DatastoreResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyResponseOutput{})
@@ -15935,6 +22001,8 @@ func init() {
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponseOutput{})
+	pulumi.RegisterOutputType(GlusterFsSectionResponseOutput{})
+	pulumi.RegisterOutputType(GlusterFsSectionResponsePtrOutput{})
 	pulumi.RegisterOutputType(HDInsightOutput{})
 	pulumi.RegisterOutputType(HDInsightPropertiesOutput{})
 	pulumi.RegisterOutputType(HDInsightPropertiesPtrOutput{})
@@ -15953,6 +22021,8 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LinkedInfoResponseOutput{})
+	pulumi.RegisterOutputType(LinkedInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinkedWorkspacePropsOutput{})
 	pulumi.RegisterOutputType(LinkedWorkspacePropsPtrOutput{})
 	pulumi.RegisterOutputType(LinkedWorkspacePropsResponseOutput{})
@@ -16037,6 +22107,8 @@ func init() {
 	pulumi.RegisterOutputType(UserAccountCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
+	pulumi.RegisterOutputType(UserInfoResponseOutput{})
+	pulumi.RegisterOutputType(UserInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineOutput{})
 	pulumi.RegisterOutputType(VirtualMachinePropertiesOutput{})
 	pulumi.RegisterOutputType(VirtualMachinePropertiesPtrOutput{})

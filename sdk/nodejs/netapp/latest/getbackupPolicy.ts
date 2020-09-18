@@ -6,7 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export function getbackupPolicy(args: GetbackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetbackupPolicyResult> {
+export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,14 +14,14 @@ export function getbackupPolicy(args: GetbackupPolicyArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp/latest:getbackupPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:netapp/latest:getBackupPolicy", {
         "accountName": args.accountName,
         "backupPolicyName": args.backupPolicyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetbackupPolicyArgs {
+export interface GetBackupPolicyArgs {
     /**
      * The name of the NetApp account
      */
@@ -39,7 +39,7 @@ export interface GetbackupPolicyArgs {
 /**
  * Backup policy information
  */
-export interface GetbackupPolicyResult {
+export interface GetBackupPolicyResult {
     /**
      * Daily backups count to keep
      */

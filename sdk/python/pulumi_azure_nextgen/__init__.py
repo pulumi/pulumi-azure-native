@@ -116,6 +116,7 @@ from . import (
     portal,
     powerbi,
     powerbidedicated,
+    powerplatform,
     recoveryservices,
     redhatopenshift,
     relay,

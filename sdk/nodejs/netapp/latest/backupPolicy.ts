@@ -23,7 +23,7 @@ export class BackupPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:netapp/latest:backupPolicy';
+    public static readonly __pulumiType = 'azure-nextgen:netapp/latest:BackupPolicy';
 
     /**
      * Returns true if the given object is an instance of BackupPolicy.  This is designed to work even
@@ -143,7 +143,7 @@ export class BackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20200601:backupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20200601:BackupPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupPolicy.__pulumiType, name, inputs, opts);
     }

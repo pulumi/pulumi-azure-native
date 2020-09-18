@@ -10,13 +10,13 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'GetsnapshotPolicyResult',
-    'AwaitableGetsnapshotPolicyResult',
-    'getsnapshot_policy',
+    'GetSnapshotPolicyResult',
+    'AwaitableGetSnapshotPolicyResult',
+    'get_snapshot_policy',
 ]
 
 @pulumi.output_type
-class GetsnapshotPolicyResult:
+class GetSnapshotPolicyResult:
     """
     Snapshot policy information
     """
@@ -133,12 +133,12 @@ class GetsnapshotPolicyResult:
         return pulumi.get(self, "weekly_schedule")
 
 
-class AwaitableGetsnapshotPolicyResult(GetsnapshotPolicyResult):
+class AwaitableGetSnapshotPolicyResult(GetSnapshotPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetsnapshotPolicyResult(
+        return GetSnapshotPolicyResult(
             daily_schedule=self.daily_schedule,
             enabled=self.enabled,
             hourly_schedule=self.hourly_schedule,
@@ -151,10 +151,10 @@ class AwaitableGetsnapshotPolicyResult(GetsnapshotPolicyResult):
             weekly_schedule=self.weekly_schedule)
 
 
-def getsnapshot_policy(account_name: Optional[str] = None,
-                       resource_group_name: Optional[str] = None,
-                       snapshot_policy_name: Optional[str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetsnapshotPolicyResult:
+def get_snapshot_policy(account_name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        snapshot_policy_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -170,9 +170,9 @@ def getsnapshot_policy(account_name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-nextgen:netapp/latest:getsnapshotPolicy', __args__, opts=opts, typ=GetsnapshotPolicyResult).value
+    __ret__ = pulumi.runtime.invoke('azure-nextgen:netapp/latest:getSnapshotPolicy', __args__, opts=opts, typ=GetSnapshotPolicyResult).value
 
-    return AwaitableGetsnapshotPolicyResult(
+    return AwaitableGetSnapshotPolicyResult(
         daily_schedule=__ret__.daily_schedule,
         enabled=__ret__.enabled,
         hourly_schedule=__ret__.hourly_schedule,

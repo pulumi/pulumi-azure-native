@@ -4,6 +4,8 @@
 // Export members:
 export * from "./getLinkedWorkspace";
 export * from "./getMachineLearningCompute";
+export * from "./getMachineLearningDataset";
+export * from "./getMachineLearningDatastore";
 export * from "./getMachineLearningService";
 export * from "./getPrivateEndpointConnection";
 export * from "./getWorkspace";
@@ -12,6 +14,8 @@ export * from "./listMachineLearningComputeKeys";
 export * from "./listMachineLearningComputeNodes";
 export * from "./listWorkspaceKeys";
 export * from "./machineLearningCompute";
+export * from "./machineLearningDataset";
+export * from "./machineLearningDatastore";
 export * from "./machineLearningService";
 export * from "./privateEndpointConnection";
 export * from "./workspace";

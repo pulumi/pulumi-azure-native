@@ -8,11 +8,11 @@ from .backup import *
 from .backup_policy import *
 from .get_account import *
 from .get_backup import *
+from .get_backup_policy import *
 from .get_pool import *
 from .get_snapshot import *
+from .get_snapshot_policy import *
 from .get_volume import *
-from .getbackup_policy import *
-from .getsnapshot_policy import *
 from .pool import *
 from .snapshot import *
 from .snapshot_policy import *

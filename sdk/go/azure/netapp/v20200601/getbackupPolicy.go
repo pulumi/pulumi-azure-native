@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func GetbackupPolicy(ctx *pulumi.Context, args *GetbackupPolicyArgs, opts ...pulumi.InvokeOption) (*GetbackupPolicyResult, error) {
-	var rv GetbackupPolicyResult
-	err := ctx.Invoke("azure-nextgen:netapp/v20200601:getbackupPolicy", args, &rv, opts...)
+func LookupBackupPolicy(ctx *pulumi.Context, args *LookupBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBackupPolicyResult, error) {
+	var rv LookupBackupPolicyResult
+	err := ctx.Invoke("azure-nextgen:netapp/v20200601:getBackupPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type GetbackupPolicyArgs struct {
+type LookupBackupPolicyArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
 	// Backup policy Name which uniquely identify backup policy.
@@ -26,7 +26,7 @@ type GetbackupPolicyArgs struct {
 }
 
 // Backup policy information
-type GetbackupPolicyResult struct {
+type LookupBackupPolicyResult struct {
 	// Daily backups count to keep
 	DailyBackupsToKeep *int `pulumi:"dailyBackupsToKeep"`
 	// The property to decide policy is enabled or not

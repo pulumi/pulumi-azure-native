@@ -10,13 +10,13 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'GetbackupPolicyResult',
-    'AwaitableGetbackupPolicyResult',
-    'getbackup_policy',
+    'GetBackupPolicyResult',
+    'AwaitableGetBackupPolicyResult',
+    'get_backup_policy',
 ]
 
 @pulumi.output_type
-class GetbackupPolicyResult:
+class GetBackupPolicyResult:
     """
     Backup policy information
     """
@@ -155,12 +155,12 @@ class GetbackupPolicyResult:
         return pulumi.get(self, "yearly_backups_to_keep")
 
 
-class AwaitableGetbackupPolicyResult(GetbackupPolicyResult):
+class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetbackupPolicyResult(
+        return GetBackupPolicyResult(
             daily_backups_to_keep=self.daily_backups_to_keep,
             enabled=self.enabled,
             location=self.location,
@@ -175,10 +175,10 @@ class AwaitableGetbackupPolicyResult(GetbackupPolicyResult):
             yearly_backups_to_keep=self.yearly_backups_to_keep)
 
 
-def getbackup_policy(account_name: Optional[str] = None,
-                     backup_policy_name: Optional[str] = None,
-                     resource_group_name: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetbackupPolicyResult:
+def get_backup_policy(account_name: Optional[str] = None,
+                      backup_policy_name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -194,9 +194,9 @@ def getbackup_policy(account_name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-nextgen:netapp/latest:getbackupPolicy', __args__, opts=opts, typ=GetbackupPolicyResult).value
+    __ret__ = pulumi.runtime.invoke('azure-nextgen:netapp/v20200601:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult).value
 
-    return AwaitableGetbackupPolicyResult(
+    return AwaitableGetBackupPolicyResult(
         daily_backups_to_keep=__ret__.daily_backups_to_keep,
         enabled=__ret__.enabled,
         location=__ret__.location,
