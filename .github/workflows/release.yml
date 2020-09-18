@@ -96,7 +96,7 @@ jobs:
         with:
           author_name: Failure in running ${{ matrix.language }} tests
           fields: repo,commit,author,action
-          status: ${{ job.status }
+          status: ${{ job.status }}
   create_docs_build:
     name: Create docs build
     needs: publish_sdk
