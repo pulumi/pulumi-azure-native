@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -33,15 +34,24 @@ func main() {
 		langs = os.Args[2]
 	}
 
-	body, diagnostics, err := arm2pulumi.RenderIR(readFrom, nil, nil)
+	log.Print("Starting render\n")
+	dir := time.Now()
+	body, diagnostics, err := arm2pulumi.RenderIRFromReader(readFrom)
 	if err != nil {
 		log.Fatalf("Failure rendering IR from template: %+v", err)
 	}
+	dirComplete := time.Since(dir)
+
 	languages := strings.Split(langs, ",")
-	programsMap, err := arm2pulumi.RenderPrograms(body, nil, languages)
+	dpro := time.Now()
+	programsMap, err := arm2pulumi.RenderPrograms(body, languages)
 	if err != nil {
 		log.Fatalf("Failure rendering programs: %+v", err)
 	}
+	dproComplete := time.Since(dpro)
+
+	log.Printf("IR generation: %v ms, program gen %v ms", dirComplete.Milliseconds(), dproComplete.Milliseconds())
+
 	for k, v := range programsMap {
 		fmt.Printf("Language: %s\n", k)
 		fmt.Println()

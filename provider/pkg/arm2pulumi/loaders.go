@@ -10,30 +10,49 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 )
 
-func loadMetadata() (*provider.AzureAPIMetadata, error) {
-	metadata, err := provider.LoadMetadata(azureApiResources)
+var pkgSpec *schema.PackageSpec
+var metadata *provider.AzureAPIMetadata
+
+func init() {
+	var err error
+	metadata, err = loadMetadata()
 	if err != nil {
-		return nil, fmt.Errorf("loading metadata: %w", err)
+		panic(err)
+	}
+	pkgSpec, err = loadSchema()
+	if err != nil {
+		panic(err)
+	}
+}
+
+func loadMetadata() (*provider.AzureAPIMetadata, error) {
+	if metadata == nil {
+		md, err := provider.LoadMetadata(azureApiResources)
+		if err != nil {
+			return nil, fmt.Errorf("loading metadata: %w", err)
+		}
+		return md, nil
 	}
 	return metadata, nil
 }
 
 func loadSchema() (*schema.PackageSpec, error) {
-	uncompressed, err := gzip.NewReader(bytes.NewReader(pulumiSchema))
-	if err != nil {
-		return nil, fmt.Errorf("loading schema: %w", err)
-	}
+	if pkgSpec == nil {
+		uncompressed, err := gzip.NewReader(bytes.NewReader(pulumiSchema))
+		if err != nil {
+			return nil, fmt.Errorf("loading schema: %w", err)
+		}
 
-	var pkgSpec schema.PackageSpec
-	if err = json.NewDecoder(uncompressed).Decode(&pkgSpec); err != nil {
-		return nil, fmt.Errorf("deserializing schema: %w", err)
+		if err = json.NewDecoder(uncompressed).Decode(&pkgSpec); err != nil {
+			return nil, fmt.Errorf("deserializing schema: %w", err)
+		}
+		if err = uncompressed.Close(); err != nil {
+			return nil, fmt.Errorf("closing uncompress stream for schema: %w", err)
+		}
+		// embed version because go codegen is particularly sensitive to this.
+		if pkgSpec.Version == "" {
+			pkgSpec.Version = version.Version
+		}
 	}
-	if err = uncompressed.Close(); err != nil {
-		return nil, fmt.Errorf("closing uncompress stream for schema: %w", err)
-	}
-	// embed version because go codegen is particularly sensitive to this.
-	if pkgSpec.Version == "" {
-		pkgSpec.Version = version.Version
-	}
-	return &pkgSpec, nil
+	return pkgSpec, nil
 }
