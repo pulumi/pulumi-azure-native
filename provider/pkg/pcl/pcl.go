@@ -56,6 +56,8 @@ func RenderValue(node interface{}) (model.Expression, error) {
 			value = cty.NumberIntVal(v)
 		case uint64:
 			value = cty.NumberUIntVal(v)
+		case float64:
+			value = cty.NumberFloatVal(v)
 		default:
 			contract.Failf("unexpected value of type %T in integer node", v)
 		}
@@ -74,7 +76,6 @@ func RenderValue(node interface{}) (model.Expression, error) {
 			}
 			consItems[k.String()] = rendered
 		}
-
 		var items []model.ObjectConsItem
 		for _, k := range codegen.SortedKeys(consItems) {
 			items = append(items, ObjectConsItem(k, consItems[k]))
