@@ -1,5 +1,3 @@
-// +build integration
-
 package gen
 
 import (
@@ -95,7 +93,7 @@ func TestFlattenInput(t *testing.T) {
 					"networkInterfaces": []map[string]interface{}{
 						{
 							"id": resourceID("Microsoft.Network/networkInterfaces/{existing-nic-name}"),
-							//"primary": true,
+							"primary": true,
 						},
 					},
 				},
@@ -319,6 +317,60 @@ func TestFlattenInput(t *testing.T) {
 							},
 						},
 						"maxPartitionResolutionRetries": 5,
+					},
+				},
+			},
+		},
+		{
+			name: "DeepNesting",
+			input: map[string]interface{}{
+				"parameters": map[string]interface{}{
+					"name":     "rancher-security-group",
+					"location": "westus2",
+					"parameters": map[string]interface{}{
+						"properties": map[string]interface{}{
+							"securityRules": []map[string]interface{}{
+								{
+									"name": "SSH",
+									"properties": map[string]interface{}{
+										"description":                "SSH",
+										"protocol":                   "*",
+										"sourcePortRange":            "*",
+										"destinationPortRange":       "22",
+										"sourceAddressPrefix":        "*",
+										"destinationAddressPrefix":   "*",
+										"access":                     "Allow",
+										"priority":                   100,
+										"direction":                  "Inbound",
+										"sourcePortRanges":           []interface{}{},
+										"destinationPortRanges":      []interface{}{},
+										"sourceAddressPrefixes":      []interface{}{},
+										"destinationAddressPrefixes": []interface{}{},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			resourceName: "azure-nextgen:network/v20200501:NetworkSecurityGroup",
+			expected: map[string]interface{}{
+				"securityRules": []interface{}{
+					map[string]interface{}{
+						"access":                     "Allow",
+						"description":                "SSH",
+						"destinationAddressPrefix":   "*",
+						"destinationAddressPrefixes": []interface{}{},
+						"destinationPortRange":       "22",
+						"destinationPortRanges":      []interface{}{},
+						"direction":                  "Inbound",
+						"name":                       "SSH",
+						"priority":                   100,
+						"protocol":                   "*",
+						"sourceAddressPrefix":        "*",
+						"sourceAddressPrefixes":      []interface{}{},
+						"sourcePortRange":            "*",
+						"sourcePortRanges":           []interface{}{},
 					},
 				},
 			},

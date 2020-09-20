@@ -136,16 +136,10 @@ func transformProperties(props map[string]provider.AzureAPIProperty, types map[s
 	result := map[string]interface{}{}
 	for k, v := range values {
 		prop, ok := props[k]
-		if !ok {
+		if !ok && !containers.Has(k){
 			debug.Log("missing '%s' in props: %#v", k, props)
 			continue
 		}
-		sdkName := k
-
-		if prop.SdkName != "" {
-			sdkName = prop.SdkName
-		}
-
 		if containers.Has(k) {
 			if v != nil {
 				container := transformProperty(&prop, types, v)
@@ -154,6 +148,13 @@ func transformProperties(props map[string]provider.AzureAPIProperty, types map[s
 			}
 			continue
 		}
+
+		sdkName := k
+
+		if prop.SdkName != "" {
+			sdkName = prop.SdkName
+		}
+
 		if v != nil {
 			result[sdkName] = transformProperty(&prop, types, v)
 		}
