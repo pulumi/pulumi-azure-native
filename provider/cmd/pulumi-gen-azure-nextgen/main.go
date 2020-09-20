@@ -28,7 +28,7 @@ import (
 
 func main() {
 	var debugEnabled bool
-	debugEnv := os.Getenv("DEBUG")
+	debugEnv := os.Getenv("DEBUG_CODEGEN")
 	if debugEnabled = debugEnv == "true"; debugEnabled {
 		debug.Debug = &debugEnabled
 	}
