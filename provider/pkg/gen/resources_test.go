@@ -92,7 +92,7 @@ func TestFlattenInput(t *testing.T) {
 				"networkProfile": map[string]interface{}{
 					"networkInterfaces": []map[string]interface{}{
 						{
-							"id": resourceID("Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+							"id":      resourceID("Microsoft.Network/networkInterfaces/{existing-nic-name}"),
 							"primary": true,
 						},
 					},
@@ -325,8 +325,8 @@ func TestFlattenInput(t *testing.T) {
 			name: "DeepNesting",
 			input: map[string]interface{}{
 				"parameters": map[string]interface{}{
-					"name":     "rancher-security-group",
-					"location": "westus2",
+					"networkSecurityGroupName": "rancher-security-group",
+					"location":                 "westus2",
 					"parameters": map[string]interface{}{
 						"properties": map[string]interface{}{
 							"securityRules": []map[string]interface{}{
@@ -355,6 +355,7 @@ func TestFlattenInput(t *testing.T) {
 			},
 			resourceName: "azure-nextgen:network/v20200501:NetworkSecurityGroup",
 			expected: map[string]interface{}{
+				"networkSecurityGroupName": "rancher-security-group",
 				"securityRules": []interface{}{
 					map[string]interface{}{
 						"access":                     "Allow",
