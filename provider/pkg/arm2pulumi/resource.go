@@ -97,7 +97,7 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 			// into properties of the resource if missing
 			location = v
 		case "properties":
-			resourceParams = v.(map[string]interface{})
+			resourceParams = map[string]interface{} { "properties": r.rawBody[k].(map[string]interface{})}
 		case "dependsOn":
 			// TODO
 			continue
@@ -149,40 +149,12 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 	}
 	token = actual // Use the actual token going forward
 
-	metadataResParams := map[string]provider.AzureAPIParameter{}
-	for _, param := range res.PutParameters {
-		metadataResParams[param.Name] = param
-	}
-	_, foundProperties := metadataResParams["properties"]
-
-	// block specified under properties seem to be converted to body payload
-	// so determine the body compliant field against metadata if a direct match
-	// against "properties" is not found
-	if !foundProperties {
-		var bodyField string
-		for k, v := range metadataResParams {
-			if v.Body != nil {
-				bodyField = k
-				break
-			}
-		}
-		resourceParams = map[string]interface{}{
-			bodyField: resourceParams,
-		}
-	}
-	nameParamFromMetadata, err := extractResourceNameParameter(res)
+	flattened, err := r.transformRequestBody(ctx, res, resourceParams, templateResourceName)
 	if err != nil {
-		return nil, fmt.Errorf("missing resource name attribute for resource: %s", r.resourceName)
+		return nil, err
 	}
 
-	resourceParams[nameParamFromMetadata.Name] = templateResourceName
-
-	flattened, err := gen.FlattenInput(resourceParams, metadataResParams, ctx.metadata.Types)
-	if err != nil {
-		return nil, fmt.Errorf("failed to transform parameters for resource: %s: %w", r.resourceName, err)
-	}
-
-	if _, found := flattened["location"]; !found {
+	if _, found := flattened["location"]; !found && location != nil {
 		flattened["location"] = location
 	}
 
@@ -209,6 +181,47 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 		Labels: []string{r.resourceName, token},
 	}
 	return []model.BodyItem{&block}, nil
+}
+
+func (r *resource) transformRequestBody(ctx *pclRenderContext,
+	res *provider.AzureAPIResource,
+	resourceParams map[string]interface{},
+	templateResourceName interface{},
+) (map[string]interface{}, error) {
+	metadataResParams := map[string]provider.AzureAPIParameter{}
+	for _, param := range res.PutParameters {
+		metadataResParams[param.Name] = param
+	}
+	_, foundProperties := metadataResParams["properties"]
+
+	// block specified as properties seems to be converted to body payload
+	// so determine the body compliant field against metadata if a direct match
+	// against "properties" is not found and wrap it
+	if !foundProperties {
+		var bodyField string
+		for k, v := range metadataResParams {
+			if v.Body != nil {
+				bodyField = k
+				break
+			}
+		}
+		resourceParams = map[string]interface{}{
+			bodyField: resourceParams,
+		}
+	}
+
+	// Set the name
+	nameParamFromMetadata, err := extractResourceNameParameter(res)
+	if err != nil {
+		return nil, fmt.Errorf("missing resource name attribute for resource: %s", r.resourceName)
+	}
+	resourceParams[nameParamFromMetadata.Name] = templateResourceName
+
+	flattened, err := gen.FlattenInput(resourceParams, metadataResParams, ctx.metadata.Types)
+	if err != nil {
+		return nil, fmt.Errorf("failed to transform parameters for resource: %s: %w", r.resourceName, err)
+	}
+	return flattened, nil
 }
 
 func toResourceToken(resourceType, apiVersion string) string {

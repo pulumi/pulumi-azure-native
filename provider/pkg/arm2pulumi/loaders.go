@@ -13,25 +13,13 @@ import (
 var pkgSpec *schema.PackageSpec
 var metadata *provider.AzureAPIMetadata
 
-func init() {
-	var err error
-	metadata, err = loadMetadata()
-	if err != nil {
-		panic(err)
-	}
-	pkgSpec, err = loadSchema()
-	if err != nil {
-		panic(err)
-	}
-}
-
 func loadMetadata() (*provider.AzureAPIMetadata, error) {
 	if metadata == nil {
-		md, err := provider.LoadMetadata(azureApiResources)
+		var err error
+		metadata, err = provider.LoadMetadata(azureApiResources)
 		if err != nil {
 			return nil, fmt.Errorf("loading metadata: %w", err)
 		}
-		return md, nil
 	}
 	return metadata, nil
 }

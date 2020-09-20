@@ -2,6 +2,7 @@ package arm2pulumi
 
 import (
 	"fmt"
+	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/arm2pulumi/internal/test"
 	"testing"
 
 	"github.com/sourcegraph/jsonx"
@@ -10,27 +11,30 @@ import (
 )
 
 func TestRenderTemplate(t *testing.T) {
-	for _, test := range []testcase{
+	pkgSpec = test.LoadSchema(t)
+	metadata = test.LoadMetadata(t)
+
+	for _, testCase := range []testcase{
 		aksCluster,
 	} {
-		t.Run(test.name, func(t *testing.T) {
+		t.Run(testCase.name, func(t *testing.T) {
 			assert.NotNil(t, metadata)
 			assert.NotNil(t, pkgSpec)
-			node, err := parseJsonxTree(test.template)
+			node, err := parseJsonxTree(testCase.template)
 			require.NoError(t, err)
 			body, _, err := renderTemplate(map[string]*jsonx.Node{
 				"example.json": node,
 			})
-			if test.err == nil {
+			if testCase.err == nil {
 				require.NoError(t, err)
 			} else {
 				require.Error(t, err)
-				assert.EqualError(t, err, test.err.Error())
+				assert.EqualError(t, err, testCase.err.Error())
 			}
 			fmt.Printf("%#v\n", body)
-			rendered, _, err := RenderPrograms(body, test.languages)
+			rendered, _, err := RenderPrograms(body, testCase.languages)
 			require.NoError(t, err)
-			for _, lang := range test.languages {
+			for _, lang := range testCase.languages {
 				t.Log(rendered[lang])
 			}
 		})
@@ -40,16 +44,16 @@ func TestRenderTemplate(t *testing.T) {
 }
 
 type testcase struct {
-	name     string
-	template string
-	expected string
+	name      string
+	template  string
+	expected  string
 	languages []string
-	err      error
+	err       error
 }
 
 var (
 	aksCluster = testcase{
-		name: "aksCluster",
+		name:      "aksCluster",
 		languages: []string{"nodejs"},
 		template: `{
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",

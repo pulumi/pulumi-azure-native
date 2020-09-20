@@ -42,6 +42,8 @@ func main() {
 	}
 	dirComplete := time.Since(dir)
 
+	fmt.Printf("%v\n", body)
+
 	languages := strings.Split(langs, ",")
 	dpro := time.Now()
 	programsMap, _, err := arm2pulumi.RenderPrograms(body, languages)

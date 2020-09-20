@@ -24,6 +24,19 @@ import (
 	"github.com/sourcegraph/jsonx"
 )
 
+type RenderOptions interface {
+	apply(options *renderOptions)
+}
+
+type optionFunc func(options *renderOptions)
+func(o optionFunc) apply(options *renderOptions) {
+	o(options)
+}
+
+type renderOptions struct {
+	collapseChildResources bool
+}
+
 // RenderIR generates an intermediate representation from template
 // files passed as a map of file name to content.
 // If metadata or pkgSpec are nil, they are loaded from the serialized
@@ -122,6 +135,13 @@ func renderTemplate(templates map[string]*jsonx.Node) (*model.Body, map[string][
 	switch len(templates) {
 	case 0:
 		return &model.Body{}, nil, nil
+	}
+
+	if _, err := loadSchema(); err != nil {
+		return nil, nil, err
+	}
+	if _, err := loadMetadata(); err != nil {
+		return nil, nil, err
 	}
 
 	templ := NewTemplateElements()

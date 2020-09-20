@@ -47,21 +47,10 @@ func RenderValue(node interface{}) (model.Expression, error) {
 		return &model.LiteralValueExpression{
 			Value: cty.NumberFloatVal(val.Float()),
 		}, nil
-	case reflect.Int, reflect.Int8, reflect.Int16,
-		reflect.Int32, reflect.Int64, reflect.Uint,
-		reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
-		var value cty.Value
-		switch v := node.(type) {
-		case int64:
-			value = cty.NumberIntVal(v)
-		case uint64:
-			value = cty.NumberUIntVal(v)
-		case float64:
-			value = cty.NumberFloatVal(v)
-		default:
-			contract.Failf("unexpected value of type %T in integer node", v)
-		}
-		return &model.LiteralValueExpression{Value: value}, nil
+	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
+		return &model.LiteralValueExpression{Value: cty.NumberIntVal(val.Int())}, nil
+	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+		return &model.LiteralValueExpression{Value: cty.NumberUIntVal(val.Uint())}, nil
 	case reflect.String:
 		return QuotedLit(val.String()), nil
 	case reflect.Map:

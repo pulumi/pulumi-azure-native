@@ -279,7 +279,6 @@ func (o *output) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
 	}}, nil
 }
 
-
 func NewTemplateElements() *TemplateElements {
 	return &TemplateElements{
 		elements:               map[string]*dependencyTracking{},
@@ -481,7 +480,23 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 		return errors.New("missing required name field in resource")
 	}
 
+	var prefix []string
+
 	var typestr string
+	typ, ok := args["type"]
+	if !ok {
+		return errors.New("missing required type field in resource")
+	}
+	typestr = typ.(string)
+
+	// Microsoft.ContainerService/managedClusters -> managedClusterResource
+	if !isTemplateExpression(typestr) {
+		resource := strings.Split(typestr, "/")
+		res := resource[len(resource)-1]
+		res = inflector.Singularize(strings.Title(gen.ToLowerCamel(res)))
+		prefix = append(prefix, res)
+	}
+	prefix = append(prefix, "Resource")
 
 	// we often have names as template expressions. We don't want to rely on evaluating the name
 	// as the resource variable name so we create a reasonable variable name to house the resource
@@ -489,24 +504,8 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 	// a template expression - in which case we just add a 'Resource' suffix.
 	// Otherwise just use the resource name field.
 	namestr := name.(string)
-	var prefix []string
 	if !isTemplateExpression(namestr) {
 		prefix = []string{namestr}
-	} else {
-		typ, ok := args["type"]
-		if !ok {
-			return errors.New("missing required type field in resource")
-		}
-		typestr = typ.(string)
-
-		// Microsoft.ContainerService/managedClusters -> managedClusterResource
-		if !isTemplateExpression(typestr) {
-			resource := strings.Split(typestr, "/")
-			res := resource[len(resource)-1]
-			res = inflector.Singularize(strings.Title(gen.ToLowerCamel(res)))
-			prefix = append(prefix, res)
-		}
-		prefix = append(prefix, "Resource")
 	}
 
 	varName := t.assignName(prefix)
