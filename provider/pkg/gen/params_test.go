@@ -1,4 +1,4 @@
-// Disabling this
+// +build tag=integration
 
 package gen
 
@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestFlattenInput(t *testing.T) {
+func TestFlattenParams(t *testing.T) {
 	var metadata provider.AzureAPIMetadata
 	// TODO - Requires `make generate_schema` to be run first
 	// turn this into a proper unit test instead
@@ -28,6 +28,7 @@ func TestFlattenInput(t *testing.T) {
 
 	for _, test := range []struct {
 		name         string
+		inputFunc    func(t *testing.T) map[string]interface{}
 		input        map[string]interface{}
 		resourceName string
 		expected     map[string]interface{}
@@ -95,7 +96,7 @@ func TestFlattenInput(t *testing.T) {
 					"networkInterfaces": []map[string]interface{}{
 						{
 							"id": resourceID("Microsoft.Network/networkInterfaces/{existing-nic-name}"),
-							//"primary": true,
+							"primary": true,
 						},
 					},
 				},
@@ -323,14 +324,168 @@ func TestFlattenInput(t *testing.T) {
 				},
 			},
 		},
-	}[3:] {
+		{
+			name: "DeepNesting",
+			input: map[string]interface{}{
+				"parameters": map[string]interface{}{
+					"networkSecurityGroupName":     "rancher-security-group",
+					"location": "westus2",
+					"parameters": map[string]interface{}{
+						"properties": map[string]interface{}{
+							"securityRules": []map[string]interface{}{
+								{
+									"name": "SSH",
+									"properties": map[string]interface{}{
+										"description":                "SSH",
+										"protocol":                   "*",
+										"sourcePortRange":            "*",
+										"destinationPortRange":       "22",
+										"sourceAddressPrefix":        "*",
+										"destinationAddressPrefix":   "*",
+										"access":                     "Allow",
+										"priority":                   100,
+										"direction":                  "Inbound",
+										"sourcePortRanges":           []interface{}{},
+										"destinationPortRanges":      []interface{}{},
+										"sourceAddressPrefixes":      []interface{}{},
+										"destinationAddressPrefixes": []interface{}{},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			resourceName: "azure-nextgen:network/v20200501:NetworkSecurityGroup",
+			expected: map[string]interface{}{
+				"networkSecurityGroupName": "rancher-security-group",
+				"securityRules": []interface{}{
+					map[string]interface{}{
+						"access":                     "Allow",
+						"description":                "SSH",
+						"destinationAddressPrefix":   "*",
+						"destinationAddressPrefixes": []interface{}{},
+						"destinationPortRange":       "22",
+						"destinationPortRanges":      []interface{}{},
+						"direction":                  "Inbound",
+						"name":                       "SSH",
+						"priority":                   100,
+						"protocol":                   "*",
+						"sourceAddressPrefix":        "*",
+						"sourceAddressPrefixes":      []interface{}{},
+						"sourcePortRange":            "*",
+						"sourcePortRanges":           []interface{}{},
+					},
+				},
+			},
+		},
+		{
+			name:         "NestedObject",
+			inputFunc:        serialize(npe),
+			resourceName: "azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName",
+			expected:     map[string]interface {}{
+				"automationAccountName":"myaccount",
+				"resourceGroupName":"mygroup",
+				"scheduleInfo":map[string]interface {}{
+					"advancedSchedule":map[string]interface {}{
+						"weekDays":[]interface {}{
+							"Monday",
+							"Thursday",
+						},
+					},
+					"expiryTime":"2018-11-09T11:22:57+00:00",
+					"frequency":"Hour",
+					"interval":1,
+					"startTime":"2017-10-19T12:22:57+00:00",
+					"timeZone":"America/Los_Angeles",
+				},
+				"softwareUpdateConfigurationName":"testpatch",
+				"tasks":map[string]interface {}{
+					"postTask":map[string]interface {}{
+						"source":"GetCache",
+					},
+					"preTask":map[string]interface {}{
+						"parameters":map[string]interface {}{
+							"COMPUTERNAME":"Computer1",
+						},
+						"source":"HelloWorld",
+					},
+				},
+				"updateConfiguration":map[string]interface {}{
+					"azureVirtualMachines":[]interface {}{
+						"/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+						"/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+						"/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03",
+					},
+					"duration":"PT2H0M",
+					"nonAzureComputerNames":[]interface {}{
+						"box1.contoso.com",
+						"box2.contoso.com",
+					},
+					"operatingSystem":"Windows",
+					"targets":map[string]interface {}{
+						"azureQueries":[]interface {}{
+							map[string]interface {}{
+								"locations":[]interface {}{
+									"Japan East",
+									"UK South",
+								},
+								"scope":[]interface {}{
+									"/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
+									"/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067",
+								}, "tagSettings":map[string]interface {}{
+									"filterOperator":"All",
+									"tags":[]interface {}{
+										map[string]interface {}{
+											"tag1":[]interface {}{
+												"tag1Value1",
+												"tag1Value2",
+												"tag1Value3",
+											},
+										},
+										map[string]interface {}{
+											"tag2":[]interface {}{
+												"tag2Value1",
+												"tag2Value2",
+												"tag2Value3",
+											},
+										},
+									},
+								},
+							},
+						},
+						"nonAzureQueries":[]interface {}{
+							map[string]interface {}{
+								"functionAlias":"SavedSearch1",
+								"workspaceId":"WorkspaceId1",
+							},
+							map[string]interface {}{
+								"functionAlias":"SavedSearch2",
+								"workspaceId":"WorkspaceId2",
+							},
+						},
+					}, "windows":map[string]interface {}{
+						"excludedKbNumbers":[]interface {}{
+							"168934",
+							"168973",
+						},
+						"includedUpdateClassifications":"Critical",
+						"rebootSetting":"IfRequired",
+					},
+				},
+			},
+		},
+	} {
 		t.Run(test.name, func(t *testing.T) {
+			if test.input == nil {
+				test.input = test.inputFunc(t)
+			}
 			in := test.input["parameters"].(map[string]interface{})
 			params := map[string]provider.AzureAPIParameter{}
 			for _, param := range metadata.Resources[test.resourceName].PutParameters {
 				params[param.Name] = param
 			}
-			out, err := flattenInput(in, params, metadata.Types)
+			out, err := FlattenParams(in, params, metadata.Types)
 			if test.err != nil {
 				require.Error(t, err)
 				require.Empty(t, out)
@@ -344,3 +499,114 @@ func TestFlattenInput(t *testing.T) {
 		})
 	}
 }
+
+func serialize(input string) func(*testing.T) map[string]interface{}{
+	return func(t *testing.T) map[string]interface{} {
+		serialized := make(map[string]interface{})
+		require.NoError(t, json.Unmarshal([]byte(input), &serialized))
+		return serialized
+	}
+}
+
+const npe = `{
+  "parameters": {
+    "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab",
+    "resourceGroupName": "mygroup",
+    "automationAccountName": "myaccount",
+    "softwareUpdateConfigurationName": "testpatch",
+    "api-version": "2017-05-15-preview",
+    "parameters": {
+      "properties": {
+        "updateConfiguration": {
+          "operatingSystem": "Windows",
+          "duration": "PT2H0M",
+          "windows": {
+            "excludedKbNumbers": [
+              "168934",
+              "168973"
+            ],
+            "includedUpdateClassifications": "Critical",
+            "rebootSetting": "IfRequired"
+          },
+          "azureVirtualMachines": [
+            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
+          ],
+          "nonAzureComputerNames": [
+            "box1.contoso.com",
+            "box2.contoso.com"
+          ],
+          "targets": {
+            "azureQueries": [
+              {
+                "scope": [
+                  "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
+                  "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067"
+                ],
+                "tagSettings": {
+                  "tags": [
+                    {
+                      "tag1": [
+                        "tag1Value1",
+                        "tag1Value2",
+                        "tag1Value3"
+                      ]
+                    },
+                    {
+                      "tag2": [
+                        "tag2Value1",
+                        "tag2Value2",
+                        "tag2Value3"
+                      ]
+                    }
+                  ],
+                  "filterOperator": "All"
+                },
+                "locations": [
+                  "Japan East",
+                  "UK South"
+                ]
+              }
+            ],
+            "nonAzureQueries": [
+              {
+                "functionAlias": "SavedSearch1",
+                "workspaceId": "WorkspaceId1"
+              },
+              {
+                "functionAlias": "SavedSearch2",
+                "workspaceId": "WorkspaceId2"
+              }
+            ]
+          }
+        },
+        "scheduleInfo": {
+          "frequency": "Hour",
+          "startTime": "2017-10-19T12:22:57+00:00",
+          "timeZone": "America/Los_Angeles",
+          "interval": 1,
+          "expiryTime": "2018-11-09T11:22:57+00:00",
+          "advancedSchedule": {
+            "weekDays": [
+              "Monday",
+              "Thursday"
+            ]
+          }
+        },
+        "tasks": {
+          "preTask": {
+            "source": "HelloWorld",
+            "parameters": {
+              "COMPUTERNAME": "Computer1"
+            }
+          },
+          "postTask": {
+            "source": "GetCache",
+            "parameters": null
+          }
+        }
+      }
+    }
+  }
+}`
