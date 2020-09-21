@@ -13,7 +13,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
     /// <summary>
     /// Settings concerning lockbox.
     /// </summary>
-    public sealed class EnterprisePolicyIdentityLockboxArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationPropertiesLockboxArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// lockbox configuration
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        public EnterprisePolicyIdentityLockboxArgs()
+        public ConfigurationPropertiesLockboxArgs()
         {
         }
     }

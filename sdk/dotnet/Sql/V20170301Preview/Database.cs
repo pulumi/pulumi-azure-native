@@ -215,6 +215,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20171001preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

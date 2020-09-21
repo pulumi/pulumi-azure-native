@@ -15,6 +15,12 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
     public partial class EnterprisePolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// The encryption settings for a configuration store.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.ConfigurationPropertiesResponseEncryption?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the EnterprisePolicy.
         /// </summary>
         [Output("identity")]
@@ -27,10 +33,22 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Settings concerning lockbox.
+        /// </summary>
+        [Output("lockbox")]
+        public Output<Outputs.ConfigurationPropertiesResponseLockbox?> Lockbox { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the EnterprisePolicy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse?> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -90,6 +108,12 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
     public sealed class EnterprisePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The encryption settings for a configuration store.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.ConfigurationPropertiesEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// Name of the EnterprisePolicy.
         /// </summary>
         [Input("enterprisePolicyName", required: true)]
@@ -108,10 +132,22 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Settings concerning lockbox.
+        /// </summary>
+        [Input("lockbox")]
+        public Input<Inputs.ConfigurationPropertiesLockboxArgs>? Lockbox { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Input("systemData")]
+        public Input<Inputs.SystemDataArgs>? SystemData { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

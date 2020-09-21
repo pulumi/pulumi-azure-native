@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview.Inputs
 {
 
     /// <summary>
-    /// A custom alert rule that checks if a value (depends on the custom alert type) is allowed
+    /// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
     /// </summary>
     public sealed class AllowlistCustomAlertRuleArgs : Pulumi.ResourceArgs
     {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview.Inputs
         }
 
         /// <summary>
-        /// Whether the custom alert is enabled.
+        /// Status of the custom alert.
         /// </summary>
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;

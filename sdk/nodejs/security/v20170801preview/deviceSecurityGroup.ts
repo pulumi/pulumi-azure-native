@@ -37,11 +37,11 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
     }
 
     /**
-     * A list of allow-list custom alert rules.
+     * The allow-list custom alert rules.
      */
     public readonly allowlistRules!: pulumi.Output<outputs.security.v20170801preview.AllowlistCustomAlertRuleResponse[] | undefined>;
     /**
-     * A list of deny-list custom alert rules.
+     * The deny-list custom alert rules.
      */
     public readonly denylistRules!: pulumi.Output<outputs.security.v20170801preview.DenylistCustomAlertRuleResponse[] | undefined>;
     /**
@@ -49,11 +49,11 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * A list of threshold custom alert rules.
+     * The list of custom alert threshold rules.
      */
     public readonly thresholdRules!: pulumi.Output<outputs.security.v20170801preview.ThresholdCustomAlertRuleResponse[] | undefined>;
     /**
-     * A list of time window custom alert rules.
+     * The list of custom alert time-window rules.
      */
     public readonly timeWindowRules!: pulumi.Output<outputs.security.v20170801preview.TimeWindowCustomAlertRuleResponse[] | undefined>;
     /**
@@ -111,15 +111,15 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
  */
 export interface DeviceSecurityGroupArgs {
     /**
-     * A list of allow-list custom alert rules.
+     * The allow-list custom alert rules.
      */
     readonly allowlistRules?: pulumi.Input<pulumi.Input<inputs.security.v20170801preview.AllowlistCustomAlertRule>[]>;
     /**
-     * A list of deny-list custom alert rules.
+     * The deny-list custom alert rules.
      */
     readonly denylistRules?: pulumi.Input<pulumi.Input<inputs.security.v20170801preview.DenylistCustomAlertRule>[]>;
     /**
-     * The name of the security group. Please notice that the name is case insensitive.
+     * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
     readonly deviceSecurityGroupName: pulumi.Input<string>;
     /**
@@ -127,11 +127,11 @@ export interface DeviceSecurityGroupArgs {
      */
     readonly resourceId: pulumi.Input<string>;
     /**
-     * A list of threshold custom alert rules.
+     * The list of custom alert threshold rules.
      */
     readonly thresholdRules?: pulumi.Input<pulumi.Input<inputs.security.v20170801preview.ThresholdCustomAlertRule>[]>;
     /**
-     * A list of time window custom alert rules.
+     * The list of custom alert time-window rules.
      */
     readonly timeWindowRules?: pulumi.Input<pulumi.Input<inputs.security.v20170801preview.TimeWindowCustomAlertRule>[]>;
 }

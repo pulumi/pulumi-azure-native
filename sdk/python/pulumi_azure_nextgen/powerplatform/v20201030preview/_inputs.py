@@ -9,9 +9,9 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'ConfigurationPropertiesEncryptionArgs',
+    'ConfigurationPropertiesLockboxArgs',
     'EnterprisePolicyIdentityArgs',
-    'EnterprisePolicyIdentityEncryptionArgs',
-    'EnterprisePolicyIdentityLockboxArgs',
     'KeyVaultPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'KeyPropertiesArgs',
@@ -19,79 +19,7 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class EnterprisePolicyIdentityArgs:
-    def __init__(__self__, *,
-                 encryption: Optional[pulumi.Input['EnterprisePolicyIdentityEncryptionArgs']] = None,
-                 lockbox: Optional[pulumi.Input['EnterprisePolicyIdentityLockboxArgs']] = None,
-                 system_data: Optional[pulumi.Input['SystemDataArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None):
-        """
-        Identity for the EnterprisePolicy.
-        :param pulumi.Input['EnterprisePolicyIdentityEncryptionArgs'] encryption: The encryption settings for a configuration store.
-        :param pulumi.Input['EnterprisePolicyIdentityLockboxArgs'] lockbox: Settings concerning lockbox.
-        :param pulumi.Input['SystemDataArgs'] system_data: Metadata for the enterprisePolicy.
-        :param pulumi.Input[str] type: The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-        """
-        if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
-        if lockbox is not None:
-            pulumi.set(__self__, "lockbox", lockbox)
-        if system_data is not None:
-            pulumi.set(__self__, "system_data", system_data)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EnterprisePolicyIdentityEncryptionArgs']]:
-        """
-        The encryption settings for a configuration store.
-        """
-        return pulumi.get(self, "encryption")
-
-    @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EnterprisePolicyIdentityEncryptionArgs']]):
-        pulumi.set(self, "encryption", value)
-
-    @property
-    @pulumi.getter
-    def lockbox(self) -> Optional[pulumi.Input['EnterprisePolicyIdentityLockboxArgs']]:
-        """
-        Settings concerning lockbox.
-        """
-        return pulumi.get(self, "lockbox")
-
-    @lockbox.setter
-    def lockbox(self, value: Optional[pulumi.Input['EnterprisePolicyIdentityLockboxArgs']]):
-        pulumi.set(self, "lockbox", value)
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional[pulumi.Input['SystemDataArgs']]:
-        """
-        Metadata for the enterprisePolicy.
-        """
-        return pulumi.get(self, "system_data")
-
-    @system_data.setter
-    def system_data(self, value: Optional[pulumi.Input['SystemDataArgs']]):
-        pulumi.set(self, "system_data", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class EnterprisePolicyIdentityEncryptionArgs:
+class ConfigurationPropertiesEncryptionArgs:
     def __init__(__self__, *,
                  key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
         """
@@ -115,7 +43,7 @@ class EnterprisePolicyIdentityEncryptionArgs:
 
 
 @pulumi.input_type
-class EnterprisePolicyIdentityLockboxArgs:
+class ConfigurationPropertiesLockboxArgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None):
         """
@@ -136,6 +64,30 @@ class EnterprisePolicyIdentityLockboxArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class EnterprisePolicyIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The identity of the EnterprisePolicy.
+        :param pulumi.Input[str] type: The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

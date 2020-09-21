@@ -14,21 +14,9 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
     public sealed class EnterprisePolicyIdentityResponse
     {
         /// <summary>
-        /// The encryption settings for a configuration store.
-        /// </summary>
-        public readonly Outputs.EnterprisePolicyIdentityResponseEncryption? Encryption;
-        /// <summary>
-        /// Settings concerning lockbox.
-        /// </summary>
-        public readonly Outputs.EnterprisePolicyIdentityResponseLockbox? Lockbox;
-        /// <summary>
         /// The principal id of EnterprisePolicy identity.
         /// </summary>
         public readonly string SystemAssignedIdentityPrincipalId;
-        /// <summary>
-        /// Metadata for the enterprisePolicy.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse? SystemData;
         /// <summary>
         /// The tenant id associated with the EnterprisePolicy.
         /// </summary>
@@ -40,22 +28,13 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
 
         [OutputConstructor]
         private EnterprisePolicyIdentityResponse(
-            Outputs.EnterprisePolicyIdentityResponseEncryption? encryption,
-
-            Outputs.EnterprisePolicyIdentityResponseLockbox? lockbox,
-
             string systemAssignedIdentityPrincipalId,
-
-            Outputs.SystemDataResponse? systemData,
 
             string tenantId,
 
             string? type)
         {
-            Encryption = encryption;
-            Lockbox = lockbox;
             SystemAssignedIdentityPrincipalId = systemAssignedIdentityPrincipalId;
-            SystemData = systemData;
             TenantId = tenantId;
             Type = type;
         }

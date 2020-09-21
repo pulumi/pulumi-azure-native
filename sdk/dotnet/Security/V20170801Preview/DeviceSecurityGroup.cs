@@ -15,13 +15,13 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
     public partial class DeviceSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of allow-list custom alert rules.
+        /// The allow-list custom alert rules.
         /// </summary>
         [Output("allowlistRules")]
         public Output<ImmutableArray<Outputs.AllowlistCustomAlertRuleResponse>> AllowlistRules { get; private set; } = null!;
 
         /// <summary>
-        /// A list of deny-list custom alert rules.
+        /// The deny-list custom alert rules.
         /// </summary>
         [Output("denylistRules")]
         public Output<ImmutableArray<Outputs.DenylistCustomAlertRuleResponse>> DenylistRules { get; private set; } = null!;
@@ -33,13 +33,13 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of threshold custom alert rules.
+        /// The list of custom alert threshold rules.
         /// </summary>
         [Output("thresholdRules")]
         public Output<ImmutableArray<Outputs.ThresholdCustomAlertRuleResponse>> ThresholdRules { get; private set; } = null!;
 
         /// <summary>
-        /// A list of time window custom alert rules.
+        /// The list of custom alert time-window rules.
         /// </summary>
         [Output("timeWindowRules")]
         public Output<ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponse>> TimeWindowRules { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         private InputList<Inputs.AllowlistCustomAlertRuleArgs>? _allowlistRules;
 
         /// <summary>
-        /// A list of allow-list custom alert rules.
+        /// The allow-list custom alert rules.
         /// </summary>
         public InputList<Inputs.AllowlistCustomAlertRuleArgs> AllowlistRules
         {
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         private InputList<Inputs.DenylistCustomAlertRuleArgs>? _denylistRules;
 
         /// <summary>
-        /// A list of deny-list custom alert rules.
+        /// The deny-list custom alert rules.
         /// </summary>
         public InputList<Inputs.DenylistCustomAlertRuleArgs> DenylistRules
         {
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         }
 
         /// <summary>
-        /// The name of the security group. Please notice that the name is case insensitive.
+        /// The name of the device security group. Note that the name of the device security group is case insensitive.
         /// </summary>
         [Input("deviceSecurityGroupName", required: true)]
         public Input<string> DeviceSecurityGroupName { get; set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         private InputList<Inputs.ThresholdCustomAlertRuleArgs>? _thresholdRules;
 
         /// <summary>
-        /// A list of threshold custom alert rules.
+        /// The list of custom alert threshold rules.
         /// </summary>
         public InputList<Inputs.ThresholdCustomAlertRuleArgs> ThresholdRules
         {
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         private InputList<Inputs.TimeWindowCustomAlertRuleArgs>? _timeWindowRules;
 
         /// <summary>
-        /// A list of time window custom alert rules.
+        /// The list of custom alert time-window rules.
         /// </summary>
         public InputList<Inputs.TimeWindowCustomAlertRuleArgs> TimeWindowRules
         {

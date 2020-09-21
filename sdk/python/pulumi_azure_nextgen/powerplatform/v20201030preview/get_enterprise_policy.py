@@ -20,22 +20,39 @@ class GetEnterprisePolicyResult:
     """
     Definition of the EnterprisePolicy.
     """
-    def __init__(__self__, identity=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, identity=None, location=None, lockbox=None, name=None, system_data=None, tags=None, type=None):
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if lockbox and not isinstance(lockbox, dict):
+            raise TypeError("Expected argument 'lockbox' to be a dict")
+        pulumi.set(__self__, "lockbox", lockbox)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.ConfigurationPropertiesResponseEncryption']:
+        """
+        The encryption settings for a configuration store.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter
@@ -55,11 +72,27 @@ class GetEnterprisePolicyResult:
 
     @property
     @pulumi.getter
+    def lockbox(self) -> Optional['outputs.ConfigurationPropertiesResponseLockbox']:
+        """
+        Settings concerning lockbox.
+        """
+        return pulumi.get(self, "lockbox")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Name of the EnterprisePolicy.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> Optional['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -84,9 +117,12 @@ class AwaitableGetEnterprisePolicyResult(GetEnterprisePolicyResult):
         if False:
             yield self
         return GetEnterprisePolicyResult(
+            encryption=self.encryption,
             identity=self.identity,
             location=self.location,
+            lockbox=self.lockbox,
             name=self.name,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -110,8 +146,11 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:powerplatform/v20201030preview:getEnterprisePolicy', __args__, opts=opts, typ=GetEnterprisePolicyResult).value
 
     return AwaitableGetEnterprisePolicyResult(
+        encryption=__ret__.encryption,
         identity=__ret__.identity,
         location=__ret__.location,
+        lockbox=__ret__.lockbox,
         name=__ret__.name,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
