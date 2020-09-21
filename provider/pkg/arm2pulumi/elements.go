@@ -281,34 +281,37 @@ func (o *output) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
 
 func NewTemplateElements() *TemplateElements {
 	return &TemplateElements{
-		elements:               map[string]*dependencyTracking{},
-		nameCaseInsensitiveMap: map[string]string{},
-		diagnostics:            map[string][]Diagnostic{},
+		elements:       map[string]*dependencyTracking{},
+		canonicalNames: map[string]string{},
+		diagnostics:    map[string][]Diagnostic{},
 	}
 }
 
 // TemplateElements keeps an internal state of template elements to be rendered to PCL,
 // including maintaining dependency ordering of the elements
 type TemplateElements struct {
-	elements               map[string]*dependencyTracking
-	nameCaseInsensitiveMap map[string]string
-	diagnostics            map[string][]Diagnostic
+	elements       map[string]*dependencyTracking
+	canonicalNames map[string]string
+	diagnostics    map[string][]Diagnostic
 }
 
 func (t *TemplateElements) lookup(name string) *dependencyTracking {
 	if el, ok := t.elements[name]; ok {
 		return el
 	}
-	name, ok := t.nameCaseInsensitiveMap[strings.ToLower(name)]
+
+	cname := gen.ToLowerCamel(gen.MakeLegalIdentifier(name))
+	_, ok := t.canonicalNames[cname]
 	if ok {
-		return t.elements[name]
+		return t.elements[cname]
 	}
 	return nil
 }
 
-func (t *TemplateElements) recordCaseInsensitiveName(name string) {
-	ciName := strings.ToLower(name)
-	t.nameCaseInsensitiveMap[ciName] = name
+func (t *TemplateElements) recordCanonicalizedName(name string) string {
+	cName := gen.ToLowerCamel(gen.MakeLegalIdentifier(name))
+	t.canonicalNames[cName] = name
+	return cName
 }
 
 // EvaluateExpressions evaluates template expressions. By default, it tries
@@ -426,10 +429,9 @@ func (t *TemplateElements) AddParameter(name string, args map[string]interface{}
 		// Don't expect name collision with params
 		return fmt.Errorf("another item with the same name as parameter %s already defined", name)
 	}
+	name = t.recordCanonicalizedName(name)
 	p := newParameter(name, args)
 	dep := newDependencyTracking(p)
-
-	t.recordCaseInsensitiveName(name)
 	t.elements[name] = dep
 	return nil
 }
@@ -445,10 +447,9 @@ func (t *TemplateElements) AddVariable(name string, args interface{}, addSuffix 
 		return nil, fmt.Errorf("another item with the same name as variable %s already defined", name)
 	}
 
+	name = t.recordCanonicalizedName(name)
 	v := newVariable(name, args)
 	dep := newDependencyTracking(v)
-
-	t.recordCaseInsensitiveName(name)
 	t.elements[name] = dep
 
 	return dep, nil
@@ -466,10 +467,9 @@ func (t *TemplateElements) AddOutput(name string, args map[string]interface{}, a
 		return fmt.Errorf("another item with the same name as output %s already defined", name)
 	}
 
+	name = t.recordCanonicalizedName(name)
 	o := newOutput(name, args)
 	dep := newDependencyTracking(o)
-
-	t.recordCaseInsensitiveName(name)
 	t.elements[name] = dep
 	return nil
 }
@@ -526,10 +526,10 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 		}
 	}
 
+	varName = t.recordCanonicalizedName(varName)
 	r := newResource(varName, args, resourceToken)
 	dep := newDependencyTracking(r)
 	t.elements[varName] = dep
-	t.recordCaseInsensitiveName(varName)
 	return nil
 }
 

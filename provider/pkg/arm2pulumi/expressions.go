@@ -263,7 +263,7 @@ func (t *TemplateElements) evalFunctionCall(d *dependencyTracking, target *inter
 			}
 			d.RefersTo(varElement)
 			*target = model.VariableReference(&model.Variable{
-				Name:         varName,
+				Name:         varElement.Name(),
 				VariableType: model.DynamicType,
 			})
 			return nil
@@ -290,7 +290,7 @@ func (t *TemplateElements) evalFunctionCall(d *dependencyTracking, target *inter
 
 			d.RefersTo(paramElement)
 			*target = model.VariableReference(&model.Variable{
-				Name:         evaledParamName,
+				Name:         paramElement.Name(),
 				VariableType: model.DynamicType,
 			})
 			return nil

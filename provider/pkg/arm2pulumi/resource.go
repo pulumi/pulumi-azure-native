@@ -217,7 +217,7 @@ func (r *resource) transformRequestBody(ctx *pclRenderContext,
 	}
 	resourceParams[nameParamFromMetadata.Name] = templateResourceName
 
-	flattened, err := gen.FlattenInput(resourceParams, metadataResParams, ctx.metadata.Types)
+	flattened, err := gen.FlattenParams(resourceParams, metadataResParams, ctx.metadata.Types)
 	if err != nil {
 		return nil, fmt.Errorf("failed to transform parameters for resource: %s: %w", r.resourceName, err)
 	}

@@ -7,7 +7,6 @@ import (
 	"compress/gzip"
 	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/debug"
 	"os"
 	"path"
 	"strings"
@@ -27,12 +26,6 @@ import (
 )
 
 func main() {
-	var debugEnabled bool
-	debugEnv := os.Getenv("DEBUG_CODEGEN")
-	if debugEnabled = debugEnv == "true"; debugEnabled {
-		debug.Debug = &debugEnabled
-	}
-
 	languages := os.Args[1]
 
 	version := ""
@@ -51,11 +44,21 @@ func main() {
 		switch language {
 		case "schema":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-nextgen")
-			if err = emitSchema(*pkgSpec, version, outdir); err != nil {
+			if err = emitSchema(*pkgSpec, version, outdir, "main", true); err != nil {
 				break
 			}
 			// Also, emit the resource metadata for the provider.
-			err = emitMetadata(meta, outdir)
+			if err = emitMetadata(meta, outdir, "main", true); err != nil {
+				break
+			}
+
+			// Now emit schema and metadata as byte encoded files for arm2pulumi
+			arm2pulumiDir := path.Join(".", "provider", "pkg", "arm2pulumi")
+			if err = emitSchema(*pkgSpec, version, arm2pulumiDir, "arm2pulumi", false); err != nil {
+				break
+			}
+			// Also, emit the resource metadata for the provider.
+			err = emitMetadata(meta, arm2pulumiDir, "arm2pulumi", false)
 		case "docs":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-nextgen")
 			docsProviders := openapi.SingleVersion(azureProviders)
@@ -91,7 +94,7 @@ func main() {
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
-func emitSchema(pkgSpec schema.PackageSpec, version, outDir string) error {
+func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageName string, emitJson bool) error {
 	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 	if err != nil {
 		return errors.Wrap(err, "marshaling Pulumi schema")
@@ -110,14 +113,19 @@ func emitSchema(pkgSpec schema.PackageSpec, version, outDir string) error {
 		return err
 	}
 
-	err = emitFile(outDir, "schema.go", []byte(fmt.Sprintf(`package main
+	err = emitFile(outDir, "schema.go", []byte(fmt.Sprintf(`package %s
 var pulumiSchema = %#v
-`, compressedSchema.Bytes())))
+`, goPackageName, compressedSchema.Bytes())))
 	if err != nil {
 		return errors.Wrap(err, "saving metadata")
 	}
 
-	return emitFile(outDir, "schema-full.json", schemaJSON)
+	if emitJson {
+		if err := emitFile(outDir, "schema-full.json", schemaJSON); err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 // emitDocsSchema writes the Pulumi schema JSON to the 'schema-docs.json' file in the given directory.
@@ -130,7 +138,7 @@ func emitDocsSchema(pkgSpec *schema.PackageSpec, outDir string) error {
 	return emitFile(outDir, "schema.json", schemaJSON)
 }
 
-func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string) error {
+func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string, goPackageName string, emitJson bool) error {
 	compressedMeta := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedMeta)
 	err := json.NewEncoder(compressedWriter).Encode(metadata)
@@ -147,14 +155,20 @@ func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string) error {
 		return errors.Wrap(err, "marshaling metadata")
 	}
 
-	err = emitFile(outDir, "metadata.go", []byte(fmt.Sprintf(`package main
+	err = emitFile(outDir, "metadata.go", []byte(fmt.Sprintf(`package %s
 var azureApiResources = %#v
-`, compressedMeta.Bytes())))
+`, goPackageName, compressedMeta.Bytes())))
 	if err != nil {
 		return err
 	}
 
-	return emitFile(outDir, "metadata.json", formatted)
+	if emitJson {
+		err := emitFile(outDir, "metadata.json", formatted)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
