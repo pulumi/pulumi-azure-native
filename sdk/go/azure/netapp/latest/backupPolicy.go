@@ -60,12 +60,12 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200601:backupPolicy"),
+			Type: pulumi.String("azure-nextgen:netapp/v20200601:BackupPolicy"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource BackupPolicy
-	err := ctx.RegisterResource("azure-nextgen:netapp/latest:backupPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-nextgen:netapp/latest:BackupPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func NewBackupPolicy(ctx *pulumi.Context,
 func GetBackupPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackupPolicyState, opts ...pulumi.ResourceOption) (*BackupPolicy, error) {
 	var resource BackupPolicy
-	err := ctx.ReadResource("azure-nextgen:netapp/latest:backupPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-nextgen:netapp/latest:BackupPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

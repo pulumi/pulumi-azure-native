@@ -95,12 +95,12 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BackupPolicy(string name, BackupPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp/v20200601:backupPolicy", name, args ?? new BackupPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:netapp/v20200601:BackupPolicy", name, args ?? new BackupPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BackupPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp/v20200601:backupPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:netapp/v20200601:BackupPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:backupPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:BackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

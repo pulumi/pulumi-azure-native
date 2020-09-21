@@ -112,7 +112,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 			}
 			exampleParams := exampleJSON["parameters"].(map[string]interface{})
 
-			flattened, err := FlattenInput(exampleParams, resourceParams, metadata.Types)
+			flattened, err := FlattenParams(exampleParams, resourceParams, metadata.Types)
 			if err != nil {
 				fmt.Printf("tranforming input for example %s for resource %s: %v", example.Description, pulumiToken, err)
 				continue

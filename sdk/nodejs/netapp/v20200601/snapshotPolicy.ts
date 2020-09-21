@@ -23,7 +23,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:netapp/v20200601:snapshotPolicy';
+    public static readonly __pulumiType = 'azure-nextgen:netapp/v20200601:SnapshotPolicy';
 
     /**
      * Returns true if the given object is an instance of SnapshotPolicy.  This is designed to work even
@@ -131,7 +131,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:snapshotPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:SnapshotPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SnapshotPolicy.__pulumiType, name, inputs, opts);
     }

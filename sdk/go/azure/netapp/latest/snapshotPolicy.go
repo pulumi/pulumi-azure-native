@@ -56,12 +56,12 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200601:snapshotPolicy"),
+			Type: pulumi.String("azure-nextgen:netapp/v20200601:SnapshotPolicy"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource SnapshotPolicy
-	err := ctx.RegisterResource("azure-nextgen:netapp/latest:snapshotPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-nextgen:netapp/latest:SnapshotPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +73,7 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 func GetSnapshotPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SnapshotPolicyState, opts ...pulumi.ResourceOption) (*SnapshotPolicy, error) {
 	var resource SnapshotPolicy
-	err := ctx.ReadResource("azure-nextgen:netapp/latest:snapshotPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-nextgen:netapp/latest:SnapshotPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

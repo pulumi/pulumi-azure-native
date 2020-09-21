@@ -90,10 +90,10 @@ class BackupPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/latest:backupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/latest:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
-            'azure-nextgen:netapp/v20200601:backupPolicy',
+            'azure-nextgen:netapp/v20200601:BackupPolicy',
             resource_name,
             __props__,
             opts)

@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func GetsnapshotPolicy(ctx *pulumi.Context, args *GetsnapshotPolicyArgs, opts ...pulumi.InvokeOption) (*GetsnapshotPolicyResult, error) {
-	var rv GetsnapshotPolicyResult
-	err := ctx.Invoke("azure-nextgen:netapp/latest:getsnapshotPolicy", args, &rv, opts...)
+func LookupSnapshotPolicy(ctx *pulumi.Context, args *LookupSnapshotPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotPolicyResult, error) {
+	var rv LookupSnapshotPolicyResult
+	err := ctx.Invoke("azure-nextgen:netapp/latest:getSnapshotPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type GetsnapshotPolicyArgs struct {
+type LookupSnapshotPolicyArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
 	// The name of the resource group.
@@ -26,7 +26,7 @@ type GetsnapshotPolicyArgs struct {
 }
 
 // Snapshot policy information
-type GetsnapshotPolicyResult struct {
+type LookupSnapshotPolicyResult struct {
 	// Schedule for daily snapshots
 	DailySchedule *DailyScheduleResponse `pulumi:"dailySchedule"`
 	// The property to decide policy is enabled or not
