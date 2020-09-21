@@ -147,11 +147,11 @@ func transformProperties(
 			debug.Log("missing '%s' in props: %#v", k, props)
 			continue
 		}
-		if containers.Has(k) {
+		if !ok && containers.Has(k) {
 			if v != nil {
-				container := transformProperty(&prop, types, v)
 				// Expect container types to wrap maps.
-				mergeMap(result, container.(map[string]interface{}))
+				container := transformProperties(props, types, v.(map[string]interface{}))
+				mergeMap(result, container)
 			}
 			continue
 		}
