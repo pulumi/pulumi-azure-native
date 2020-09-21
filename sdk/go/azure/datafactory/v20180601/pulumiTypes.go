@@ -6838,6 +6838,542 @@ func (o AzureDataLakeStoreLocationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeStoreLocationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Azure Databricks Delta Lake dataset.
+type AzureDatabricksDeltaLakeDataset struct {
+	// List of tags that can be used for describing the Dataset.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The database name of delta table. Type: string (or Expression with resultType string).
+	Database map[string]interface{} `pulumi:"database"`
+	// Dataset description.
+	Description *string `pulumi:"description"`
+	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+	Folder *DatasetFolder `pulumi:"folder"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReference `pulumi:"linkedServiceName"`
+	// Parameters for dataset.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+	Schema map[string]interface{} `pulumi:"schema"`
+	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+	Structure map[string]interface{} `pulumi:"structure"`
+	// The name of delta table. Type: string (or Expression with resultType string).
+	Table map[string]interface{} `pulumi:"table"`
+	// Type of dataset.
+	Type string `pulumi:"type"`
+}
+
+// AzureDatabricksDeltaLakeDatasetInput is an input type that accepts AzureDatabricksDeltaLakeDatasetArgs and AzureDatabricksDeltaLakeDatasetOutput values.
+// You can construct a concrete instance of `AzureDatabricksDeltaLakeDatasetInput` via:
+//
+//          AzureDatabricksDeltaLakeDatasetArgs{...}
+type AzureDatabricksDeltaLakeDatasetInput interface {
+	pulumi.Input
+
+	ToAzureDatabricksDeltaLakeDatasetOutput() AzureDatabricksDeltaLakeDatasetOutput
+	ToAzureDatabricksDeltaLakeDatasetOutputWithContext(context.Context) AzureDatabricksDeltaLakeDatasetOutput
+}
+
+// Azure Databricks Delta Lake dataset.
+type AzureDatabricksDeltaLakeDatasetArgs struct {
+	// List of tags that can be used for describing the Dataset.
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
+	// The database name of delta table. Type: string (or Expression with resultType string).
+	Database pulumi.MapInput `pulumi:"database"`
+	// Dataset description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+	Folder DatasetFolderPtrInput `pulumi:"folder"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReferenceInput `pulumi:"linkedServiceName"`
+	// Parameters for dataset.
+	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
+	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+	Schema pulumi.MapInput `pulumi:"schema"`
+	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+	Structure pulumi.MapInput `pulumi:"structure"`
+	// The name of delta table. Type: string (or Expression with resultType string).
+	Table pulumi.MapInput `pulumi:"table"`
+	// Type of dataset.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureDatabricksDeltaLakeDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDatabricksDeltaLakeDataset)(nil)).Elem()
+}
+
+func (i AzureDatabricksDeltaLakeDatasetArgs) ToAzureDatabricksDeltaLakeDatasetOutput() AzureDatabricksDeltaLakeDatasetOutput {
+	return i.ToAzureDatabricksDeltaLakeDatasetOutputWithContext(context.Background())
+}
+
+func (i AzureDatabricksDeltaLakeDatasetArgs) ToAzureDatabricksDeltaLakeDatasetOutputWithContext(ctx context.Context) AzureDatabricksDeltaLakeDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDatabricksDeltaLakeDatasetOutput)
+}
+
+// Azure Databricks Delta Lake dataset.
+type AzureDatabricksDeltaLakeDatasetOutput struct{ *pulumi.OutputState }
+
+func (AzureDatabricksDeltaLakeDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDatabricksDeltaLakeDataset)(nil)).Elem()
+}
+
+func (o AzureDatabricksDeltaLakeDatasetOutput) ToAzureDatabricksDeltaLakeDatasetOutput() AzureDatabricksDeltaLakeDatasetOutput {
+	return o
+}
+
+func (o AzureDatabricksDeltaLakeDatasetOutput) ToAzureDatabricksDeltaLakeDatasetOutputWithContext(ctx context.Context) AzureDatabricksDeltaLakeDatasetOutput {
+	return o
+}
+
+// List of tags that can be used for describing the Dataset.
+func (o AzureDatabricksDeltaLakeDatasetOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
+}
+
+// The database name of delta table. Type: string (or Expression with resultType string).
+func (o AzureDatabricksDeltaLakeDatasetOutput) Database() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) map[string]interface{} { return v.Database }).(pulumi.MapOutput)
+}
+
+// Dataset description.
+func (o AzureDatabricksDeltaLakeDatasetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+func (o AzureDatabricksDeltaLakeDatasetOutput) Folder() DatasetFolderPtrOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) *DatasetFolder { return v.Folder }).(DatasetFolderPtrOutput)
+}
+
+// Linked service reference.
+func (o AzureDatabricksDeltaLakeDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
+}
+
+// Parameters for dataset.
+func (o AzureDatabricksDeltaLakeDatasetOutput) Parameters() ParameterSpecificationMapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
+}
+
+// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+func (o AzureDatabricksDeltaLakeDatasetOutput) Schema() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) map[string]interface{} { return v.Schema }).(pulumi.MapOutput)
+}
+
+// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+func (o AzureDatabricksDeltaLakeDatasetOutput) Structure() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
+}
+
+// The name of delta table. Type: string (or Expression with resultType string).
+func (o AzureDatabricksDeltaLakeDatasetOutput) Table() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) map[string]interface{} { return v.Table }).(pulumi.MapOutput)
+}
+
+// Type of dataset.
+func (o AzureDatabricksDeltaLakeDatasetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDataset) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Azure Databricks Delta Lake dataset.
+type AzureDatabricksDeltaLakeDatasetResponse struct {
+	// List of tags that can be used for describing the Dataset.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The database name of delta table. Type: string (or Expression with resultType string).
+	Database map[string]interface{} `pulumi:"database"`
+	// Dataset description.
+	Description *string `pulumi:"description"`
+	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+	Folder *DatasetResponseFolder `pulumi:"folder"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReferenceResponse `pulumi:"linkedServiceName"`
+	// Parameters for dataset.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+	Schema map[string]interface{} `pulumi:"schema"`
+	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+	Structure map[string]interface{} `pulumi:"structure"`
+	// The name of delta table. Type: string (or Expression with resultType string).
+	Table map[string]interface{} `pulumi:"table"`
+	// Type of dataset.
+	Type string `pulumi:"type"`
+}
+
+// AzureDatabricksDeltaLakeDatasetResponseInput is an input type that accepts AzureDatabricksDeltaLakeDatasetResponseArgs and AzureDatabricksDeltaLakeDatasetResponseOutput values.
+// You can construct a concrete instance of `AzureDatabricksDeltaLakeDatasetResponseInput` via:
+//
+//          AzureDatabricksDeltaLakeDatasetResponseArgs{...}
+type AzureDatabricksDeltaLakeDatasetResponseInput interface {
+	pulumi.Input
+
+	ToAzureDatabricksDeltaLakeDatasetResponseOutput() AzureDatabricksDeltaLakeDatasetResponseOutput
+	ToAzureDatabricksDeltaLakeDatasetResponseOutputWithContext(context.Context) AzureDatabricksDeltaLakeDatasetResponseOutput
+}
+
+// Azure Databricks Delta Lake dataset.
+type AzureDatabricksDeltaLakeDatasetResponseArgs struct {
+	// List of tags that can be used for describing the Dataset.
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
+	// The database name of delta table. Type: string (or Expression with resultType string).
+	Database pulumi.MapInput `pulumi:"database"`
+	// Dataset description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+	Folder DatasetResponseFolderPtrInput `pulumi:"folder"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
+	// Parameters for dataset.
+	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
+	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+	Schema pulumi.MapInput `pulumi:"schema"`
+	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+	Structure pulumi.MapInput `pulumi:"structure"`
+	// The name of delta table. Type: string (or Expression with resultType string).
+	Table pulumi.MapInput `pulumi:"table"`
+	// Type of dataset.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureDatabricksDeltaLakeDatasetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDatabricksDeltaLakeDatasetResponse)(nil)).Elem()
+}
+
+func (i AzureDatabricksDeltaLakeDatasetResponseArgs) ToAzureDatabricksDeltaLakeDatasetResponseOutput() AzureDatabricksDeltaLakeDatasetResponseOutput {
+	return i.ToAzureDatabricksDeltaLakeDatasetResponseOutputWithContext(context.Background())
+}
+
+func (i AzureDatabricksDeltaLakeDatasetResponseArgs) ToAzureDatabricksDeltaLakeDatasetResponseOutputWithContext(ctx context.Context) AzureDatabricksDeltaLakeDatasetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDatabricksDeltaLakeDatasetResponseOutput)
+}
+
+// Azure Databricks Delta Lake dataset.
+type AzureDatabricksDeltaLakeDatasetResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureDatabricksDeltaLakeDatasetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDatabricksDeltaLakeDatasetResponse)(nil)).Elem()
+}
+
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) ToAzureDatabricksDeltaLakeDatasetResponseOutput() AzureDatabricksDeltaLakeDatasetResponseOutput {
+	return o
+}
+
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) ToAzureDatabricksDeltaLakeDatasetResponseOutputWithContext(ctx context.Context) AzureDatabricksDeltaLakeDatasetResponseOutput {
+	return o
+}
+
+// List of tags that can be used for describing the Dataset.
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
+}
+
+// The database name of delta table. Type: string (or Expression with resultType string).
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Database() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) map[string]interface{} { return v.Database }).(pulumi.MapOutput)
+}
+
+// Dataset description.
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Folder() DatasetResponseFolderPtrOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) *DatasetResponseFolder { return v.Folder }).(DatasetResponseFolderPtrOutput)
+}
+
+// Linked service reference.
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) LinkedServiceName() LinkedServiceReferenceResponseOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) LinkedServiceReferenceResponse {
+		return v.LinkedServiceName
+	}).(LinkedServiceReferenceResponseOutput)
+}
+
+// Parameters for dataset.
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Parameters() ParameterSpecificationResponseMapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) map[string]ParameterSpecificationResponse {
+		return v.Parameters
+	}).(ParameterSpecificationResponseMapOutput)
+}
+
+// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Schema() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) map[string]interface{} { return v.Schema }).(pulumi.MapOutput)
+}
+
+// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Structure() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
+}
+
+// The name of delta table. Type: string (or Expression with resultType string).
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Table() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) map[string]interface{} { return v.Table }).(pulumi.MapOutput)
+}
+
+// Type of dataset.
+func (o AzureDatabricksDeltaLakeDatasetResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Azure Databricks Delta Lake linked service.
+type AzureDatabricksDeltaLakeLinkedService struct {
+	// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
+	AccessToken interface{} `pulumi:"accessToken"`
+	// List of tags that can be used for describing the linked service.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
+	ClusterId map[string]interface{} `pulumi:"clusterId"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
+	Domain map[string]interface{} `pulumi:"domain"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential map[string]interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// Type of linked service.
+	Type string `pulumi:"type"`
+}
+
+// AzureDatabricksDeltaLakeLinkedServiceInput is an input type that accepts AzureDatabricksDeltaLakeLinkedServiceArgs and AzureDatabricksDeltaLakeLinkedServiceOutput values.
+// You can construct a concrete instance of `AzureDatabricksDeltaLakeLinkedServiceInput` via:
+//
+//          AzureDatabricksDeltaLakeLinkedServiceArgs{...}
+type AzureDatabricksDeltaLakeLinkedServiceInput interface {
+	pulumi.Input
+
+	ToAzureDatabricksDeltaLakeLinkedServiceOutput() AzureDatabricksDeltaLakeLinkedServiceOutput
+	ToAzureDatabricksDeltaLakeLinkedServiceOutputWithContext(context.Context) AzureDatabricksDeltaLakeLinkedServiceOutput
+}
+
+// Azure Databricks Delta Lake linked service.
+type AzureDatabricksDeltaLakeLinkedServiceArgs struct {
+	// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
+	AccessToken pulumi.Input `pulumi:"accessToken"`
+	// List of tags that can be used for describing the linked service.
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
+	// The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
+	ClusterId pulumi.MapInput `pulumi:"clusterId"`
+	// The integration runtime reference.
+	ConnectVia IntegrationRuntimeReferencePtrInput `pulumi:"connectVia"`
+	// Linked service description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
+	Domain pulumi.MapInput `pulumi:"domain"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
+	// Type of linked service.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureDatabricksDeltaLakeLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDatabricksDeltaLakeLinkedService)(nil)).Elem()
+}
+
+func (i AzureDatabricksDeltaLakeLinkedServiceArgs) ToAzureDatabricksDeltaLakeLinkedServiceOutput() AzureDatabricksDeltaLakeLinkedServiceOutput {
+	return i.ToAzureDatabricksDeltaLakeLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i AzureDatabricksDeltaLakeLinkedServiceArgs) ToAzureDatabricksDeltaLakeLinkedServiceOutputWithContext(ctx context.Context) AzureDatabricksDeltaLakeLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDatabricksDeltaLakeLinkedServiceOutput)
+}
+
+// Azure Databricks Delta Lake linked service.
+type AzureDatabricksDeltaLakeLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (AzureDatabricksDeltaLakeLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDatabricksDeltaLakeLinkedService)(nil)).Elem()
+}
+
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) ToAzureDatabricksDeltaLakeLinkedServiceOutput() AzureDatabricksDeltaLakeLinkedServiceOutput {
+	return o
+}
+
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) ToAzureDatabricksDeltaLakeLinkedServiceOutputWithContext(ctx context.Context) AzureDatabricksDeltaLakeLinkedServiceOutput {
+	return o
+}
+
+// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) AccessToken() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedService) interface{} { return v.AccessToken }).(pulumi.AnyOutput)
+}
+
+// List of tags that can be used for describing the linked service.
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
+}
+
+// The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) ClusterId() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedService) map[string]interface{} { return v.ClusterId }).(pulumi.MapOutput)
+}
+
+// The integration runtime reference.
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
+}
+
+// Linked service description.
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) Domain() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedService) map[string]interface{} { return v.Domain }).(pulumi.MapOutput)
+}
+
+// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
+}
+
+// Parameters for linked service.
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
+}
+
+// Type of linked service.
+func (o AzureDatabricksDeltaLakeLinkedServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedService) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Azure Databricks Delta Lake linked service.
+type AzureDatabricksDeltaLakeLinkedServiceResponse struct {
+	// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
+	AccessToken interface{} `pulumi:"accessToken"`
+	// List of tags that can be used for describing the linked service.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
+	ClusterId map[string]interface{} `pulumi:"clusterId"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
+	Domain map[string]interface{} `pulumi:"domain"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential map[string]interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Type of linked service.
+	Type string `pulumi:"type"`
+}
+
+// AzureDatabricksDeltaLakeLinkedServiceResponseInput is an input type that accepts AzureDatabricksDeltaLakeLinkedServiceResponseArgs and AzureDatabricksDeltaLakeLinkedServiceResponseOutput values.
+// You can construct a concrete instance of `AzureDatabricksDeltaLakeLinkedServiceResponseInput` via:
+//
+//          AzureDatabricksDeltaLakeLinkedServiceResponseArgs{...}
+type AzureDatabricksDeltaLakeLinkedServiceResponseInput interface {
+	pulumi.Input
+
+	ToAzureDatabricksDeltaLakeLinkedServiceResponseOutput() AzureDatabricksDeltaLakeLinkedServiceResponseOutput
+	ToAzureDatabricksDeltaLakeLinkedServiceResponseOutputWithContext(context.Context) AzureDatabricksDeltaLakeLinkedServiceResponseOutput
+}
+
+// Azure Databricks Delta Lake linked service.
+type AzureDatabricksDeltaLakeLinkedServiceResponseArgs struct {
+	// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
+	AccessToken pulumi.Input `pulumi:"accessToken"`
+	// List of tags that can be used for describing the linked service.
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
+	// The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
+	ClusterId pulumi.MapInput `pulumi:"clusterId"`
+	// The integration runtime reference.
+	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
+	// Linked service description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
+	Domain pulumi.MapInput `pulumi:"domain"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
+	// Type of linked service.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureDatabricksDeltaLakeLinkedServiceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDatabricksDeltaLakeLinkedServiceResponse)(nil)).Elem()
+}
+
+func (i AzureDatabricksDeltaLakeLinkedServiceResponseArgs) ToAzureDatabricksDeltaLakeLinkedServiceResponseOutput() AzureDatabricksDeltaLakeLinkedServiceResponseOutput {
+	return i.ToAzureDatabricksDeltaLakeLinkedServiceResponseOutputWithContext(context.Background())
+}
+
+func (i AzureDatabricksDeltaLakeLinkedServiceResponseArgs) ToAzureDatabricksDeltaLakeLinkedServiceResponseOutputWithContext(ctx context.Context) AzureDatabricksDeltaLakeLinkedServiceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDatabricksDeltaLakeLinkedServiceResponseOutput)
+}
+
+// Azure Databricks Delta Lake linked service.
+type AzureDatabricksDeltaLakeLinkedServiceResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureDatabricksDeltaLakeLinkedServiceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDatabricksDeltaLakeLinkedServiceResponse)(nil)).Elem()
+}
+
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) ToAzureDatabricksDeltaLakeLinkedServiceResponseOutput() AzureDatabricksDeltaLakeLinkedServiceResponseOutput {
+	return o
+}
+
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) ToAzureDatabricksDeltaLakeLinkedServiceResponseOutputWithContext(ctx context.Context) AzureDatabricksDeltaLakeLinkedServiceResponseOutput {
+	return o
+}
+
+// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) AccessToken() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedServiceResponse) interface{} { return v.AccessToken }).(pulumi.AnyOutput)
+}
+
+// List of tags that can be used for describing the linked service.
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedServiceResponse) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
+}
+
+// The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) ClusterId() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedServiceResponse) map[string]interface{} { return v.ClusterId }).(pulumi.MapOutput)
+}
+
+// The integration runtime reference.
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) ConnectVia() IntegrationRuntimeReferenceResponsePtrOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedServiceResponse) *IntegrationRuntimeReferenceResponse {
+		return v.ConnectVia
+	}).(IntegrationRuntimeReferenceResponsePtrOutput)
+}
+
+// Linked service description.
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedServiceResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) Domain() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedServiceResponse) map[string]interface{} { return v.Domain }).(pulumi.MapOutput)
+}
+
+// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) EncryptedCredential() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedServiceResponse) map[string]interface{} {
+		return v.EncryptedCredential
+	}).(pulumi.MapOutput)
+}
+
+// Parameters for linked service.
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) Parameters() ParameterSpecificationResponseMapOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedServiceResponse) map[string]ParameterSpecificationResponse {
+		return v.Parameters
+	}).(ParameterSpecificationResponseMapOutput)
+}
+
+// Type of linked service.
+func (o AzureDatabricksDeltaLakeLinkedServiceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDatabricksDeltaLakeLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Azure Databricks linked service.
 type AzureDatabricksLinkedService struct {
 	// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
@@ -72759,6 +73295,10 @@ func init() {
 	pulumi.RegisterOutputType(AzureDataLakeStoreLinkedServiceResponseOutput{})
 	pulumi.RegisterOutputType(AzureDataLakeStoreLocationOutput{})
 	pulumi.RegisterOutputType(AzureDataLakeStoreLocationResponseOutput{})
+	pulumi.RegisterOutputType(AzureDatabricksDeltaLakeDatasetOutput{})
+	pulumi.RegisterOutputType(AzureDatabricksDeltaLakeDatasetResponseOutput{})
+	pulumi.RegisterOutputType(AzureDatabricksDeltaLakeLinkedServiceOutput{})
+	pulumi.RegisterOutputType(AzureDatabricksDeltaLakeLinkedServiceResponseOutput{})
 	pulumi.RegisterOutputType(AzureDatabricksLinkedServiceOutput{})
 	pulumi.RegisterOutputType(AzureDatabricksLinkedServiceResponseOutput{})
 	pulumi.RegisterOutputType(AzureFileStorageLinkedServiceOutput{})

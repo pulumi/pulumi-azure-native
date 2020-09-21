@@ -22,7 +22,7 @@ export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: 
 
 export interface GetDeviceSecurityGroupArgs {
     /**
-     * The name of the security group. Please notice that the name is case insensitive.
+     * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
     readonly deviceSecurityGroupName: string;
     /**
@@ -36,11 +36,11 @@ export interface GetDeviceSecurityGroupArgs {
  */
 export interface GetDeviceSecurityGroupResult {
     /**
-     * A list of allow-list custom alert rules.
+     * The allow-list custom alert rules.
      */
     readonly allowlistRules?: outputs.security.v20170801preview.AllowlistCustomAlertRuleResponse[];
     /**
-     * A list of deny-list custom alert rules.
+     * The deny-list custom alert rules.
      */
     readonly denylistRules?: outputs.security.v20170801preview.DenylistCustomAlertRuleResponse[];
     /**
@@ -48,11 +48,11 @@ export interface GetDeviceSecurityGroupResult {
      */
     readonly name: string;
     /**
-     * A list of threshold custom alert rules.
+     * The list of custom alert threshold rules.
      */
     readonly thresholdRules?: outputs.security.v20170801preview.ThresholdCustomAlertRuleResponse[];
     /**
-     * A list of time window custom alert rules.
+     * The list of custom alert time-window rules.
      */
     readonly timeWindowRules?: outputs.security.v20170801preview.TimeWindowCustomAlertRuleResponse[];
     /**

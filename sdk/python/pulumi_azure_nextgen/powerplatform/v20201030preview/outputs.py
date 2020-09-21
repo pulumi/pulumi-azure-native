@@ -10,9 +10,9 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'ConfigurationPropertiesResponseEncryption',
+    'ConfigurationPropertiesResponseLockbox',
     'EnterprisePolicyIdentityResponse',
-    'EnterprisePolicyIdentityResponseEncryption',
-    'EnterprisePolicyIdentityResponseLockbox',
     'KeyVaultPropertiesResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -21,91 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EnterprisePolicyIdentityResponse(dict):
-    """
-    Identity for the EnterprisePolicy.
-    """
-    def __init__(__self__, *,
-                 system_assigned_identity_principal_id: str,
-                 tenant_id: str,
-                 encryption: Optional['outputs.EnterprisePolicyIdentityResponseEncryption'] = None,
-                 lockbox: Optional['outputs.EnterprisePolicyIdentityResponseLockbox'] = None,
-                 system_data: Optional['outputs.SystemDataResponse'] = None,
-                 type: Optional[str] = None):
-        """
-        Identity for the EnterprisePolicy.
-        :param str system_assigned_identity_principal_id: The principal id of EnterprisePolicy identity.
-        :param str tenant_id: The tenant id associated with the EnterprisePolicy.
-        :param 'EnterprisePolicyIdentityResponseEncryptionArgs' encryption: The encryption settings for a configuration store.
-        :param 'EnterprisePolicyIdentityResponseLockboxArgs' lockbox: Settings concerning lockbox.
-        :param 'SystemDataResponseArgs' system_data: Metadata for the enterprisePolicy.
-        :param str type: The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-        """
-        pulumi.set(__self__, "system_assigned_identity_principal_id", system_assigned_identity_principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
-        if lockbox is not None:
-            pulumi.set(__self__, "lockbox", lockbox)
-        if system_data is not None:
-            pulumi.set(__self__, "system_data", system_data)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="systemAssignedIdentityPrincipalId")
-    def system_assigned_identity_principal_id(self) -> str:
-        """
-        The principal id of EnterprisePolicy identity.
-        """
-        return pulumi.get(self, "system_assigned_identity_principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant id associated with the EnterprisePolicy.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def encryption(self) -> Optional['outputs.EnterprisePolicyIdentityResponseEncryption']:
-        """
-        The encryption settings for a configuration store.
-        """
-        return pulumi.get(self, "encryption")
-
-    @property
-    @pulumi.getter
-    def lockbox(self) -> Optional['outputs.EnterprisePolicyIdentityResponseLockbox']:
-        """
-        Settings concerning lockbox.
-        """
-        return pulumi.get(self, "lockbox")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional['outputs.SystemDataResponse']:
-        """
-        Metadata for the enterprisePolicy.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-        """
-        return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class EnterprisePolicyIdentityResponseEncryption(dict):
+class ConfigurationPropertiesResponseEncryption(dict):
     """
     The encryption settings for a configuration store.
     """
@@ -131,7 +47,7 @@ class EnterprisePolicyIdentityResponseEncryption(dict):
 
 
 @pulumi.output_type
-class EnterprisePolicyIdentityResponseLockbox(dict):
+class ConfigurationPropertiesResponseLockbox(dict):
     """
     Settings concerning lockbox.
     """
@@ -151,6 +67,54 @@ class EnterprisePolicyIdentityResponseLockbox(dict):
         lockbox configuration
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EnterprisePolicyIdentityResponse(dict):
+    """
+    The identity of the EnterprisePolicy.
+    """
+    def __init__(__self__, *,
+                 system_assigned_identity_principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        The identity of the EnterprisePolicy.
+        :param str system_assigned_identity_principal_id: The principal id of EnterprisePolicy identity.
+        :param str tenant_id: The tenant id associated with the EnterprisePolicy.
+        :param str type: The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+        """
+        pulumi.set(__self__, "system_assigned_identity_principal_id", system_assigned_identity_principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="systemAssignedIdentityPrincipalId")
+    def system_assigned_identity_principal_id(self) -> str:
+        """
+        The principal id of EnterprisePolicy identity.
+        """
+        return pulumi.get(self, "system_assigned_identity_principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id associated with the EnterprisePolicy.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

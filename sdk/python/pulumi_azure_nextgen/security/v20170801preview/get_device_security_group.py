@@ -44,7 +44,7 @@ class GetDeviceSecurityGroupResult:
     @pulumi.getter(name="allowlistRules")
     def allowlist_rules(self) -> Optional[Sequence['outputs.AllowlistCustomAlertRuleResponse']]:
         """
-        A list of allow-list custom alert rules.
+        The allow-list custom alert rules.
         """
         return pulumi.get(self, "allowlist_rules")
 
@@ -52,7 +52,7 @@ class GetDeviceSecurityGroupResult:
     @pulumi.getter(name="denylistRules")
     def denylist_rules(self) -> Optional[Sequence['outputs.DenylistCustomAlertRuleResponse']]:
         """
-        A list of deny-list custom alert rules.
+        The deny-list custom alert rules.
         """
         return pulumi.get(self, "denylist_rules")
 
@@ -68,7 +68,7 @@ class GetDeviceSecurityGroupResult:
     @pulumi.getter(name="thresholdRules")
     def threshold_rules(self) -> Optional[Sequence['outputs.ThresholdCustomAlertRuleResponse']]:
         """
-        A list of threshold custom alert rules.
+        The list of custom alert threshold rules.
         """
         return pulumi.get(self, "threshold_rules")
 
@@ -76,7 +76,7 @@ class GetDeviceSecurityGroupResult:
     @pulumi.getter(name="timeWindowRules")
     def time_window_rules(self) -> Optional[Sequence['outputs.TimeWindowCustomAlertRuleResponse']]:
         """
-        A list of time window custom alert rules.
+        The list of custom alert time-window rules.
         """
         return pulumi.get(self, "time_window_rules")
 
@@ -109,7 +109,7 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str device_security_group_name: The name of the security group. Please notice that the name is case insensitive.
+    :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
     :param str resource_id: The identifier of the resource.
     """
     __args__ = dict()

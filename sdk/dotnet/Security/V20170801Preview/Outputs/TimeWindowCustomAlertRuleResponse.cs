@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Whether the custom alert is enabled.
+        /// Status of the custom alert.
         /// </summary>
         public readonly bool IsEnabled;
         /// <summary>

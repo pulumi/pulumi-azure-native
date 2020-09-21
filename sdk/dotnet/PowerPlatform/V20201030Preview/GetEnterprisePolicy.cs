@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
     public sealed class GetEnterprisePolicyResult
     {
         /// <summary>
+        /// The encryption settings for a configuration store.
+        /// </summary>
+        public readonly Outputs.ConfigurationPropertiesResponseEncryption? Encryption;
+        /// <summary>
         /// The identity of the EnterprisePolicy.
         /// </summary>
         public readonly Outputs.EnterprisePolicyIdentityResponse? Identity;
@@ -48,9 +52,17 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Settings concerning lockbox.
+        /// </summary>
+        public readonly Outputs.ConfigurationPropertiesResponseLockbox? Lockbox;
+        /// <summary>
         /// Name of the EnterprisePolicy.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse? SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -62,19 +74,28 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
 
         [OutputConstructor]
         private GetEnterprisePolicyResult(
+            Outputs.ConfigurationPropertiesResponseEncryption? encryption,
+
             Outputs.EnterprisePolicyIdentityResponse? identity,
 
             string location,
 
+            Outputs.ConfigurationPropertiesResponseLockbox? lockbox,
+
             string name,
+
+            Outputs.SystemDataResponse? systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Encryption = encryption;
             Identity = identity;
             Location = location;
+            Lockbox = lockbox;
             Name = name;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

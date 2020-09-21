@@ -14,15 +14,15 @@ import (
 type DeviceSecurityGroup struct {
 	pulumi.CustomResourceState
 
-	// A list of allow-list custom alert rules.
+	// The allow-list custom alert rules.
 	AllowlistRules AllowlistCustomAlertRuleResponseArrayOutput `pulumi:"allowlistRules"`
-	// A list of deny-list custom alert rules.
+	// The deny-list custom alert rules.
 	DenylistRules DenylistCustomAlertRuleResponseArrayOutput `pulumi:"denylistRules"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of threshold custom alert rules.
+	// The list of custom alert threshold rules.
 	ThresholdRules ThresholdCustomAlertRuleResponseArrayOutput `pulumi:"thresholdRules"`
-	// A list of time window custom alert rules.
+	// The list of custom alert time-window rules.
 	TimeWindowRules TimeWindowCustomAlertRuleResponseArrayOutput `pulumi:"timeWindowRules"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -71,30 +71,30 @@ func GetDeviceSecurityGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeviceSecurityGroup resources.
 type deviceSecurityGroupState struct {
-	// A list of allow-list custom alert rules.
+	// The allow-list custom alert rules.
 	AllowlistRules []AllowlistCustomAlertRuleResponse `pulumi:"allowlistRules"`
-	// A list of deny-list custom alert rules.
+	// The deny-list custom alert rules.
 	DenylistRules []DenylistCustomAlertRuleResponse `pulumi:"denylistRules"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// A list of threshold custom alert rules.
+	// The list of custom alert threshold rules.
 	ThresholdRules []ThresholdCustomAlertRuleResponse `pulumi:"thresholdRules"`
-	// A list of time window custom alert rules.
+	// The list of custom alert time-window rules.
 	TimeWindowRules []TimeWindowCustomAlertRuleResponse `pulumi:"timeWindowRules"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type DeviceSecurityGroupState struct {
-	// A list of allow-list custom alert rules.
+	// The allow-list custom alert rules.
 	AllowlistRules AllowlistCustomAlertRuleResponseArrayInput
-	// A list of deny-list custom alert rules.
+	// The deny-list custom alert rules.
 	DenylistRules DenylistCustomAlertRuleResponseArrayInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// A list of threshold custom alert rules.
+	// The list of custom alert threshold rules.
 	ThresholdRules ThresholdCustomAlertRuleResponseArrayInput
-	// A list of time window custom alert rules.
+	// The list of custom alert time-window rules.
 	TimeWindowRules TimeWindowCustomAlertRuleResponseArrayInput
 	// Resource type
 	Type pulumi.StringPtrInput
@@ -105,33 +105,33 @@ func (DeviceSecurityGroupState) ElementType() reflect.Type {
 }
 
 type deviceSecurityGroupArgs struct {
-	// A list of allow-list custom alert rules.
+	// The allow-list custom alert rules.
 	AllowlistRules []AllowlistCustomAlertRule `pulumi:"allowlistRules"`
-	// A list of deny-list custom alert rules.
+	// The deny-list custom alert rules.
 	DenylistRules []DenylistCustomAlertRule `pulumi:"denylistRules"`
-	// The name of the security group. Please notice that the name is case insensitive.
+	// The name of the device security group. Note that the name of the device security group is case insensitive.
 	DeviceSecurityGroupName string `pulumi:"deviceSecurityGroupName"`
 	// The identifier of the resource.
 	ResourceId string `pulumi:"resourceId"`
-	// A list of threshold custom alert rules.
+	// The list of custom alert threshold rules.
 	ThresholdRules []ThresholdCustomAlertRule `pulumi:"thresholdRules"`
-	// A list of time window custom alert rules.
+	// The list of custom alert time-window rules.
 	TimeWindowRules []TimeWindowCustomAlertRule `pulumi:"timeWindowRules"`
 }
 
 // The set of arguments for constructing a DeviceSecurityGroup resource.
 type DeviceSecurityGroupArgs struct {
-	// A list of allow-list custom alert rules.
+	// The allow-list custom alert rules.
 	AllowlistRules AllowlistCustomAlertRuleArrayInput
-	// A list of deny-list custom alert rules.
+	// The deny-list custom alert rules.
 	DenylistRules DenylistCustomAlertRuleArrayInput
-	// The name of the security group. Please notice that the name is case insensitive.
+	// The name of the device security group. Note that the name of the device security group is case insensitive.
 	DeviceSecurityGroupName pulumi.StringInput
 	// The identifier of the resource.
 	ResourceId pulumi.StringInput
-	// A list of threshold custom alert rules.
+	// The list of custom alert threshold rules.
 	ThresholdRules ThresholdCustomAlertRuleArrayInput
-	// A list of time window custom alert rules.
+	// The list of custom alert time-window rules.
 	TimeWindowRules TimeWindowCustomAlertRuleArrayInput
 }
 

@@ -10,11 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRule struct {
 	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues []string `pulumi:"allowlistValues"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
 	RuleType string `pulumi:"ruleType"`
@@ -31,11 +31,11 @@ type AllowlistCustomAlertRuleInput interface {
 	ToAllowlistCustomAlertRuleOutputWithContext(context.Context) AllowlistCustomAlertRuleOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleArgs struct {
 	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues pulumi.StringArrayInput `pulumi:"allowlistValues"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
@@ -78,7 +78,7 @@ func (i AllowlistCustomAlertRuleArray) ToAllowlistCustomAlertRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (AllowlistCustomAlertRuleOutput) ElementType() reflect.Type {
@@ -98,7 +98,7 @@ func (o AllowlistCustomAlertRuleOutput) AllowlistValues() pulumi.StringArrayOutp
 	return o.ApplyT(func(v AllowlistCustomAlertRule) []string { return v.AllowlistValues }).(pulumi.StringArrayOutput)
 }
 
-// Whether the custom alert is enabled.
+// Status of the custom alert.
 func (o AllowlistCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
@@ -128,7 +128,7 @@ func (o AllowlistCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) AllowlistC
 	}).(AllowlistCustomAlertRuleOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleResponse struct {
 	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues []string `pulumi:"allowlistValues"`
@@ -136,11 +136,11 @@ type AllowlistCustomAlertRuleResponse struct {
 	Description string `pulumi:"description"`
 	// The display name of the custom alert.
 	DisplayName string `pulumi:"displayName"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
 	RuleType string `pulumi:"ruleType"`
-	// The value type of the items in the list
+	// The value type of the items in the list.
 	ValueType string `pulumi:"valueType"`
 }
 
@@ -155,7 +155,7 @@ type AllowlistCustomAlertRuleResponseInput interface {
 	ToAllowlistCustomAlertRuleResponseOutputWithContext(context.Context) AllowlistCustomAlertRuleResponseOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleResponseArgs struct {
 	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues pulumi.StringArrayInput `pulumi:"allowlistValues"`
@@ -163,11 +163,11 @@ type AllowlistCustomAlertRuleResponseArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	// The display name of the custom alert.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
-	// The value type of the items in the list
+	// The value type of the items in the list.
 	ValueType pulumi.StringInput `pulumi:"valueType"`
 }
 
@@ -208,7 +208,7 @@ func (i AllowlistCustomAlertRuleResponseArray) ToAllowlistCustomAlertRuleRespons
 	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleResponseArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (AllowlistCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -238,7 +238,7 @@ func (o AllowlistCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutpu
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Whether the custom alert is enabled.
+// Status of the custom alert.
 func (o AllowlistCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
@@ -248,7 +248,7 @@ func (o AllowlistCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
 
-// The value type of the items in the list
+// The value type of the items in the list.
 func (o AllowlistCustomAlertRuleResponseOutput) ValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.ValueType }).(pulumi.StringOutput)
 }
@@ -273,11 +273,11 @@ func (o AllowlistCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) Al
 	}).(AllowlistCustomAlertRuleResponseOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRule struct {
 	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues []string `pulumi:"denylistValues"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
 	RuleType string `pulumi:"ruleType"`
@@ -294,11 +294,11 @@ type DenylistCustomAlertRuleInput interface {
 	ToDenylistCustomAlertRuleOutputWithContext(context.Context) DenylistCustomAlertRuleOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleArgs struct {
 	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues pulumi.StringArrayInput `pulumi:"denylistValues"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
@@ -341,7 +341,7 @@ func (i DenylistCustomAlertRuleArray) ToDenylistCustomAlertRuleArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (DenylistCustomAlertRuleOutput) ElementType() reflect.Type {
@@ -361,7 +361,7 @@ func (o DenylistCustomAlertRuleOutput) DenylistValues() pulumi.StringArrayOutput
 	return o.ApplyT(func(v DenylistCustomAlertRule) []string { return v.DenylistValues }).(pulumi.StringArrayOutput)
 }
 
-// Whether the custom alert is enabled.
+// Status of the custom alert.
 func (o DenylistCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
@@ -391,7 +391,7 @@ func (o DenylistCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) DenylistCus
 	}).(DenylistCustomAlertRuleOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleResponse struct {
 	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues []string `pulumi:"denylistValues"`
@@ -399,11 +399,11 @@ type DenylistCustomAlertRuleResponse struct {
 	Description string `pulumi:"description"`
 	// The display name of the custom alert.
 	DisplayName string `pulumi:"displayName"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
 	RuleType string `pulumi:"ruleType"`
-	// The value type of the items in the list
+	// The value type of the items in the list.
 	ValueType string `pulumi:"valueType"`
 }
 
@@ -418,7 +418,7 @@ type DenylistCustomAlertRuleResponseInput interface {
 	ToDenylistCustomAlertRuleResponseOutputWithContext(context.Context) DenylistCustomAlertRuleResponseOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleResponseArgs struct {
 	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues pulumi.StringArrayInput `pulumi:"denylistValues"`
@@ -426,11 +426,11 @@ type DenylistCustomAlertRuleResponseArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	// The display name of the custom alert.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
-	// The value type of the items in the list
+	// The value type of the items in the list.
 	ValueType pulumi.StringInput `pulumi:"valueType"`
 }
 
@@ -471,7 +471,7 @@ func (i DenylistCustomAlertRuleResponseArray) ToDenylistCustomAlertRuleResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleResponseArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (DenylistCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -501,7 +501,7 @@ func (o DenylistCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutput
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Whether the custom alert is enabled.
+// Status of the custom alert.
 func (o DenylistCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
@@ -511,7 +511,7 @@ func (o DenylistCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
 
-// The value type of the items in the list
+// The value type of the items in the list.
 func (o DenylistCustomAlertRuleResponseOutput) ValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.ValueType }).(pulumi.StringOutput)
 }
@@ -762,7 +762,7 @@ func (o RecommendationConfigurationPropertiesResponseArrayOutput) Index(i pulumi
 
 // A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRule struct {
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The maximum threshold.
 	MaxThreshold int `pulumi:"maxThreshold"`
@@ -785,7 +785,7 @@ type ThresholdCustomAlertRuleInput interface {
 
 // A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleArgs struct {
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The maximum threshold.
 	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
@@ -847,7 +847,7 @@ func (o ThresholdCustomAlertRuleOutput) ToThresholdCustomAlertRuleOutputWithCont
 	return o
 }
 
-// Whether the custom alert is enabled.
+// Status of the custom alert.
 func (o ThresholdCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
@@ -893,7 +893,7 @@ type ThresholdCustomAlertRuleResponse struct {
 	Description string `pulumi:"description"`
 	// The display name of the custom alert.
 	DisplayName string `pulumi:"displayName"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The maximum threshold.
 	MaxThreshold int `pulumi:"maxThreshold"`
@@ -920,7 +920,7 @@ type ThresholdCustomAlertRuleResponseArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	// The display name of the custom alert.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The maximum threshold.
 	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
@@ -992,7 +992,7 @@ func (o ThresholdCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutpu
 	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Whether the custom alert is enabled.
+// Status of the custom alert.
 func (o ThresholdCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
@@ -1034,7 +1034,7 @@ func (o ThresholdCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) Th
 
 // A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRule struct {
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The maximum threshold.
 	MaxThreshold int `pulumi:"maxThreshold"`
@@ -1059,7 +1059,7 @@ type TimeWindowCustomAlertRuleInput interface {
 
 // A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleArgs struct {
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The maximum threshold.
 	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
@@ -1123,7 +1123,7 @@ func (o TimeWindowCustomAlertRuleOutput) ToTimeWindowCustomAlertRuleOutputWithCo
 	return o
 }
 
-// Whether the custom alert is enabled.
+// Status of the custom alert.
 func (o TimeWindowCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
@@ -1174,7 +1174,7 @@ type TimeWindowCustomAlertRuleResponse struct {
 	Description string `pulumi:"description"`
 	// The display name of the custom alert.
 	DisplayName string `pulumi:"displayName"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The maximum threshold.
 	MaxThreshold int `pulumi:"maxThreshold"`
@@ -1203,7 +1203,7 @@ type TimeWindowCustomAlertRuleResponseArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	// The display name of the custom alert.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Whether the custom alert is enabled.
+	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The maximum threshold.
 	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
@@ -1277,7 +1277,7 @@ func (o TimeWindowCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutp
 	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Whether the custom alert is enabled.
+// Status of the custom alert.
 func (o TimeWindowCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }

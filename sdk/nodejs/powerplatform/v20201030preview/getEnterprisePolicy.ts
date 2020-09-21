@@ -36,6 +36,10 @@ export interface GetEnterprisePolicyArgs {
  */
 export interface GetEnterprisePolicyResult {
     /**
+     * The encryption settings for a configuration store.
+     */
+    readonly encryption?: outputs.powerplatform.v20201030preview.ConfigurationPropertiesResponseEncryption;
+    /**
      * The identity of the EnterprisePolicy.
      */
     readonly identity?: outputs.powerplatform.v20201030preview.EnterprisePolicyIdentityResponse;
@@ -44,9 +48,17 @@ export interface GetEnterprisePolicyResult {
      */
     readonly location: string;
     /**
+     * Settings concerning lockbox.
+     */
+    readonly lockbox?: outputs.powerplatform.v20201030preview.ConfigurationPropertiesResponseLockbox;
+    /**
      * Name of the EnterprisePolicy.
      */
     readonly name: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData?: outputs.powerplatform.v20201030preview.SystemDataResponse;
     /**
      * Resource tags.
      */

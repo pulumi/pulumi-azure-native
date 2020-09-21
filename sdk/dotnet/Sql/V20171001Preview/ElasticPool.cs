@@ -119,6 +119,7 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ElasticPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
