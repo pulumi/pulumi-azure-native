@@ -1,4 +1,4 @@
-// +build tag=integration
+// +build integration
 
 package gen
 
@@ -591,7 +591,51 @@ func TestFlattenParams(t *testing.T) {
 				"serviceName":       "myservice",
 			},
 		},
-	} {
+		{
+			name: "ACI",
+			inputFunc: serialize(`
+{
+  "parameters":
+    {"containerGroup":
+      { "properties": {
+        "containers": [
+          {
+            "name": "[parameters('name')]",
+            "properties": {
+              "image": "[parameters('image')]",
+              "ports": [
+                {
+                  "port": "[parameters('port')]"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "[parameters('cpuCores')]",
+                  "memoryInGB": "[parameters('memoryInGb')]"
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "[parameters('restartPolicy')]",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "Tcp",
+              "port": "[parameters('port')]"
+            }
+          ]
+        }
+      }
+    }
+  }
+}`),
+			resourceName: "azure-nextgen:containerinstance/latest:ContainerGroup",
+			expected:     map[string]interface{}{},
+		},
+	}[8:] {
 		t.Run(test.name, func(t *testing.T) {
 			if test.input == nil {
 				test.input = test.inputFunc(t)

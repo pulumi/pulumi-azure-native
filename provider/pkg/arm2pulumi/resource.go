@@ -124,6 +124,7 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 	// Can't trust the casing in the template.
 	// Need to do a soft-match against resources supported
 	token := toResourceToken(typ, apiVersion)
+	diag.SourceToken = token
 	actual, res, ok := ctx.lookupResource(token)
 	if !ok {
 		r.exclude = true

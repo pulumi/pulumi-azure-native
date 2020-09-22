@@ -155,7 +155,10 @@ func (p *parameter) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error)
 		return nil, fmt.Errorf("invalid parameter %s: %w", p.paramName, err)
 	}
 
-	typeExpr := typ // TODO handle secure variants or return diagnostics for unsupported.
+	labels := []string{p.paramName}
+	if typ != "" {
+		labels = append(labels, typ)
+	}
 
 	var defaultValue model.Expression
 	if def, ok := p.rawBody["defaultValue"]; ok {
@@ -169,7 +172,7 @@ func (p *parameter) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error)
 	comment := extractDescription(p.rawBody)
 	configDef := &model.Block{
 		Type:   "config",
-		Labels: []string{p.paramName, typeExpr},
+		Labels: labels,
 		Body:   &model.Body{},
 		Tokens: getLeadingTriviaTokens(comment),
 	}
@@ -568,9 +571,9 @@ func (t *TemplateElements) Validate() error {
 			dep: el,
 		}
 		if err := el.TemplateElement.FinishInitializing(&ctx, t); err != nil {
-			diag := Diagnostic{}
+			diag := &Diagnostic{}
 			if errors.As(err, &diag) {
-				t.addDiagnostic(diag)
+				t.addDiagnostic(*diag)
 			}
 		}
 	}
@@ -753,13 +756,13 @@ func extractType(info map[string]interface{}) (string, error) {
 	switch typeStr {
 	case "int":
 		return "number", nil
-	case "bool", "string", "object", "array":
+	case "bool", "string":
 		return typeStr, nil
 	case "securestring":
-		return "string", nil // TODO: Fix this
+		return "string", nil
 	case "secureobject":
-		return "object", nil // TODO: Fix this
+		return "", nil
 	default:
-		return "", fmt.Errorf("unexpected type: %s", typeStr)
+		return "", nil
 	}
 }
