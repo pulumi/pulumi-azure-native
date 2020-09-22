@@ -1,5 +1,7 @@
 package arm2pulumi
 
+import "fmt"
+
 type Severity string
 
 const (
@@ -17,6 +19,10 @@ type Diagnostic struct {
 	Description   string
 }
 
+func (d Diagnostic) Error() string {
+	return fmt.Sprintf("[%s] Failed converting resource %s of type %s. Desc: %s",
+		d.Severity, d.SourceElement, d.SourceToken, d.Description)
+}
 
 func (t *TemplateElements) addDiagnostic(diagnostic Diagnostic) {
 	diags := t.diagnostics[diagnostic.SourceElement]

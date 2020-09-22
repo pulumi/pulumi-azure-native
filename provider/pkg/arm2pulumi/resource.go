@@ -16,6 +16,7 @@ func newResource(name string, rawBody map[string]interface{}, resourceToken stri
 		resourceName:  name,
 		rawBody:       rawBody,
 		resourceToken: resourceToken,
+		resourceParams: map[string]interface{}{},
 	}
 }
 
@@ -23,6 +24,7 @@ type resource struct {
 	resourceName  string
 	rawBody       map[string]interface{}
 	resourceToken string // initial guess at pulumi resource token
+	resourceParams map[string]interface{}
 	exclude       bool
 }
 
@@ -38,66 +40,43 @@ func (r *resource) SetArgs(body interface{}) {
 	r.rawBody = body.(map[string]interface{})
 }
 
-func (r *resource) RequiresManualConversion(ctx *pclRenderContext) (bool, *Diagnostic) {
-	actualToken, _, found := ctx.lookupResource(r.resourceToken)
+func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
 	diag := Diagnostic{
 		SourceElement: r.resourceName,
-		SourceToken:   r.resourceToken,
 		Severity:      SevHigh,
-		Description:   "this resource can't be automatically converted at this time",
 	}
-	if !found || gen.ShouldExclude(actualToken) {
+	templateName, ok := r.rawBody["name"]
+	if !ok {
 		r.exclude = true
-		return true, &diag
+		diag.Description = "missing required 'name' attribute"
+		return &diag
 	}
 
-	return false, nil
-}
-
-func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error) {
-	if r.exclude {
-		needsManualConversion := &model.Variable{
-			Name:         "null",
-			VariableType: model.NoneType,
-		}
-
-		return []model.BodyItem{&model.Attribute{
-			Name:  r.Name(),
-			Value: model.VariableReference(needsManualConversion),
-		}}, nil
-	}
-
-	var items []model.BodyItem
-	var resourceParams map[string]interface{}
 	var location interface{}
 	var apiVersion, typ string
-	var dependsOn []model.BodyItem
-
-	templateResourceName, ok := r.rawBody["name"]
-	if !ok {
-		return nil, fmt.Errorf("missing required 'name' attribute for resource: %s", r.resourceName)
-	}
-
 	for k, v := range r.rawBody {
 		switch k {
 		case "apiVersion":
 			var ok bool
 			apiVersion, ok = v.(string)
 			if !ok {
-				return nil, fmt.Errorf("expect apiVersion to be specified as a string, received %T", v)
+				diag.Description = "expect apiVersion to be specified as a literal string"
+				return &diag
 			}
 		case "type":
 			var ok bool
 			typ, ok = v.(string)
 			if !ok {
-				return nil, fmt.Errorf("expect type to be specified as a string, received %T", v)
+				r.exclude = true
+				diag.Description = "expect type to be specified as a literal string"
+				return &diag
 			}
 		case "location":
 			// location could be a string or a variable reference. Grab it so we can inject
 			// into properties of the resource if missing
 			location = v
 		case "properties":
-			resourceParams = map[string]interface{} { "properties": r.rawBody[k].(map[string]interface{})}
+			r.resourceParams = map[string]interface{} { "properties": r.rawBody[k].(map[string]interface{})}
 		case "dependsOn":
 			// TODO
 			continue
@@ -137,7 +116,9 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 	}
 
 	if typ == "" || apiVersion == "" {
-		return nil, fmt.Errorf("expect type and apiVersion fields to be specified for resource: %s", r.resourceName)
+		r.exclude = true
+		diag.Description = "expect type and apiVersion fields to be specified"
+		return &diag
 	}
 
 	// Can't trust the casing in the template.
@@ -145,22 +126,88 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 	token := toResourceToken(typ, apiVersion)
 	actual, res, ok := ctx.lookupResource(token)
 	if !ok {
-		return nil, fmt.Errorf("no metadata found for resource %s", token)
+		r.exclude = true
+		diag.Description = "no metadata found for resource"
+		return &diag
 	}
-	token = actual // Use the actual token going forward
+	r.resourceToken = actual
+	diag.SourceToken = r.resourceToken
 
-	flattened, err := r.transformRequestBody(ctx, res, resourceParams, templateResourceName)
+	if gen.ShouldExclude(r.resourceToken) {
+		r.exclude = true
+		diag.Description = "resource doesn't support automatic conversion at this time"
+		return &diag
+	}
+
+	var err error
+	r.resourceParams, err = r.transformRequestBody(ctx, res, r.resourceParams, templateName)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	if _, found := flattened["location"]; !found && location != nil {
-		flattened["location"] = location
+	required := codegen.NewStringSet()
+	for _, param := range res.PutParameters {
+		if param.IsRequired {
+			required.Add(param.Name)
+		}
+		if param.Body != nil {
+			for _, req := range param.Body.RequiredProperties {
+				required.Add(req)
+			}
+		}
 	}
 
-	keys := codegen.SortedKeys(flattened)
+	rgParam := extractResourceGroupNameParameter(res)
+	if rgParam != nil {
+		if required.Has(rgParam.Name) {
+			if _, ok := r.resourceParams[rgParam.Name]; !ok {
+				variable, dep, err := implicits.defaultResourceGroupName()
+				if err != nil {
+					return err
+				}
+				r.resourceParams[rgParam.Name] = model.VariableReference(variable)
+				ctx.dep.RefersTo(dep)
+			}
+		}
+	}
+
+	if _, ok := r.resourceParams["location"]; !ok {
+		if required.Has("location"){
+			if location != nil {
+				r.resourceParams["location"] = location
+			} else {
+				variable, dep, err := implicits.defaultResourceGroup()
+				if err != nil {
+					return err
+				}
+				r.resourceParams["location"] = pcl.RelativeTraversal(model.VariableReference(variable), "location")
+				ctx.dep.RefersTo(dep)
+			}
+		}
+	}
+
+	return nil
+}
+
+func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error) {
+	if r.exclude {
+		needsManualConversion := &model.Variable{
+			Name:         "null",
+			VariableType: model.NoneType,
+		}
+
+		return []model.BodyItem{&model.Attribute{
+			Name:  r.Name(),
+			Value: model.VariableReference(needsManualConversion),
+		}}, nil
+	}
+
+	var items []model.BodyItem
+	var dependsOn []model.BodyItem
+
+	keys := codegen.SortedKeys(r.resourceParams)
 	for _, k := range keys {
-		v := flattened[k]
+		v := r.resourceParams[k]
 		val, err := pcl.RenderValue(v)
 		if err != nil {
 			return nil, err
@@ -178,7 +225,7 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 		Tokens: getLeadingTriviaTokens(comment),
 		Type:   "resource",
 		Body:   &model.Body{Items: items},
-		Labels: []string{r.resourceName, token},
+		Labels: []string{r.resourceName, r.resourceToken},
 	}
 	return []model.BodyItem{&block}, nil
 }
@@ -192,6 +239,8 @@ func (r *resource) transformRequestBody(ctx *pclRenderContext,
 	for _, param := range res.PutParameters {
 		metadataResParams[param.Name] = param
 	}
+
+	// TODO: Stop guessing. Just always use the body field
 	_, foundProperties := metadataResParams["properties"]
 
 	// block specified as properties seems to be converted to body payload

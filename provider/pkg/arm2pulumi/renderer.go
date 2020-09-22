@@ -227,6 +227,10 @@ func renderTemplate(templates map[string]*jsonx.Node) (*model.Body, map[string][
 		return nil, nil, err
 	}
 
+	if err := templ.Validate(); err != nil {
+		return nil, nil, err
+	}
+
 	// We may not have a version when called from arm2pulumi website.
 	// Set it here so go program gen doesn't barf
 	if pkgSpec.Version == "" {

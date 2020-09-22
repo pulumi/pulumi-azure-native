@@ -3,6 +3,7 @@ package arm2pulumi
 import (
 	"errors"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
+	"regexp"
 	"strings"
 )
 
@@ -51,4 +52,28 @@ func extractResourceNameParameter(res *provider.AzureAPIResource) (*provider.Azu
 		}
 	}
 	return nil, errors.New("no resource name parameter found")
+}
+
+var rgPathRegex = regexp.MustCompile(`(?i)/.*/resourceGroups/\{(resourceGroupName)\}/providers/.*`)
+
+func extractResourceGroupNameParameter(res *provider.AzureAPIResource) *provider.AzureAPIParameter {
+	path := res.Path
+	var resouceGroupParamName string
+	if rgPathRegex.MatchString(path) {
+		subMatches := rgPathRegex.FindStringSubmatch(path)
+		if len(subMatches) > 1 {
+			resouceGroupParamName = subMatches[1]
+		}
+	}
+
+	if resouceGroupParamName == "" {
+		return nil
+	}
+
+	for i, param := range res.PutParameters {
+		if strings.ToLower(param.Name) == strings.ToLower(resouceGroupParamName) {
+			return &res.PutParameters[i]
+		}
+	}
+	return nil
 }

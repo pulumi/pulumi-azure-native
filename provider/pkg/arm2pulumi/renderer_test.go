@@ -22,7 +22,7 @@ func TestRenderTemplate(t *testing.T) {
 			assert.NotNil(t, pkgSpec)
 			node, err := parseJsonxTree(testCase.template)
 			require.NoError(t, err)
-			body, _, err := renderTemplate(map[string]*jsonx.Node{
+			body, diags, err := renderTemplate(map[string]*jsonx.Node{
 				"example.json": node,
 			})
 			if testCase.err == nil {
@@ -31,11 +31,21 @@ func TestRenderTemplate(t *testing.T) {
 				require.Error(t, err)
 				assert.EqualError(t, err, testCase.err.Error())
 			}
+
+			for k, d := range diags {
+				t.Logf("Diagnostics for %s:", k)
+				for _, i := range d {
+					t.Log(i.Error())
+				}
+
+			}
+
 			fmt.Printf("%#v\n", body)
 			rendered, _, err := RenderPrograms(body, testCase.languages)
 			require.NoError(t, err)
 			for _, lang := range testCase.languages {
 				t.Log(rendered[lang])
+				assert.Equal(t, testCase.expected, rendered[lang])
 			}
 		})
 
@@ -186,7 +196,7 @@ var (
 import * as azure_nextgen from "@pulumi/azure-nextgen";
 
 const config = new pulumi.Config();
-const agentCountParam = config.getNumber("agentCountParam") || "3";
+const agentCountParam = config.getNumber("agentCountParam") || 3;
 const agentVMSizeParam = config.get("agentVMSizeParam") || "Standard_DS2_v2";
 const clusterNameParam = config.get("clusterNameParam") || "aks101cluster";
 const dnsPrefixParam = config.require("dnsPrefixParam");
@@ -196,7 +206,7 @@ const resourceGroupVar = azure_nextgen.resources.latest.getResourceGroup({
     resourceGroupName: resourceGroupNameParam,
 });
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);
-const osDiskSizeGBParam = config.getNumber("osDiskSizeGBParam") || "0";
+const osDiskSizeGBParam = config.getNumber("osDiskSizeGBParam") || 0;
 const osTypeParam = config.get("osTypeParam") || "Linux";
 const servicePrincipalClientIdParam = config.require("servicePrincipalClientIdParam");
 const servicePrincipalClientSecretParam = config.require("servicePrincipalClientSecretParam");
@@ -219,6 +229,7 @@ const managedClusterResource = new azure_nextgen.containerservice.v20200301.Mana
         },
     },
     location: locationParam,
+    resourceGroupName: resourceGroupNameParam,
     resourceName: clusterNameParam,
     servicePrincipalProfile: {
         clientId: servicePrincipalClientIdParam,

@@ -196,34 +196,10 @@ func (t *TemplateElements) evalFunctionCall(d *dependencyTracking, target *inter
 			// function gives access to it. Here we try to inject similar semantics by adding a parameter
 			// specifying the resource group name. Then making all template references refer to a variable
 			// that holds the resolved resource group (determined through invoke)
-			rgNameParam := t.lookup("resourceGroupNameParam")
-			if rgNameParam == nil {
-				if err := t.AddParameter("resourceGroupNameParam", map[string]interface{}{
-					"type": "string",
-				}, false); err != nil {
-					return err
-				}
-				rgNameParam = t.lookup("resourceGroupNameParam")
+			rgNameParam, rg, err := t.ensureGlobals()
+			if err != nil {
+				return err
 			}
-
-			resourceGroupName := &model.Variable{
-				Name:         "resourceGroupNameParam",
-				VariableType: model.DynamicType,
-			}
-
-			rg := t.lookup("resourceGroupVar")
-			if rg == nil {
-				invoke := pcl.Invoke("azure-nextgen:resources/latest:getResourceGroup",
-					pcl.ObjectConsItem("resourceGroupName", model.VariableReference(resourceGroupName)))
-
-				var err error
-				rg, err = t.AddVariable("resourceGroupVar", invoke, false)
-				if err != nil {
-					return err
-				}
-			}
-
-			rg.RefersTo(rgNameParam)
 			d.RefersTo(rgNameParam)
 			d.RefersTo(rg)
 			*target = model.VariableReference(&model.Variable{

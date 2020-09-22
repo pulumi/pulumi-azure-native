@@ -24,16 +24,25 @@ type TemplateElement interface {
 	Name() string
 	Args() interface{}
 	SetArgs(interface{})
-	// RequiresManualConversion is called after all elements are loaded but before
-	// any rendering of PCL has occurred. If an element has fundamental issues being
-	// converted, it should return true and provide an optional diagnostic.
-	RequiresManualConversion(ctx *pclRenderContext) (bool, *Diagnostic)
+	// FinishInitializing is called after all template evaluation phases are complete
+	// but before PCLExpression. Most relevant usecase is to inject
+	// implicit default variables and validate against metadata. Returns a general
+	// error if a fatal issue is hit. Returned error may be a Diagnostic in which
+	// case the error may be non-fatal but may result in the element being excluded
+	// in the IR format.
+	FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error
 	PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error)
+}
+
+type implicitVariables interface {
+	defaultResourceGroupName()(*model.Variable, *dependencyTracking, error)
+	defaultResourceGroup()(*model.Variable, *dependencyTracking, error)
 }
 
 type pclRenderContext struct {
 	metadata *provider.AzureAPIMetadata
 	pkgSpec  *schema.PackageSpec
+	dep *dependencyTracking
 }
 
 // lookupResources looks up the specified resource token and
@@ -120,6 +129,10 @@ type parameter struct {
 	rawBody   map[string]interface{}
 }
 
+func (p *parameter) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+	return nil
+}
+
 func (p *parameter) Name() string {
 	return p.paramName
 }
@@ -132,8 +145,8 @@ func (p *parameter) SetArgs(body interface{}) {
 	p.rawBody = body.(map[string]interface{})
 }
 
-func (p *parameter) RequiresManualConversion(ctx *pclRenderContext) (bool, *Diagnostic) {
-	return false, nil
+func (p *parameter) Validate(ctx *pclRenderContext) (bool, *Diagnostic) {
+	return true, nil
 }
 
 func (p *parameter) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
@@ -182,6 +195,10 @@ type variable struct {
 	rawBody interface{}
 }
 
+func (v *variable) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+	return nil
+}
+
 func (v *variable) Name() string {
 	return v.varName
 }
@@ -194,8 +211,8 @@ func (v *variable) SetArgs(body interface{}) {
 	v.rawBody = body
 }
 
-func (v *variable) RequiresManualConversion(ctx *pclRenderContext) (bool, *Diagnostic) {
-	return false, nil
+func (v *variable) Validate(ctx *pclRenderContext) (bool, *Diagnostic) {
+	return true, nil
 }
 
 func (v *variable) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
@@ -223,6 +240,10 @@ type output struct {
 	rawBody    map[string]interface{}
 }
 
+func (o *output) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+	return nil
+}
+
 func (o *output) Name() string {
 	return o.outputName
 }
@@ -235,8 +256,8 @@ func (o *output) SetArgs(body interface{}) {
 	o.rawBody = body.(map[string]interface{})
 }
 
-func (o *output) RequiresManualConversion(ctx *pclRenderContext) (bool, *Diagnostic) {
-	return false, nil
+func (o *output) Validate(ctx *pclRenderContext) (bool, *Diagnostic) {
+	return true, nil
 }
 
 func (o *output) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
@@ -388,7 +409,6 @@ func (t *TemplateElements) evalTemplateExpressions(d *dependencyTracking, args i
 			return nil, err
 		}
 		return evaled, nil
-		//}
 	}
 
 	return args, nil
@@ -514,6 +534,9 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 		return fmt.Errorf("another resource with name: %s already defined", name)
 	}
 
+	// Since anything can be a template expression referring to other resources
+	// we can't really take the name or the resource token for granted at
+	// face value at this stage.
 	var resourceToken string
 	apiVersion, ok := args["apiVersion"]
 	if !ok {
@@ -533,28 +556,35 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 	return nil
 }
 
-func (t *TemplateElements) handleExclusions(ctx *pclRenderContext) bool {
-	haveExclusions := false
-	for _, el := range t.elements {
-		if exclude, diag := el.RequiresManualConversion(ctx); exclude {
-			t.addDiagnostic(*diag)
-			haveExclusions = true
-		}
-	}
-	return haveExclusions
-}
-
 func (t *TemplateElements) GetDiagnostics() map[string][]Diagnostic {
 	return t.diagnostics
 }
 
-func (t *TemplateElements) RenderPCL(metadata *provider.AzureAPIMetadata, pkgSpec *schema.PackageSpec) (*model.Body, error) {
+func (t *TemplateElements) Validate() error {
+	for _, el := range t.elements {
+		ctx := pclRenderContext{
+			metadata: metadata,
+			pkgSpec:  pkgSpec,
+			dep: el,
+		}
+		if err := el.TemplateElement.FinishInitializing(&ctx, t); err != nil {
+			diag := Diagnostic{}
+			if errors.As(err, &diag) {
+				t.addDiagnostic(diag)
+			}
+		}
+	}
+	return nil
+}
+
+func (t *TemplateElements) RenderPCL(
+	metadata *provider.AzureAPIMetadata,
+	pkgSpec *schema.PackageSpec,
+) (*model.Body, error) {
 	ctx := pclRenderContext{
 		metadata: metadata,
 		pkgSpec:  pkgSpec,
 	}
-
-	t.handleExclusions(&ctx)
 
 	elements, err := t.topologicalOrder()
 	if err != nil {
@@ -598,6 +628,68 @@ func (t *TemplateElements) topologicalOrder() ([]*dependencyTracking, error) {
 		}
 	}
 	return orderedElements, nil
+}
+
+func (t *TemplateElements) defaultResourceGroupName() (*model.Variable, *dependencyTracking, error) {
+	rgName, _, err := t.ensureGlobals()
+	if err != nil {
+		return nil, nil, err
+	}
+
+	resourceGroupName := &model.Variable{
+		Name:         "resourceGroupNameParam",
+		VariableType: model.DynamicType,
+	}
+	return  resourceGroupName, rgName, nil
+}
+
+func (t *TemplateElements) defaultResourceGroup() (*model.Variable, *dependencyTracking, error) {
+	_, rgVar, err := t.ensureGlobals()
+	if err != nil {
+		return nil, nil, err
+	}
+
+	resourceGroupVar := &model.Variable{
+		Name:         "resourceGroupVar",
+		VariableType: model.DynamicType,
+	}
+
+	return resourceGroupVar, rgVar, nil
+}
+
+
+// We are primarily focussed on ARM templates targeting a specific resource group. ARM has a bunch of implicit
+// behavior around filling in the default resource group name or referring to it through template functions.
+// We place these defaults in place optimistically and then decide to eliminate them if they are not used at
+// IR rendering time.
+func (t *TemplateElements) ensureGlobals() (
+	resourceGroupNameParam *dependencyTracking, resourceGroupVar *dependencyTracking, err error) {
+
+	resourceGroupNameParam = t.lookup("resourceGroupNameParam")
+	if resourceGroupNameParam == nil {
+		if err = t.AddParameter("resourceGroupNameParam", map[string]interface{}{
+			"type": "string",
+		}, false); err != nil {
+			return
+		}
+		resourceGroupNameParam = t.lookup("resourceGroupNameParam")
+	}
+
+	resourceGroupName := &model.Variable{
+		Name:         "resourceGroupNameParam",
+		VariableType: model.DynamicType,
+	}
+
+	resourceGroupVar = t.lookup("resourceGroupVar")
+	if resourceGroupVar == nil {
+		invoke := pcl.Invoke("azure-nextgen:resources/latest:getResourceGroup",
+			pcl.ObjectConsItem("resourceGroupName", model.VariableReference(resourceGroupName)))
+
+		resourceGroupVar, err = t.AddVariable("resourceGroupVar", invoke, false)
+		// Add dependency information to make sure we emit the globals in PCL
+		resourceGroupVar.RefersTo(resourceGroupNameParam)
+	}
+	return
 }
 
 func topoSort(e *dependencyTracking, visited map[*dependencyTracking]bool, order []*dependencyTracking) ([]*dependencyTracking, error) {

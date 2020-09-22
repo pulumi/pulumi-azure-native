@@ -113,6 +113,7 @@ const publicIPAddressResource = new azure_nextgen.network.v20200501.PublicIPAddr
     publicIPAddressVersion: "IPv4",
     publicIPAllocationMethod: "Static",
     publicIpAddressName: publicIPAddresses_pulumirancher_pip1_nameParam,
+    resourceGroupName: resource
 });
 const securityRuleResource = new azure_nextgen.network.v20200501.SecurityRule("securityRuleResource", {
     access: "Allow",
