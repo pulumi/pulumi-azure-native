@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
 {
 
     [OutputType]
-    public sealed class ConfigurationPropertiesResponseEncryption
+    public sealed class PropertiesResponseEncryption
     {
         /// <summary>
         /// Key vault properties.
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
         public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
 
         [OutputConstructor]
-        private ConfigurationPropertiesResponseEncryption(Outputs.KeyVaultPropertiesResponse? keyVaultProperties)
+        private PropertiesResponseEncryption(Outputs.KeyVaultPropertiesResponse? keyVaultProperties)
         {
             KeyVaultProperties = keyVaultProperties;
         }

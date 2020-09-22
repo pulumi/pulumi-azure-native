@@ -10,67 +10,15 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'ConfigurationPropertiesResponseEncryption',
-    'ConfigurationPropertiesResponseLockbox',
     'EnterprisePolicyIdentityResponse',
     'KeyVaultPropertiesResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'PropertiesResponseEncryption',
+    'PropertiesResponseLockbox',
     'KeyPropertiesResponse',
     'SystemDataResponse',
 ]
-
-@pulumi.output_type
-class ConfigurationPropertiesResponseEncryption(dict):
-    """
-    The encryption settings for a configuration store.
-    """
-    def __init__(__self__, *,
-                 key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
-        """
-        The encryption settings for a configuration store.
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Key vault properties.
-        """
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-
-    @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
-        """
-        Key vault properties.
-        """
-        return pulumi.get(self, "key_vault_properties")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ConfigurationPropertiesResponseLockbox(dict):
-    """
-    Settings concerning lockbox.
-    """
-    def __init__(__self__, *,
-                 status: Optional[str] = None):
-        """
-        Settings concerning lockbox.
-        :param str status: lockbox configuration
-        """
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        lockbox configuration
-        """
-        return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnterprisePolicyIdentityResponse(dict):
@@ -238,6 +186,58 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     def status(self) -> Optional[str]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PropertiesResponseEncryption(dict):
+    """
+    The encryption settings for a configuration store.
+    """
+    def __init__(__self__, *,
+                 key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
+        """
+        The encryption settings for a configuration store.
+        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Key vault properties.
+        """
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+        """
+        Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PropertiesResponseLockbox(dict):
+    """
+    Settings concerning lockbox.
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        Settings concerning lockbox.
+        :param str status: lockbox configuration
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        lockbox configuration
         """
         return pulumi.get(self, "status")
 

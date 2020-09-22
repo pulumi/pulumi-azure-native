@@ -20,7 +20,7 @@ class GetSyncGroupResult:
     """
     An Azure SQL Database sync group.
     """
-    def __init__(__self__, conflict_resolution_policy=None, hub_database_password=None, hub_database_user_name=None, interval=None, last_sync_time=None, name=None, schema=None, sync_database_id=None, sync_state=None, type=None, use_private_link_connection=None):
+    def __init__(__self__, conflict_resolution_policy=None, hub_database_password=None, hub_database_user_name=None, interval=None, last_sync_time=None, name=None, private_endpoint_name=None, schema=None, sync_database_id=None, sync_state=None, type=None, use_private_link_connection=None):
         if conflict_resolution_policy and not isinstance(conflict_resolution_policy, str):
             raise TypeError("Expected argument 'conflict_resolution_policy' to be a str")
         pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
@@ -39,6 +39,9 @@ class GetSyncGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_name and not isinstance(private_endpoint_name, str):
+            raise TypeError("Expected argument 'private_endpoint_name' to be a str")
+        pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
         if schema and not isinstance(schema, dict):
             raise TypeError("Expected argument 'schema' to be a dict")
         pulumi.set(__self__, "schema", schema)
@@ -104,6 +107,14 @@ class GetSyncGroupResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointName")
+    def private_endpoint_name(self) -> str:
+        """
+        Private endpoint name of the sync group if use private link connection is enabled.
+        """
+        return pulumi.get(self, "private_endpoint_name")
+
+    @property
     @pulumi.getter
     def schema(self) -> Optional['outputs.SyncGroupSchemaResponse']:
         """
@@ -156,6 +167,7 @@ class AwaitableGetSyncGroupResult(GetSyncGroupResult):
             interval=self.interval,
             last_sync_time=self.last_sync_time,
             name=self.name,
+            private_endpoint_name=self.private_endpoint_name,
             schema=self.schema,
             sync_database_id=self.sync_database_id,
             sync_state=self.sync_state,
@@ -194,6 +206,7 @@ def get_sync_group(database_name: Optional[str] = None,
         interval=__ret__.interval,
         last_sync_time=__ret__.last_sync_time,
         name=__ret__.name,
+        private_endpoint_name=__ret__.private_endpoint_name,
         schema=__ret__.schema,
         sync_database_id=__ret__.sync_database_id,
         sync_state=__ret__.sync_state,

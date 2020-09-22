@@ -12,9 +12,6 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview.Inputs
 
     public sealed class AuthenticationDetailsValueArgs : Pulumi.InvokeArgs
     {
-        [Input("clientCertificate")]
-        public Inputs.AuthenticationCertificateDetailsArgs? ClientCertificate { get; set; }
-
         /// <summary>
         /// Authentication token.
         /// </summary>

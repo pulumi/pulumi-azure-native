@@ -67,6 +67,10 @@ export interface GetSyncMemberResult {
      */
     readonly password?: string;
     /**
+     * Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
+     */
+    readonly privateEndpointName: string;
+    /**
      * Server name of the member database in the sync member
      */
     readonly serverName?: string;

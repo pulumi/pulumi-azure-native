@@ -26,6 +26,8 @@ type SyncGroup struct {
 	LastSyncTime pulumi.StringOutput `pulumi:"lastSyncTime"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Private endpoint name of the sync group if use private link connection is enabled.
+	PrivateEndpointName pulumi.StringOutput `pulumi:"privateEndpointName"`
 	// Sync schema of the sync group.
 	Schema SyncGroupSchemaResponsePtrOutput `pulumi:"schema"`
 	// ARM resource id of the sync database in the sync group.
@@ -96,6 +98,8 @@ type syncGroupState struct {
 	LastSyncTime *string `pulumi:"lastSyncTime"`
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// Private endpoint name of the sync group if use private link connection is enabled.
+	PrivateEndpointName *string `pulumi:"privateEndpointName"`
 	// Sync schema of the sync group.
 	Schema *SyncGroupSchemaResponse `pulumi:"schema"`
 	// ARM resource id of the sync database in the sync group.
@@ -121,6 +125,8 @@ type SyncGroupState struct {
 	LastSyncTime pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// Private endpoint name of the sync group if use private link connection is enabled.
+	PrivateEndpointName pulumi.StringPtrInput
 	// Sync schema of the sync group.
 	Schema SyncGroupSchemaResponsePtrInput
 	// ARM resource id of the sync database in the sync group.

@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// The encryption settings for a configuration store.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.ConfigurationPropertiesResponseEncryption?> Encryption { get; private set; } = null!;
+        public Output<Outputs.PropertiesResponseEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the EnterprisePolicy.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// Settings concerning lockbox.
         /// </summary>
         [Output("lockbox")]
-        public Output<Outputs.ConfigurationPropertiesResponseLockbox?> Lockbox { get; private set; } = null!;
+        public Output<Outputs.PropertiesResponseLockbox?> Lockbox { get; private set; } = null!;
 
         /// <summary>
         /// Name of the EnterprisePolicy.
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// The encryption settings for a configuration store.
         /// </summary>
         [Input("encryption")]
-        public Input<Inputs.ConfigurationPropertiesEncryptionArgs>? Encryption { get; set; }
+        public Input<Inputs.PropertiesEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
         /// Name of the EnterprisePolicy.
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// Settings concerning lockbox.
         /// </summary>
         [Input("lockbox")]
-        public Input<Inputs.ConfigurationPropertiesLockboxArgs>? Lockbox { get; set; }
+        public Input<Inputs.PropertiesLockboxArgs>? Lockbox { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

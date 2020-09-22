@@ -11,17 +11,17 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
 {
 
     /// <summary>
-    /// Settings concerning lockbox.
+    /// The encryption settings for a configuration store.
     /// </summary>
-    public sealed class ConfigurationPropertiesLockboxArgs : Pulumi.ResourceArgs
+    public sealed class PropertiesEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// lockbox configuration
+        /// Key vault properties.
         /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
+        [Input("keyVaultProperties")]
+        public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
 
-        public ConfigurationPropertiesLockboxArgs()
+        public PropertiesEncryptionArgs()
         {
         }
     }

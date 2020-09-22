@@ -17,11 +17,11 @@ class EnterprisePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['ConfigurationPropertiesEncryptionArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']]] = None,
                  enterprise_policy_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 lockbox: Optional[pulumi.Input[pulumi.InputType['ConfigurationPropertiesLockboxArgs']]] = None,
+                 lockbox: Optional[pulumi.Input[pulumi.InputType['PropertiesLockboxArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  system_data: Optional[pulumi.Input[pulumi.InputType['SystemDataArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,11 +33,11 @@ class EnterprisePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationPropertiesEncryptionArgs']] encryption: The encryption settings for a configuration store.
+        :param pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']] encryption: The encryption settings for a configuration store.
         :param pulumi.Input[str] enterprise_policy_name: Name of the EnterprisePolicy.
         :param pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']] identity: The identity of the EnterprisePolicy.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[pulumi.InputType['ConfigurationPropertiesLockboxArgs']] lockbox: Settings concerning lockbox.
+        :param pulumi.Input[pulumi.InputType['PropertiesLockboxArgs']] lockbox: Settings concerning lockbox.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SystemDataArgs']] system_data: Metadata pertaining to creation and last modification of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -99,7 +99,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encryption(self) -> pulumi.Output[Optional['outputs.ConfigurationPropertiesResponseEncryption']]:
+    def encryption(self) -> pulumi.Output[Optional['outputs.PropertiesResponseEncryption']]:
         """
         The encryption settings for a configuration store.
         """
@@ -123,7 +123,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def lockbox(self) -> pulumi.Output[Optional['outputs.ConfigurationPropertiesResponseLockbox']]:
+    def lockbox(self) -> pulumi.Output[Optional['outputs.PropertiesResponseLockbox']]:
         """
         Settings concerning lockbox.
         """

@@ -41,6 +41,8 @@ type LookupSyncGroupResult struct {
 	LastSyncTime string `pulumi:"lastSyncTime"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// Private endpoint name of the sync group if use private link connection is enabled.
+	PrivateEndpointName string `pulumi:"privateEndpointName"`
 	// Sync schema of the sync group.
 	Schema *SyncGroupSchemaResponse `pulumi:"schema"`
 	// ARM resource id of the sync database in the sync group.

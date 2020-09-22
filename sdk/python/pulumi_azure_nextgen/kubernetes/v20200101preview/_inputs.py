@@ -9,70 +9,20 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'AuthenticationCertificateDetailsArgs',
     'AuthenticationDetailsValueArgs',
     'ConnectedClusterAADProfileArgs',
     'ConnectedClusterIdentityArgs',
 ]
 
 @pulumi.input_type
-class AuthenticationCertificateDetailsArgs:
-    def __init__(__self__, *,
-                 certificate_data: str,
-                 key_data: str):
-        """
-        :param str certificate_data: Base64 encoded client certificate data.
-        :param str key_data: Base64 encoded key data.
-        """
-        pulumi.set(__self__, "certificate_data", certificate_data)
-        pulumi.set(__self__, "key_data", key_data)
-
-    @property
-    @pulumi.getter(name="certificateData")
-    def certificate_data(self) -> str:
-        """
-        Base64 encoded client certificate data.
-        """
-        return pulumi.get(self, "certificate_data")
-
-    @certificate_data.setter
-    def certificate_data(self, value: str):
-        pulumi.set(self, "certificate_data", value)
-
-    @property
-    @pulumi.getter(name="keyData")
-    def key_data(self) -> str:
-        """
-        Base64 encoded key data.
-        """
-        return pulumi.get(self, "key_data")
-
-    @key_data.setter
-    def key_data(self, value: str):
-        pulumi.set(self, "key_data", value)
-
-
-@pulumi.input_type
 class AuthenticationDetailsValueArgs:
     def __init__(__self__, *,
-                 client_certificate: Optional['AuthenticationCertificateDetailsArgs'] = None,
                  token: Optional[str] = None):
         """
         :param str token: Authentication token.
         """
-        if client_certificate is not None:
-            pulumi.set(__self__, "client_certificate", client_certificate)
         if token is not None:
             pulumi.set(__self__, "token", token)
-
-    @property
-    @pulumi.getter(name="clientCertificate")
-    def client_certificate(self) -> Optional['AuthenticationCertificateDetailsArgs']:
-        return pulumi.get(self, "client_certificate")
-
-    @client_certificate.setter
-    def client_certificate(self, value: Optional['AuthenticationCertificateDetailsArgs']):
-        pulumi.set(self, "client_certificate", value)
 
     @property
     @pulumi.getter
