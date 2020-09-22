@@ -371,7 +371,10 @@ func (t *TemplateElements) evalFunctionCall(d *dependencyTracking, target *inter
 					if afterLiteral {
 						last := parts[len(parts)-1].(*model.LiteralValueExpression)
 						last.Value = cty.StringVal(last.Value.AsString() + lit)
+					} else {
+						parts = append(parts, plainLit(""))
 					}
+
 					parts = append(parts, x)
 					afterLiteral = false
 				}
