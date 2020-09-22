@@ -38,7 +38,7 @@ type LookupOriginResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Provisioning status of the origin.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource status of the origin.
 	ResourceState string `pulumi:"resourceState"`
 	// Resource type

@@ -87,7 +87,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * The provisioning state of the subnet resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
      */
@@ -142,7 +142,6 @@ export class Subnet extends pulumi.CustomResource {
             inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
             inputs["privateEndpointNetworkPolicies"] = args ? args.privateEndpointNetworkPolicies : undefined;
             inputs["privateLinkServiceNetworkPolicies"] = args ? args.privateLinkServiceNetworkPolicies : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceNavigationLinks"] = args ? args.resourceNavigationLinks : undefined;
             inputs["routeTable"] = args ? args.routeTable : undefined;
@@ -154,6 +153,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["ipConfigurationProfiles"] = undefined /*out*/;
             inputs["ipConfigurations"] = undefined /*out*/;
             inputs["privateEndpoints"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["purpose"] = undefined /*out*/;
         } else {
             inputs["addressPrefix"] = undefined /*out*/;
@@ -233,10 +233,6 @@ export interface SubnetArgs {
      * Enable or Disable apply network policies on private link service in the subnet.
      */
     readonly privateLinkServiceNetworkPolicies?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the subnet resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

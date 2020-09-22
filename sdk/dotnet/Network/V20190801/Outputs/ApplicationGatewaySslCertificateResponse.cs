@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         /// <summary>
         /// The provisioning state of the SSL certificate resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Base-64 encoded Public cert data corresponding to pfx specified in data. Only applicable in GET request.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
 
             string? password,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? publicCertData,
 

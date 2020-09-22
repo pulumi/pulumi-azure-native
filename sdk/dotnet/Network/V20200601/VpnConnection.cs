@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// The connection status.
         /// </summary>
         [Output("connectionStatus")]
-        public Output<string?> ConnectionStatus { get; private set; } = null!;
+        public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
         /// DPD timeout in seconds for vpn connection.
@@ -212,12 +212,6 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// </summary>
         [Input("connectionName", required: true)]
         public Input<string> ConnectionName { get; set; } = null!;
-
-        /// <summary>
-        /// The connection status.
-        /// </summary>
-        [Input("connectionStatus")]
-        public Input<string>? ConnectionStatus { get; set; }
 
         /// <summary>
         /// DPD timeout in seconds for vpn connection.

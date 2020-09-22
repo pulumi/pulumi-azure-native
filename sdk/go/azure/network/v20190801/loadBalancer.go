@@ -35,7 +35,7 @@ type LoadBalancer struct {
 	// Collection of probe objects used in the load balancer.
 	Probes ProbeResponseArrayOutput `pulumi:"probes"`
 	// The provisioning state of the load balancer resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource GUID property of the load balancer resource.
 	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
 	// The load balancer SKU.
@@ -274,8 +274,6 @@ type loadBalancerArgs struct {
 	OutboundRules []OutboundRule `pulumi:"outboundRules"`
 	// Collection of probe objects used in the load balancer.
 	Probes []Probe `pulumi:"probes"`
-	// The provisioning state of the load balancer resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the load balancer resource.
@@ -310,8 +308,6 @@ type LoadBalancerArgs struct {
 	OutboundRules OutboundRuleArrayInput
 	// Collection of probe objects used in the load balancer.
 	Probes ProbeArrayInput
-	// The provisioning state of the load balancer resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource GUID property of the load balancer resource.

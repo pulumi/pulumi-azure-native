@@ -30,7 +30,7 @@ type LookupVpnConnectionResult struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
+	ConnectionStatus string `pulumi:"connectionStatus"`
 	// DPD timeout in seconds for vpn connection.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// Egress bytes transferred.

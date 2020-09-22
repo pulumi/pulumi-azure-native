@@ -30,7 +30,7 @@ type LookupProfileResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Provisioning status of the profile.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource status of the profile.
 	ResourceState string `pulumi:"resourceState"`
 	// The SKU (pricing tier) of the CDN profile.

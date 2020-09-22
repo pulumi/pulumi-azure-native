@@ -59,7 +59,7 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -90,11 +90,11 @@ export class BastionHost extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["dnsName"] = undefined /*out*/;
@@ -143,10 +143,6 @@ export interface BastionHostArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

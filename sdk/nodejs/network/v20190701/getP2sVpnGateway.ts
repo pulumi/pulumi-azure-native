@@ -58,7 +58,7 @@ export interface GetP2sVpnGatewayResult {
     /**
      * The provisioning state of the P2S VPN gateway resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

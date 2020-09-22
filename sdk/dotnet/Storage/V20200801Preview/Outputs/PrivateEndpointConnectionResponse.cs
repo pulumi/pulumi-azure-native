@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Outputs
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Outputs
 
             Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
-            string? provisioningState,
+            string provisioningState,
 
             string type)
         {

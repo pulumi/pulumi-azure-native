@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Network.V20200101
         /// Resource status.
         /// </summary>
         [Output("resourceState")]
-        public Output<string?> ResourceState { get; private set; } = null!;
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// A list of rules that define a particular Rules Engine Configuration.
@@ -100,12 +100,6 @@ namespace Pulumi.AzureNextGen.Network.V20200101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Resource status.
-        /// </summary>
-        [Input("resourceState")]
-        public Input<string>? ResourceState { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.RulesEngineRuleArgs>? _rules;

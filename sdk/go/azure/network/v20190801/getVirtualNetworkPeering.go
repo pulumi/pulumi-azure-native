@@ -40,7 +40,7 @@ type LookupVirtualNetworkPeeringResult struct {
 	// The status of the virtual network peering.
 	PeeringState *string `pulumi:"peeringState"`
 	// The provisioning state of the virtual network peering resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The reference of the remote virtual network address space.
 	RemoteAddressSpace *AddressSpaceResponse `pulumi:"remoteAddressSpace"`
 	// The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).

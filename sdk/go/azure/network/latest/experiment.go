@@ -27,7 +27,7 @@ type Experiment struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource status.
-	ResourceState pulumi.StringPtrOutput `pulumi:"resourceState"`
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// The uri to the Script used in the Experiment
 	ScriptFileUri pulumi.StringOutput `pulumi:"scriptFileUri"`
 	// The description of Experiment status from the server side
@@ -151,8 +151,6 @@ type experimentArgs struct {
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -175,8 +173,6 @@ type ExperimentArgs struct {
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// Resource status.
-	ResourceState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

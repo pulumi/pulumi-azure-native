@@ -31,7 +31,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  peering_type: Optional[pulumi.Input[str]] = None,
                  primary_azure_port: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_filter: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  secondary_azure_port: Optional[pulumi.Input[str]] = None,
@@ -62,7 +61,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] peering_type: The peering type.
         :param pulumi.Input[str] primary_azure_port: The primary port.
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the express route circuit peering resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] route_filter: The reference of the RouteFilter resource.
         :param pulumi.Input[str] secondary_azure_port: The secondary port.
@@ -107,7 +105,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__['peering_type'] = peering_type
             __props__['primary_azure_port'] = primary_azure_port
             __props__['primary_peer_address_prefix'] = primary_peer_address_prefix
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -121,6 +118,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['express_route_connection'] = None
             __props__['peered_connections'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20150615:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160330:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20161201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170301:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20171001:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20171101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ExpressRouteCircuitPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -262,7 +260,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the express route circuit peering resource.
         """

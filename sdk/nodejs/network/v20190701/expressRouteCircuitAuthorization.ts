@@ -53,7 +53,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     /**
      * The provisioning state of the authorization resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Type of the resource.
      */
@@ -84,9 +84,9 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             inputs["circuitName"] = args ? args.circuitName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["authorizationKey"] = undefined /*out*/;
@@ -137,10 +137,6 @@ export interface ExpressRouteCircuitAuthorizationArgs {
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the authorization resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -182,7 +182,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> pulumi.Output[Optional['outputs.OSProfileResponse']]:
+    def os_profile(self) -> pulumi.Output['outputs.OSProfileResponse']:
         """
         Specifies the operating system settings for the hybrid machine.
         """

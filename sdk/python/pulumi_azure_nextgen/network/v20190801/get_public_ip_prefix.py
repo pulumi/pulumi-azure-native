@@ -125,7 +125,7 @@ class GetPublicIPPrefixResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the public IP prefix resource.
         """

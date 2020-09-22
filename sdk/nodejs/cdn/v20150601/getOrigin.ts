@@ -64,7 +64,7 @@ export interface GetOriginResult {
     /**
      * Provisioning status of the origin.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource status of the origin.
      */

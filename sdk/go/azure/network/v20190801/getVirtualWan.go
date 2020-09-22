@@ -38,9 +38,9 @@ type LookupVirtualWanResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The office local breakout category.
-	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
+	Office365LocalBreakoutCategory string `pulumi:"office365LocalBreakoutCategory"`
 	// The provisioning state of the virtual WAN resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

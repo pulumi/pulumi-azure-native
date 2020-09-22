@@ -67,7 +67,7 @@ export interface GetFirewallPolicyResult {
     /**
      * The provisioning state of the firewall policy resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * List of references to FirewallPolicyRuleGroups.
      */

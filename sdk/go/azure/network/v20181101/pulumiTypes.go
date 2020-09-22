@@ -9996,8 +9996,6 @@ type AzureFirewallApplicationRuleCollection struct {
 	Name *string `pulumi:"name"`
 	// Priority of the application rule collection resource.
 	Priority *int `pulumi:"priority"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Collection of rules used by a application rule collection.
 	Rules []AzureFirewallApplicationRule `pulumi:"rules"`
 }
@@ -10023,8 +10021,6 @@ type AzureFirewallApplicationRuleCollectionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Priority of the application rule collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Collection of rules used by a application rule collection.
 	Rules AzureFirewallApplicationRuleArrayInput `pulumi:"rules"`
 }
@@ -10101,11 +10097,6 @@ func (o AzureFirewallApplicationRuleCollectionOutput) Priority() pulumi.IntPtrOu
 	return o.ApplyT(func(v AzureFirewallApplicationRuleCollection) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The provisioning state of the resource.
-func (o AzureFirewallApplicationRuleCollectionOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureFirewallApplicationRuleCollection) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 // Collection of rules used by a application rule collection.
 func (o AzureFirewallApplicationRuleCollectionOutput) Rules() AzureFirewallApplicationRuleArrayOutput {
 	return o.ApplyT(func(v AzureFirewallApplicationRuleCollection) []AzureFirewallApplicationRule { return v.Rules }).(AzureFirewallApplicationRuleArrayOutput)
@@ -10144,7 +10135,7 @@ type AzureFirewallApplicationRuleCollectionResponse struct {
 	// Priority of the application rule collection resource.
 	Priority *int `pulumi:"priority"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Collection of rules used by a application rule collection.
 	Rules []AzureFirewallApplicationRuleResponse `pulumi:"rules"`
 }
@@ -10173,7 +10164,7 @@ type AzureFirewallApplicationRuleCollectionResponseArgs struct {
 	// Priority of the application rule collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Collection of rules used by a application rule collection.
 	Rules AzureFirewallApplicationRuleResponseArrayInput `pulumi:"rules"`
 }
@@ -10256,8 +10247,8 @@ func (o AzureFirewallApplicationRuleCollectionResponseOutput) Priority() pulumi.
 }
 
 // The provisioning state of the resource.
-func (o AzureFirewallApplicationRuleCollectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureFirewallApplicationRuleCollectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o AzureFirewallApplicationRuleCollectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFirewallApplicationRuleCollectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Collection of rules used by a application rule collection.
@@ -10658,8 +10649,6 @@ type AzureFirewallIPConfiguration struct {
 	Id *string `pulumi:"id"`
 	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
 	PublicIPAddress *SubResource `pulumi:"publicIPAddress"`
 	// Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
@@ -10683,8 +10672,6 @@ type AzureFirewallIPConfigurationArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
 	PublicIPAddress SubResourcePtrInput `pulumi:"publicIPAddress"`
 	// Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
@@ -10753,11 +10740,6 @@ func (o AzureFirewallIPConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFirewallIPConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state of the resource.
-func (o AzureFirewallIPConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureFirewallIPConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 // Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
 func (o AzureFirewallIPConfigurationOutput) PublicIPAddress() SubResourcePtrOutput {
 	return o.ApplyT(func(v AzureFirewallIPConfiguration) *SubResource { return v.PublicIPAddress }).(SubResourcePtrOutput)
@@ -10799,7 +10781,7 @@ type AzureFirewallIPConfigurationResponse struct {
 	// The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
 	PrivateIPAddress string `pulumi:"privateIPAddress"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
 	PublicIPAddress *SubResourceResponse `pulumi:"publicIPAddress"`
 	// Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
@@ -10828,7 +10810,7 @@ type AzureFirewallIPConfigurationResponseArgs struct {
 	// The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
 	PrivateIPAddress pulumi.StringInput `pulumi:"privateIPAddress"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
 	PublicIPAddress SubResourceResponsePtrInput `pulumi:"publicIPAddress"`
 	// Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
@@ -10908,8 +10890,8 @@ func (o AzureFirewallIPConfigurationResponseOutput) PrivateIPAddress() pulumi.St
 }
 
 // The provisioning state of the resource.
-func (o AzureFirewallIPConfigurationResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureFirewallIPConfigurationResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o AzureFirewallIPConfigurationResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFirewallIPConfigurationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
@@ -11383,8 +11365,6 @@ type AzureFirewallNatRuleCollection struct {
 	Name *string `pulumi:"name"`
 	// Priority of the NAT rule collection resource.
 	Priority *int `pulumi:"priority"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Collection of rules used by a NAT rule collection.
 	Rules []AzureFirewallNatRule `pulumi:"rules"`
 }
@@ -11410,8 +11390,6 @@ type AzureFirewallNatRuleCollectionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Priority of the NAT rule collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Collection of rules used by a NAT rule collection.
 	Rules AzureFirewallNatRuleArrayInput `pulumi:"rules"`
 }
@@ -11488,11 +11466,6 @@ func (o AzureFirewallNatRuleCollectionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureFirewallNatRuleCollection) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The provisioning state of the resource.
-func (o AzureFirewallNatRuleCollectionOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureFirewallNatRuleCollection) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 // Collection of rules used by a NAT rule collection.
 func (o AzureFirewallNatRuleCollectionOutput) Rules() AzureFirewallNatRuleArrayOutput {
 	return o.ApplyT(func(v AzureFirewallNatRuleCollection) []AzureFirewallNatRule { return v.Rules }).(AzureFirewallNatRuleArrayOutput)
@@ -11531,7 +11504,7 @@ type AzureFirewallNatRuleCollectionResponse struct {
 	// Priority of the NAT rule collection resource.
 	Priority *int `pulumi:"priority"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Collection of rules used by a NAT rule collection.
 	Rules []AzureFirewallNatRuleResponse `pulumi:"rules"`
 }
@@ -11560,7 +11533,7 @@ type AzureFirewallNatRuleCollectionResponseArgs struct {
 	// Priority of the NAT rule collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Collection of rules used by a NAT rule collection.
 	Rules AzureFirewallNatRuleResponseArrayInput `pulumi:"rules"`
 }
@@ -11643,8 +11616,8 @@ func (o AzureFirewallNatRuleCollectionResponseOutput) Priority() pulumi.IntPtrOu
 }
 
 // The provisioning state of the resource.
-func (o AzureFirewallNatRuleCollectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureFirewallNatRuleCollectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o AzureFirewallNatRuleCollectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFirewallNatRuleCollectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Collection of rules used by a NAT rule collection.
@@ -11990,8 +11963,6 @@ type AzureFirewallNetworkRuleCollection struct {
 	Name *string `pulumi:"name"`
 	// Priority of the network rule collection resource.
 	Priority *int `pulumi:"priority"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Collection of rules used by a network rule collection.
 	Rules []AzureFirewallNetworkRule `pulumi:"rules"`
 }
@@ -12017,8 +11988,6 @@ type AzureFirewallNetworkRuleCollectionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Priority of the network rule collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Collection of rules used by a network rule collection.
 	Rules AzureFirewallNetworkRuleArrayInput `pulumi:"rules"`
 }
@@ -12095,11 +12064,6 @@ func (o AzureFirewallNetworkRuleCollectionOutput) Priority() pulumi.IntPtrOutput
 	return o.ApplyT(func(v AzureFirewallNetworkRuleCollection) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The provisioning state of the resource.
-func (o AzureFirewallNetworkRuleCollectionOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureFirewallNetworkRuleCollection) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 // Collection of rules used by a network rule collection.
 func (o AzureFirewallNetworkRuleCollectionOutput) Rules() AzureFirewallNetworkRuleArrayOutput {
 	return o.ApplyT(func(v AzureFirewallNetworkRuleCollection) []AzureFirewallNetworkRule { return v.Rules }).(AzureFirewallNetworkRuleArrayOutput)
@@ -12138,7 +12102,7 @@ type AzureFirewallNetworkRuleCollectionResponse struct {
 	// Priority of the network rule collection resource.
 	Priority *int `pulumi:"priority"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Collection of rules used by a network rule collection.
 	Rules []AzureFirewallNetworkRuleResponse `pulumi:"rules"`
 }
@@ -12167,7 +12131,7 @@ type AzureFirewallNetworkRuleCollectionResponseArgs struct {
 	// Priority of the network rule collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Collection of rules used by a network rule collection.
 	Rules AzureFirewallNetworkRuleResponseArrayInput `pulumi:"rules"`
 }
@@ -12250,8 +12214,8 @@ func (o AzureFirewallNetworkRuleCollectionResponseOutput) Priority() pulumi.IntP
 }
 
 // The provisioning state of the resource.
-func (o AzureFirewallNetworkRuleCollectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureFirewallNetworkRuleCollectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o AzureFirewallNetworkRuleCollectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFirewallNetworkRuleCollectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Collection of rules used by a network rule collection.
@@ -21745,8 +21709,6 @@ type HubVirtualNetworkConnection struct {
 	Id *string `pulumi:"id"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Reference to the remote virtual network.
 	RemoteVirtualNetwork *SubResource `pulumi:"remoteVirtualNetwork"`
 }
@@ -21774,8 +21736,6 @@ type HubVirtualNetworkConnectionArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Reference to the remote virtual network.
 	RemoteVirtualNetwork SubResourcePtrInput `pulumi:"remoteVirtualNetwork"`
 }
@@ -21857,11 +21817,6 @@ func (o HubVirtualNetworkConnectionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HubVirtualNetworkConnection) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state of the resource.
-func (o HubVirtualNetworkConnectionOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HubVirtualNetworkConnection) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 // Reference to the remote virtual network.
 func (o HubVirtualNetworkConnectionOutput) RemoteVirtualNetwork() SubResourcePtrOutput {
 	return o.ApplyT(func(v HubVirtualNetworkConnection) *SubResource { return v.RemoteVirtualNetwork }).(SubResourcePtrOutput)
@@ -21902,7 +21857,7 @@ type HubVirtualNetworkConnectionResponse struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Reference to the remote virtual network.
 	RemoteVirtualNetwork *SubResourceResponse `pulumi:"remoteVirtualNetwork"`
 }
@@ -21933,7 +21888,7 @@ type HubVirtualNetworkConnectionResponseArgs struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Reference to the remote virtual network.
 	RemoteVirtualNetwork SubResourceResponsePtrInput `pulumi:"remoteVirtualNetwork"`
 }
@@ -22021,8 +21976,8 @@ func (o HubVirtualNetworkConnectionResponseOutput) Name() pulumi.StringPtrOutput
 }
 
 // The provisioning state of the resource.
-func (o HubVirtualNetworkConnectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HubVirtualNetworkConnectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o HubVirtualNetworkConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v HubVirtualNetworkConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Reference to the remote virtual network.
@@ -43501,8 +43456,6 @@ func (o VpnClientRootCertificateResponseArrayOutput) Index(i pulumi.IntInput) Vp
 type VpnConnectionType struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
-	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// EnableBgp flag
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Enable internet security
@@ -43515,8 +43468,6 @@ type VpnConnectionType struct {
 	IpsecPolicies []IpsecPolicy `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Id of the connected vpn site.
 	RemoteVpnSite *SubResource `pulumi:"remoteVpnSite"`
 	// routing weight for vpn connection.
@@ -43542,8 +43493,6 @@ type VpnConnectionTypeInput interface {
 type VpnConnectionTypeArgs struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrInput `pulumi:"connectionBandwidth"`
-	// The connection status.
-	ConnectionStatus pulumi.StringPtrInput `pulumi:"connectionStatus"`
 	// EnableBgp flag
 	EnableBgp pulumi.BoolPtrInput `pulumi:"enableBgp"`
 	// Enable internet security
@@ -43556,8 +43505,6 @@ type VpnConnectionTypeArgs struct {
 	IpsecPolicies IpsecPolicyArrayInput `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Id of the connected vpn site.
 	RemoteVpnSite SubResourcePtrInput `pulumi:"remoteVpnSite"`
 	// routing weight for vpn connection.
@@ -43625,11 +43572,6 @@ func (o VpnConnectionTypeOutput) ConnectionBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionType) *int { return v.ConnectionBandwidth }).(pulumi.IntPtrOutput)
 }
 
-// The connection status.
-func (o VpnConnectionTypeOutput) ConnectionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VpnConnectionType) *string { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
-}
-
 // EnableBgp flag
 func (o VpnConnectionTypeOutput) EnableBgp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionType) *bool { return v.EnableBgp }).(pulumi.BoolPtrOutput)
@@ -43658,11 +43600,6 @@ func (o VpnConnectionTypeOutput) IpsecPolicies() IpsecPolicyArrayOutput {
 // The name of the resource that is unique within a resource group. This name can be used to access the resource.
 func (o VpnConnectionTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning state of the resource.
-func (o VpnConnectionTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VpnConnectionType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // Id of the connected vpn site.
@@ -43710,7 +43647,7 @@ type VpnConnectionResponse struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
+	ConnectionStatus string `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
 	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag
@@ -43730,7 +43667,7 @@ type VpnConnectionResponse struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Id of the connected vpn site.
 	RemoteVpnSite *SubResourceResponse `pulumi:"remoteVpnSite"`
 	// routing weight for vpn connection.
@@ -43757,7 +43694,7 @@ type VpnConnectionResponseArgs struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrInput `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus pulumi.StringPtrInput `pulumi:"connectionStatus"`
+	ConnectionStatus pulumi.StringInput `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
 	EgressBytesTransferred pulumi.IntInput `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag
@@ -43777,7 +43714,7 @@ type VpnConnectionResponseArgs struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Id of the connected vpn site.
 	RemoteVpnSite SubResourceResponsePtrInput `pulumi:"remoteVpnSite"`
 	// routing weight for vpn connection.
@@ -43846,8 +43783,8 @@ func (o VpnConnectionResponseOutput) ConnectionBandwidth() pulumi.IntPtrOutput {
 }
 
 // The connection status.
-func (o VpnConnectionResponseOutput) ConnectionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VpnConnectionResponse) *string { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
+func (o VpnConnectionResponseOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnConnectionResponse) string { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
 // Egress bytes transferred.
@@ -43896,8 +43833,8 @@ func (o VpnConnectionResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The provisioning state of the resource.
-func (o VpnConnectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VpnConnectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o VpnConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Id of the connected vpn site.

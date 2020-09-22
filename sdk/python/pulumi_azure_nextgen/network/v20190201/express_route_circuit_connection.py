@@ -19,7 +19,6 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
-                 circuit_connection_status: Optional[pulumi.Input[str]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -38,7 +37,6 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param pulumi.Input[str] authorization_key: The authorization key.
-        :param pulumi.Input[str] circuit_connection_status: Express Route Circuit connection state.
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[str] connection_name: The name of the express route circuit connection.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
@@ -67,7 +65,6 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
             __props__['address_prefix'] = address_prefix
             __props__['authorization_key'] = authorization_key
-            __props__['circuit_connection_status'] = circuit_connection_status
             if circuit_name is None:
                 raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
@@ -84,6 +81,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['circuit_connection_status'] = None
             __props__['etag'] = None
             __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180401:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180601:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ExpressRouteCircuitConnection")])
@@ -130,7 +128,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="circuitConnectionStatus")
-    def circuit_connection_status(self) -> pulumi.Output[Optional[str]]:
+    def circuit_connection_status(self) -> pulumi.Output[str]:
         """
         Express Route Circuit connection state.
         """

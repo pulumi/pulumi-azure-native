@@ -58,12 +58,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         }
 
         /// <summary>
-        /// The provisioning state of the path rule resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Redirect configuration resource of URL path map path rule.
         /// </summary>
         [Input("redirectConfiguration")]

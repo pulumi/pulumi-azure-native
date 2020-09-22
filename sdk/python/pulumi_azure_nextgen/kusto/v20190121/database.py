@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
-from ._inputs import *
 
 __all__ = ['Database']
 
@@ -23,7 +22,6 @@ class Database(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  soft_delete_period: Optional[pulumi.Input[str]] = None,
-                 statistics: Optional[pulumi.Input[pulumi.InputType['DatabaseStatisticsArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,7 +36,6 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input[str] soft_delete_period: The time the data should be kept before it stops being accessible to queries in TimeSpan.
-        :param pulumi.Input[pulumi.InputType['DatabaseStatisticsArgs']] statistics: The statistics of the database.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,9 +66,9 @@ class Database(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['soft_delete_period'] = soft_delete_period
-            __props__['statistics'] = statistics
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['statistics'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/latest:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -141,7 +138,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def statistics(self) -> pulumi.Output[Optional['outputs.DatabaseStatisticsResponse']]:
+    def statistics(self) -> pulumi.Output['outputs.DatabaseStatisticsResponse']:
         """
         The statistics of the database.
         """

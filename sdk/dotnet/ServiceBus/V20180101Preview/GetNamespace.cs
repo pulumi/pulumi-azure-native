@@ -44,9 +44,13 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// Properties of BYOK Encryption description
+        /// Enumerates the possible value of keySource for Encryption
         /// </summary>
-        public readonly Outputs.EncryptionResponse? Encryption;
+        public readonly string? KeySource;
+        /// <summary>
+        /// Properties of KeyVault
+        /// </summary>
+        public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
         /// <summary>
         /// The Geo-location where the resource lives
         /// </summary>
@@ -92,7 +96,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         private GetNamespaceResult(
             string createdAt,
 
-            Outputs.EncryptionResponse? encryption,
+            string? keySource,
+
+            Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
 
             string location,
 
@@ -115,7 +121,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
             bool? zoneRedundant)
         {
             CreatedAt = createdAt;
-            Encryption = encryption;
+            KeySource = keySource;
+            KeyVaultProperties = keyVaultProperties;
             Location = location;
             MetricId = metricId;
             Name = name;

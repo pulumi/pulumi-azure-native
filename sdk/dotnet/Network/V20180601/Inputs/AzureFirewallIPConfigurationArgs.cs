@@ -46,12 +46,6 @@ namespace Pulumi.AzureNextGen.Network.V20180601.Inputs
         public Input<string>? PrivateIPAddress { get; set; }
 
         /// <summary>
-        /// The provisioning state of the resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Reference of the PublicIP resource. This field is populated in the output.
         /// </summary>
         [Input("publicIPAddress")]

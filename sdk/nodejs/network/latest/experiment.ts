@@ -63,7 +63,7 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * Resource status.
      */
-    public readonly resourceState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * The uri to the Script used in the Experiment
      */
@@ -108,9 +108,9 @@ export class Experiment extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceState"] = args ? args.resourceState : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["scriptFileUri"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -176,10 +176,6 @@ export interface ExperimentArgs {
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource status.
-     */
-    readonly resourceState?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

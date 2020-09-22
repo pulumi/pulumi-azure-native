@@ -30,7 +30,7 @@ type LookupVpnConnectionResult struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
+	ConnectionStatus string `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
 	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
@@ -48,7 +48,7 @@ type LookupVpnConnectionResult struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Id of the connected vpn site.
 	RemoteVpnSite *SubResourceResponse `pulumi:"remoteVpnSite"`
 	// Routing weight for vpn connection.

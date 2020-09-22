@@ -27,7 +27,7 @@ type PrivateEndpoint struct {
 	// A grouping of information about the connection to the remote resource.
 	PrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayOutput `pulumi:"privateLinkServiceConnections"`
 	// The provisioning state of the private endpoint resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The ID of the subnet from which the private IP will be allocated.
 	Subnet SubnetResponsePtrOutput `pulumi:"subnet"`
 	// Resource tags.
@@ -168,8 +168,6 @@ type privateEndpointArgs struct {
 	PrivateEndpointName string `pulumi:"privateEndpointName"`
 	// A grouping of information about the connection to the remote resource.
 	PrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"privateLinkServiceConnections"`
-	// The provisioning state of the private endpoint resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the subnet from which the private IP will be allocated.
@@ -192,8 +190,6 @@ type PrivateEndpointArgs struct {
 	PrivateEndpointName pulumi.StringInput
 	// A grouping of information about the connection to the remote resource.
 	PrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput
-	// The provisioning state of the private endpoint resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the subnet from which the private IP will be allocated.

@@ -10,7 +10,6 @@ from ... import _utilities, _tables
 
 __all__ = [
     'AzureSkuArgs',
-    'DatabaseStatisticsArgs',
     'OptimizedAutoscaleArgs',
     'TrustedExternalTenantArgs',
     'VirtualNetworkConfigurationArgs',
@@ -68,30 +67,6 @@ class AzureSkuArgs:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
-
-
-@pulumi.input_type
-class DatabaseStatisticsArgs:
-    def __init__(__self__, *,
-                 size: Optional[pulumi.Input[float]] = None):
-        """
-        A class that contains database statistics information.
-        :param pulumi.Input[float] size: The database size - the total size of compressed data and index in bytes.
-        """
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[float]]:
-        """
-        The database size - the total size of compressed data and index in bytes.
-        """
-        return pulumi.get(self, "size")
-
-    @size.setter
-    def size(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "size", value)
 
 
 @pulumi.input_type

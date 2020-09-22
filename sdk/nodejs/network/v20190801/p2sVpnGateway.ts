@@ -55,7 +55,7 @@ export class P2sVpnGateway extends pulumi.CustomResource {
     /**
      * The provisioning state of the P2S VPN gateway resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -104,7 +104,6 @@ export class P2sVpnGateway extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["p2SConnectionConfigurations"] = args ? args.p2SConnectionConfigurations : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
@@ -112,6 +111,7 @@ export class P2sVpnGateway extends pulumi.CustomResource {
             inputs["vpnServerConfiguration"] = args ? args.vpnServerConfiguration : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vpnClientConnectionHealth"] = undefined /*out*/;
         } else {
@@ -160,10 +160,6 @@ export interface P2sVpnGatewayArgs {
      * List of all p2s connection configurations of the gateway.
      */
     readonly p2SConnectionConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190801.P2SConnectionConfiguration>[]>;
-    /**
-     * The provisioning state of the P2S VPN gateway resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name of the P2SVpnGateway.
      */

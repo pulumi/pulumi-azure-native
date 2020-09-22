@@ -19,7 +19,7 @@ type Assessment struct {
 	// User friendly display name of the assessment
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Links relevant to the assessment
-	Links AssessmentLinksResponsePtrOutput `pulumi:"links"`
+	Links AssessmentLinksResponseOutput `pulumi:"links"`
 	// Describes properties of an assessment metadata.
 	Metadata SecurityAssessmentMetadataPropertiesResponsePtrOutput `pulumi:"metadata"`
 	// Resource name

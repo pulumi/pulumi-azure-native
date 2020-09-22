@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
         /// Specifies the operating system settings for the hybrid machine.
         /// </summary>
         [Output("osProfile")]
-        public Output<Outputs.OSProfileResponse?> OsProfile { get; private set; } = null!;
+        public Output<Outputs.OSProfileResponse> OsProfile { get; private set; } = null!;
 
         /// <summary>
         /// The version of Operating System running on the hybrid machine.

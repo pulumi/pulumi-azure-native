@@ -23,7 +23,7 @@ type PacketCapture struct {
 	// Name of the packet capture session.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the packet capture session.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Describes the storage location for a packet capture session.
 	StorageLocation PacketCaptureStorageLocationResponseOutput `pulumi:"storageLocation"`
 	// The ID of the targeted resource, only VM is currently supported.

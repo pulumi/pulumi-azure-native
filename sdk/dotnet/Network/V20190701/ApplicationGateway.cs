@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The provisioning state of the application gateway resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
@@ -448,12 +448,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
             get => _probes ?? (_probes = new InputList<Inputs.ApplicationGatewayProbeArgs>());
             set => _probes = value;
         }
-
-        /// <summary>
-        /// The provisioning state of the application gateway resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         [Input("redirectConfigurations")]
         private InputList<Inputs.ApplicationGatewayRedirectConfigurationArgs>? _redirectConfigurations;

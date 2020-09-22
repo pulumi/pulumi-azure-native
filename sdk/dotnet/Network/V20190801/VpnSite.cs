@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// The provisioning state of the VPN site resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The key for vpn-site that can be used for connections.
@@ -206,12 +206,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the VPN site resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the VpnSite.

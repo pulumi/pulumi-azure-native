@@ -27,7 +27,7 @@ type VirtualNetworkPeering struct {
 	// The status of the virtual network peering.
 	PeeringState pulumi.StringPtrOutput `pulumi:"peeringState"`
 	// The provisioning state of the virtual network peering resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The reference of the remote virtual network address space.
 	RemoteAddressSpace AddressSpaceResponsePtrOutput `pulumi:"remoteAddressSpace"`
 	// The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
@@ -230,8 +230,6 @@ type virtualNetworkPeeringArgs struct {
 	Name *string `pulumi:"name"`
 	// The status of the virtual network peering.
 	PeeringState *string `pulumi:"peeringState"`
-	// The provisioning state of the virtual network peering resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The reference of the remote virtual network address space.
 	RemoteAddressSpace *AddressSpace `pulumi:"remoteAddressSpace"`
 	// The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
@@ -262,8 +260,6 @@ type VirtualNetworkPeeringArgs struct {
 	Name pulumi.StringPtrInput
 	// The status of the virtual network peering.
 	PeeringState pulumi.StringPtrInput
-	// The provisioning state of the virtual network peering resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The reference of the remote virtual network address space.
 	RemoteAddressSpace AddressSpacePtrInput
 	// The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).

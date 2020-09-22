@@ -91,7 +91,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * The provisioning state of the network interface resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The resource GUID property of the network interface resource.
      */

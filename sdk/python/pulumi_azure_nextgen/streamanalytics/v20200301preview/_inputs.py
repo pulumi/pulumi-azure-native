@@ -9,35 +9,10 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'ClusterPropertiesArgs',
     'ClusterSkuArgs',
     'PrivateEndpointPropertiesArgs',
     'PrivateLinkServiceConnectionArgs',
 ]
-
-@pulumi.input_type
-class ClusterPropertiesArgs:
-    def __init__(__self__, *,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
-        """
-        The properties associated with a Stream Analytics cluster.
-        :param pulumi.Input[str] provisioning_state: The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
-        """
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
 
 @pulumi.input_type
 class ClusterSkuArgs:

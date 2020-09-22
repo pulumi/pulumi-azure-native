@@ -55,7 +55,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The provisioning state of the private endpoint connection resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource type of private endpoint connection.
      */

@@ -322,8 +322,6 @@ type KeyVaultProperties struct {
 	Id *string `pulumi:"id"`
 	// Identity of the secret that includes name and version.
 	Key *KeyProperties `pulumi:"key"`
-	// The state of onboarding, which only appears in the response.
-	Status *string `pulumi:"status"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -343,8 +341,6 @@ type KeyVaultPropertiesArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Identity of the secret that includes name and version.
 	Key KeyPropertiesPtrInput `pulumi:"key"`
-	// The state of onboarding, which only appears in the response.
-	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -435,11 +431,6 @@ func (o KeyVaultPropertiesOutput) Key() KeyPropertiesPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *KeyProperties { return v.Key }).(KeyPropertiesPtrOutput)
 }
 
-// The state of onboarding, which only appears in the response.
-func (o KeyVaultPropertiesOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
 type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
@@ -478,16 +469,6 @@ func (o KeyVaultPropertiesPtrOutput) Key() KeyPropertiesPtrOutput {
 	}).(KeyPropertiesPtrOutput)
 }
 
-// The state of onboarding, which only appears in the response.
-func (o KeyVaultPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
 // Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesResponse struct {
 	// Uri of KeyVault
@@ -495,7 +476,7 @@ type KeyVaultPropertiesResponse struct {
 	// Identity of the secret that includes name and version.
 	Key *KeyPropertiesResponse `pulumi:"key"`
 	// The state of onboarding, which only appears in the response.
-	Status *string `pulumi:"status"`
+	Status string `pulumi:"status"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -516,7 +497,7 @@ type KeyVaultPropertiesResponseArgs struct {
 	// Identity of the secret that includes name and version.
 	Key KeyPropertiesResponsePtrInput `pulumi:"key"`
 	// The state of onboarding, which only appears in the response.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status pulumi.StringInput `pulumi:"status"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -608,8 +589,8 @@ func (o KeyVaultPropertiesResponseOutput) Key() KeyPropertiesResponsePtrOutput {
 }
 
 // The state of onboarding, which only appears in the response.
-func (o KeyVaultPropertiesResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o KeyVaultPropertiesResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -656,7 +637,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Status
+		return &v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1274,140 +1255,6 @@ func (o PropertiesEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPt
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// Settings concerning lockbox.
-type PropertiesLockbox struct {
-	// lockbox configuration
-	Status *string `pulumi:"status"`
-}
-
-// PropertiesLockboxInput is an input type that accepts PropertiesLockboxArgs and PropertiesLockboxOutput values.
-// You can construct a concrete instance of `PropertiesLockboxInput` via:
-//
-//          PropertiesLockboxArgs{...}
-type PropertiesLockboxInput interface {
-	pulumi.Input
-
-	ToPropertiesLockboxOutput() PropertiesLockboxOutput
-	ToPropertiesLockboxOutputWithContext(context.Context) PropertiesLockboxOutput
-}
-
-// Settings concerning lockbox.
-type PropertiesLockboxArgs struct {
-	// lockbox configuration
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (PropertiesLockboxArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PropertiesLockbox)(nil)).Elem()
-}
-
-func (i PropertiesLockboxArgs) ToPropertiesLockboxOutput() PropertiesLockboxOutput {
-	return i.ToPropertiesLockboxOutputWithContext(context.Background())
-}
-
-func (i PropertiesLockboxArgs) ToPropertiesLockboxOutputWithContext(ctx context.Context) PropertiesLockboxOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesLockboxOutput)
-}
-
-func (i PropertiesLockboxArgs) ToPropertiesLockboxPtrOutput() PropertiesLockboxPtrOutput {
-	return i.ToPropertiesLockboxPtrOutputWithContext(context.Background())
-}
-
-func (i PropertiesLockboxArgs) ToPropertiesLockboxPtrOutputWithContext(ctx context.Context) PropertiesLockboxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesLockboxOutput).ToPropertiesLockboxPtrOutputWithContext(ctx)
-}
-
-// PropertiesLockboxPtrInput is an input type that accepts PropertiesLockboxArgs, PropertiesLockboxPtr and PropertiesLockboxPtrOutput values.
-// You can construct a concrete instance of `PropertiesLockboxPtrInput` via:
-//
-//          PropertiesLockboxArgs{...}
-//
-//  or:
-//
-//          nil
-type PropertiesLockboxPtrInput interface {
-	pulumi.Input
-
-	ToPropertiesLockboxPtrOutput() PropertiesLockboxPtrOutput
-	ToPropertiesLockboxPtrOutputWithContext(context.Context) PropertiesLockboxPtrOutput
-}
-
-type propertiesLockboxPtrType PropertiesLockboxArgs
-
-func PropertiesLockboxPtr(v *PropertiesLockboxArgs) PropertiesLockboxPtrInput {
-	return (*propertiesLockboxPtrType)(v)
-}
-
-func (*propertiesLockboxPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PropertiesLockbox)(nil)).Elem()
-}
-
-func (i *propertiesLockboxPtrType) ToPropertiesLockboxPtrOutput() PropertiesLockboxPtrOutput {
-	return i.ToPropertiesLockboxPtrOutputWithContext(context.Background())
-}
-
-func (i *propertiesLockboxPtrType) ToPropertiesLockboxPtrOutputWithContext(ctx context.Context) PropertiesLockboxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesLockboxPtrOutput)
-}
-
-// Settings concerning lockbox.
-type PropertiesLockboxOutput struct{ *pulumi.OutputState }
-
-func (PropertiesLockboxOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PropertiesLockbox)(nil)).Elem()
-}
-
-func (o PropertiesLockboxOutput) ToPropertiesLockboxOutput() PropertiesLockboxOutput {
-	return o
-}
-
-func (o PropertiesLockboxOutput) ToPropertiesLockboxOutputWithContext(ctx context.Context) PropertiesLockboxOutput {
-	return o
-}
-
-func (o PropertiesLockboxOutput) ToPropertiesLockboxPtrOutput() PropertiesLockboxPtrOutput {
-	return o.ToPropertiesLockboxPtrOutputWithContext(context.Background())
-}
-
-func (o PropertiesLockboxOutput) ToPropertiesLockboxPtrOutputWithContext(ctx context.Context) PropertiesLockboxPtrOutput {
-	return o.ApplyT(func(v PropertiesLockbox) *PropertiesLockbox {
-		return &v
-	}).(PropertiesLockboxPtrOutput)
-}
-
-// lockbox configuration
-func (o PropertiesLockboxOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PropertiesLockbox) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type PropertiesLockboxPtrOutput struct{ *pulumi.OutputState }
-
-func (PropertiesLockboxPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PropertiesLockbox)(nil)).Elem()
-}
-
-func (o PropertiesLockboxPtrOutput) ToPropertiesLockboxPtrOutput() PropertiesLockboxPtrOutput {
-	return o
-}
-
-func (o PropertiesLockboxPtrOutput) ToPropertiesLockboxPtrOutputWithContext(ctx context.Context) PropertiesLockboxPtrOutput {
-	return o
-}
-
-func (o PropertiesLockboxPtrOutput) Elem() PropertiesLockboxOutput {
-	return o.ApplyT(func(v *PropertiesLockbox) PropertiesLockbox { return *v }).(PropertiesLockboxOutput)
-}
-
-// lockbox configuration
-func (o PropertiesLockboxPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PropertiesLockbox) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
 // The encryption settings for a configuration store.
 type PropertiesResponseEncryption struct {
 	// Key vault properties.
@@ -1545,7 +1392,7 @@ func (o PropertiesResponseEncryptionPtrOutput) KeyVaultProperties() KeyVaultProp
 // Settings concerning lockbox.
 type PropertiesResponseLockbox struct {
 	// lockbox configuration
-	Status *string `pulumi:"status"`
+	Status string `pulumi:"status"`
 }
 
 // PropertiesResponseLockboxInput is an input type that accepts PropertiesResponseLockboxArgs and PropertiesResponseLockboxOutput values.
@@ -1562,7 +1409,7 @@ type PropertiesResponseLockboxInput interface {
 // Settings concerning lockbox.
 type PropertiesResponseLockboxArgs struct {
 	// lockbox configuration
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status pulumi.StringInput `pulumi:"status"`
 }
 
 func (PropertiesResponseLockboxArgs) ElementType() reflect.Type {
@@ -1644,8 +1491,8 @@ func (o PropertiesResponseLockboxOutput) ToPropertiesResponseLockboxPtrOutputWit
 }
 
 // lockbox configuration
-func (o PropertiesResponseLockboxOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PropertiesResponseLockbox) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o PropertiesResponseLockboxOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PropertiesResponseLockbox) string { return v.Status }).(pulumi.StringOutput)
 }
 
 type PropertiesResponseLockboxPtrOutput struct{ *pulumi.OutputState }
@@ -1672,7 +1519,7 @@ func (o PropertiesResponseLockboxPtrOutput) Status() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Status
+		return &v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1983,235 +1830,6 @@ func (o KeyPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 // Metadata pertaining to creation and last modification of the resource.
-type SystemData struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-// SystemDataInput is an input type that accepts SystemDataArgs and SystemDataOutput values.
-// You can construct a concrete instance of `SystemDataInput` via:
-//
-//          SystemDataArgs{...}
-type SystemDataInput interface {
-	pulumi.Input
-
-	ToSystemDataOutput() SystemDataOutput
-	ToSystemDataOutputWithContext(context.Context) SystemDataOutput
-}
-
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemData)(nil)).Elem()
-}
-
-func (i SystemDataArgs) ToSystemDataOutput() SystemDataOutput {
-	return i.ToSystemDataOutputWithContext(context.Background())
-}
-
-func (i SystemDataArgs) ToSystemDataOutputWithContext(ctx context.Context) SystemDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataOutput)
-}
-
-func (i SystemDataArgs) ToSystemDataPtrOutput() SystemDataPtrOutput {
-	return i.ToSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataArgs) ToSystemDataPtrOutputWithContext(ctx context.Context) SystemDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataOutput).ToSystemDataPtrOutputWithContext(ctx)
-}
-
-// SystemDataPtrInput is an input type that accepts SystemDataArgs, SystemDataPtr and SystemDataPtrOutput values.
-// You can construct a concrete instance of `SystemDataPtrInput` via:
-//
-//          SystemDataArgs{...}
-//
-//  or:
-//
-//          nil
-type SystemDataPtrInput interface {
-	pulumi.Input
-
-	ToSystemDataPtrOutput() SystemDataPtrOutput
-	ToSystemDataPtrOutputWithContext(context.Context) SystemDataPtrOutput
-}
-
-type systemDataPtrType SystemDataArgs
-
-func SystemDataPtr(v *SystemDataArgs) SystemDataPtrInput {
-	return (*systemDataPtrType)(v)
-}
-
-func (*systemDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemData)(nil)).Elem()
-}
-
-func (i *systemDataPtrType) ToSystemDataPtrOutput() SystemDataPtrOutput {
-	return i.ToSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataPtrType) ToSystemDataPtrOutputWithContext(ctx context.Context) SystemDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataPtrOutput)
-}
-
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataOutput struct{ *pulumi.OutputState }
-
-func (SystemDataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemData)(nil)).Elem()
-}
-
-func (o SystemDataOutput) ToSystemDataOutput() SystemDataOutput {
-	return o
-}
-
-func (o SystemDataOutput) ToSystemDataOutputWithContext(ctx context.Context) SystemDataOutput {
-	return o
-}
-
-func (o SystemDataOutput) ToSystemDataPtrOutput() SystemDataPtrOutput {
-	return o.ToSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataOutput) ToSystemDataPtrOutputWithContext(ctx context.Context) SystemDataPtrOutput {
-	return o.ApplyT(func(v SystemData) *SystemData {
-		return &v
-	}).(SystemDataPtrOutput)
-}
-
-// The timestamp of resource creation (UTC).
-func (o SystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemData) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
-}
-
-// The identity that created the resource.
-func (o SystemDataOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemData) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that created the resource.
-func (o SystemDataOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemData) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemData) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemData) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemData) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-type SystemDataPtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemData)(nil)).Elem()
-}
-
-func (o SystemDataPtrOutput) ToSystemDataPtrOutput() SystemDataPtrOutput {
-	return o
-}
-
-func (o SystemDataPtrOutput) ToSystemDataPtrOutputWithContext(ctx context.Context) SystemDataPtrOutput {
-	return o
-}
-
-func (o SystemDataPtrOutput) Elem() SystemDataOutput {
-	return o.ApplyT(func(v *SystemData) SystemData { return *v }).(SystemDataOutput)
-}
-
-// The timestamp of resource creation (UTC).
-func (o SystemDataPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity that created the resource.
-func (o SystemDataPtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that created the resource.
-func (o SystemDataPtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataPtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataPtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataPtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -2457,8 +2075,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(PropertiesEncryptionOutput{})
 	pulumi.RegisterOutputType(PropertiesEncryptionPtrOutput{})
-	pulumi.RegisterOutputType(PropertiesLockboxOutput{})
-	pulumi.RegisterOutputType(PropertiesLockboxPtrOutput{})
 	pulumi.RegisterOutputType(PropertiesResponseEncryptionOutput{})
 	pulumi.RegisterOutputType(PropertiesResponseEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(PropertiesResponseLockboxOutput{})
@@ -2467,8 +2083,6 @@ func init() {
 	pulumi.RegisterOutputType(KeyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(SystemDataOutput{})
-	pulumi.RegisterOutputType(SystemDataPtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

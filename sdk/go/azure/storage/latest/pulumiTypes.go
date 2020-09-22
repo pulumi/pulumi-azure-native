@@ -7559,7 +7559,7 @@ type PrivateEndpointConnectionResponse struct {
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }
@@ -7586,7 +7586,7 @@ type PrivateEndpointConnectionResponseArgs struct {
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -7666,8 +7666,8 @@ func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionSta
 }
 
 // The provisioning state of the private endpoint connection resource.
-func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -8523,8 +8523,6 @@ func (o RoutingPreferenceResponsePtrOutput) RoutingChoice() pulumi.StringPtrOutp
 type Sku struct {
 	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 	Name string `pulumi:"name"`
-	// The SKU tier. This is based on the SKU name.
-	Tier *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -8542,8 +8540,6 @@ type SkuInput interface {
 type SkuArgs struct {
 	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU tier. This is based on the SKU name.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -8629,11 +8625,6 @@ func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU tier. This is based on the SKU name.
-func (o SkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
 type SkuPtrOutput struct{ *pulumi.OutputState }
 
 func (SkuPtrOutput) ElementType() reflect.Type {
@@ -8662,22 +8653,12 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier. This is based on the SKU name.
-func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
 // The SKU of the storage account.
 type SkuResponse struct {
 	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 	Name string `pulumi:"name"`
 	// The SKU tier. This is based on the SKU name.
-	Tier *string `pulumi:"tier"`
+	Tier string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -8696,7 +8677,7 @@ type SkuResponseArgs struct {
 	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The SKU tier. This is based on the SKU name.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -8783,8 +8764,8 @@ func (o SkuResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The SKU tier. This is based on the SKU name.
-func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o SkuResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 type SkuResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8821,7 +8802,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Tier
+		return &v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 

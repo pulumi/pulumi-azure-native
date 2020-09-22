@@ -207,16 +207,12 @@ class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs:
 @pulumi.input_type
 class WorkspaceCustomBooleanParameterArgs:
     def __init__(__self__, *,
-                 value: pulumi.Input[bool],
-                 type: Optional[pulumi.Input[str]] = None):
+                 value: pulumi.Input[bool]):
         """
         The value which should be used for this field.
         :param pulumi.Input[bool] value: The value which should be used for this field.
-        :param pulumi.Input[str] type: The type of variable that this is
         """
         pulumi.set(__self__, "value", value)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -229,18 +225,6 @@ class WorkspaceCustomBooleanParameterArgs:
     @value.setter
     def value(self, value: pulumi.Input[bool]):
         pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of variable that this is
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -382,16 +366,12 @@ class WorkspaceCustomParametersArgs:
 @pulumi.input_type
 class WorkspaceCustomStringParameterArgs:
     def __init__(__self__, *,
-                 value: pulumi.Input[str],
-                 type: Optional[pulumi.Input[str]] = None):
+                 value: pulumi.Input[str]):
         """
         The Value.
         :param pulumi.Input[str] value: The value which should be used for this field.
-        :param pulumi.Input[str] type: The type of variable that this is
         """
         pulumi.set(__self__, "value", value)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -405,45 +385,17 @@ class WorkspaceCustomStringParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of variable that this is
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
 
 @pulumi.input_type
 class WorkspaceEncryptionParameterArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['EncryptionArgs']] = None):
         """
         The object that contains details of encryption used on the workspace.
-        :param pulumi.Input[str] type: The type of variable that this is
         :param pulumi.Input['EncryptionArgs'] value: The value which should be used for this field.
         """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of variable that this is
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter

@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
         [Output("criteria")]
-        public Output<Outputs.ScheduledQueryRuleCriteriaResponse?> Criteria { get; private set; } = null!;
+        public Output<Outputs.ScheduledQueryRuleCriteriaResponse> Criteria { get; private set; } = null!;
 
         /// <summary>
         /// The description of the scheduled query rule.
@@ -33,13 +33,13 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
         [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
+        public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         /// </summary>
         [Output("evaluationFrequency")]
-        public Output<string?> EvaluationFrequency { get; private set; } = null!;
+        public Output<string> EvaluationFrequency { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         /// </summary>
         [Output("severity")]
-        public Output<double?> Severity { get; private set; } = null!;
+        public Output<double> Severity { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
         /// </summary>
         [Output("windowSize")]
-        public Output<string?> WindowSize { get; private set; } = null!;
+        public Output<string> WindowSize { get; private set; } = null!;
 
 
         /// <summary>
@@ -156,8 +156,8 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// <summary>
         /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
-        [Input("criteria")]
-        public Input<Inputs.ScheduledQueryRuleCriteriaArgs>? Criteria { get; set; }
+        [Input("criteria", required: true)]
+        public Input<Inputs.ScheduledQueryRuleCriteriaArgs> Criteria { get; set; } = null!;
 
         /// <summary>
         /// The description of the scheduled query rule.
@@ -168,14 +168,14 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// <summary>
         /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
         /// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         /// </summary>
-        [Input("evaluationFrequency")]
-        public Input<string>? EvaluationFrequency { get; set; }
+        [Input("evaluationFrequency", required: true)]
+        public Input<string> EvaluationFrequency { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
-        [Input("scopes")]
+        [Input("scopes", required: true)]
         private InputList<string>? _scopes;
 
         /// <summary>
@@ -216,8 +216,8 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// <summary>
         /// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         /// </summary>
-        [Input("severity")]
-        public Input<double>? Severity { get; set; }
+        [Input("severity", required: true)]
+        public Input<double> Severity { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -246,8 +246,8 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// <summary>
         /// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
         /// </summary>
-        [Input("windowSize")]
-        public Input<string>? WindowSize { get; set; }
+        [Input("windowSize", required: true)]
+        public Input<string> WindowSize { get; set; } = null!;
 
         public ScheduledQueryRuleArgs()
         {

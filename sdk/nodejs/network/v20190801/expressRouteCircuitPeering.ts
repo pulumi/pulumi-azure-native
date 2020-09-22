@@ -95,7 +95,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * The provisioning state of the express route circuit peering resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The reference of the RouteFilter resource.
      */
@@ -162,7 +162,6 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["peeringType"] = args ? args.peeringType : undefined;
             inputs["primaryAzurePort"] = args ? args.primaryAzurePort : undefined;
             inputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeFilter"] = args ? args.routeFilter : undefined;
             inputs["secondaryAzurePort"] = args ? args.secondaryAzurePort : undefined;
@@ -174,6 +173,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["expressRouteConnection"] = undefined /*out*/;
             inputs["peeredConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["azureASN"] = undefined /*out*/;
@@ -273,10 +273,6 @@ export interface ExpressRouteCircuitPeeringArgs {
      * The primary address prefix.
      */
     readonly primaryPeerAddressPrefix?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the express route circuit peering resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

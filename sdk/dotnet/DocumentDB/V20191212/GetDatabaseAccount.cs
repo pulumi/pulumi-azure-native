@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
         /// <summary>
         /// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// An array that contains of the read locations enabled for the Cosmos DB account.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableArray<Outputs.LocationResponse> readLocations,
 

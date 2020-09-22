@@ -34,12 +34,6 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Resource status.
-        /// </summary>
-        [Input("resourceState")]
-        public Input<string>? ResourceState { get; set; }
-
-        /// <summary>
         /// The number of samples to consider for load balancing decisions
         /// </summary>
         [Input("sampleSize")]

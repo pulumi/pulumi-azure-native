@@ -50,7 +50,7 @@ type LookupInboundNatRuleResult struct {
 	// The reference to the transport protocol used by the load balancing rule.
 	Protocol *string `pulumi:"protocol"`
 	// The provisioning state of the inbound NAT rule resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type string `pulumi:"type"`
 }

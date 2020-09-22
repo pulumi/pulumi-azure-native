@@ -35,7 +35,6 @@ class ApplicationGateway(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]]] = None,
                  request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -75,7 +74,6 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of the application gateway, if configured.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]] probes: Probes of the application gateway resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the application gateway resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]] redirect_configurations: Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]] request_routing_rules: Request routing rules of the application gateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -127,7 +125,6 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['location'] = location
             __props__['probes'] = probes
-            __props__['provisioning_state'] = provisioning_state
             __props__['redirect_configurations'] = redirect_configurations
             __props__['request_routing_rules'] = request_routing_rules
             if resource_group_name is None:
@@ -145,6 +142,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__['zones'] = zones
             __props__['name'] = None
             __props__['operational_state'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20150615:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20160330:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20160601:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20160901:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20161201:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20170301:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20170601:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20170801:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20170901:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20171001:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20171101:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180101:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180201:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180401:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180601:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ApplicationGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -318,7 +316,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the application gateway resource.
         """

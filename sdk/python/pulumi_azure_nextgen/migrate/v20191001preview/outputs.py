@@ -187,16 +187,23 @@ class JobStatusResponse(dict):
     Defines the job status.
     """
     def __init__(__self__, *,
-                 job_progress: str,
-                 job_name: Optional[str] = None):
+                 job_name: str,
+                 job_progress: str):
         """
         Defines the job status.
-        :param str job_progress: Gets or sets the monitoring job percentage.
         :param str job_name: Defines the job name.
+        :param str job_progress: Gets or sets the monitoring job percentage.
         """
+        pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "job_progress", job_progress)
-        if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+
+    @property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> str:
+        """
+        Defines the job name.
+        """
+        return pulumi.get(self, "job_name")
 
     @property
     @pulumi.getter(name="jobProgress")
@@ -205,14 +212,6 @@ class JobStatusResponse(dict):
         Gets or sets the monitoring job percentage.
         """
         return pulumi.get(self, "job_progress")
-
-    @property
-    @pulumi.getter(name="jobName")
-    def job_name(self) -> Optional[str]:
-        """
-        Defines the job name.
-        """
-        return pulumi.get(self, "job_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -475,19 +474,26 @@ class MoveCollectionPropertiesResponse(dict):
     Defines the move collection properties.
     """
     def __init__(__self__, *,
+                 provisioning_state: str,
                  source_region: str,
-                 target_region: str,
-                 provisioning_state: Optional[str] = None):
+                 target_region: str):
         """
         Defines the move collection properties.
+        :param str provisioning_state: Defines the provisioning states.
         :param str source_region: Gets or sets the source region.
         :param str target_region: Gets or sets the target region.
-        :param str provisioning_state: Defines the provisioning states.
         """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "source_region", source_region)
         pulumi.set(__self__, "target_region", target_region)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Defines the provisioning states.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="sourceRegion")
@@ -504,14 +510,6 @@ class MoveCollectionPropertiesResponse(dict):
         Gets or sets the target region.
         """
         return pulumi.get(self, "target_region")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        Defines the provisioning states.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -748,29 +746,30 @@ class MoveResourcePropertiesResponse(dict):
                  depends_on: Sequence['outputs.MoveResourceDependencyResponse'],
                  errors: 'outputs.MoveResourcePropertiesResponseErrors',
                  move_status: 'outputs.MoveResourcePropertiesResponseMoveStatus',
+                 provisioning_state: str,
                  source_id: str,
                  source_resource_settings: 'outputs.MoveResourcePropertiesResponseSourceResourceSettings',
                  target_id: str,
                  depends_on_overrides: Optional[Sequence['outputs.MoveResourceDependencyOverrideResponse']] = None,
                  existing_target_id: Optional[str] = None,
-                 provisioning_state: Optional[str] = None,
                  resource_settings: Optional[Any] = None):
         """
         Defines the move resource properties.
         :param Sequence['MoveResourceDependencyResponseArgs'] depends_on: Gets or sets the move resource dependencies.
         :param 'MoveResourcePropertiesResponseErrorsArgs' errors: Defines the move resource errors.
         :param 'MoveResourcePropertiesResponseMoveStatusArgs' move_status: Defines the move resource status.
+        :param str provisioning_state: Defines the provisioning states.
         :param str source_id: Gets or sets the Source ARM Id of the resource.
         :param 'MoveResourcePropertiesResponseSourceResourceSettingsArgs' source_resource_settings: Gets or sets the source resource settings.
         :param str target_id: Gets or sets the Target ARM Id of the resource.
         :param Sequence['MoveResourceDependencyOverrideResponseArgs'] depends_on_overrides: Gets or sets the move resource dependencies overrides.
         :param str existing_target_id: Gets or sets the existing target ARM Id of the resource.
-        :param str provisioning_state: Defines the provisioning states.
         :param Union['AvailabilitySetResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] resource_settings: Gets or sets the resource settings.
         """
         pulumi.set(__self__, "depends_on", depends_on)
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "move_status", move_status)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "source_id", source_id)
         pulumi.set(__self__, "source_resource_settings", source_resource_settings)
         pulumi.set(__self__, "target_id", target_id)
@@ -778,8 +777,6 @@ class MoveResourcePropertiesResponse(dict):
             pulumi.set(__self__, "depends_on_overrides", depends_on_overrides)
         if existing_target_id is not None:
             pulumi.set(__self__, "existing_target_id", existing_target_id)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if resource_settings is not None:
             pulumi.set(__self__, "resource_settings", resource_settings)
 
@@ -806,6 +803,14 @@ class MoveResourcePropertiesResponse(dict):
         Defines the move resource status.
         """
         return pulumi.get(self, "move_status")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Defines the provisioning states.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="sourceId")
@@ -846,14 +851,6 @@ class MoveResourcePropertiesResponse(dict):
         Gets or sets the existing target ARM Id of the resource.
         """
         return pulumi.get(self, "existing_target_id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        Defines the provisioning states.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="resourceSettings")
@@ -899,24 +896,31 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
     Defines the move resource status.
     """
     def __init__(__self__, *,
+                 move_state: str,
                  target_id: str,
                  errors: Optional['outputs.MoveResourceErrorResponse'] = None,
-                 job_status: Optional['outputs.JobStatusResponse'] = None,
-                 move_state: Optional[str] = None):
+                 job_status: Optional['outputs.JobStatusResponse'] = None):
         """
         Defines the move resource status.
+        :param str move_state: Defines the MoveResource states.
         :param str target_id: Gets the Target ARM Id of the resource.
         :param 'MoveResourceErrorResponseArgs' errors: An error response from the azure resource mover service.
         :param 'JobStatusResponseArgs' job_status: Defines the job status.
-        :param str move_state: Defines the MoveResource states.
         """
+        pulumi.set(__self__, "move_state", move_state)
         pulumi.set(__self__, "target_id", target_id)
         if errors is not None:
             pulumi.set(__self__, "errors", errors)
         if job_status is not None:
             pulumi.set(__self__, "job_status", job_status)
-        if move_state is not None:
-            pulumi.set(__self__, "move_state", move_state)
+
+    @property
+    @pulumi.getter(name="moveState")
+    def move_state(self) -> str:
+        """
+        Defines the MoveResource states.
+        """
+        return pulumi.get(self, "move_state")
 
     @property
     @pulumi.getter(name="targetId")
@@ -941,14 +945,6 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
         Defines the job status.
         """
         return pulumi.get(self, "job_status")
-
-    @property
-    @pulumi.getter(name="moveState")
-    def move_state(self) -> Optional[str]:
-        """
-        Defines the MoveResource states.
-        """
-        return pulumi.get(self, "move_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

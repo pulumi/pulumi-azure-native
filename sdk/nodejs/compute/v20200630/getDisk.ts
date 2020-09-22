@@ -70,7 +70,7 @@ export interface GetDiskResult {
     /**
      * The state of the disk.
      */
-    readonly diskState?: string;
+    readonly diskState: string;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */

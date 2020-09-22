@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the route table resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Collection of routes contained within a route table.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableArray<Outputs.RouteResponse> routes,
 

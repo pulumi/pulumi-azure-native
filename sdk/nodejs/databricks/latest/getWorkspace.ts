@@ -46,7 +46,7 @@ export interface GetWorkspaceResult {
     /**
      * Specifies the date and time when the workspace is created.
      */
-    readonly createdDateTime?: string;
+    readonly createdDateTime: string;
     /**
      * The geo-location where the resource lives
      */

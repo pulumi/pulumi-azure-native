@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200101
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the workspace.
@@ -147,12 +147,6 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200101
         /// </summary>
         [Input("privateLinkServiceConnectionState", required: true)]
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the private endpoint connection resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the resource group in which workspace is located.

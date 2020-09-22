@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The provisioning state of the security rule resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string protocol,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? sourceAddressPrefix,
 

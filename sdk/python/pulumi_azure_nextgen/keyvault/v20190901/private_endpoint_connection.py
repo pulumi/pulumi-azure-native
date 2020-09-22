@@ -19,7 +19,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -32,7 +31,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: Approval state of the private link connection.
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the private endpoint connection.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the key vault.
         :param pulumi.Input[str] vault_name: The name of the key vault.
         """
@@ -57,7 +55,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -67,6 +64,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['private_endpoint'] = None
+            __props__['provisioning_state'] = None
             __props__['tags'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:PrivateEndpointConnection")])
@@ -129,7 +127,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the private endpoint connection.
         """

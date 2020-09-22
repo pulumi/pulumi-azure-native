@@ -86,7 +86,7 @@ class GetVpnConnectionResult:
 
     @property
     @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> Optional[str]:
+    def connection_status(self) -> str:
         """
         The connection status.
         """
@@ -158,7 +158,7 @@ class GetVpnConnectionResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the VPN connection resource.
         """

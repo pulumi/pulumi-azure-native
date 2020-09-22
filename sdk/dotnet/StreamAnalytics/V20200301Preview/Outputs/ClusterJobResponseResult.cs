@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview.Outputs
         /// <summary>
         /// The current execution state of the streaming job.
         /// </summary>
-        public readonly string? JobState;
+        public readonly string JobState;
         /// <summary>
         /// The number of streaming units that are used by the streaming job.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview.Outputs
         private ClusterJobResponseResult(
             string id,
 
-            string? jobState,
+            string jobState,
 
             int streamingUnits)
         {

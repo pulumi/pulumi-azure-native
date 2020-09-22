@@ -79,7 +79,7 @@ export interface GetMachineResult {
     /**
      * Specifies the operating system settings for the hybrid machine.
      */
-    readonly osProfile?: outputs.hybridcompute.v20190318preview.OSProfileResponse;
+    readonly osProfile: outputs.hybridcompute.v20190318preview.OSProfileResponse;
     /**
      * The version of Operating System running on the hybrid machine.
      */

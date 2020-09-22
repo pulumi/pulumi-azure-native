@@ -54,7 +54,7 @@ export interface GetSnapshotResult {
     /**
      * The state of the snapshot.
      */
-    readonly diskState?: string;
+    readonly diskState: string;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */

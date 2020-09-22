@@ -176,8 +176,6 @@ type BackendPool struct {
 	LoadBalancingSettings *SubResource `pulumi:"loadBalancingSettings"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
 }
 
 // BackendPoolInput is an input type that accepts BackendPoolArgs and BackendPoolOutput values.
@@ -203,8 +201,6 @@ type BackendPoolArgs struct {
 	LoadBalancingSettings SubResourcePtrInput `pulumi:"loadBalancingSettings"`
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
 }
 
 func (BackendPoolArgs) ElementType() reflect.Type {
@@ -284,11 +280,6 @@ func (o BackendPoolOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendPool) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource status.
-func (o BackendPoolOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackendPool) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
 type BackendPoolArrayOutput struct{ *pulumi.OutputState }
 
 func (BackendPoolArrayOutput) ElementType() reflect.Type {
@@ -322,7 +313,7 @@ type BackendPoolResponse struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
+	ResourceState string `pulumi:"resourceState"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -351,7 +342,7 @@ type BackendPoolResponseArgs struct {
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
+	ResourceState pulumi.StringInput `pulumi:"resourceState"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -434,8 +425,8 @@ func (o BackendPoolResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Resource status.
-func (o BackendPoolResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackendPoolResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
+func (o BackendPoolResponseOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendPoolResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
 // Resource type.
@@ -1524,8 +1515,6 @@ type FrontendEndpoint struct {
 	Id *string `pulumi:"id"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
 	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 	SessionAffinityEnabledState *string `pulumi:"sessionAffinityEnabledState"`
 	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
@@ -1553,8 +1542,6 @@ type FrontendEndpointArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
 	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 	SessionAffinityEnabledState pulumi.StringPtrInput `pulumi:"sessionAffinityEnabledState"`
 	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
@@ -1630,11 +1617,6 @@ func (o FrontendEndpointOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource status.
-func (o FrontendEndpointOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontendEndpoint) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
 // Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 func (o FrontendEndpointOutput) SessionAffinityEnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpoint) *string { return v.SessionAffinityEnabledState }).(pulumi.StringPtrOutput)
@@ -1687,7 +1669,7 @@ type FrontendEndpointResponse struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
+	ResourceState string `pulumi:"resourceState"`
 	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 	SessionAffinityEnabledState *string `pulumi:"sessionAffinityEnabledState"`
 	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
@@ -1724,7 +1706,7 @@ type FrontendEndpointResponseArgs struct {
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
+	ResourceState pulumi.StringInput `pulumi:"resourceState"`
 	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 	SessionAffinityEnabledState pulumi.StringPtrInput `pulumi:"sessionAffinityEnabledState"`
 	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
@@ -1818,8 +1800,8 @@ func (o FrontendEndpointResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Resource status.
-func (o FrontendEndpointResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
+func (o FrontendEndpointResponseOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontendEndpointResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
 // Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
@@ -2152,8 +2134,6 @@ type HealthProbeSettingsModel struct {
 	Path *string `pulumi:"path"`
 	// Protocol scheme to use for this probe
 	Protocol *string `pulumi:"protocol"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
 }
 
 // HealthProbeSettingsModelInput is an input type that accepts HealthProbeSettingsModelArgs and HealthProbeSettingsModelOutput values.
@@ -2183,8 +2163,6 @@ type HealthProbeSettingsModelArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Protocol scheme to use for this probe
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
 }
 
 func (HealthProbeSettingsModelArgs) ElementType() reflect.Type {
@@ -2274,11 +2252,6 @@ func (o HealthProbeSettingsModelOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModel) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Resource status.
-func (o HealthProbeSettingsModelOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthProbeSettingsModel) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
 type HealthProbeSettingsModelArrayOutput struct{ *pulumi.OutputState }
 
 func (HealthProbeSettingsModelArrayOutput) ElementType() reflect.Type {
@@ -2316,7 +2289,7 @@ type HealthProbeSettingsModelResponse struct {
 	// Protocol scheme to use for this probe
 	Protocol *string `pulumi:"protocol"`
 	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
+	ResourceState string `pulumi:"resourceState"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -2349,7 +2322,7 @@ type HealthProbeSettingsModelResponseArgs struct {
 	// Protocol scheme to use for this probe
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
+	ResourceState pulumi.StringInput `pulumi:"resourceState"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2442,8 +2415,8 @@ func (o HealthProbeSettingsModelResponseOutput) Protocol() pulumi.StringPtrOutpu
 }
 
 // Resource status.
-func (o HealthProbeSettingsModelResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
+func (o HealthProbeSettingsModelResponseOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthProbeSettingsModelResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
 // Resource type.
@@ -2615,8 +2588,6 @@ type LoadBalancingSettingsModel struct {
 	Id *string `pulumi:"id"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
 	// The number of samples to consider for load balancing decisions
 	SampleSize *int `pulumi:"sampleSize"`
 	// The number of samples within the sample period that must succeed
@@ -2642,8 +2613,6 @@ type LoadBalancingSettingsModelArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
 	// The number of samples to consider for load balancing decisions
 	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
 	// The number of samples within the sample period that must succeed
@@ -2717,11 +2686,6 @@ func (o LoadBalancingSettingsModelOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModel) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource status.
-func (o LoadBalancingSettingsModelOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancingSettingsModel) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
 // The number of samples to consider for load balancing decisions
 func (o LoadBalancingSettingsModelOutput) SampleSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModel) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
@@ -2761,7 +2725,7 @@ type LoadBalancingSettingsModelResponse struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
+	ResourceState string `pulumi:"resourceState"`
 	// The number of samples to consider for load balancing decisions
 	SampleSize *int `pulumi:"sampleSize"`
 	// The number of samples within the sample period that must succeed
@@ -2790,7 +2754,7 @@ type LoadBalancingSettingsModelResponseArgs struct {
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
+	ResourceState pulumi.StringInput `pulumi:"resourceState"`
 	// The number of samples to consider for load balancing decisions
 	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
 	// The number of samples within the sample period that must succeed
@@ -2867,8 +2831,8 @@ func (o LoadBalancingSettingsModelResponseOutput) Name() pulumi.StringPtrOutput 
 }
 
 // Resource status.
-func (o LoadBalancingSettingsModelResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
+func (o LoadBalancingSettingsModelResponseOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
 // The number of samples to consider for load balancing decisions
@@ -3132,8 +3096,6 @@ type RoutingRule struct {
 	Name *string `pulumi:"name"`
 	// The route patterns of the rule.
 	PatternsToMatch []string `pulumi:"patternsToMatch"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
 	// A reference to the routing configuration.
 	RouteConfiguration interface{} `pulumi:"routeConfiguration"`
 }
@@ -3163,8 +3125,6 @@ type RoutingRuleArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The route patterns of the rule.
 	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
-	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
 	// A reference to the routing configuration.
 	RouteConfiguration pulumi.Input `pulumi:"routeConfiguration"`
 }
@@ -3251,11 +3211,6 @@ func (o RoutingRuleOutput) PatternsToMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoutingRule) []string { return v.PatternsToMatch }).(pulumi.StringArrayOutput)
 }
 
-// Resource status.
-func (o RoutingRuleOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoutingRule) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
 // A reference to the routing configuration.
 func (o RoutingRuleOutput) RouteConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v RoutingRule) interface{} { return v.RouteConfiguration }).(pulumi.AnyOutput)
@@ -3296,7 +3251,7 @@ type RoutingRuleResponse struct {
 	// The route patterns of the rule.
 	PatternsToMatch []string `pulumi:"patternsToMatch"`
 	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
+	ResourceState string `pulumi:"resourceState"`
 	// A reference to the routing configuration.
 	RouteConfiguration interface{} `pulumi:"routeConfiguration"`
 	// Resource type.
@@ -3329,7 +3284,7 @@ type RoutingRuleResponseArgs struct {
 	// The route patterns of the rule.
 	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
 	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
+	ResourceState pulumi.StringInput `pulumi:"resourceState"`
 	// A reference to the routing configuration.
 	RouteConfiguration pulumi.Input `pulumi:"routeConfiguration"`
 	// Resource type.
@@ -3419,8 +3374,8 @@ func (o RoutingRuleResponseOutput) PatternsToMatch() pulumi.StringArrayOutput {
 }
 
 // Resource status.
-func (o RoutingRuleResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoutingRuleResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
+func (o RoutingRuleResponseOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingRuleResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
 // A reference to the routing configuration.

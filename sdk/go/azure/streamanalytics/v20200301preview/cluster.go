@@ -106,8 +106,6 @@ type clusterArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// The properties associated with a Stream Analytics cluster.
-	Properties *ClusterProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
@@ -122,8 +120,6 @@ type ClusterArgs struct {
 	ClusterName pulumi.StringInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// The properties associated with a Stream Analytics cluster.
-	Properties ClusterPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.

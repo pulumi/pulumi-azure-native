@@ -32,7 +32,7 @@ type LookupAssessmentResult struct {
 	// User friendly display name of the assessment
 	DisplayName string `pulumi:"displayName"`
 	// Links relevant to the assessment
-	Links *AssessmentLinksResponse `pulumi:"links"`
+	Links AssessmentLinksResponse `pulumi:"links"`
 	// Describes properties of an assessment metadata.
 	Metadata *SecurityAssessmentMetadataPropertiesResponse `pulumi:"metadata"`
 	// Resource name

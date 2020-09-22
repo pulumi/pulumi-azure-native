@@ -19,7 +19,6 @@ class VpnConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_bandwidth: Optional[pulumi.Input[int]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 connection_status: Optional[pulumi.Input[str]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
@@ -47,7 +46,6 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] connection_bandwidth: Expected bandwidth in MBPS.
         :param pulumi.Input[str] connection_name: The name of the connection.
-        :param pulumi.Input[str] connection_status: The connection status.
         :param pulumi.Input[int] dpd_timeout_seconds: DPD timeout in seconds for vpn connection.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] enable_internet_security: Enable internet security.
@@ -87,7 +85,6 @@ class VpnConnection(pulumi.CustomResource):
             if connection_name is None:
                 raise TypeError("Missing required property 'connection_name'")
             __props__['connection_name'] = connection_name
-            __props__['connection_status'] = connection_status
             __props__['dpd_timeout_seconds'] = dpd_timeout_seconds
             __props__['enable_bgp'] = enable_bgp
             __props__['enable_internet_security'] = enable_internet_security
@@ -109,6 +106,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__['use_policy_based_traffic_selectors'] = use_policy_based_traffic_selectors
             __props__['vpn_connection_protocol_type'] = vpn_connection_protocol_type
             __props__['vpn_link_connections'] = vpn_link_connections
+            __props__['connection_status'] = None
             __props__['egress_bytes_transferred'] = None
             __props__['etag'] = None
             __props__['ingress_bytes_transferred'] = None
@@ -149,7 +147,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> pulumi.Output[Optional[str]]:
+    def connection_status(self) -> pulumi.Output[str]:
         """
         The connection status.
         """

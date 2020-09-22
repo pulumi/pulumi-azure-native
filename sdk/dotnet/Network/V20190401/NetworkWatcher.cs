@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// The provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -150,12 +150,6 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// </summary>
         [Input("networkWatcherName", required: true)]
         public Input<string> NetworkWatcherName { get; set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

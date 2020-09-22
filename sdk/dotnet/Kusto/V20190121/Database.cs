@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190121
         /// The statistics of the database.
         /// </summary>
         [Output("statistics")]
-        public Output<Outputs.DatabaseStatisticsResponse?> Statistics { get; private set; } = null!;
+        public Output<Outputs.DatabaseStatisticsResponse> Statistics { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -147,12 +147,6 @@ namespace Pulumi.AzureNextGen.Kusto.V20190121
         /// </summary>
         [Input("softDeletePeriod")]
         public Input<string>? SoftDeletePeriod { get; set; }
-
-        /// <summary>
-        /// The statistics of the database.
-        /// </summary>
-        [Input("statistics")]
-        public Input<Inputs.DatabaseStatisticsArgs>? Statistics { get; set; }
 
         public DatabaseArgs()
         {

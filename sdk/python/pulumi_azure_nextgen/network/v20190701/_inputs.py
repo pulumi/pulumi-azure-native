@@ -186,7 +186,6 @@ class ApplicationGatewayAuthenticationCertificateArgs:
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Authentication certificates of an application gateway.
@@ -194,7 +193,6 @@ class ApplicationGatewayAuthenticationCertificateArgs:
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the authentication certificate that is unique within an Application Gateway.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the authentication certificate resource.
         :param pulumi.Input[str] type: Type of the resource.
         """
         if data is not None:
@@ -205,8 +203,6 @@ class ApplicationGatewayAuthenticationCertificateArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -257,18 +253,6 @@ class ApplicationGatewayAuthenticationCertificateArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the authentication certificate resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter
@@ -370,7 +354,6 @@ class ApplicationGatewayBackendAddressPoolArgs:
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Backend Address Pool of an application gateway.
@@ -379,7 +362,6 @@ class ApplicationGatewayBackendAddressPoolArgs:
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the backend address pool that is unique within an Application Gateway.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the backend address pool resource.
         :param pulumi.Input[str] type: Type of the resource.
         """
         if backend_addresses is not None:
@@ -392,8 +374,6 @@ class ApplicationGatewayBackendAddressPoolArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -458,18 +438,6 @@ class ApplicationGatewayBackendAddressPoolArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the backend address pool resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -499,7 +467,6 @@ class ApplicationGatewayBackendHttpSettingsArgs:
                  probe: Optional[pulumi.Input['SubResourceArgs']] = None,
                  probe_enabled: Optional[pulumi.Input[bool]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  request_timeout: Optional[pulumi.Input[int]] = None,
                  trusted_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -519,7 +486,6 @@ class ApplicationGatewayBackendHttpSettingsArgs:
         :param pulumi.Input['SubResourceArgs'] probe: Probe resource of an application gateway.
         :param pulumi.Input[bool] probe_enabled: Whether the probe is enabled. Default value is false.
         :param pulumi.Input[str] protocol: The protocol used to communicate with the backend.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the backend HTTP settings resource.
         :param pulumi.Input[int] request_timeout: Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] trusted_root_certificates: Array of references to application gateway trusted root certificates.
         :param pulumi.Input[str] type: Type of the resource.
@@ -552,8 +518,6 @@ class ApplicationGatewayBackendHttpSettingsArgs:
             pulumi.set(__self__, "probe_enabled", probe_enabled)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if request_timeout is not None:
             pulumi.set(__self__, "request_timeout", request_timeout)
         if trusted_root_certificates is not None:
@@ -728,18 +692,6 @@ class ApplicationGatewayBackendHttpSettingsArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the backend HTTP settings resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="requestTimeout")
@@ -956,7 +908,6 @@ class ApplicationGatewayFrontendIPConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_ip_address: Optional[pulumi.Input['SubResourceArgs']] = None,
                  subnet: Optional[pulumi.Input['SubResourceArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -967,7 +918,6 @@ class ApplicationGatewayFrontendIPConfigurationArgs:
         :param pulumi.Input[str] name: Name of the frontend IP configuration that is unique within an Application Gateway.
         :param pulumi.Input[str] private_ip_address: PrivateIPAddress of the network interface IP Configuration.
         :param pulumi.Input[str] private_ip_allocation_method: The private IP address allocation method.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the frontend IP configuration resource.
         :param pulumi.Input['SubResourceArgs'] public_ip_address: Reference of the PublicIP resource.
         :param pulumi.Input['SubResourceArgs'] subnet: Reference of the subnet resource.
         :param pulumi.Input[str] type: Type of the resource.
@@ -982,8 +932,6 @@ class ApplicationGatewayFrontendIPConfigurationArgs:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if private_ip_allocation_method is not None:
             pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_ip_address is not None:
             pulumi.set(__self__, "public_ip_address", public_ip_address)
         if subnet is not None:
@@ -1052,18 +1000,6 @@ class ApplicationGatewayFrontendIPConfigurationArgs:
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the frontend IP configuration resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter(name="publicIPAddress")
     def public_ip_address(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
@@ -1107,7 +1043,6 @@ class ApplicationGatewayFrontendPortArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Frontend port of an application gateway.
@@ -1115,7 +1050,6 @@ class ApplicationGatewayFrontendPortArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the frontend port that is unique within an Application Gateway.
         :param pulumi.Input[int] port: Frontend port.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the frontend port resource.
         :param pulumi.Input[str] type: Type of the resource.
         """
         if etag is not None:
@@ -1126,8 +1060,6 @@ class ApplicationGatewayFrontendPortArgs:
             pulumi.set(__self__, "name", name)
         if port is not None:
             pulumi.set(__self__, "port", port)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -1178,18 +1110,6 @@ class ApplicationGatewayFrontendPortArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the frontend port resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter
@@ -1255,7 +1175,6 @@ class ApplicationGatewayHttpListenerArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  require_server_name_indication: Optional[pulumi.Input[bool]] = None,
                  ssl_certificate: Optional[pulumi.Input['SubResourceArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -1269,7 +1188,6 @@ class ApplicationGatewayHttpListenerArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the HTTP listener that is unique within an Application Gateway.
         :param pulumi.Input[str] protocol: Protocol of the HTTP listener.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the HTTP listener resource.
         :param pulumi.Input[bool] require_server_name_indication: Applicable only if protocol is https. Enables SNI for multi-hosting.
         :param pulumi.Input['SubResourceArgs'] ssl_certificate: SSL certificate resource of an application gateway.
         :param pulumi.Input[str] type: Type of the resource.
@@ -1290,8 +1208,6 @@ class ApplicationGatewayHttpListenerArgs:
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if require_server_name_indication is not None:
             pulumi.set(__self__, "require_server_name_indication", require_server_name_indication)
         if ssl_certificate is not None:
@@ -1396,18 +1312,6 @@ class ApplicationGatewayHttpListenerArgs:
         pulumi.set(self, "protocol", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the HTTP listener resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter(name="requireServerNameIndication")
     def require_server_name_indication(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1450,7 +1354,6 @@ class ApplicationGatewayIPConfigurationArgs:
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input['SubResourceArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -1458,7 +1361,6 @@ class ApplicationGatewayIPConfigurationArgs:
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the IP configuration that is unique within an Application Gateway.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the application gateway IP configuration resource.
         :param pulumi.Input['SubResourceArgs'] subnet: Reference of the subnet resource. A subnet from where application gateway gets its private address.
         :param pulumi.Input[str] type: Type of the resource.
         """
@@ -1468,8 +1370,6 @@ class ApplicationGatewayIPConfigurationArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
         if type is not None:
@@ -1512,18 +1412,6 @@ class ApplicationGatewayIPConfigurationArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the application gateway IP configuration resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
     def subnet(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
@@ -1557,7 +1445,6 @@ class ApplicationGatewayPathRuleArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  redirect_configuration: Optional[pulumi.Input['SubResourceArgs']] = None,
                  rewrite_rule_set: Optional[pulumi.Input['SubResourceArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -1569,7 +1456,6 @@ class ApplicationGatewayPathRuleArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the path rule that is unique within an Application Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: Path rules of URL path map.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the path rule resource.
         :param pulumi.Input['SubResourceArgs'] redirect_configuration: Redirect configuration resource of URL path map path rule.
         :param pulumi.Input['SubResourceArgs'] rewrite_rule_set: Rewrite rule set resource of URL path map path rule.
         :param pulumi.Input[str] type: Type of the resource.
@@ -1586,8 +1472,6 @@ class ApplicationGatewayPathRuleArgs:
             pulumi.set(__self__, "name", name)
         if paths is not None:
             pulumi.set(__self__, "paths", paths)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if redirect_configuration is not None:
             pulumi.set(__self__, "redirect_configuration", redirect_configuration)
         if rewrite_rule_set is not None:
@@ -1668,18 +1552,6 @@ class ApplicationGatewayPathRuleArgs:
         pulumi.set(self, "paths", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the path rule resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter(name="redirectConfiguration")
     def redirect_configuration(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
@@ -1730,7 +1602,6 @@ class ApplicationGatewayProbeArgs:
                  pick_host_name_from_backend_http_settings: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  unhealthy_threshold: Optional[pulumi.Input[int]] = None):
@@ -1747,7 +1618,6 @@ class ApplicationGatewayProbeArgs:
         :param pulumi.Input[bool] pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend http settings. Default value is false.
         :param pulumi.Input[int] port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
         :param pulumi.Input[str] protocol: The protocol used for the probe.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the probe resource.
         :param pulumi.Input[int] timeout: The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
         :param pulumi.Input[str] type: Type of the resource.
         :param pulumi.Input[int] unhealthy_threshold: The probe retry count. Backend server is marked down after consecutive probe failure count reaches UnhealthyThreshold. Acceptable values are from 1 second to 20.
@@ -1774,8 +1644,6 @@ class ApplicationGatewayProbeArgs:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if type is not None:
@@ -1914,18 +1782,6 @@ class ApplicationGatewayProbeArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the probe resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter
@@ -2214,7 +2070,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  redirect_configuration: Optional[pulumi.Input['SubResourceArgs']] = None,
                  rewrite_rule_set: Optional[pulumi.Input['SubResourceArgs']] = None,
                  rule_type: Optional[pulumi.Input[str]] = None,
@@ -2229,7 +2084,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the request routing rule that is unique within an Application Gateway.
         :param pulumi.Input[int] priority: Priority of the request routing rule.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the request routing rule resource.
         :param pulumi.Input['SubResourceArgs'] redirect_configuration: Redirect configuration resource of the application gateway.
         :param pulumi.Input['SubResourceArgs'] rewrite_rule_set: Rewrite Rule Set resource in Basic rule of the application gateway.
         :param pulumi.Input[str] rule_type: Rule type.
@@ -2250,8 +2104,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if redirect_configuration is not None:
             pulumi.set(__self__, "redirect_configuration", redirect_configuration)
         if rewrite_rule_set is not None:
@@ -2346,18 +2198,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the request routing rule resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="redirectConfiguration")
@@ -2725,7 +2565,6 @@ class ApplicationGatewaySslCertificateArgs:
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_cert_data: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -2736,7 +2575,6 @@ class ApplicationGatewaySslCertificateArgs:
         :param pulumi.Input[str] key_vault_secret_id: Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
         :param pulumi.Input[str] name: Name of the SSL certificate that is unique within an Application Gateway.
         :param pulumi.Input[str] password: Password for the pfx file specified in data. Only applicable in PUT request.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the SSL certificate resource.
         :param pulumi.Input[str] public_cert_data: Base-64 encoded Public cert data corresponding to pfx specified in data. Only applicable in GET request.
         :param pulumi.Input[str] type: Type of the resource.
         """
@@ -2752,8 +2590,6 @@ class ApplicationGatewaySslCertificateArgs:
             pulumi.set(__self__, "name", name)
         if password is not None:
             pulumi.set(__self__, "password", password)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_cert_data is not None:
             pulumi.set(__self__, "public_cert_data", public_cert_data)
         if type is not None:
@@ -2830,18 +2666,6 @@ class ApplicationGatewaySslCertificateArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the SSL certificate resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="publicCertData")
@@ -2964,7 +2788,6 @@ class ApplicationGatewayTrustedRootCertificateArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Trusted Root certificates of an application gateway.
@@ -2973,7 +2796,6 @@ class ApplicationGatewayTrustedRootCertificateArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] key_vault_secret_id: Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
         :param pulumi.Input[str] name: Name of the trusted root certificate that is unique within an Application Gateway.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the trusted root certificate resource.
         :param pulumi.Input[str] type: Type of the resource.
         """
         if data is not None:
@@ -2986,8 +2808,6 @@ class ApplicationGatewayTrustedRootCertificateArgs:
             pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -3052,18 +2872,6 @@ class ApplicationGatewayTrustedRootCertificateArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the trusted root certificate resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -3087,7 +2895,6 @@ class ApplicationGatewayUrlPathMapArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPathRuleArgs']]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         UrlPathMaps give a url path to the backend mapping information for PathBasedRouting.
@@ -3099,7 +2906,6 @@ class ApplicationGatewayUrlPathMapArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the URL path map that is unique within an Application Gateway.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPathRuleArgs']]] path_rules: Path rule of URL path map resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the URL path map resource.
         :param pulumi.Input[str] type: Type of the resource.
         """
         if default_backend_address_pool is not None:
@@ -3118,8 +2924,6 @@ class ApplicationGatewayUrlPathMapArgs:
             pulumi.set(__self__, "name", name)
         if path_rules is not None:
             pulumi.set(__self__, "path_rules", path_rules)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -3218,18 +3022,6 @@ class ApplicationGatewayUrlPathMapArgs:
     @path_rules.setter
     def path_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPathRuleArgs']]]]):
         pulumi.set(self, "path_rules", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the URL path map resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter
@@ -3710,7 +3502,6 @@ class AzureFirewallApplicationRuleCollectionArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleArgs']]]] = None):
         """
         Application rule collection resource.
@@ -3718,7 +3509,6 @@ class AzureFirewallApplicationRuleCollectionArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
         :param pulumi.Input[int] priority: Priority of the application rule collection resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the application rule collection resource.
         :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleArgs']]] rules: Collection of rules used by a application rule collection.
         """
         if action is not None:
@@ -3729,8 +3519,6 @@ class AzureFirewallApplicationRuleCollectionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -3781,18 +3569,6 @@ class AzureFirewallApplicationRuleCollectionArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the application rule collection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter
@@ -3852,14 +3628,12 @@ class AzureFirewallIPConfigurationArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_ip_address: Optional[pulumi.Input['SubResourceArgs']] = None,
                  subnet: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         IP configuration of an Azure Firewall.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the Azure firewall IP configuration resource.
         :param pulumi.Input['SubResourceArgs'] public_ip_address: Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
         :param pulumi.Input['SubResourceArgs'] subnet: Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
         """
@@ -3867,8 +3641,6 @@ class AzureFirewallIPConfigurationArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_ip_address is not None:
             pulumi.set(__self__, "public_ip_address", public_ip_address)
         if subnet is not None:
@@ -3897,18 +3669,6 @@ class AzureFirewallIPConfigurationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the Azure firewall IP configuration resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="publicIPAddress")
@@ -4102,7 +3862,6 @@ class AzureFirewallNatRuleCollectionArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleArgs']]]] = None):
         """
         NAT rule collection resource.
@@ -4110,7 +3869,6 @@ class AzureFirewallNatRuleCollectionArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
         :param pulumi.Input[int] priority: Priority of the NAT rule collection resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the NAT rule collection resource.
         :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleArgs']]] rules: Collection of rules used by a NAT rule collection.
         """
         if action is not None:
@@ -4121,8 +3879,6 @@ class AzureFirewallNatRuleCollectionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -4173,18 +3929,6 @@ class AzureFirewallNatRuleCollectionArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the NAT rule collection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter
@@ -4310,7 +4054,6 @@ class AzureFirewallNetworkRuleCollectionArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleArgs']]]] = None):
         """
         Network rule collection resource.
@@ -4318,7 +4061,6 @@ class AzureFirewallNetworkRuleCollectionArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
         :param pulumi.Input[int] priority: Priority of the network rule collection resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the network rule collection resource.
         :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleArgs']]] rules: Collection of rules used by a network rule collection.
         """
         if action is not None:
@@ -4329,8 +4071,6 @@ class AzureFirewallNetworkRuleCollectionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -4383,18 +4123,6 @@ class AzureFirewallNetworkRuleCollectionArgs:
         pulumi.set(self, "priority", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the network rule collection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleArgs']]]]:
         """
@@ -4436,14 +4164,12 @@ class BackendAddressPoolArgs:
     def __init__(__self__, *,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         Pool of backend IP addresses.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the backend address pool resource.
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
@@ -4451,8 +4177,6 @@ class BackendAddressPoolArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
@@ -4490,18 +4214,6 @@ class BackendAddressPoolArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the backend address pool resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
 
 @pulumi.input_type
 class BastionHostIPConfigurationArgs:
@@ -4510,8 +4222,7 @@ class BastionHostIPConfigurationArgs:
                  subnet: pulumi.Input['SubResourceArgs'],
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 private_ip_allocation_method: Optional[pulumi.Input[str]] = None):
         """
         IP configuration of an Bastion Host.
         :param pulumi.Input['SubResourceArgs'] public_ip_address: Reference of the PublicIP resource.
@@ -4519,7 +4230,6 @@ class BastionHostIPConfigurationArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] private_ip_allocation_method: Private IP allocation method.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the bastion host IP configuration resource.
         """
         pulumi.set(__self__, "public_ip_address", public_ip_address)
         pulumi.set(__self__, "subnet", subnet)
@@ -4529,8 +4239,6 @@ class BastionHostIPConfigurationArgs:
             pulumi.set(__self__, "name", name)
         if private_ip_allocation_method is not None:
             pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="publicIPAddress")
@@ -4591,18 +4299,6 @@ class BastionHostIPConfigurationArgs:
     @private_ip_allocation_method.setter
     def private_ip_allocation_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the bastion host IP configuration resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -5226,15 +4922,13 @@ class ExpressRouteCircuitAuthorizationArgs:
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  authorization_use_status: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         Authorization in an ExpressRouteCircuit resource.
         :param pulumi.Input[str] authorization_key: The authorization key.
         :param pulumi.Input[str] authorization_use_status: The authorization use status.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the authorization resource.
         """
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
@@ -5244,8 +4938,6 @@ class ExpressRouteCircuitAuthorizationArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="authorizationKey")
@@ -5295,25 +4987,12 @@ class ExpressRouteCircuitAuthorizationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the authorization resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
 
 @pulumi.input_type
 class ExpressRouteCircuitConnectionArgs:
     def __init__(__self__, *,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
-                 circuit_connection_status: Optional[pulumi.Input[str]] = None,
                  express_route_circuit_peering: Optional[pulumi.Input['SubResourceArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -5322,7 +5001,6 @@ class ExpressRouteCircuitConnectionArgs:
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
         :param pulumi.Input[str] address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param pulumi.Input[str] authorization_key: The authorization key.
-        :param pulumi.Input[str] circuit_connection_status: Express Route Circuit connection state.
         :param pulumi.Input['SubResourceArgs'] express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -5332,8 +5010,6 @@ class ExpressRouteCircuitConnectionArgs:
             pulumi.set(__self__, "address_prefix", address_prefix)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
-        if circuit_connection_status is not None:
-            pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         if express_route_circuit_peering is not None:
             pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
         if id is not None:
@@ -5366,18 +5042,6 @@ class ExpressRouteCircuitConnectionArgs:
     @authorization_key.setter
     def authorization_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authorization_key", value)
-
-    @property
-    @pulumi.getter(name="circuitConnectionStatus")
-    def circuit_connection_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Express Route Circuit connection state.
-        """
-        return pulumi.get(self, "circuit_connection_status")
-
-    @circuit_connection_status.setter
-    def circuit_connection_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "circuit_connection_status", value)
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
@@ -5443,7 +5107,6 @@ class ExpressRouteCircuitPeeringArgs:
                  peering_type: Optional[pulumi.Input[str]] = None,
                  primary_azure_port: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  route_filter: Optional[pulumi.Input['SubResourceArgs']] = None,
                  secondary_azure_port: Optional[pulumi.Input[str]] = None,
                  secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -5465,7 +5128,6 @@ class ExpressRouteCircuitPeeringArgs:
         :param pulumi.Input[str] peering_type: The peering type.
         :param pulumi.Input[str] primary_azure_port: The primary port.
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the express route circuit peering resource.
         :param pulumi.Input['SubResourceArgs'] route_filter: The reference of the RouteFilter resource.
         :param pulumi.Input[str] secondary_azure_port: The secondary port.
         :param pulumi.Input[str] secondary_peer_address_prefix: The secondary address prefix.
@@ -5498,8 +5160,6 @@ class ExpressRouteCircuitPeeringArgs:
             pulumi.set(__self__, "primary_azure_port", primary_azure_port)
         if primary_peer_address_prefix is not None:
             pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if route_filter is not None:
             pulumi.set(__self__, "route_filter", route_filter)
         if secondary_azure_port is not None:
@@ -5658,18 +5318,6 @@ class ExpressRouteCircuitPeeringArgs:
     @primary_peer_address_prefix.setter
     def primary_peer_address_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "primary_peer_address_prefix", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the express route circuit peering resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="routeFilter")
@@ -6563,7 +6211,6 @@ class FrontendIPConfigurationArgs:
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_address_version: Optional[pulumi.Input[str]] = None,
                  private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_ip_address: Optional[pulumi.Input['PublicIPAddressArgs']] = None,
                  public_ip_prefix: Optional[pulumi.Input['SubResourceArgs']] = None,
                  subnet: Optional[pulumi.Input['SubnetArgs']] = None,
@@ -6576,7 +6223,6 @@ class FrontendIPConfigurationArgs:
         :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
         :param pulumi.Input[str] private_ip_address_version: Whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
         :param pulumi.Input[str] private_ip_allocation_method: The Private IP allocation method.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the frontend IP configuration resource.
         :param pulumi.Input['PublicIPAddressArgs'] public_ip_address: The reference of the Public IP resource.
         :param pulumi.Input['SubResourceArgs'] public_ip_prefix: The reference of the Public IP Prefix resource.
         :param pulumi.Input['SubnetArgs'] subnet: The reference of the subnet resource.
@@ -6594,8 +6240,6 @@ class FrontendIPConfigurationArgs:
             pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
         if private_ip_allocation_method is not None:
             pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_ip_address is not None:
             pulumi.set(__self__, "public_ip_address", public_ip_address)
         if public_ip_prefix is not None:
@@ -6678,18 +6322,6 @@ class FrontendIPConfigurationArgs:
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the frontend IP configuration resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter(name="publicIPAddress")
     def public_ip_address(self) -> Optional[pulumi.Input['PublicIPAddressArgs']]:
         """
@@ -6746,7 +6378,6 @@ class HubVirtualNetworkConnectionArgs:
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  remote_virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         HubVirtualNetworkConnection Resource.
@@ -6755,7 +6386,6 @@ class HubVirtualNetworkConnectionArgs:
         :param pulumi.Input[bool] enable_internet_security: Enable internet security.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the hub virtual network connection resource.
         :param pulumi.Input['SubResourceArgs'] remote_virtual_network: Reference to the remote virtual network.
         """
         if allow_hub_to_remote_vnet_transit is not None:
@@ -6768,8 +6398,6 @@ class HubVirtualNetworkConnectionArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if remote_virtual_network is not None:
             pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
 
@@ -6832,18 +6460,6 @@ class HubVirtualNetworkConnectionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the hub virtual network connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="remoteVirtualNetwork")
@@ -6943,8 +6559,7 @@ class InboundNatPoolArgs:
                  frontend_ip_configuration: Optional[pulumi.Input['SubResourceArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         Inbound NAT pool of the load balancer.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
@@ -6958,7 +6573,6 @@ class InboundNatPoolArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[int] idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of inbound NAT pools used by the load balancer. This name can be used to access the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the inbound NAT pool resource.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "frontend_port_range_end", frontend_port_range_end)
@@ -6978,8 +6592,6 @@ class InboundNatPoolArgs:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -7113,18 +6725,6 @@ class InboundNatPoolArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the inbound NAT pool resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
 
 @pulumi.input_type
 class InboundNatRuleArgs:
@@ -7138,8 +6738,7 @@ class InboundNatRuleArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 protocol: Optional[pulumi.Input[str]] = None):
         """
         Inbound NAT rule of the load balancer.
         :param pulumi.Input[int] backend_port: The port used for the internal endpoint. Acceptable values range from 1 to 65535.
@@ -7152,7 +6751,6 @@ class InboundNatRuleArgs:
         :param pulumi.Input[int] idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] protocol: The reference to the transport protocol used by the load balancing rule.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the inbound NAT rule resource.
         """
         if backend_port is not None:
             pulumi.set(__self__, "backend_port", backend_port)
@@ -7174,8 +6772,6 @@ class InboundNatRuleArgs:
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -7296,18 +6892,6 @@ class InboundNatRuleArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the inbound NAT rule resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -7606,8 +7190,7 @@ class LoadBalancingRuleArgs:
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  load_distribution: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 probe: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 probe: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         A load balancing rule for a load balancer.
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 0 and 65534. Note that value 0 enables "Any Port".
@@ -7624,7 +7207,6 @@ class LoadBalancingRuleArgs:
         :param pulumi.Input[str] load_distribution: The load distribution policy for this rule.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of load balancing rules used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input['SubResourceArgs'] probe: The reference of the load balancer probe used by the load balancing rule.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the load balancing rule resource.
         """
         pulumi.set(__self__, "frontend_port", frontend_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -7652,8 +7234,6 @@ class LoadBalancingRuleArgs:
             pulumi.set(__self__, "name", name)
         if probe is not None:
             pulumi.set(__self__, "probe", probe)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="frontendPort")
@@ -7822,18 +7402,6 @@ class LoadBalancingRuleArgs:
     @probe.setter
     def probe(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "probe", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the load balancing rule resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -8246,7 +7814,6 @@ class NetworkInterfaceIPConfigurationArgs:
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_address_version: Optional[pulumi.Input[str]] = None,
                  private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_ip_address: Optional[pulumi.Input['PublicIPAddressArgs']] = None,
                  subnet: Optional[pulumi.Input['SubnetArgs']] = None,
                  virtual_network_taps: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkTapArgs']]]] = None):
@@ -8263,7 +7830,6 @@ class NetworkInterfaceIPConfigurationArgs:
         :param pulumi.Input[str] private_ip_address: Private IP address of the IP configuration.
         :param pulumi.Input[str] private_ip_address_version: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
         :param pulumi.Input[str] private_ip_allocation_method: The private IP address allocation method.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the network interface IP configuration.
         :param pulumi.Input['PublicIPAddressArgs'] public_ip_address: Public IP address bound to the IP configuration.
         :param pulumi.Input['SubnetArgs'] subnet: Subnet bound to the IP configuration.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkTapArgs']]] virtual_network_taps: The reference to Virtual Network Taps.
@@ -8290,8 +7856,6 @@ class NetworkInterfaceIPConfigurationArgs:
             pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
         if private_ip_allocation_method is not None:
             pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_ip_address is not None:
             pulumi.set(__self__, "public_ip_address", public_ip_address)
         if subnet is not None:
@@ -8430,18 +7994,6 @@ class NetworkInterfaceIPConfigurationArgs:
     @private_ip_allocation_method.setter
     def private_ip_allocation_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the network interface IP configuration.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="publicIPAddress")
@@ -8678,7 +8230,6 @@ class NetworkSecurityGroupArgs:
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -8688,7 +8239,6 @@ class NetworkSecurityGroupArgs:
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the network security group resource.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the network security group resource.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityRuleArgs']]] security_rules: A collection of security rules of the network security group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -8701,8 +8251,6 @@ class NetworkSecurityGroupArgs:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if resource_guid is not None:
             pulumi.set(__self__, "resource_guid", resource_guid)
         if security_rules is not None:
@@ -8759,18 +8307,6 @@ class NetworkSecurityGroupArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the network security group resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter(name="resourceGuid")
     def resource_guid(self) -> Optional[pulumi.Input[str]]:
         """
@@ -8818,8 +8354,7 @@ class OutboundRuleArgs:
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         Outbound rule of the load balancer.
         :param pulumi.Input['SubResourceArgs'] backend_address_pool: A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
@@ -8831,7 +8366,6 @@ class OutboundRuleArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[int] idle_timeout_in_minutes: The timeout for the TCP idle connection.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of outbound rules used by the load balancer. This name can be used to access the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the outbound rule resource.
         """
         pulumi.set(__self__, "backend_address_pool", backend_address_pool)
         pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
@@ -8848,8 +8382,6 @@ class OutboundRuleArgs:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="backendAddressPool")
@@ -8958,18 +8490,6 @@ class OutboundRuleArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the outbound rule resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -9634,7 +9154,6 @@ class PrivateEndpointArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
                  private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input['SubnetArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -9644,7 +9163,6 @@ class PrivateEndpointArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] private_link_service_connections: A grouping of information about the connection to the remote resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the private endpoint resource.
         :param pulumi.Input['SubnetArgs'] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -9658,8 +9176,6 @@ class PrivateEndpointArgs:
             pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
         if private_link_service_connections is not None:
             pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
         if tags is not None:
@@ -9726,18 +9242,6 @@ class PrivateEndpointArgs:
         pulumi.set(self, "private_link_service_connections", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the private endpoint resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
     def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
         """
@@ -9768,15 +9272,13 @@ class PrivateEndpointConnectionArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
         """
         PrivateEndpointConnection resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The resource of private end point.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the private endpoint connection resource.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -9786,8 +9288,6 @@ class PrivateEndpointConnectionArgs:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
@@ -9837,18 +9337,6 @@ class PrivateEndpointConnectionArgs:
     def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the private endpoint connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionArgs:
@@ -9858,7 +9346,6 @@ class PrivateLinkServiceConnectionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
                  private_link_service_id: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  request_message: Optional[pulumi.Input[str]] = None):
         """
         PrivateLinkServiceConnection resource.
@@ -9867,7 +9354,6 @@ class PrivateLinkServiceConnectionArgs:
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of read-only information about the state of the connection to the remote resource.
         :param pulumi.Input[str] private_link_service_id: The resource id of private link service.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the private link service connection resource.
         :param pulumi.Input[str] request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         """
         if group_ids is not None:
@@ -9880,8 +9366,6 @@ class PrivateLinkServiceConnectionArgs:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if private_link_service_id is not None:
             pulumi.set(__self__, "private_link_service_id", private_link_service_id)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if request_message is not None:
             pulumi.set(__self__, "request_message", request_message)
 
@@ -9944,18 +9428,6 @@ class PrivateLinkServiceConnectionArgs:
     @private_link_service_id.setter
     def private_link_service_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_link_service_id", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the private link service connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="requestMessage")
@@ -10035,7 +9507,6 @@ class PrivateLinkServiceIpConfigurationArgs:
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_address_version: Optional[pulumi.Input[str]] = None,
                  private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input['SubnetArgs']] = None):
         """
         The private link service ip configuration.
@@ -10045,7 +9516,6 @@ class PrivateLinkServiceIpConfigurationArgs:
         :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
         :param pulumi.Input[str] private_ip_address_version: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
         :param pulumi.Input[str] private_ip_allocation_method: The private IP address allocation method.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the private link service IP configuration resource.
         :param pulumi.Input['SubnetArgs'] subnet: The reference to the subnet resource.
         """
         if id is not None:
@@ -10060,8 +9530,6 @@ class PrivateLinkServiceIpConfigurationArgs:
             pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
         if private_ip_allocation_method is not None:
             pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
 
@@ -10138,18 +9606,6 @@ class PrivateLinkServiceIpConfigurationArgs:
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the private link service IP configuration resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
     def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
         """
@@ -10220,7 +9676,6 @@ class ProbeArgs:
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  number_of_probes: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  request_path: Optional[pulumi.Input[str]] = None):
         """
         A load balancer probe.
@@ -10231,7 +9686,6 @@ class ProbeArgs:
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of probes used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[int] number_of_probes: The number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the probe resource.
         :param pulumi.Input[str] request_path: The URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value.
         """
         pulumi.set(__self__, "port", port)
@@ -10246,8 +9700,6 @@ class ProbeArgs:
             pulumi.set(__self__, "name", name)
         if number_of_probes is not None:
             pulumi.set(__self__, "number_of_probes", number_of_probes)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if request_path is not None:
             pulumi.set(__self__, "request_path", request_path)
 
@@ -10334,18 +9786,6 @@ class ProbeArgs:
     @number_of_probes.setter
     def number_of_probes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_probes", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the probe resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="requestPath")
@@ -10443,7 +9883,6 @@ class PublicIPAddressArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_ip_address_version: Optional[pulumi.Input[str]] = None,
                  public_ip_allocation_method: Optional[pulumi.Input[str]] = None,
                  public_ip_prefix: Optional[pulumi.Input['SubResourceArgs']] = None,
@@ -10461,7 +9900,6 @@ class PublicIPAddressArgs:
         :param pulumi.Input[str] ip_address: The IP address associated with the public IP address resource.
         :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: The list of tags associated with the public IP address.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the public IP address resource.
         :param pulumi.Input[str] public_ip_address_version: The public IP address version.
         :param pulumi.Input[str] public_ip_allocation_method: The public IP address allocation method.
         :param pulumi.Input['SubResourceArgs'] public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
@@ -10486,8 +9924,6 @@ class PublicIPAddressArgs:
             pulumi.set(__self__, "ip_tags", ip_tags)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_ip_address_version is not None:
             pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
         if public_ip_allocation_method is not None:
@@ -10598,18 +10034,6 @@ class PublicIPAddressArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the public IP address resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="publicIPAddressVersion")
@@ -10904,8 +10328,7 @@ class RouteArgs:
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 next_hop_ip_address: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 next_hop_ip_address: Optional[pulumi.Input[str]] = None):
         """
         Route resource.
         :param pulumi.Input[str] next_hop_type: The type of Azure hop the packet should be sent to.
@@ -10914,7 +10337,6 @@ class RouteArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the route resource.
         """
         pulumi.set(__self__, "next_hop_type", next_hop_type)
         if address_prefix is not None:
@@ -10927,8 +10349,6 @@ class RouteArgs:
             pulumi.set(__self__, "name", name)
         if next_hop_ip_address is not None:
             pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="nextHopType")
@@ -11001,18 +10421,6 @@ class RouteArgs:
     @next_hop_ip_address.setter
     def next_hop_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "next_hop_ip_address", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the route resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -11123,7 +10531,6 @@ class RouteTableArgs:
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -11132,7 +10539,6 @@ class RouteTableArgs:
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the route table resource.
         :param pulumi.Input[Sequence[pulumi.Input['RouteArgs']]] routes: Collection of routes contained within a route table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -11144,8 +10550,6 @@ class RouteTableArgs:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
         if tags is not None:
@@ -11200,18 +10604,6 @@ class RouteTableArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the route table resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteArgs']]]]:
         """
@@ -11252,7 +10644,6 @@ class SecurityRuleArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  source_address_prefix: Optional[pulumi.Input[str]] = None,
                  source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]]] = None,
@@ -11273,7 +10664,6 @@ class SecurityRuleArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[int] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the security rule resource.
         :param pulumi.Input[str] source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_address_prefixes: The CIDR or source IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]] source_application_security_groups: The application security group specified as source.
@@ -11303,8 +10693,6 @@ class SecurityRuleArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if source_address_prefix is not None:
             pulumi.set(__self__, "source_address_prefix", source_address_prefix)
         if source_address_prefixes is not None:
@@ -11471,18 +10859,6 @@ class SecurityRuleArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the security rule resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="sourceAddressPrefix")
@@ -11861,18 +11237,14 @@ class ServiceEndpointPolicyDefinitionArgs:
 class ServiceEndpointPropertiesFormatArgs:
     def __init__(__self__, *,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  service: Optional[pulumi.Input[str]] = None):
         """
         The service endpoint properties.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: A list of locations.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the service endpoint resource.
         :param pulumi.Input[str] service: The type of the endpoint service.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if service is not None:
             pulumi.set(__self__, "service", service)
 
@@ -11887,18 +11259,6 @@ class ServiceEndpointPropertiesFormatArgs:
     @locations.setter
     def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "locations", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the service endpoint resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter
@@ -11950,7 +11310,6 @@ class SubnetArgs:
                  network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
                  private_endpoint_network_policies: Optional[pulumi.Input[str]] = None,
                  private_link_service_network_policies: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_navigation_links: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceNavigationLinkArgs']]]] = None,
                  route_table: Optional[pulumi.Input['RouteTableArgs']] = None,
                  service_association_links: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAssociationLinkArgs']]]] = None,
@@ -11968,7 +11327,6 @@ class SubnetArgs:
         :param pulumi.Input['NetworkSecurityGroupArgs'] network_security_group: The reference of the NetworkSecurityGroup resource.
         :param pulumi.Input[str] private_endpoint_network_policies: Enable or Disable apply network policies on private end point in the subnet.
         :param pulumi.Input[str] private_link_service_network_policies: Enable or Disable apply network policies on private link service in the subnet.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the subnet resource.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceNavigationLinkArgs']]] resource_navigation_links: An array of references to the external resources using subnet.
         :param pulumi.Input['RouteTableArgs'] route_table: The reference of the RouteTable resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAssociationLinkArgs']]] service_association_links: An array of references to services injecting into this subnet.
@@ -11995,8 +11353,6 @@ class SubnetArgs:
             pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
         if private_link_service_network_policies is not None:
             pulumi.set(__self__, "private_link_service_network_policies", private_link_service_network_policies)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if resource_navigation_links is not None:
             pulumi.set(__self__, "resource_navigation_links", resource_navigation_links)
         if route_table is not None:
@@ -12127,18 +11483,6 @@ class SubnetArgs:
     @private_link_service_network_policies.setter
     def private_link_service_network_policies(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_link_service_network_policies", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the subnet resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="resourceNavigationLinks")
@@ -12761,7 +12105,6 @@ class VirtualNetworkPeeringArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  remote_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
                  remote_virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None):
@@ -12774,7 +12117,6 @@ class VirtualNetworkPeeringArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] peering_state: The status of the virtual network peering.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the virtual network peering resource.
         :param pulumi.Input['AddressSpaceArgs'] remote_address_space: The reference of the remote virtual network address space.
         :param pulumi.Input['SubResourceArgs'] remote_virtual_network: The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
@@ -12793,8 +12135,6 @@ class VirtualNetworkPeeringArgs:
             pulumi.set(__self__, "name", name)
         if peering_state is not None:
             pulumi.set(__self__, "peering_state", peering_state)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if remote_address_space is not None:
             pulumi.set(__self__, "remote_address_space", remote_address_space)
         if remote_virtual_network is not None:
@@ -12885,18 +12225,6 @@ class VirtualNetworkPeeringArgs:
     @peering_state.setter
     def peering_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "peering_state", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the virtual network peering resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="remoteAddressSpace")
@@ -13370,14 +12698,12 @@ class VpnClientRootCertificateArgs:
 class VpnConnectionArgs:
     def __init__(__self__, *,
                  connection_bandwidth: Optional[pulumi.Input[int]] = None,
-                 connection_status: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  enable_rate_limiting: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  remote_vpn_site: Optional[pulumi.Input['SubResourceArgs']] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
@@ -13388,14 +12714,12 @@ class VpnConnectionArgs:
         """
         VpnConnection Resource.
         :param pulumi.Input[int] connection_bandwidth: Expected bandwidth in MBPS.
-        :param pulumi.Input[str] connection_status: The connection status.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] enable_internet_security: Enable internet security.
         :param pulumi.Input[bool] enable_rate_limiting: EnableBgp flag.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the VPN connection resource.
         :param pulumi.Input['SubResourceArgs'] remote_vpn_site: Id of the connected vpn site.
         :param pulumi.Input[int] routing_weight: Routing weight for vpn connection.
         :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
@@ -13406,8 +12730,6 @@ class VpnConnectionArgs:
         """
         if connection_bandwidth is not None:
             pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
-        if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if enable_internet_security is not None:
@@ -13420,8 +12742,6 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "ipsec_policies", ipsec_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if remote_vpn_site is not None:
             pulumi.set(__self__, "remote_vpn_site", remote_vpn_site)
         if routing_weight is not None:
@@ -13448,18 +12768,6 @@ class VpnConnectionArgs:
     @connection_bandwidth.setter
     def connection_bandwidth(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "connection_bandwidth", value)
-
-    @property
-    @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The connection status.
-        """
-        return pulumi.get(self, "connection_status")
-
-    @connection_status.setter
-    def connection_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "connection_status", value)
 
     @property
     @pulumi.getter(name="enableBgp")
@@ -13532,18 +12840,6 @@ class VpnConnectionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the VPN connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="remoteVpnSite")
@@ -13717,8 +13013,7 @@ class VpnSiteLinkArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  link_properties: Optional[pulumi.Input['VpnLinkProviderPropertiesArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         VpnSiteLink Resource.
         :param pulumi.Input['VpnLinkBgpSettingsArgs'] bgp_properties: The set of bgp properties.
@@ -13726,7 +13021,6 @@ class VpnSiteLinkArgs:
         :param pulumi.Input[str] ip_address: The ip-address for the vpn-site-link.
         :param pulumi.Input['VpnLinkProviderPropertiesArgs'] link_properties: The link provider properties.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the VPN site link resource.
         """
         if bgp_properties is not None:
             pulumi.set(__self__, "bgp_properties", bgp_properties)
@@ -13738,8 +13032,6 @@ class VpnSiteLinkArgs:
             pulumi.set(__self__, "link_properties", link_properties)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="bgpProperties")
@@ -13801,30 +13093,16 @@ class VpnSiteLinkArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the VPN site link resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
 
 @pulumi.input_type
 class VpnSiteLinkConnectionArgs:
     def __init__(__self__, *,
                  connection_bandwidth: Optional[pulumi.Input[int]] = None,
-                 connection_status: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  enable_rate_limiting: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  use_local_azure_ip_address: Optional[pulumi.Input[bool]] = None,
@@ -13834,13 +13112,11 @@ class VpnSiteLinkConnectionArgs:
         """
         VpnSiteLinkConnection Resource.
         :param pulumi.Input[int] connection_bandwidth: Expected bandwidth in MBPS.
-        :param pulumi.Input[str] connection_status: The connection status.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] enable_rate_limiting: EnableBgp flag.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the VPN site link connection resource.
         :param pulumi.Input[int] routing_weight: Routing weight for vpn connection.
         :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
         :param pulumi.Input[bool] use_local_azure_ip_address: Use local azure ip to initiate connection.
@@ -13850,8 +13126,6 @@ class VpnSiteLinkConnectionArgs:
         """
         if connection_bandwidth is not None:
             pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
-        if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if enable_rate_limiting is not None:
@@ -13862,8 +13136,6 @@ class VpnSiteLinkConnectionArgs:
             pulumi.set(__self__, "ipsec_policies", ipsec_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if routing_weight is not None:
             pulumi.set(__self__, "routing_weight", routing_weight)
         if shared_key is not None:
@@ -13888,18 +13160,6 @@ class VpnSiteLinkConnectionArgs:
     @connection_bandwidth.setter
     def connection_bandwidth(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "connection_bandwidth", value)
-
-    @property
-    @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The connection status.
-        """
-        return pulumi.get(self, "connection_status")
-
-    @connection_status.setter
-    def connection_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "connection_status", value)
 
     @property
     @pulumi.getter(name="enableBgp")
@@ -13960,18 +13220,6 @@ class VpnSiteLinkConnectionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning state of the VPN site link connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="routingWeight")

@@ -42,7 +42,7 @@ type LookupConnectionMonitorResult struct {
 	// Name of the connection monitor.
 	Name string `pulumi:"name"`
 	// The provisioning state of the connection monitor.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Describes the source of connection monitor.
 	Source ConnectionMonitorSourceResponse `pulumi:"source"`
 	// The date and time when the connection monitor was started.

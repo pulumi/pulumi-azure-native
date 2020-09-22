@@ -24,7 +24,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  remote_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
                  remote_virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -46,7 +45,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] peering_state: The status of the virtual network peering.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the virtual network peering resource.
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] remote_address_space: The reference of the remote virtual network address space.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_virtual_network: The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -78,7 +76,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             __props__['id'] = id
             __props__['name'] = name
             __props__['peering_state'] = peering_state
-            __props__['provisioning_state'] = provisioning_state
             __props__['remote_address_space'] = remote_address_space
             __props__['remote_virtual_network'] = remote_virtual_network
             if resource_group_name is None:
@@ -91,6 +88,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             if virtual_network_peering_name is None:
                 raise TypeError("Missing required property 'virtual_network_peering_name'")
             __props__['virtual_network_peering_name'] = virtual_network_peering_name
+            __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20161201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170301:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20171001:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20171101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkPeering, __self__).__init__(
@@ -167,7 +165,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the virtual network peering resource.
         """

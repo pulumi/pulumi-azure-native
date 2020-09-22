@@ -37,23 +37,24 @@ class BackendPoolResponse(dict):
     A backend pool is a collection of backends that can be routed to.
     """
     def __init__(__self__, *,
+                 resource_state: str,
                  type: str,
                  backends: Optional[Sequence['outputs.BackendResponse']] = None,
                  health_probe_settings: Optional['outputs.SubResourceResponse'] = None,
                  id: Optional[str] = None,
                  load_balancing_settings: Optional['outputs.SubResourceResponse'] = None,
-                 name: Optional[str] = None,
-                 resource_state: Optional[str] = None):
+                 name: Optional[str] = None):
         """
         A backend pool is a collection of backends that can be routed to.
+        :param str resource_state: Resource status.
         :param str type: Resource type.
         :param Sequence['BackendResponseArgs'] backends: The set of backends for this pool
         :param 'SubResourceResponseArgs' health_probe_settings: L7 health probe settings for a backend pool
         :param str id: Resource ID.
         :param 'SubResourceResponseArgs' load_balancing_settings: Load balancing settings for a backend pool
         :param str name: Resource name.
-        :param str resource_state: Resource status.
         """
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
         if backends is not None:
             pulumi.set(__self__, "backends", backends)
@@ -65,8 +66,14 @@ class BackendPoolResponse(dict):
             pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
@@ -115,14 +122,6 @@ class BackendPoolResponse(dict):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -534,11 +533,11 @@ class FrontendEndpointResponse(dict):
                  custom_https_configuration: 'outputs.CustomHttpsConfigurationResponse',
                  custom_https_provisioning_state: str,
                  custom_https_provisioning_substate: str,
+                 resource_state: str,
                  type: str,
                  host_name: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 resource_state: Optional[str] = None,
                  session_affinity_enabled_state: Optional[str] = None,
                  session_affinity_ttl_seconds: Optional[int] = None,
                  web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
@@ -547,11 +546,11 @@ class FrontendEndpointResponse(dict):
         :param 'CustomHttpsConfigurationResponseArgs' custom_https_configuration: The configuration specifying how to enable HTTPS
         :param str custom_https_provisioning_state: Provisioning status of Custom Https of the frontendEndpoint.
         :param str custom_https_provisioning_substate: Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+        :param str resource_state: Resource status.
         :param str type: Resource type.
         :param str host_name: The host name of the frontendEndpoint. Must be a domain name.
         :param str id: Resource ID.
         :param str name: Resource name.
-        :param str resource_state: Resource status.
         :param str session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param int session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
         :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
@@ -559,6 +558,7 @@ class FrontendEndpointResponse(dict):
         pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
         pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
         pulumi.set(__self__, "custom_https_provisioning_substate", custom_https_provisioning_substate)
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
@@ -566,8 +566,6 @@ class FrontendEndpointResponse(dict):
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
         if session_affinity_enabled_state is not None:
             pulumi.set(__self__, "session_affinity_enabled_state", session_affinity_enabled_state)
         if session_affinity_ttl_seconds is not None:
@@ -600,6 +598,14 @@ class FrontendEndpointResponse(dict):
         return pulumi.get(self, "custom_https_provisioning_substate")
 
     @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -630,14 +636,6 @@ class FrontendEndpointResponse(dict):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter(name="sessionAffinityEnabledState")
@@ -747,6 +745,7 @@ class HealthProbeSettingsModelResponse(dict):
     Load balancing settings for a backend pool
     """
     def __init__(__self__, *,
+                 resource_state: str,
                  type: str,
                  enabled_state: Optional[str] = None,
                  health_probe_method: Optional[str] = None,
@@ -754,10 +753,10 @@ class HealthProbeSettingsModelResponse(dict):
                  interval_in_seconds: Optional[int] = None,
                  name: Optional[str] = None,
                  path: Optional[str] = None,
-                 protocol: Optional[str] = None,
-                 resource_state: Optional[str] = None):
+                 protocol: Optional[str] = None):
         """
         Load balancing settings for a backend pool
+        :param str resource_state: Resource status.
         :param str type: Resource type.
         :param str enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
         :param str health_probe_method: Configures which HTTP method to use to probe the backends defined under backendPools.
@@ -766,8 +765,8 @@ class HealthProbeSettingsModelResponse(dict):
         :param str name: Resource name.
         :param str path: The path to use for the health probe. Default is /
         :param str protocol: Protocol scheme to use for this probe
-        :param str resource_state: Resource status.
         """
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
@@ -783,8 +782,14 @@ class HealthProbeSettingsModelResponse(dict):
             pulumi.set(__self__, "path", path)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
@@ -850,14 +855,6 @@ class HealthProbeSettingsModelResponse(dict):
         """
         return pulumi.get(self, "protocol")
 
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
-
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -894,23 +891,24 @@ class LoadBalancingSettingsModelResponse(dict):
     Load balancing settings for a backend pool
     """
     def __init__(__self__, *,
+                 resource_state: str,
                  type: str,
                  additional_latency_milliseconds: Optional[int] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 resource_state: Optional[str] = None,
                  sample_size: Optional[int] = None,
                  successful_samples_required: Optional[int] = None):
         """
         Load balancing settings for a backend pool
+        :param str resource_state: Resource status.
         :param str type: Resource type.
         :param int additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket
         :param str id: Resource ID.
         :param str name: Resource name.
-        :param str resource_state: Resource status.
         :param int sample_size: The number of samples to consider for load balancing decisions
         :param int successful_samples_required: The number of samples within the sample period that must succeed
         """
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
         if additional_latency_milliseconds is not None:
             pulumi.set(__self__, "additional_latency_milliseconds", additional_latency_milliseconds)
@@ -918,12 +916,18 @@ class LoadBalancingSettingsModelResponse(dict):
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
         if sample_size is not None:
             pulumi.set(__self__, "sample_size", sample_size)
         if successful_samples_required is not None:
             pulumi.set(__self__, "successful_samples_required", successful_samples_required)
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
@@ -956,14 +960,6 @@ class LoadBalancingSettingsModelResponse(dict):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter(name="sampleSize")
@@ -1084,6 +1080,7 @@ class RoutingRuleResponse(dict):
     A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
     """
     def __init__(__self__, *,
+                 resource_state: str,
                  type: str,
                  accepted_protocols: Optional[Sequence[str]] = None,
                  enabled_state: Optional[str] = None,
@@ -1091,11 +1088,11 @@ class RoutingRuleResponse(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  patterns_to_match: Optional[Sequence[str]] = None,
-                 resource_state: Optional[str] = None,
                  route_configuration: Optional[Any] = None,
                  rules_engine: Optional['outputs.SubResourceResponse'] = None):
         """
         A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
+        :param str resource_state: Resource status.
         :param str type: Resource type.
         :param Sequence[str] accepted_protocols: Protocol schemes to match for this rule
         :param str enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -1103,10 +1100,10 @@ class RoutingRuleResponse(dict):
         :param str id: Resource ID.
         :param str name: Resource name.
         :param Sequence[str] patterns_to_match: The route patterns of the rule.
-        :param str resource_state: Resource status.
         :param Union['ForwardingConfigurationResponseArgs', 'RedirectConfigurationResponseArgs'] route_configuration: A reference to the routing configuration.
         :param 'SubResourceResponseArgs' rules_engine: A reference to a specific Rules Engine Configuration to apply to this route.
         """
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
         if accepted_protocols is not None:
             pulumi.set(__self__, "accepted_protocols", accepted_protocols)
@@ -1120,12 +1117,18 @@ class RoutingRuleResponse(dict):
             pulumi.set(__self__, "name", name)
         if patterns_to_match is not None:
             pulumi.set(__self__, "patterns_to_match", patterns_to_match)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
         if route_configuration is not None:
             pulumi.set(__self__, "route_configuration", route_configuration)
         if rules_engine is not None:
             pulumi.set(__self__, "rules_engine", rules_engine)
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
@@ -1182,14 +1185,6 @@ class RoutingRuleResponse(dict):
         The route patterns of the rule.
         """
         return pulumi.get(self, "patterns_to_match")
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter(name="routeConfiguration")
@@ -1352,22 +1347,21 @@ class RulesEngineResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 resource_state: str,
                  type: str,
-                 resource_state: Optional[str] = None,
                  rules: Optional[Sequence['outputs.RulesEngineRuleResponse']] = None):
         """
         A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
         :param str id: Resource ID.
         :param str name: Resource name.
-        :param str type: Resource type.
         :param str resource_state: Resource status.
+        :param str type: Resource type.
         :param Sequence['RulesEngineRuleResponseArgs'] rules: A list of rules that define a particular Rules Engine Configuration.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -1388,20 +1382,20 @@ class RulesEngineResponse(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter

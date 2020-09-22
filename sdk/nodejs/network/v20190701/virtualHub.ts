@@ -63,7 +63,7 @@ export class VirtualHub extends pulumi.CustomResource {
     /**
      * The provisioning state of the virtual hub resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The routeTable associated with this virtual hub.
      */
@@ -113,7 +113,6 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["p2SVpnGateway"] = args ? args.p2SVpnGateway : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTable"] = args ? args.routeTable : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -123,6 +122,7 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["vpnGateway"] = args ? args.vpnGateway : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["addressPrefix"] = undefined /*out*/;
@@ -176,10 +176,6 @@ export interface VirtualHubArgs {
      * The P2SVpnGateway associated with this VirtualHub.
      */
     readonly p2SVpnGateway?: pulumi.Input<inputs.network.v20190701.SubResource>;
-    /**
-     * The provisioning state of the virtual hub resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualHub.
      */

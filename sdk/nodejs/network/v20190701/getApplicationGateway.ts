@@ -110,7 +110,7 @@ export interface GetApplicationGatewayResult {
     /**
      * The provisioning state of the application gateway resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */

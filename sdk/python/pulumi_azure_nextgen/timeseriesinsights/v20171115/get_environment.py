@@ -119,7 +119,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         Provisioning state of the resource.
         """
@@ -135,7 +135,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['outputs.EnvironmentStatusResponse']:
+    def status(self) -> 'outputs.EnvironmentStatusResponse':
         """
         An object that represents the status of the environment, and its internal state in the Time Series Insights service.
         """

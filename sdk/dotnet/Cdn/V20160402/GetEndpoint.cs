@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
         /// <summary>
         /// Provisioning status of the endpoint.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Defines the query string caching behavior.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
 
             ImmutableArray<Outputs.DeepCreatedOriginResponse> origins,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? queryStringCachingBehavior,
 

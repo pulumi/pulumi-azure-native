@@ -59,7 +59,7 @@ export interface GetExpressRouteCircuitAuthorizationResult {
     /**
      * The provisioning state of the authorization resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Type of the resource.
      */

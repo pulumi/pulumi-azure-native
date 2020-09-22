@@ -30,7 +30,7 @@ type LookupWorkspaceResult struct {
 	// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
 	CreatedBy *CreatedByResponse `pulumi:"createdBy"`
 	// Specifies the date and time when the workspace is created.
-	CreatedDateTime *string `pulumi:"createdDateTime"`
+	CreatedDateTime string `pulumi:"createdDateTime"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The managed resource group Id.

@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// <summary>
         /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
-        public readonly Outputs.ScheduledQueryRuleCriteriaResponse? Criteria;
+        public readonly Outputs.ScheduledQueryRuleCriteriaResponse Criteria;
         /// <summary>
         /// The description of the scheduled query rule.
         /// </summary>
@@ -51,11 +51,11 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// <summary>
         /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
-        public readonly bool? Enabled;
+        public readonly bool Enabled;
         /// <summary>
         /// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         /// </summary>
-        public readonly string? EvaluationFrequency;
+        public readonly string EvaluationFrequency;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// <summary>
         /// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         /// </summary>
-        public readonly double? Severity;
+        public readonly double Severity;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -91,19 +91,19 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// <summary>
         /// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
         /// </summary>
-        public readonly string? WindowSize;
+        public readonly string WindowSize;
 
         [OutputConstructor]
         private GetScheduledQueryRuleResult(
             ImmutableArray<Outputs.ActionResponse> actions,
 
-            Outputs.ScheduledQueryRuleCriteriaResponse? criteria,
+            Outputs.ScheduledQueryRuleCriteriaResponse criteria,
 
             string? description,
 
-            bool? enabled,
+            bool enabled,
 
-            string? evaluationFrequency,
+            string evaluationFrequency,
 
             string location,
 
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
 
             ImmutableArray<string> scopes,
 
-            double? severity,
+            double severity,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
 
             string type,
 
-            string? windowSize)
+            string windowSize)
         {
             Actions = actions;
             Criteria = criteria;

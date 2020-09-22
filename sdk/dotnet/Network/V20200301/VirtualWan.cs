@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// The office local breakout category.
         /// </summary>
         [Output("office365LocalBreakoutCategory")]
-        public Output<string?> Office365LocalBreakoutCategory { get; private set; } = null!;
+        public Output<string> Office365LocalBreakoutCategory { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the virtual WAN resource.
@@ -182,12 +182,6 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The office local breakout category.
-        /// </summary>
-        [Input("office365LocalBreakoutCategory")]
-        public Input<string>? Office365LocalBreakoutCategory { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualWan.

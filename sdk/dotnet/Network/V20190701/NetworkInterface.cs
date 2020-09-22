@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The provisioning state of the network interface resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the network interface resource.
@@ -274,12 +274,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the network interface resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

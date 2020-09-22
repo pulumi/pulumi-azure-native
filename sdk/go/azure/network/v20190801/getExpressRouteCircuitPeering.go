@@ -56,7 +56,7 @@ type LookupExpressRouteCircuitPeeringResult struct {
 	// The primary address prefix.
 	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
 	// The provisioning state of the express route circuit peering resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The reference of the RouteFilter resource.
 	RouteFilter *SubResourceResponse `pulumi:"routeFilter"`
 	// The secondary port.

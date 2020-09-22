@@ -55,7 +55,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * The provisioning state of the NAT gateway resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * An array of public ip addresses associated with the nat gateway resource.
      */
@@ -110,7 +110,6 @@ export class NatGateway extends pulumi.CustomResource {
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["natGatewayName"] = args ? args.natGatewayName : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["publicIpAddresses"] = args ? args.publicIpAddresses : undefined;
             inputs["publicIpPrefixes"] = args ? args.publicIpPrefixes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -119,6 +118,7 @@ export class NatGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["subnets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -173,10 +173,6 @@ export interface NatGatewayArgs {
      * The name of the nat gateway.
      */
     readonly natGatewayName: pulumi.Input<string>;
-    /**
-     * The provisioning state of the NAT gateway resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * An array of public ip addresses associated with the nat gateway resource.
      */

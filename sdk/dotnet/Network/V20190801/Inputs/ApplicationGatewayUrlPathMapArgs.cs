@@ -70,12 +70,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         }
 
         /// <summary>
-        /// The provisioning state of the URL path map resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Type of the resource.
         /// </summary>
         [Input("type")]

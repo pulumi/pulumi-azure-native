@@ -48,7 +48,7 @@ type LookupVirtualHubResult struct {
 	// The routeTable associated with this virtual hub.
 	RouteTable *VirtualHubRouteTableResponse `pulumi:"routeTable"`
 	// The routing state.
-	RoutingState *string `pulumi:"routingState"`
+	RoutingState string `pulumi:"routingState"`
 	// The securityPartnerProvider associated with this VirtualHub.
 	SecurityPartnerProvider *SubResourceResponse `pulumi:"securityPartnerProvider"`
 	// The Security Provider name.

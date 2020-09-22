@@ -44,14 +44,6 @@ export interface GetNamespaceResult {
      */
     readonly createdAt: string;
     /**
-     * Properties of BYOK Encryption description
-     */
-    readonly encryption?: outputs.eventhub.v20180101preview.EncryptionResponse;
-    /**
-     * Properties of BYOK Identity description
-     */
-    readonly identity?: outputs.eventhub.v20180101preview.IdentityResponse;
-    /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
     readonly isAutoInflateEnabled?: boolean;
@@ -59,6 +51,14 @@ export interface GetNamespaceResult {
      * Value that indicates whether Kafka is enabled for eventhub namespace.
      */
     readonly kafkaEnabled?: boolean;
+    /**
+     * Enumerates the possible value of keySource for Encryption
+     */
+    readonly keySource?: string;
+    /**
+     * Properties of KeyVault
+     */
+    readonly keyVaultProperties?: outputs.eventhub.v20180101preview.KeyVaultPropertiesResponse[];
     /**
      * Resource location.
      */
@@ -76,6 +76,10 @@ export interface GetNamespaceResult {
      */
     readonly name: string;
     /**
+     * ObjectId from the KeyVault
+     */
+    readonly principalId?: string;
+    /**
      * Provisioning state of the Namespace.
      */
     readonly provisioningState: string;
@@ -91,6 +95,10 @@ export interface GetNamespaceResult {
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * TenantId from the KeyVault
+     */
+    readonly tenantId?: string;
     /**
      * Resource type.
      */

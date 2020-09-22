@@ -22,7 +22,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]]] = None,
@@ -40,7 +39,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the network security group resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the network security group resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]] security_rules: A collection of security rules of the network security group.
@@ -70,7 +68,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             if network_security_group_name is None:
                 raise TypeError("Missing required property 'network_security_group_name'")
             __props__['network_security_group_name'] = network_security_group_name
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -79,6 +76,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['network_interfaces'] = None
+            __props__['provisioning_state'] = None
             __props__['subnets'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20150615:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20160330:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20160601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20160901:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20161201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20170301:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20170601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20170801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20170901:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20171001:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20171101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20180101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20180201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20180401:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20180601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20180701:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20180801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20181001:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20181101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20181201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkSecurityGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkSecurityGroup")])
@@ -149,7 +147,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the network security group resource.
         """

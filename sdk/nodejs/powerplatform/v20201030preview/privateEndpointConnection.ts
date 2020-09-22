@@ -55,7 +55,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The provisioning state of the private endpoint connection resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -86,11 +86,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["enterprisePolicyName"] = args ? args.enterprisePolicyName : undefined;
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
@@ -127,10 +127,6 @@ export interface PrivateEndpointConnectionArgs {
      * A collection of information about the state of the connection between service consumer and provider.
      */
     readonly privateLinkServiceConnectionState: pulumi.Input<inputs.powerplatform.v20201030preview.PrivateLinkServiceConnectionState>;
-    /**
-     * The provisioning state of the private endpoint connection resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

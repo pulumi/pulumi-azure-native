@@ -99,7 +99,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter
-    def statistics(self) -> Optional['outputs.DatabaseStatisticsResponse']:
+    def statistics(self) -> 'outputs.DatabaseStatisticsResponse':
         """
         The statistics of the database.
         """

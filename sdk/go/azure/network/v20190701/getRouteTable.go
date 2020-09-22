@@ -36,7 +36,7 @@ type LookupRouteTableResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state of the route table resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Collection of routes contained within a route table.
 	Routes []RouteResponse `pulumi:"routes"`
 	// A collection of references to subnets.

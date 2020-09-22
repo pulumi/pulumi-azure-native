@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The provisioning state of the network security group resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the network security group resource.
@@ -196,12 +196,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// </summary>
         [Input("networkSecurityGroupName", required: true)]
         public Input<string> NetworkSecurityGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the network security group resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

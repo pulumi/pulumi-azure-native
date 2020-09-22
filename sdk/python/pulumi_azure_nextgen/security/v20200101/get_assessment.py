@@ -67,7 +67,7 @@ class GetAssessmentResult:
 
     @property
     @pulumi.getter
-    def links(self) -> Optional['outputs.AssessmentLinksResponse']:
+    def links(self) -> 'outputs.AssessmentLinksResponse':
         """
         Links relevant to the assessment
         """

@@ -36,7 +36,7 @@ type LookupEnterprisePolicyResult struct {
 	// Name of the EnterprisePolicy.
 	Name string `pulumi:"name"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

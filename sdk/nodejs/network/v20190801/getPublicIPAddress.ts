@@ -79,7 +79,7 @@ export interface GetPublicIPAddressResult {
     /**
      * The provisioning state of the public IP address resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The public IP address version.
      */

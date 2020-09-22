@@ -10,7 +10,6 @@ from ... import _utilities, _tables
 
 __all__ = [
     'ConnectionStateArgs',
-    'EncryptionArgs',
     'KeyVaultPropertiesArgs',
     'PrivateEndpointArgs',
     'SBSkuArgs',
@@ -54,46 +53,6 @@ class ConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class EncryptionArgs:
-    def __init__(__self__, *,
-                 key_source: Optional[pulumi.Input[str]] = None,
-                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
-        """
-        Properties to configure Encryption
-        :param pulumi.Input[str] key_source: Enumerates the possible value of keySource for Encryption
-        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties of KeyVault
-        """
-        if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-
-    @property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input[str]]:
-        """
-        Enumerates the possible value of keySource for Encryption
-        """
-        return pulumi.get(self, "key_source")
-
-    @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_source", value)
-
-    @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
-        """
-        Properties of KeyVault
-        """
-        return pulumi.get(self, "key_vault_properties")
-
-    @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
-        pulumi.set(self, "key_vault_properties", value)
 
 
 @pulumi.input_type

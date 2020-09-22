@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         /// <summary>
         /// The provisioning state of the P2S VPN gateway resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
 
             ImmutableArray<Outputs.P2SConnectionConfigurationResponse> p2SConnectionConfigurations,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 

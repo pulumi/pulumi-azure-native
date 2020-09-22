@@ -39,12 +39,6 @@ namespace Pulumi.AzureNextGen.Network.V20180401.Inputs
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
-        /// <summary>
-        /// The provisioning state of the resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
         [Input("rules")]
         private InputList<Inputs.AzureFirewallNetworkRuleArgs>? _rules;
 

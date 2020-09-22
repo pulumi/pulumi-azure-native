@@ -19,7 +19,6 @@ class NetworkWatcher(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -34,7 +33,6 @@ class NetworkWatcher(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -61,12 +59,12 @@ class NetworkWatcher(pulumi.CustomResource):
             if network_watcher_name is None:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20160901:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20161201:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20170301:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20170601:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20170801:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20170901:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20171001:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20171101:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20180101:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20180201:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20180401:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20180601:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20180701:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20180801:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20181001:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20181101:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20181201:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkWatcher"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkWatcher")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -120,7 +118,7 @@ class NetworkWatcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """

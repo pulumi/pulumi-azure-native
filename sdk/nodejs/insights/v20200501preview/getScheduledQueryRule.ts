@@ -39,7 +39,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly criteria?: outputs.insights.v20200501preview.ScheduledQueryRuleCriteriaResponse;
+    readonly criteria: outputs.insights.v20200501preview.ScheduledQueryRuleCriteriaResponse;
     /**
      * The description of the scheduled query rule.
      */
@@ -47,11 +47,11 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    readonly enabled?: boolean;
+    readonly enabled: boolean;
     /**
      * How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
      */
-    readonly evaluationFrequency?: string;
+    readonly evaluationFrequency: string;
     /**
      * The geo-location where the resource lives
      */
@@ -67,11 +67,11 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
-    readonly scopes?: string[];
+    readonly scopes: string[];
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
      */
-    readonly severity?: number;
+    readonly severity: number;
     /**
      * Resource tags.
      */
@@ -87,5 +87,5 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
      */
-    readonly windowSize?: string;
+    readonly windowSize: string;
 }

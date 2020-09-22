@@ -37,7 +37,7 @@ type ExpressRouteCircuit struct {
 	// The list of peerings.
 	Peerings ExpressRouteCircuitPeeringResponseArrayOutput `pulumi:"peerings"`
 	// The provisioning state of the express route circuit resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The ServiceKey.
 	ServiceKey pulumi.StringPtrOutput `pulumi:"serviceKey"`
 	// The ServiceProviderNotes.
@@ -304,8 +304,6 @@ type expressRouteCircuitArgs struct {
 	Location *string `pulumi:"location"`
 	// The list of peerings.
 	Peerings []ExpressRouteCircuitPeeringType `pulumi:"peerings"`
-	// The provisioning state of the express route circuit resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ServiceKey.
@@ -346,8 +344,6 @@ type ExpressRouteCircuitArgs struct {
 	Location pulumi.StringPtrInput
 	// The list of peerings.
 	Peerings ExpressRouteCircuitPeeringTypeArrayInput
-	// The provisioning state of the express route circuit resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The ServiceKey.

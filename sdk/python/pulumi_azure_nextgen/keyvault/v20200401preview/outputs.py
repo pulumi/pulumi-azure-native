@@ -394,21 +394,28 @@ class PrivateEndpointConnectionItemResponse(dict):
     Private endpoint connection item.
     """
     def __init__(__self__, *,
+                 provisioning_state: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
-                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
-                 provisioning_state: Optional[str] = None):
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private endpoint connection item.
+        :param str provisioning_state: Provisioning state of the private endpoint connection.
         :param 'PrivateEndpointResponseArgs' private_endpoint: Properties of the private endpoint object.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Approval state of the private link connection.
-        :param str provisioning_state: Provisioning state of the private endpoint connection.
         """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -425,14 +432,6 @@ class PrivateEndpointConnectionItemResponse(dict):
         Approval state of the private link connection.
         """
         return pulumi.get(self, "private_link_service_connection_state")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        Provisioning state of the private endpoint connection.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

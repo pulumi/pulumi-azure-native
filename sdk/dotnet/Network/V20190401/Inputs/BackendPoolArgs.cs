@@ -51,12 +51,6 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Resource status.
-        /// </summary>
-        [Input("resourceState")]
-        public Input<string>? ResourceState { get; set; }
-
         public BackendPoolArgs()
         {
         }

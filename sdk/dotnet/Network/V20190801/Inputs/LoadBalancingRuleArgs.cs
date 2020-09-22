@@ -99,12 +99,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
-        /// <summary>
-        /// The provisioning state of the load balancing rule resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
         public LoadBalancingRuleArgs()
         {
         }

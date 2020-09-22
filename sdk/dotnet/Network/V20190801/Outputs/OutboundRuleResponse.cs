@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         /// <summary>
         /// The provisioning state of the outbound rule resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
 
             string protocol,
 
-            string? provisioningState,
+            string provisioningState,
 
             string type)
         {

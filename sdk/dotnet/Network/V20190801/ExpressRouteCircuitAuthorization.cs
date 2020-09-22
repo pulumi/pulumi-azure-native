@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// The provisioning state of the authorization resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.
@@ -166,12 +166,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the authorization resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

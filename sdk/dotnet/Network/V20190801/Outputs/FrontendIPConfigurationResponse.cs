@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         /// <summary>
         /// The provisioning state of the frontend IP configuration resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The reference of the Public IP resource.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
 
             string? privateIPAllocationMethod,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.PublicIPAddressResponse? publicIPAddress,
 

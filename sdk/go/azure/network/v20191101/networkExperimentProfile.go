@@ -23,7 +23,7 @@ type NetworkExperimentProfile struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource status.
-	ResourceState pulumi.StringPtrOutput `pulumi:"resourceState"`
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -120,8 +120,6 @@ type networkExperimentProfileArgs struct {
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -140,8 +138,6 @@ type NetworkExperimentProfileArgs struct {
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// Resource status.
-	ResourceState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

@@ -21,7 +21,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,7 +36,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Profile
         :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[str] resource_state: Resource status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -67,8 +65,8 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['resource_state'] = resource_state
             __props__['tags'] = tags
+            __props__['resource_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:NetworkExperimentProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -130,7 +128,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> pulumi.Output[Optional[str]]:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         Resource status.
         """

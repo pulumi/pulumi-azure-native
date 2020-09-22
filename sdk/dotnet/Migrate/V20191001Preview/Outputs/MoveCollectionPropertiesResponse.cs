@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         /// <summary>
         /// Defines the provisioning states.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Gets or sets the source region.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
 
         [OutputConstructor]
         private MoveCollectionPropertiesResponse(
-            string? provisioningState,
+            string provisioningState,
 
             string sourceRegion,
 

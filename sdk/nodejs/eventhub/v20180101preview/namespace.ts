@@ -45,14 +45,6 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * Properties of BYOK Encryption description
-     */
-    public readonly encryption!: pulumi.Output<outputs.eventhub.v20180101preview.EncryptionResponse | undefined>;
-    /**
-     * Properties of BYOK Identity description
-     */
-    public readonly identity!: pulumi.Output<outputs.eventhub.v20180101preview.IdentityResponse | undefined>;
-    /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
     public readonly isAutoInflateEnabled!: pulumi.Output<boolean | undefined>;
@@ -60,6 +52,14 @@ export class Namespace extends pulumi.CustomResource {
      * Value that indicates whether Kafka is enabled for eventhub namespace.
      */
     public readonly kafkaEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enumerates the possible value of keySource for Encryption
+     */
+    public readonly keySource!: pulumi.Output<string | undefined>;
+    /**
+     * Properties of KeyVault
+     */
+    public readonly keyVaultProperties!: pulumi.Output<outputs.eventhub.v20180101preview.KeyVaultPropertiesResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -77,6 +77,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * ObjectId from the KeyVault
+     */
+    public readonly principalId!: pulumi.Output<string | undefined>;
+    /**
      * Provisioning state of the Namespace.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -93,9 +97,13 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * TenantId from the KeyVault
+     */
+    public readonly tenantId!: pulumi.Output<string | undefined>;
+    /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * The time the Namespace was updated.
      */
@@ -115,6 +123,9 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
+            if (!args || args.location === undefined) {
+                throw new Error("Missing required property 'location'");
+            }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -122,39 +133,43 @@ export class Namespace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterArmId"] = args ? args.clusterArmId : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
             inputs["isAutoInflateEnabled"] = args ? args.isAutoInflateEnabled : undefined;
             inputs["kafkaEnabled"] = args ? args.kafkaEnabled : undefined;
+            inputs["keySource"] = args ? args.keySource : undefined;
+            inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
+            inputs["principalId"] = args ? args.principalId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["createdAt"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceBusEndpoint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         } else {
             inputs["clusterArmId"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
             inputs["isAutoInflateEnabled"] = undefined /*out*/;
             inputs["kafkaEnabled"] = undefined /*out*/;
+            inputs["keySource"] = undefined /*out*/;
+            inputs["keyVaultProperties"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maximumThroughputUnits"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["principalId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceBusEndpoint"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
             inputs["zoneRedundant"] = undefined /*out*/;
@@ -181,14 +196,6 @@ export interface NamespaceArgs {
      */
     readonly clusterArmId?: pulumi.Input<string>;
     /**
-     * Properties of BYOK Encryption description
-     */
-    readonly encryption?: pulumi.Input<inputs.eventhub.v20180101preview.Encryption>;
-    /**
-     * Properties of BYOK Identity description
-     */
-    readonly identity?: pulumi.Input<inputs.eventhub.v20180101preview.Identity>;
-    /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
     readonly isAutoInflateEnabled?: pulumi.Input<boolean>;
@@ -197,9 +204,17 @@ export interface NamespaceArgs {
      */
     readonly kafkaEnabled?: pulumi.Input<boolean>;
     /**
+     * Enumerates the possible value of keySource for Encryption
+     */
+    readonly keySource?: pulumi.Input<string>;
+    /**
+     * Properties of KeyVault
+     */
+    readonly keyVaultProperties?: pulumi.Input<pulumi.Input<inputs.eventhub.v20180101preview.KeyVaultProperties>[]>;
+    /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    readonly location: pulumi.Input<string>;
     /**
      * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
      */
@@ -208,6 +223,10 @@ export interface NamespaceArgs {
      * The Namespace name
      */
     readonly namespaceName: pulumi.Input<string>;
+    /**
+     * ObjectId from the KeyVault
+     */
+    readonly principalId?: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
@@ -220,6 +239,14 @@ export interface NamespaceArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * TenantId from the KeyVault
+     */
+    readonly tenantId?: pulumi.Input<string>;
+    /**
+     * Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+     */
+    readonly type?: pulumi.Input<string>;
     /**
      * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
      */

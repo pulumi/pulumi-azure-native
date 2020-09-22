@@ -59,7 +59,7 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * The provisioning state of the VPN gateway resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -101,13 +101,13 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["gatewayName"] = args ? args.gatewayName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["bgpSettings"] = undefined /*out*/;
@@ -158,10 +158,6 @@ export interface VpnGatewayArgs {
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The provisioning state of the VPN gateway resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name of the VpnGateway.
      */

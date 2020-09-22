@@ -87,7 +87,7 @@ export class VirtualHub extends pulumi.CustomResource {
     /**
      * The routing state.
      */
-    public readonly routingState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly routingState!: pulumi.Output<string>;
     /**
      * The securityPartnerProvider associated with this VirtualHub.
      */
@@ -157,7 +157,6 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["p2SVpnGateway"] = args ? args.p2SVpnGateway : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTable"] = args ? args.routeTable : undefined;
-            inputs["routingState"] = args ? args.routingState : undefined;
             inputs["securityPartnerProvider"] = args ? args.securityPartnerProvider : undefined;
             inputs["securityProviderName"] = args ? args.securityProviderName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -173,6 +172,7 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["ipConfigurations"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["routingState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["addressPrefix"] = undefined /*out*/;
@@ -252,10 +252,6 @@ export interface VirtualHubArgs {
      * The routeTable associated with this virtual hub.
      */
     readonly routeTable?: pulumi.Input<inputs.network.latest.VirtualHubRouteTable>;
-    /**
-     * The routing state.
-     */
-    readonly routingState?: pulumi.Input<string>;
     /**
      * The securityPartnerProvider associated with this VirtualHub.
      */

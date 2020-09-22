@@ -47,7 +47,7 @@ export interface GetVpnConnectionResult {
     /**
      * The connection status.
      */
-    readonly connectionStatus?: string;
+    readonly connectionStatus: string;
     /**
      * The dead peer detection timeout for a vpn connection in seconds.
      */

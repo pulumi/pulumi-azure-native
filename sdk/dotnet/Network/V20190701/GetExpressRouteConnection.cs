@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// <summary>
         /// The provisioning state of the express route connection resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The routing weight associated to the connection.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             int? routingWeight)
         {

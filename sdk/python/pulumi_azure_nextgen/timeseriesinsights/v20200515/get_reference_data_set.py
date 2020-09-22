@@ -88,7 +88,7 @@ class GetReferenceDataSetResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         Provisioning state of the resource.
         """

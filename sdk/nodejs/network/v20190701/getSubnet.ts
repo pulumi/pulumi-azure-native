@@ -96,7 +96,7 @@ export interface GetSubnetResult {
     /**
      * The provisioning state of the subnet resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
      */

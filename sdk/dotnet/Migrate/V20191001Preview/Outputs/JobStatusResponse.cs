@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         /// <summary>
         /// Defines the job name.
         /// </summary>
-        public readonly string? JobName;
+        public readonly string JobName;
         /// <summary>
         /// Gets or sets the monitoring job percentage.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
 
         [OutputConstructor]
         private JobStatusResponse(
-            string? jobName,
+            string jobName,
 
             string jobProgress)
         {

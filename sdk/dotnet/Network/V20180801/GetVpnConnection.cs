@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// The connection status.
         /// </summary>
-        public readonly string? ConnectionStatus;
+        public readonly string ConnectionStatus;
         /// <summary>
         /// Egress bytes transferred.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Id of the connected vpn site.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         private GetVpnConnectionResult(
             int? connectionBandwidth,
 
-            string? connectionStatus,
+            string connectionStatus,
 
             int egressBytesTransferred,
 
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string? name,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SubResourceResponse? remoteVpnSite,
 

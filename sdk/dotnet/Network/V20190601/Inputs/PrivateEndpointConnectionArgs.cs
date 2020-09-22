@@ -39,12 +39,6 @@ namespace Pulumi.AzureNextGen.Network.V20190601.Inputs
         [Input("privateLinkServiceConnectionState")]
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
-        /// <summary>
-        /// The provisioning state of the private endpoint connection.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
         public PrivateEndpointConnectionArgs()
         {
         }

@@ -66,7 +66,7 @@ export interface GetVpnSiteResult {
     /**
      * The provisioning state of the resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The key for vpn-site that can be used for connections.
      */

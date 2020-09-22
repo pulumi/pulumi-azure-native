@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
         /// <summary>
         /// Provisioning state of the private endpoint connection.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Tags assigned to the key vault resource.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
 
             Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableDictionary<string, string> tags,
 

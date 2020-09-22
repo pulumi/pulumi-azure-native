@@ -122,8 +122,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group within the azure subscription.

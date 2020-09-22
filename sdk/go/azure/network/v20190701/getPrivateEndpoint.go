@@ -40,7 +40,7 @@ type LookupPrivateEndpointResult struct {
 	// A grouping of information about the connection to the remote resource.
 	PrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse `pulumi:"privateLinkServiceConnections"`
 	// The provisioning state of the private endpoint resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The ID of the subnet from which the private IP will be allocated.
 	Subnet *SubnetResponse `pulumi:"subnet"`
 	// Resource tags.

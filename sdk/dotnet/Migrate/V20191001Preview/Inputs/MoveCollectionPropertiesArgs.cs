@@ -16,12 +16,6 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
     public sealed class MoveCollectionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the provisioning states.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Gets or sets the source region.
         /// </summary>
         [Input("sourceRegion", required: true)]

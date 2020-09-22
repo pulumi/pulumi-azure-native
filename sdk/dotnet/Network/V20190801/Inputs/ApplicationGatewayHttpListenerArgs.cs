@@ -70,12 +70,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// The provisioning state of the HTTP listener resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Applicable only if protocol is https. Enables SNI for multi-hosting.
         /// </summary>
         [Input("requireServerNameIndication")]

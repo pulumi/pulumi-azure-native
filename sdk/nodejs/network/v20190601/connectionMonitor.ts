@@ -67,7 +67,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * The provisioning state of the connection monitor.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Describes the source of connection monitor.
      */

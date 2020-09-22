@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// <summary>
         /// Provisioning state of the resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -59,7 +59,7 @@ export interface GetRouteTableResult {
     /**
      * The provisioning state of the route table resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Collection of routes contained within a route table.
      */

@@ -47,7 +47,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Specifies the date and time when the workspace is created.
      */
-    public readonly createdDateTime!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -124,7 +124,6 @@ export class Workspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["authorizations"] = args ? args.authorizations : undefined;
-            inputs["createdDateTime"] = args ? args.createdDateTime : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
@@ -134,6 +133,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["createdBy"] = undefined /*out*/;
+            inputs["createdDateTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["storageAccountIdentity"] = undefined /*out*/;
@@ -180,10 +180,6 @@ export interface WorkspaceArgs {
      * The workspace provider authorizations.
      */
     readonly authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.v20180401.WorkspaceProviderAuthorization>[]>;
-    /**
-     * Specifies the date and time when the workspace is created.
-     */
-    readonly createdDateTime?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

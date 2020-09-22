@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// The routing state.
         /// </summary>
         [Output("routingState")]
-        public Output<string?> RoutingState { get; private set; } = null!;
+        public Output<string> RoutingState { get; private set; } = null!;
 
         /// <summary>
         /// The securityPartnerProvider associated with this VirtualHub.
@@ -260,12 +260,6 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// </summary>
         [Input("routeTable")]
         public Input<Inputs.VirtualHubRouteTableArgs>? RouteTable { get; set; }
-
-        /// <summary>
-        /// The routing state.
-        /// </summary>
-        [Input("routingState")]
-        public Input<string>? RoutingState { get; set; }
 
         /// <summary>
         /// The securityPartnerProvider associated with this VirtualHub.

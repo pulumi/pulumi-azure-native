@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The office local breakout category.
         /// </summary>
         [Output("office365LocalBreakoutCategory")]
-        public Output<string?> Office365LocalBreakoutCategory { get; private set; } = null!;
+        public Output<string> Office365LocalBreakoutCategory { get; private set; } = null!;
 
         /// <summary>
         /// List of all P2SVpnServerConfigurations associated with the virtual wan.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The provisioning state of the virtual WAN resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The Security Provider name.
@@ -195,12 +195,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// The office local breakout category.
-        /// </summary>
-        [Input("office365LocalBreakoutCategory")]
-        public Input<string>? Office365LocalBreakoutCategory { get; set; }
-
         [Input("p2SVpnServerConfigurations")]
         private InputList<Inputs.P2SVpnServerConfigurationArgs>? _p2SVpnServerConfigurations;
 
@@ -212,12 +206,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
             get => _p2SVpnServerConfigurations ?? (_p2SVpnServerConfigurations = new InputList<Inputs.P2SVpnServerConfigurationArgs>());
             set => _p2SVpnServerConfigurations = value;
         }
-
-        /// <summary>
-        /// The provisioning state of the virtual WAN resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualWan.

@@ -420,18 +420,14 @@ class LoadBalancerResourceSettingsArgs:
 class MoveCollectionPropertiesArgs:
     def __init__(__self__, *,
                  source_region: pulumi.Input[str],
-                 target_region: pulumi.Input[str],
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 target_region: pulumi.Input[str]):
         """
         Defines the move collection properties.
         :param pulumi.Input[str] source_region: Gets or sets the source region.
         :param pulumi.Input[str] target_region: Gets or sets the target region.
-        :param pulumi.Input[str] provisioning_state: Defines the provisioning states.
         """
         pulumi.set(__self__, "source_region", source_region)
         pulumi.set(__self__, "target_region", target_region)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="sourceRegion")
@@ -456,18 +452,6 @@ class MoveCollectionPropertiesArgs:
     @target_region.setter
     def target_region(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_region", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Defines the provisioning states.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -518,14 +502,12 @@ class MoveResourcePropertiesArgs:
                  source_id: pulumi.Input[str],
                  depends_on_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['MoveResourceDependencyOverrideArgs']]]] = None,
                  existing_target_id: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_settings: Optional[pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']]] = None):
         """
         Defines the move resource properties.
         :param pulumi.Input[str] source_id: Gets or sets the Source ARM Id of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['MoveResourceDependencyOverrideArgs']]] depends_on_overrides: Gets or sets the move resource dependencies overrides.
         :param pulumi.Input[str] existing_target_id: Gets or sets the existing target ARM Id of the resource.
-        :param pulumi.Input[str] provisioning_state: Defines the provisioning states.
         :param pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']] resource_settings: Gets or sets the resource settings.
         """
         pulumi.set(__self__, "source_id", source_id)
@@ -533,8 +515,6 @@ class MoveResourcePropertiesArgs:
             pulumi.set(__self__, "depends_on_overrides", depends_on_overrides)
         if existing_target_id is not None:
             pulumi.set(__self__, "existing_target_id", existing_target_id)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if resource_settings is not None:
             pulumi.set(__self__, "resource_settings", resource_settings)
 
@@ -573,18 +553,6 @@ class MoveResourcePropertiesArgs:
     @existing_target_id.setter
     def existing_target_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "existing_target_id", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Defines the provisioning states.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="resourceSettings")

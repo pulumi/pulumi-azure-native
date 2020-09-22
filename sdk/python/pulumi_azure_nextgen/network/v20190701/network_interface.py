@@ -28,7 +28,6 @@ class NetworkInterface(pulumi.CustomResource):
                  network_interface_name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -52,7 +51,6 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference of the NetworkSecurityGroup resource.
         :param pulumi.Input[bool] primary: Whether this is a primary network interface on a virtual machine.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the network interface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the network interface resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -88,7 +86,6 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['network_interface_name'] = network_interface_name
             __props__['network_security_group'] = network_security_group
             __props__['primary'] = primary
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -98,6 +95,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['hosted_workloads'] = None
             __props__['name'] = None
             __props__['private_endpoint'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['virtual_machine'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20150615:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160330:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20161201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkInterface")])
@@ -224,7 +222,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the network interface resource.
         """

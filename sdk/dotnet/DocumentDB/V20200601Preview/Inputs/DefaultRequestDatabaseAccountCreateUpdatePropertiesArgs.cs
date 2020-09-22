@@ -147,12 +147,6 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
             set => _locations = value;
         }
 
-        /// <summary>
-        /// Whether requests from Public Network are allowed
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
-
         [Input("virtualNetworkRules")]
         private InputList<Inputs.VirtualNetworkRuleArgs>? _virtualNetworkRules;
 

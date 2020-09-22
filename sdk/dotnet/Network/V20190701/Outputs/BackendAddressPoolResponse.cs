@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the backend address pool resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             ImmutableArray<Outputs.SubResourceResponse> outboundRules,
 
-            string? provisioningState,
+            string provisioningState,
 
             string type)
         {

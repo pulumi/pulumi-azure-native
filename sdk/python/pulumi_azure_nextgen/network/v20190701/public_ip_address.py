@@ -25,7 +25,6 @@ class PublicIPAddress(pulumi.CustomResource):
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_ip_address_version: Optional[pulumi.Input[str]] = None,
                  public_ip_allocation_method: Optional[pulumi.Input[str]] = None,
                  public_ip_prefix: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -51,7 +50,6 @@ class PublicIPAddress(pulumi.CustomResource):
         :param pulumi.Input[str] ip_address: The IP address associated with the public IP address resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]] ip_tags: The list of tags associated with the public IP address.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the public IP address resource.
         :param pulumi.Input[str] public_ip_address_version: The public IP address version.
         :param pulumi.Input[str] public_ip_allocation_method: The public IP address allocation method.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
@@ -87,7 +85,6 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__['ip_address'] = ip_address
             __props__['ip_tags'] = ip_tags
             __props__['location'] = location
-            __props__['provisioning_state'] = provisioning_state
             __props__['public_ip_address_version'] = public_ip_address_version
             __props__['public_ip_allocation_method'] = public_ip_allocation_method
             __props__['public_ip_prefix'] = public_ip_prefix
@@ -103,6 +100,7 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__['zones'] = zones
             __props__['ip_configuration'] = None
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20150615:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160330:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20161201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170301:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20171001:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20171101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPAddress")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -204,7 +202,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the public IP address resource.
         """

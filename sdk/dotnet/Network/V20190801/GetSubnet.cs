@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The provisioning state of the subnet resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
         /// </summary>
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string? privateLinkServiceNetworkPolicies,
 
-            string? provisioningState,
+            string provisioningState,
 
             string purpose,
 

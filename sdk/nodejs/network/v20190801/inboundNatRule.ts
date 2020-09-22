@@ -79,7 +79,7 @@ export class InboundNatRule extends pulumi.CustomResource {
     /**
      * The provisioning state of the inbound NAT rule resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Type of the resource.
      */
@@ -116,9 +116,9 @@ export class InboundNatRule extends pulumi.CustomResource {
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["backendIPConfiguration"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["backendIPConfiguration"] = undefined /*out*/;
@@ -199,10 +199,6 @@ export interface InboundNatRuleArgs {
      * The reference to the transport protocol used by the load balancing rule.
      */
     readonly protocol?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the inbound NAT rule resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

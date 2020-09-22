@@ -22,7 +22,6 @@ class BastionHost(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BastionHostIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -38,7 +37,6 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BastionHostIPConfigurationArgs']]]] ip_configurations: IP configuration of the Bastion Host resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the bastion host resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -66,13 +64,13 @@ class BastionHost(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:BastionHost"), pulumi.Alias(type_="azure-nextgen:network/v20190401:BastionHost"), pulumi.Alias(type_="azure-nextgen:network/v20190601:BastionHost"), pulumi.Alias(type_="azure-nextgen:network/v20190701:BastionHost"), pulumi.Alias(type_="azure-nextgen:network/v20190901:BastionHost"), pulumi.Alias(type_="azure-nextgen:network/v20191101:BastionHost"), pulumi.Alias(type_="azure-nextgen:network/v20191201:BastionHost"), pulumi.Alias(type_="azure-nextgen:network/v20200301:BastionHost"), pulumi.Alias(type_="azure-nextgen:network/v20200401:BastionHost"), pulumi.Alias(type_="azure-nextgen:network/v20200501:BastionHost"), pulumi.Alias(type_="azure-nextgen:network/v20200601:BastionHost")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -142,7 +140,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the bastion host resource.
         """

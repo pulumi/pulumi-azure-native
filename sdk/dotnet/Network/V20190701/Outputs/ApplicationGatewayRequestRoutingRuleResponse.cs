@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the request routing rule resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Redirect configuration resource of the application gateway.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             int? priority,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SubResourceResponse? redirectConfiguration,
 

@@ -56,6 +56,8 @@ class Cluster(pulumi.CustomResource):
             if cluster_name is None:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
+            if location is None:
+                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

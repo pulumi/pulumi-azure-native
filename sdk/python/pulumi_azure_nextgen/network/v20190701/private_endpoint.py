@@ -23,7 +23,6 @@ class PrivateEndpoint(pulumi.CustomResource):
                  manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -41,7 +40,6 @@ class PrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] private_link_service_connections: A grouping of information about the connection to the remote resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the private endpoint resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -71,7 +69,6 @@ class PrivateEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'private_endpoint_name'")
             __props__['private_endpoint_name'] = private_endpoint_name
             __props__['private_link_service_connections'] = private_link_service_connections
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -79,6 +76,7 @@ class PrivateEndpoint(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['network_interfaces'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -156,7 +154,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the private endpoint resource.
         """

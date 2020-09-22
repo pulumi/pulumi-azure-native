@@ -82,12 +82,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// The provisioning state of the probe resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
         /// </summary>
         [Input("timeout")]

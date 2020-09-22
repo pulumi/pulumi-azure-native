@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// <summary>
         /// The provisioning state of the private link service.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 

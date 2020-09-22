@@ -39,7 +39,7 @@ type FrontDoor struct {
 	// Provisioning state of the Front Door.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource status of the Front Door.
-	ResourceState pulumi.StringPtrOutput `pulumi:"resourceState"`
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// Routing rules associated with this Front Door.
 	RoutingRules RoutingRuleResponseArrayOutput `pulumi:"routingRules"`
 	// Rules Engine Configurations available to routing rules.
@@ -203,8 +203,6 @@ type frontDoorArgs struct {
 	Location *string `pulumi:"location"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource status of the Front Door.
-	ResourceState *string `pulumi:"resourceState"`
 	// Routing rules associated with this Front Door.
 	RoutingRules []RoutingRule `pulumi:"routingRules"`
 	// Resource tags.
@@ -233,8 +231,6 @@ type FrontDoorArgs struct {
 	Location pulumi.StringPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// Resource status of the Front Door.
-	ResourceState pulumi.StringPtrInput
 	// Routing rules associated with this Front Door.
 	RoutingRules RoutingRuleArrayInput
 	// Resource tags.

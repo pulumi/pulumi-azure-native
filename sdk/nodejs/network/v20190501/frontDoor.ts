@@ -83,7 +83,7 @@ export class FrontDoor extends pulumi.CustomResource {
     /**
      * Resource status of the Front Door.
      */
-    public readonly resourceState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * Routing rules associated with this Front Door.
      */
@@ -123,12 +123,12 @@ export class FrontDoor extends pulumi.CustomResource {
             inputs["loadBalancingSettings"] = args ? args.loadBalancingSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceState"] = args ? args.resourceState : undefined;
             inputs["routingRules"] = args ? args.routingRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["cname"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["backendPools"] = undefined /*out*/;
@@ -204,10 +204,6 @@ export interface FrontDoorArgs {
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource status of the Front Door.
-     */
-    readonly resourceState?: pulumi.Input<string>;
     /**
      * Routing rules associated with this Front Door.
      */

@@ -17,7 +17,8 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
+                 key_source: Optional[pulumi.Input[str]] = None,
+                 key_vault_properties: Optional[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,8 @@ class Namespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Properties of BYOK Encryption description
+        :param pulumi.Input[str] key_source: Enumerates the possible value of keySource for Encryption
+        :param pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']] key_vault_properties: Properties of KeyVault
         :param pulumi.Input[str] location: The Geo-location where the resource lives
         :param pulumi.Input[str] namespace_name: The namespace name.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -57,7 +59,8 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['encryption'] = encryption
+            __props__['key_source'] = key_source
+            __props__['key_vault_properties'] = key_vault_properties
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -112,12 +115,20 @@ class Namespace(pulumi.CustomResource):
         return pulumi.get(self, "created_at")
 
     @property
-    @pulumi.getter
-    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionResponse']]:
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> pulumi.Output[Optional[str]]:
         """
-        Properties of BYOK Encryption description
+        Enumerates the possible value of keySource for Encryption
         """
-        return pulumi.get(self, "encryption")
+        return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> pulumi.Output[Optional['outputs.KeyVaultPropertiesResponse']]:
+        """
+        Properties of KeyVault
+        """
+        return pulumi.get(self, "key_vault_properties")
 
     @property
     @pulumi.getter

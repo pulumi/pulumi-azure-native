@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the Azure firewall IP configuration resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             string privateIPAddress,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SubResourceResponse? publicIPAddress,
 

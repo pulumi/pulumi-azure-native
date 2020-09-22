@@ -31,7 +31,7 @@ type VpnSite struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The key for vpn-site that can be used for connections.
 	SiteKey pulumi.StringPtrOutput `pulumi:"siteKey"`
 	// Resource tags.
@@ -221,8 +221,6 @@ type vpnSiteArgs struct {
 	IsSecuritySite *bool `pulumi:"isSecuritySite"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the VpnSite.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The key for vpn-site that can be used for connections.
@@ -253,8 +251,6 @@ type VpnSiteArgs struct {
 	IsSecuritySite pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the VpnSite.
 	ResourceGroupName pulumi.StringInput
 	// The key for vpn-site that can be used for connections.

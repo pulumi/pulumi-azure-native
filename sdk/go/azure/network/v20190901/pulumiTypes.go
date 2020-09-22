@@ -17916,8 +17916,6 @@ type ExpressRouteCircuitConnectionType struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// The authorization key.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Express Route Circuit connection state.
-	CircuitConnectionStatus *string `pulumi:"circuitConnectionStatus"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
 	ExpressRouteCircuitPeering *SubResource `pulumi:"expressRouteCircuitPeering"`
 	// Resource ID.
@@ -17945,8 +17943,6 @@ type ExpressRouteCircuitConnectionTypeArgs struct {
 	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
 	// The authorization key.
 	AuthorizationKey pulumi.StringPtrInput `pulumi:"authorizationKey"`
-	// Express Route Circuit connection state.
-	CircuitConnectionStatus pulumi.StringPtrInput `pulumi:"circuitConnectionStatus"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
 	ExpressRouteCircuitPeering SubResourcePtrInput `pulumi:"expressRouteCircuitPeering"`
 	// Resource ID.
@@ -18019,11 +18015,6 @@ func (o ExpressRouteCircuitConnectionTypeOutput) AuthorizationKey() pulumi.Strin
 	return o.ApplyT(func(v ExpressRouteCircuitConnectionType) *string { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
 }
 
-// Express Route Circuit connection state.
-func (o ExpressRouteCircuitConnectionTypeOutput) CircuitConnectionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitConnectionType) *string { return v.CircuitConnectionStatus }).(pulumi.StringPtrOutput)
-}
-
 // Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
 func (o ExpressRouteCircuitConnectionTypeOutput) ExpressRouteCircuitPeering() SubResourcePtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitConnectionType) *SubResource { return v.ExpressRouteCircuitPeering }).(SubResourcePtrOutput)
@@ -18071,7 +18062,7 @@ type ExpressRouteCircuitConnectionResponse struct {
 	// The authorization key.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// Express Route Circuit connection state.
-	CircuitConnectionStatus *string `pulumi:"circuitConnectionStatus"`
+	CircuitConnectionStatus string `pulumi:"circuitConnectionStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
@@ -18106,7 +18097,7 @@ type ExpressRouteCircuitConnectionResponseArgs struct {
 	// The authorization key.
 	AuthorizationKey pulumi.StringPtrInput `pulumi:"authorizationKey"`
 	// Express Route Circuit connection state.
-	CircuitConnectionStatus pulumi.StringPtrInput `pulumi:"circuitConnectionStatus"`
+	CircuitConnectionStatus pulumi.StringInput `pulumi:"circuitConnectionStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringInput `pulumi:"etag"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
@@ -18186,8 +18177,8 @@ func (o ExpressRouteCircuitConnectionResponseOutput) AuthorizationKey() pulumi.S
 }
 
 // Express Route Circuit connection state.
-func (o ExpressRouteCircuitConnectionResponseOutput) CircuitConnectionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitConnectionResponse) *string { return v.CircuitConnectionStatus }).(pulumi.StringPtrOutput)
+func (o ExpressRouteCircuitConnectionResponseOutput) CircuitConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitConnectionResponse) string { return v.CircuitConnectionStatus }).(pulumi.StringOutput)
 }
 
 // A unique read-only string that changes whenever the resource is updated.
@@ -34558,7 +34549,7 @@ type PeerExpressRouteCircuitConnectionResponse struct {
 	// The resource guid of the authorization used for the express route circuit connection.
 	AuthResourceGuid *string `pulumi:"authResourceGuid"`
 	// Express Route Circuit connection state.
-	CircuitConnectionStatus *string `pulumi:"circuitConnectionStatus"`
+	CircuitConnectionStatus string `pulumi:"circuitConnectionStatus"`
 	// The name of the express route circuit connection resource.
 	ConnectionName *string `pulumi:"connectionName"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -34595,7 +34586,7 @@ type PeerExpressRouteCircuitConnectionResponseArgs struct {
 	// The resource guid of the authorization used for the express route circuit connection.
 	AuthResourceGuid pulumi.StringPtrInput `pulumi:"authResourceGuid"`
 	// Express Route Circuit connection state.
-	CircuitConnectionStatus pulumi.StringPtrInput `pulumi:"circuitConnectionStatus"`
+	CircuitConnectionStatus pulumi.StringInput `pulumi:"circuitConnectionStatus"`
 	// The name of the express route circuit connection resource.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -34677,8 +34668,8 @@ func (o PeerExpressRouteCircuitConnectionResponseOutput) AuthResourceGuid() pulu
 }
 
 // Express Route Circuit connection state.
-func (o PeerExpressRouteCircuitConnectionResponseOutput) CircuitConnectionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PeerExpressRouteCircuitConnectionResponse) *string { return v.CircuitConnectionStatus }).(pulumi.StringPtrOutput)
+func (o PeerExpressRouteCircuitConnectionResponseOutput) CircuitConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v PeerExpressRouteCircuitConnectionResponse) string { return v.CircuitConnectionStatus }).(pulumi.StringOutput)
 }
 
 // The name of the express route circuit connection resource.
@@ -49528,8 +49519,6 @@ func (o VpnClientRootCertificateResponseArrayOutput) Index(i pulumi.IntInput) Vp
 type VpnConnectionType struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
-	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Enable internet security.
@@ -49573,8 +49562,6 @@ type VpnConnectionTypeInput interface {
 type VpnConnectionTypeArgs struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrInput `pulumi:"connectionBandwidth"`
-	// The connection status.
-	ConnectionStatus pulumi.StringPtrInput `pulumi:"connectionStatus"`
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrInput `pulumi:"enableBgp"`
 	// Enable internet security.
@@ -49658,11 +49645,6 @@ func (o VpnConnectionTypeOutput) ToVpnConnectionTypeOutputWithContext(ctx contex
 // Expected bandwidth in MBPS.
 func (o VpnConnectionTypeOutput) ConnectionBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionType) *int { return v.ConnectionBandwidth }).(pulumi.IntPtrOutput)
-}
-
-// The connection status.
-func (o VpnConnectionTypeOutput) ConnectionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VpnConnectionType) *string { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
 }
 
 // EnableBgp flag.
@@ -49755,7 +49737,7 @@ type VpnConnectionResponse struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
+	ConnectionStatus string `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
 	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
@@ -49808,7 +49790,7 @@ type VpnConnectionResponseArgs struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrInput `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus pulumi.StringPtrInput `pulumi:"connectionStatus"`
+	ConnectionStatus pulumi.StringInput `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
 	EgressBytesTransferred pulumi.IntInput `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
@@ -49903,8 +49885,8 @@ func (o VpnConnectionResponseOutput) ConnectionBandwidth() pulumi.IntPtrOutput {
 }
 
 // The connection status.
-func (o VpnConnectionResponseOutput) ConnectionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VpnConnectionResponse) *string { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
+func (o VpnConnectionResponseOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnConnectionResponse) string { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
 // Egress bytes transferred.
@@ -51636,8 +51618,6 @@ func (o VpnSiteLinkArrayOutput) Index(i pulumi.IntInput) VpnSiteLinkOutput {
 type VpnSiteLinkConnection struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
-	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// EnableBgp flag.
@@ -51677,8 +51657,6 @@ type VpnSiteLinkConnectionInput interface {
 type VpnSiteLinkConnectionArgs struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrInput `pulumi:"connectionBandwidth"`
-	// The connection status.
-	ConnectionStatus pulumi.StringPtrInput `pulumi:"connectionStatus"`
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrInput `pulumi:"enableBgp"`
 	// EnableBgp flag.
@@ -51758,11 +51736,6 @@ func (o VpnSiteLinkConnectionOutput) ToVpnSiteLinkConnectionOutputWithContext(ct
 // Expected bandwidth in MBPS.
 func (o VpnSiteLinkConnectionOutput) ConnectionBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnSiteLinkConnection) *int { return v.ConnectionBandwidth }).(pulumi.IntPtrOutput)
-}
-
-// The connection status.
-func (o VpnSiteLinkConnectionOutput) ConnectionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VpnSiteLinkConnection) *string { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
 }
 
 // EnableBgp flag.
@@ -51845,7 +51818,7 @@ type VpnSiteLinkConnectionResponse struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
+	ConnectionStatus string `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
 	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
@@ -51896,7 +51869,7 @@ type VpnSiteLinkConnectionResponseArgs struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrInput `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus pulumi.StringPtrInput `pulumi:"connectionStatus"`
+	ConnectionStatus pulumi.StringInput `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
 	EgressBytesTransferred pulumi.IntInput `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
@@ -51989,8 +51962,8 @@ func (o VpnSiteLinkConnectionResponseOutput) ConnectionBandwidth() pulumi.IntPtr
 }
 
 // The connection status.
-func (o VpnSiteLinkConnectionResponseOutput) ConnectionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VpnSiteLinkConnectionResponse) *string { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
+func (o VpnSiteLinkConnectionResponseOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnSiteLinkConnectionResponse) string { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
 // Egress bytes transferred.

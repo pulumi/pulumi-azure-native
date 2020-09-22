@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// The provisioning state of the P2S VPN gateway resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -173,12 +173,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801
             get => _p2SConnectionConfigurations ?? (_p2SConnectionConfigurations = new InputList<Inputs.P2SConnectionConfigurationArgs>());
             set => _p2SConnectionConfigurations = value;
         }
-
-        /// <summary>
-        /// The provisioning state of the P2S VPN gateway resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the P2SVpnGateway.

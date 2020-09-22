@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <summary>
         /// The connection status.
         /// </summary>
-        public readonly string? ConnectionStatus;
+        public readonly string ConnectionStatus;
         /// <summary>
         /// DPD timeout in seconds for vpn connection.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         private GetVpnConnectionResult(
             int? connectionBandwidth,
 
-            string? connectionStatus,
+            string connectionStatus,
 
             int? dpdTimeoutSeconds,
 

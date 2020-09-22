@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <summary>
         /// Express Route Circuit connection state.
         /// </summary>
-        public readonly string? CircuitConnectionStatus;
+        public readonly string CircuitConnectionStatus;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 
             string? authorizationKey,
 
-            string? circuitConnectionStatus,
+            string circuitConnectionStatus,
 
             string etag,
 

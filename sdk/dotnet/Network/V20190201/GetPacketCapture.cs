@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// <summary>
         /// The provisioning state of the packet capture session.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Describes the storage location for a packet capture session.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.PacketCaptureStorageLocationResponse storageLocation,
 

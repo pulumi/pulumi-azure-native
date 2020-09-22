@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// The provisioning state of the virtual network resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The resourceGuid property of the Virtual Network resource.
@@ -238,12 +238,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the virtual network resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

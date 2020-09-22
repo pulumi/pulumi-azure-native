@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The provisioning state of the inbound NAT rule resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.
@@ -231,12 +231,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the inbound NAT rule resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

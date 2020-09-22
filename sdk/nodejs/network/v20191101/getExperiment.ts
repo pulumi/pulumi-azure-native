@@ -67,7 +67,7 @@ export interface GetExperimentResult {
     /**
      * Resource status.
      */
-    readonly resourceState?: string;
+    readonly resourceState: string;
     /**
      * The uri to the Script used in the Experiment
      */

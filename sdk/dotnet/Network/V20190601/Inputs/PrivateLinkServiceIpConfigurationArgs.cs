@@ -52,12 +52,6 @@ namespace Pulumi.AzureNextGen.Network.V20190601.Inputs
         public Input<string>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
-        /// The provisioning state of the private link service ip configuration.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// The reference of the subnet resource.
         /// </summary>
         [Input("subnet")]

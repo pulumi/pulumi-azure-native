@@ -40,7 +40,7 @@ type LookupAzureFirewallResult struct {
 	// Collection of network rule collections used by Azure Firewall.
 	NetworkRuleCollections []AzureFirewallNetworkRuleCollectionResponse `pulumi:"networkRuleCollections"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for Threat Intelligence.

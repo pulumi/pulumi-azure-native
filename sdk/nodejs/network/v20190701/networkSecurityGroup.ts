@@ -59,7 +59,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
      * The provisioning state of the network security group resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The resource GUID property of the network security group resource.
      */
@@ -102,13 +102,13 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["securityRules"] = args ? args.securityRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["subnets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -161,10 +161,6 @@ export interface NetworkSecurityGroupArgs {
      * The name of the network security group.
      */
     readonly networkSecurityGroupName: pulumi.Input<string>;
-    /**
-     * The provisioning state of the network security group resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -33,7 +33,7 @@ type PublicIPAddress struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the public IP address resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The public IP address version.
 	PublicIPAddressVersion pulumi.StringPtrOutput `pulumi:"publicIPAddressVersion"`
 	// The public IP address allocation method.
@@ -286,8 +286,6 @@ type publicIPAddressArgs struct {
 	IpTags []IpTag `pulumi:"ipTags"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The provisioning state of the public IP address resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The public IP address version.
 	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
 	// The public IP address allocation method.
@@ -326,8 +324,6 @@ type PublicIPAddressArgs struct {
 	IpTags IpTagArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The provisioning state of the public IP address resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The public IP address version.
 	PublicIPAddressVersion pulumi.StringPtrInput
 	// The public IP address allocation method.

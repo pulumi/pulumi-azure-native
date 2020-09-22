@@ -39,12 +39,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The provisioning state of the authorization resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
         public ExpressRouteCircuitAuthorizationArgs()
         {
         }

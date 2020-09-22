@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         /// <summary>
         /// The provisioning state of the application gateway IP configuration resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Reference of the subnet resource. A subnet from where application gateway gets its private address.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
 
             string? name,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SubResourceResponse? subnet,
 

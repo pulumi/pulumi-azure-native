@@ -47,7 +47,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Provisioning status of the profile.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource status of the profile.
      */

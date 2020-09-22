@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the authentication certificate resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             string? name,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? type)
         {

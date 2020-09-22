@@ -47,7 +47,7 @@ export interface GetVpnConnectionResult {
     /**
      * The connection status.
      */
-    readonly connectionStatus?: string;
+    readonly connectionStatus: string;
     /**
      * Egress bytes transferred.
      */

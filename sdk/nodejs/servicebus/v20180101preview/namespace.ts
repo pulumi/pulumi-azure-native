@@ -41,9 +41,13 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * Properties of BYOK Encryption description
+     * Enumerates the possible value of keySource for Encryption
      */
-    public readonly encryption!: pulumi.Output<outputs.servicebus.v20180101preview.EncryptionResponse | undefined>;
+    public readonly keySource!: pulumi.Output<string | undefined>;
+    /**
+     * Properties of KeyVault
+     */
+    public readonly keyVaultProperties!: pulumi.Output<outputs.servicebus.v20180101preview.KeyVaultPropertiesResponse | undefined>;
     /**
      * The Geo-location where the resource lives
      */
@@ -104,7 +108,8 @@ export class Namespace extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["encryption"] = args ? args.encryption : undefined;
+            inputs["keySource"] = args ? args.keySource : undefined;
+            inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -120,7 +125,8 @@ export class Namespace extends pulumi.CustomResource {
             inputs["updatedAt"] = undefined /*out*/;
         } else {
             inputs["createdAt"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
+            inputs["keySource"] = undefined /*out*/;
+            inputs["keyVaultProperties"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -150,9 +156,13 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceArgs {
     /**
-     * Properties of BYOK Encryption description
+     * Enumerates the possible value of keySource for Encryption
      */
-    readonly encryption?: pulumi.Input<inputs.servicebus.v20180101preview.Encryption>;
+    readonly keySource?: pulumi.Input<string>;
+    /**
+     * Properties of KeyVault
+     */
+    readonly keyVaultProperties?: pulumi.Input<inputs.servicebus.v20180101preview.KeyVaultProperties>;
     /**
      * The Geo-location where the resource lives
      */

@@ -21,7 +21,7 @@ type FirewallPolicyRuleGroup struct {
 	// Priority of the Firewall Policy Rule Group resource.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// The provisioning state of the firewall policy rule group resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Group of Firewall Policy rules.
 	Rules pulumi.ArrayOutput `pulumi:"rules"`
 	// Rule Group type.
@@ -134,8 +134,6 @@ type firewallPolicyRuleGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// Priority of the Firewall Policy Rule Group resource.
 	Priority *int `pulumi:"priority"`
-	// The provisioning state of the firewall policy rule group resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the FirewallPolicyRuleGroup.
@@ -154,8 +152,6 @@ type FirewallPolicyRuleGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// Priority of the Firewall Policy Rule Group resource.
 	Priority pulumi.IntPtrInput
-	// The provisioning state of the firewall policy rule group resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the FirewallPolicyRuleGroup.

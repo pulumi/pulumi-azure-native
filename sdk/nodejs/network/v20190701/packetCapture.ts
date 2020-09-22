@@ -55,7 +55,7 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * The provisioning state of the packet capture session.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Describes the storage location for a packet capture session.
      */

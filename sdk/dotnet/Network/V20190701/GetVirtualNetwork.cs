@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// <summary>
         /// The provisioning state of the virtual network resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The resourceGuid property of the Virtual Network resource.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? resourceGuid,
 

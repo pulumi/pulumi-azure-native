@@ -55,7 +55,7 @@ export interface GetExpressRouteConnectionResult {
     /**
      * The provisioning state of the resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The routing weight associated to the connection.
      */

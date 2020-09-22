@@ -11,8 +11,6 @@ from ... import _utilities, _tables
 __all__ = [
     'ClusterSkuArgs',
     'ConnectionStateArgs',
-    'EncryptionArgs',
-    'IdentityArgs',
     'KeyVaultPropertiesArgs',
     'PrivateEndpointArgs',
     'SkuArgs',
@@ -95,102 +93,6 @@ class ConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class EncryptionArgs:
-    def __init__(__self__, *,
-                 key_source: Optional[pulumi.Input[str]] = None,
-                 key_vault_properties: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]] = None):
-        """
-        Properties to configure Encryption
-        :param pulumi.Input[str] key_source: Enumerates the possible value of keySource for Encryption
-        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]] key_vault_properties: Properties of KeyVault
-        """
-        if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-
-    @property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input[str]]:
-        """
-        Enumerates the possible value of keySource for Encryption
-        """
-        return pulumi.get(self, "key_source")
-
-    @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_source", value)
-
-    @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]]:
-        """
-        Properties of KeyVault
-        """
-        return pulumi.get(self, "key_vault_properties")
-
-    @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]]):
-        pulumi.set(self, "key_vault_properties", value)
-
-
-@pulumi.input_type
-class IdentityArgs:
-    def __init__(__self__, *,
-                 principal_id: Optional[pulumi.Input[str]] = None,
-                 tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
-        """
-        Properties to configure Identity for Bring your Own Keys
-        :param pulumi.Input[str] principal_id: ObjectId from the KeyVault
-        :param pulumi.Input[str] tenant_id: TenantId from the KeyVault
-        :param pulumi.Input[str] type: Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-        """
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ObjectId from the KeyVault
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        TenantId from the KeyVault
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_id", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

@@ -16,13 +16,13 @@ type ScheduledQueryRule struct {
 
 	Actions ActionResponseArrayOutput `pulumi:"actions"`
 	// The rule criteria that defines the conditions of the scheduled query rule.
-	Criteria ScheduledQueryRuleCriteriaResponsePtrOutput `pulumi:"criteria"`
+	Criteria ScheduledQueryRuleCriteriaResponseOutput `pulumi:"criteria"`
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
-	EvaluationFrequency pulumi.StringPtrOutput `pulumi:"evaluationFrequency"`
+	EvaluationFrequency pulumi.StringOutput `pulumi:"evaluationFrequency"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
@@ -32,7 +32,7 @@ type ScheduledQueryRule struct {
 	// The list of resource id's that this scheduled query rule is scoped to.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
-	Severity pulumi.Float64PtrOutput `pulumi:"severity"`
+	Severity pulumi.Float64Output `pulumi:"severity"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
@@ -40,12 +40,21 @@ type ScheduledQueryRule struct {
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
-	WindowSize pulumi.StringPtrOutput `pulumi:"windowSize"`
+	WindowSize pulumi.StringOutput `pulumi:"windowSize"`
 }
 
 // NewScheduledQueryRule registers a new resource with the given unique name, arguments, and options.
 func NewScheduledQueryRule(ctx *pulumi.Context,
 	name string, args *ScheduledQueryRuleArgs, opts ...pulumi.ResourceOption) (*ScheduledQueryRule, error) {
+	if args == nil || args.Criteria == nil {
+		return nil, errors.New("missing required argument 'Criteria'")
+	}
+	if args == nil || args.Enabled == nil {
+		return nil, errors.New("missing required argument 'Enabled'")
+	}
+	if args == nil || args.EvaluationFrequency == nil {
+		return nil, errors.New("missing required argument 'EvaluationFrequency'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -54,6 +63,15 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	}
 	if args == nil || args.RuleName == nil {
 		return nil, errors.New("missing required argument 'RuleName'")
+	}
+	if args == nil || args.Scopes == nil {
+		return nil, errors.New("missing required argument 'Scopes'")
+	}
+	if args == nil || args.Severity == nil {
+		return nil, errors.New("missing required argument 'Severity'")
+	}
+	if args == nil || args.WindowSize == nil {
+		return nil, errors.New("missing required argument 'WindowSize'")
 	}
 	if args == nil {
 		args = &ScheduledQueryRuleArgs{}
@@ -155,13 +173,13 @@ func (ScheduledQueryRuleState) ElementType() reflect.Type {
 type scheduledQueryRuleArgs struct {
 	Actions []Action `pulumi:"actions"`
 	// The rule criteria that defines the conditions of the scheduled query rule.
-	Criteria *ScheduledQueryRuleCriteria `pulumi:"criteria"`
+	Criteria ScheduledQueryRuleCriteria `pulumi:"criteria"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
 	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
-	Enabled *bool `pulumi:"enabled"`
+	Enabled bool `pulumi:"enabled"`
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
-	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
+	EvaluationFrequency string `pulumi:"evaluationFrequency"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
@@ -173,26 +191,26 @@ type scheduledQueryRuleArgs struct {
 	// The list of resource id's that this scheduled query rule is scoped to.
 	Scopes []string `pulumi:"scopes"`
 	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
-	Severity *float64 `pulumi:"severity"`
+	Severity float64 `pulumi:"severity"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
 	TargetResourceTypes []string `pulumi:"targetResourceTypes"`
 	// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
-	WindowSize *string `pulumi:"windowSize"`
+	WindowSize string `pulumi:"windowSize"`
 }
 
 // The set of arguments for constructing a ScheduledQueryRule resource.
 type ScheduledQueryRuleArgs struct {
 	Actions ActionArrayInput
 	// The rule criteria that defines the conditions of the scheduled query rule.
-	Criteria ScheduledQueryRuleCriteriaPtrInput
+	Criteria ScheduledQueryRuleCriteriaInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
 	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
-	Enabled pulumi.BoolPtrInput
+	Enabled pulumi.BoolInput
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
-	EvaluationFrequency pulumi.StringPtrInput
+	EvaluationFrequency pulumi.StringInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
@@ -204,13 +222,13 @@ type ScheduledQueryRuleArgs struct {
 	// The list of resource id's that this scheduled query rule is scoped to.
 	Scopes pulumi.StringArrayInput
 	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
-	Severity pulumi.Float64PtrInput
+	Severity pulumi.Float64Input
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
 	TargetResourceTypes pulumi.StringArrayInput
 	// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
-	WindowSize pulumi.StringPtrInput
+	WindowSize pulumi.StringInput
 }
 
 func (ScheduledQueryRuleArgs) ElementType() reflect.Type {

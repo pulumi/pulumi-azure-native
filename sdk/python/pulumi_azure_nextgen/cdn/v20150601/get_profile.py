@@ -61,7 +61,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         Provisioning status of the profile.
         """

@@ -43,7 +43,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The connection status.
      */
-    public readonly connectionStatus!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
     /**
      * Egress bytes transferred.
      */
@@ -79,7 +79,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Id of the connected vpn site.
      */
@@ -130,7 +130,6 @@ export class VpnConnection extends pulumi.CustomResource {
             }
             inputs["connectionBandwidth"] = args ? args.connectionBandwidth : undefined;
             inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["connectionStatus"] = args ? args.connectionStatus : undefined;
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
             inputs["enableRateLimiting"] = args ? args.enableRateLimiting : undefined;
@@ -138,7 +137,6 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["remoteVpnSite"] = args ? args.remoteVpnSite : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routingWeight"] = args ? args.routingWeight : undefined;
@@ -147,9 +145,11 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
             inputs["vpnConnectionProtocolType"] = args ? args.vpnConnectionProtocolType : undefined;
             inputs["vpnLinkConnections"] = args ? args.vpnLinkConnections : undefined;
+            inputs["connectionStatus"] = undefined /*out*/;
             inputs["egressBytesTransferred"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["ingressBytesTransferred"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         } else {
             inputs["connectionBandwidth"] = undefined /*out*/;
             inputs["connectionStatus"] = undefined /*out*/;
@@ -196,10 +196,6 @@ export interface VpnConnectionArgs {
      */
     readonly connectionName: pulumi.Input<string>;
     /**
-     * The connection status.
-     */
-    readonly connectionStatus?: pulumi.Input<string>;
-    /**
      * EnableBgp flag.
      */
     readonly enableBgp?: pulumi.Input<boolean>;
@@ -227,10 +223,6 @@ export interface VpnConnectionArgs {
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Id of the connected vpn site.
      */

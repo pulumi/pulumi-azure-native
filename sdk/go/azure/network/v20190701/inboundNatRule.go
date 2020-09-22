@@ -35,7 +35,7 @@ type InboundNatRule struct {
 	// The reference to the transport protocol used by the load balancing rule.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// The provisioning state of the inbound NAT rule resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -240,8 +240,6 @@ type inboundNatRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// The reference to the transport protocol used by the load balancing rule.
 	Protocol *string `pulumi:"protocol"`
-	// The provisioning state of the inbound NAT rule resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -272,8 +270,6 @@ type InboundNatRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The reference to the transport protocol used by the load balancing rule.
 	Protocol pulumi.StringPtrInput
-	// The provisioning state of the inbound NAT rule resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

@@ -75,12 +75,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
-        /// <summary>
-        /// The provisioning state of the inbound NAT rule resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
         public InboundNatRuleArgs()
         {
         }

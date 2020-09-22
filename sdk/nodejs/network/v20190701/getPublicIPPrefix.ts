@@ -71,7 +71,7 @@ export interface GetPublicIPPrefixResult {
     /**
      * The provisioning state of the public IP prefix resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The public IP address version.
      */
