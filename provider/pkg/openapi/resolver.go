@@ -102,8 +102,80 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 		return &Schema{ctx, s}, nil
 	}
 
-	schema := ptr.value.(spec.Schema)
-	return &Schema{ptr.ReferenceContext, &schema}, nil
+	resolvedSchema := ptr.value.(spec.Schema)
+
+	// JSON Reference spec demands that all attributes sibling to a $ref are ignored:
+	// > Any members other than "$ref" in a JSON Reference object SHALL be ignored.
+	// https://tools.ietf.org/html/draft-pbryan-zyp-json-ref-03#section-3
+	// ---------
+	// Open API Spec v3 demands the same:
+	// > Any sibling elements of a $ref are ignored. This is because $ref works by replacing itself and
+	// > everything on its level with the definition it is pointing at.
+	// https://swagger.io/docs/specification/using-ref/#sibling
+	// ---------
+	// However, Open API Spec v2 doesn't seem to define this rule. Azure API specs use a lot
+	// of overrides with sibling attributes, so we should take those into account.
+
+	// This group contains the attributes that we know are commonly overridden:
+	// Default, ReadOnly, Required, and Extensions.
+	// If the source spec has a value, we merge that value in the resulting specs.
+	if s.Default != nil {
+		resolvedSchema.Default = s.Default
+	}
+	resolvedSchema.ReadOnly = resolvedSchema.ReadOnly || s.ReadOnly
+	if len(s.Required) > 0 {
+		resolvedSchema.Required = s.Required
+	}
+	if len(s.Extensions) > 0 {
+		if resolvedSchema.Extensions == nil {
+			resolvedSchema.Extensions = s.Extensions
+		} else {
+			for k, v := range s.Extensions {
+				resolvedSchema.Extensions[k] = v
+			}
+		}
+	}
+
+	// All the other properties aren't currently overridden. We add an assertion, so that
+	// if a new specification does override a value, we can catch this and decide what to do further.
+	if s.Maximum != nil {
+		return nil, errors.New("'Maximum' defined as a sibling to a $ref")
+	}
+	if s.Minimum != nil {
+		return nil, errors.New("'Minimum' defined as a sibling to a $ref")
+	}
+	if s.MaxLength != nil {
+		return nil, errors.New("'MaxLength' defined as a sibling to a $ref")
+	}
+	if s.MinLength != nil {
+		return nil, errors.New("'MinLength' defined as a sibling to a $ref")
+	}
+	if len(s.Pattern) > 0 {
+		return nil, errors.New("'Pattern' defined as a sibling to a $ref")
+	}
+	if len(s.Discriminator) > 0 {
+		return nil, errors.New("'Discriminator' defined as a sibling to a $ref")
+	}
+	if len(s.Enum) > 0 {
+		return nil, errors.New("'Enum' defined as a sibling to a $ref")
+	}
+	if s.Items != nil {
+		return nil, errors.New("'Items' defined as a sibling to a $ref")
+	}
+	if len(s.AllOf) > 0 {
+		return nil, errors.New("'AllOf' defined as a sibling to a $ref")
+	}
+	if s.Properties != nil {
+		return nil, errors.New("'Properties' defined as a sibling to a $ref")
+	}
+	if s.AdditionalProperties != nil {
+		return nil, errors.New("'AdditionalProperties' defined as a sibling to a $ref")
+	}
+
+	// Note that a bunch of other Open API schema properties isn't validated above
+	// because those aren't used in our code generation, or in Azure specs in general.
+
+	return &Schema{ptr.ReferenceContext, &resolvedSchema}, nil
 }
 
 // FindSubtypes returns a slice of schemas, each schema is a reference to
