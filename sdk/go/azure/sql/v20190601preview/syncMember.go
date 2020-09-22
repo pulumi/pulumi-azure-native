@@ -22,6 +22,8 @@ type SyncMember struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Password of the member database in the sync member.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
+	PrivateEndpointName pulumi.StringOutput `pulumi:"privateEndpointName"`
 	// Server name of the member database in the sync member
 	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
 	// SQL Server database id of the sync member.
@@ -99,6 +101,8 @@ type syncMemberState struct {
 	Name *string `pulumi:"name"`
 	// Password of the member database in the sync member.
 	Password *string `pulumi:"password"`
+	// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
+	PrivateEndpointName *string `pulumi:"privateEndpointName"`
 	// Server name of the member database in the sync member
 	ServerName *string `pulumi:"serverName"`
 	// SQL Server database id of the sync member.
@@ -128,6 +132,8 @@ type SyncMemberState struct {
 	Name pulumi.StringPtrInput
 	// Password of the member database in the sync member.
 	Password pulumi.StringPtrInput
+	// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
+	PrivateEndpointName pulumi.StringPtrInput
 	// Server name of the member database in the sync member
 	ServerName pulumi.StringPtrInput
 	// SQL Server database id of the sync member.

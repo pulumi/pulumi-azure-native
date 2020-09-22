@@ -39,7 +39,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     /**
      * The encryption settings for a configuration store.
      */
-    public readonly encryption!: pulumi.Output<outputs.powerplatform.v20201030preview.ConfigurationPropertiesResponseEncryption | undefined>;
+    public readonly encryption!: pulumi.Output<outputs.powerplatform.v20201030preview.PropertiesResponseEncryption | undefined>;
     /**
      * The identity of the EnterprisePolicy.
      */
@@ -51,7 +51,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     /**
      * Settings concerning lockbox.
      */
-    public readonly lockbox!: pulumi.Output<outputs.powerplatform.v20201030preview.ConfigurationPropertiesResponseLockbox | undefined>;
+    public readonly lockbox!: pulumi.Output<outputs.powerplatform.v20201030preview.PropertiesResponseLockbox | undefined>;
     /**
      * Name of the EnterprisePolicy.
      */
@@ -123,7 +123,7 @@ export interface EnterprisePolicyArgs {
     /**
      * The encryption settings for a configuration store.
      */
-    readonly encryption?: pulumi.Input<inputs.powerplatform.v20201030preview.ConfigurationPropertiesEncryption>;
+    readonly encryption?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesEncryption>;
     /**
      * Name of the EnterprisePolicy.
      */
@@ -139,7 +139,7 @@ export interface EnterprisePolicyArgs {
     /**
      * Settings concerning lockbox.
      */
-    readonly lockbox?: pulumi.Input<inputs.powerplatform.v20201030preview.ConfigurationPropertiesLockbox>;
+    readonly lockbox?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesLockbox>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

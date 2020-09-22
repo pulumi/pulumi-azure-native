@@ -36,8 +36,8 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
         /// <summary>
         /// The URI of the managed hsm pool for performing operations on keys.
         /// </summary>
-        [Input("hsmPoolUri")]
-        public Input<string>? HsmPoolUri { get; set; }
+        [Input("hsmUri")]
+        public Input<string>? HsmUri { get; set; }
 
         [Input("initialAdminObjectIds")]
         private InputList<string>? _initialAdminObjectIds;

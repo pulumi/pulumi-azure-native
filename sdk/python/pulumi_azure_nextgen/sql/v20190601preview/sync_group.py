@@ -86,6 +86,7 @@ class SyncGroup(pulumi.CustomResource):
             __props__['use_private_link_connection'] = use_private_link_connection
             __props__['last_sync_time'] = None
             __props__['name'] = None
+            __props__['private_endpoint_name'] = None
             __props__['sync_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:SyncGroup")])
@@ -161,6 +162,14 @@ class SyncGroup(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointName")
+    def private_endpoint_name(self) -> pulumi.Output[str]:
+        """
+        Private endpoint name of the sync group if use private link connection is enabled.
+        """
+        return pulumi.get(self, "private_endpoint_name")
 
     @property
     @pulumi.getter

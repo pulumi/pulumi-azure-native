@@ -51,6 +51,12 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Private endpoint name of the sync group if use private link connection is enabled.
+        /// </summary>
+        [Output("privateEndpointName")]
+        public Output<string> PrivateEndpointName { get; private set; } = null!;
+
+        /// <summary>
         /// Sync schema of the sync group.
         /// </summary>
         [Output("schema")]

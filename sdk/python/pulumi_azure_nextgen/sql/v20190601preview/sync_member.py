@@ -91,6 +91,7 @@ class SyncMember(pulumi.CustomResource):
             __props__['use_private_link_connection'] = use_private_link_connection
             __props__['user_name'] = user_name
             __props__['name'] = None
+            __props__['private_endpoint_name'] = None
             __props__['sync_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:SyncMember")])
@@ -150,6 +151,14 @@ class SyncMember(pulumi.CustomResource):
         Password of the member database in the sync member.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="privateEndpointName")
+    def private_endpoint_name(self) -> pulumi.Output[str]:
+        """
+        Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
+        """
+        return pulumi.get(self, "private_endpoint_name")
 
     @property
     @pulumi.getter(name="serverName")

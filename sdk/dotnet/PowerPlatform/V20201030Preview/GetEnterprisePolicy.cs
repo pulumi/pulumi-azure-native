@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// The encryption settings for a configuration store.
         /// </summary>
-        public readonly Outputs.ConfigurationPropertiesResponseEncryption? Encryption;
+        public readonly Outputs.PropertiesResponseEncryption? Encryption;
         /// <summary>
         /// The identity of the EnterprisePolicy.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// Settings concerning lockbox.
         /// </summary>
-        public readonly Outputs.ConfigurationPropertiesResponseLockbox? Lockbox;
+        public readonly Outputs.PropertiesResponseLockbox? Lockbox;
         /// <summary>
         /// Name of the EnterprisePolicy.
         /// </summary>
@@ -74,13 +74,13 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
 
         [OutputConstructor]
         private GetEnterprisePolicyResult(
-            Outputs.ConfigurationPropertiesResponseEncryption? encryption,
+            Outputs.PropertiesResponseEncryption? encryption,
 
             Outputs.EnterprisePolicyIdentityResponse? identity,
 
             string location,
 
-            Outputs.ConfigurationPropertiesResponseLockbox? lockbox,
+            Outputs.PropertiesResponseLockbox? lockbox,
 
             string name,
 

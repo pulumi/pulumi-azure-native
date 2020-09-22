@@ -9,62 +9,14 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'ConfigurationPropertiesEncryptionArgs',
-    'ConfigurationPropertiesLockboxArgs',
     'EnterprisePolicyIdentityArgs',
     'KeyVaultPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'PropertiesEncryptionArgs',
+    'PropertiesLockboxArgs',
     'KeyPropertiesArgs',
     'SystemDataArgs',
 ]
-
-@pulumi.input_type
-class ConfigurationPropertiesEncryptionArgs:
-    def __init__(__self__, *,
-                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
-        """
-        The encryption settings for a configuration store.
-        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Key vault properties.
-        """
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-
-    @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
-        """
-        Key vault properties.
-        """
-        return pulumi.get(self, "key_vault_properties")
-
-    @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
-        pulumi.set(self, "key_vault_properties", value)
-
-
-@pulumi.input_type
-class ConfigurationPropertiesLockboxArgs:
-    def __init__(__self__, *,
-                 status: Optional[pulumi.Input[str]] = None):
-        """
-        Settings concerning lockbox.
-        :param pulumi.Input[str] status: lockbox configuration
-        """
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        lockbox configuration
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
 
 @pulumi.input_type
 class EnterprisePolicyIdentityArgs:
@@ -194,6 +146,54 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self) -> Optional[pulumi.Input[str]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class PropertiesEncryptionArgs:
+    def __init__(__self__, *,
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
+        """
+        The encryption settings for a configuration store.
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Key vault properties.
+        """
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+        """
+        Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+
+@pulumi.input_type
+class PropertiesLockboxArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        Settings concerning lockbox.
+        :param pulumi.Input[str] status: lockbox configuration
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        lockbox configuration
         """
         return pulumi.get(self, "status")
 

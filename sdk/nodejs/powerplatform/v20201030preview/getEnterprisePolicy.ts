@@ -38,7 +38,7 @@ export interface GetEnterprisePolicyResult {
     /**
      * The encryption settings for a configuration store.
      */
-    readonly encryption?: outputs.powerplatform.v20201030preview.ConfigurationPropertiesResponseEncryption;
+    readonly encryption?: outputs.powerplatform.v20201030preview.PropertiesResponseEncryption;
     /**
      * The identity of the EnterprisePolicy.
      */
@@ -50,7 +50,7 @@ export interface GetEnterprisePolicyResult {
     /**
      * Settings concerning lockbox.
      */
-    readonly lockbox?: outputs.powerplatform.v20201030preview.ConfigurationPropertiesResponseLockbox;
+    readonly lockbox?: outputs.powerplatform.v20201030preview.PropertiesResponseLockbox;
     /**
      * Name of the EnterprisePolicy.
      */

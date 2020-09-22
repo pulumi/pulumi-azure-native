@@ -36,6 +36,7 @@ from . import (
     certificateregistration,
     changeanalysis,
     cognitiveservices,
+    communication,
     compute,
     config,
     consumption,

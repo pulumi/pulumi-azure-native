@@ -51,6 +51,10 @@ export class SyncMember extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
+     * Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
+     */
+    public /*out*/ readonly privateEndpointName!: pulumi.Output<string>;
+    /**
      * Server name of the member database in the sync member
      */
     public readonly serverName!: pulumi.Output<string | undefined>;
@@ -126,6 +130,7 @@ export class SyncMember extends pulumi.CustomResource {
             inputs["usePrivateLinkConnection"] = args ? args.usePrivateLinkConnection : undefined;
             inputs["userName"] = args ? args.userName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointName"] = undefined /*out*/;
             inputs["syncState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -133,6 +138,7 @@ export class SyncMember extends pulumi.CustomResource {
             inputs["databaseType"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["password"] = undefined /*out*/;
+            inputs["privateEndpointName"] = undefined /*out*/;
             inputs["serverName"] = undefined /*out*/;
             inputs["sqlServerDatabaseId"] = undefined /*out*/;
             inputs["syncAgentId"] = undefined /*out*/;
