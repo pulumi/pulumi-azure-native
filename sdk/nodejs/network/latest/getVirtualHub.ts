@@ -86,7 +86,7 @@ export interface GetVirtualHubResult {
     /**
      * The routing state.
      */
-    readonly routingState?: string;
+    readonly routingState: string;
     /**
      * The securityPartnerProvider associated with this VirtualHub.
      */

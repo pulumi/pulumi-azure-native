@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the backend HTTP settings resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             string? protocol,
 
-            string? provisioningState,
+            string provisioningState,
 
             int? requestTimeout,
 

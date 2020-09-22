@@ -24,12 +24,6 @@ namespace Pulumi.AzureNextGen.Solutions.Latest.Inputs
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;
 
-        /// <summary>
-        /// The type of JIT schedule.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
         public JitSchedulingPolicyArgs()
         {
         }

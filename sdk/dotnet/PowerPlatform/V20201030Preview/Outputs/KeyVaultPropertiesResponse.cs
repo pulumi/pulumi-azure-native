@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
         /// <summary>
         /// The state of onboarding, which only appears in the response.
         /// </summary>
-        public readonly string? Status;
+        public readonly string Status;
 
         [OutputConstructor]
         private KeyVaultPropertiesResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
 
             Outputs.KeyPropertiesResponse? key,
 
-            string? status)
+            string status)
         {
             Id = id;
             Key = key;

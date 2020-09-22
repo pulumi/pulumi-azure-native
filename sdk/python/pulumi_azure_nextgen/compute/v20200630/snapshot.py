@@ -20,7 +20,6 @@ class Snapshot(pulumi.CustomResource):
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 disk_state: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -43,7 +42,6 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-        :param pulumi.Input[str] disk_state: The state of the snapshot.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         :param pulumi.Input[str] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
@@ -78,7 +76,6 @@ class Snapshot(pulumi.CustomResource):
             __props__['creation_data'] = creation_data
             __props__['disk_access_id'] = disk_access_id
             __props__['disk_size_gb'] = disk_size_gb
-            __props__['disk_state'] = disk_state
             __props__['encryption'] = encryption
             __props__['encryption_settings_collection'] = encryption_settings_collection
             __props__['hyper_v_generation'] = hyper_v_generation
@@ -97,6 +94,7 @@ class Snapshot(pulumi.CustomResource):
             __props__['snapshot_name'] = snapshot_name
             __props__['tags'] = tags
             __props__['disk_size_bytes'] = None
+            __props__['disk_state'] = None
             __props__['managed_by'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
@@ -163,7 +161,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskState")
-    def disk_state(self) -> pulumi.Output[Optional[str]]:
+    def disk_state(self) -> pulumi.Output[str]:
         """
         The state of the snapshot.
         """

@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview
 
             Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SkuResponse? sku,
 

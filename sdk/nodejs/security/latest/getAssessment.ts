@@ -51,7 +51,7 @@ export interface GetAssessmentResult {
     /**
      * Links relevant to the assessment
      */
-    readonly links?: outputs.security.latest.AssessmentLinksResponse;
+    readonly links: outputs.security.latest.AssessmentLinksResponse;
     /**
      * Describes properties of an assessment metadata.
      */

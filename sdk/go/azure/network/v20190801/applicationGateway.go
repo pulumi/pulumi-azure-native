@@ -51,7 +51,7 @@ type ApplicationGateway struct {
 	// Probes of the application gateway resource.
 	Probes ApplicationGatewayProbeResponseArrayOutput `pulumi:"probes"`
 	// The provisioning state of the application gateway resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 	RedirectConfigurations ApplicationGatewayRedirectConfigurationResponseArrayOutput `pulumi:"redirectConfigurations"`
 	// Request routing rules of the application gateway resource.
@@ -390,8 +390,6 @@ type applicationGatewayArgs struct {
 	Location *string `pulumi:"location"`
 	// Probes of the application gateway resource.
 	Probes []ApplicationGatewayProbe `pulumi:"probes"`
-	// The provisioning state of the application gateway resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 	RedirectConfigurations []ApplicationGatewayRedirectConfiguration `pulumi:"redirectConfigurations"`
 	// Request routing rules of the application gateway resource.
@@ -458,8 +456,6 @@ type ApplicationGatewayArgs struct {
 	Location pulumi.StringPtrInput
 	// Probes of the application gateway resource.
 	Probes ApplicationGatewayProbeArrayInput
-	// The provisioning state of the application gateway resource.
-	ProvisioningState pulumi.StringPtrInput
 	// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 	RedirectConfigurations ApplicationGatewayRedirectConfigurationArrayInput
 	// Request routing rules of the application gateway resource.

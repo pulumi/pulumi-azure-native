@@ -21,10 +21,16 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of BYOK Encryption description
+        /// Enumerates the possible value of keySource for Encryption
         /// </summary>
-        [Output("encryption")]
-        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
+        [Output("keySource")]
+        public Output<string?> KeySource { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of KeyVault
+        /// </summary>
+        [Output("keyVaultProperties")]
+        public Output<Outputs.KeyVaultPropertiesResponse?> KeyVaultProperties { get; private set; } = null!;
 
         /// <summary>
         /// The Geo-location where the resource lives
@@ -139,10 +145,16 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Properties of BYOK Encryption description
+        /// Enumerates the possible value of keySource for Encryption
         /// </summary>
-        [Input("encryption")]
-        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+        [Input("keySource")]
+        public Input<string>? KeySource { get; set; }
+
+        /// <summary>
+        /// Properties of KeyVault
+        /// </summary>
+        [Input("keyVaultProperties")]
+        public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
 
         /// <summary>
         /// The Geo-location where the resource lives

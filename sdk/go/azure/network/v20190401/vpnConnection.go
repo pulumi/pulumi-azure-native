@@ -17,7 +17,7 @@ type VpnConnection struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrOutput `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus pulumi.StringPtrOutput `pulumi:"connectionStatus"`
+	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
 	EgressBytesTransferred pulumi.IntOutput `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
@@ -35,7 +35,7 @@ type VpnConnection struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Id of the connected vpn site.
 	RemoteVpnSite SubResourceResponsePtrOutput `pulumi:"remoteVpnSite"`
 	// Routing weight for vpn connection.
@@ -229,8 +229,6 @@ type vpnConnectionArgs struct {
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
 	// The name of the connection.
 	ConnectionName string `pulumi:"connectionName"`
-	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Enable internet security.
@@ -245,8 +243,6 @@ type vpnConnectionArgs struct {
 	IpsecPolicies []IpsecPolicy `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Id of the connected vpn site.
 	RemoteVpnSite *SubResource `pulumi:"remoteVpnSite"`
 	// The resource group name of the VpnGateway.
@@ -269,8 +265,6 @@ type VpnConnectionArgs struct {
 	ConnectionBandwidth pulumi.IntPtrInput
 	// The name of the connection.
 	ConnectionName pulumi.StringInput
-	// The connection status.
-	ConnectionStatus pulumi.StringPtrInput
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrInput
 	// Enable internet security.
@@ -285,8 +279,6 @@ type VpnConnectionArgs struct {
 	IpsecPolicies IpsecPolicyArrayInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
 	// Id of the connected vpn site.
 	RemoteVpnSite SubResourcePtrInput
 	// The resource group name of the VpnGateway.

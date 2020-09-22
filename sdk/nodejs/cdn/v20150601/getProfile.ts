@@ -46,7 +46,7 @@ export interface GetProfileResult {
     /**
      * Provisioning status of the profile.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource status of the profile.
      */

@@ -45,12 +45,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The provisioning state of the VPN site link resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
         public VpnSiteLinkArgs()
         {
         }

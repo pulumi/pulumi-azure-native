@@ -27,8 +27,10 @@ type LookupNamespaceArgs struct {
 type LookupNamespaceResult struct {
 	// The time the namespace was created
 	CreatedAt string `pulumi:"createdAt"`
-	// Properties of BYOK Encryption description
-	Encryption *EncryptionResponse `pulumi:"encryption"`
+	// Enumerates the possible value of keySource for Encryption
+	KeySource *string `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 	// The Geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Identifier for Azure Insights metrics

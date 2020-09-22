@@ -25,18 +25,17 @@ class ClusterJobResponseResult(dict):
     """
     def __init__(__self__, *,
                  id: str,
-                 streaming_units: int,
-                 job_state: Optional[str] = None):
+                 job_state: str,
+                 streaming_units: int):
         """
         A streaming job.
         :param str id: Resource ID of the streaming job.
-        :param int streaming_units: The number of streaming units that are used by the streaming job.
         :param str job_state: The current execution state of the streaming job.
+        :param int streaming_units: The number of streaming units that are used by the streaming job.
         """
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "job_state", job_state)
         pulumi.set(__self__, "streaming_units", streaming_units)
-        if job_state is not None:
-            pulumi.set(__self__, "job_state", job_state)
 
     @property
     @pulumi.getter
@@ -47,20 +46,20 @@ class ClusterJobResponseResult(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="jobState")
+    def job_state(self) -> str:
+        """
+        The current execution state of the streaming job.
+        """
+        return pulumi.get(self, "job_state")
+
+    @property
     @pulumi.getter(name="streamingUnits")
     def streaming_units(self) -> int:
         """
         The number of streaming units that are used by the streaming job.
         """
         return pulumi.get(self, "streaming_units")
-
-    @property
-    @pulumi.getter(name="jobState")
-    def job_state(self) -> Optional[str]:
-        """
-        The current execution state of the streaming job.
-        """
-        return pulumi.get(self, "job_state")
 
 
 @pulumi.output_type
@@ -73,7 +72,7 @@ class ClusterPropertiesResponse(dict):
                  capacity_assigned: int,
                  cluster_id: str,
                  created_date: str,
-                 provisioning_state: Optional[str] = None):
+                 provisioning_state: str):
         """
         The properties associated with a Stream Analytics cluster.
         :param int capacity_allocated: Represents the number of streaming units currently being used on the cluster.
@@ -86,8 +85,7 @@ class ClusterPropertiesResponse(dict):
         pulumi.set(__self__, "capacity_assigned", capacity_assigned)
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "created_date", created_date)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="capacityAllocated")
@@ -123,7 +121,7 @@ class ClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
         """

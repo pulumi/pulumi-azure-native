@@ -28,8 +28,7 @@ const resourceGroup = new resources.ResourceGroup("spark-rg", {
 const storageAccount = new storage.StorageAccount("sparksa", {
     resourceGroupName: resourceGroup.name,
     sku: {
-        name: "Standard_LRS",
-        tier: "Standard",
+        name: "Standard_LRS"
     },
     accountName: randomString.result,
     location: location,

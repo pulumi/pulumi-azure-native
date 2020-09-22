@@ -79,7 +79,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
     /**
      * The provisioning state of the private link service.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -117,7 +117,6 @@ export class PrivateLinkService extends pulumi.CustomResource {
             inputs["loadBalancerFrontendIpConfigurations"] = args ? args.loadBalancerFrontendIpConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -125,6 +124,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
             inputs["alias"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["alias"] = undefined /*out*/;
@@ -191,10 +191,6 @@ export interface PrivateLinkServiceArgs {
      * An array of list about connections to the private endpoint.
      */
     readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190601.PrivateEndpointConnection>[]>;
-    /**
-     * The provisioning state of the private link service.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

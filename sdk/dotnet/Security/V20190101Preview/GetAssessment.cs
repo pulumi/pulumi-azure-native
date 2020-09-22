@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// <summary>
         /// Links relevant to the assessment
         /// </summary>
-        public readonly Outputs.AssessmentLinksResponse? Links;
+        public readonly Outputs.AssessmentLinksResponse Links;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
 
             string displayName,
 
-            Outputs.AssessmentLinksResponse? links,
+            Outputs.AssessmentLinksResponse links,
 
             string name,
 

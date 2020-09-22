@@ -301,16 +301,23 @@ class WorkspaceCustomBooleanParameterResponse(dict):
     The value which should be used for this field.
     """
     def __init__(__self__, *,
-                 value: bool,
-                 type: Optional[str] = None):
+                 type: str,
+                 value: bool):
         """
         The value which should be used for this field.
-        :param bool value: The value which should be used for this field.
         :param str type: The type of variable that this is
+        :param bool value: The value which should be used for this field.
         """
+        pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -319,14 +326,6 @@ class WorkspaceCustomBooleanParameterResponse(dict):
         The value which should be used for this field.
         """
         return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The type of variable that this is
-        """
-        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -448,16 +447,23 @@ class WorkspaceCustomStringParameterResponse(dict):
     The Value.
     """
     def __init__(__self__, *,
-                 value: str,
-                 type: Optional[str] = None):
+                 type: str,
+                 value: str):
         """
         The Value.
-        :param str value: The value which should be used for this field.
         :param str type: The type of variable that this is
+        :param str value: The value which should be used for this field.
         """
+        pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -466,14 +472,6 @@ class WorkspaceCustomStringParameterResponse(dict):
         The value which should be used for this field.
         """
         return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The type of variable that this is
-        """
-        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -485,21 +483,20 @@ class WorkspaceEncryptionParameterResponse(dict):
     The object that contains details of encryption used on the workspace.
     """
     def __init__(__self__, *,
-                 type: Optional[str] = None,
+                 type: str,
                  value: Optional['outputs.EncryptionResponse'] = None):
         """
         The object that contains details of encryption used on the workspace.
         :param str type: The type of variable that this is
         :param 'EncryptionResponseArgs' value: The value which should be used for this field.
         """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         """
         The type of variable that this is
         """

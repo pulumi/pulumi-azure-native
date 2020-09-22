@@ -19,7 +19,7 @@ type CustomDomain struct {
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning status of the custom domain.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource status of the custom domain.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// Resource type

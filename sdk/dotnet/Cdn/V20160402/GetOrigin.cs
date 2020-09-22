@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
         /// <summary>
         /// Provisioning status of the origin.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource status of the origin.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             string resourceState,
 

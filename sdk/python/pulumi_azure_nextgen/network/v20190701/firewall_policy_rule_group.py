@@ -21,7 +21,6 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleArgs'], pulumi.InputType['FirewallPolicyNatRuleArgs']]]]]] = None,
@@ -37,7 +36,6 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[int] priority: Priority of the Firewall Policy Rule Group resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the firewall policy rule group resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_group_name: The name of the FirewallPolicyRuleGroup.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleArgs'], pulumi.InputType['FirewallPolicyNatRuleArgs']]]]] rules: Group of Firewall Policy rules.
@@ -65,7 +63,6 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
             __props__['id'] = id
             __props__['name'] = name
             __props__['priority'] = priority
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -74,6 +71,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
             __props__['rule_group_name'] = rule_group_name
             __props__['rules'] = rules
             __props__['etag'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190601:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190801:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190901:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FirewallPolicyRuleGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -127,7 +125,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the firewall policy rule group resource.
         """

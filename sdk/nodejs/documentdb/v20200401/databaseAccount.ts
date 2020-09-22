@@ -127,11 +127,11 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Whether requests from Public Network are allowed
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
     /**
      * An array that contains of the read locations enabled for the Cosmos DB account.
      */
@@ -194,7 +194,6 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["locations"] = args ? args.locations : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
@@ -203,6 +202,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["readLocations"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["writeLocations"] = undefined /*out*/;
@@ -330,10 +330,6 @@ export interface DatabaseAccountArgs {
      * An array that contains the georeplication locations enabled for the Cosmos DB account.
      */
     readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.v20200401.Location>[]>;
-    /**
-     * Whether requests from Public Network are allowed
-     */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -58,7 +58,7 @@ export interface GetExpressRouteGatewayResult {
     /**
      * The provisioning state of the express route gateway resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

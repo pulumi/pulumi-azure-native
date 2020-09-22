@@ -51,12 +51,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         [Input("nextHopType", required: true)]
         public Input<string> NextHopType { get; set; } = null!;
 
-        /// <summary>
-        /// The provisioning state of the route resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
         public RouteArgs()
         {
         }

@@ -89,7 +89,7 @@ class GetVpnConnectionResult:
 
     @property
     @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> Optional[str]:
+    def connection_status(self) -> str:
         """
         The connection status.
         """

@@ -114,7 +114,7 @@ class GetVirtualWanResult:
 
     @property
     @pulumi.getter(name="office365LocalBreakoutCategory")
-    def office365_local_breakout_category(self) -> Optional[str]:
+    def office365_local_breakout_category(self) -> str:
         """
         The office local breakout category.
         """
@@ -130,7 +130,7 @@ class GetVirtualWanResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the virtual WAN resource.
         """

@@ -75,7 +75,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * The provisioning state of the virtual network resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The resourceGuid property of the Virtual Network resource.
      */
@@ -122,7 +122,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
@@ -130,6 +129,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["addressSpace"] = undefined /*out*/;
@@ -201,10 +201,6 @@ export interface VirtualNetworkArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the virtual network resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

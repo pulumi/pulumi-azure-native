@@ -25,7 +25,7 @@ type EnterprisePolicy struct {
 	// Name of the EnterprisePolicy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrOutput `pulumi:"systemData"`
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -116,12 +116,8 @@ type enterprisePolicyArgs struct {
 	Identity *EnterprisePolicyIdentity `pulumi:"identity"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
-	// Settings concerning lockbox.
-	Lockbox *PropertiesLockbox `pulumi:"lockbox"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemData `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -136,12 +132,8 @@ type EnterprisePolicyArgs struct {
 	Identity EnterprisePolicyIdentityPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
-	// Settings concerning lockbox.
-	Lockbox PropertiesLockboxPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

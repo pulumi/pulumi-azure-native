@@ -83,7 +83,7 @@ export interface GetLoadBalancerResult {
     /**
      * The provisioning state of the load balancer resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The resource GUID property of the load balancer resource.
      */

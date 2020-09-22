@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The provisioning state of the inbound NAT rule resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string? protocol,
 
-            string? provisioningState,
+            string provisioningState,
 
             string type)
         {

@@ -63,7 +63,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The statistics of the database.
      */
-    public readonly statistics!: pulumi.Output<outputs.kusto.v20170907privatepreview.DatabaseStatisticsResponse | undefined>;
+    public /*out*/ readonly statistics!: pulumi.Output<outputs.kusto.v20170907privatepreview.DatabaseStatisticsResponse>;
     /**
      * Resource tags.
      */
@@ -104,11 +104,11 @@ export class Database extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["softDeletePeriodInDays"] = args ? args.softDeletePeriodInDays : undefined;
-            inputs["statistics"] = args ? args.statistics : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["statistics"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -162,10 +162,6 @@ export interface DatabaseArgs {
      * The number of days data should be kept before it stops being accessible to queries.
      */
     readonly softDeletePeriodInDays: pulumi.Input<number>;
-    /**
-     * The statistics of the database.
-     */
-    readonly statistics?: pulumi.Input<inputs.kusto.v20170907privatepreview.DatabaseStatistics>;
     /**
      * Resource tags.
      */

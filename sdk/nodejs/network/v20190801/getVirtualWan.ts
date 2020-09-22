@@ -62,11 +62,11 @@ export interface GetVirtualWanResult {
     /**
      * The office local breakout category.
      */
-    readonly office365LocalBreakoutCategory?: string;
+    readonly office365LocalBreakoutCategory: string;
     /**
      * The provisioning state of the virtual WAN resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

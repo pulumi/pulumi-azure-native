@@ -25,7 +25,7 @@ type NetworkSecurityGroup struct {
 	// A collection of references to network interfaces.
 	NetworkInterfaces NetworkInterfaceResponseArrayOutput `pulumi:"networkInterfaces"`
 	// The provisioning state of the network security group resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource GUID property of the network security group resource.
 	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
 	// A collection of security rules of the network security group.
@@ -238,8 +238,6 @@ type networkSecurityGroupArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the network security group.
 	NetworkSecurityGroupName string `pulumi:"networkSecurityGroupName"`
-	// The provisioning state of the network security group resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the network security group resource.
@@ -262,8 +260,6 @@ type NetworkSecurityGroupArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the network security group.
 	NetworkSecurityGroupName pulumi.StringInput
-	// The provisioning state of the network security group resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource GUID property of the network security group resource.

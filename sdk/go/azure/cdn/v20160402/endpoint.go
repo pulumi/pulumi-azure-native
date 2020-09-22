@@ -35,7 +35,7 @@ type Endpoint struct {
 	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
 	Origins DeepCreatedOriginResponseArrayOutput `pulumi:"origins"`
 	// Provisioning status of the endpoint.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Defines the query string caching behavior.
 	QueryStringCachingBehavior pulumi.StringPtrOutput `pulumi:"queryStringCachingBehavior"`
 	// Resource status of the endpoint.

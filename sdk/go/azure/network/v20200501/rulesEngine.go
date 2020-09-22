@@ -17,7 +17,7 @@ type RulesEngine struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource status.
-	ResourceState pulumi.StringPtrOutput `pulumi:"resourceState"`
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// A list of rules that define a particular Rules Engine Configuration.
 	Rules RulesEngineRuleResponseArrayOutput `pulumi:"rules"`
 	// Resource type.
@@ -103,8 +103,6 @@ type rulesEngineArgs struct {
 	FrontDoorName string `pulumi:"frontDoorName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
 	// A list of rules that define a particular Rules Engine Configuration.
 	Rules []RulesEngineRule `pulumi:"rules"`
 	// Name of the Rules Engine which is unique within the Front Door.
@@ -117,8 +115,6 @@ type RulesEngineArgs struct {
 	FrontDoorName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// Resource status.
-	ResourceState pulumi.StringPtrInput
 	// A list of rules that define a particular Rules Engine Configuration.
 	Rules RulesEngineRuleArrayInput
 	// Name of the Rules Engine which is unique within the Front Door.

@@ -59,7 +59,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Provisioning state of the private endpoint connection.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Tags assigned to the key vault resource.
      */

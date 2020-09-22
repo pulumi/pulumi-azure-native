@@ -58,7 +58,7 @@ export interface GetVpnGatewayResult {
     /**
      * The provisioning state of the VPN gateway resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

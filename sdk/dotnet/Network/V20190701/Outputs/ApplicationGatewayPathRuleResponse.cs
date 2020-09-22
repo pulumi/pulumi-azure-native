@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the path rule resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Redirect configuration resource of URL path map path rule.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             ImmutableArray<string> paths,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SubResourceResponse? redirectConfiguration,
 

@@ -40,7 +40,7 @@ type LookupVirtualHubResult struct {
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway *SubResourceResponse `pulumi:"p2SVpnGateway"`
 	// The provisioning state of the virtual hub resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The routeTable associated with this virtual hub.
 	RouteTable *VirtualHubRouteTableResponse `pulumi:"routeTable"`
 	// The Security Provider name.

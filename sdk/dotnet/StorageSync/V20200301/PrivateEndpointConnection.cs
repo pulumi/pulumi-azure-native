@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -104,12 +104,6 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301
         /// </summary>
         [Input("privateLinkServiceConnectionState", required: true)]
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the private endpoint connection resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

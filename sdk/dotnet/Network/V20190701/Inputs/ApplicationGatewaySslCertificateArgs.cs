@@ -52,12 +52,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The provisioning state of the SSL certificate resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Base-64 encoded Public cert data corresponding to pfx specified in data. Only applicable in GET request.
         /// </summary>
         [Input("publicCertData")]

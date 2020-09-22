@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Outputs
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Collection of rules used by a application rule collection.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Outputs
 
             int? priority,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableArray<Outputs.AzureFirewallApplicationRuleResponse> rules)
         {

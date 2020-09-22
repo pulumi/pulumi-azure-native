@@ -44,7 +44,7 @@ type LookupAzureFirewallResult struct {
 	// Collection of network rule collections used by Azure Firewall.
 	NetworkRuleCollections []AzureFirewallNetworkRuleCollectionResponse `pulumi:"networkRuleCollections"`
 	// The provisioning state of the Azure firewall resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The Azure Firewall Resource SKU.
 	Sku *AzureFirewallSkuResponse `pulumi:"sku"`
 	// Resource tags.

@@ -659,7 +659,7 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // Defines the job status.
 type JobStatusResponse struct {
 	// Defines the job name.
-	JobName *string `pulumi:"jobName"`
+	JobName string `pulumi:"jobName"`
 	// Gets or sets the monitoring job percentage.
 	JobProgress string `pulumi:"jobProgress"`
 }
@@ -678,7 +678,7 @@ type JobStatusResponseInput interface {
 // Defines the job status.
 type JobStatusResponseArgs struct {
 	// Defines the job name.
-	JobName pulumi.StringPtrInput `pulumi:"jobName"`
+	JobName pulumi.StringInput `pulumi:"jobName"`
 	// Gets or sets the monitoring job percentage.
 	JobProgress pulumi.StringInput `pulumi:"jobProgress"`
 }
@@ -762,8 +762,8 @@ func (o JobStatusResponseOutput) ToJobStatusResponsePtrOutputWithContext(ctx con
 }
 
 // Defines the job name.
-func (o JobStatusResponseOutput) JobName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobStatusResponse) *string { return v.JobName }).(pulumi.StringPtrOutput)
+func (o JobStatusResponseOutput) JobName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStatusResponse) string { return v.JobName }).(pulumi.StringOutput)
 }
 
 // Gets or sets the monitoring job percentage.
@@ -795,7 +795,7 @@ func (o JobStatusResponsePtrOutput) JobName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.JobName
+		return &v.JobName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1855,8 +1855,6 @@ func (o ManualResolutionPropertiesResponsePtrOutput) TargetId() pulumi.StringPtr
 
 // Defines the move collection properties.
 type MoveCollectionProperties struct {
-	// Defines the provisioning states.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets the source region.
 	SourceRegion string `pulumi:"sourceRegion"`
 	// Gets or sets the target region.
@@ -1876,8 +1874,6 @@ type MoveCollectionPropertiesInput interface {
 
 // Defines the move collection properties.
 type MoveCollectionPropertiesArgs struct {
-	// Defines the provisioning states.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Gets or sets the source region.
 	SourceRegion pulumi.StringInput `pulumi:"sourceRegion"`
 	// Gets or sets the target region.
@@ -1962,11 +1958,6 @@ func (o MoveCollectionPropertiesOutput) ToMoveCollectionPropertiesPtrOutputWithC
 	}).(MoveCollectionPropertiesPtrOutput)
 }
 
-// Defines the provisioning states.
-func (o MoveCollectionPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MoveCollectionProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 // Gets or sets the source region.
 func (o MoveCollectionPropertiesOutput) SourceRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveCollectionProperties) string { return v.SourceRegion }).(pulumi.StringOutput)
@@ -1995,16 +1986,6 @@ func (o MoveCollectionPropertiesPtrOutput) Elem() MoveCollectionPropertiesOutput
 	return o.ApplyT(func(v *MoveCollectionProperties) MoveCollectionProperties { return *v }).(MoveCollectionPropertiesOutput)
 }
 
-// Defines the provisioning states.
-func (o MoveCollectionPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MoveCollectionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
 // Gets or sets the source region.
 func (o MoveCollectionPropertiesPtrOutput) SourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveCollectionProperties) *string {
@@ -2028,7 +2009,7 @@ func (o MoveCollectionPropertiesPtrOutput) TargetRegion() pulumi.StringPtrOutput
 // Defines the move collection properties.
 type MoveCollectionPropertiesResponse struct {
 	// Defines the provisioning states.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Gets or sets the source region.
 	SourceRegion string `pulumi:"sourceRegion"`
 	// Gets or sets the target region.
@@ -2049,7 +2030,7 @@ type MoveCollectionPropertiesResponseInput interface {
 // Defines the move collection properties.
 type MoveCollectionPropertiesResponseArgs struct {
 	// Defines the provisioning states.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Gets or sets the source region.
 	SourceRegion pulumi.StringInput `pulumi:"sourceRegion"`
 	// Gets or sets the target region.
@@ -2135,8 +2116,8 @@ func (o MoveCollectionPropertiesResponseOutput) ToMoveCollectionPropertiesRespon
 }
 
 // Defines the provisioning states.
-func (o MoveCollectionPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MoveCollectionPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o MoveCollectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v MoveCollectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Gets or sets the source region.
@@ -2173,7 +2154,7 @@ func (o MoveCollectionPropertiesResponsePtrOutput) ProvisioningState() pulumi.St
 		if v == nil {
 			return nil
 		}
-		return v.ProvisioningState
+		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2953,8 +2934,6 @@ type MoveResourceProperties struct {
 	DependsOnOverrides []MoveResourceDependencyOverride `pulumi:"dependsOnOverrides"`
 	// Gets or sets the existing target ARM Id of the resource.
 	ExistingTargetId *string `pulumi:"existingTargetId"`
-	// Defines the provisioning states.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets the resource settings.
 	ResourceSettings interface{} `pulumi:"resourceSettings"`
 	// Gets or sets the Source ARM Id of the resource.
@@ -2978,8 +2957,6 @@ type MoveResourcePropertiesArgs struct {
 	DependsOnOverrides MoveResourceDependencyOverrideArrayInput `pulumi:"dependsOnOverrides"`
 	// Gets or sets the existing target ARM Id of the resource.
 	ExistingTargetId pulumi.StringPtrInput `pulumi:"existingTargetId"`
-	// Defines the provisioning states.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Gets or sets the resource settings.
 	ResourceSettings pulumi.Input `pulumi:"resourceSettings"`
 	// Gets or sets the Source ARM Id of the resource.
@@ -3074,11 +3051,6 @@ func (o MoveResourcePropertiesOutput) ExistingTargetId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v MoveResourceProperties) *string { return v.ExistingTargetId }).(pulumi.StringPtrOutput)
 }
 
-// Defines the provisioning states.
-func (o MoveResourcePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MoveResourceProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 // Gets or sets the resource settings.
 func (o MoveResourcePropertiesOutput) ResourceSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v MoveResourceProperties) interface{} { return v.ResourceSettings }).(pulumi.AnyOutput)
@@ -3127,16 +3099,6 @@ func (o MoveResourcePropertiesPtrOutput) ExistingTargetId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the provisioning states.
-func (o MoveResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MoveResourceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
 // Gets or sets the resource settings.
 func (o MoveResourcePropertiesPtrOutput) ResourceSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *MoveResourceProperties) interface{} {
@@ -3170,7 +3132,7 @@ type MoveResourcePropertiesResponse struct {
 	// Defines the move resource status.
 	MoveStatus MoveResourcePropertiesResponseMoveStatus `pulumi:"moveStatus"`
 	// Defines the provisioning states.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Gets or sets the resource settings.
 	ResourceSettings interface{} `pulumi:"resourceSettings"`
 	// Gets or sets the Source ARM Id of the resource.
@@ -3205,7 +3167,7 @@ type MoveResourcePropertiesResponseArgs struct {
 	// Defines the move resource status.
 	MoveStatus MoveResourcePropertiesResponseMoveStatusInput `pulumi:"moveStatus"`
 	// Defines the provisioning states.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Gets or sets the resource settings.
 	ResourceSettings pulumi.Input `pulumi:"resourceSettings"`
 	// Gets or sets the Source ARM Id of the resource.
@@ -3322,8 +3284,8 @@ func (o MoveResourcePropertiesResponseOutput) MoveStatus() MoveResourcePropertie
 }
 
 // Defines the provisioning states.
-func (o MoveResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MoveResourcePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o MoveResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v MoveResourcePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Gets or sets the resource settings.
@@ -3422,7 +3384,7 @@ func (o MoveResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.Stri
 		if v == nil {
 			return nil
 		}
-		return v.ProvisioningState
+		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3607,7 +3569,7 @@ type MoveResourcePropertiesResponseMoveStatus struct {
 	// Defines the job status.
 	JobStatus *JobStatusResponse `pulumi:"jobStatus"`
 	// Defines the MoveResource states.
-	MoveState *string `pulumi:"moveState"`
+	MoveState string `pulumi:"moveState"`
 	// Gets the Target ARM Id of the resource.
 	TargetId string `pulumi:"targetId"`
 }
@@ -3630,7 +3592,7 @@ type MoveResourcePropertiesResponseMoveStatusArgs struct {
 	// Defines the job status.
 	JobStatus JobStatusResponsePtrInput `pulumi:"jobStatus"`
 	// Defines the MoveResource states.
-	MoveState pulumi.StringPtrInput `pulumi:"moveState"`
+	MoveState pulumi.StringInput `pulumi:"moveState"`
 	// Gets the Target ARM Id of the resource.
 	TargetId pulumi.StringInput `pulumi:"targetId"`
 }
@@ -3724,8 +3686,8 @@ func (o MoveResourcePropertiesResponseMoveStatusOutput) JobStatus() JobStatusRes
 }
 
 // Defines the MoveResource states.
-func (o MoveResourcePropertiesResponseMoveStatusOutput) MoveState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MoveResourcePropertiesResponseMoveStatus) *string { return v.MoveState }).(pulumi.StringPtrOutput)
+func (o MoveResourcePropertiesResponseMoveStatusOutput) MoveState() pulumi.StringOutput {
+	return o.ApplyT(func(v MoveResourcePropertiesResponseMoveStatus) string { return v.MoveState }).(pulumi.StringOutput)
 }
 
 // Gets the Target ARM Id of the resource.
@@ -3777,7 +3739,7 @@ func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) MoveState() pulumi.St
 		if v == nil {
 			return nil
 		}
-		return v.MoveState
+		return &v.MoveState
 	}).(pulumi.StringPtrOutput)
 }
 

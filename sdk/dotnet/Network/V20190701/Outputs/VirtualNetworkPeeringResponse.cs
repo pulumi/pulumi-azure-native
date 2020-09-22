@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the virtual network peering resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The reference of the remote virtual network address space.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             string? peeringState,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.AddressSpaceResponse? remoteAddressSpace,
 

@@ -67,7 +67,7 @@ export interface GetPrivateEndpointResult {
     /**
      * The provisioning state of the private endpoint resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */

@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         /// <summary>
         /// The provisioning state of the service endpoint resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The type of the endpoint service.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         private ServiceEndpointPropertiesFormatResponse(
             ImmutableArray<string> locations,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? service)
         {

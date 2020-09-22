@@ -56,7 +56,7 @@ export interface GetExpressRouteCircuitConnectionResult {
     /**
      * Express Route Circuit connection state.
      */
-    readonly circuitConnectionStatus?: string;
+    readonly circuitConnectionStatus: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

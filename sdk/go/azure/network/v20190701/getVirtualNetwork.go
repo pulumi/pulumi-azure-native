@@ -44,7 +44,7 @@ type LookupVirtualNetworkResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state of the virtual network resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The resourceGuid property of the Virtual Network resource.
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// A list of subnets in a Virtual Network.

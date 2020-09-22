@@ -91,7 +91,7 @@ export interface GetSecurityRuleResult {
     /**
      * The provisioning state of the security rule resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
      */

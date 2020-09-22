@@ -27,9 +27,9 @@ type VirtualWan struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The office local breakout category.
-	Office365LocalBreakoutCategory pulumi.StringPtrOutput `pulumi:"office365LocalBreakoutCategory"`
+	Office365LocalBreakoutCategory pulumi.StringOutput `pulumi:"office365LocalBreakoutCategory"`
 	// The provisioning state of the virtual WAN resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -205,10 +205,6 @@ type virtualWanArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The office local breakout category.
-	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
-	// The provisioning state of the virtual WAN resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the VirtualWan.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -229,10 +225,6 @@ type VirtualWanArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The office local breakout category.
-	Office365LocalBreakoutCategory pulumi.StringPtrInput
-	// The provisioning state of the virtual WAN resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the VirtualWan.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

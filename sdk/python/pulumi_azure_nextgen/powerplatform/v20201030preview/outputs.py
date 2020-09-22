@@ -74,21 +74,28 @@ class KeyVaultPropertiesResponse(dict):
     Settings concerning key vault encryption for a configuration store.
     """
     def __init__(__self__, *,
+                 status: str,
                  id: Optional[str] = None,
-                 key: Optional['outputs.KeyPropertiesResponse'] = None,
-                 status: Optional[str] = None):
+                 key: Optional['outputs.KeyPropertiesResponse'] = None):
         """
         Settings concerning key vault encryption for a configuration store.
+        :param str status: The state of onboarding, which only appears in the response.
         :param str id: Uri of KeyVault
         :param 'KeyPropertiesResponseArgs' key: Identity of the secret that includes name and version.
-        :param str status: The state of onboarding, which only appears in the response.
         """
+        pulumi.set(__self__, "status", status)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
             pulumi.set(__self__, "key", key)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The state of onboarding, which only appears in the response.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
@@ -105,14 +112,6 @@ class KeyVaultPropertiesResponse(dict):
         Identity of the secret that includes name and version.
         """
         return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        The state of onboarding, which only appears in the response.
-        """
-        return pulumi.get(self, "status")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -225,17 +224,16 @@ class PropertiesResponseLockbox(dict):
     Settings concerning lockbox.
     """
     def __init__(__self__, *,
-                 status: Optional[str] = None):
+                 status: str):
         """
         Settings concerning lockbox.
         :param str status: lockbox configuration
         """
-        if status is not None:
-            pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> str:
         """
         lockbox configuration
         """

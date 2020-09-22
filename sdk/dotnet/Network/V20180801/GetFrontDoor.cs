@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// Resource status of the Front Door.
         /// </summary>
-        public readonly string? ResourceState;
+        public readonly string ResourceState;
         /// <summary>
         /// Routing rules associated with this Front Door.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string provisioningState,
 
-            string? resourceState,
+            string resourceState,
 
             ImmutableArray<Outputs.RoutingRuleResponse> routingRules,
 

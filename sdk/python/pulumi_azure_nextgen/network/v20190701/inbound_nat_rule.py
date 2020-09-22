@@ -29,7 +29,6 @@ class InboundNatRule(pulumi.CustomResource):
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -51,7 +50,6 @@ class InboundNatRule(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] protocol: The reference to the transport protocol used by the load balancing rule.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the inbound NAT rule resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         if __name__ is not None:
@@ -87,11 +85,11 @@ class InboundNatRule(pulumi.CustomResource):
             __props__['load_balancer_name'] = load_balancer_name
             __props__['name'] = name
             __props__['protocol'] = protocol
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['backend_ip_configuration'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170901:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20171001:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20171101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180701:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181001:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190901:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20191101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20191201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200301:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200501:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200601:InboundNatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -201,7 +199,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the inbound NAT rule resource.
         """

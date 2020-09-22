@@ -54,7 +54,7 @@ type LookupSubnetResult struct {
 	// Enable or Disable apply network policies on private link service in the subnet.
 	PrivateLinkServiceNetworkPolicies *string `pulumi:"privateLinkServiceNetworkPolicies"`
 	// The provisioning state of the subnet resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
 	Purpose string `pulumi:"purpose"`
 	// An array of references to the external resources using subnet.

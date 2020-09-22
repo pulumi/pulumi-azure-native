@@ -12654,20 +12654,34 @@ class PrivateEndpointConnectionResponse(dict):
     Private Endpoint Connection Response Properties.
     """
     def __init__(__self__, *,
-                 provisioning_state: str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
-                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+                 private_endpoint: 'outputs.PrivateEndpointResponse',
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str):
         """
         Private Endpoint Connection Response Properties.
-        :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
         :param 'PrivateEndpointResponseArgs' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Gets or sets private link service connection state.
+        :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
         """
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+        """
+        The Private Endpoint network resource that is linked to the Private Endpoint connection.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        Gets or sets private link service connection state.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -12676,22 +12690,6 @@ class PrivateEndpointConnectionResponse(dict):
         Gets or sets provisioning state of the private endpoint connection.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
-        """
-        The Private Endpoint network resource that is linked to the Private Endpoint connection.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
-        """
-        Gets or sets private link service connection state.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -12704,15 +12702,14 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  id: str,
-                 properties: Optional['outputs.PrivateEndpointConnectionResponse'] = None):
+                 properties: 'outputs.PrivateEndpointConnectionResponse'):
         """
         Information to be stored in Vault properties as an element of privateEndpointConnections List.
         :param str id: Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
         :param 'PrivateEndpointConnectionResponseArgs' properties: Private Endpoint Connection Response Properties.
         """
         pulumi.set(__self__, "id", id)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
@@ -12724,7 +12721,7 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional['outputs.PrivateEndpointConnectionResponse']:
+    def properties(self) -> 'outputs.PrivateEndpointConnectionResponse':
         """
         Private Endpoint Connection Response Properties.
         """

@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The provisioning state of the load balancer resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the load balancer resource.
@@ -292,12 +292,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
             get => _probes ?? (_probes = new InputList<Inputs.ProbeArgs>());
             set => _probes = value;
         }
-
-        /// <summary>
-        /// The provisioning state of the load balancer resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

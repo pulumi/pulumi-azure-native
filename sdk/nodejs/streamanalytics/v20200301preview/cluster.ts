@@ -51,7 +51,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The properties associated with a Stream Analytics cluster.
      */
-    public readonly properties!: pulumi.Output<outputs.streamanalytics.v20200301preview.ClusterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.streamanalytics.v20200301preview.ClusterPropertiesResponse>;
     /**
      * The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
      */
@@ -83,12 +83,12 @@ export class Cluster extends pulumi.CustomResource {
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -122,10 +122,6 @@ export interface ClusterArgs {
      * The geo-location where the resource lives
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The properties associated with a Stream Analytics cluster.
-     */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.v20200301preview.ClusterProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

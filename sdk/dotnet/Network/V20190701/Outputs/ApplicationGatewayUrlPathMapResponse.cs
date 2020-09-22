@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the URL path map resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             ImmutableArray<Outputs.ApplicationGatewayPathRuleResponse> pathRules,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? type)
         {

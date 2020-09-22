@@ -40,7 +40,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    public readonly criteria!: pulumi.Output<outputs.insights.v20200501preview.ScheduledQueryRuleCriteriaResponse | undefined>;
+    public readonly criteria!: pulumi.Output<outputs.insights.v20200501preview.ScheduledQueryRuleCriteriaResponse>;
     /**
      * The description of the scheduled query rule.
      */
@@ -48,11 +48,11 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean>;
     /**
      * How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
      */
-    public readonly evaluationFrequency!: pulumi.Output<string | undefined>;
+    public readonly evaluationFrequency!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -68,11 +68,11 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
-    public readonly scopes!: pulumi.Output<string[] | undefined>;
+    public readonly scopes!: pulumi.Output<string[]>;
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
      */
-    public readonly severity!: pulumi.Output<number | undefined>;
+    public readonly severity!: pulumi.Output<number>;
     /**
      * Resource tags.
      */
@@ -88,7 +88,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
      */
-    public readonly windowSize!: pulumi.Output<string | undefined>;
+    public readonly windowSize!: pulumi.Output<string>;
 
     /**
      * Create a ScheduledQueryRule resource with the given unique name, arguments, and options.
@@ -100,6 +100,15 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
+            if (!args || args.criteria === undefined) {
+                throw new Error("Missing required property 'criteria'");
+            }
+            if (!args || args.enabled === undefined) {
+                throw new Error("Missing required property 'enabled'");
+            }
+            if (!args || args.evaluationFrequency === undefined) {
+                throw new Error("Missing required property 'evaluationFrequency'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -108,6 +117,15 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             }
             if (!args || args.ruleName === undefined) {
                 throw new Error("Missing required property 'ruleName'");
+            }
+            if (!args || args.scopes === undefined) {
+                throw new Error("Missing required property 'scopes'");
+            }
+            if (!args || args.severity === undefined) {
+                throw new Error("Missing required property 'severity'");
+            }
+            if (!args || args.windowSize === undefined) {
+                throw new Error("Missing required property 'windowSize'");
             }
             inputs["actions"] = args ? args.actions : undefined;
             inputs["criteria"] = args ? args.criteria : undefined;
@@ -162,7 +180,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly criteria?: pulumi.Input<inputs.insights.v20200501preview.ScheduledQueryRuleCriteria>;
+    readonly criteria: pulumi.Input<inputs.insights.v20200501preview.ScheduledQueryRuleCriteria>;
     /**
      * The description of the scheduled query rule.
      */
@@ -170,11 +188,11 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled: pulumi.Input<boolean>;
     /**
      * How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
      */
-    readonly evaluationFrequency?: pulumi.Input<string>;
+    readonly evaluationFrequency: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -194,11 +212,11 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
      */
-    readonly severity?: pulumi.Input<number>;
+    readonly severity: pulumi.Input<number>;
     /**
      * Resource tags.
      */
@@ -210,5 +228,5 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
      */
-    readonly windowSize?: pulumi.Input<string>;
+    readonly windowSize: pulumi.Input<string>;
 }

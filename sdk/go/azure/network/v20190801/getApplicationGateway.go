@@ -62,7 +62,7 @@ type LookupApplicationGatewayResult struct {
 	// Probes of the application gateway resource.
 	Probes []ApplicationGatewayProbeResponse `pulumi:"probes"`
 	// The provisioning state of the application gateway resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 	RedirectConfigurations []ApplicationGatewayRedirectConfigurationResponse `pulumi:"redirectConfigurations"`
 	// Request routing rules of the application gateway resource.

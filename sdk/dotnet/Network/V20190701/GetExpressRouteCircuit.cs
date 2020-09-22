@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// <summary>
         /// The provisioning state of the express route circuit resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The ServiceKey.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 
             ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> peerings,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? serviceKey,
 

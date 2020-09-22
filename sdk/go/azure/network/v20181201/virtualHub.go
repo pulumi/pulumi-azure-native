@@ -27,7 +27,7 @@ type VirtualHub struct {
 	// The P2SVpnGateway associated with this VirtualHub
 	P2SVpnGateway SubResourceResponsePtrOutput `pulumi:"p2SVpnGateway"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The routeTable associated with this virtual hub.
 	RouteTable VirtualHubRouteTableResponsePtrOutput `pulumi:"routeTable"`
 	// Resource tags.
@@ -211,8 +211,6 @@ type virtualHubArgs struct {
 	Location string `pulumi:"location"`
 	// The P2SVpnGateway associated with this VirtualHub
 	P2SVpnGateway *SubResource `pulumi:"p2SVpnGateway"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The routeTable associated with this virtual hub.
@@ -241,8 +239,6 @@ type VirtualHubArgs struct {
 	Location pulumi.StringInput
 	// The P2SVpnGateway associated with this VirtualHub
 	P2SVpnGateway SubResourcePtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
 	// The routeTable associated with this virtual hub.

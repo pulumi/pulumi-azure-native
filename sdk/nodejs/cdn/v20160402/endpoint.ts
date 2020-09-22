@@ -79,7 +79,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Provisioning status of the endpoint.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Defines the query string caching behavior.
      */

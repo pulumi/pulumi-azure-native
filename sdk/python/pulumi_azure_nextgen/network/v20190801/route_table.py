@@ -21,7 +21,6 @@ class RouteTable(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_table_name: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteArgs']]]]] = None,
@@ -38,7 +37,6 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the route table resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] route_table_name: The name of the route table.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteArgs']]]] routes: Collection of routes contained within a route table.
@@ -65,7 +63,6 @@ class RouteTable(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['location'] = location
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -75,6 +72,7 @@ class RouteTable(pulumi.CustomResource):
             __props__['routes'] = routes
             __props__['tags'] = tags
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['subnets'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20150615:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20160330:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20160601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20160901:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20161201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170301:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170801:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20170901:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20171001:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20171101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180401:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180701:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20180801:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20181001:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20181101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20181201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190401:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190601:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190701:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20190901:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20191101:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20191201:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200301:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200401:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200501:RouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200601:RouteTable")])
@@ -137,7 +135,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the route table resource.
         """

@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         /// <summary>
         /// The provisioning state of the hub virtual network connection resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Reference to the remote virtual network.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
 
             string? name,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SubResourceResponse? remoteVirtualNetwork)
         {

@@ -87,12 +87,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         [Input("privateLinkServiceNetworkPolicies")]
         public Input<string>? PrivateLinkServiceNetworkPolicies { get; set; }
 
-        /// <summary>
-        /// The provisioning state of the subnet resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
         [Input("resourceNavigationLinks")]
         private InputList<Inputs.ResourceNavigationLinkArgs>? _resourceNavigationLinks;
 

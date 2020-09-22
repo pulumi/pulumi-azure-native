@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
         /// Provisioning status of the origin.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource status of the origin.

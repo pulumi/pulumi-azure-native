@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// The office local breakout category.
         /// </summary>
-        public readonly string? Office365LocalBreakoutCategory;
+        public readonly string Office365LocalBreakoutCategory;
         /// <summary>
         /// The provisioning state of the virtual WAN resource.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
             string name,
 
-            string? office365LocalBreakoutCategory,
+            string office365LocalBreakoutCategory,
 
             string provisioningState,
 

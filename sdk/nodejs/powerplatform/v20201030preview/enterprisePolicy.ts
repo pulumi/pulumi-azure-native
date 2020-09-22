@@ -51,7 +51,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     /**
      * Settings concerning lockbox.
      */
-    public readonly lockbox!: pulumi.Output<outputs.powerplatform.v20201030preview.PropertiesResponseLockbox | undefined>;
+    public /*out*/ readonly lockbox!: pulumi.Output<outputs.powerplatform.v20201030preview.PropertiesResponseLockbox | undefined>;
     /**
      * Name of the EnterprisePolicy.
      */
@@ -59,7 +59,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public readonly systemData!: pulumi.Output<outputs.powerplatform.v20201030preview.SystemDataResponse | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.powerplatform.v20201030preview.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -89,11 +89,11 @@ export class EnterprisePolicy extends pulumi.CustomResource {
             inputs["enterprisePolicyName"] = args ? args.enterprisePolicyName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["lockbox"] = args ? args.lockbox : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["systemData"] = args ? args.systemData : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["lockbox"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["encryption"] = undefined /*out*/;
@@ -137,17 +137,9 @@ export interface EnterprisePolicyArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Settings concerning lockbox.
-     */
-    readonly lockbox?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesLockbox>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData?: pulumi.Input<inputs.powerplatform.v20201030preview.SystemData>;
     /**
      * Resource tags.
      */

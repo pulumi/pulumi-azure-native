@@ -164,7 +164,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.OSProfileResponse']:
+    def os_profile(self) -> 'outputs.OSProfileResponse':
         """
         Specifies the operating system settings for the hybrid machine.
         """

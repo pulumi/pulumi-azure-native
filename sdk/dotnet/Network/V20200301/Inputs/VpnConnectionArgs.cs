@@ -22,12 +22,6 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Inputs
         public Input<int>? ConnectionBandwidth { get; set; }
 
         /// <summary>
-        /// The connection status.
-        /// </summary>
-        [Input("connectionStatus")]
-        public Input<string>? ConnectionStatus { get; set; }
-
-        /// <summary>
         /// The dead peer detection timeout for a vpn connection in seconds.
         /// </summary>
         [Input("dpdTimeoutSeconds")]

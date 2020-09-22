@@ -23,7 +23,7 @@ type PrivateEndpointConnection struct {
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Tags assigned to the key vault resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type of the key vault resource.
@@ -121,8 +121,6 @@ type privateEndpointConnectionArgs struct {
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Name of the resource group that contains the key vault.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the key vault.
@@ -135,8 +133,6 @@ type PrivateEndpointConnectionArgs struct {
 	PrivateEndpointConnectionName pulumi.StringInput
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringPtrInput
 	// Name of the resource group that contains the key vault.
 	ResourceGroupName pulumi.StringInput
 	// The name of the key vault.

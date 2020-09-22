@@ -16,12 +16,6 @@ namespace Pulumi.AzureNextGen.Databricks.V20180401.Inputs
     public sealed class WorkspaceEncryptionParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of variable that this is
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        /// <summary>
         /// The value which should be used for this field.
         /// </summary>
         [Input("value")]

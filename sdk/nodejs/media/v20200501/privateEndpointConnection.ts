@@ -51,7 +51,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The provisioning state of the private endpoint connection resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -82,9 +82,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
@@ -119,10 +119,6 @@ export interface PrivateEndpointConnectionArgs {
      * A collection of information about the state of the connection between service consumer and provider.
      */
     readonly privateLinkServiceConnectionState: pulumi.Input<inputs.media.v20200501.PrivateLinkServiceConnectionState>;
-    /**
-     * The provisioning state of the private endpoint connection resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group within the Azure subscription.
      */

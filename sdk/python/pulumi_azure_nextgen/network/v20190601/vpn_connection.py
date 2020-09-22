@@ -19,7 +19,6 @@ class VpnConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_bandwidth: Optional[pulumi.Input[int]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 connection_status: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  enable_rate_limiting: Optional[pulumi.Input[bool]] = None,
@@ -27,7 +26,6 @@ class VpnConnection(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  remote_vpn_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
@@ -46,7 +44,6 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] connection_bandwidth: Expected bandwidth in MBPS.
         :param pulumi.Input[str] connection_name: The name of the connection.
-        :param pulumi.Input[str] connection_status: The connection status.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] enable_internet_security: Enable internet security.
         :param pulumi.Input[bool] enable_rate_limiting: EnableBgp flag.
@@ -54,7 +51,6 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_vpn_site: Id of the connected vpn site.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[int] routing_weight: Routing weight for vpn connection.
@@ -85,7 +81,6 @@ class VpnConnection(pulumi.CustomResource):
             if connection_name is None:
                 raise TypeError("Missing required property 'connection_name'")
             __props__['connection_name'] = connection_name
-            __props__['connection_status'] = connection_status
             __props__['enable_bgp'] = enable_bgp
             __props__['enable_internet_security'] = enable_internet_security
             __props__['enable_rate_limiting'] = enable_rate_limiting
@@ -95,7 +90,6 @@ class VpnConnection(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ipsec_policies'] = ipsec_policies
             __props__['name'] = name
-            __props__['provisioning_state'] = provisioning_state
             __props__['remote_vpn_site'] = remote_vpn_site
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -106,9 +100,11 @@ class VpnConnection(pulumi.CustomResource):
             __props__['use_policy_based_traffic_selectors'] = use_policy_based_traffic_selectors
             __props__['vpn_connection_protocol_type'] = vpn_connection_protocol_type
             __props__['vpn_link_connections'] = vpn_link_connections
+            __props__['connection_status'] = None
             __props__['egress_bytes_transferred'] = None
             __props__['etag'] = None
             __props__['ingress_bytes_transferred'] = None
+            __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VpnConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VpnConnection, __self__).__init__(
@@ -145,7 +141,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> pulumi.Output[Optional[str]]:
+    def connection_status(self) -> pulumi.Output[str]:
         """
         The connection status.
         """
@@ -217,7 +213,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """

@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// The provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -179,12 +179,6 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// </summary>
         [Input("p2SVpnServerConfiguration")]
         public Input<Inputs.SubResourceArgs>? P2SVpnServerConfiguration { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the P2SVpnGateway.

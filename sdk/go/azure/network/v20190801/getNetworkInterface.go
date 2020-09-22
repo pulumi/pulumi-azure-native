@@ -52,7 +52,7 @@ type LookupNetworkInterfaceResult struct {
 	// A reference to the private endpoint to which the network interface is linked.
 	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
 	// The provisioning state of the network interface resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource GUID property of the network interface resource.
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.

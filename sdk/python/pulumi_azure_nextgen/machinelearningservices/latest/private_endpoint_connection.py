@@ -19,7 +19,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -32,7 +31,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the workspace
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the private endpoint connection resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -59,7 +57,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if private_link_service_connection_state is None:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -68,6 +65,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['private_endpoint'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200101:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200218preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200515preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -121,7 +119,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the private endpoint connection resource.
         """

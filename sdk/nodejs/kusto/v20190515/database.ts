@@ -59,7 +59,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The statistics of the database.
      */
-    public readonly statistics!: pulumi.Output<outputs.kusto.v20190515.DatabaseStatisticsResponse | undefined>;
+    public /*out*/ readonly statistics!: pulumi.Output<outputs.kusto.v20190515.DatabaseStatisticsResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -90,9 +90,9 @@ export class Database extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["softDeletePeriod"] = args ? args.softDeletePeriod : undefined;
-            inputs["statistics"] = args ? args.statistics : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["statistics"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["hotCachePeriod"] = undefined /*out*/;
@@ -144,8 +144,4 @@ export interface DatabaseArgs {
      * The time the data should be kept before it stops being accessible to queries in TimeSpan.
      */
     readonly softDeletePeriod?: pulumi.Input<string>;
-    /**
-     * The statistics of the database.
-     */
-    readonly statistics?: pulumi.Input<inputs.kusto.v20190515.DatabaseStatistics>;
 }

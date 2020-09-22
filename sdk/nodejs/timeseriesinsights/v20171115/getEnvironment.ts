@@ -71,7 +71,7 @@ export interface GetEnvironmentResult {
     /**
      * Provisioning state of the resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
      */
@@ -79,7 +79,7 @@ export interface GetEnvironmentResult {
     /**
      * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
      */
-    readonly status?: outputs.timeseriesinsights.v20171115.EnvironmentStatusResponse;
+    readonly status: outputs.timeseriesinsights.v20171115.EnvironmentStatusResponse;
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */

@@ -38,7 +38,7 @@ type LookupReferenceDataSetResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

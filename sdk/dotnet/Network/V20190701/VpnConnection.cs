@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The connection status.
         /// </summary>
         [Output("connectionStatus")]
-        public Output<string?> ConnectionStatus { get; private set; } = null!;
+        public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
         /// Egress bytes transferred.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The provisioning state of the VPN connection resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Id of the connected vpn site.
@@ -202,12 +202,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The connection status.
-        /// </summary>
-        [Input("connectionStatus")]
-        public Input<string>? ConnectionStatus { get; set; }
-
-        /// <summary>
         /// EnableBgp flag.
         /// </summary>
         [Input("enableBgp")]
@@ -254,12 +248,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the VPN connection resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Id of the connected vpn site.

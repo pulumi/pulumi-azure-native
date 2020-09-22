@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// <summary>
         /// Resource status.
         /// </summary>
-        public readonly string? ResourceState;
+        public readonly string ResourceState;
         /// <summary>
         /// The number of samples to consider for load balancing decisions
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             string? name,
 
-            string? resourceState,
+            string resourceState,
 
             int? sampleSize,
 

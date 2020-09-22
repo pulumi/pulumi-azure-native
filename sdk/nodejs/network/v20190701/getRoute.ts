@@ -63,5 +63,5 @@ export interface GetRouteResult {
     /**
      * The provisioning state of the route resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
 }

@@ -86,7 +86,7 @@ export interface GetFrontDoorResult {
     /**
      * Resource status of the Front Door.
      */
-    readonly resourceState?: string;
+    readonly resourceState: string;
     /**
      * Routing rules associated with this Front Door.
      */

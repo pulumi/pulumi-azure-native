@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the private link service connection resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             string? privateLinkServiceId,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? requestMessage,
 

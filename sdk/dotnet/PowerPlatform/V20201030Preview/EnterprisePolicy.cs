@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse?> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -132,22 +132,10 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Settings concerning lockbox.
-        /// </summary>
-        [Input("lockbox")]
-        public Input<Inputs.PropertiesLockboxArgs>? Lockbox { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Input("systemData")]
-        public Input<Inputs.SystemDataArgs>? SystemData { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

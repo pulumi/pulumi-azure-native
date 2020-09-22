@@ -1162,16 +1162,12 @@ class RoutingPreferenceArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 tier: Optional[pulumi.Input[str]] = None):
+                 name: pulumi.Input[str]):
         """
         The SKU of the storage account.
         :param pulumi.Input[str] name: The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
-        :param pulumi.Input[str] tier: The SKU tier. This is based on the SKU name.
         """
         pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -1184,18 +1180,6 @@ class SkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SKU tier. This is based on the SKU name.
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type

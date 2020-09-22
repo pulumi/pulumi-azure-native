@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <summary>
         /// Resource status.
         /// </summary>
-        public readonly string? ResourceState;
+        public readonly string ResourceState;
         /// <summary>
         /// A list of rules that define a particular Rules Engine Configuration.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         private GetRulesEngineResult(
             string name,
 
-            string? resourceState,
+            string resourceState,
 
             ImmutableArray<Outputs.RulesEngineRuleResponse> rules,
 

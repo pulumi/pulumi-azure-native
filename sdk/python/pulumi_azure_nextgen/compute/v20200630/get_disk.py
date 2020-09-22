@@ -172,7 +172,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="diskState")
-    def disk_state(self) -> Optional[str]:
+    def disk_state(self) -> str:
         """
         The state of the disk.
         """

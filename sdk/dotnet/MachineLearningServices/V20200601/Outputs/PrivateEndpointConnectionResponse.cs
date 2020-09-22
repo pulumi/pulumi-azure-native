@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601.Outputs
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource type of private endpoint connection.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601.Outputs
 
             Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
-            string? provisioningState,
+            string provisioningState,
 
             string type)
         {

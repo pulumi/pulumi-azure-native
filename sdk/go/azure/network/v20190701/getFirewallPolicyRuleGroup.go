@@ -34,7 +34,7 @@ type LookupFirewallPolicyRuleGroupResult struct {
 	// Priority of the Firewall Policy Rule Group resource.
 	Priority *int `pulumi:"priority"`
 	// The provisioning state of the firewall policy rule group resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Group of Firewall Policy rules.
 	Rules []interface{} `pulumi:"rules"`
 	// Rule Group type.

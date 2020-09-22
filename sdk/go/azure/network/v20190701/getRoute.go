@@ -38,5 +38,5 @@ type LookupRouteResult struct {
 	// The type of Azure hop the packet should be sent to.
 	NextHopType string `pulumi:"nextHopType"`
 	// The provisioning state of the route resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 }

@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         /// <summary>
         /// The provisioning state of the express route circuit peering resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The reference of the RouteFilter resource.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
 
             string? primaryPeerAddressPrefix,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SubResourceResponse? routeFilter,
 

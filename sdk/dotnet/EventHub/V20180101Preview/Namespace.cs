@@ -27,18 +27,6 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of BYOK Encryption description
-        /// </summary>
-        [Output("encryption")]
-        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
-
-        /// <summary>
-        /// Properties of BYOK Identity description
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
         [Output("isAutoInflateEnabled")]
@@ -49,6 +37,18 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// </summary>
         [Output("kafkaEnabled")]
         public Output<bool?> KafkaEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Enumerates the possible value of keySource for Encryption
+        /// </summary>
+        [Output("keySource")]
+        public Output<string?> KeySource { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of KeyVault
+        /// </summary>
+        [Output("keyVaultProperties")]
+        public Output<ImmutableArray<Outputs.KeyVaultPropertiesResponse>> KeyVaultProperties { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -75,6 +75,12 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// ObjectId from the KeyVault
+        /// </summary>
+        [Output("principalId")]
+        public Output<string?> PrincipalId { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state of the Namespace.
         /// </summary>
         [Output("provisioningState")]
@@ -97,6 +103,12 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// TenantId from the KeyVault
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -175,18 +187,6 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         public Input<string>? ClusterArmId { get; set; }
 
         /// <summary>
-        /// Properties of BYOK Encryption description
-        /// </summary>
-        [Input("encryption")]
-        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
-
-        /// <summary>
-        /// Properties of BYOK Identity description
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
-
-        /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
         [Input("isAutoInflateEnabled")]
@@ -199,10 +199,28 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         public Input<bool>? KafkaEnabled { get; set; }
 
         /// <summary>
+        /// Enumerates the possible value of keySource for Encryption
+        /// </summary>
+        [Input("keySource")]
+        public Input<string>? KeySource { get; set; }
+
+        [Input("keyVaultProperties")]
+        private InputList<Inputs.KeyVaultPropertiesArgs>? _keyVaultProperties;
+
+        /// <summary>
+        /// Properties of KeyVault
+        /// </summary>
+        public InputList<Inputs.KeyVaultPropertiesArgs> KeyVaultProperties
+        {
+            get => _keyVaultProperties ?? (_keyVaultProperties = new InputList<Inputs.KeyVaultPropertiesArgs>());
+            set => _keyVaultProperties = value;
+        }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
 
         /// <summary>
         /// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
@@ -215,6 +233,12 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// ObjectId from the KeyVault
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.
@@ -239,6 +263,18 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// TenantId from the KeyVault
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.

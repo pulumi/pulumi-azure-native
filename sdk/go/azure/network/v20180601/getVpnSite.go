@@ -40,7 +40,7 @@ type LookupVpnSiteResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The key for vpn-site that can be used for connections.
 	SiteKey *string `pulumi:"siteKey"`
 	// Resource tags.

@@ -19,7 +19,7 @@ type ExpressRouteCircuitConnection struct {
 	// The authorization key.
 	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
 	// Express Route Circuit connection state.
-	CircuitConnectionStatus pulumi.StringPtrOutput `pulumi:"circuitConnectionStatus"`
+	CircuitConnectionStatus pulumi.StringOutput `pulumi:"circuitConnectionStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
@@ -187,8 +187,6 @@ type expressRouteCircuitConnectionArgs struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// The authorization key.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Express Route Circuit connection state.
-	CircuitConnectionStatus *string `pulumi:"circuitConnectionStatus"`
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
 	// The name of the express route circuit connection.
@@ -213,8 +211,6 @@ type ExpressRouteCircuitConnectionArgs struct {
 	AddressPrefix pulumi.StringPtrInput
 	// The authorization key.
 	AuthorizationKey pulumi.StringPtrInput
-	// Express Route Circuit connection state.
-	CircuitConnectionStatus pulumi.StringPtrInput
 	// The name of the express route circuit.
 	CircuitName pulumi.StringInput
 	// The name of the express route circuit connection.

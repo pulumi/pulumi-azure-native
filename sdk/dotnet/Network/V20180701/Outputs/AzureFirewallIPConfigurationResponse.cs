@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701.Outputs
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Reference of the PublicIP resource. This field is populated in the output.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701.Outputs
 
             string? privateIPAddress,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SubResourceResponse? publicIPAddress,
 

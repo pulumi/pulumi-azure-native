@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview.Outputs
         /// <summary>
         /// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private ClusterPropertiesResponse(
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview.Outputs
 
             string createdDate,
 
-            string? provisioningState)
+            string provisioningState)
         {
             CapacityAllocated = capacityAllocated;
             CapacityAssigned = capacityAssigned;

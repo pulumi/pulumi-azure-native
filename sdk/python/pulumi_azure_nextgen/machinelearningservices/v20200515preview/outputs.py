@@ -3232,11 +3232,11 @@ class PrivateEndpointConnectionResponse(dict):
                  id: str,
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
                  type: str,
                  identity: Optional['outputs.IdentityResponse'] = None,
                  location: Optional[str] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
-                 provisioning_state: Optional[str] = None,
                  sku: Optional['outputs.SkuResponse'] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
@@ -3244,17 +3244,18 @@ class PrivateEndpointConnectionResponse(dict):
         :param str id: Specifies the resource ID.
         :param str name: Specifies the name of the resource.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: Specifies the type of the resource.
         :param 'IdentityResponseArgs' identity: The identity of the resource.
         :param str location: Specifies the location of the resource.
         :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
-        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param 'SkuResponseArgs' sku: The sku of the workspace.
         :param Mapping[str, str] tags: Contains resource tags defined as key/value pairs.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -3262,8 +3263,6 @@ class PrivateEndpointConnectionResponse(dict):
             pulumi.set(__self__, "location", location)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -3292,6 +3291,14 @@ class PrivateEndpointConnectionResponse(dict):
         A collection of information about the state of the connection between service consumer and provider.
         """
         return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -3324,14 +3331,6 @@ class PrivateEndpointConnectionResponse(dict):
         The resource of private end point.
         """
         return pulumi.get(self, "private_endpoint")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the private endpoint connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter

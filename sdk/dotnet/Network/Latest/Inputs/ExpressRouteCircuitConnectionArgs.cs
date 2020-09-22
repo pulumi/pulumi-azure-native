@@ -28,12 +28,6 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         public Input<string>? AuthorizationKey { get; set; }
 
         /// <summary>
-        /// Express Route Circuit connection state.
-        /// </summary>
-        [Input("circuitConnectionStatus")]
-        public Input<string>? CircuitConnectionStatus { get; set; }
-
-        /// <summary>
         /// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         /// </summary>
         [Input("expressRouteCircuitPeering")]

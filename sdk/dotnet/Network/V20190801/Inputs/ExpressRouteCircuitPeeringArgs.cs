@@ -94,12 +94,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         public Input<string>? PrimaryPeerAddressPrefix { get; set; }
 
         /// <summary>
-        /// The provisioning state of the express route circuit peering resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// The reference of the RouteFilter resource.
         /// </summary>
         [Input("routeFilter")]

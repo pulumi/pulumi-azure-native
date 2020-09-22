@@ -51,7 +51,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The provisioning state of the private endpoint connection resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource type of private endpoint connection.
      */
@@ -81,11 +81,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             }
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
@@ -119,10 +119,6 @@ export interface PrivateEndpointConnectionArgs {
      * A collection of information about the state of the connection between service consumer and provider.
      */
     readonly privateLinkServiceConnectionState: pulumi.Input<inputs.machinelearningservices.v20200601.PrivateLinkServiceConnectionState>;
-    /**
-     * The provisioning state of the private endpoint connection resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Name of the resource group in which workspace is located.
      */

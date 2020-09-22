@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601
         /// The provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -188,12 +188,6 @@ namespace Pulumi.AzureNextGen.Network.V20180601
             get => _networkRuleCollections ?? (_networkRuleCollections = new InputList<Inputs.AzureFirewallNetworkRuleCollectionArgs>());
             set => _networkRuleCollections = value;
         }
-
-        /// <summary>
-        /// The provisioning state of the resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

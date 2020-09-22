@@ -47,7 +47,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Links relevant to the assessment
      */
-    public /*out*/ readonly links!: pulumi.Output<outputs.security.v20200101.AssessmentLinksResponse | undefined>;
+    public /*out*/ readonly links!: pulumi.Output<outputs.security.v20200101.AssessmentLinksResponse>;
     /**
      * Describes properties of an assessment metadata.
      */

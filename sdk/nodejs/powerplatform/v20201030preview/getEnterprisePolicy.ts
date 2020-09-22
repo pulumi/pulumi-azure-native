@@ -58,7 +58,7 @@ export interface GetEnterprisePolicyResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData?: outputs.powerplatform.v20201030preview.SystemDataResponse;
+    readonly systemData: outputs.powerplatform.v20201030preview.SystemDataResponse;
     /**
      * Resource tags.
      */

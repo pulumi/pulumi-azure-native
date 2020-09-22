@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
 
             Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
-            string? provisioningState,
+            string provisioningState,
 
             string type)
         {

@@ -67,7 +67,7 @@ export class VpnSite extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The key for vpn-site that can be used for connections.
      */
@@ -110,7 +110,6 @@ export class VpnSite extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteKey"] = args ? args.siteKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -118,6 +117,7 @@ export class VpnSite extends pulumi.CustomResource {
             inputs["vpnSiteName"] = args ? args.vpnSiteName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["addressSpace"] = undefined /*out*/;
@@ -174,10 +174,6 @@ export interface VpnSiteArgs {
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The provisioning state of the resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name of the VpnSite.
      */

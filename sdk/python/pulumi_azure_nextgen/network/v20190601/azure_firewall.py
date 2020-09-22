@@ -25,7 +25,6 @@ class AzureFirewall(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNatRuleCollectionArgs']]]]] = None,
                  network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNetworkRuleCollectionArgs']]]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[str]] = None,
@@ -47,7 +46,6 @@ class AzureFirewall(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNatRuleCollectionArgs']]]] nat_rule_collections: Collection of NAT rule collections used by Azure Firewall.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNetworkRuleCollectionArgs']]]] network_rule_collections: Collection of network rule collections used by Azure Firewall.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] threat_intel_mode: The operation mode for Threat Intelligence.
@@ -81,7 +79,6 @@ class AzureFirewall(pulumi.CustomResource):
             __props__['location'] = location
             __props__['nat_rule_collections'] = nat_rule_collections
             __props__['network_rule_collections'] = network_rule_collections
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -92,6 +89,7 @@ class AzureFirewall(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['hub_ip_addresses'] = None
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20180401:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20180601:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20180701:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20180801:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20181001:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20181101:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20181201:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20190201:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20190401:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20190701:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20190801:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20190901:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20191101:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20191201:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20200301:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20200401:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20200501:AzureFirewall"), pulumi.Alias(type_="azure-nextgen:network/v20200601:AzureFirewall")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -193,7 +191,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """

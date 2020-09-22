@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Databricks.V20180401
         /// Specifies the date and time when the workspace is created.
         /// </summary>
         [Output("createdDateTime")]
-        public Output<string?> CreatedDateTime { get; private set; } = null!;
+        public Output<string> CreatedDateTime { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -170,12 +170,6 @@ namespace Pulumi.AzureNextGen.Databricks.V20180401
             get => _authorizations ?? (_authorizations = new InputList<Inputs.WorkspaceProviderAuthorizationArgs>());
             set => _authorizations = value;
         }
-
-        /// <summary>
-        /// Specifies the date and time when the workspace is created.
-        /// </summary>
-        [Input("createdDateTime")]
-        public Input<string>? CreatedDateTime { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// <summary>
         /// The provisioning state of the VPN site resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The key for vpn-site that can be used for connections.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? siteKey,
 

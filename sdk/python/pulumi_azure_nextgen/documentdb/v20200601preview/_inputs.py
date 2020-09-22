@@ -798,7 +798,6 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         Properties for non-restore Azure Cosmos DB database account requests.
@@ -820,7 +819,6 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
         :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
-        :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
         pulumi.set(__self__, "create_mode", 'Default')
@@ -856,8 +854,6 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
             pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
         if key_vault_key_uri is not None:
             pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
         if virtual_network_rules is not None:
             pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
@@ -1076,18 +1072,6 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
     @key_vault_key_uri.setter
     def key_vault_key_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_key_uri", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[str]]:
-        """
-        Whether requests from Public Network are allowed
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
@@ -1480,14 +1464,12 @@ class LocationArgs:
     def __init__(__self__, *,
                  failover_priority: Optional[pulumi.Input[int]] = None,
                  is_zone_redundant: Optional[pulumi.Input[bool]] = None,
-                 location_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 location_name: Optional[pulumi.Input[str]] = None):
         """
         A region in which the Azure Cosmos DB database account is deployed.
         :param pulumi.Input[int] failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         :param pulumi.Input[bool] is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
         :param pulumi.Input[str] location_name: The name of the region.
-        :param pulumi.Input[str] provisioning_state: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
         """
         if failover_priority is not None:
             pulumi.set(__self__, "failover_priority", failover_priority)
@@ -1495,8 +1477,6 @@ class LocationArgs:
             pulumi.set(__self__, "is_zone_redundant", is_zone_redundant)
         if location_name is not None:
             pulumi.set(__self__, "location_name", location_name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="failoverPriority")
@@ -1533,18 +1513,6 @@ class LocationArgs:
     @location_name.setter
     def location_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location_name", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -1941,7 +1909,6 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
                  restore_parameters: Optional[pulumi.Input['RestoreParametersArgs']] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
@@ -1964,7 +1931,6 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
         :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
-        :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input['RestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
@@ -2001,8 +1967,6 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
             pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
         if key_vault_key_uri is not None:
             pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
         if restore_parameters is not None:
             pulumi.set(__self__, "restore_parameters", restore_parameters)
         if virtual_network_rules is not None:
@@ -2223,18 +2187,6 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
     @key_vault_key_uri.setter
     def key_vault_key_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_key_uri", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[str]]:
-        """
-        Whether requests from Public Network are allowed
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="restoreParameters")

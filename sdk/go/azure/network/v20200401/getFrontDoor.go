@@ -50,7 +50,7 @@ type LookupFrontDoorResult struct {
 	// Provisioning state of the Front Door.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource status of the Front Door.
-	ResourceState *string `pulumi:"resourceState"`
+	ResourceState string `pulumi:"resourceState"`
 	// Routing rules associated with this Front Door.
 	RoutingRules []RoutingRuleResponse `pulumi:"routingRules"`
 	// Rules Engine Configurations available to routing rules.

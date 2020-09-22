@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Outputs
         /// <summary>
         /// Resource status.
         /// </summary>
-        public readonly string? ResourceState;
+        public readonly string ResourceState;
         /// <summary>
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Outputs
 
             string? name,
 
-            string? resourceState,
+            string resourceState,
 
             string? sessionAffinityEnabledState,
 

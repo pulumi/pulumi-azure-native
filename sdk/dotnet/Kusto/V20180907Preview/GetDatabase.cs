@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
         /// <summary>
         /// The statistics of the database.
         /// </summary>
-        public readonly Outputs.DatabaseStatisticsResponse? Statistics;
+        public readonly Outputs.DatabaseStatisticsResponse Statistics;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
 
             int softDeletePeriodInDays,
 
-            Outputs.DatabaseStatisticsResponse? statistics,
+            Outputs.DatabaseStatisticsResponse statistics,
 
             ImmutableDictionary<string, string>? tags,
 

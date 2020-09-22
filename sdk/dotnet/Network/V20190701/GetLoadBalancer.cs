@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// <summary>
         /// The provisioning state of the load balancer resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The resource GUID property of the load balancer resource.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 
             ImmutableArray<Outputs.ProbeResponse> probes,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? resourceGuid,
 

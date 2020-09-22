@@ -58,12 +58,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the probe resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// The URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value.
         /// </summary>
         [Input("requestPath")]

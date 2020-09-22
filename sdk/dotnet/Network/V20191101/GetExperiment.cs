@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// <summary>
         /// Resource status.
         /// </summary>
-        public readonly string? ResourceState;
+        public readonly string ResourceState;
         /// <summary>
         /// The uri to the Script used in the Experiment
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
 
             string name,
 
-            string? resourceState,
+            string resourceState,
 
             string scriptFileUri,
 

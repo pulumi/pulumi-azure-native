@@ -67,7 +67,7 @@ export interface GetVirtualNetworkPeeringResult {
     /**
      * The provisioning state of the virtual network peering resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The reference of the remote virtual network address space.
      */

@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601.Outputs
         /// <summary>
         /// The provisioning state of the private link service ip configuration.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The reference of the subnet resource.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601.Outputs
 
             string? privateIPAllocationMethod,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SubnetResponse? subnet,
 

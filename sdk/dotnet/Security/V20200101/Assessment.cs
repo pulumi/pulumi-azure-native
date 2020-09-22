@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101
         /// Links relevant to the assessment
         /// </summary>
         [Output("links")]
-        public Output<Outputs.AssessmentLinksResponse?> Links { get; private set; } = null!;
+        public Output<Outputs.AssessmentLinksResponse> Links { get; private set; } = null!;
 
         /// <summary>
         /// Describes properties of an assessment metadata.

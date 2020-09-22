@@ -1425,26 +1425,25 @@ class PrivateEndpointConnectionResponse(dict):
                  id: str,
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
                  type: str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
-                 provisioning_state: Optional[str] = None):
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
         :param str id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
-        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
@@ -1471,6 +1470,14 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "private_link_service_connection_state")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -1485,14 +1492,6 @@ class PrivateEndpointConnectionResponse(dict):
         The resource of private end point.
         """
         return pulumi.get(self, "private_endpoint")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the private endpoint connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1630,15 +1629,14 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 tier: Optional[str] = None):
+                 tier: str):
         """
         The SKU of the storage account.
         :param str name: The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
         :param str tier: The SKU tier. This is based on the SKU name.
         """
         pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+        pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -1650,7 +1648,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[str]:
+    def tier(self) -> str:
         """
         The SKU tier. This is based on the SKU name.
         """

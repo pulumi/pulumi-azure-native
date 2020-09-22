@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214.Outputs
         /// <summary>
         /// Provisioning state of the private endpoint connection.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private PrivateEndpointConnectionItemResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214.Outputs
 
             Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
 
-            string? provisioningState)
+            string provisioningState)
         {
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

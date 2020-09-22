@@ -59,7 +59,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     /**
      * The provisioning state of the express route gateway resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -96,13 +96,13 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             inputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["expressRouteConnections"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["autoScaleConfiguration"] = undefined /*out*/;
@@ -148,10 +148,6 @@ export interface ExpressRouteGatewayArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the express route gateway resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// <summary>
         /// The office local breakout category.
         /// </summary>
-        public readonly string? Office365LocalBreakoutCategory;
+        public readonly string Office365LocalBreakoutCategory;
         /// <summary>
         /// List of all P2SVpnServerConfigurations associated with the virtual wan.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The Security Provider name.
         /// </summary>
@@ -110,11 +110,11 @@ namespace Pulumi.AzureNextGen.Network.V20190401
 
             string name,
 
-            string? office365LocalBreakoutCategory,
+            string office365LocalBreakoutCategory,
 
             ImmutableArray<Outputs.P2SVpnServerConfigurationResponse> p2SVpnServerConfigurations,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? securityProviderName,
 

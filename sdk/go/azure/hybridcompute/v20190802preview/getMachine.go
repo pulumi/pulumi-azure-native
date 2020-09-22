@@ -48,7 +48,7 @@ type LookupMachineResult struct {
 	// The Operating System running on the hybrid machine.
 	OsName *string `pulumi:"osName"`
 	// Specifies the operating system settings for the hybrid machine.
-	OsProfile *OSProfileResponse `pulumi:"osProfile"`
+	OsProfile OSProfileResponse `pulumi:"osProfile"`
 	// The version of Operating System running on the hybrid machine.
 	OsVersion *string `pulumi:"osVersion"`
 	// Resource's Physical Location

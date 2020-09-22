@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// <summary>
         /// The provisioning state of the connection monitor.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Describes the source of connection monitor.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.ConnectionMonitorSourceResponse source,
 

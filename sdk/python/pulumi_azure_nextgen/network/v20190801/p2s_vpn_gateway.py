@@ -21,7 +21,6 @@ class P2sVpnGateway(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  p2_s_connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -39,7 +38,6 @@ class P2sVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the P2S VPN gateway resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the P2SVpnGateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The VirtualHub to which the gateway belongs.
@@ -71,7 +69,6 @@ class P2sVpnGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['p2_s_connection_configurations'] = p2_s_connection_configurations
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -81,6 +78,7 @@ class P2sVpnGateway(pulumi.CustomResource):
             __props__['vpn_server_configuration'] = vpn_server_configuration
             __props__['etag'] = None
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['vpn_client_connection_health'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180801:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181001:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181101:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181201:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:P2sVpnGateway")])
@@ -143,7 +141,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the P2S VPN gateway resource.
         """

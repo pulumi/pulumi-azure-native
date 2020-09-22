@@ -166,7 +166,7 @@ func (o EnvironmentStateDetailsResponsePtrOutput) Message() pulumi.StringPtrOutp
 // An object that represents the status of the environment, and its internal state in the Time Series Insights service.
 type EnvironmentStatusResponse struct {
 	// An object that represents the status of ingress on an environment.
-	Ingress *IngressEnvironmentStatusResponse `pulumi:"ingress"`
+	Ingress IngressEnvironmentStatusResponse `pulumi:"ingress"`
 }
 
 // EnvironmentStatusResponseInput is an input type that accepts EnvironmentStatusResponseArgs and EnvironmentStatusResponseOutput values.
@@ -183,7 +183,7 @@ type EnvironmentStatusResponseInput interface {
 // An object that represents the status of the environment, and its internal state in the Time Series Insights service.
 type EnvironmentStatusResponseArgs struct {
 	// An object that represents the status of ingress on an environment.
-	Ingress IngressEnvironmentStatusResponsePtrInput `pulumi:"ingress"`
+	Ingress IngressEnvironmentStatusResponseInput `pulumi:"ingress"`
 }
 
 func (EnvironmentStatusResponseArgs) ElementType() reflect.Type {
@@ -265,8 +265,8 @@ func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutputWit
 }
 
 // An object that represents the status of ingress on an environment.
-func (o EnvironmentStatusResponseOutput) Ingress() IngressEnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentStatusResponse) *IngressEnvironmentStatusResponse { return v.Ingress }).(IngressEnvironmentStatusResponsePtrOutput)
+func (o EnvironmentStatusResponseOutput) Ingress() IngressEnvironmentStatusResponseOutput {
+	return o.ApplyT(func(v EnvironmentStatusResponse) IngressEnvironmentStatusResponse { return v.Ingress }).(IngressEnvironmentStatusResponseOutput)
 }
 
 type EnvironmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
@@ -293,7 +293,7 @@ func (o EnvironmentStatusResponsePtrOutput) Ingress() IngressEnvironmentStatusRe
 		if v == nil {
 			return nil
 		}
-		return v.Ingress
+		return &v.Ingress
 	}).(IngressEnvironmentStatusResponsePtrOutput)
 }
 
@@ -302,7 +302,7 @@ type IngressEnvironmentStatusResponse struct {
 	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
 	State *string `pulumi:"state"`
 	// An object that contains the details about an environment's state.
-	StateDetails *EnvironmentStateDetailsResponse `pulumi:"stateDetails"`
+	StateDetails EnvironmentStateDetailsResponse `pulumi:"stateDetails"`
 }
 
 // IngressEnvironmentStatusResponseInput is an input type that accepts IngressEnvironmentStatusResponseArgs and IngressEnvironmentStatusResponseOutput values.
@@ -321,7 +321,7 @@ type IngressEnvironmentStatusResponseArgs struct {
 	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// An object that contains the details about an environment's state.
-	StateDetails EnvironmentStateDetailsResponsePtrInput `pulumi:"stateDetails"`
+	StateDetails EnvironmentStateDetailsResponseInput `pulumi:"stateDetails"`
 }
 
 func (IngressEnvironmentStatusResponseArgs) ElementType() reflect.Type {
@@ -408,8 +408,8 @@ func (o IngressEnvironmentStatusResponseOutput) State() pulumi.StringPtrOutput {
 }
 
 // An object that contains the details about an environment's state.
-func (o IngressEnvironmentStatusResponseOutput) StateDetails() EnvironmentStateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *EnvironmentStateDetailsResponse { return v.StateDetails }).(EnvironmentStateDetailsResponsePtrOutput)
+func (o IngressEnvironmentStatusResponseOutput) StateDetails() EnvironmentStateDetailsResponseOutput {
+	return o.ApplyT(func(v IngressEnvironmentStatusResponse) EnvironmentStateDetailsResponse { return v.StateDetails }).(EnvironmentStateDetailsResponseOutput)
 }
 
 type IngressEnvironmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
@@ -446,7 +446,7 @@ func (o IngressEnvironmentStatusResponsePtrOutput) StateDetails() EnvironmentSta
 		if v == nil {
 			return nil
 		}
-		return v.StateDetails
+		return &v.StateDetails
 	}).(EnvironmentStateDetailsResponsePtrOutput)
 }
 

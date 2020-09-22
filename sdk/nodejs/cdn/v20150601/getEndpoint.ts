@@ -83,7 +83,7 @@ export interface GetEndpointResult {
     /**
      * Provisioning status of the endpoint.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Defines the query string caching behavior.
      */

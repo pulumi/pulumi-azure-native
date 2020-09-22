@@ -28,12 +28,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The provisioning state of the P2SConnectionConfiguration resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// The reference of the address space resource which represents Address space for P2S VpnClient.
         /// </summary>
         [Input("vpnClientAddressPool")]

@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// <summary>
         /// Private Endpoint Connection Response Properties.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionResponse? Properties;
+        public readonly Outputs.PrivateEndpointConnectionResponse Properties;
 
         [OutputConstructor]
         private PrivateEndpointConnectionVaultPropertiesResponse(
             string id,
 
-            Outputs.PrivateEndpointConnectionResponse? properties)
+            Outputs.PrivateEndpointConnectionResponse properties)
         {
             Id = id;
             Properties = properties;

@@ -34,12 +34,6 @@ namespace Pulumi.AzureNextGen.Network.V20190501.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Resource status.
-        /// </summary>
-        [Input("resourceState")]
-        public Input<string>? ResourceState { get; set; }
-
-        /// <summary>
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("sessionAffinityEnabledState")]

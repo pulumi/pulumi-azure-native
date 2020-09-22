@@ -83,7 +83,7 @@ export interface GetPrivateLinkServiceResult {
     /**
      * The provisioning state of the private link service resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

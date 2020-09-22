@@ -25,7 +25,7 @@ type Route struct {
 	// The type of Azure hop the packet should be sent to.
 	NextHopType pulumi.StringOutput `pulumi:"nextHopType"`
 	// The provisioning state of the route resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
@@ -216,8 +216,6 @@ type routeArgs struct {
 	NextHopIpAddress *string `pulumi:"nextHopIpAddress"`
 	// The type of Azure hop the packet should be sent to.
 	NextHopType string `pulumi:"nextHopType"`
-	// The provisioning state of the route resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the route.
@@ -240,8 +238,6 @@ type RouteArgs struct {
 	NextHopIpAddress pulumi.StringPtrInput
 	// The type of Azure hop the packet should be sent to.
 	NextHopType pulumi.StringInput
-	// The provisioning state of the route resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the route.

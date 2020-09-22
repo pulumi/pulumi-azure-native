@@ -16,10 +16,10 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
         /// <summary>
         /// lockbox configuration
         /// </summary>
-        public readonly string? Status;
+        public readonly string Status;
 
         [OutputConstructor]
-        private PropertiesResponseLockbox(string? status)
+        private PropertiesResponseLockbox(string status)
         {
             Status = status;
         }

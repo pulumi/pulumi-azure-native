@@ -482,16 +482,13 @@ class JitAuthorizationPoliciesArgs:
 class JitSchedulingPolicyArgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[str],
-                 start_time: pulumi.Input[str],
-                 type: pulumi.Input[str]):
+                 start_time: pulumi.Input[str]):
         """
         The JIT scheduling policies.
         :param pulumi.Input[str] start_time: The start time of the request.
-        :param pulumi.Input[str] type: The type of JIT schedule.
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -513,18 +510,6 @@ class JitSchedulingPolicyArgs:
     @start_time.setter
     def start_time(self, value: pulumi.Input[str]):
         pulumi.set(self, "start_time", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The type of JIT schedule.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

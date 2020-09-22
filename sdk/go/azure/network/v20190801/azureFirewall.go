@@ -33,7 +33,7 @@ type AzureFirewall struct {
 	// Collection of network rule collections used by Azure Firewall.
 	NetworkRuleCollections AzureFirewallNetworkRuleCollectionResponseArrayOutput `pulumi:"networkRuleCollections"`
 	// The provisioning state of the Azure firewall resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The Azure Firewall Resource SKU.
 	Sku AzureFirewallSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
@@ -232,8 +232,6 @@ type azureFirewallArgs struct {
 	NatRuleCollections []AzureFirewallNatRuleCollection `pulumi:"natRuleCollections"`
 	// Collection of network rule collections used by Azure Firewall.
 	NetworkRuleCollections []AzureFirewallNetworkRuleCollection `pulumi:"networkRuleCollections"`
-	// The provisioning state of the Azure firewall resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Azure Firewall Resource SKU.
@@ -266,8 +264,6 @@ type AzureFirewallArgs struct {
 	NatRuleCollections AzureFirewallNatRuleCollectionArrayInput
 	// Collection of network rule collections used by Azure Firewall.
 	NetworkRuleCollections AzureFirewallNetworkRuleCollectionArrayInput
-	// The provisioning state of the Azure firewall resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The Azure Firewall Resource SKU.

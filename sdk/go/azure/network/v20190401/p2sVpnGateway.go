@@ -25,7 +25,7 @@ type P2sVpnGateway struct {
 	// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
 	P2SVpnServerConfiguration SubResourceResponsePtrOutput `pulumi:"p2SVpnServerConfiguration"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -196,8 +196,6 @@ type p2sVpnGatewayArgs struct {
 	Location string `pulumi:"location"`
 	// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
 	P2SVpnServerConfiguration *SubResource `pulumi:"p2SVpnServerConfiguration"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the P2SVpnGateway.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -222,8 +220,6 @@ type P2sVpnGatewayArgs struct {
 	Location pulumi.StringInput
 	// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
 	P2SVpnServerConfiguration SubResourcePtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the P2SVpnGateway.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// Resource status.
         /// </summary>
         [Output("resourceState")]
-        public Output<string?> ResourceState { get; private set; } = null!;
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -140,12 +140,6 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Resource status.
-        /// </summary>
-        [Input("resourceState")]
-        public Input<string>? ResourceState { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

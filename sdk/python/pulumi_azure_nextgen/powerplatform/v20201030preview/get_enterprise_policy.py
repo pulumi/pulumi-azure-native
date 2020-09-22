@@ -88,7 +88,7 @@ class GetEnterprisePolicyResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional['outputs.SystemDataResponse']:
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Metadata pertaining to creation and last modification of the resource.
         """

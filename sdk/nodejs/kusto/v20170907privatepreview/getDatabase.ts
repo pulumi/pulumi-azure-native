@@ -67,7 +67,7 @@ export interface GetDatabaseResult {
     /**
      * The statistics of the database.
      */
-    readonly statistics?: outputs.kusto.v20170907privatepreview.DatabaseStatisticsResponse;
+    readonly statistics: outputs.kusto.v20170907privatepreview.DatabaseStatisticsResponse;
     /**
      * Resource tags.
      */

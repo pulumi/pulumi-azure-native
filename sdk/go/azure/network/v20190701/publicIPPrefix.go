@@ -29,7 +29,7 @@ type PublicIPPrefix struct {
 	// The Length of the Public IP Prefix.
 	PrefixLength pulumi.IntPtrOutput `pulumi:"prefixLength"`
 	// The provisioning state of the public IP prefix resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The public IP address version.
 	PublicIPAddressVersion pulumi.StringPtrOutput `pulumi:"publicIPAddressVersion"`
 	// The list of all referenced PublicIPAddresses.
@@ -216,8 +216,6 @@ type publicIPPrefixArgs struct {
 	Location *string `pulumi:"location"`
 	// The Length of the Public IP Prefix.
 	PrefixLength *int `pulumi:"prefixLength"`
-	// The provisioning state of the public IP prefix resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The public IP address version.
 	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
 	// The list of all referenced PublicIPAddresses.
@@ -250,8 +248,6 @@ type PublicIPPrefixArgs struct {
 	Location pulumi.StringPtrInput
 	// The Length of the Public IP Prefix.
 	PrefixLength pulumi.IntPtrInput
-	// The provisioning state of the public IP prefix resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The public IP address version.
 	PublicIPAddressVersion pulumi.StringPtrInput
 	// The list of all referenced PublicIPAddresses.

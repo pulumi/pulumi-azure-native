@@ -50,7 +50,7 @@ export interface GetNetworkWatcherResult {
     /**
      * The provisioning state of the resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

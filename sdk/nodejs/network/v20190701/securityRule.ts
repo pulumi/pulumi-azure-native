@@ -87,7 +87,7 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * The provisioning state of the security rule resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
      */
@@ -151,7 +151,6 @@ export class SecurityRule extends pulumi.CustomResource {
             inputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["securityRuleName"] = args ? args.securityRuleName : undefined;
             inputs["sourceAddressPrefix"] = args ? args.sourceAddressPrefix : undefined;
@@ -159,6 +158,7 @@ export class SecurityRule extends pulumi.CustomResource {
             inputs["sourceApplicationSecurityGroups"] = args ? args.sourceApplicationSecurityGroups : undefined;
             inputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
             inputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
+            inputs["provisioningState"] = undefined /*out*/;
         } else {
             inputs["access"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
@@ -252,10 +252,6 @@ export interface SecurityRuleArgs {
      * Network protocol this rule applies to.
      */
     readonly protocol: pulumi.Input<string>;
-    /**
-     * The provisioning state of the security rule resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

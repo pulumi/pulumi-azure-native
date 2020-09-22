@@ -24,7 +24,6 @@ const storageAccount = new storage.StorageAccount("websitesa", {
     location: "westus2",
     sku: {
         name: "Standard_LRS",
-        tier: "Standard",
     },
     kind: "StorageV2",
     // Apparently, this is not supported via ARM.

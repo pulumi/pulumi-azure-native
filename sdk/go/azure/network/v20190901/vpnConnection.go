@@ -17,7 +17,7 @@ type VpnConnection struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrOutput `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus pulumi.StringPtrOutput `pulumi:"connectionStatus"`
+	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
 	// Egress bytes transferred.
 	EgressBytesTransferred pulumi.IntOutput `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag.
@@ -235,8 +235,6 @@ type vpnConnectionArgs struct {
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
 	// The name of the connection.
 	ConnectionName string `pulumi:"connectionName"`
-	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Enable internet security.
@@ -275,8 +273,6 @@ type VpnConnectionArgs struct {
 	ConnectionBandwidth pulumi.IntPtrInput
 	// The name of the connection.
 	ConnectionName pulumi.StringInput
-	// The connection status.
-	ConnectionStatus pulumi.StringPtrInput
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrInput
 	// Enable internet security.

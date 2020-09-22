@@ -88,7 +88,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="createdDateTime")
-    def created_date_time(self) -> Optional[str]:
+    def created_date_time(self) -> str:
         """
         Specifies the date and time when the workspace is created.
         """

@@ -39,7 +39,7 @@ type SecurityRule struct {
 	// Network protocol this rule applies to.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// The provisioning state of the security rule resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
 	SourceAddressPrefix pulumi.StringPtrOutput `pulumi:"sourceAddressPrefix"`
 	// The CIDR or source IP ranges.
@@ -310,8 +310,6 @@ type securityRuleArgs struct {
 	Priority *int `pulumi:"priority"`
 	// Network protocol this rule applies to.
 	Protocol string `pulumi:"protocol"`
-	// The provisioning state of the security rule resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the security rule.
@@ -358,8 +356,6 @@ type SecurityRuleArgs struct {
 	Priority pulumi.IntPtrInput
 	// Network protocol this rule applies to.
 	Protocol pulumi.StringInput
-	// The provisioning state of the security rule resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the security rule.

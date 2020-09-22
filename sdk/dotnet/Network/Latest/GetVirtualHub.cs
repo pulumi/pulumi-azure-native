@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The routing state.
         /// </summary>
-        public readonly string? RoutingState;
+        public readonly string RoutingState;
         /// <summary>
         /// The securityPartnerProvider associated with this VirtualHub.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             Outputs.VirtualHubRouteTableResponse? routeTable,
 
-            string? routingState,
+            string routingState,
 
             Outputs.SubResourceResponse? securityPartnerProvider,
 

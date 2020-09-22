@@ -16,10 +16,10 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115.Outputs
         /// <summary>
         /// An object that represents the status of ingress on an environment.
         /// </summary>
-        public readonly Outputs.IngressEnvironmentStatusResponse? Ingress;
+        public readonly Outputs.IngressEnvironmentStatusResponse Ingress;
 
         [OutputConstructor]
-        private EnvironmentStatusResponse(Outputs.IngressEnvironmentStatusResponse? ingress)
+        private EnvironmentStatusResponse(Outputs.IngressEnvironmentStatusResponse ingress)
         {
             Ingress = ingress;
         }

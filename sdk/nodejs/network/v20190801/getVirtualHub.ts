@@ -66,7 +66,7 @@ export interface GetVirtualHubResult {
     /**
      * The provisioning state of the virtual hub resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The routeTable associated with this virtual hub.
      */

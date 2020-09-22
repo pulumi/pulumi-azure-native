@@ -6160,12 +6160,12 @@ class ExpressRouteCircuitConnectionResponse(dict):
     Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     """
     def __init__(__self__, *,
+                 circuit_connection_status: str,
                  etag: str,
                  provisioning_state: str,
                  type: str,
                  address_prefix: Optional[str] = None,
                  authorization_key: Optional[str] = None,
-                 circuit_connection_status: Optional[str] = None,
                  express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None,
                  id: Optional[str] = None,
                  ipv6_circuit_connection_config: Optional['outputs.Ipv6CircuitConnectionConfigResponse'] = None,
@@ -6173,18 +6173,19 @@ class ExpressRouteCircuitConnectionResponse(dict):
                  peer_express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None):
         """
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        :param str circuit_connection_status: Express Route Circuit connection state.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the express route circuit connection resource.
         :param str type: Type of the resource.
         :param str address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param str authorization_key: The authorization key.
-        :param str circuit_connection_status: Express Route Circuit connection state.
         :param 'SubResourceResponseArgs' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         :param str id: Resource ID.
         :param 'Ipv6CircuitConnectionConfigResponseArgs' ipv6_circuit_connection_config: IPv6 Address PrefixProperties of the express route circuit connection.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param 'SubResourceResponseArgs' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
+        pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
@@ -6192,8 +6193,6 @@ class ExpressRouteCircuitConnectionResponse(dict):
             pulumi.set(__self__, "address_prefix", address_prefix)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
-        if circuit_connection_status is not None:
-            pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         if express_route_circuit_peering is not None:
             pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
         if id is not None:
@@ -6204,6 +6203,14 @@ class ExpressRouteCircuitConnectionResponse(dict):
             pulumi.set(__self__, "name", name)
         if peer_express_route_circuit_peering is not None:
             pulumi.set(__self__, "peer_express_route_circuit_peering", peer_express_route_circuit_peering)
+
+    @property
+    @pulumi.getter(name="circuitConnectionStatus")
+    def circuit_connection_status(self) -> str:
+        """
+        Express Route Circuit connection state.
+        """
+        return pulumi.get(self, "circuit_connection_status")
 
     @property
     @pulumi.getter
@@ -6244,14 +6251,6 @@ class ExpressRouteCircuitConnectionResponse(dict):
         The authorization key.
         """
         return pulumi.get(self, "authorization_key")
-
-    @property
-    @pulumi.getter(name="circuitConnectionStatus")
-    def circuit_connection_status(self) -> Optional[str]:
-        """
-        Express Route Circuit connection state.
-        """
-        return pulumi.get(self, "circuit_connection_status")
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
@@ -11259,12 +11258,12 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
     Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     """
     def __init__(__self__, *,
+                 circuit_connection_status: str,
                  etag: str,
                  provisioning_state: str,
                  type: str,
                  address_prefix: Optional[str] = None,
                  auth_resource_guid: Optional[str] = None,
-                 circuit_connection_status: Optional[str] = None,
                  connection_name: Optional[str] = None,
                  express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None,
                  id: Optional[str] = None,
@@ -11272,18 +11271,19 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
                  peer_express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None):
         """
         Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        :param str circuit_connection_status: Express Route Circuit connection state.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the peer express route circuit connection resource.
         :param str type: Type of the resource.
         :param str address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param str auth_resource_guid: The resource guid of the authorization used for the express route circuit connection.
-        :param str circuit_connection_status: Express Route Circuit connection state.
         :param str connection_name: The name of the express route circuit connection resource.
         :param 'SubResourceResponseArgs' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param 'SubResourceResponseArgs' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
+        pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
@@ -11291,8 +11291,6 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
             pulumi.set(__self__, "address_prefix", address_prefix)
         if auth_resource_guid is not None:
             pulumi.set(__self__, "auth_resource_guid", auth_resource_guid)
-        if circuit_connection_status is not None:
-            pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
         if express_route_circuit_peering is not None:
@@ -11303,6 +11301,14 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
             pulumi.set(__self__, "name", name)
         if peer_express_route_circuit_peering is not None:
             pulumi.set(__self__, "peer_express_route_circuit_peering", peer_express_route_circuit_peering)
+
+    @property
+    @pulumi.getter(name="circuitConnectionStatus")
+    def circuit_connection_status(self) -> str:
+        """
+        Express Route Circuit connection state.
+        """
+        return pulumi.get(self, "circuit_connection_status")
 
     @property
     @pulumi.getter
@@ -11343,14 +11349,6 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
         The resource guid of the authorization used for the express route circuit connection.
         """
         return pulumi.get(self, "auth_resource_guid")
-
-    @property
-    @pulumi.getter(name="circuitConnectionStatus")
-    def circuit_connection_status(self) -> Optional[str]:
-        """
-        Express Route Circuit connection state.
-        """
-        return pulumi.get(self, "circuit_connection_status")
 
     @property
     @pulumi.getter(name="connectionName")
@@ -15856,12 +15854,12 @@ class VpnConnectionResponse(dict):
     VpnConnection Resource.
     """
     def __init__(__self__, *,
+                 connection_status: str,
                  egress_bytes_transferred: int,
                  etag: str,
                  ingress_bytes_transferred: int,
                  provisioning_state: str,
                  connection_bandwidth: Optional[int] = None,
-                 connection_status: Optional[str] = None,
                  dpd_timeout_seconds: Optional[int] = None,
                  enable_bgp: Optional[bool] = None,
                  enable_internet_security: Optional[bool] = None,
@@ -15878,12 +15876,12 @@ class VpnConnectionResponse(dict):
                  vpn_link_connections: Optional[Sequence['outputs.VpnSiteLinkConnectionResponse']] = None):
         """
         VpnConnection Resource.
+        :param str connection_status: The connection status.
         :param int egress_bytes_transferred: Egress bytes transferred.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param int ingress_bytes_transferred: Ingress bytes transferred.
         :param str provisioning_state: The provisioning state of the VPN connection resource.
         :param int connection_bandwidth: Expected bandwidth in MBPS.
-        :param str connection_status: The connection status.
         :param int dpd_timeout_seconds: The dead peer detection timeout for a vpn connection in seconds.
         :param bool enable_bgp: EnableBgp flag.
         :param bool enable_internet_security: Enable internet security.
@@ -15899,14 +15897,13 @@ class VpnConnectionResponse(dict):
         :param str vpn_connection_protocol_type: Connection protocol used for this connection.
         :param Sequence['VpnSiteLinkConnectionResponseArgs'] vpn_link_connections: List of all vpn site link connections to the gateway.
         """
+        pulumi.set(__self__, "connection_status", connection_status)
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if connection_bandwidth is not None:
             pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
-        if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
         if dpd_timeout_seconds is not None:
             pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
         if enable_bgp is not None:
@@ -15935,6 +15932,14 @@ class VpnConnectionResponse(dict):
             pulumi.set(__self__, "vpn_connection_protocol_type", vpn_connection_protocol_type)
         if vpn_link_connections is not None:
             pulumi.set(__self__, "vpn_link_connections", vpn_link_connections)
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> str:
+        """
+        The connection status.
+        """
+        return pulumi.get(self, "connection_status")
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
@@ -15975,14 +15980,6 @@ class VpnConnectionResponse(dict):
         Expected bandwidth in MBPS.
         """
         return pulumi.get(self, "connection_bandwidth")
-
-    @property
-    @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> Optional[str]:
-        """
-        The connection status.
-        """
-        return pulumi.get(self, "connection_status")
 
     @property
     @pulumi.getter(name="dpdTimeoutSeconds")
@@ -16334,13 +16331,13 @@ class VpnSiteLinkConnectionResponse(dict):
     VpnSiteLinkConnection Resource.
     """
     def __init__(__self__, *,
+                 connection_status: str,
                  egress_bytes_transferred: int,
                  etag: str,
                  ingress_bytes_transferred: int,
                  provisioning_state: str,
                  type: str,
                  connection_bandwidth: Optional[int] = None,
-                 connection_status: Optional[str] = None,
                  enable_bgp: Optional[bool] = None,
                  enable_rate_limiting: Optional[bool] = None,
                  id: Optional[str] = None,
@@ -16354,13 +16351,13 @@ class VpnSiteLinkConnectionResponse(dict):
                  vpn_site_link: Optional['outputs.SubResourceResponse'] = None):
         """
         VpnSiteLinkConnection Resource.
+        :param str connection_status: The connection status.
         :param int egress_bytes_transferred: Egress bytes transferred.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param int ingress_bytes_transferred: Ingress bytes transferred.
         :param str provisioning_state: The provisioning state of the VPN site link connection resource.
         :param str type: Resource type.
         :param int connection_bandwidth: Expected bandwidth in MBPS.
-        :param str connection_status: The connection status.
         :param bool enable_bgp: EnableBgp flag.
         :param bool enable_rate_limiting: EnableBgp flag.
         :param str id: Resource ID.
@@ -16373,6 +16370,7 @@ class VpnSiteLinkConnectionResponse(dict):
         :param str vpn_connection_protocol_type: Connection protocol used for this connection.
         :param 'SubResourceResponseArgs' vpn_site_link: Id of the connected vpn site link.
         """
+        pulumi.set(__self__, "connection_status", connection_status)
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
@@ -16380,8 +16378,6 @@ class VpnSiteLinkConnectionResponse(dict):
         pulumi.set(__self__, "type", type)
         if connection_bandwidth is not None:
             pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
-        if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if enable_rate_limiting is not None:
@@ -16404,6 +16400,14 @@ class VpnSiteLinkConnectionResponse(dict):
             pulumi.set(__self__, "vpn_connection_protocol_type", vpn_connection_protocol_type)
         if vpn_site_link is not None:
             pulumi.set(__self__, "vpn_site_link", vpn_site_link)
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> str:
+        """
+        The connection status.
+        """
+        return pulumi.get(self, "connection_status")
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
@@ -16452,14 +16456,6 @@ class VpnSiteLinkConnectionResponse(dict):
         Expected bandwidth in MBPS.
         """
         return pulumi.get(self, "connection_bandwidth")
-
-    @property
-    @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> Optional[str]:
-        """
-        The connection status.
-        """
-        return pulumi.get(self, "connection_status")
 
     @property
     @pulumi.getter(name="enableBgp")

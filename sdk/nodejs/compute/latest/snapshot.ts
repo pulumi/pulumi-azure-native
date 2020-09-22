@@ -55,7 +55,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The state of the snapshot.
      */
-    public readonly diskState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly diskState!: pulumi.Output<string>;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
@@ -142,7 +142,6 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["creationData"] = args ? args.creationData : undefined;
             inputs["diskAccessId"] = args ? args.diskAccessId : undefined;
             inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            inputs["diskState"] = args ? args.diskState : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
             inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
@@ -155,6 +154,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["snapshotName"] = args ? args.snapshotName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["diskSizeBytes"] = undefined /*out*/;
+            inputs["diskState"] = undefined /*out*/;
             inputs["managedBy"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -212,10 +212,6 @@ export interface SnapshotArgs {
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
     readonly diskSizeGB?: pulumi.Input<number>;
-    /**
-     * The state of the snapshot.
-     */
-    readonly diskState?: pulumi.Input<string>;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */

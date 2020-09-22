@@ -3371,23 +3371,24 @@ class AzureFirewallApplicationRuleCollectionResponse(dict):
     """
     def __init__(__self__, *,
                  etag: str,
+                 provisioning_state: str,
                  action: Optional['outputs.AzureFirewallRCActionResponse'] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
-                 provisioning_state: Optional[str] = None,
                  rules: Optional[Sequence['outputs.AzureFirewallApplicationRuleResponse']] = None):
         """
         Application rule collection resource.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
         :param 'AzureFirewallRCActionResponseArgs' action: The action type of a rule collection.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param int priority: Priority of the application rule collection resource.
-        :param str provisioning_state: The provisioning state of the resource.
         :param Sequence['AzureFirewallApplicationRuleResponseArgs'] rules: Collection of rules used by a application rule collection.
         """
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if action is not None:
             pulumi.set(__self__, "action", action)
         if id is not None:
@@ -3396,8 +3397,6 @@ class AzureFirewallApplicationRuleCollectionResponse(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -3408,6 +3407,14 @@ class AzureFirewallApplicationRuleCollectionResponse(dict):
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -3440,14 +3447,6 @@ class AzureFirewallApplicationRuleCollectionResponse(dict):
         Priority of the application rule collection resource.
         """
         return pulumi.get(self, "priority")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -3593,29 +3592,28 @@ class AzureFirewallIPConfigurationResponse(dict):
     def __init__(__self__, *,
                  etag: str,
                  private_ip_address: str,
+                 provisioning_state: str,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 provisioning_state: Optional[str] = None,
                  public_ip_address: Optional['outputs.SubResourceResponse'] = None,
                  subnet: Optional['outputs.SubResourceResponse'] = None):
         """
         IP configuration of an Azure Firewall.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str private_ip_address: The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
+        :param str provisioning_state: The provisioning state of the resource.
         :param str id: Resource ID.
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param str provisioning_state: The provisioning state of the resource.
         :param 'SubResourceResponseArgs' public_ip_address: Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
         :param 'SubResourceResponseArgs' subnet: Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_ip_address is not None:
             pulumi.set(__self__, "public_ip_address", public_ip_address)
         if subnet is not None:
@@ -3638,6 +3636,14 @@ class AzureFirewallIPConfigurationResponse(dict):
         return pulumi.get(self, "private_ip_address")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
@@ -3652,14 +3658,6 @@ class AzureFirewallIPConfigurationResponse(dict):
         Name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="publicIPAddress")
@@ -3714,23 +3712,24 @@ class AzureFirewallNatRuleCollectionResponse(dict):
     """
     def __init__(__self__, *,
                  etag: str,
+                 provisioning_state: str,
                  action: Optional['outputs.AzureFirewallNatRCActionResponse'] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
-                 provisioning_state: Optional[str] = None,
                  rules: Optional[Sequence['outputs.AzureFirewallNatRuleResponse']] = None):
         """
         NAT rule collection resource.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
         :param 'AzureFirewallNatRCActionResponseArgs' action: The action type of a NAT rule collection.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param int priority: Priority of the NAT rule collection resource.
-        :param str provisioning_state: The provisioning state of the resource.
         :param Sequence['AzureFirewallNatRuleResponseArgs'] rules: Collection of rules used by a NAT rule collection.
         """
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if action is not None:
             pulumi.set(__self__, "action", action)
         if id is not None:
@@ -3739,8 +3738,6 @@ class AzureFirewallNatRuleCollectionResponse(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -3751,6 +3748,14 @@ class AzureFirewallNatRuleCollectionResponse(dict):
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -3783,14 +3788,6 @@ class AzureFirewallNatRuleCollectionResponse(dict):
         Priority of the NAT rule collection resource.
         """
         return pulumi.get(self, "priority")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -3921,23 +3918,24 @@ class AzureFirewallNetworkRuleCollectionResponse(dict):
     """
     def __init__(__self__, *,
                  etag: str,
+                 provisioning_state: str,
                  action: Optional['outputs.AzureFirewallRCActionResponse'] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
-                 provisioning_state: Optional[str] = None,
                  rules: Optional[Sequence['outputs.AzureFirewallNetworkRuleResponse']] = None):
         """
         Network rule collection resource.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
         :param 'AzureFirewallRCActionResponseArgs' action: The action type of a rule collection.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param int priority: Priority of the network rule collection resource.
-        :param str provisioning_state: The provisioning state of the resource.
         :param Sequence['AzureFirewallNetworkRuleResponseArgs'] rules: Collection of rules used by a network rule collection.
         """
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if action is not None:
             pulumi.set(__self__, "action", action)
         if id is not None:
@@ -3946,8 +3944,6 @@ class AzureFirewallNetworkRuleCollectionResponse(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -3958,6 +3954,14 @@ class AzureFirewallNetworkRuleCollectionResponse(dict):
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -3990,14 +3994,6 @@ class AzureFirewallNetworkRuleCollectionResponse(dict):
         Priority of the network rule collection resource.
         """
         return pulumi.get(self, "priority")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -4235,23 +4231,24 @@ class BackendPoolResponse(dict):
     A backend pool is a collection of backends that can be routed to.
     """
     def __init__(__self__, *,
+                 resource_state: str,
                  type: str,
                  backends: Optional[Sequence['outputs.BackendResponse']] = None,
                  health_probe_settings: Optional['outputs.SubResourceResponse'] = None,
                  id: Optional[str] = None,
                  load_balancing_settings: Optional['outputs.SubResourceResponse'] = None,
-                 name: Optional[str] = None,
-                 resource_state: Optional[str] = None):
+                 name: Optional[str] = None):
         """
         A backend pool is a collection of backends that can be routed to.
+        :param str resource_state: Resource status.
         :param str type: Resource type.
         :param Sequence['BackendResponseArgs'] backends: The set of backends for this pool
         :param 'SubResourceResponseArgs' health_probe_settings: L7 health probe settings for a backend pool
         :param str id: Resource ID.
         :param 'SubResourceResponseArgs' load_balancing_settings: Load balancing settings for a backend pool
         :param str name: Resource name.
-        :param str resource_state: Resource status.
         """
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
         if backends is not None:
             pulumi.set(__self__, "backends", backends)
@@ -4263,8 +4260,14 @@ class BackendPoolResponse(dict):
             pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
@@ -4313,14 +4316,6 @@ class BackendPoolResponse(dict):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4457,25 +4452,26 @@ class BastionHostIPConfigurationResponse(dict):
     """
     def __init__(__self__, *,
                  etag: str,
+                 provisioning_state: str,
                  public_ip_address: 'outputs.SubResourceResponse',
                  subnet: 'outputs.SubResourceResponse',
                  type: str,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 private_ip_allocation_method: Optional[str] = None,
-                 provisioning_state: Optional[str] = None):
+                 private_ip_allocation_method: Optional[str] = None):
         """
         IP configuration of an Bastion Host.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
         :param 'SubResourceResponseArgs' public_ip_address: Reference of the PublicIP resource.
         :param 'SubResourceResponseArgs' subnet: Reference of the subnet resource.
         :param str type: Ip configuration type.
         :param str id: Resource ID.
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str private_ip_allocation_method: Private IP allocation method.
-        :param str provisioning_state: The provisioning state of the resource.
         """
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "public_ip_address", public_ip_address)
         pulumi.set(__self__, "subnet", subnet)
         pulumi.set(__self__, "type", type)
@@ -4485,8 +4481,6 @@ class BastionHostIPConfigurationResponse(dict):
             pulumi.set(__self__, "name", name)
         if private_ip_allocation_method is not None:
             pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
@@ -4495,6 +4489,14 @@ class BastionHostIPConfigurationResponse(dict):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="publicIPAddress")
@@ -4543,14 +4545,6 @@ class BastionHostIPConfigurationResponse(dict):
         Private IP allocation method.
         """
         return pulumi.get(self, "private_ip_allocation_method")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -5408,29 +5402,30 @@ class ExpressRouteCircuitConnectionResponse(dict):
     Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     """
     def __init__(__self__, *,
+                 circuit_connection_status: str,
                  etag: str,
                  provisioning_state: str,
                  type: str,
                  address_prefix: Optional[str] = None,
                  authorization_key: Optional[str] = None,
-                 circuit_connection_status: Optional[str] = None,
                  express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  peer_express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None):
         """
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        :param str circuit_connection_status: Express Route Circuit connection state.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
         :param str type: Type of the resource.
         :param str address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param str authorization_key: The authorization key.
-        :param str circuit_connection_status: Express Route Circuit connection state.
         :param 'SubResourceResponseArgs' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param 'SubResourceResponseArgs' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
+        pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
@@ -5438,8 +5433,6 @@ class ExpressRouteCircuitConnectionResponse(dict):
             pulumi.set(__self__, "address_prefix", address_prefix)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
-        if circuit_connection_status is not None:
-            pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         if express_route_circuit_peering is not None:
             pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
         if id is not None:
@@ -5448,6 +5441,14 @@ class ExpressRouteCircuitConnectionResponse(dict):
             pulumi.set(__self__, "name", name)
         if peer_express_route_circuit_peering is not None:
             pulumi.set(__self__, "peer_express_route_circuit_peering", peer_express_route_circuit_peering)
+
+    @property
+    @pulumi.getter(name="circuitConnectionStatus")
+    def circuit_connection_status(self) -> str:
+        """
+        Express Route Circuit connection state.
+        """
+        return pulumi.get(self, "circuit_connection_status")
 
     @property
     @pulumi.getter
@@ -5488,14 +5489,6 @@ class ExpressRouteCircuitConnectionResponse(dict):
         The authorization key.
         """
         return pulumi.get(self, "authorization_key")
-
-    @property
-    @pulumi.getter(name="circuitConnectionStatus")
-    def circuit_connection_status(self) -> Optional[str]:
-        """
-        Express Route Circuit connection state.
-        """
-        return pulumi.get(self, "circuit_connection_status")
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
@@ -6139,27 +6132,26 @@ class ExpressRouteConnectionResponse(dict):
     def __init__(__self__, *,
                  express_route_circuit_peering: 'outputs.ExpressRouteCircuitPeeringIdResponse',
                  name: str,
+                 provisioning_state: str,
                  authorization_key: Optional[str] = None,
                  id: Optional[str] = None,
-                 provisioning_state: Optional[str] = None,
                  routing_weight: Optional[int] = None):
         """
         ExpressRouteConnection resource.
         :param 'ExpressRouteCircuitPeeringIdResponseArgs' express_route_circuit_peering: The ExpressRoute circuit peering.
         :param str name: The name of the resource.
+        :param str provisioning_state: The provisioning state of the resource.
         :param str authorization_key: Authorization key to establish the connection.
         :param str id: Resource ID.
-        :param str provisioning_state: The provisioning state of the resource.
         :param int routing_weight: The routing weight associated to the connection.
         """
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if routing_weight is not None:
             pulumi.set(__self__, "routing_weight", routing_weight)
 
@@ -6180,6 +6172,14 @@ class ExpressRouteConnectionResponse(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter(name="authorizationKey")
     def authorization_key(self) -> Optional[str]:
         """
@@ -6194,14 +6194,6 @@ class ExpressRouteConnectionResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="routingWeight")
@@ -6484,11 +6476,11 @@ class FrontendEndpointResponse(dict):
                  custom_https_configuration: 'outputs.CustomHttpsConfigurationResponse',
                  custom_https_provisioning_state: str,
                  custom_https_provisioning_substate: str,
+                 resource_state: str,
                  type: str,
                  host_name: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 resource_state: Optional[str] = None,
                  session_affinity_enabled_state: Optional[str] = None,
                  session_affinity_ttl_seconds: Optional[int] = None,
                  web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
@@ -6497,11 +6489,11 @@ class FrontendEndpointResponse(dict):
         :param 'CustomHttpsConfigurationResponseArgs' custom_https_configuration: The configuration specifying how to enable HTTPS
         :param str custom_https_provisioning_state: Provisioning status of Custom Https of the frontendEndpoint.
         :param str custom_https_provisioning_substate: Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+        :param str resource_state: Resource status.
         :param str type: Resource type.
         :param str host_name: The host name of the frontendEndpoint. Must be a domain name.
         :param str id: Resource ID.
         :param str name: Resource name.
-        :param str resource_state: Resource status.
         :param str session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param int session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
         :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
@@ -6509,6 +6501,7 @@ class FrontendEndpointResponse(dict):
         pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
         pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
         pulumi.set(__self__, "custom_https_provisioning_substate", custom_https_provisioning_substate)
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
@@ -6516,8 +6509,6 @@ class FrontendEndpointResponse(dict):
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
         if session_affinity_enabled_state is not None:
             pulumi.set(__self__, "session_affinity_enabled_state", session_affinity_enabled_state)
         if session_affinity_ttl_seconds is not None:
@@ -6550,6 +6541,14 @@ class FrontendEndpointResponse(dict):
         return pulumi.get(self, "custom_https_provisioning_substate")
 
     @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -6580,14 +6579,6 @@ class FrontendEndpointResponse(dict):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter(name="sessionAffinityEnabledState")
@@ -6839,23 +6830,24 @@ class HealthProbeSettingsModelResponse(dict):
     Load balancing settings for a backend pool
     """
     def __init__(__self__, *,
+                 resource_state: str,
                  type: str,
                  id: Optional[str] = None,
                  interval_in_seconds: Optional[int] = None,
                  name: Optional[str] = None,
                  path: Optional[str] = None,
-                 protocol: Optional[str] = None,
-                 resource_state: Optional[str] = None):
+                 protocol: Optional[str] = None):
         """
         Load balancing settings for a backend pool
+        :param str resource_state: Resource status.
         :param str type: Resource type.
         :param str id: Resource ID.
         :param int interval_in_seconds: The number of seconds between health probes.
         :param str name: Resource name.
         :param str path: The path to use for the health probe. Default is /
         :param str protocol: Protocol scheme to use for this probe
-        :param str resource_state: Resource status.
         """
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -6867,8 +6859,14 @@ class HealthProbeSettingsModelResponse(dict):
             pulumi.set(__self__, "path", path)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
@@ -6918,14 +6916,6 @@ class HealthProbeSettingsModelResponse(dict):
         """
         return pulumi.get(self, "protocol")
 
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
-
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -6937,25 +6927,26 @@ class HubVirtualNetworkConnectionResponse(dict):
     """
     def __init__(__self__, *,
                  etag: str,
+                 provisioning_state: str,
                  allow_hub_to_remote_vnet_transit: Optional[bool] = None,
                  allow_remote_vnet_to_use_hub_vnet_gateways: Optional[bool] = None,
                  enable_internet_security: Optional[bool] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 provisioning_state: Optional[str] = None,
                  remote_virtual_network: Optional['outputs.SubResourceResponse'] = None):
         """
         HubVirtualNetworkConnection Resource.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
         :param bool allow_hub_to_remote_vnet_transit: VirtualHub to RemoteVnet transit to enabled or not.
         :param bool allow_remote_vnet_to_use_hub_vnet_gateways: Allow RemoteVnet to use Virtual Hub's gateways.
         :param bool enable_internet_security: Enable internet security.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param str provisioning_state: The provisioning state of the resource.
         :param 'SubResourceResponseArgs' remote_virtual_network: Reference to the remote virtual network.
         """
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if allow_hub_to_remote_vnet_transit is not None:
             pulumi.set(__self__, "allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
         if allow_remote_vnet_to_use_hub_vnet_gateways is not None:
@@ -6966,8 +6957,6 @@ class HubVirtualNetworkConnectionResponse(dict):
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if remote_virtual_network is not None:
             pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
 
@@ -6978,6 +6967,14 @@ class HubVirtualNetworkConnectionResponse(dict):
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="allowHubToRemoteVnetTransit")
@@ -7018,14 +7015,6 @@ class HubVirtualNetworkConnectionResponse(dict):
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="remoteVirtualNetwork")
@@ -8008,23 +7997,24 @@ class LoadBalancingSettingsModelResponse(dict):
     Load balancing settings for a backend pool
     """
     def __init__(__self__, *,
+                 resource_state: str,
                  type: str,
                  additional_latency_milliseconds: Optional[int] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 resource_state: Optional[str] = None,
                  sample_size: Optional[int] = None,
                  successful_samples_required: Optional[int] = None):
         """
         Load balancing settings for a backend pool
+        :param str resource_state: Resource status.
         :param str type: Resource type.
         :param int additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket
         :param str id: Resource ID.
         :param str name: Resource name.
-        :param str resource_state: Resource status.
         :param int sample_size: The number of samples to consider for load balancing decisions
         :param int successful_samples_required: The number of samples within the sample period that must succeed
         """
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
         if additional_latency_milliseconds is not None:
             pulumi.set(__self__, "additional_latency_milliseconds", additional_latency_milliseconds)
@@ -8032,12 +8022,18 @@ class LoadBalancingSettingsModelResponse(dict):
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
         if sample_size is not None:
             pulumi.set(__self__, "sample_size", sample_size)
         if successful_samples_required is not None:
             pulumi.set(__self__, "successful_samples_required", successful_samples_required)
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
@@ -8070,14 +8066,6 @@ class LoadBalancingSettingsModelResponse(dict):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter(name="sampleSize")
@@ -9929,12 +9917,12 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
     Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     """
     def __init__(__self__, *,
+                 circuit_connection_status: str,
                  etag: str,
                  provisioning_state: str,
                  type: str,
                  address_prefix: Optional[str] = None,
                  auth_resource_guid: Optional[str] = None,
-                 circuit_connection_status: Optional[str] = None,
                  connection_name: Optional[str] = None,
                  express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None,
                  id: Optional[str] = None,
@@ -9942,18 +9930,19 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
                  peer_express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None):
         """
         Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        :param str circuit_connection_status: Express Route Circuit connection state.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: Provisioning state of the peer express route circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
         :param str type: Type of the resource.
         :param str address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param str auth_resource_guid: The resource guid of the authorization used for the express route circuit connection.
-        :param str circuit_connection_status: Express Route Circuit connection state.
         :param str connection_name: The name of the express route circuit connection resource.
         :param 'SubResourceResponseArgs' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit.
         :param str id: Resource ID.
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param 'SubResourceResponseArgs' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
+        pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
@@ -9961,8 +9950,6 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
             pulumi.set(__self__, "address_prefix", address_prefix)
         if auth_resource_guid is not None:
             pulumi.set(__self__, "auth_resource_guid", auth_resource_guid)
-        if circuit_connection_status is not None:
-            pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
         if express_route_circuit_peering is not None:
@@ -9973,6 +9960,14 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
             pulumi.set(__self__, "name", name)
         if peer_express_route_circuit_peering is not None:
             pulumi.set(__self__, "peer_express_route_circuit_peering", peer_express_route_circuit_peering)
+
+    @property
+    @pulumi.getter(name="circuitConnectionStatus")
+    def circuit_connection_status(self) -> str:
+        """
+        Express Route Circuit connection state.
+        """
+        return pulumi.get(self, "circuit_connection_status")
 
     @property
     @pulumi.getter
@@ -10013,14 +10008,6 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
         The resource guid of the authorization used for the express route circuit connection.
         """
         return pulumi.get(self, "auth_resource_guid")
-
-    @property
-    @pulumi.getter(name="circuitConnectionStatus")
-    def circuit_connection_status(self) -> Optional[str]:
-        """
-        Express Route Circuit connection state.
-        """
-        return pulumi.get(self, "circuit_connection_status")
 
     @property
     @pulumi.getter(name="connectionName")
@@ -11779,6 +11766,7 @@ class RoutingRuleResponse(dict):
     A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
     """
     def __init__(__self__, *,
+                 resource_state: str,
                  type: str,
                  accepted_protocols: Optional[Sequence[str]] = None,
                  enabled_state: Optional[str] = None,
@@ -11786,10 +11774,10 @@ class RoutingRuleResponse(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  patterns_to_match: Optional[Sequence[str]] = None,
-                 resource_state: Optional[str] = None,
                  route_configuration: Optional[Any] = None):
         """
         A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
+        :param str resource_state: Resource status.
         :param str type: Resource type.
         :param Sequence[str] accepted_protocols: Protocol schemes to match for this rule
         :param str enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -11797,9 +11785,9 @@ class RoutingRuleResponse(dict):
         :param str id: Resource ID.
         :param str name: Resource name.
         :param Sequence[str] patterns_to_match: The route patterns of the rule.
-        :param str resource_state: Resource status.
         :param Union['ForwardingConfigurationResponseArgs', 'RedirectConfigurationResponseArgs'] route_configuration: A reference to the routing configuration.
         """
+        pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
         if accepted_protocols is not None:
             pulumi.set(__self__, "accepted_protocols", accepted_protocols)
@@ -11813,10 +11801,16 @@ class RoutingRuleResponse(dict):
             pulumi.set(__self__, "name", name)
         if patterns_to_match is not None:
             pulumi.set(__self__, "patterns_to_match", patterns_to_match)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
         if route_configuration is not None:
             pulumi.set(__self__, "route_configuration", route_configuration)
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
@@ -11873,14 +11867,6 @@ class RoutingRuleResponse(dict):
         The route patterns of the rule.
         """
         return pulumi.get(self, "patterns_to_match")
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter(name="routeConfiguration")
@@ -13982,18 +13968,18 @@ class VpnConnectionResponse(dict):
     VpnConnection Resource.
     """
     def __init__(__self__, *,
+                 connection_status: str,
                  egress_bytes_transferred: int,
                  etag: str,
                  ingress_bytes_transferred: int,
+                 provisioning_state: str,
                  connection_bandwidth: Optional[int] = None,
-                 connection_status: Optional[str] = None,
                  enable_bgp: Optional[bool] = None,
                  enable_internet_security: Optional[bool] = None,
                  enable_rate_limiting: Optional[bool] = None,
                  id: Optional[str] = None,
                  ipsec_policies: Optional[Sequence['outputs.IpsecPolicyResponse']] = None,
                  name: Optional[str] = None,
-                 provisioning_state: Optional[str] = None,
                  remote_vpn_site: Optional['outputs.SubResourceResponse'] = None,
                  routing_weight: Optional[int] = None,
                  shared_key: Optional[str] = None,
@@ -14002,18 +13988,18 @@ class VpnConnectionResponse(dict):
                  vpn_connection_protocol_type: Optional[str] = None):
         """
         VpnConnection Resource.
+        :param str connection_status: The connection status.
         :param int egress_bytes_transferred: Egress bytes transferred.
         :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param int ingress_bytes_transferred: Ingress bytes transferred.
+        :param str provisioning_state: The provisioning state of the resource.
         :param int connection_bandwidth: Expected bandwidth in MBPS.
-        :param str connection_status: The connection status.
         :param bool enable_bgp: EnableBgp flag.
         :param bool enable_internet_security: Enable internet security.
         :param bool enable_rate_limiting: EnableBgp flag.
         :param str id: Resource ID.
         :param Sequence['IpsecPolicyResponseArgs'] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param str provisioning_state: The provisioning state of the resource.
         :param 'SubResourceResponseArgs' remote_vpn_site: Id of the connected vpn site.
         :param int routing_weight: Routing weight for vpn connection.
         :param str shared_key: SharedKey for the vpn connection.
@@ -14021,13 +14007,13 @@ class VpnConnectionResponse(dict):
         :param bool use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
         :param str vpn_connection_protocol_type: Connection protocol used for this connection.
         """
+        pulumi.set(__self__, "connection_status", connection_status)
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if connection_bandwidth is not None:
             pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
-        if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if enable_internet_security is not None:
@@ -14040,8 +14026,6 @@ class VpnConnectionResponse(dict):
             pulumi.set(__self__, "ipsec_policies", ipsec_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if remote_vpn_site is not None:
             pulumi.set(__self__, "remote_vpn_site", remote_vpn_site)
         if routing_weight is not None:
@@ -14054,6 +14038,14 @@ class VpnConnectionResponse(dict):
             pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
         if vpn_connection_protocol_type is not None:
             pulumi.set(__self__, "vpn_connection_protocol_type", vpn_connection_protocol_type)
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> str:
+        """
+        The connection status.
+        """
+        return pulumi.get(self, "connection_status")
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
@@ -14080,20 +14072,20 @@ class VpnConnectionResponse(dict):
         return pulumi.get(self, "ingress_bytes_transferred")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter(name="connectionBandwidth")
     def connection_bandwidth(self) -> Optional[int]:
         """
         Expected bandwidth in MBPS.
         """
         return pulumi.get(self, "connection_bandwidth")
-
-    @property
-    @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> Optional[str]:
-        """
-        The connection status.
-        """
-        return pulumi.get(self, "connection_status")
 
     @property
     @pulumi.getter(name="enableBgp")
@@ -14142,14 +14134,6 @@ class VpnConnectionResponse(dict):
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="remoteVpnSite")

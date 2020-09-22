@@ -13,9 +13,7 @@ __all__ = [
     'KeyVaultPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'PropertiesEncryptionArgs',
-    'PropertiesLockboxArgs',
     'KeyPropertiesArgs',
-    'SystemDataArgs',
 ]
 
 @pulumi.input_type
@@ -46,20 +44,16 @@ class EnterprisePolicyIdentityArgs:
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
-                 key: Optional[pulumi.Input['KeyPropertiesArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 key: Optional[pulumi.Input['KeyPropertiesArgs']] = None):
         """
         Settings concerning key vault encryption for a configuration store.
         :param pulumi.Input[str] id: Uri of KeyVault
         :param pulumi.Input['KeyPropertiesArgs'] key: Identity of the secret that includes name and version.
-        :param pulumi.Input[str] status: The state of onboarding, which only appears in the response.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
             pulumi.set(__self__, "key", key)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -84,18 +78,6 @@ class KeyVaultPropertiesArgs:
     @key.setter
     def key(self, value: Optional[pulumi.Input['KeyPropertiesArgs']]):
         pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The state of onboarding, which only appears in the response.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -179,30 +161,6 @@ class PropertiesEncryptionArgs:
 
 
 @pulumi.input_type
-class PropertiesLockboxArgs:
-    def __init__(__self__, *,
-                 status: Optional[pulumi.Input[str]] = None):
-        """
-        Settings concerning lockbox.
-        :param pulumi.Input[str] status: lockbox configuration
-        """
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        lockbox configuration
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
 class KeyPropertiesArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
@@ -240,109 +198,5 @@ class KeyPropertiesArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class SystemDataArgs:
-    def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[str]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[str]] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[str] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[str] last_modified_at: The type of identity that last modified the resource.
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[str] last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_at", value)
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_by", value)
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @created_by_type.setter
-    def created_by_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_by_type", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @last_modified_at.setter
-    def last_modified_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_at", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_by", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-    @last_modified_by_type.setter
-    def last_modified_by_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_by_type", value)
 
 

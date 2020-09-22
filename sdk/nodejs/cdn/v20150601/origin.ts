@@ -53,7 +53,7 @@ export class Origin extends pulumi.CustomResource {
     /**
      * Provisioning status of the origin.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource status of the origin.
      */

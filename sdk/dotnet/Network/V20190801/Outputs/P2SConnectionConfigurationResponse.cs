@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         /// <summary>
         /// The provisioning state of the P2SConnectionConfiguration resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The reference of the address space resource which represents Address space for P2S VpnClient.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
 
             string? name,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.AddressSpaceResponse? vpnClientAddressPool)
         {

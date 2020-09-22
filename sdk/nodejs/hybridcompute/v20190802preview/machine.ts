@@ -79,7 +79,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Specifies the operating system settings for the hybrid machine.
      */
-    public /*out*/ readonly osProfile!: pulumi.Output<outputs.hybridcompute.v20190802preview.OSProfileResponse | undefined>;
+    public /*out*/ readonly osProfile!: pulumi.Output<outputs.hybridcompute.v20190802preview.OSProfileResponse>;
     /**
      * The version of Operating System running on the hybrid machine.
      */

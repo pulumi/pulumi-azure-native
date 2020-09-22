@@ -40,9 +40,13 @@ export interface GetNamespaceResult {
      */
     readonly createdAt: string;
     /**
-     * Properties of BYOK Encryption description
+     * Enumerates the possible value of keySource for Encryption
      */
-    readonly encryption?: outputs.servicebus.v20180101preview.EncryptionResponse;
+    readonly keySource?: string;
+    /**
+     * Properties of KeyVault
+     */
+    readonly keyVaultProperties?: outputs.servicebus.v20180101preview.KeyVaultPropertiesResponse;
     /**
      * The Geo-location where the resource lives
      */

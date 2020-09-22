@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Relay.V20180101Preview
         /// Provisioning state of the private endpoint connection.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -130,12 +130,6 @@ namespace Pulumi.AzureNextGen.Relay.V20180101Preview
         /// </summary>
         [Input("privateLinkServiceConnectionState")]
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
-
-        /// <summary>
-        /// Provisioning state of the private endpoint connection.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

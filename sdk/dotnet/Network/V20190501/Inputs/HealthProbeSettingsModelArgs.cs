@@ -57,12 +57,6 @@ namespace Pulumi.AzureNextGen.Network.V20190501.Inputs
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
-        /// <summary>
-        /// Resource status.
-        /// </summary>
-        [Input("resourceState")]
-        public Input<string>? ResourceState { get; set; }
-
         public HealthProbeSettingsModelArgs()
         {
         }

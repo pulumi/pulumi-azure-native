@@ -27,7 +27,7 @@ type VpnGateway struct {
 	// The policies applied to this vpn gateway.
 	Policies PoliciesResponsePtrOutput `pulumi:"policies"`
 	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -195,8 +195,6 @@ type vpnGatewayArgs struct {
 	Location string `pulumi:"location"`
 	// The policies applied to this vpn gateway.
 	Policies *Policies `pulumi:"policies"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the VpnGateway.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -219,8 +217,6 @@ type VpnGatewayArgs struct {
 	Location pulumi.StringInput
 	// The policies applied to this vpn gateway.
 	Policies PoliciesPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the VpnGateway.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

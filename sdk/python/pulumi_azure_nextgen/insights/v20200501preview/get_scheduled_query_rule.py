@@ -71,7 +71,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def criteria(self) -> Optional['outputs.ScheduledQueryRuleCriteriaResponse']:
+    def criteria(self) -> 'outputs.ScheduledQueryRuleCriteriaResponse':
         """
         The rule criteria that defines the conditions of the scheduled query rule.
         """
@@ -87,7 +87,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> bool:
         """
         The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         """
@@ -95,7 +95,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter(name="evaluationFrequency")
-    def evaluation_frequency(self) -> Optional[str]:
+    def evaluation_frequency(self) -> str:
         """
         How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         """
@@ -127,7 +127,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[Sequence[str]]:
+    def scopes(self) -> Sequence[str]:
         """
         The list of resource id's that this scheduled query rule is scoped to.
         """
@@ -135,7 +135,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def severity(self) -> Optional[float]:
+    def severity(self) -> float:
         """
         Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         """
@@ -167,7 +167,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter(name="windowSize")
-    def window_size(self) -> Optional[str]:
+    def window_size(self) -> str:
         """
         The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
         """

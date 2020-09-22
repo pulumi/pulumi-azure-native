@@ -47,7 +47,7 @@ export interface GetVpnConnectionResult {
     /**
      * The connection status.
      */
-    readonly connectionStatus?: string;
+    readonly connectionStatus: string;
     /**
      * Egress bytes transferred.
      */
@@ -75,7 +75,7 @@ export interface GetVpnConnectionResult {
     /**
      * The provisioning state of the resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Id of the connected vpn site.
      */

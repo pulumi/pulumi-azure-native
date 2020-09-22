@@ -29,8 +29,7 @@ class MyStack : Stack
             Location = resourceGroup.Location,
             Sku = new SkuArgs
             {
-                Name = "Standard_LRS",
-                Tier = "Standard"
+                Name = "Standard_LRS"
             },
             Kind = "StorageV2"
         });

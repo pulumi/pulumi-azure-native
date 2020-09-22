@@ -4932,8 +4932,7 @@ class BackendPoolArgs:
                  health_probe_settings: Optional[pulumi.Input['SubResourceArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  load_balancing_settings: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 resource_state: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         A backend pool is a collection of backends that can be routed to.
         :param pulumi.Input[Sequence[pulumi.Input['BackendArgs']]] backends: The set of backends for this pool
@@ -4941,7 +4940,6 @@ class BackendPoolArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input['SubResourceArgs'] load_balancing_settings: Load balancing settings for a backend pool
         :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[str] resource_state: Resource status.
         """
         if backends is not None:
             pulumi.set(__self__, "backends", backends)
@@ -4953,8 +4951,6 @@ class BackendPoolArgs:
             pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
 
     @property
     @pulumi.getter
@@ -5015,18 +5011,6 @@ class BackendPoolArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
-
-    @resource_state.setter
-    def resource_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_state", value)
 
 
 @pulumi.input_type
@@ -7228,7 +7212,6 @@ class ExpressRouteCircuitConnectionArgs:
     def __init__(__self__, *,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
-                 circuit_connection_status: Optional[pulumi.Input[str]] = None,
                  express_route_circuit_peering: Optional[pulumi.Input['SubResourceArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ipv6_circuit_connection_config: Optional[pulumi.Input['Ipv6CircuitConnectionConfigArgs']] = None,
@@ -7238,7 +7221,6 @@ class ExpressRouteCircuitConnectionArgs:
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
         :param pulumi.Input[str] address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param pulumi.Input[str] authorization_key: The authorization key.
-        :param pulumi.Input[str] circuit_connection_status: Express Route Circuit connection state.
         :param pulumi.Input['SubResourceArgs'] express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input['Ipv6CircuitConnectionConfigArgs'] ipv6_circuit_connection_config: IPv6 Address PrefixProperties of the express route circuit connection.
@@ -7249,8 +7231,6 @@ class ExpressRouteCircuitConnectionArgs:
             pulumi.set(__self__, "address_prefix", address_prefix)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
-        if circuit_connection_status is not None:
-            pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         if express_route_circuit_peering is not None:
             pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
         if id is not None:
@@ -7285,18 +7265,6 @@ class ExpressRouteCircuitConnectionArgs:
     @authorization_key.setter
     def authorization_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authorization_key", value)
-
-    @property
-    @pulumi.getter(name="circuitConnectionStatus")
-    def circuit_connection_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Express Route Circuit connection state.
-        """
-        return pulumi.get(self, "circuit_connection_status")
-
-    @circuit_connection_status.setter
-    def circuit_connection_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "circuit_connection_status", value)
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
@@ -8884,7 +8852,6 @@ class FrontendEndpointArgs:
                  host_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_state: Optional[pulumi.Input[str]] = None,
                  session_affinity_enabled_state: Optional[pulumi.Input[str]] = None,
                  session_affinity_ttl_seconds: Optional[pulumi.Input[int]] = None,
                  web_application_firewall_policy_link: Optional[pulumi.Input['FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs']] = None):
@@ -8893,7 +8860,6 @@ class FrontendEndpointArgs:
         :param pulumi.Input[str] host_name: The host name of the frontendEndpoint. Must be a domain name.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[str] resource_state: Resource status.
         :param pulumi.Input[str] session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param pulumi.Input[int] session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
         :param pulumi.Input['FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs'] web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
@@ -8904,8 +8870,6 @@ class FrontendEndpointArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
         if session_affinity_enabled_state is not None:
             pulumi.set(__self__, "session_affinity_enabled_state", session_affinity_enabled_state)
         if session_affinity_ttl_seconds is not None:
@@ -8948,18 +8912,6 @@ class FrontendEndpointArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
-
-    @resource_state.setter
-    def resource_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_state", value)
 
     @property
     @pulumi.getter(name="sessionAffinityEnabledState")
@@ -9277,8 +9229,7 @@ class HealthProbeSettingsModelArgs:
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
-                 resource_state: Optional[pulumi.Input[str]] = None):
+                 protocol: Optional[pulumi.Input[str]] = None):
         """
         Load balancing settings for a backend pool
         :param pulumi.Input[str] enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
@@ -9288,7 +9239,6 @@ class HealthProbeSettingsModelArgs:
         :param pulumi.Input[str] name: Resource name.
         :param pulumi.Input[str] path: The path to use for the health probe. Default is /
         :param pulumi.Input[str] protocol: Protocol scheme to use for this probe
-        :param pulumi.Input[str] resource_state: Resource status.
         """
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
@@ -9304,8 +9254,6 @@ class HealthProbeSettingsModelArgs:
             pulumi.set(__self__, "path", path)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
 
     @property
     @pulumi.getter(name="enabledState")
@@ -9390,18 +9338,6 @@ class HealthProbeSettingsModelArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
-
-    @resource_state.setter
-    def resource_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_state", value)
 
 
 @pulumi.input_type
@@ -10559,7 +10495,6 @@ class LoadBalancingSettingsModelArgs:
                  additional_latency_milliseconds: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_state: Optional[pulumi.Input[str]] = None,
                  sample_size: Optional[pulumi.Input[int]] = None,
                  successful_samples_required: Optional[pulumi.Input[int]] = None):
         """
@@ -10567,7 +10502,6 @@ class LoadBalancingSettingsModelArgs:
         :param pulumi.Input[int] additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[str] resource_state: Resource status.
         :param pulumi.Input[int] sample_size: The number of samples to consider for load balancing decisions
         :param pulumi.Input[int] successful_samples_required: The number of samples within the sample period that must succeed
         """
@@ -10577,8 +10511,6 @@ class LoadBalancingSettingsModelArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
         if sample_size is not None:
             pulumi.set(__self__, "sample_size", sample_size)
         if successful_samples_required is not None:
@@ -10619,18 +10551,6 @@ class LoadBalancingSettingsModelArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
-
-    @resource_state.setter
-    def resource_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_state", value)
 
     @property
     @pulumi.getter(name="sampleSize")
@@ -14833,7 +14753,6 @@ class RoutingRuleArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_state: Optional[pulumi.Input[str]] = None,
                  route_configuration: Optional[pulumi.Input[Union['ForwardingConfigurationArgs', 'RedirectConfigurationArgs']]] = None,
                  rules_engine: Optional[pulumi.Input['SubResourceArgs']] = None,
                  web_application_firewall_policy_link: Optional[pulumi.Input['RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs']] = None):
@@ -14845,7 +14764,6 @@ class RoutingRuleArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Resource name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_match: The route patterns of the rule.
-        :param pulumi.Input[str] resource_state: Resource status.
         :param pulumi.Input[Union['ForwardingConfigurationArgs', 'RedirectConfigurationArgs']] route_configuration: A reference to the routing configuration.
         :param pulumi.Input['SubResourceArgs'] rules_engine: A reference to a specific Rules Engine Configuration to apply to this route.
         :param pulumi.Input['RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs'] web_application_firewall_policy_link: Defines the Web Application Firewall policy for each routing rule (if applicable)
@@ -14862,8 +14780,6 @@ class RoutingRuleArgs:
             pulumi.set(__self__, "name", name)
         if patterns_to_match is not None:
             pulumi.set(__self__, "patterns_to_match", patterns_to_match)
-        if resource_state is not None:
-            pulumi.set(__self__, "resource_state", resource_state)
         if route_configuration is not None:
             pulumi.set(__self__, "route_configuration", route_configuration)
         if rules_engine is not None:
@@ -14942,18 +14858,6 @@ class RoutingRuleArgs:
     @patterns_to_match.setter
     def patterns_to_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "patterns_to_match", value)
-
-    @property
-    @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource status.
-        """
-        return pulumi.get(self, "resource_state")
-
-    @resource_state.setter
-    def resource_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_state", value)
 
     @property
     @pulumi.getter(name="routeConfiguration")
@@ -17695,7 +17599,6 @@ class VpnClientRootCertificateArgs:
 class VpnConnectionArgs:
     def __init__(__self__, *,
                  connection_bandwidth: Optional[pulumi.Input[int]] = None,
-                 connection_status: Optional[pulumi.Input[str]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
@@ -17714,7 +17617,6 @@ class VpnConnectionArgs:
         """
         VpnConnection Resource.
         :param pulumi.Input[int] connection_bandwidth: Expected bandwidth in MBPS.
-        :param pulumi.Input[str] connection_status: The connection status.
         :param pulumi.Input[int] dpd_timeout_seconds: DPD timeout in seconds for vpn connection.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] enable_internet_security: Enable internet security.
@@ -17733,8 +17635,6 @@ class VpnConnectionArgs:
         """
         if connection_bandwidth is not None:
             pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
-        if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
         if dpd_timeout_seconds is not None:
             pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
         if enable_bgp is not None:
@@ -17777,18 +17677,6 @@ class VpnConnectionArgs:
     @connection_bandwidth.setter
     def connection_bandwidth(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "connection_bandwidth", value)
-
-    @property
-    @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The connection status.
-        """
-        return pulumi.get(self, "connection_status")
-
-    @connection_status.setter
-    def connection_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "connection_status", value)
 
     @property
     @pulumi.getter(name="dpdTimeoutSeconds")
@@ -18319,7 +18207,6 @@ class VpnSiteLinkArgs:
 class VpnSiteLinkConnectionArgs:
     def __init__(__self__, *,
                  connection_bandwidth: Optional[pulumi.Input[int]] = None,
-                 connection_status: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  enable_rate_limiting: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -18334,7 +18221,6 @@ class VpnSiteLinkConnectionArgs:
         """
         VpnSiteLinkConnection Resource.
         :param pulumi.Input[int] connection_bandwidth: Expected bandwidth in MBPS.
-        :param pulumi.Input[str] connection_status: The connection status.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] enable_rate_limiting: EnableBgp flag.
         :param pulumi.Input[str] id: Resource ID.
@@ -18349,8 +18235,6 @@ class VpnSiteLinkConnectionArgs:
         """
         if connection_bandwidth is not None:
             pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
-        if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if enable_rate_limiting is not None:
@@ -18385,18 +18269,6 @@ class VpnSiteLinkConnectionArgs:
     @connection_bandwidth.setter
     def connection_bandwidth(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "connection_bandwidth", value)
-
-    @property
-    @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The connection status.
-        """
-        return pulumi.get(self, "connection_status")
-
-    @connection_status.setter
-    def connection_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "connection_status", value)
 
     @property
     @pulumi.getter(name="enableBgp")

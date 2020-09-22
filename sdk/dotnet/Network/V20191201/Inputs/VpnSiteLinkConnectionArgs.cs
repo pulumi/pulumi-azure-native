@@ -22,12 +22,6 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         public Input<int>? ConnectionBandwidth { get; set; }
 
         /// <summary>
-        /// The connection status.
-        /// </summary>
-        [Input("connectionStatus")]
-        public Input<string>? ConnectionStatus { get; set; }
-
-        /// <summary>
         /// EnableBgp flag.
         /// </summary>
         [Input("enableBgp")]

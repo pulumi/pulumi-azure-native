@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Outputs
         /// <summary>
         /// Resource status.
         /// </summary>
-        public readonly string? ResourceState;
+        public readonly string ResourceState;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Outputs
 
             string? protocol,
 
-            string? resourceState,
+            string resourceState,
 
             string type)
         {

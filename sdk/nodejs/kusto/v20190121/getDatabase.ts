@@ -63,7 +63,7 @@ export interface GetDatabaseResult {
     /**
      * The statistics of the database.
      */
-    readonly statistics?: outputs.kusto.v20190121.DatabaseStatisticsResponse;
+    readonly statistics: outputs.kusto.v20190121.DatabaseStatisticsResponse;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

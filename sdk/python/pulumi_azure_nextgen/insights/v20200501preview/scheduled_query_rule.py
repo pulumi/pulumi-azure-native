@@ -71,9 +71,15 @@ class ScheduledQueryRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['actions'] = actions
+            if criteria is None:
+                raise TypeError("Missing required property 'criteria'")
             __props__['criteria'] = criteria
             __props__['description'] = description
+            if enabled is None:
+                raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
+            if evaluation_frequency is None:
+                raise TypeError("Missing required property 'evaluation_frequency'")
             __props__['evaluation_frequency'] = evaluation_frequency
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -85,10 +91,16 @@ class ScheduledQueryRule(pulumi.CustomResource):
             if rule_name is None:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
+            if scopes is None:
+                raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
+            if severity is None:
+                raise TypeError("Missing required property 'severity'")
             __props__['severity'] = severity
             __props__['tags'] = tags
             __props__['target_resource_types'] = target_resource_types
+            if window_size is None:
+                raise TypeError("Missing required property 'window_size'")
             __props__['window_size'] = window_size
             __props__['name'] = None
             __props__['type'] = None
@@ -125,7 +137,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Output[Optional['outputs.ScheduledQueryRuleCriteriaResponse']]:
+    def criteria(self) -> pulumi.Output['outputs.ScheduledQueryRuleCriteriaResponse']:
         """
         The rule criteria that defines the conditions of the scheduled query rule.
         """
@@ -141,7 +153,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         """
@@ -149,7 +161,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluationFrequency")
-    def evaluation_frequency(self) -> pulumi.Output[Optional[str]]:
+    def evaluation_frequency(self) -> pulumi.Output[str]:
         """
         How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         """
@@ -181,7 +193,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def scopes(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of resource id's that this scheduled query rule is scoped to.
         """
@@ -189,7 +201,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> pulumi.Output[Optional[float]]:
+    def severity(self) -> pulumi.Output[float]:
         """
         Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         """
@@ -221,7 +233,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="windowSize")
-    def window_size(self) -> pulumi.Output[Optional[str]]:
+    def window_size(self) -> pulumi.Output[str]:
         """
         The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
         """

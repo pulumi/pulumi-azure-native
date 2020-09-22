@@ -21,7 +21,6 @@ class FirewallPolicy(pulumi.CustomResource):
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[str]] = None,
@@ -37,7 +36,6 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] threat_intel_mode: The operation mode for Threat Intelligence.
@@ -65,7 +63,6 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__['firewall_policy_name'] = firewall_policy_name
             __props__['id'] = id
             __props__['location'] = location
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -75,6 +72,7 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['firewalls'] = None
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['rule_groups'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190801:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190901:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200601:FirewallPolicy")])
@@ -153,7 +151,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """

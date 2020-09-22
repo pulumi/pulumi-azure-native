@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// <summary>
         /// The provisioning state of the private endpoint.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
 
             ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> privateLinkServiceConnections,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SubnetResponse? subnet,
 

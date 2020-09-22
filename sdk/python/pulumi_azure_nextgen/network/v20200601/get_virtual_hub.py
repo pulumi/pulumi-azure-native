@@ -189,7 +189,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="routingState")
-    def routing_state(self) -> Optional[str]:
+    def routing_state(self) -> str:
         """
         The routing state.
         """

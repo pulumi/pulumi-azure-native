@@ -45,7 +45,7 @@ export class CustomDomain extends pulumi.CustomResource {
     /**
      * Provisioning status of the custom domain.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource status of the custom domain.
      */

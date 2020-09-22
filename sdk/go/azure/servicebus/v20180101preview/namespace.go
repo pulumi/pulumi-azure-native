@@ -16,8 +16,10 @@ type Namespace struct {
 
 	// The time the namespace was created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Properties of BYOK Encryption description
-	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
+	// Enumerates the possible value of keySource for Encryption
+	KeySource pulumi.StringPtrOutput `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties KeyVaultPropertiesResponsePtrOutput `pulumi:"keyVaultProperties"`
 	// The Geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Identifier for Azure Insights metrics
@@ -94,8 +96,10 @@ func GetNamespace(ctx *pulumi.Context,
 type namespaceState struct {
 	// The time the namespace was created
 	CreatedAt *string `pulumi:"createdAt"`
-	// Properties of BYOK Encryption description
-	Encryption *EncryptionResponse `pulumi:"encryption"`
+	// Enumerates the possible value of keySource for Encryption
+	KeySource *string `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 	// The Geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Identifier for Azure Insights metrics
@@ -121,8 +125,10 @@ type namespaceState struct {
 type NamespaceState struct {
 	// The time the namespace was created
 	CreatedAt pulumi.StringPtrInput
-	// Properties of BYOK Encryption description
-	Encryption EncryptionResponsePtrInput
+	// Enumerates the possible value of keySource for Encryption
+	KeySource pulumi.StringPtrInput
+	// Properties of KeyVault
+	KeyVaultProperties KeyVaultPropertiesResponsePtrInput
 	// The Geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Identifier for Azure Insights metrics
@@ -150,8 +156,10 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Properties of BYOK Encryption description
-	Encryption *Encryption `pulumi:"encryption"`
+	// Enumerates the possible value of keySource for Encryption
+	KeySource *string `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
 	// The Geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The namespace name.
@@ -168,8 +176,10 @@ type namespaceArgs struct {
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Properties of BYOK Encryption description
-	Encryption EncryptionPtrInput
+	// Enumerates the possible value of keySource for Encryption
+	KeySource pulumi.StringPtrInput
+	// Properties of KeyVault
+	KeyVaultProperties KeyVaultPropertiesPtrInput
 	// The Geo-location where the resource lives
 	Location pulumi.StringInput
 	// The namespace name.

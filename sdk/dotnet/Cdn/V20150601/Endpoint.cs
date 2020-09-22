@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
         /// Provisioning status of the endpoint.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Defines the query string caching behavior.
