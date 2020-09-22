@@ -35,6 +35,8 @@ __all__ = [
     'AzureDataLakeStoreDatasetResponse',
     'AzureDataLakeStoreLinkedServiceResponse',
     'AzureDataLakeStoreLocationResponse',
+    'AzureDatabricksDeltaLakeDatasetResponse',
+    'AzureDatabricksDeltaLakeLinkedServiceResponse',
     'AzureDatabricksLinkedServiceResponse',
     'AzureFileStorageLinkedServiceResponse',
     'AzureFileStorageLocationResponse',
@@ -3343,6 +3345,258 @@ class AzureDataLakeStoreLocationResponse(dict):
         Specify the folder path of dataset. Type: string (or Expression with resultType string)
         """
         return pulumi.get(self, "folder_path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureDatabricksDeltaLakeDatasetResponse(dict):
+    """
+    Azure Databricks Delta Lake dataset.
+    """
+    def __init__(__self__, *,
+                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
+                 type: str,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 database: Optional[Mapping[str, Any]] = None,
+                 description: Optional[str] = None,
+                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 schema: Optional[Mapping[str, Any]] = None,
+                 structure: Optional[Mapping[str, Any]] = None,
+                 table: Optional[Mapping[str, Any]] = None):
+        """
+        Azure Databricks Delta Lake dataset.
+        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param str type: Type of dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Mapping[str, Any] database: The database name of delta table. Type: string (or Expression with resultType string).
+        :param str description: Dataset description.
+        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, Any] schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Mapping[str, Any] table: The name of delta table. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "type", 'AzureDatabricksDeltaLakeDataset')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[Mapping[str, Any]]:
+        """
+        The database name of delta table. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Mapping[str, Any]]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Mapping[str, Any]]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[Mapping[str, Any]]:
+        """
+        The name of delta table. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "table")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureDatabricksDeltaLakeLinkedServiceResponse(dict):
+    """
+    Azure Databricks Delta Lake linked service.
+    """
+    def __init__(__self__, *,
+                 domain: Mapping[str, Any],
+                 type: str,
+                 access_token: Optional[Any] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 cluster_id: Optional[Mapping[str, Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Azure Databricks Delta Lake linked service.
+        :param Mapping[str, Any] domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
+        :param str type: Type of linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Mapping[str, Any] cluster_id: The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
+        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "type", 'AzureDatabricksDeltaLake')
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Mapping[str, Any]:
+        """
+        <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[Any]:
+        """
+        Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[Mapping[str, Any]]:
+        """
+        The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

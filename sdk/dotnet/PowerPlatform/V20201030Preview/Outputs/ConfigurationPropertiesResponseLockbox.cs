@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
 {
 
     [OutputType]
-    public sealed class EnterprisePolicyIdentityResponseLockbox
+    public sealed class ConfigurationPropertiesResponseLockbox
     {
         /// <summary>
         /// lockbox configuration
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
         public readonly string? Status;
 
         [OutputConstructor]
-        private EnterprisePolicyIdentityResponseLockbox(string? status)
+        private ConfigurationPropertiesResponseLockbox(string? status)
         {
             Status = status;
         }

@@ -10,14 +10,548 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Identity for the EnterprisePolicy.
+// The encryption settings for a configuration store.
+type ConfigurationPropertiesEncryption struct {
+	// Key vault properties.
+	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
+}
+
+// ConfigurationPropertiesEncryptionInput is an input type that accepts ConfigurationPropertiesEncryptionArgs and ConfigurationPropertiesEncryptionOutput values.
+// You can construct a concrete instance of `ConfigurationPropertiesEncryptionInput` via:
+//
+//          ConfigurationPropertiesEncryptionArgs{...}
+type ConfigurationPropertiesEncryptionInput interface {
+	pulumi.Input
+
+	ToConfigurationPropertiesEncryptionOutput() ConfigurationPropertiesEncryptionOutput
+	ToConfigurationPropertiesEncryptionOutputWithContext(context.Context) ConfigurationPropertiesEncryptionOutput
+}
+
+// The encryption settings for a configuration store.
+type ConfigurationPropertiesEncryptionArgs struct {
+	// Key vault properties.
+	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
+}
+
+func (ConfigurationPropertiesEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPropertiesEncryption)(nil)).Elem()
+}
+
+func (i ConfigurationPropertiesEncryptionArgs) ToConfigurationPropertiesEncryptionOutput() ConfigurationPropertiesEncryptionOutput {
+	return i.ToConfigurationPropertiesEncryptionOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPropertiesEncryptionArgs) ToConfigurationPropertiesEncryptionOutputWithContext(ctx context.Context) ConfigurationPropertiesEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesEncryptionOutput)
+}
+
+func (i ConfigurationPropertiesEncryptionArgs) ToConfigurationPropertiesEncryptionPtrOutput() ConfigurationPropertiesEncryptionPtrOutput {
+	return i.ToConfigurationPropertiesEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPropertiesEncryptionArgs) ToConfigurationPropertiesEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesEncryptionOutput).ToConfigurationPropertiesEncryptionPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPropertiesEncryptionPtrInput is an input type that accepts ConfigurationPropertiesEncryptionArgs, ConfigurationPropertiesEncryptionPtr and ConfigurationPropertiesEncryptionPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPropertiesEncryptionPtrInput` via:
+//
+//          ConfigurationPropertiesEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationPropertiesEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPropertiesEncryptionPtrOutput() ConfigurationPropertiesEncryptionPtrOutput
+	ToConfigurationPropertiesEncryptionPtrOutputWithContext(context.Context) ConfigurationPropertiesEncryptionPtrOutput
+}
+
+type configurationPropertiesEncryptionPtrType ConfigurationPropertiesEncryptionArgs
+
+func ConfigurationPropertiesEncryptionPtr(v *ConfigurationPropertiesEncryptionArgs) ConfigurationPropertiesEncryptionPtrInput {
+	return (*configurationPropertiesEncryptionPtrType)(v)
+}
+
+func (*configurationPropertiesEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPropertiesEncryption)(nil)).Elem()
+}
+
+func (i *configurationPropertiesEncryptionPtrType) ToConfigurationPropertiesEncryptionPtrOutput() ConfigurationPropertiesEncryptionPtrOutput {
+	return i.ToConfigurationPropertiesEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPropertiesEncryptionPtrType) ToConfigurationPropertiesEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesEncryptionPtrOutput)
+}
+
+// The encryption settings for a configuration store.
+type ConfigurationPropertiesEncryptionOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPropertiesEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPropertiesEncryption)(nil)).Elem()
+}
+
+func (o ConfigurationPropertiesEncryptionOutput) ToConfigurationPropertiesEncryptionOutput() ConfigurationPropertiesEncryptionOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesEncryptionOutput) ToConfigurationPropertiesEncryptionOutputWithContext(ctx context.Context) ConfigurationPropertiesEncryptionOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesEncryptionOutput) ToConfigurationPropertiesEncryptionPtrOutput() ConfigurationPropertiesEncryptionPtrOutput {
+	return o.ToConfigurationPropertiesEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPropertiesEncryptionOutput) ToConfigurationPropertiesEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesEncryptionPtrOutput {
+	return o.ApplyT(func(v ConfigurationPropertiesEncryption) *ConfigurationPropertiesEncryption {
+		return &v
+	}).(ConfigurationPropertiesEncryptionPtrOutput)
+}
+
+// Key vault properties.
+func (o ConfigurationPropertiesEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v ConfigurationPropertiesEncryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
+}
+
+type ConfigurationPropertiesEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPropertiesEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPropertiesEncryption)(nil)).Elem()
+}
+
+func (o ConfigurationPropertiesEncryptionPtrOutput) ToConfigurationPropertiesEncryptionPtrOutput() ConfigurationPropertiesEncryptionPtrOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesEncryptionPtrOutput) ToConfigurationPropertiesEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesEncryptionPtrOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesEncryptionPtrOutput) Elem() ConfigurationPropertiesEncryptionOutput {
+	return o.ApplyT(func(v *ConfigurationPropertiesEncryption) ConfigurationPropertiesEncryption { return *v }).(ConfigurationPropertiesEncryptionOutput)
+}
+
+// Key vault properties.
+func (o ConfigurationPropertiesEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPropertiesEncryption) *KeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// Settings concerning lockbox.
+type ConfigurationPropertiesLockbox struct {
+	// lockbox configuration
+	Status *string `pulumi:"status"`
+}
+
+// ConfigurationPropertiesLockboxInput is an input type that accepts ConfigurationPropertiesLockboxArgs and ConfigurationPropertiesLockboxOutput values.
+// You can construct a concrete instance of `ConfigurationPropertiesLockboxInput` via:
+//
+//          ConfigurationPropertiesLockboxArgs{...}
+type ConfigurationPropertiesLockboxInput interface {
+	pulumi.Input
+
+	ToConfigurationPropertiesLockboxOutput() ConfigurationPropertiesLockboxOutput
+	ToConfigurationPropertiesLockboxOutputWithContext(context.Context) ConfigurationPropertiesLockboxOutput
+}
+
+// Settings concerning lockbox.
+type ConfigurationPropertiesLockboxArgs struct {
+	// lockbox configuration
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (ConfigurationPropertiesLockboxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPropertiesLockbox)(nil)).Elem()
+}
+
+func (i ConfigurationPropertiesLockboxArgs) ToConfigurationPropertiesLockboxOutput() ConfigurationPropertiesLockboxOutput {
+	return i.ToConfigurationPropertiesLockboxOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPropertiesLockboxArgs) ToConfigurationPropertiesLockboxOutputWithContext(ctx context.Context) ConfigurationPropertiesLockboxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesLockboxOutput)
+}
+
+func (i ConfigurationPropertiesLockboxArgs) ToConfigurationPropertiesLockboxPtrOutput() ConfigurationPropertiesLockboxPtrOutput {
+	return i.ToConfigurationPropertiesLockboxPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPropertiesLockboxArgs) ToConfigurationPropertiesLockboxPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesLockboxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesLockboxOutput).ToConfigurationPropertiesLockboxPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPropertiesLockboxPtrInput is an input type that accepts ConfigurationPropertiesLockboxArgs, ConfigurationPropertiesLockboxPtr and ConfigurationPropertiesLockboxPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPropertiesLockboxPtrInput` via:
+//
+//          ConfigurationPropertiesLockboxArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationPropertiesLockboxPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPropertiesLockboxPtrOutput() ConfigurationPropertiesLockboxPtrOutput
+	ToConfigurationPropertiesLockboxPtrOutputWithContext(context.Context) ConfigurationPropertiesLockboxPtrOutput
+}
+
+type configurationPropertiesLockboxPtrType ConfigurationPropertiesLockboxArgs
+
+func ConfigurationPropertiesLockboxPtr(v *ConfigurationPropertiesLockboxArgs) ConfigurationPropertiesLockboxPtrInput {
+	return (*configurationPropertiesLockboxPtrType)(v)
+}
+
+func (*configurationPropertiesLockboxPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPropertiesLockbox)(nil)).Elem()
+}
+
+func (i *configurationPropertiesLockboxPtrType) ToConfigurationPropertiesLockboxPtrOutput() ConfigurationPropertiesLockboxPtrOutput {
+	return i.ToConfigurationPropertiesLockboxPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPropertiesLockboxPtrType) ToConfigurationPropertiesLockboxPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesLockboxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesLockboxPtrOutput)
+}
+
+// Settings concerning lockbox.
+type ConfigurationPropertiesLockboxOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPropertiesLockboxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPropertiesLockbox)(nil)).Elem()
+}
+
+func (o ConfigurationPropertiesLockboxOutput) ToConfigurationPropertiesLockboxOutput() ConfigurationPropertiesLockboxOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesLockboxOutput) ToConfigurationPropertiesLockboxOutputWithContext(ctx context.Context) ConfigurationPropertiesLockboxOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesLockboxOutput) ToConfigurationPropertiesLockboxPtrOutput() ConfigurationPropertiesLockboxPtrOutput {
+	return o.ToConfigurationPropertiesLockboxPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPropertiesLockboxOutput) ToConfigurationPropertiesLockboxPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesLockboxPtrOutput {
+	return o.ApplyT(func(v ConfigurationPropertiesLockbox) *ConfigurationPropertiesLockbox {
+		return &v
+	}).(ConfigurationPropertiesLockboxPtrOutput)
+}
+
+// lockbox configuration
+func (o ConfigurationPropertiesLockboxOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationPropertiesLockbox) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationPropertiesLockboxPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPropertiesLockboxPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPropertiesLockbox)(nil)).Elem()
+}
+
+func (o ConfigurationPropertiesLockboxPtrOutput) ToConfigurationPropertiesLockboxPtrOutput() ConfigurationPropertiesLockboxPtrOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesLockboxPtrOutput) ToConfigurationPropertiesLockboxPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesLockboxPtrOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesLockboxPtrOutput) Elem() ConfigurationPropertiesLockboxOutput {
+	return o.ApplyT(func(v *ConfigurationPropertiesLockbox) ConfigurationPropertiesLockbox { return *v }).(ConfigurationPropertiesLockboxOutput)
+}
+
+// lockbox configuration
+func (o ConfigurationPropertiesLockboxPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPropertiesLockbox) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption settings for a configuration store.
+type ConfigurationPropertiesResponseEncryption struct {
+	// Key vault properties.
+	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+}
+
+// ConfigurationPropertiesResponseEncryptionInput is an input type that accepts ConfigurationPropertiesResponseEncryptionArgs and ConfigurationPropertiesResponseEncryptionOutput values.
+// You can construct a concrete instance of `ConfigurationPropertiesResponseEncryptionInput` via:
+//
+//          ConfigurationPropertiesResponseEncryptionArgs{...}
+type ConfigurationPropertiesResponseEncryptionInput interface {
+	pulumi.Input
+
+	ToConfigurationPropertiesResponseEncryptionOutput() ConfigurationPropertiesResponseEncryptionOutput
+	ToConfigurationPropertiesResponseEncryptionOutputWithContext(context.Context) ConfigurationPropertiesResponseEncryptionOutput
+}
+
+// The encryption settings for a configuration store.
+type ConfigurationPropertiesResponseEncryptionArgs struct {
+	// Key vault properties.
+	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
+}
+
+func (ConfigurationPropertiesResponseEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPropertiesResponseEncryption)(nil)).Elem()
+}
+
+func (i ConfigurationPropertiesResponseEncryptionArgs) ToConfigurationPropertiesResponseEncryptionOutput() ConfigurationPropertiesResponseEncryptionOutput {
+	return i.ToConfigurationPropertiesResponseEncryptionOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPropertiesResponseEncryptionArgs) ToConfigurationPropertiesResponseEncryptionOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesResponseEncryptionOutput)
+}
+
+func (i ConfigurationPropertiesResponseEncryptionArgs) ToConfigurationPropertiesResponseEncryptionPtrOutput() ConfigurationPropertiesResponseEncryptionPtrOutput {
+	return i.ToConfigurationPropertiesResponseEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPropertiesResponseEncryptionArgs) ToConfigurationPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesResponseEncryptionOutput).ToConfigurationPropertiesResponseEncryptionPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPropertiesResponseEncryptionPtrInput is an input type that accepts ConfigurationPropertiesResponseEncryptionArgs, ConfigurationPropertiesResponseEncryptionPtr and ConfigurationPropertiesResponseEncryptionPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPropertiesResponseEncryptionPtrInput` via:
+//
+//          ConfigurationPropertiesResponseEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationPropertiesResponseEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPropertiesResponseEncryptionPtrOutput() ConfigurationPropertiesResponseEncryptionPtrOutput
+	ToConfigurationPropertiesResponseEncryptionPtrOutputWithContext(context.Context) ConfigurationPropertiesResponseEncryptionPtrOutput
+}
+
+type configurationPropertiesResponseEncryptionPtrType ConfigurationPropertiesResponseEncryptionArgs
+
+func ConfigurationPropertiesResponseEncryptionPtr(v *ConfigurationPropertiesResponseEncryptionArgs) ConfigurationPropertiesResponseEncryptionPtrInput {
+	return (*configurationPropertiesResponseEncryptionPtrType)(v)
+}
+
+func (*configurationPropertiesResponseEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPropertiesResponseEncryption)(nil)).Elem()
+}
+
+func (i *configurationPropertiesResponseEncryptionPtrType) ToConfigurationPropertiesResponseEncryptionPtrOutput() ConfigurationPropertiesResponseEncryptionPtrOutput {
+	return i.ToConfigurationPropertiesResponseEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPropertiesResponseEncryptionPtrType) ToConfigurationPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesResponseEncryptionPtrOutput)
+}
+
+// The encryption settings for a configuration store.
+type ConfigurationPropertiesResponseEncryptionOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPropertiesResponseEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPropertiesResponseEncryption)(nil)).Elem()
+}
+
+func (o ConfigurationPropertiesResponseEncryptionOutput) ToConfigurationPropertiesResponseEncryptionOutput() ConfigurationPropertiesResponseEncryptionOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesResponseEncryptionOutput) ToConfigurationPropertiesResponseEncryptionOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseEncryptionOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesResponseEncryptionOutput) ToConfigurationPropertiesResponseEncryptionPtrOutput() ConfigurationPropertiesResponseEncryptionPtrOutput {
+	return o.ToConfigurationPropertiesResponseEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPropertiesResponseEncryptionOutput) ToConfigurationPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseEncryptionPtrOutput {
+	return o.ApplyT(func(v ConfigurationPropertiesResponseEncryption) *ConfigurationPropertiesResponseEncryption {
+		return &v
+	}).(ConfigurationPropertiesResponseEncryptionPtrOutput)
+}
+
+// Key vault properties.
+func (o ConfigurationPropertiesResponseEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationPropertiesResponseEncryption) *KeyVaultPropertiesResponse {
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+type ConfigurationPropertiesResponseEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPropertiesResponseEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPropertiesResponseEncryption)(nil)).Elem()
+}
+
+func (o ConfigurationPropertiesResponseEncryptionPtrOutput) ToConfigurationPropertiesResponseEncryptionPtrOutput() ConfigurationPropertiesResponseEncryptionPtrOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesResponseEncryptionPtrOutput) ToConfigurationPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseEncryptionPtrOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesResponseEncryptionPtrOutput) Elem() ConfigurationPropertiesResponseEncryptionOutput {
+	return o.ApplyT(func(v *ConfigurationPropertiesResponseEncryption) ConfigurationPropertiesResponseEncryption {
+		return *v
+	}).(ConfigurationPropertiesResponseEncryptionOutput)
+}
+
+// Key vault properties.
+func (o ConfigurationPropertiesResponseEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ConfigurationPropertiesResponseEncryption) *KeyVaultPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// Settings concerning lockbox.
+type ConfigurationPropertiesResponseLockbox struct {
+	// lockbox configuration
+	Status *string `pulumi:"status"`
+}
+
+// ConfigurationPropertiesResponseLockboxInput is an input type that accepts ConfigurationPropertiesResponseLockboxArgs and ConfigurationPropertiesResponseLockboxOutput values.
+// You can construct a concrete instance of `ConfigurationPropertiesResponseLockboxInput` via:
+//
+//          ConfigurationPropertiesResponseLockboxArgs{...}
+type ConfigurationPropertiesResponseLockboxInput interface {
+	pulumi.Input
+
+	ToConfigurationPropertiesResponseLockboxOutput() ConfigurationPropertiesResponseLockboxOutput
+	ToConfigurationPropertiesResponseLockboxOutputWithContext(context.Context) ConfigurationPropertiesResponseLockboxOutput
+}
+
+// Settings concerning lockbox.
+type ConfigurationPropertiesResponseLockboxArgs struct {
+	// lockbox configuration
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (ConfigurationPropertiesResponseLockboxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPropertiesResponseLockbox)(nil)).Elem()
+}
+
+func (i ConfigurationPropertiesResponseLockboxArgs) ToConfigurationPropertiesResponseLockboxOutput() ConfigurationPropertiesResponseLockboxOutput {
+	return i.ToConfigurationPropertiesResponseLockboxOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPropertiesResponseLockboxArgs) ToConfigurationPropertiesResponseLockboxOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseLockboxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesResponseLockboxOutput)
+}
+
+func (i ConfigurationPropertiesResponseLockboxArgs) ToConfigurationPropertiesResponseLockboxPtrOutput() ConfigurationPropertiesResponseLockboxPtrOutput {
+	return i.ToConfigurationPropertiesResponseLockboxPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPropertiesResponseLockboxArgs) ToConfigurationPropertiesResponseLockboxPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseLockboxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesResponseLockboxOutput).ToConfigurationPropertiesResponseLockboxPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPropertiesResponseLockboxPtrInput is an input type that accepts ConfigurationPropertiesResponseLockboxArgs, ConfigurationPropertiesResponseLockboxPtr and ConfigurationPropertiesResponseLockboxPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPropertiesResponseLockboxPtrInput` via:
+//
+//          ConfigurationPropertiesResponseLockboxArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationPropertiesResponseLockboxPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPropertiesResponseLockboxPtrOutput() ConfigurationPropertiesResponseLockboxPtrOutput
+	ToConfigurationPropertiesResponseLockboxPtrOutputWithContext(context.Context) ConfigurationPropertiesResponseLockboxPtrOutput
+}
+
+type configurationPropertiesResponseLockboxPtrType ConfigurationPropertiesResponseLockboxArgs
+
+func ConfigurationPropertiesResponseLockboxPtr(v *ConfigurationPropertiesResponseLockboxArgs) ConfigurationPropertiesResponseLockboxPtrInput {
+	return (*configurationPropertiesResponseLockboxPtrType)(v)
+}
+
+func (*configurationPropertiesResponseLockboxPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPropertiesResponseLockbox)(nil)).Elem()
+}
+
+func (i *configurationPropertiesResponseLockboxPtrType) ToConfigurationPropertiesResponseLockboxPtrOutput() ConfigurationPropertiesResponseLockboxPtrOutput {
+	return i.ToConfigurationPropertiesResponseLockboxPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPropertiesResponseLockboxPtrType) ToConfigurationPropertiesResponseLockboxPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseLockboxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPropertiesResponseLockboxPtrOutput)
+}
+
+// Settings concerning lockbox.
+type ConfigurationPropertiesResponseLockboxOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPropertiesResponseLockboxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPropertiesResponseLockbox)(nil)).Elem()
+}
+
+func (o ConfigurationPropertiesResponseLockboxOutput) ToConfigurationPropertiesResponseLockboxOutput() ConfigurationPropertiesResponseLockboxOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesResponseLockboxOutput) ToConfigurationPropertiesResponseLockboxOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseLockboxOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesResponseLockboxOutput) ToConfigurationPropertiesResponseLockboxPtrOutput() ConfigurationPropertiesResponseLockboxPtrOutput {
+	return o.ToConfigurationPropertiesResponseLockboxPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPropertiesResponseLockboxOutput) ToConfigurationPropertiesResponseLockboxPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseLockboxPtrOutput {
+	return o.ApplyT(func(v ConfigurationPropertiesResponseLockbox) *ConfigurationPropertiesResponseLockbox {
+		return &v
+	}).(ConfigurationPropertiesResponseLockboxPtrOutput)
+}
+
+// lockbox configuration
+func (o ConfigurationPropertiesResponseLockboxOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationPropertiesResponseLockbox) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationPropertiesResponseLockboxPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPropertiesResponseLockboxPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPropertiesResponseLockbox)(nil)).Elem()
+}
+
+func (o ConfigurationPropertiesResponseLockboxPtrOutput) ToConfigurationPropertiesResponseLockboxPtrOutput() ConfigurationPropertiesResponseLockboxPtrOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesResponseLockboxPtrOutput) ToConfigurationPropertiesResponseLockboxPtrOutputWithContext(ctx context.Context) ConfigurationPropertiesResponseLockboxPtrOutput {
+	return o
+}
+
+func (o ConfigurationPropertiesResponseLockboxPtrOutput) Elem() ConfigurationPropertiesResponseLockboxOutput {
+	return o.ApplyT(func(v *ConfigurationPropertiesResponseLockbox) ConfigurationPropertiesResponseLockbox { return *v }).(ConfigurationPropertiesResponseLockboxOutput)
+}
+
+// lockbox configuration
+func (o ConfigurationPropertiesResponseLockboxPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPropertiesResponseLockbox) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentity struct {
-	// The encryption settings for a configuration store.
-	Encryption *EnterprisePolicyIdentityEncryption `pulumi:"encryption"`
-	// Settings concerning lockbox.
-	Lockbox *EnterprisePolicyIdentityLockbox `pulumi:"lockbox"`
-	// Metadata for the enterprisePolicy.
-	SystemData *SystemData `pulumi:"systemData"`
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 	Type *string `pulumi:"type"`
 }
@@ -33,14 +567,8 @@ type EnterprisePolicyIdentityInput interface {
 	ToEnterprisePolicyIdentityOutputWithContext(context.Context) EnterprisePolicyIdentityOutput
 }
 
-// Identity for the EnterprisePolicy.
+// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityArgs struct {
-	// The encryption settings for a configuration store.
-	Encryption EnterprisePolicyIdentityEncryptionPtrInput `pulumi:"encryption"`
-	// Settings concerning lockbox.
-	Lockbox EnterprisePolicyIdentityLockboxPtrInput `pulumi:"lockbox"`
-	// Metadata for the enterprisePolicy.
-	SystemData SystemDataPtrInput `pulumi:"systemData"`
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -98,7 +626,7 @@ func (i *enterprisePolicyIdentityPtrType) ToEnterprisePolicyIdentityPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityPtrOutput)
 }
 
-// Identity for the EnterprisePolicy.
+// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyIdentityOutput) ElementType() reflect.Type {
@@ -121,21 +649,6 @@ func (o EnterprisePolicyIdentityOutput) ToEnterprisePolicyIdentityPtrOutputWithC
 	return o.ApplyT(func(v EnterprisePolicyIdentity) *EnterprisePolicyIdentity {
 		return &v
 	}).(EnterprisePolicyIdentityPtrOutput)
-}
-
-// The encryption settings for a configuration store.
-func (o EnterprisePolicyIdentityOutput) Encryption() EnterprisePolicyIdentityEncryptionPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentity) *EnterprisePolicyIdentityEncryption { return v.Encryption }).(EnterprisePolicyIdentityEncryptionPtrOutput)
-}
-
-// Settings concerning lockbox.
-func (o EnterprisePolicyIdentityOutput) Lockbox() EnterprisePolicyIdentityLockboxPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentity) *EnterprisePolicyIdentityLockbox { return v.Lockbox }).(EnterprisePolicyIdentityLockboxPtrOutput)
-}
-
-// Metadata for the enterprisePolicy.
-func (o EnterprisePolicyIdentityOutput) SystemData() SystemDataPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentity) *SystemData { return v.SystemData }).(SystemDataPtrOutput)
 }
 
 // The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
@@ -161,36 +674,6 @@ func (o EnterprisePolicyIdentityPtrOutput) Elem() EnterprisePolicyIdentityOutput
 	return o.ApplyT(func(v *EnterprisePolicyIdentity) EnterprisePolicyIdentity { return *v }).(EnterprisePolicyIdentityOutput)
 }
 
-// The encryption settings for a configuration store.
-func (o EnterprisePolicyIdentityPtrOutput) Encryption() EnterprisePolicyIdentityEncryptionPtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentity) *EnterprisePolicyIdentityEncryption {
-		if v == nil {
-			return nil
-		}
-		return v.Encryption
-	}).(EnterprisePolicyIdentityEncryptionPtrOutput)
-}
-
-// Settings concerning lockbox.
-func (o EnterprisePolicyIdentityPtrOutput) Lockbox() EnterprisePolicyIdentityLockboxPtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentity) *EnterprisePolicyIdentityLockbox {
-		if v == nil {
-			return nil
-		}
-		return v.Lockbox
-	}).(EnterprisePolicyIdentityLockboxPtrOutput)
-}
-
-// Metadata for the enterprisePolicy.
-func (o EnterprisePolicyIdentityPtrOutput) SystemData() SystemDataPtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentity) *SystemData {
-		if v == nil {
-			return nil
-		}
-		return v.SystemData
-	}).(SystemDataPtrOutput)
-}
-
 // The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 func (o EnterprisePolicyIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterprisePolicyIdentity) *string {
@@ -201,284 +684,10 @@ func (o EnterprisePolicyIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption settings for a configuration store.
-type EnterprisePolicyIdentityEncryption struct {
-	// Key vault properties.
-	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
-}
-
-// EnterprisePolicyIdentityEncryptionInput is an input type that accepts EnterprisePolicyIdentityEncryptionArgs and EnterprisePolicyIdentityEncryptionOutput values.
-// You can construct a concrete instance of `EnterprisePolicyIdentityEncryptionInput` via:
-//
-//          EnterprisePolicyIdentityEncryptionArgs{...}
-type EnterprisePolicyIdentityEncryptionInput interface {
-	pulumi.Input
-
-	ToEnterprisePolicyIdentityEncryptionOutput() EnterprisePolicyIdentityEncryptionOutput
-	ToEnterprisePolicyIdentityEncryptionOutputWithContext(context.Context) EnterprisePolicyIdentityEncryptionOutput
-}
-
-// The encryption settings for a configuration store.
-type EnterprisePolicyIdentityEncryptionArgs struct {
-	// Key vault properties.
-	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
-}
-
-func (EnterprisePolicyIdentityEncryptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicyIdentityEncryption)(nil)).Elem()
-}
-
-func (i EnterprisePolicyIdentityEncryptionArgs) ToEnterprisePolicyIdentityEncryptionOutput() EnterprisePolicyIdentityEncryptionOutput {
-	return i.ToEnterprisePolicyIdentityEncryptionOutputWithContext(context.Background())
-}
-
-func (i EnterprisePolicyIdentityEncryptionArgs) ToEnterprisePolicyIdentityEncryptionOutputWithContext(ctx context.Context) EnterprisePolicyIdentityEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityEncryptionOutput)
-}
-
-func (i EnterprisePolicyIdentityEncryptionArgs) ToEnterprisePolicyIdentityEncryptionPtrOutput() EnterprisePolicyIdentityEncryptionPtrOutput {
-	return i.ToEnterprisePolicyIdentityEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i EnterprisePolicyIdentityEncryptionArgs) ToEnterprisePolicyIdentityEncryptionPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityEncryptionOutput).ToEnterprisePolicyIdentityEncryptionPtrOutputWithContext(ctx)
-}
-
-// EnterprisePolicyIdentityEncryptionPtrInput is an input type that accepts EnterprisePolicyIdentityEncryptionArgs, EnterprisePolicyIdentityEncryptionPtr and EnterprisePolicyIdentityEncryptionPtrOutput values.
-// You can construct a concrete instance of `EnterprisePolicyIdentityEncryptionPtrInput` via:
-//
-//          EnterprisePolicyIdentityEncryptionArgs{...}
-//
-//  or:
-//
-//          nil
-type EnterprisePolicyIdentityEncryptionPtrInput interface {
-	pulumi.Input
-
-	ToEnterprisePolicyIdentityEncryptionPtrOutput() EnterprisePolicyIdentityEncryptionPtrOutput
-	ToEnterprisePolicyIdentityEncryptionPtrOutputWithContext(context.Context) EnterprisePolicyIdentityEncryptionPtrOutput
-}
-
-type enterprisePolicyIdentityEncryptionPtrType EnterprisePolicyIdentityEncryptionArgs
-
-func EnterprisePolicyIdentityEncryptionPtr(v *EnterprisePolicyIdentityEncryptionArgs) EnterprisePolicyIdentityEncryptionPtrInput {
-	return (*enterprisePolicyIdentityEncryptionPtrType)(v)
-}
-
-func (*enterprisePolicyIdentityEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterprisePolicyIdentityEncryption)(nil)).Elem()
-}
-
-func (i *enterprisePolicyIdentityEncryptionPtrType) ToEnterprisePolicyIdentityEncryptionPtrOutput() EnterprisePolicyIdentityEncryptionPtrOutput {
-	return i.ToEnterprisePolicyIdentityEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *enterprisePolicyIdentityEncryptionPtrType) ToEnterprisePolicyIdentityEncryptionPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityEncryptionPtrOutput)
-}
-
-// The encryption settings for a configuration store.
-type EnterprisePolicyIdentityEncryptionOutput struct{ *pulumi.OutputState }
-
-func (EnterprisePolicyIdentityEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicyIdentityEncryption)(nil)).Elem()
-}
-
-func (o EnterprisePolicyIdentityEncryptionOutput) ToEnterprisePolicyIdentityEncryptionOutput() EnterprisePolicyIdentityEncryptionOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityEncryptionOutput) ToEnterprisePolicyIdentityEncryptionOutputWithContext(ctx context.Context) EnterprisePolicyIdentityEncryptionOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityEncryptionOutput) ToEnterprisePolicyIdentityEncryptionPtrOutput() EnterprisePolicyIdentityEncryptionPtrOutput {
-	return o.ToEnterprisePolicyIdentityEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o EnterprisePolicyIdentityEncryptionOutput) ToEnterprisePolicyIdentityEncryptionPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityEncryptionPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityEncryption) *EnterprisePolicyIdentityEncryption {
-		return &v
-	}).(EnterprisePolicyIdentityEncryptionPtrOutput)
-}
-
-// Key vault properties.
-func (o EnterprisePolicyIdentityEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityEncryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
-}
-
-type EnterprisePolicyIdentityEncryptionPtrOutput struct{ *pulumi.OutputState }
-
-func (EnterprisePolicyIdentityEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterprisePolicyIdentityEncryption)(nil)).Elem()
-}
-
-func (o EnterprisePolicyIdentityEncryptionPtrOutput) ToEnterprisePolicyIdentityEncryptionPtrOutput() EnterprisePolicyIdentityEncryptionPtrOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityEncryptionPtrOutput) ToEnterprisePolicyIdentityEncryptionPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityEncryptionPtrOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityEncryptionPtrOutput) Elem() EnterprisePolicyIdentityEncryptionOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityEncryption) EnterprisePolicyIdentityEncryption { return *v }).(EnterprisePolicyIdentityEncryptionOutput)
-}
-
-// Key vault properties.
-func (o EnterprisePolicyIdentityEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityEncryption) *KeyVaultProperties {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultProperties
-	}).(KeyVaultPropertiesPtrOutput)
-}
-
-// Settings concerning lockbox.
-type EnterprisePolicyIdentityLockbox struct {
-	// lockbox configuration
-	Status *string `pulumi:"status"`
-}
-
-// EnterprisePolicyIdentityLockboxInput is an input type that accepts EnterprisePolicyIdentityLockboxArgs and EnterprisePolicyIdentityLockboxOutput values.
-// You can construct a concrete instance of `EnterprisePolicyIdentityLockboxInput` via:
-//
-//          EnterprisePolicyIdentityLockboxArgs{...}
-type EnterprisePolicyIdentityLockboxInput interface {
-	pulumi.Input
-
-	ToEnterprisePolicyIdentityLockboxOutput() EnterprisePolicyIdentityLockboxOutput
-	ToEnterprisePolicyIdentityLockboxOutputWithContext(context.Context) EnterprisePolicyIdentityLockboxOutput
-}
-
-// Settings concerning lockbox.
-type EnterprisePolicyIdentityLockboxArgs struct {
-	// lockbox configuration
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (EnterprisePolicyIdentityLockboxArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicyIdentityLockbox)(nil)).Elem()
-}
-
-func (i EnterprisePolicyIdentityLockboxArgs) ToEnterprisePolicyIdentityLockboxOutput() EnterprisePolicyIdentityLockboxOutput {
-	return i.ToEnterprisePolicyIdentityLockboxOutputWithContext(context.Background())
-}
-
-func (i EnterprisePolicyIdentityLockboxArgs) ToEnterprisePolicyIdentityLockboxOutputWithContext(ctx context.Context) EnterprisePolicyIdentityLockboxOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityLockboxOutput)
-}
-
-func (i EnterprisePolicyIdentityLockboxArgs) ToEnterprisePolicyIdentityLockboxPtrOutput() EnterprisePolicyIdentityLockboxPtrOutput {
-	return i.ToEnterprisePolicyIdentityLockboxPtrOutputWithContext(context.Background())
-}
-
-func (i EnterprisePolicyIdentityLockboxArgs) ToEnterprisePolicyIdentityLockboxPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityLockboxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityLockboxOutput).ToEnterprisePolicyIdentityLockboxPtrOutputWithContext(ctx)
-}
-
-// EnterprisePolicyIdentityLockboxPtrInput is an input type that accepts EnterprisePolicyIdentityLockboxArgs, EnterprisePolicyIdentityLockboxPtr and EnterprisePolicyIdentityLockboxPtrOutput values.
-// You can construct a concrete instance of `EnterprisePolicyIdentityLockboxPtrInput` via:
-//
-//          EnterprisePolicyIdentityLockboxArgs{...}
-//
-//  or:
-//
-//          nil
-type EnterprisePolicyIdentityLockboxPtrInput interface {
-	pulumi.Input
-
-	ToEnterprisePolicyIdentityLockboxPtrOutput() EnterprisePolicyIdentityLockboxPtrOutput
-	ToEnterprisePolicyIdentityLockboxPtrOutputWithContext(context.Context) EnterprisePolicyIdentityLockboxPtrOutput
-}
-
-type enterprisePolicyIdentityLockboxPtrType EnterprisePolicyIdentityLockboxArgs
-
-func EnterprisePolicyIdentityLockboxPtr(v *EnterprisePolicyIdentityLockboxArgs) EnterprisePolicyIdentityLockboxPtrInput {
-	return (*enterprisePolicyIdentityLockboxPtrType)(v)
-}
-
-func (*enterprisePolicyIdentityLockboxPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterprisePolicyIdentityLockbox)(nil)).Elem()
-}
-
-func (i *enterprisePolicyIdentityLockboxPtrType) ToEnterprisePolicyIdentityLockboxPtrOutput() EnterprisePolicyIdentityLockboxPtrOutput {
-	return i.ToEnterprisePolicyIdentityLockboxPtrOutputWithContext(context.Background())
-}
-
-func (i *enterprisePolicyIdentityLockboxPtrType) ToEnterprisePolicyIdentityLockboxPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityLockboxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityLockboxPtrOutput)
-}
-
-// Settings concerning lockbox.
-type EnterprisePolicyIdentityLockboxOutput struct{ *pulumi.OutputState }
-
-func (EnterprisePolicyIdentityLockboxOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicyIdentityLockbox)(nil)).Elem()
-}
-
-func (o EnterprisePolicyIdentityLockboxOutput) ToEnterprisePolicyIdentityLockboxOutput() EnterprisePolicyIdentityLockboxOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityLockboxOutput) ToEnterprisePolicyIdentityLockboxOutputWithContext(ctx context.Context) EnterprisePolicyIdentityLockboxOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityLockboxOutput) ToEnterprisePolicyIdentityLockboxPtrOutput() EnterprisePolicyIdentityLockboxPtrOutput {
-	return o.ToEnterprisePolicyIdentityLockboxPtrOutputWithContext(context.Background())
-}
-
-func (o EnterprisePolicyIdentityLockboxOutput) ToEnterprisePolicyIdentityLockboxPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityLockboxPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityLockbox) *EnterprisePolicyIdentityLockbox {
-		return &v
-	}).(EnterprisePolicyIdentityLockboxPtrOutput)
-}
-
-// lockbox configuration
-func (o EnterprisePolicyIdentityLockboxOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityLockbox) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type EnterprisePolicyIdentityLockboxPtrOutput struct{ *pulumi.OutputState }
-
-func (EnterprisePolicyIdentityLockboxPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterprisePolicyIdentityLockbox)(nil)).Elem()
-}
-
-func (o EnterprisePolicyIdentityLockboxPtrOutput) ToEnterprisePolicyIdentityLockboxPtrOutput() EnterprisePolicyIdentityLockboxPtrOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityLockboxPtrOutput) ToEnterprisePolicyIdentityLockboxPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityLockboxPtrOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityLockboxPtrOutput) Elem() EnterprisePolicyIdentityLockboxOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityLockbox) EnterprisePolicyIdentityLockbox { return *v }).(EnterprisePolicyIdentityLockboxOutput)
-}
-
-// lockbox configuration
-func (o EnterprisePolicyIdentityLockboxPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityLockbox) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// Identity for the EnterprisePolicy.
+// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityResponse struct {
-	// The encryption settings for a configuration store.
-	Encryption *EnterprisePolicyIdentityResponseEncryption `pulumi:"encryption"`
-	// Settings concerning lockbox.
-	Lockbox *EnterprisePolicyIdentityResponseLockbox `pulumi:"lockbox"`
 	// The principal id of EnterprisePolicy identity.
 	SystemAssignedIdentityPrincipalId string `pulumi:"systemAssignedIdentityPrincipalId"`
-	// Metadata for the enterprisePolicy.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tenant id associated with the EnterprisePolicy.
 	TenantId string `pulumi:"tenantId"`
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
@@ -496,16 +705,10 @@ type EnterprisePolicyIdentityResponseInput interface {
 	ToEnterprisePolicyIdentityResponseOutputWithContext(context.Context) EnterprisePolicyIdentityResponseOutput
 }
 
-// Identity for the EnterprisePolicy.
+// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityResponseArgs struct {
-	// The encryption settings for a configuration store.
-	Encryption EnterprisePolicyIdentityResponseEncryptionPtrInput `pulumi:"encryption"`
-	// Settings concerning lockbox.
-	Lockbox EnterprisePolicyIdentityResponseLockboxPtrInput `pulumi:"lockbox"`
 	// The principal id of EnterprisePolicy identity.
 	SystemAssignedIdentityPrincipalId pulumi.StringInput `pulumi:"systemAssignedIdentityPrincipalId"`
-	// Metadata for the enterprisePolicy.
-	SystemData SystemDataResponsePtrInput `pulumi:"systemData"`
 	// The tenant id associated with the EnterprisePolicy.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
@@ -565,7 +768,7 @@ func (i *enterprisePolicyIdentityResponsePtrType) ToEnterprisePolicyIdentityResp
 	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponsePtrOutput)
 }
 
-// Identity for the EnterprisePolicy.
+// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyIdentityResponseOutput) ElementType() reflect.Type {
@@ -590,26 +793,9 @@ func (o EnterprisePolicyIdentityResponseOutput) ToEnterprisePolicyIdentityRespon
 	}).(EnterprisePolicyIdentityResponsePtrOutput)
 }
 
-// The encryption settings for a configuration store.
-func (o EnterprisePolicyIdentityResponseOutput) Encryption() EnterprisePolicyIdentityResponseEncryptionPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityResponse) *EnterprisePolicyIdentityResponseEncryption {
-		return v.Encryption
-	}).(EnterprisePolicyIdentityResponseEncryptionPtrOutput)
-}
-
-// Settings concerning lockbox.
-func (o EnterprisePolicyIdentityResponseOutput) Lockbox() EnterprisePolicyIdentityResponseLockboxPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityResponse) *EnterprisePolicyIdentityResponseLockbox { return v.Lockbox }).(EnterprisePolicyIdentityResponseLockboxPtrOutput)
-}
-
 // The principal id of EnterprisePolicy identity.
 func (o EnterprisePolicyIdentityResponseOutput) SystemAssignedIdentityPrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v EnterprisePolicyIdentityResponse) string { return v.SystemAssignedIdentityPrincipalId }).(pulumi.StringOutput)
-}
-
-// Metadata for the enterprisePolicy.
-func (o EnterprisePolicyIdentityResponseOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityResponse) *SystemDataResponse { return v.SystemData }).(SystemDataResponsePtrOutput)
 }
 
 // The tenant id associated with the EnterprisePolicy.
@@ -640,26 +826,6 @@ func (o EnterprisePolicyIdentityResponsePtrOutput) Elem() EnterprisePolicyIdenti
 	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) EnterprisePolicyIdentityResponse { return *v }).(EnterprisePolicyIdentityResponseOutput)
 }
 
-// The encryption settings for a configuration store.
-func (o EnterprisePolicyIdentityResponsePtrOutput) Encryption() EnterprisePolicyIdentityResponseEncryptionPtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) *EnterprisePolicyIdentityResponseEncryption {
-		if v == nil {
-			return nil
-		}
-		return v.Encryption
-	}).(EnterprisePolicyIdentityResponseEncryptionPtrOutput)
-}
-
-// Settings concerning lockbox.
-func (o EnterprisePolicyIdentityResponsePtrOutput) Lockbox() EnterprisePolicyIdentityResponseLockboxPtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) *EnterprisePolicyIdentityResponseLockbox {
-		if v == nil {
-			return nil
-		}
-		return v.Lockbox
-	}).(EnterprisePolicyIdentityResponseLockboxPtrOutput)
-}
-
 // The principal id of EnterprisePolicy identity.
 func (o EnterprisePolicyIdentityResponsePtrOutput) SystemAssignedIdentityPrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) *string {
@@ -668,16 +834,6 @@ func (o EnterprisePolicyIdentityResponsePtrOutput) SystemAssignedIdentityPrincip
 		}
 		return &v.SystemAssignedIdentityPrincipalId
 	}).(pulumi.StringPtrOutput)
-}
-
-// Metadata for the enterprisePolicy.
-func (o EnterprisePolicyIdentityResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // The tenant id associated with the EnterprisePolicy.
@@ -697,278 +853,6 @@ func (o EnterprisePolicyIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// The encryption settings for a configuration store.
-type EnterprisePolicyIdentityResponseEncryption struct {
-	// Key vault properties.
-	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
-}
-
-// EnterprisePolicyIdentityResponseEncryptionInput is an input type that accepts EnterprisePolicyIdentityResponseEncryptionArgs and EnterprisePolicyIdentityResponseEncryptionOutput values.
-// You can construct a concrete instance of `EnterprisePolicyIdentityResponseEncryptionInput` via:
-//
-//          EnterprisePolicyIdentityResponseEncryptionArgs{...}
-type EnterprisePolicyIdentityResponseEncryptionInput interface {
-	pulumi.Input
-
-	ToEnterprisePolicyIdentityResponseEncryptionOutput() EnterprisePolicyIdentityResponseEncryptionOutput
-	ToEnterprisePolicyIdentityResponseEncryptionOutputWithContext(context.Context) EnterprisePolicyIdentityResponseEncryptionOutput
-}
-
-// The encryption settings for a configuration store.
-type EnterprisePolicyIdentityResponseEncryptionArgs struct {
-	// Key vault properties.
-	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
-}
-
-func (EnterprisePolicyIdentityResponseEncryptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicyIdentityResponseEncryption)(nil)).Elem()
-}
-
-func (i EnterprisePolicyIdentityResponseEncryptionArgs) ToEnterprisePolicyIdentityResponseEncryptionOutput() EnterprisePolicyIdentityResponseEncryptionOutput {
-	return i.ToEnterprisePolicyIdentityResponseEncryptionOutputWithContext(context.Background())
-}
-
-func (i EnterprisePolicyIdentityResponseEncryptionArgs) ToEnterprisePolicyIdentityResponseEncryptionOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponseEncryptionOutput)
-}
-
-func (i EnterprisePolicyIdentityResponseEncryptionArgs) ToEnterprisePolicyIdentityResponseEncryptionPtrOutput() EnterprisePolicyIdentityResponseEncryptionPtrOutput {
-	return i.ToEnterprisePolicyIdentityResponseEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i EnterprisePolicyIdentityResponseEncryptionArgs) ToEnterprisePolicyIdentityResponseEncryptionPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponseEncryptionOutput).ToEnterprisePolicyIdentityResponseEncryptionPtrOutputWithContext(ctx)
-}
-
-// EnterprisePolicyIdentityResponseEncryptionPtrInput is an input type that accepts EnterprisePolicyIdentityResponseEncryptionArgs, EnterprisePolicyIdentityResponseEncryptionPtr and EnterprisePolicyIdentityResponseEncryptionPtrOutput values.
-// You can construct a concrete instance of `EnterprisePolicyIdentityResponseEncryptionPtrInput` via:
-//
-//          EnterprisePolicyIdentityResponseEncryptionArgs{...}
-//
-//  or:
-//
-//          nil
-type EnterprisePolicyIdentityResponseEncryptionPtrInput interface {
-	pulumi.Input
-
-	ToEnterprisePolicyIdentityResponseEncryptionPtrOutput() EnterprisePolicyIdentityResponseEncryptionPtrOutput
-	ToEnterprisePolicyIdentityResponseEncryptionPtrOutputWithContext(context.Context) EnterprisePolicyIdentityResponseEncryptionPtrOutput
-}
-
-type enterprisePolicyIdentityResponseEncryptionPtrType EnterprisePolicyIdentityResponseEncryptionArgs
-
-func EnterprisePolicyIdentityResponseEncryptionPtr(v *EnterprisePolicyIdentityResponseEncryptionArgs) EnterprisePolicyIdentityResponseEncryptionPtrInput {
-	return (*enterprisePolicyIdentityResponseEncryptionPtrType)(v)
-}
-
-func (*enterprisePolicyIdentityResponseEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterprisePolicyIdentityResponseEncryption)(nil)).Elem()
-}
-
-func (i *enterprisePolicyIdentityResponseEncryptionPtrType) ToEnterprisePolicyIdentityResponseEncryptionPtrOutput() EnterprisePolicyIdentityResponseEncryptionPtrOutput {
-	return i.ToEnterprisePolicyIdentityResponseEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *enterprisePolicyIdentityResponseEncryptionPtrType) ToEnterprisePolicyIdentityResponseEncryptionPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponseEncryptionPtrOutput)
-}
-
-// The encryption settings for a configuration store.
-type EnterprisePolicyIdentityResponseEncryptionOutput struct{ *pulumi.OutputState }
-
-func (EnterprisePolicyIdentityResponseEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicyIdentityResponseEncryption)(nil)).Elem()
-}
-
-func (o EnterprisePolicyIdentityResponseEncryptionOutput) ToEnterprisePolicyIdentityResponseEncryptionOutput() EnterprisePolicyIdentityResponseEncryptionOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityResponseEncryptionOutput) ToEnterprisePolicyIdentityResponseEncryptionOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseEncryptionOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityResponseEncryptionOutput) ToEnterprisePolicyIdentityResponseEncryptionPtrOutput() EnterprisePolicyIdentityResponseEncryptionPtrOutput {
-	return o.ToEnterprisePolicyIdentityResponseEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o EnterprisePolicyIdentityResponseEncryptionOutput) ToEnterprisePolicyIdentityResponseEncryptionPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseEncryptionPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityResponseEncryption) *EnterprisePolicyIdentityResponseEncryption {
-		return &v
-	}).(EnterprisePolicyIdentityResponseEncryptionPtrOutput)
-}
-
-// Key vault properties.
-func (o EnterprisePolicyIdentityResponseEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityResponseEncryption) *KeyVaultPropertiesResponse {
-		return v.KeyVaultProperties
-	}).(KeyVaultPropertiesResponsePtrOutput)
-}
-
-type EnterprisePolicyIdentityResponseEncryptionPtrOutput struct{ *pulumi.OutputState }
-
-func (EnterprisePolicyIdentityResponseEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterprisePolicyIdentityResponseEncryption)(nil)).Elem()
-}
-
-func (o EnterprisePolicyIdentityResponseEncryptionPtrOutput) ToEnterprisePolicyIdentityResponseEncryptionPtrOutput() EnterprisePolicyIdentityResponseEncryptionPtrOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityResponseEncryptionPtrOutput) ToEnterprisePolicyIdentityResponseEncryptionPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseEncryptionPtrOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityResponseEncryptionPtrOutput) Elem() EnterprisePolicyIdentityResponseEncryptionOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityResponseEncryption) EnterprisePolicyIdentityResponseEncryption {
-		return *v
-	}).(EnterprisePolicyIdentityResponseEncryptionOutput)
-}
-
-// Key vault properties.
-func (o EnterprisePolicyIdentityResponseEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityResponseEncryption) *KeyVaultPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultProperties
-	}).(KeyVaultPropertiesResponsePtrOutput)
-}
-
-// Settings concerning lockbox.
-type EnterprisePolicyIdentityResponseLockbox struct {
-	// lockbox configuration
-	Status *string `pulumi:"status"`
-}
-
-// EnterprisePolicyIdentityResponseLockboxInput is an input type that accepts EnterprisePolicyIdentityResponseLockboxArgs and EnterprisePolicyIdentityResponseLockboxOutput values.
-// You can construct a concrete instance of `EnterprisePolicyIdentityResponseLockboxInput` via:
-//
-//          EnterprisePolicyIdentityResponseLockboxArgs{...}
-type EnterprisePolicyIdentityResponseLockboxInput interface {
-	pulumi.Input
-
-	ToEnterprisePolicyIdentityResponseLockboxOutput() EnterprisePolicyIdentityResponseLockboxOutput
-	ToEnterprisePolicyIdentityResponseLockboxOutputWithContext(context.Context) EnterprisePolicyIdentityResponseLockboxOutput
-}
-
-// Settings concerning lockbox.
-type EnterprisePolicyIdentityResponseLockboxArgs struct {
-	// lockbox configuration
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (EnterprisePolicyIdentityResponseLockboxArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicyIdentityResponseLockbox)(nil)).Elem()
-}
-
-func (i EnterprisePolicyIdentityResponseLockboxArgs) ToEnterprisePolicyIdentityResponseLockboxOutput() EnterprisePolicyIdentityResponseLockboxOutput {
-	return i.ToEnterprisePolicyIdentityResponseLockboxOutputWithContext(context.Background())
-}
-
-func (i EnterprisePolicyIdentityResponseLockboxArgs) ToEnterprisePolicyIdentityResponseLockboxOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseLockboxOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponseLockboxOutput)
-}
-
-func (i EnterprisePolicyIdentityResponseLockboxArgs) ToEnterprisePolicyIdentityResponseLockboxPtrOutput() EnterprisePolicyIdentityResponseLockboxPtrOutput {
-	return i.ToEnterprisePolicyIdentityResponseLockboxPtrOutputWithContext(context.Background())
-}
-
-func (i EnterprisePolicyIdentityResponseLockboxArgs) ToEnterprisePolicyIdentityResponseLockboxPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseLockboxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponseLockboxOutput).ToEnterprisePolicyIdentityResponseLockboxPtrOutputWithContext(ctx)
-}
-
-// EnterprisePolicyIdentityResponseLockboxPtrInput is an input type that accepts EnterprisePolicyIdentityResponseLockboxArgs, EnterprisePolicyIdentityResponseLockboxPtr and EnterprisePolicyIdentityResponseLockboxPtrOutput values.
-// You can construct a concrete instance of `EnterprisePolicyIdentityResponseLockboxPtrInput` via:
-//
-//          EnterprisePolicyIdentityResponseLockboxArgs{...}
-//
-//  or:
-//
-//          nil
-type EnterprisePolicyIdentityResponseLockboxPtrInput interface {
-	pulumi.Input
-
-	ToEnterprisePolicyIdentityResponseLockboxPtrOutput() EnterprisePolicyIdentityResponseLockboxPtrOutput
-	ToEnterprisePolicyIdentityResponseLockboxPtrOutputWithContext(context.Context) EnterprisePolicyIdentityResponseLockboxPtrOutput
-}
-
-type enterprisePolicyIdentityResponseLockboxPtrType EnterprisePolicyIdentityResponseLockboxArgs
-
-func EnterprisePolicyIdentityResponseLockboxPtr(v *EnterprisePolicyIdentityResponseLockboxArgs) EnterprisePolicyIdentityResponseLockboxPtrInput {
-	return (*enterprisePolicyIdentityResponseLockboxPtrType)(v)
-}
-
-func (*enterprisePolicyIdentityResponseLockboxPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterprisePolicyIdentityResponseLockbox)(nil)).Elem()
-}
-
-func (i *enterprisePolicyIdentityResponseLockboxPtrType) ToEnterprisePolicyIdentityResponseLockboxPtrOutput() EnterprisePolicyIdentityResponseLockboxPtrOutput {
-	return i.ToEnterprisePolicyIdentityResponseLockboxPtrOutputWithContext(context.Background())
-}
-
-func (i *enterprisePolicyIdentityResponseLockboxPtrType) ToEnterprisePolicyIdentityResponseLockboxPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseLockboxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponseLockboxPtrOutput)
-}
-
-// Settings concerning lockbox.
-type EnterprisePolicyIdentityResponseLockboxOutput struct{ *pulumi.OutputState }
-
-func (EnterprisePolicyIdentityResponseLockboxOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicyIdentityResponseLockbox)(nil)).Elem()
-}
-
-func (o EnterprisePolicyIdentityResponseLockboxOutput) ToEnterprisePolicyIdentityResponseLockboxOutput() EnterprisePolicyIdentityResponseLockboxOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityResponseLockboxOutput) ToEnterprisePolicyIdentityResponseLockboxOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseLockboxOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityResponseLockboxOutput) ToEnterprisePolicyIdentityResponseLockboxPtrOutput() EnterprisePolicyIdentityResponseLockboxPtrOutput {
-	return o.ToEnterprisePolicyIdentityResponseLockboxPtrOutputWithContext(context.Background())
-}
-
-func (o EnterprisePolicyIdentityResponseLockboxOutput) ToEnterprisePolicyIdentityResponseLockboxPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseLockboxPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityResponseLockbox) *EnterprisePolicyIdentityResponseLockbox {
-		return &v
-	}).(EnterprisePolicyIdentityResponseLockboxPtrOutput)
-}
-
-// lockbox configuration
-func (o EnterprisePolicyIdentityResponseLockboxOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityResponseLockbox) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type EnterprisePolicyIdentityResponseLockboxPtrOutput struct{ *pulumi.OutputState }
-
-func (EnterprisePolicyIdentityResponseLockboxPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterprisePolicyIdentityResponseLockbox)(nil)).Elem()
-}
-
-func (o EnterprisePolicyIdentityResponseLockboxPtrOutput) ToEnterprisePolicyIdentityResponseLockboxPtrOutput() EnterprisePolicyIdentityResponseLockboxPtrOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityResponseLockboxPtrOutput) ToEnterprisePolicyIdentityResponseLockboxPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseLockboxPtrOutput {
-	return o
-}
-
-func (o EnterprisePolicyIdentityResponseLockboxPtrOutput) Elem() EnterprisePolicyIdentityResponseLockboxOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityResponseLockbox) EnterprisePolicyIdentityResponseLockbox { return *v }).(EnterprisePolicyIdentityResponseLockboxOutput)
-}
-
-// lockbox configuration
-func (o EnterprisePolicyIdentityResponseLockboxPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityResponseLockbox) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2561,18 +2445,18 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConfigurationPropertiesEncryptionOutput{})
+	pulumi.RegisterOutputType(ConfigurationPropertiesEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPropertiesLockboxOutput{})
+	pulumi.RegisterOutputType(ConfigurationPropertiesLockboxPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPropertiesResponseEncryptionOutput{})
+	pulumi.RegisterOutputType(ConfigurationPropertiesResponseEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPropertiesResponseLockboxOutput{})
+	pulumi.RegisterOutputType(ConfigurationPropertiesResponseLockboxPtrOutput{})
 	pulumi.RegisterOutputType(EnterprisePolicyIdentityOutput{})
 	pulumi.RegisterOutputType(EnterprisePolicyIdentityPtrOutput{})
-	pulumi.RegisterOutputType(EnterprisePolicyIdentityEncryptionOutput{})
-	pulumi.RegisterOutputType(EnterprisePolicyIdentityEncryptionPtrOutput{})
-	pulumi.RegisterOutputType(EnterprisePolicyIdentityLockboxOutput{})
-	pulumi.RegisterOutputType(EnterprisePolicyIdentityLockboxPtrOutput{})
 	pulumi.RegisterOutputType(EnterprisePolicyIdentityResponseOutput{})
 	pulumi.RegisterOutputType(EnterprisePolicyIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(EnterprisePolicyIdentityResponseEncryptionOutput{})
-	pulumi.RegisterOutputType(EnterprisePolicyIdentityResponseEncryptionPtrOutput{})
-	pulumi.RegisterOutputType(EnterprisePolicyIdentityResponseLockboxOutput{})
-	pulumi.RegisterOutputType(EnterprisePolicyIdentityResponseLockboxPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})

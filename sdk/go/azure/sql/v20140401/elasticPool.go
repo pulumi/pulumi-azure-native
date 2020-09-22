@@ -67,6 +67,9 @@ func NewElasticPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20171001preview:ElasticPool"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ElasticPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ElasticPool

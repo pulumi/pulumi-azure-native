@@ -37,6 +37,10 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The encryption settings for a configuration store.
+     */
+    public readonly encryption!: pulumi.Output<outputs.powerplatform.v20201030preview.ConfigurationPropertiesResponseEncryption | undefined>;
+    /**
      * The identity of the EnterprisePolicy.
      */
     public readonly identity!: pulumi.Output<outputs.powerplatform.v20201030preview.EnterprisePolicyIdentityResponse | undefined>;
@@ -45,9 +49,17 @@ export class EnterprisePolicy extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Settings concerning lockbox.
+     */
+    public readonly lockbox!: pulumi.Output<outputs.powerplatform.v20201030preview.ConfigurationPropertiesResponseLockbox | undefined>;
+    /**
      * Name of the EnterprisePolicy.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public readonly systemData!: pulumi.Output<outputs.powerplatform.v20201030preview.SystemDataResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -73,17 +85,23 @@ export class EnterprisePolicy extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["enterprisePolicyName"] = args ? args.enterprisePolicyName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["lockbox"] = args ? args.lockbox : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["systemData"] = args ? args.systemData : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["encryption"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["lockbox"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -103,6 +121,10 @@ export class EnterprisePolicy extends pulumi.CustomResource {
  */
 export interface EnterprisePolicyArgs {
     /**
+     * The encryption settings for a configuration store.
+     */
+    readonly encryption?: pulumi.Input<inputs.powerplatform.v20201030preview.ConfigurationPropertiesEncryption>;
+    /**
      * Name of the EnterprisePolicy.
      */
     readonly enterprisePolicyName: pulumi.Input<string>;
@@ -115,9 +137,17 @@ export interface EnterprisePolicyArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * Settings concerning lockbox.
+     */
+    readonly lockbox?: pulumi.Input<inputs.powerplatform.v20201030preview.ConfigurationPropertiesLockbox>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData?: pulumi.Input<inputs.powerplatform.v20201030preview.SystemData>;
     /**
      * Resource tags.
      */

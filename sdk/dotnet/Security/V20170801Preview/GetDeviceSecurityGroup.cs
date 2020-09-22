@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
     public sealed class GetDeviceSecurityGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the security group. Please notice that the name is case insensitive.
+        /// The name of the device security group. Note that the name of the device security group is case insensitive.
         /// </summary>
         [Input("deviceSecurityGroupName", required: true)]
         public string DeviceSecurityGroupName { get; set; } = null!;
@@ -40,11 +40,11 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
     public sealed class GetDeviceSecurityGroupResult
     {
         /// <summary>
-        /// A list of allow-list custom alert rules.
+        /// The allow-list custom alert rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.AllowlistCustomAlertRuleResponse> AllowlistRules;
         /// <summary>
-        /// A list of deny-list custom alert rules.
+        /// The deny-list custom alert rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.DenylistCustomAlertRuleResponse> DenylistRules;
         /// <summary>
@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A list of threshold custom alert rules.
+        /// The list of custom alert threshold rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.ThresholdCustomAlertRuleResponse> ThresholdRules;
         /// <summary>
-        /// A list of time window custom alert rules.
+        /// The list of custom alert time-window rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponse> TimeWindowRules;
         /// <summary>

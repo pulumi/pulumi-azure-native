@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class AllowlistCustomAlertRuleResponse(dict):
     """
-    A custom alert rule that checks if a value (depends on the custom alert type) is allowed
+    A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
     """
     def __init__(__self__, *,
                  allowlist_values: Sequence[str],
@@ -30,19 +30,19 @@ class AllowlistCustomAlertRuleResponse(dict):
                  rule_type: str,
                  value_type: str):
         """
-        A custom alert rule that checks if a value (depends on the custom alert type) is allowed
+        A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
         :param Sequence[str] allowlist_values: The values to allow. The format of the values depends on the rule type.
         :param str description: The description of the custom alert.
         :param str display_name: The display name of the custom alert.
-        :param bool is_enabled: Whether the custom alert is enabled.
+        :param bool is_enabled: Status of the custom alert.
         :param str rule_type: The type of the custom alert rule.
-        :param str value_type: The value type of the items in the list
+        :param str value_type: The value type of the items in the list.
         """
         pulumi.set(__self__, "allowlist_values", allowlist_values)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ListCustomAlertRule')
         pulumi.set(__self__, "value_type", value_type)
 
     @property
@@ -73,7 +73,7 @@ class AllowlistCustomAlertRuleResponse(dict):
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> bool:
         """
-        Whether the custom alert is enabled.
+        Status of the custom alert.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -89,7 +89,7 @@ class AllowlistCustomAlertRuleResponse(dict):
     @pulumi.getter(name="valueType")
     def value_type(self) -> str:
         """
-        The value type of the items in the list
+        The value type of the items in the list.
         """
         return pulumi.get(self, "value_type")
 
@@ -100,7 +100,7 @@ class AllowlistCustomAlertRuleResponse(dict):
 @pulumi.output_type
 class DenylistCustomAlertRuleResponse(dict):
     """
-    A custom alert rule that checks if a value (depends on the custom alert type) is denied
+    A custom alert rule that checks if a value (depends on the custom alert type) is denied.
     """
     def __init__(__self__, *,
                  denylist_values: Sequence[str],
@@ -110,19 +110,19 @@ class DenylistCustomAlertRuleResponse(dict):
                  rule_type: str,
                  value_type: str):
         """
-        A custom alert rule that checks if a value (depends on the custom alert type) is denied
+        A custom alert rule that checks if a value (depends on the custom alert type) is denied.
         :param Sequence[str] denylist_values: The values to deny. The format of the values depends on the rule type.
         :param str description: The description of the custom alert.
         :param str display_name: The display name of the custom alert.
-        :param bool is_enabled: Whether the custom alert is enabled.
+        :param bool is_enabled: Status of the custom alert.
         :param str rule_type: The type of the custom alert rule.
-        :param str value_type: The value type of the items in the list
+        :param str value_type: The value type of the items in the list.
         """
         pulumi.set(__self__, "denylist_values", denylist_values)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ListCustomAlertRule')
         pulumi.set(__self__, "value_type", value_type)
 
     @property
@@ -153,7 +153,7 @@ class DenylistCustomAlertRuleResponse(dict):
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> bool:
         """
-        Whether the custom alert is enabled.
+        Status of the custom alert.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -169,7 +169,7 @@ class DenylistCustomAlertRuleResponse(dict):
     @pulumi.getter(name="valueType")
     def value_type(self) -> str:
         """
-        The value type of the items in the list
+        The value type of the items in the list.
         """
         return pulumi.get(self, "value_type")
 
@@ -236,7 +236,7 @@ class ThresholdCustomAlertRuleResponse(dict):
         A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
         :param str description: The description of the custom alert.
         :param str display_name: The display name of the custom alert.
-        :param bool is_enabled: Whether the custom alert is enabled.
+        :param bool is_enabled: Status of the custom alert.
         :param int max_threshold: The maximum threshold.
         :param int min_threshold: The minimum threshold.
         :param str rule_type: The type of the custom alert rule.
@@ -246,7 +246,7 @@ class ThresholdCustomAlertRuleResponse(dict):
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "max_threshold", max_threshold)
         pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
 
     @property
     @pulumi.getter
@@ -268,7 +268,7 @@ class ThresholdCustomAlertRuleResponse(dict):
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> bool:
         """
-        Whether the custom alert is enabled.
+        Status of the custom alert.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -317,7 +317,7 @@ class TimeWindowCustomAlertRuleResponse(dict):
         A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
         :param str description: The description of the custom alert.
         :param str display_name: The display name of the custom alert.
-        :param bool is_enabled: Whether the custom alert is enabled.
+        :param bool is_enabled: Status of the custom alert.
         :param int max_threshold: The maximum threshold.
         :param int min_threshold: The minimum threshold.
         :param str rule_type: The type of the custom alert rule.
@@ -328,7 +328,7 @@ class TimeWindowCustomAlertRuleResponse(dict):
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "max_threshold", max_threshold)
         pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
         pulumi.set(__self__, "time_window_size", time_window_size)
 
     @property
@@ -351,7 +351,7 @@ class TimeWindowCustomAlertRuleResponse(dict):
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> bool:
         """
-        Whether the custom alert is enabled.
+        Status of the custom alert.
         """
         return pulumi.get(self, "is_enabled")
 

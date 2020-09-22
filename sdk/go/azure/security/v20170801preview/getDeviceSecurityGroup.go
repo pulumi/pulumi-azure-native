@@ -17,7 +17,7 @@ func LookupDeviceSecurityGroup(ctx *pulumi.Context, args *LookupDeviceSecurityGr
 }
 
 type LookupDeviceSecurityGroupArgs struct {
-	// The name of the security group. Please notice that the name is case insensitive.
+	// The name of the device security group. Note that the name of the device security group is case insensitive.
 	DeviceSecurityGroupName string `pulumi:"deviceSecurityGroupName"`
 	// The identifier of the resource.
 	ResourceId string `pulumi:"resourceId"`
@@ -25,15 +25,15 @@ type LookupDeviceSecurityGroupArgs struct {
 
 // The device security group resource
 type LookupDeviceSecurityGroupResult struct {
-	// A list of allow-list custom alert rules.
+	// The allow-list custom alert rules.
 	AllowlistRules []AllowlistCustomAlertRuleResponse `pulumi:"allowlistRules"`
-	// A list of deny-list custom alert rules.
+	// The deny-list custom alert rules.
 	DenylistRules []DenylistCustomAlertRuleResponse `pulumi:"denylistRules"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// A list of threshold custom alert rules.
+	// The list of custom alert threshold rules.
 	ThresholdRules []ThresholdCustomAlertRuleResponse `pulumi:"thresholdRules"`
-	// A list of time window custom alert rules.
+	// The list of custom alert time-window rules.
 	TimeWindowRules []TimeWindowCustomAlertRuleResponse `pulumi:"timeWindowRules"`
 	// Resource type
 	Type string `pulumi:"type"`

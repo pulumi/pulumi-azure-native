@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview.Inputs
     public sealed class ThresholdCustomAlertRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the custom alert is enabled.
+        /// Status of the custom alert.
         /// </summary>
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
