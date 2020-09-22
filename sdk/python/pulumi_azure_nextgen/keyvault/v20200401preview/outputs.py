@@ -119,7 +119,7 @@ class ManagedHsmPropertiesResponse(dict):
                  create_mode: Optional[str] = None,
                  enable_purge_protection: Optional[bool] = None,
                  enable_soft_delete: Optional[bool] = None,
-                 hsm_pool_uri: Optional[str] = None,
+                 hsm_uri: Optional[str] = None,
                  initial_admin_object_ids: Optional[Sequence[str]] = None,
                  soft_delete_retention_in_days: Optional[int] = None,
                  tenant_id: Optional[str] = None):
@@ -130,7 +130,7 @@ class ManagedHsmPropertiesResponse(dict):
         :param str create_mode: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
-        :param str hsm_pool_uri: The URI of the managed hsm pool for performing operations on keys.
+        :param str hsm_uri: The URI of the managed hsm pool for performing operations on keys.
         :param Sequence[str] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
@@ -143,8 +143,8 @@ class ManagedHsmPropertiesResponse(dict):
             pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
         if enable_soft_delete is not None:
             pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
-        if hsm_pool_uri is not None:
-            pulumi.set(__self__, "hsm_pool_uri", hsm_pool_uri)
+        if hsm_uri is not None:
+            pulumi.set(__self__, "hsm_uri", hsm_uri)
         if initial_admin_object_ids is not None:
             pulumi.set(__self__, "initial_admin_object_ids", initial_admin_object_ids)
         if soft_delete_retention_in_days is not None:
@@ -193,12 +193,12 @@ class ManagedHsmPropertiesResponse(dict):
         return pulumi.get(self, "enable_soft_delete")
 
     @property
-    @pulumi.getter(name="hsmPoolUri")
-    def hsm_pool_uri(self) -> Optional[str]:
+    @pulumi.getter(name="hsmUri")
+    def hsm_uri(self) -> Optional[str]:
         """
         The URI of the managed hsm pool for performing operations on keys.
         """
-        return pulumi.get(self, "hsm_pool_uri")
+        return pulumi.get(self, "hsm_uri")
 
     @property
     @pulumi.getter(name="initialAdminObjectIds")
@@ -394,21 +394,28 @@ class PrivateEndpointConnectionItemResponse(dict):
     Private endpoint connection item.
     """
     def __init__(__self__, *,
+                 provisioning_state: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
-                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
-                 provisioning_state: Optional[str] = None):
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private endpoint connection item.
+        :param str provisioning_state: Provisioning state of the private endpoint connection.
         :param 'PrivateEndpointResponseArgs' private_endpoint: Properties of the private endpoint object.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Approval state of the private link connection.
-        :param str provisioning_state: Provisioning state of the private endpoint connection.
         """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -425,14 +432,6 @@ class PrivateEndpointConnectionItemResponse(dict):
         Approval state of the private link connection.
         """
         return pulumi.get(self, "private_link_service_connection_state")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        Provisioning state of the private endpoint connection.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

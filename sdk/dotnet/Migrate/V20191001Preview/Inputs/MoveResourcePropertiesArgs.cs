@@ -34,12 +34,6 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
         public Input<string>? ExistingTargetId { get; set; }
 
         /// <summary>
-        /// Defines the provisioning states.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Gets or sets the resource settings.
         /// </summary>
         [Input("resourceSettings")]

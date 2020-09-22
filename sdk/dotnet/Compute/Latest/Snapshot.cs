@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// The state of the snapshot.
         /// </summary>
         [Output("diskState")]
-        public Output<string?> DiskState { get; private set; } = null!;
+        public Output<string> DiskState { get; private set; } = null!;
 
         /// <summary>
         /// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
@@ -209,12 +209,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Input("diskSizeGB")]
         public Input<int>? DiskSizeGB { get; set; }
-
-        /// <summary>
-        /// The state of the snapshot.
-        /// </summary>
-        [Input("diskState")]
-        public Input<string>? DiskState { get; set; }
 
         /// <summary>
         /// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.

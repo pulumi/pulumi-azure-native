@@ -75,7 +75,7 @@ export class AzureFirewall extends pulumi.CustomResource {
     /**
      * The provisioning state of the Azure firewall resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The Azure Firewall Resource SKU.
      */
@@ -125,7 +125,6 @@ export class AzureFirewall extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["natRuleCollections"] = args ? args.natRuleCollections : undefined;
             inputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -135,6 +134,7 @@ export class AzureFirewall extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["hubIpAddresses"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["applicationRuleCollections"] = undefined /*out*/;
@@ -203,10 +203,6 @@ export interface AzureFirewallArgs {
      * Collection of network rule collections used by Azure Firewall.
      */
     readonly networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190801.AzureFirewallNetworkRuleCollection>[]>;
-    /**
-     * The provisioning state of the Azure firewall resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

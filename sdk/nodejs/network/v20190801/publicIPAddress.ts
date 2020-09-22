@@ -75,7 +75,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
     /**
      * The provisioning state of the public IP address resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The public IP address version.
      */
@@ -133,7 +133,6 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["ipTags"] = args ? args.ipTags : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
             inputs["publicIPAllocationMethod"] = args ? args.publicIPAllocationMethod : undefined;
             inputs["publicIPPrefix"] = args ? args.publicIPPrefix : undefined;
@@ -145,6 +144,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["ipConfiguration"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["ddosSettings"] = undefined /*out*/;
@@ -215,10 +215,6 @@ export interface PublicIPAddressArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the public IP address resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The public IP address version.
      */

@@ -148,12 +148,6 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
         }
 
         /// <summary>
-        /// Whether requests from Public Network are allowed
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
-
-        /// <summary>
         /// Parameters to indicate the information about the restore.
         /// </summary>
         [Input("restoreParameters")]

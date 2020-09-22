@@ -757,20 +757,20 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 
 	for _, name := range names {
 		property := resolvedSchema.Properties[name]
+		resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
+		if err != nil {
+			return nil, err
+		}
+
 		sdkName := name
-		if clientName, ok := property.Extensions.GetString(extensionClientName); ok {
+		if clientName, ok := resolvedProperty.Extensions.GetString(extensionClientName); ok {
 			sdkName = firstToLower(clientName)
 		}
 		// Change the name to lowerCamelCase.
 		sdkName = ToLowerCamel(sdkName)
 
 		// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
-		if flatten, ok := property.Extensions.GetBool(extensionClientFlatten); ok && flatten {
-			resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
-			if err != nil {
-				return nil, err
-			}
-
+		if flatten, ok := resolvedProperty.Extensions.GetBool(extensionClientFlatten); ok && flatten {
 			bag, err := m.genProperties(resolvedProperty, isOutput, isType)
 			if err != nil {
 				return nil, err
@@ -789,7 +789,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 
 		// Skip read-only properties for input types.
-		if property.ReadOnly && !isOutput {
+		if resolvedProperty.ReadOnly && !isOutput {
 			continue
 		}
 
@@ -805,7 +805,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 
 		var apiProperty provider.AzureAPIProperty
 		if isOutput {
-			if property.ReadOnly {
+			if resolvedProperty.ReadOnly {
 				result.requiredSpecs.Add(sdkName)
 			}
 			apiProperty = provider.AzureAPIProperty{
@@ -813,13 +813,9 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				Ref:   propertySpec.Ref,
 			}
 		} else {
-			resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
-			if err != nil {
-				return nil, err
-			}
 			apiProperty = provider.AzureAPIProperty{
 				Type:      propertySpec.Type,
-				Enum:      m.getEnumValues(&property),
+				Enum:      m.getEnumValues(resolvedProperty.Schema),
 				OneOf:     m.getOneOfValues(propertySpec),
 				Ref:       propertySpec.Ref,
 				Minimum:   resolvedProperty.Minimum,
@@ -836,7 +832,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			// Example: `StorageAccount.encryption.services.blob.keyType` is non-updatable, but a user can remove `blob`
 			// and then re-add it with the new `keyType` without replacing the whole storage account (which would be
 			// very disruptive).
-			if mutability, ok := property.Extensions.GetStringSlice(extensionMutability); ok && !isType {
+			if mutability, ok := resolvedProperty.Extensions.GetStringSlice(extensionMutability); ok && !isType {
 				operations := codegen.NewStringSet(mutability...)
 				apiProperty.ForceNew = operations.Has(extensionMutabilityCreate) && !operations.Has(extensionMutabilityUpdate)
 			}

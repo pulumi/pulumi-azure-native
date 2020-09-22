@@ -21,7 +21,7 @@ type NetworkWatcher struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the network watcher resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -194,8 +194,6 @@ type networkWatcherArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the network watcher.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
-	// The provisioning state of the network watcher resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -212,8 +210,6 @@ type NetworkWatcherArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the network watcher.
 	NetworkWatcherName pulumi.StringInput
-	// The provisioning state of the network watcher resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

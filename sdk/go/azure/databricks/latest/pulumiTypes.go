@@ -1856,8 +1856,6 @@ func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutp
 
 // The value which should be used for this field.
 type WorkspaceCustomBooleanParameter struct {
-	// The type of variable that this is
-	Type *string `pulumi:"type"`
 	// The value which should be used for this field.
 	Value bool `pulumi:"value"`
 }
@@ -1875,8 +1873,6 @@ type WorkspaceCustomBooleanParameterInput interface {
 
 // The value which should be used for this field.
 type WorkspaceCustomBooleanParameterArgs struct {
-	// The type of variable that this is
-	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The value which should be used for this field.
 	Value pulumi.BoolInput `pulumi:"value"`
 }
@@ -1959,11 +1955,6 @@ func (o WorkspaceCustomBooleanParameterOutput) ToWorkspaceCustomBooleanParameter
 	}).(WorkspaceCustomBooleanParameterPtrOutput)
 }
 
-// The type of variable that this is
-func (o WorkspaceCustomBooleanParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomBooleanParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
 // The value which should be used for this field.
 func (o WorkspaceCustomBooleanParameterOutput) Value() pulumi.BoolOutput {
 	return o.ApplyT(func(v WorkspaceCustomBooleanParameter) bool { return v.Value }).(pulumi.BoolOutput)
@@ -1987,16 +1978,6 @@ func (o WorkspaceCustomBooleanParameterPtrOutput) Elem() WorkspaceCustomBooleanP
 	return o.ApplyT(func(v *WorkspaceCustomBooleanParameter) WorkspaceCustomBooleanParameter { return *v }).(WorkspaceCustomBooleanParameterOutput)
 }
 
-// The type of variable that this is
-func (o WorkspaceCustomBooleanParameterPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceCustomBooleanParameter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 // The value which should be used for this field.
 func (o WorkspaceCustomBooleanParameterPtrOutput) Value() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomBooleanParameter) *bool {
@@ -2010,7 +1991,7 @@ func (o WorkspaceCustomBooleanParameterPtrOutput) Value() pulumi.BoolPtrOutput {
 // The value which should be used for this field.
 type WorkspaceCustomBooleanParameterResponse struct {
 	// The type of variable that this is
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// The value which should be used for this field.
 	Value bool `pulumi:"value"`
 }
@@ -2029,7 +2010,7 @@ type WorkspaceCustomBooleanParameterResponseInput interface {
 // The value which should be used for this field.
 type WorkspaceCustomBooleanParameterResponseArgs struct {
 	// The type of variable that this is
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 	// The value which should be used for this field.
 	Value pulumi.BoolInput `pulumi:"value"`
 }
@@ -2113,8 +2094,8 @@ func (o WorkspaceCustomBooleanParameterResponseOutput) ToWorkspaceCustomBooleanP
 }
 
 // The type of variable that this is
-func (o WorkspaceCustomBooleanParameterResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomBooleanParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o WorkspaceCustomBooleanParameterResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceCustomBooleanParameterResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The value which should be used for this field.
@@ -2146,7 +2127,7 @@ func (o WorkspaceCustomBooleanParameterResponsePtrOutput) Type() pulumi.StringPt
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2712,8 +2693,6 @@ func (o WorkspaceCustomParametersResponsePtrOutput) RequireInfrastructureEncrypt
 
 // The Value.
 type WorkspaceCustomStringParameter struct {
-	// The type of variable that this is
-	Type *string `pulumi:"type"`
 	// The value which should be used for this field.
 	Value string `pulumi:"value"`
 }
@@ -2731,8 +2710,6 @@ type WorkspaceCustomStringParameterInput interface {
 
 // The Value.
 type WorkspaceCustomStringParameterArgs struct {
-	// The type of variable that this is
-	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The value which should be used for this field.
 	Value pulumi.StringInput `pulumi:"value"`
 }
@@ -2815,11 +2792,6 @@ func (o WorkspaceCustomStringParameterOutput) ToWorkspaceCustomStringParameterPt
 	}).(WorkspaceCustomStringParameterPtrOutput)
 }
 
-// The type of variable that this is
-func (o WorkspaceCustomStringParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomStringParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
 // The value which should be used for this field.
 func (o WorkspaceCustomStringParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceCustomStringParameter) string { return v.Value }).(pulumi.StringOutput)
@@ -2843,16 +2815,6 @@ func (o WorkspaceCustomStringParameterPtrOutput) Elem() WorkspaceCustomStringPar
 	return o.ApplyT(func(v *WorkspaceCustomStringParameter) WorkspaceCustomStringParameter { return *v }).(WorkspaceCustomStringParameterOutput)
 }
 
-// The type of variable that this is
-func (o WorkspaceCustomStringParameterPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceCustomStringParameter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 // The value which should be used for this field.
 func (o WorkspaceCustomStringParameterPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomStringParameter) *string {
@@ -2866,7 +2828,7 @@ func (o WorkspaceCustomStringParameterPtrOutput) Value() pulumi.StringPtrOutput 
 // The Value.
 type WorkspaceCustomStringParameterResponse struct {
 	// The type of variable that this is
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// The value which should be used for this field.
 	Value string `pulumi:"value"`
 }
@@ -2885,7 +2847,7 @@ type WorkspaceCustomStringParameterResponseInput interface {
 // The Value.
 type WorkspaceCustomStringParameterResponseArgs struct {
 	// The type of variable that this is
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 	// The value which should be used for this field.
 	Value pulumi.StringInput `pulumi:"value"`
 }
@@ -2969,8 +2931,8 @@ func (o WorkspaceCustomStringParameterResponseOutput) ToWorkspaceCustomStringPar
 }
 
 // The type of variable that this is
-func (o WorkspaceCustomStringParameterResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomStringParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o WorkspaceCustomStringParameterResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceCustomStringParameterResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The value which should be used for this field.
@@ -3002,7 +2964,7 @@ func (o WorkspaceCustomStringParameterResponsePtrOutput) Type() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3018,8 +2980,6 @@ func (o WorkspaceCustomStringParameterResponsePtrOutput) Value() pulumi.StringPt
 
 // The object that contains details of encryption used on the workspace.
 type WorkspaceEncryptionParameter struct {
-	// The type of variable that this is
-	Type *string `pulumi:"type"`
 	// The value which should be used for this field.
 	Value *Encryption `pulumi:"value"`
 }
@@ -3037,8 +2997,6 @@ type WorkspaceEncryptionParameterInput interface {
 
 // The object that contains details of encryption used on the workspace.
 type WorkspaceEncryptionParameterArgs struct {
-	// The type of variable that this is
-	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The value which should be used for this field.
 	Value EncryptionPtrInput `pulumi:"value"`
 }
@@ -3121,11 +3079,6 @@ func (o WorkspaceEncryptionParameterOutput) ToWorkspaceEncryptionParameterPtrOut
 	}).(WorkspaceEncryptionParameterPtrOutput)
 }
 
-// The type of variable that this is
-func (o WorkspaceEncryptionParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceEncryptionParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
 // The value which should be used for this field.
 func (o WorkspaceEncryptionParameterOutput) Value() EncryptionPtrOutput {
 	return o.ApplyT(func(v WorkspaceEncryptionParameter) *Encryption { return v.Value }).(EncryptionPtrOutput)
@@ -3149,16 +3102,6 @@ func (o WorkspaceEncryptionParameterPtrOutput) Elem() WorkspaceEncryptionParamet
 	return o.ApplyT(func(v *WorkspaceEncryptionParameter) WorkspaceEncryptionParameter { return *v }).(WorkspaceEncryptionParameterOutput)
 }
 
-// The type of variable that this is
-func (o WorkspaceEncryptionParameterPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceEncryptionParameter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 // The value which should be used for this field.
 func (o WorkspaceEncryptionParameterPtrOutput) Value() EncryptionPtrOutput {
 	return o.ApplyT(func(v *WorkspaceEncryptionParameter) *Encryption {
@@ -3172,7 +3115,7 @@ func (o WorkspaceEncryptionParameterPtrOutput) Value() EncryptionPtrOutput {
 // The object that contains details of encryption used on the workspace.
 type WorkspaceEncryptionParameterResponse struct {
 	// The type of variable that this is
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// The value which should be used for this field.
 	Value *EncryptionResponse `pulumi:"value"`
 }
@@ -3191,7 +3134,7 @@ type WorkspaceEncryptionParameterResponseInput interface {
 // The object that contains details of encryption used on the workspace.
 type WorkspaceEncryptionParameterResponseArgs struct {
 	// The type of variable that this is
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 	// The value which should be used for this field.
 	Value EncryptionResponsePtrInput `pulumi:"value"`
 }
@@ -3275,8 +3218,8 @@ func (o WorkspaceEncryptionParameterResponseOutput) ToWorkspaceEncryptionParamet
 }
 
 // The type of variable that this is
-func (o WorkspaceEncryptionParameterResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceEncryptionParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o WorkspaceEncryptionParameterResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceEncryptionParameterResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The value which should be used for this field.
@@ -3308,7 +3251,7 @@ func (o WorkspaceEncryptionParameterResponsePtrOutput) Type() pulumi.StringPtrOu
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         /// <summary>
         /// Provisioning state of the resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         /// <summary>
         /// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
         /// </summary>
-        public readonly Outputs.EnvironmentStatusResponse? Status;
+        public readonly Outputs.EnvironmentStatusResponse Status;
         /// <summary>
         /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         /// </summary>
@@ -114,11 +114,11 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
 
             ImmutableArray<Outputs.PartitionKeyPropertyResponse> partitionKeyProperties,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SkuResponse? sku,
 
-            Outputs.EnvironmentStatusResponse? status,
+            Outputs.EnvironmentStatusResponse status,
 
             string? storageLimitExceededBehavior,
 

@@ -34,7 +34,7 @@ type LookupVirtualWANResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

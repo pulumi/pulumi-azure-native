@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// The connection status.
         /// </summary>
         [Output("connectionStatus")]
-        public Output<string?> ConnectionStatus { get; private set; } = null!;
+        public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
         /// The dead peer detection timeout for a vpn connection in seconds.
@@ -206,12 +206,6 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// </summary>
         [Input("connectionName", required: true)]
         public Input<string> ConnectionName { get; set; } = null!;
-
-        /// <summary>
-        /// The connection status.
-        /// </summary>
-        [Input("connectionStatus")]
-        public Input<string>? ConnectionStatus { get; set; }
 
         /// <summary>
         /// The dead peer detection timeout for a vpn connection in seconds.

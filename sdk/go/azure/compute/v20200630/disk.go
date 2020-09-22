@@ -31,7 +31,7 @@ type Disk struct {
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB pulumi.IntPtrOutput `pulumi:"diskSizeGB"`
 	// The state of the disk.
-	DiskState pulumi.StringPtrOutput `pulumi:"diskState"`
+	DiskState pulumi.StringOutput `pulumi:"diskState"`
 	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
 	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
 	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
@@ -283,8 +283,6 @@ type diskArgs struct {
 	DiskName string `pulumi:"diskName"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// The state of the disk.
-	DiskState *string `pulumi:"diskState"`
 	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
 	Encryption *Encryption `pulumi:"encryption"`
 	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
@@ -329,8 +327,6 @@ type DiskArgs struct {
 	DiskName pulumi.StringInput
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB pulumi.IntPtrInput
-	// The state of the disk.
-	DiskState pulumi.StringPtrInput
 	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
 	Encryption EncryptionPtrInput
 	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.

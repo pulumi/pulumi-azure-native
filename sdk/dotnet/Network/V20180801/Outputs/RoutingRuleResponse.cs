@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Outputs
         /// <summary>
         /// Resource status.
         /// </summary>
-        public readonly string? ResourceState;
+        public readonly string ResourceState;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Outputs
 
             ImmutableArray<string> patternsToMatch,
 
-            string? resourceState,
+            string resourceState,
 
             string type)
         {

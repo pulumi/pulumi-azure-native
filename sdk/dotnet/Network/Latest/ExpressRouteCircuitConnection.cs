@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Express Route Circuit connection state.
         /// </summary>
         [Output("circuitConnectionStatus")]
-        public Output<string?> CircuitConnectionStatus { get; private set; } = null!;
+        public Output<string> CircuitConnectionStatus { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -153,12 +153,6 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("authorizationKey")]
         public Input<string>? AuthorizationKey { get; set; }
-
-        /// <summary>
-        /// Express Route Circuit connection state.
-        /// </summary>
-        [Input("circuitConnectionStatus")]
-        public Input<string>? CircuitConnectionStatus { get; set; }
 
         /// <summary>
         /// The name of the express route circuit.

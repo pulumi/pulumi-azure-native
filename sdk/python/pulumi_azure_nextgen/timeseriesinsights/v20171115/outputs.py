@@ -62,17 +62,16 @@ class EnvironmentStatusResponse(dict):
     An object that represents the status of the environment, and its internal state in the Time Series Insights service.
     """
     def __init__(__self__, *,
-                 ingress: Optional['outputs.IngressEnvironmentStatusResponse'] = None):
+                 ingress: 'outputs.IngressEnvironmentStatusResponse'):
         """
         An object that represents the status of the environment, and its internal state in the Time Series Insights service.
         :param 'IngressEnvironmentStatusResponseArgs' ingress: An object that represents the status of ingress on an environment.
         """
-        if ingress is not None:
-            pulumi.set(__self__, "ingress", ingress)
+        pulumi.set(__self__, "ingress", ingress)
 
     @property
     @pulumi.getter
-    def ingress(self) -> Optional['outputs.IngressEnvironmentStatusResponse']:
+    def ingress(self) -> 'outputs.IngressEnvironmentStatusResponse':
         """
         An object that represents the status of ingress on an environment.
         """
@@ -88,17 +87,24 @@ class IngressEnvironmentStatusResponse(dict):
     An object that represents the status of ingress on an environment.
     """
     def __init__(__self__, *,
-                 state: Optional[str] = None,
-                 state_details: Optional['outputs.EnvironmentStateDetailsResponse'] = None):
+                 state_details: 'outputs.EnvironmentStateDetailsResponse',
+                 state: Optional[str] = None):
         """
         An object that represents the status of ingress on an environment.
-        :param str state: This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
         :param 'EnvironmentStateDetailsResponseArgs' state_details: An object that contains the details about an environment's state.
+        :param str state: This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
         """
+        pulumi.set(__self__, "state_details", state_details)
         if state is not None:
             pulumi.set(__self__, "state", state)
-        if state_details is not None:
-            pulumi.set(__self__, "state_details", state_details)
+
+    @property
+    @pulumi.getter(name="stateDetails")
+    def state_details(self) -> 'outputs.EnvironmentStateDetailsResponse':
+        """
+        An object that contains the details about an environment's state.
+        """
+        return pulumi.get(self, "state_details")
 
     @property
     @pulumi.getter
@@ -107,14 +113,6 @@ class IngressEnvironmentStatusResponse(dict):
         This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
         """
         return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter(name="stateDetails")
-    def state_details(self) -> Optional['outputs.EnvironmentStateDetailsResponse']:
-        """
-        An object that contains the details about an environment's state.
-        """
-        return pulumi.get(self, "state_details")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

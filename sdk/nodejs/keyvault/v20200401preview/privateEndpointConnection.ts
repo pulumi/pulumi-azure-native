@@ -55,7 +55,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Provisioning state of the private endpoint connection.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Tags assigned to the key vault resource.
      */
@@ -86,12 +86,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             }
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -128,10 +128,6 @@ export interface PrivateEndpointConnectionArgs {
      * Approval state of the private link connection.
      */
     readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.v20200401preview.PrivateLinkServiceConnectionState>;
-    /**
-     * Provisioning state of the private endpoint connection.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the key vault.
      */

@@ -22,7 +22,6 @@ class NatGateway(pulumi.CustomResource):
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  nat_gateway_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -43,7 +42,6 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the nat gateway.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] nat_gateway_name: The name of the nat gateway.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the NAT gateway resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] public_ip_addresses: An array of public ip addresses associated with the nat gateway resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] public_ip_prefixes: An array of public ip prefixes associated with the nat gateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -76,7 +74,6 @@ class NatGateway(pulumi.CustomResource):
             if nat_gateway_name is None:
                 raise TypeError("Missing required property 'nat_gateway_name'")
             __props__['nat_gateway_name'] = nat_gateway_name
-            __props__['provisioning_state'] = provisioning_state
             __props__['public_ip_addresses'] = public_ip_addresses
             __props__['public_ip_prefixes'] = public_ip_prefixes
             if resource_group_name is None:
@@ -87,6 +84,7 @@ class NatGateway(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['zones'] = zones
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['subnets'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NatGateway")])
@@ -149,7 +147,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the NAT gateway resource.
         """

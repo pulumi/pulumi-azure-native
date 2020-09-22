@@ -40,7 +40,7 @@ type LookupFirewallPolicyResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state of the firewall policy resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// List of references to FirewallPolicyRuleGroups.
 	RuleGroups []SubResourceResponse `pulumi:"ruleGroups"`
 	// Resource tags.

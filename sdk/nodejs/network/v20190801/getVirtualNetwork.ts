@@ -79,7 +79,7 @@ export interface GetVirtualNetworkResult {
     /**
      * The provisioning state of the virtual network resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The resourceGuid property of the Virtual Network resource.
      */

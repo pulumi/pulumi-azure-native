@@ -34,7 +34,7 @@ type LookupCustomDomainResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Provisioning status of the custom domain.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource status of the custom domain.
 	ResourceState string `pulumi:"resourceState"`
 	// Resource type

@@ -99,7 +99,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The provisioning state of the express route circuit peering resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The reference of the RouteFilter resource.
      */

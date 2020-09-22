@@ -111,7 +111,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * The provisioning state of the application gateway resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
@@ -199,7 +199,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["probes"] = args ? args.probes : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["redirectConfigurations"] = args ? args.redirectConfigurations : undefined;
             inputs["requestRoutingRules"] = args ? args.requestRoutingRules : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -215,6 +214,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["operationalState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["authenticationCertificates"] = undefined /*out*/;
@@ -339,10 +339,6 @@ export interface ApplicationGatewayArgs {
      * Probes of the application gateway resource.
      */
     readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20190801.ApplicationGatewayProbe>[]>;
-    /**
-     * The provisioning state of the application gateway resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */

@@ -19,7 +19,6 @@ class VirtualWAN(pulumi.CustomResource):
                  disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_wan_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +33,6 @@ class VirtualWAN(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_vpn_encryption: Vpn encryption to be disabled or not.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_wan_name: The name of the VirtualWAN being created or updated.
@@ -61,7 +59,6 @@ class VirtualWAN(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -71,6 +68,7 @@ class VirtualWAN(pulumi.CustomResource):
             __props__['virtual_wan_name'] = virtual_wan_name
             __props__['etag'] = None
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['virtual_hubs'] = None
             __props__['vpn_sites'] = None
@@ -134,7 +132,7 @@ class VirtualWAN(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """

@@ -30,7 +30,7 @@ type LookupVpnConnectionResult struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
+	ConnectionStatus string `pulumi:"connectionStatus"`
 	// The dead peer detection timeout for a vpn connection in seconds.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// Egress bytes transferred.

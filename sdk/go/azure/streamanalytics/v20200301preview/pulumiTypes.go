@@ -15,7 +15,7 @@ type ClusterJobResponse struct {
 	// Resource ID of the streaming job.
 	Id string `pulumi:"id"`
 	// The current execution state of the streaming job.
-	JobState *string `pulumi:"jobState"`
+	JobState string `pulumi:"jobState"`
 	// The number of streaming units that are used by the streaming job.
 	StreamingUnits int `pulumi:"streamingUnits"`
 }
@@ -36,7 +36,7 @@ type ClusterJobResponseArgs struct {
 	// Resource ID of the streaming job.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The current execution state of the streaming job.
-	JobState pulumi.StringPtrInput `pulumi:"jobState"`
+	JobState pulumi.StringInput `pulumi:"jobState"`
 	// The number of streaming units that are used by the streaming job.
 	StreamingUnits pulumi.IntInput `pulumi:"streamingUnits"`
 }
@@ -99,8 +99,8 @@ func (o ClusterJobResponseOutput) Id() pulumi.StringOutput {
 }
 
 // The current execution state of the streaming job.
-func (o ClusterJobResponseOutput) JobState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterJobResponse) *string { return v.JobState }).(pulumi.StringPtrOutput)
+func (o ClusterJobResponseOutput) JobState() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterJobResponse) string { return v.JobState }).(pulumi.StringOutput)
 }
 
 // The number of streaming units that are used by the streaming job.
@@ -129,140 +129,6 @@ func (o ClusterJobResponseArrayOutput) Index(i pulumi.IntInput) ClusterJobRespon
 }
 
 // The properties associated with a Stream Analytics cluster.
-type ClusterProperties struct {
-	// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
-	ProvisioningState *string `pulumi:"provisioningState"`
-}
-
-// ClusterPropertiesInput is an input type that accepts ClusterPropertiesArgs and ClusterPropertiesOutput values.
-// You can construct a concrete instance of `ClusterPropertiesInput` via:
-//
-//          ClusterPropertiesArgs{...}
-type ClusterPropertiesInput interface {
-	pulumi.Input
-
-	ToClusterPropertiesOutput() ClusterPropertiesOutput
-	ToClusterPropertiesOutputWithContext(context.Context) ClusterPropertiesOutput
-}
-
-// The properties associated with a Stream Analytics cluster.
-type ClusterPropertiesArgs struct {
-	// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (ClusterPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterProperties)(nil)).Elem()
-}
-
-func (i ClusterPropertiesArgs) ToClusterPropertiesOutput() ClusterPropertiesOutput {
-	return i.ToClusterPropertiesOutputWithContext(context.Background())
-}
-
-func (i ClusterPropertiesArgs) ToClusterPropertiesOutputWithContext(ctx context.Context) ClusterPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterPropertiesOutput)
-}
-
-func (i ClusterPropertiesArgs) ToClusterPropertiesPtrOutput() ClusterPropertiesPtrOutput {
-	return i.ToClusterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterPropertiesArgs) ToClusterPropertiesPtrOutputWithContext(ctx context.Context) ClusterPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterPropertiesOutput).ToClusterPropertiesPtrOutputWithContext(ctx)
-}
-
-// ClusterPropertiesPtrInput is an input type that accepts ClusterPropertiesArgs, ClusterPropertiesPtr and ClusterPropertiesPtrOutput values.
-// You can construct a concrete instance of `ClusterPropertiesPtrInput` via:
-//
-//          ClusterPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToClusterPropertiesPtrOutput() ClusterPropertiesPtrOutput
-	ToClusterPropertiesPtrOutputWithContext(context.Context) ClusterPropertiesPtrOutput
-}
-
-type clusterPropertiesPtrType ClusterPropertiesArgs
-
-func ClusterPropertiesPtr(v *ClusterPropertiesArgs) ClusterPropertiesPtrInput {
-	return (*clusterPropertiesPtrType)(v)
-}
-
-func (*clusterPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterProperties)(nil)).Elem()
-}
-
-func (i *clusterPropertiesPtrType) ToClusterPropertiesPtrOutput() ClusterPropertiesPtrOutput {
-	return i.ToClusterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterPropertiesPtrType) ToClusterPropertiesPtrOutputWithContext(ctx context.Context) ClusterPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterPropertiesPtrOutput)
-}
-
-// The properties associated with a Stream Analytics cluster.
-type ClusterPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ClusterPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterProperties)(nil)).Elem()
-}
-
-func (o ClusterPropertiesOutput) ToClusterPropertiesOutput() ClusterPropertiesOutput {
-	return o
-}
-
-func (o ClusterPropertiesOutput) ToClusterPropertiesOutputWithContext(ctx context.Context) ClusterPropertiesOutput {
-	return o
-}
-
-func (o ClusterPropertiesOutput) ToClusterPropertiesPtrOutput() ClusterPropertiesPtrOutput {
-	return o.ToClusterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterPropertiesOutput) ToClusterPropertiesPtrOutputWithContext(ctx context.Context) ClusterPropertiesPtrOutput {
-	return o.ApplyT(func(v ClusterProperties) *ClusterProperties {
-		return &v
-	}).(ClusterPropertiesPtrOutput)
-}
-
-// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
-func (o ClusterPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-type ClusterPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterProperties)(nil)).Elem()
-}
-
-func (o ClusterPropertiesPtrOutput) ToClusterPropertiesPtrOutput() ClusterPropertiesPtrOutput {
-	return o
-}
-
-func (o ClusterPropertiesPtrOutput) ToClusterPropertiesPtrOutputWithContext(ctx context.Context) ClusterPropertiesPtrOutput {
-	return o
-}
-
-func (o ClusterPropertiesPtrOutput) Elem() ClusterPropertiesOutput {
-	return o.ApplyT(func(v *ClusterProperties) ClusterProperties { return *v }).(ClusterPropertiesOutput)
-}
-
-// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
-func (o ClusterPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties associated with a Stream Analytics cluster.
 type ClusterPropertiesResponse struct {
 	// Represents the number of streaming units currently being used on the cluster.
 	CapacityAllocated int `pulumi:"capacityAllocated"`
@@ -273,7 +139,7 @@ type ClusterPropertiesResponse struct {
 	// The date this cluster was created.
 	CreatedDate string `pulumi:"createdDate"`
 	// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 }
 
 // ClusterPropertiesResponseInput is an input type that accepts ClusterPropertiesResponseArgs and ClusterPropertiesResponseOutput values.
@@ -298,7 +164,7 @@ type ClusterPropertiesResponseArgs struct {
 	// The date this cluster was created.
 	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
 
 func (ClusterPropertiesResponseArgs) ElementType() reflect.Type {
@@ -400,8 +266,8 @@ func (o ClusterPropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
 }
 
 // The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
-func (o ClusterPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o ClusterPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type ClusterPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -468,7 +334,7 @@ func (o ClusterPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return v.ProvisioningState
+		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1491,8 +1357,6 @@ func (o PrivateLinkServiceConnectionResponseArrayOutput) Index(i pulumi.IntInput
 func init() {
 	pulumi.RegisterOutputType(ClusterJobResponseOutput{})
 	pulumi.RegisterOutputType(ClusterJobResponseArrayOutput{})
-	pulumi.RegisterOutputType(ClusterPropertiesOutput{})
-	pulumi.RegisterOutputType(ClusterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuOutput{})

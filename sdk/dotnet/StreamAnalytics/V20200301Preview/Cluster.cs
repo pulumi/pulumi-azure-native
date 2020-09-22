@@ -114,12 +114,6 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The properties associated with a Stream Analytics cluster.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ClusterPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]

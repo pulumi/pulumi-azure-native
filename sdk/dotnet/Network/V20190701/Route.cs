@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The provisioning state of the route resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
 
         /// <summary>
@@ -166,12 +166,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// </summary>
         [Input("nextHopType", required: true)]
         public Input<string> NextHopType { get; set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the route resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

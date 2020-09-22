@@ -112,12 +112,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the security rule resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         /// </summary>
         [Input("sourceAddressPrefix")]

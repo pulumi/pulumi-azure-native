@@ -18,7 +18,6 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]]] = None,
-                 created_date_time: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
@@ -36,7 +35,6 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]] authorizations: The workspace provider authorizations.
-        :param pulumi.Input[str] created_date_time: Specifies the date and time when the workspace is created.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']] parameters: The workspace's custom parameters.
@@ -64,7 +62,6 @@ class Workspace(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorizations'] = authorizations
-            __props__['created_date_time'] = created_date_time
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -82,6 +79,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['created_by'] = None
+            __props__['created_date_time'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['storage_account_identity'] = None
@@ -133,7 +131,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDateTime")
-    def created_date_time(self) -> pulumi.Output[Optional[str]]:
+    def created_date_time(self) -> pulumi.Output[str]:
         """
         Specifies the date and time when the workspace is created.
         """

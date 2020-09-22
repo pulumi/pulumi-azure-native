@@ -58,12 +58,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         public Input<string>? PeeringState { get; set; }
 
         /// <summary>
-        /// The provisioning state of the virtual network peering resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// The reference of the remote virtual network address space.
         /// </summary>
         [Input("remoteAddressSpace")]

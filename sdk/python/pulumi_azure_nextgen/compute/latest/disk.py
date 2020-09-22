@@ -25,7 +25,6 @@ class Disk(pulumi.CustomResource):
                  disk_m_bps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 disk_state: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -54,7 +53,6 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[int] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-        :param pulumi.Input[str] disk_state: The state of the disk.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         :param pulumi.Input[str] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
@@ -97,7 +95,6 @@ class Disk(pulumi.CustomResource):
                 raise TypeError("Missing required property 'disk_name'")
             __props__['disk_name'] = disk_name
             __props__['disk_size_gb'] = disk_size_gb
-            __props__['disk_state'] = disk_state
             __props__['encryption'] = encryption
             __props__['encryption_settings_collection'] = encryption_settings_collection
             __props__['hyper_v_generation'] = hyper_v_generation
@@ -115,6 +112,7 @@ class Disk(pulumi.CustomResource):
             __props__['tier'] = tier
             __props__['zones'] = zones
             __props__['disk_size_bytes'] = None
+            __props__['disk_state'] = None
             __props__['managed_by'] = None
             __props__['managed_by_extended'] = None
             __props__['name'] = None
@@ -215,7 +213,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskState")
-    def disk_state(self) -> pulumi.Output[Optional[str]]:
+    def disk_state(self) -> pulumi.Output[str]:
         """
         The state of the disk.
         """

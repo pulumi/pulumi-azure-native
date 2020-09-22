@@ -19,7 +19,7 @@ type Assessment struct {
 	// User friendly display name of the assessment
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Links relevant to the assessment
-	Links AssessmentLinksResponsePtrOutput `pulumi:"links"`
+	Links AssessmentLinksResponseOutput `pulumi:"links"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Details of the resource that was assessed

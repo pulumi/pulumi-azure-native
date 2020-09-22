@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
         /// The statistics of the database.
         /// </summary>
         [Output("statistics")]
-        public Output<Outputs.DatabaseStatisticsResponse?> Statistics { get; private set; } = null!;
+        public Output<Outputs.DatabaseStatisticsResponse> Statistics { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -159,12 +159,6 @@ namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
         /// </summary>
         [Input("softDeletePeriodInDays", required: true)]
         public Input<int> SoftDeletePeriodInDays { get; set; } = null!;
-
-        /// <summary>
-        /// The statistics of the database.
-        /// </summary>
-        [Input("statistics")]
-        public Input<Inputs.DatabaseStatisticsArgs>? Statistics { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

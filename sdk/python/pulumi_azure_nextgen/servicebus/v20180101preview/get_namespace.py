@@ -20,13 +20,16 @@ class GetNamespaceResult:
     """
     Description of a namespace resource.
     """
-    def __init__(__self__, created_at=None, encryption=None, location=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None, zone_redundant=None):
+    def __init__(__self__, created_at=None, key_source=None, key_vault_properties=None, location=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None, zone_redundant=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
-        if encryption and not isinstance(encryption, dict):
-            raise TypeError("Expected argument 'encryption' to be a dict")
-        pulumi.set(__self__, "encryption", encryption)
+        if key_source and not isinstance(key_source, str):
+            raise TypeError("Expected argument 'key_source' to be a str")
+        pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties and not isinstance(key_vault_properties, dict):
+            raise TypeError("Expected argument 'key_vault_properties' to be a dict")
+        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -67,12 +70,20 @@ class GetNamespaceResult:
         return pulumi.get(self, "created_at")
 
     @property
-    @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[str]:
         """
-        Properties of BYOK Encryption description
+        Enumerates the possible value of keySource for Encryption
         """
-        return pulumi.get(self, "encryption")
+        return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+        """
+        Properties of KeyVault
+        """
+        return pulumi.get(self, "key_vault_properties")
 
     @property
     @pulumi.getter
@@ -162,7 +173,8 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             yield self
         return GetNamespaceResult(
             created_at=self.created_at,
-            encryption=self.encryption,
+            key_source=self.key_source,
+            key_vault_properties=self.key_vault_properties,
             location=self.location,
             metric_id=self.metric_id,
             name=self.name,
@@ -195,7 +207,8 @@ def get_namespace(namespace_name: Optional[str] = None,
 
     return AwaitableGetNamespaceResult(
         created_at=__ret__.created_at,
-        encryption=__ret__.encryption,
+        key_source=__ret__.key_source,
+        key_vault_properties=__ret__.key_vault_properties,
         location=__ret__.location,
         metric_id=__ret__.metric_id,
         name=__ret__.name,

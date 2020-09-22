@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// The connection status.
         /// </summary>
         [Output("connectionStatus")]
-        public Output<string?> ConnectionStatus { get; private set; } = null!;
+        public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
         /// Egress bytes transferred.
@@ -200,12 +200,6 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// </summary>
         [Input("connectionName", required: true)]
         public Input<string> ConnectionName { get; set; } = null!;
-
-        /// <summary>
-        /// The connection status.
-        /// </summary>
-        [Input("connectionStatus")]
-        public Input<string>? ConnectionStatus { get; set; }
 
         /// <summary>
         /// EnableBgp flag.

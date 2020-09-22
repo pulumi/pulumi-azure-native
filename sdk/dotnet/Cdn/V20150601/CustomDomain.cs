@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
         /// Provisioning status of the custom domain.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource status of the custom domain.

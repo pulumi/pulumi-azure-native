@@ -25,7 +25,6 @@ class Experiment(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -43,7 +42,6 @@ class Experiment(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[str] resource_state: Resource status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -77,9 +75,9 @@ class Experiment(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['resource_state'] = resource_state
             __props__['tags'] = tags
             __props__['name'] = None
+            __props__['resource_state'] = None
             __props__['script_file_uri'] = None
             __props__['status'] = None
             __props__['type'] = None
@@ -159,7 +157,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> pulumi.Output[Optional[str]]:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         Resource status.
         """

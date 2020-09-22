@@ -67,7 +67,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
     /**
      * The provisioning state of the public IP prefix resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The public IP address version.
      */
@@ -119,7 +119,6 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             inputs["ipTags"] = args ? args.ipTags : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["prefixLength"] = args ? args.prefixLength : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
             inputs["publicIPAddresses"] = args ? args.publicIPAddresses : undefined;
             inputs["publicIpPrefixName"] = args ? args.publicIpPrefixName : undefined;
@@ -130,6 +129,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["loadBalancerFrontendIpConfiguration"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -189,10 +189,6 @@ export interface PublicIPPrefixArgs {
      * The Length of the Public IP Prefix.
      */
     readonly prefixLength?: pulumi.Input<number>;
-    /**
-     * The provisioning state of the public IP prefix resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The public IP address version.
      */

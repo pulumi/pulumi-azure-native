@@ -43,7 +43,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The connection status.
      */
-    public readonly connectionStatus!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
     /**
      * Egress bytes transferred.
      */
@@ -130,7 +130,6 @@ export class VpnConnection extends pulumi.CustomResource {
             }
             inputs["connectionBandwidth"] = args ? args.connectionBandwidth : undefined;
             inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["connectionStatus"] = args ? args.connectionStatus : undefined;
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
             inputs["enableRateLimiting"] = args ? args.enableRateLimiting : undefined;
@@ -146,6 +145,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
             inputs["vpnConnectionProtocolType"] = args ? args.vpnConnectionProtocolType : undefined;
             inputs["vpnLinkConnections"] = args ? args.vpnLinkConnections : undefined;
+            inputs["connectionStatus"] = undefined /*out*/;
             inputs["egressBytesTransferred"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["ingressBytesTransferred"] = undefined /*out*/;
@@ -195,10 +195,6 @@ export interface VpnConnectionArgs {
      * The name of the connection.
      */
     readonly connectionName: pulumi.Input<string>;
-    /**
-     * The connection status.
-     */
-    readonly connectionStatus?: pulumi.Input<string>;
     /**
      * EnableBgp flag.
      */

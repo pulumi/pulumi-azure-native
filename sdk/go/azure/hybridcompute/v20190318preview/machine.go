@@ -33,7 +33,7 @@ type Machine struct {
 	// The Operating System running on the hybrid machine.
 	OsName pulumi.StringOutput `pulumi:"osName"`
 	// Specifies the operating system settings for the hybrid machine.
-	OsProfile OSProfileResponsePtrOutput `pulumi:"osProfile"`
+	OsProfile OSProfileResponseOutput `pulumi:"osProfile"`
 	// The version of Operating System running on the hybrid machine.
 	OsVersion pulumi.StringOutput `pulumi:"osVersion"`
 	// Resource's Physical Location

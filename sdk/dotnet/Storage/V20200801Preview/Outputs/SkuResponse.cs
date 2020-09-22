@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Outputs
         /// <summary>
         /// The SKU tier. This is based on the SKU name.
         /// </summary>
-        public readonly string? Tier;
+        public readonly string Tier;
 
         [OutputConstructor]
         private SkuResponse(
             string name,
 
-            string? tier)
+            string tier)
         {
             Name = name;
             Tier = tier;

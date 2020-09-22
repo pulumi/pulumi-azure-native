@@ -28,12 +28,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The provisioning state of the Azure firewall IP configuration resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
         /// </summary>
         [Input("publicIPAddress")]

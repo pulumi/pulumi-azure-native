@@ -106,12 +106,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         public Input<string>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
-        /// The provisioning state of the network interface IP configuration.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Public IP address bound to the IP configuration.
         /// </summary>
         [Input("publicIPAddress")]

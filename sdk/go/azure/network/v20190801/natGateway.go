@@ -23,7 +23,7 @@ type NatGateway struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the NAT gateway resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// An array of public ip addresses associated with the nat gateway resource.
 	PublicIpAddresses SubResourceResponseArrayOutput `pulumi:"publicIpAddresses"`
 	// An array of public ip prefixes associated with the nat gateway resource.
@@ -187,8 +187,6 @@ type natGatewayArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the nat gateway.
 	NatGatewayName string `pulumi:"natGatewayName"`
-	// The provisioning state of the NAT gateway resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// An array of public ip addresses associated with the nat gateway resource.
 	PublicIpAddresses []SubResource `pulumi:"publicIpAddresses"`
 	// An array of public ip prefixes associated with the nat gateway resource.
@@ -217,8 +215,6 @@ type NatGatewayArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the nat gateway.
 	NatGatewayName pulumi.StringInput
-	// The provisioning state of the NAT gateway resource.
-	ProvisioningState pulumi.StringPtrInput
 	// An array of public ip addresses associated with the nat gateway resource.
 	PublicIpAddresses SubResourceArrayInput
 	// An array of public ip prefixes associated with the nat gateway resource.

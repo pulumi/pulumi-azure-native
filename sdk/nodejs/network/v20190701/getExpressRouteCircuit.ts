@@ -82,7 +82,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * The provisioning state of the express route circuit resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The ServiceKey.
      */

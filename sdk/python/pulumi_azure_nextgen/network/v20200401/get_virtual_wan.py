@@ -108,7 +108,7 @@ class GetVirtualWanResult:
 
     @property
     @pulumi.getter(name="office365LocalBreakoutCategory")
-    def office365_local_breakout_category(self) -> Optional[str]:
+    def office365_local_breakout_category(self) -> str:
         """
         The office local breakout category.
         """

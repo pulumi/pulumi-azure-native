@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The provisioning state of the Azure firewall resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The Azure Firewall Resource SKU.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponse> networkRuleCollections,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.AzureFirewallSkuResponse? sku,
 

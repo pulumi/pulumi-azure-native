@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
         /// Provisioning state of the private endpoint connection.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Tags assigned to the key vault resource.
@@ -118,12 +118,6 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
         /// </summary>
         [Input("privateLinkServiceConnectionState")]
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
-
-        /// <summary>
-        /// Provisioning state of the private endpoint connection.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the resource group that contains the key vault.

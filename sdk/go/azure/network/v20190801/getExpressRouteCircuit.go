@@ -48,7 +48,7 @@ type LookupExpressRouteCircuitResult struct {
 	// The list of peerings.
 	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
 	// The provisioning state of the express route circuit resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The ServiceKey.
 	ServiceKey *string `pulumi:"serviceKey"`
 	// The ServiceProviderNotes.

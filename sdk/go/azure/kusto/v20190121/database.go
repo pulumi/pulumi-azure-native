@@ -25,7 +25,7 @@ type Database struct {
 	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
 	SoftDeletePeriod pulumi.StringPtrOutput `pulumi:"softDeletePeriod"`
 	// The statistics of the database.
-	Statistics DatabaseStatisticsResponsePtrOutput `pulumi:"statistics"`
+	Statistics DatabaseStatisticsResponseOutput `pulumi:"statistics"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -144,8 +144,6 @@ type databaseArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
 	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
-	// The statistics of the database.
-	Statistics *DatabaseStatistics `pulumi:"statistics"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -162,8 +160,6 @@ type DatabaseArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
 	SoftDeletePeriod pulumi.StringPtrInput
-	// The statistics of the database.
-	Statistics DatabaseStatisticsPtrInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {

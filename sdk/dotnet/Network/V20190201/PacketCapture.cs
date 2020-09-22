@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// The provisioning state of the packet capture session.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Describes the storage location for a packet capture session.

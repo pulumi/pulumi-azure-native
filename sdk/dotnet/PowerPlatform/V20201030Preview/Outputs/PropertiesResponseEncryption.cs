@@ -7,28 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview.Outputs
+namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
 {
 
     [OutputType]
-    public sealed class EncryptionResponse
+    public sealed class PropertiesResponseEncryption
     {
         /// <summary>
-        /// Enumerates the possible value of keySource for Encryption
-        /// </summary>
-        public readonly string? KeySource;
-        /// <summary>
-        /// Properties of KeyVault
+        /// Key vault properties.
         /// </summary>
         public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
 
         [OutputConstructor]
-        private EncryptionResponse(
-            string? keySource,
-
-            Outputs.KeyVaultPropertiesResponse? keyVaultProperties)
+        private PropertiesResponseEncryption(Outputs.KeyVaultPropertiesResponse? keyVaultProperties)
         {
-            KeySource = keySource;
             KeyVaultProperties = keyVaultProperties;
         }
     }

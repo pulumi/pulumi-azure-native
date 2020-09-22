@@ -22,12 +22,6 @@ namespace Pulumi.AzureNextGen.Network.V20181001.Inputs
         public Input<int>? ConnectionBandwidth { get; set; }
 
         /// <summary>
-        /// The connection status.
-        /// </summary>
-        [Input("connectionStatus")]
-        public Input<string>? ConnectionStatus { get; set; }
-
-        /// <summary>
         /// EnableBgp flag
         /// </summary>
         [Input("enableBgp")]
@@ -68,12 +62,6 @@ namespace Pulumi.AzureNextGen.Network.V20181001.Inputs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Id of the connected vpn site.

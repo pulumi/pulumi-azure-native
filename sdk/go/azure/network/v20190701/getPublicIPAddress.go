@@ -46,7 +46,7 @@ type LookupPublicIPAddressResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state of the public IP address resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The public IP address version.
 	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
 	// The public IP address allocation method.

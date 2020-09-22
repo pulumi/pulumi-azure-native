@@ -93,12 +93,6 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
             set => _patternsToMatch = value;
         }
 
-        /// <summary>
-        /// Resource status.
-        /// </summary>
-        [Input("resourceState")]
-        public Input<string>? ResourceState { get; set; }
-
         public RoutingRuleArgs()
         {
         }

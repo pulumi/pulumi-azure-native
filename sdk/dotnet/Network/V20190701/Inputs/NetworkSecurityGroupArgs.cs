@@ -46,12 +46,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The provisioning state of the network security group resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// The resource GUID property of the network security group resource.
         /// </summary>
         [Input("resourceGuid")]

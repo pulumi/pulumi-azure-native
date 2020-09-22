@@ -19,7 +19,7 @@ type Profile struct {
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning status of the profile.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource status of the profile.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// The SKU (pricing tier) of the CDN profile.

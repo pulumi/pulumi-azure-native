@@ -17,7 +17,7 @@ type VpnConnection struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrOutput `pulumi:"connectionBandwidth"`
 	// The connection status.
-	ConnectionStatus pulumi.StringPtrOutput `pulumi:"connectionStatus"`
+	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
 	// The dead peer detection timeout for a vpn connection in seconds.
 	DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"dpdTimeoutSeconds"`
 	// Egress bytes transferred.
@@ -241,8 +241,6 @@ type vpnConnectionArgs struct {
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
 	// The name of the connection.
 	ConnectionName string `pulumi:"connectionName"`
-	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// The dead peer detection timeout for a vpn connection in seconds.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// EnableBgp flag.
@@ -283,8 +281,6 @@ type VpnConnectionArgs struct {
 	ConnectionBandwidth pulumi.IntPtrInput
 	// The name of the connection.
 	ConnectionName pulumi.StringInput
-	// The connection status.
-	ConnectionStatus pulumi.StringPtrInput
 	// The dead peer detection timeout for a vpn connection in seconds.
 	DpdTimeoutSeconds pulumi.IntPtrInput
 	// EnableBgp flag.

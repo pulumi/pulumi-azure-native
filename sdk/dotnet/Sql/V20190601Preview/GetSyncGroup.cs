@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Private endpoint name of the sync group if use private link connection is enabled.
+        /// </summary>
+        public readonly string PrivateEndpointName;
+        /// <summary>
         /// Sync schema of the sync group.
         /// </summary>
         public readonly Outputs.SyncGroupSchemaResponse? Schema;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 
             string name,
 
+            string privateEndpointName,
+
             Outputs.SyncGroupSchemaResponse? schema,
 
             string? syncDatabaseId,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
             Interval = interval;
             LastSyncTime = lastSyncTime;
             Name = name;
+            PrivateEndpointName = privateEndpointName;
             Schema = schema;
             SyncDatabaseId = syncDatabaseId;
             SyncState = syncState;

@@ -38,7 +38,7 @@ type LookupNetworkSecurityGroupResult struct {
 	// A collection of references to network interfaces.
 	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
 	// The provisioning state of the network security group resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource GUID property of the network security group resource.
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// A collection of security rules of the network security group.

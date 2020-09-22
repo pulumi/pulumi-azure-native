@@ -52,12 +52,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         public Input<string>? PrivateLinkServiceId { get; set; }
 
         /// <summary>
-        /// The provisioning state of the private link service connection resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         /// </summary>
         [Input("requestMessage")]

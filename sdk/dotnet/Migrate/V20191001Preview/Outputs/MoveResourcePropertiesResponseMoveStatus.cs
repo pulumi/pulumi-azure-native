@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         /// <summary>
         /// Defines the MoveResource states.
         /// </summary>
-        public readonly string? MoveState;
+        public readonly string MoveState;
         /// <summary>
         /// Gets the Target ARM Id of the resource.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
 
             Outputs.JobStatusResponse? jobStatus,
 
-            string? moveState,
+            string moveState,
 
             string targetId)
         {

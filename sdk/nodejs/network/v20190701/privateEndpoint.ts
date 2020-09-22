@@ -63,7 +63,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     /**
      * The provisioning state of the private endpoint resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
@@ -99,12 +99,12 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             inputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
             inputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
             inputs["privateLinkServiceConnections"] = args ? args.privateLinkServiceConnections : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -159,10 +159,6 @@ export interface PrivateEndpointArgs {
      * A grouping of information about the connection to the remote resource.
      */
     readonly privateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190701.PrivateLinkServiceConnection>[]>;
-    /**
-     * The provisioning state of the private endpoint resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

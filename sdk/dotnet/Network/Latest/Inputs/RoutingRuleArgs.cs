@@ -70,12 +70,6 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         }
 
         /// <summary>
-        /// Resource status.
-        /// </summary>
-        [Input("resourceState")]
-        public Input<string>? ResourceState { get; set; }
-
-        /// <summary>
         /// A reference to the routing configuration.
         /// </summary>
         [Input("routeConfiguration")]

@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// <summary>
         /// Resource status.
         /// </summary>
-        public readonly string? ResourceState;
+        public readonly string ResourceState;
         /// <summary>
         /// A reference to the routing configuration.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             ImmutableArray<string> patternsToMatch,
 
-            string? resourceState,
+            string resourceState,
 
             Union<Outputs.ForwardingConfigurationResponse, Outputs.RedirectConfigurationResponse>? routeConfiguration,
 

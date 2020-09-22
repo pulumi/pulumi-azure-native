@@ -150,7 +150,6 @@ const storageAccount = new storage.StorageAccount("sa", {
     location: "westus2",
     sku: {
         name: "Standard_LRS",
-        tier: "Standard",
     },
     kind: "StorageV2",
     enableHttpsTrafficOnly: true,

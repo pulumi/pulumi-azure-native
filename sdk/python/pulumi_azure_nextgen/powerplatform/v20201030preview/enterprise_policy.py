@@ -17,13 +17,11 @@ class EnterprisePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['ConfigurationPropertiesEncryptionArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']]] = None,
                  enterprise_policy_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 lockbox: Optional[pulumi.Input[pulumi.InputType['ConfigurationPropertiesLockboxArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 system_data: Optional[pulumi.Input[pulumi.InputType['SystemDataArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,13 +31,11 @@ class EnterprisePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationPropertiesEncryptionArgs']] encryption: The encryption settings for a configuration store.
+        :param pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']] encryption: The encryption settings for a configuration store.
         :param pulumi.Input[str] enterprise_policy_name: Name of the EnterprisePolicy.
         :param pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']] identity: The identity of the EnterprisePolicy.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[pulumi.InputType['ConfigurationPropertiesLockboxArgs']] lockbox: Settings concerning lockbox.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SystemDataArgs']] system_data: Metadata pertaining to creation and last modification of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -65,13 +61,13 @@ class EnterprisePolicy(pulumi.CustomResource):
             __props__['enterprise_policy_name'] = enterprise_policy_name
             __props__['identity'] = identity
             __props__['location'] = location
-            __props__['lockbox'] = lockbox
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['system_data'] = system_data
             __props__['tags'] = tags
+            __props__['lockbox'] = None
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         super(EnterprisePolicy, __self__).__init__(
             'azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy',
@@ -99,7 +95,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encryption(self) -> pulumi.Output[Optional['outputs.ConfigurationPropertiesResponseEncryption']]:
+    def encryption(self) -> pulumi.Output[Optional['outputs.PropertiesResponseEncryption']]:
         """
         The encryption settings for a configuration store.
         """
@@ -123,7 +119,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def lockbox(self) -> pulumi.Output[Optional['outputs.ConfigurationPropertiesResponseLockbox']]:
+    def lockbox(self) -> pulumi.Output[Optional['outputs.PropertiesResponseLockbox']]:
         """
         Settings concerning lockbox.
         """
@@ -139,7 +135,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output[Optional['outputs.SystemDataResponse']]:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Metadata pertaining to creation and last modification of the resource.
         """

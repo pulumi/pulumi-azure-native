@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// <summary>
         /// The provisioning state of the firewall policy resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// List of references to FirewallPolicyRuleGroups.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableArray<Outputs.SubResourceResponse> ruleGroups,
 

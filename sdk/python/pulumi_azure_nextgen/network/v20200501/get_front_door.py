@@ -171,7 +171,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
+    def resource_state(self) -> str:
         """
         Resource status of the Front Door.
         """

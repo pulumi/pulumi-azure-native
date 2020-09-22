@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The provisioning state of the route resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private GetRouteResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string nextHopType,
 
-            string? provisioningState)
+            string provisioningState)
         {
             AddressPrefix = addressPrefix;
             Etag = etag;

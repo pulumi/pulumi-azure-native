@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The provisioning state of the public IP prefix resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The public IP address version.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             int? prefixLength,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? publicIPAddressVersion,
 

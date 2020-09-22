@@ -79,7 +79,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The provisioning state of the load balancer resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The resource GUID property of the load balancer resource.
      */
@@ -124,12 +124,12 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["outboundRules"] = args ? args.outboundRules : undefined;
             inputs["probes"] = args ? args.probes : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["backendAddressPools"] = undefined /*out*/;
@@ -209,10 +209,6 @@ export interface LoadBalancerArgs {
      * Collection of probe objects used in the load balancer.
      */
     readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20190701.Probe>[]>;
-    /**
-     * The provisioning state of the load balancer resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

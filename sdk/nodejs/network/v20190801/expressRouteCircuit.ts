@@ -83,7 +83,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * The provisioning state of the express route circuit resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The ServiceKey.
      */
@@ -144,7 +144,6 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["peerings"] = args ? args.peerings : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceKey"] = args ? args.serviceKey : undefined;
             inputs["serviceProviderNotes"] = args ? args.serviceProviderNotes : undefined;
@@ -154,6 +153,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["stag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -239,10 +239,6 @@ export interface ExpressRouteCircuitArgs {
      * The list of peerings.
      */
     readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190801.ExpressRouteCircuitPeering>[]>;
-    /**
-     * The provisioning state of the express route circuit resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

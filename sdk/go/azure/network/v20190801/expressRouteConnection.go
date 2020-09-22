@@ -21,7 +21,7 @@ type ExpressRouteConnection struct {
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the express route connection resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The routing weight associated to the connection.
 	RoutingWeight pulumi.IntPtrOutput `pulumi:"routingWeight"`
 }
@@ -162,8 +162,6 @@ type expressRouteConnectionArgs struct {
 	Id *string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The provisioning state of the express route connection resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The routing weight associated to the connection.
@@ -184,8 +182,6 @@ type ExpressRouteConnectionArgs struct {
 	Id pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringInput
-	// The provisioning state of the express route connection resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The routing weight associated to the connection.

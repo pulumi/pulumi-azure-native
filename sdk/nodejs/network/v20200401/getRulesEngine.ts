@@ -47,7 +47,7 @@ export interface GetRulesEngineResult {
     /**
      * Resource status.
      */
-    readonly resourceState?: string;
+    readonly resourceState: string;
     /**
      * A list of rules that define a particular Rules Engine Configuration.
      */

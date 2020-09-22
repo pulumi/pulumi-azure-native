@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// The provisioning state of the private link service resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -228,12 +228,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701
             get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
             set => _privateEndpointConnections = value;
         }
-
-        /// <summary>
-        /// The provisioning state of the private link service resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

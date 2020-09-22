@@ -62,7 +62,7 @@ export interface GetVirtualWanResult {
     /**
      * The office local breakout category.
      */
-    readonly office365LocalBreakoutCategory?: string;
+    readonly office365LocalBreakoutCategory: string;
     /**
      * List of all P2SVpnServerConfigurations associated with the virtual wan.
      */
@@ -70,7 +70,7 @@ export interface GetVirtualWanResult {
     /**
      * The provisioning state of the virtual WAN resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The Security Provider name.
      */

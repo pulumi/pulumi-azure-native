@@ -71,7 +71,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The state of the disk.
      */
-    public readonly diskState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly diskState!: pulumi.Output<string>;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
@@ -179,7 +179,6 @@ export class Disk extends pulumi.CustomResource {
             inputs["diskMBpsReadWrite"] = args ? args.diskMBpsReadWrite : undefined;
             inputs["diskName"] = args ? args.diskName : undefined;
             inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            inputs["diskState"] = args ? args.diskState : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
             inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
@@ -193,6 +192,7 @@ export class Disk extends pulumi.CustomResource {
             inputs["tier"] = args ? args.tier : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["diskSizeBytes"] = undefined /*out*/;
+            inputs["diskState"] = undefined /*out*/;
             inputs["managedBy"] = undefined /*out*/;
             inputs["managedByExtended"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -280,10 +280,6 @@ export interface DiskArgs {
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
     readonly diskSizeGB?: pulumi.Input<number>;
-    /**
-     * The state of the disk.
-     */
-    readonly diskState?: pulumi.Input<string>;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */

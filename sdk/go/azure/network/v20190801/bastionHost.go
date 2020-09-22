@@ -25,7 +25,7 @@ type BastionHost struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the bastion host resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -154,8 +154,6 @@ type bastionHostArgs struct {
 	IpConfigurations []BastionHostIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The provisioning state of the bastion host resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -174,8 +172,6 @@ type BastionHostArgs struct {
 	IpConfigurations BastionHostIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The provisioning state of the bastion host resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

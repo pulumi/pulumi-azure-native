@@ -21,12 +21,6 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The SKU tier. This is based on the SKU name.
-        /// </summary>
-        [Input("tier")]
-        public Input<string>? Tier { get; set; }
-
         public SkuArgs()
         {
         }

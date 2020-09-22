@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// <summary>
         /// Resource status.
         /// </summary>
-        public readonly string? ResourceState;
+        public readonly string ResourceState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
 
             string name,
 
-            string? resourceState,
+            string resourceState,
 
             ImmutableDictionary<string, string>? tags,
 

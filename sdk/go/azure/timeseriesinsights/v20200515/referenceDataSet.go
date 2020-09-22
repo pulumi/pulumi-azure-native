@@ -25,7 +25,7 @@ type ReferenceDataSet struct {
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type

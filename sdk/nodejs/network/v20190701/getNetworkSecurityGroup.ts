@@ -63,7 +63,7 @@ export interface GetNetworkSecurityGroupResult {
     /**
      * The provisioning state of the network security group resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The resource GUID property of the network security group resource.
      */

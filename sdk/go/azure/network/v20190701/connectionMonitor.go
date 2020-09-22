@@ -29,7 +29,7 @@ type ConnectionMonitor struct {
 	// Name of the connection monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the connection monitor.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Describes the source of connection monitor.
 	Source ConnectionMonitorSourceResponseOutput `pulumi:"source"`
 	// The date and time when the connection monitor was started.

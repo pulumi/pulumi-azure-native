@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Resource status.
         /// </summary>
         [Output("resourceState")]
-        public Output<string?> ResourceState { get; private set; } = null!;
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// The uri to the Script used in the Experiment
@@ -176,12 +176,6 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Resource status.
-        /// </summary>
-        [Input("resourceState")]
-        public Input<string>? ResourceState { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

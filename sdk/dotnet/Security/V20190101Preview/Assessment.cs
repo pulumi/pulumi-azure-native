@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// Links relevant to the assessment
         /// </summary>
         [Output("links")]
-        public Output<Outputs.AssessmentLinksResponse?> Links { get; private set; } = null!;
+        public Output<Outputs.AssessmentLinksResponse> Links { get; private set; } = null!;
 
         /// <summary>
         /// Resource name

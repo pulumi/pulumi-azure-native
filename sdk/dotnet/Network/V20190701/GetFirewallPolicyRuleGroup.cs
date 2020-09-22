@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// <summary>
         /// The provisioning state of the firewall policy rule group resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Group of Firewall Policy rules.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 
             int? priority,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableArray<Union<Outputs.FirewallPolicyFilterRuleResponse, Outputs.FirewallPolicyNatRuleResponse>> rules,
 

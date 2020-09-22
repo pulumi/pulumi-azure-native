@@ -51,7 +51,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Group of Firewall Policy rules.
      */
@@ -84,11 +84,11 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["priority"] = args ? args.priority : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["ruleGroupName"] = args ? args.ruleGroupName : undefined;
             inputs["rules"] = args ? args.rules : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -131,10 +131,6 @@ export interface FirewallPolicyRuleGroupArgs {
      * Priority of the Firewall Policy Rule Group resource.
      */
     readonly priority?: pulumi.Input<number>;
-    /**
-     * The provisioning state of the resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

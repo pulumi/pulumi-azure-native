@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The provisioning state of the NAT gateway resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// An array of public ip addresses associated with the nat gateway resource.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableArray<Outputs.SubResourceResponse> publicIpAddresses,
 

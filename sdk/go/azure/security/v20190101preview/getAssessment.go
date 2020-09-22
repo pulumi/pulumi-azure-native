@@ -32,7 +32,7 @@ type LookupAssessmentResult struct {
 	// User friendly display name of the assessment
 	DisplayName string `pulumi:"displayName"`
 	// Links relevant to the assessment
-	Links *AssessmentLinksResponse `pulumi:"links"`
+	Links AssessmentLinksResponse `pulumi:"links"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Details of the resource that was assessed

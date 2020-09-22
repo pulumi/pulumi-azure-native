@@ -7,11 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'ConnectionStateResponse',
-    'EncryptionResponse',
     'KeyVaultPropertiesResponse',
     'PrivateEndpointResponse',
     'SBSkuResponse',
@@ -50,44 +48,6 @@ class ConnectionStateResponse(dict):
         Status of the connection.
         """
         return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class EncryptionResponse(dict):
-    """
-    Properties to configure Encryption
-    """
-    def __init__(__self__, *,
-                 key_source: Optional[str] = None,
-                 key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
-        """
-        Properties to configure Encryption
-        :param str key_source: Enumerates the possible value of keySource for Encryption
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Properties of KeyVault
-        """
-        if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-
-    @property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[str]:
-        """
-        Enumerates the possible value of keySource for Encryption
-        """
-        return pulumi.get(self, "key_source")
-
-    @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
-        """
-        Properties of KeyVault
-        """
-        return pulumi.get(self, "key_vault_properties")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

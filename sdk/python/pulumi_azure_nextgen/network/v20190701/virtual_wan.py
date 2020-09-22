@@ -22,9 +22,7 @@ class VirtualWan(pulumi.CustomResource):
                  disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 office365_local_breakout_category: Optional[pulumi.Input[str]] = None,
                  p2_s_vpn_server_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigurationArgs']]]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_provider_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -42,9 +40,7 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_vpn_encryption: Vpn encryption to be disabled or not.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] office365_local_breakout_category: The office local breakout category.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigurationArgs']]]] p2_s_vpn_server_configurations: List of all P2SVpnServerConfigurations associated with the virtual wan.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the virtual WAN resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[str] security_provider_name: The Security Provider name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -74,9 +70,7 @@ class VirtualWan(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            __props__['office365_local_breakout_category'] = office365_local_breakout_category
             __props__['p2_s_vpn_server_configurations'] = p2_s_vpn_server_configurations
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -87,6 +81,8 @@ class VirtualWan(pulumi.CustomResource):
             __props__['virtual_wan_name'] = virtual_wan_name
             __props__['etag'] = None
             __props__['name'] = None
+            __props__['office365_local_breakout_category'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['virtual_hubs'] = None
             __props__['vpn_sites'] = None
@@ -166,7 +162,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="office365LocalBreakoutCategory")
-    def office365_local_breakout_category(self) -> pulumi.Output[Optional[str]]:
+    def office365_local_breakout_category(self) -> pulumi.Output[str]:
         """
         The office local breakout category.
         """
@@ -182,7 +178,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the virtual WAN resource.
         """

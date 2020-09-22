@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// The provisioning state of the public IP prefix resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The public IP address version.
@@ -210,12 +210,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         [Input("prefixLength")]
         public Input<int>? PrefixLength { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the public IP prefix resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The public IP address version.

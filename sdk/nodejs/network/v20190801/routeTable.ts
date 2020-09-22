@@ -55,7 +55,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * The provisioning state of the route table resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Collection of routes contained within a route table.
      */
@@ -93,12 +93,12 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
             inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["subnets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -145,10 +145,6 @@ export interface RouteTableArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the route table resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

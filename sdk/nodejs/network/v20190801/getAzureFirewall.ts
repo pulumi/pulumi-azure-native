@@ -74,7 +74,7 @@ export interface GetAzureFirewallResult {
     /**
      * The provisioning state of the Azure firewall resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The Azure Firewall Resource SKU.
      */

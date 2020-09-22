@@ -13,7 +13,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
     /// <summary>
     /// The encryption settings for a configuration store.
     /// </summary>
-    public sealed class ConfigurationPropertiesEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class PropertiesEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key vault properties.
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
         [Input("keyVaultProperties")]
         public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
 
-        public ConfigurationPropertiesEncryptionArgs()
+        public PropertiesEncryptionArgs()
         {
         }
     }

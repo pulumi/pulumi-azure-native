@@ -63,7 +63,7 @@ export class VirtualWan extends pulumi.CustomResource {
     /**
      * The office local breakout category.
      */
-    public readonly office365LocalBreakoutCategory!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly office365LocalBreakoutCategory!: pulumi.Output<string>;
     /**
      * List of all P2SVpnServerConfigurations associated with the virtual wan.
      */
@@ -71,7 +71,7 @@ export class VirtualWan extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The Security Provider name.
      */
@@ -117,15 +117,15 @@ export class VirtualWan extends pulumi.CustomResource {
             inputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["office365LocalBreakoutCategory"] = args ? args.office365LocalBreakoutCategory : undefined;
             inputs["p2SVpnServerConfigurations"] = args ? args.p2SVpnServerConfigurations : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["securityProviderName"] = args ? args.securityProviderName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualWANName"] = args ? args.virtualWANName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["office365LocalBreakoutCategory"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualHubs"] = undefined /*out*/;
             inputs["vpnSites"] = undefined /*out*/;
@@ -183,17 +183,9 @@ export interface VirtualWanArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The office local breakout category.
-     */
-    readonly office365LocalBreakoutCategory?: pulumi.Input<string>;
-    /**
      * List of all P2SVpnServerConfigurations associated with the virtual wan.
      */
     readonly p2SVpnServerConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190201.P2SVpnServerConfiguration>[]>;
-    /**
-     * The provisioning state of the resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualWan.
      */

@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// </summary>
         public readonly string? Password;
         /// <summary>
+        /// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
+        /// </summary>
+        public readonly string PrivateEndpointName;
+        /// <summary>
         /// Server name of the member database in the sync member
         /// </summary>
         public readonly string? ServerName;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 
             string? password,
 
+            string privateEndpointName,
+
             string? serverName,
 
             string? sqlServerDatabaseId,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
             DatabaseType = databaseType;
             Name = name;
             Password = password;
+            PrivateEndpointName = privateEndpointName;
             ServerName = serverName;
             SqlServerDatabaseId = sqlServerDatabaseId;
             SyncAgentId = syncAgentId;

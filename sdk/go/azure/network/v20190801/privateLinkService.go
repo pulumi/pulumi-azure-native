@@ -35,7 +35,7 @@ type PrivateLinkService struct {
 	// An array of list about connections to the private endpoint.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// The provisioning state of the private link service resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -196,8 +196,6 @@ type privateLinkServiceArgs struct {
 	Location *string `pulumi:"location"`
 	// An array of list about connections to the private endpoint.
 	PrivateEndpointConnections []PrivateEndpointConnection `pulumi:"privateEndpointConnections"`
-	// The provisioning state of the private link service resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the private link service.
@@ -226,8 +224,6 @@ type PrivateLinkServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// An array of list about connections to the private endpoint.
 	PrivateEndpointConnections PrivateEndpointConnectionArrayInput
-	// The provisioning state of the private link service resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the private link service.

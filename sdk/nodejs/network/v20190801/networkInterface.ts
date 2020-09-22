@@ -87,7 +87,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * The provisioning state of the network interface resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The resource GUID property of the network interface resource.
      */
@@ -136,7 +136,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
             inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
             inputs["primary"] = args ? args.primary : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -144,6 +143,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["hostedWorkloads"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualMachine"] = undefined /*out*/;
         } else {
@@ -227,10 +227,6 @@ export interface NetworkInterfaceArgs {
      * Whether this is a primary network interface on a virtual machine.
      */
     readonly primary?: pulumi.Input<boolean>;
-    /**
-     * The provisioning state of the network interface resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

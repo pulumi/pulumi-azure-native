@@ -56,7 +56,7 @@ export interface GetCustomDomainResult {
     /**
      * Provisioning status of the custom domain.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource status of the custom domain.
      */

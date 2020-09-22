@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Outputs
         /// <summary>
         /// The connection status.
         /// </summary>
-        public readonly string? ConnectionStatus;
+        public readonly string ConnectionStatus;
         /// <summary>
         /// Egress bytes transferred.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Outputs
         private VpnSiteLinkConnectionResponse(
             int? connectionBandwidth,
 
-            string? connectionStatus,
+            string connectionStatus,
 
             int egressBytesTransferred,
 

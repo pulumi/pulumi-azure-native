@@ -36,7 +36,7 @@ type LookupPacketCaptureResult struct {
 	// Name of the packet capture session.
 	Name string `pulumi:"name"`
 	// The provisioning state of the packet capture session.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Describes the storage location for a packet capture session.
 	StorageLocation PacketCaptureStorageLocationResponse `pulumi:"storageLocation"`
 	// The ID of the targeted resource, only VM is currently supported.

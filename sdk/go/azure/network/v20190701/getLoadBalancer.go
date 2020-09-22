@@ -48,7 +48,7 @@ type LookupLoadBalancerResult struct {
 	// Collection of probe objects used in the load balancer.
 	Probes []ProbeResponse `pulumi:"probes"`
 	// The provisioning state of the load balancer resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource GUID property of the load balancer resource.
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The load balancer SKU.

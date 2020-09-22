@@ -57,7 +57,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * The provisioning state of the route resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -87,10 +87,10 @@ export class Route extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["nextHopIpAddress"] = args ? args.nextHopIpAddress : undefined;
             inputs["nextHopType"] = args ? args.nextHopType : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeName"] = args ? args.routeName : undefined;
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
+            inputs["provisioningState"] = undefined /*out*/;
         } else {
             inputs["addressPrefix"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
@@ -140,10 +140,6 @@ export interface RouteArgs {
      * The type of Azure hop the packet should be sent to.
      */
     readonly nextHopType: pulumi.Input<string>;
-    /**
-     * The provisioning state of the route resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

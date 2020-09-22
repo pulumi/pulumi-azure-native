@@ -51,7 +51,7 @@ export interface GetAssessmentResult {
     /**
      * Links relevant to the assessment
      */
-    readonly links?: outputs.security.v20190101preview.AssessmentLinksResponse;
+    readonly links: outputs.security.v20190101preview.AssessmentLinksResponse;
     /**
      * Resource name
      */

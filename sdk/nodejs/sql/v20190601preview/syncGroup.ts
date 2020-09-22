@@ -61,6 +61,10 @@ export class SyncGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Private endpoint name of the sync group if use private link connection is enabled.
+     */
+    public /*out*/ readonly privateEndpointName!: pulumi.Output<string>;
+    /**
      * Sync schema of the sync group.
      */
     public readonly schema!: pulumi.Output<outputs.sql.v20190601preview.SyncGroupSchemaResponse | undefined>;
@@ -116,6 +120,7 @@ export class SyncGroup extends pulumi.CustomResource {
             inputs["usePrivateLinkConnection"] = args ? args.usePrivateLinkConnection : undefined;
             inputs["lastSyncTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointName"] = undefined /*out*/;
             inputs["syncState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -125,6 +130,7 @@ export class SyncGroup extends pulumi.CustomResource {
             inputs["interval"] = undefined /*out*/;
             inputs["lastSyncTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointName"] = undefined /*out*/;
             inputs["schema"] = undefined /*out*/;
             inputs["syncDatabaseId"] = undefined /*out*/;
             inputs["syncState"] = undefined /*out*/;

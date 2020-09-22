@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// <summary>
         /// Links relevant to the assessment
         /// </summary>
-        public readonly Outputs.AssessmentLinksResponse? Links;
+        public readonly Outputs.AssessmentLinksResponse Links;
         /// <summary>
         /// Describes properties of an assessment metadata.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
 
             string displayName,
 
-            Outputs.AssessmentLinksResponse? links,
+            Outputs.AssessmentLinksResponse links,
 
             Outputs.SecurityAssessmentMetadataPropertiesResponse? metadata,
 

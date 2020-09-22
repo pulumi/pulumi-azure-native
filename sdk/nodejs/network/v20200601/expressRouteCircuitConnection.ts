@@ -47,7 +47,7 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
     /**
      * Express Route Circuit connection state.
      */
-    public readonly circuitConnectionStatus!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly circuitConnectionStatus!: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -101,7 +101,6 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            inputs["circuitConnectionStatus"] = args ? args.circuitConnectionStatus : undefined;
             inputs["circuitName"] = args ? args.circuitName : undefined;
             inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
@@ -111,6 +110,7 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             inputs["peerExpressRouteCircuitPeering"] = args ? args.peerExpressRouteCircuitPeering : undefined;
             inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["circuitConnectionStatus"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -151,10 +151,6 @@ export interface ExpressRouteCircuitConnectionArgs {
      * The authorization key.
      */
     readonly authorizationKey?: pulumi.Input<string>;
-    /**
-     * Express Route Circuit connection state.
-     */
-    readonly circuitConnectionStatus?: pulumi.Input<string>;
     /**
      * The name of the express route circuit.
      */

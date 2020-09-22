@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// <summary>
         /// The provisioning state of the application gateway resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
@@ -206,7 +206,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 
             ImmutableArray<Outputs.ApplicationGatewayProbeResponse> probes,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableArray<Outputs.ApplicationGatewayRedirectConfigurationResponse> redirectConfigurations,
 

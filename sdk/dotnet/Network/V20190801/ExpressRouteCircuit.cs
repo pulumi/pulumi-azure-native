@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// The provisioning state of the express route circuit resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The ServiceKey.
@@ -292,12 +292,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801
             get => _peerings ?? (_peerings = new InputList<Inputs.ExpressRouteCircuitPeeringArgs>());
             set => _peerings = value;
         }
-
-        /// <summary>
-        /// The provisioning state of the express route circuit resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

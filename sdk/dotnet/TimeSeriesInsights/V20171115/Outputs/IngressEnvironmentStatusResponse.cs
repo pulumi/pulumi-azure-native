@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115.Outputs
         /// <summary>
         /// An object that contains the details about an environment's state.
         /// </summary>
-        public readonly Outputs.EnvironmentStateDetailsResponse? StateDetails;
+        public readonly Outputs.EnvironmentStateDetailsResponse StateDetails;
 
         [OutputConstructor]
         private IngressEnvironmentStatusResponse(
             string? state,
 
-            Outputs.EnvironmentStateDetailsResponse? stateDetails)
+            Outputs.EnvironmentStateDetailsResponse stateDetails)
         {
             State = state;
             StateDetails = stateDetails;

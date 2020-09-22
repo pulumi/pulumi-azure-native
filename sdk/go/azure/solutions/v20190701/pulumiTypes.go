@@ -3899,8 +3899,6 @@ type JitSchedulingPolicy struct {
 	Duration string `pulumi:"duration"`
 	// The start time of the request.
 	StartTime string `pulumi:"startTime"`
-	// The type of JIT schedule.
-	Type string `pulumi:"type"`
 }
 
 // JitSchedulingPolicyInput is an input type that accepts JitSchedulingPolicyArgs and JitSchedulingPolicyOutput values.
@@ -3919,8 +3917,6 @@ type JitSchedulingPolicyArgs struct {
 	Duration pulumi.StringInput `pulumi:"duration"`
 	// The start time of the request.
 	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// The type of JIT schedule.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (JitSchedulingPolicyArgs) ElementType() reflect.Type {
@@ -4009,11 +4005,6 @@ func (o JitSchedulingPolicyOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicy) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// The type of JIT schedule.
-func (o JitSchedulingPolicyOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JitSchedulingPolicy) string { return v.Type }).(pulumi.StringOutput)
-}
-
 type JitSchedulingPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (JitSchedulingPolicyPtrOutput) ElementType() reflect.Type {
@@ -4048,16 +4039,6 @@ func (o JitSchedulingPolicyPtrOutput) StartTime() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.StartTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of JIT schedule.
-func (o JitSchedulingPolicyPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

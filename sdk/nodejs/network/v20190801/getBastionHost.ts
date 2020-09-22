@@ -58,7 +58,7 @@ export interface GetBastionHostResult {
     /**
      * The provisioning state of the bastion host resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

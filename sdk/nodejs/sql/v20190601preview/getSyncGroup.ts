@@ -70,6 +70,10 @@ export interface GetSyncGroupResult {
      */
     readonly name: string;
     /**
+     * Private endpoint name of the sync group if use private link connection is enabled.
+     */
+    readonly privateEndpointName: string;
+    /**
      * Sync schema of the sync group.
      */
     readonly schema?: outputs.sql.v20190601preview.SyncGroupSchemaResponse;

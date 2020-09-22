@@ -26,7 +26,6 @@ class VirtualHub(pulumi.CustomResource):
                  p2_s_vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_table: Optional[pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']]] = None,
-                 routing_state: Optional[pulumi.Input[str]] = None,
                  security_partner_provider: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  security_provider_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -54,7 +53,6 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] p2_s_vpn_gateway: The P2SVpnGateway associated with this VirtualHub.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']] route_table: The routeTable associated with this virtual hub.
-        :param pulumi.Input[str] routing_state: The routing state.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] security_partner_provider: The securityPartnerProvider associated with this VirtualHub.
         :param pulumi.Input[str] security_provider_name: The Security Provider name.
         :param pulumi.Input[str] sku: The sku of this VirtualHub.
@@ -96,7 +94,6 @@ class VirtualHub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['route_table'] = route_table
-            __props__['routing_state'] = routing_state
             __props__['security_partner_provider'] = security_partner_provider
             __props__['security_provider_name'] = security_provider_name
             __props__['sku'] = sku
@@ -114,6 +111,7 @@ class VirtualHub(pulumi.CustomResource):
             __props__['ip_configurations'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['routing_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -239,7 +237,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingState")
-    def routing_state(self) -> pulumi.Output[Optional[str]]:
+    def routing_state(self) -> pulumi.Output[str]:
         """
         The routing state.
         """

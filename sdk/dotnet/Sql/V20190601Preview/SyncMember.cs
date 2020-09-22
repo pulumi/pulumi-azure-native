@@ -39,6 +39,12 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
+        /// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
+        /// </summary>
+        [Output("privateEndpointName")]
+        public Output<string> PrivateEndpointName { get; private set; } = null!;
+
+        /// <summary>
         /// Server name of the member database in the sync member
         /// </summary>
         [Output("serverName")]

@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         /// <summary>
         /// Defines the provisioning states.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Gets or sets the resource settings.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
 
             Outputs.MoveResourcePropertiesResponseMoveStatus moveStatus,
 
-            string? provisioningState,
+            string provisioningState,
 
             Union<Outputs.AvailabilitySetResourceSettingsResponse, Union<Outputs.LoadBalancerResourceSettingsResponse, Union<Outputs.NetworkInterfaceResourceSettingsResponse, Union<Outputs.NetworkSecurityGroupResourceSettingsResponse, Union<Outputs.PublicIPAddressResourceSettingsResponse, Union<Outputs.ResourceGroupResourceSettingsResponse, Union<Outputs.SqlDatabaseResourceSettingsResponse, Union<Outputs.SqlElasticPoolResourceSettingsResponse, Union<Outputs.SqlServerResourceSettingsResponse, Union<Outputs.VirtualMachineResourceSettingsResponse, Outputs.VirtualNetworkResourceSettingsResponse>>>>>>>>>>? resourceSettings,
 

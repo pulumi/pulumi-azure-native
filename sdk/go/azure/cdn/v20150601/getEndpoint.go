@@ -48,7 +48,7 @@ type LookupEndpointResult struct {
 	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
 	Origins []DeepCreatedOriginResponse `pulumi:"origins"`
 	// Provisioning status of the endpoint.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Defines the query string caching behavior.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// Resource status of the endpoint.

@@ -27,7 +27,7 @@ type Database struct {
 	// The number of days data should be kept before it stops being accessible to queries.
 	SoftDeletePeriodInDays pulumi.IntOutput `pulumi:"softDeletePeriodInDays"`
 	// The statistics of the database.
-	Statistics DatabaseStatisticsResponsePtrOutput `pulumi:"statistics"`
+	Statistics DatabaseStatisticsResponseOutput `pulumi:"statistics"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -162,8 +162,6 @@ type databaseArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of days data should be kept before it stops being accessible to queries.
 	SoftDeletePeriodInDays int `pulumi:"softDeletePeriodInDays"`
-	// The statistics of the database.
-	Statistics *DatabaseStatistics `pulumi:"statistics"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -182,8 +180,6 @@ type DatabaseArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The number of days data should be kept before it stops being accessible to queries.
 	SoftDeletePeriodInDays pulumi.IntInput
-	// The statistics of the database.
-	Statistics DatabaseStatisticsPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

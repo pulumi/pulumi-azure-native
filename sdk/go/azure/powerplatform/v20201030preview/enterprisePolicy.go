@@ -15,17 +15,17 @@ type EnterprisePolicy struct {
 	pulumi.CustomResourceState
 
 	// The encryption settings for a configuration store.
-	Encryption ConfigurationPropertiesResponseEncryptionPtrOutput `pulumi:"encryption"`
+	Encryption PropertiesResponseEncryptionPtrOutput `pulumi:"encryption"`
 	// The identity of the EnterprisePolicy.
 	Identity EnterprisePolicyIdentityResponsePtrOutput `pulumi:"identity"`
 	// Region where the EnterprisePolicy is located.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Settings concerning lockbox.
-	Lockbox ConfigurationPropertiesResponseLockboxPtrOutput `pulumi:"lockbox"`
+	Lockbox PropertiesResponseLockboxPtrOutput `pulumi:"lockbox"`
 	// Name of the EnterprisePolicy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrOutput `pulumi:"systemData"`
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -67,13 +67,13 @@ func GetEnterprisePolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EnterprisePolicy resources.
 type enterprisePolicyState struct {
 	// The encryption settings for a configuration store.
-	Encryption *ConfigurationPropertiesResponseEncryption `pulumi:"encryption"`
+	Encryption *PropertiesResponseEncryption `pulumi:"encryption"`
 	// The identity of the EnterprisePolicy.
 	Identity *EnterprisePolicyIdentityResponse `pulumi:"identity"`
 	// Region where the EnterprisePolicy is located.
 	Location *string `pulumi:"location"`
 	// Settings concerning lockbox.
-	Lockbox *ConfigurationPropertiesResponseLockbox `pulumi:"lockbox"`
+	Lockbox *PropertiesResponseLockbox `pulumi:"lockbox"`
 	// Name of the EnterprisePolicy.
 	Name *string `pulumi:"name"`
 	// Metadata pertaining to creation and last modification of the resource.
@@ -86,13 +86,13 @@ type enterprisePolicyState struct {
 
 type EnterprisePolicyState struct {
 	// The encryption settings for a configuration store.
-	Encryption ConfigurationPropertiesResponseEncryptionPtrInput
+	Encryption PropertiesResponseEncryptionPtrInput
 	// The identity of the EnterprisePolicy.
 	Identity EnterprisePolicyIdentityResponsePtrInput
 	// Region where the EnterprisePolicy is located.
 	Location pulumi.StringPtrInput
 	// Settings concerning lockbox.
-	Lockbox ConfigurationPropertiesResponseLockboxPtrInput
+	Lockbox PropertiesResponseLockboxPtrInput
 	// Name of the EnterprisePolicy.
 	Name pulumi.StringPtrInput
 	// Metadata pertaining to creation and last modification of the resource.
@@ -109,19 +109,15 @@ func (EnterprisePolicyState) ElementType() reflect.Type {
 
 type enterprisePolicyArgs struct {
 	// The encryption settings for a configuration store.
-	Encryption *ConfigurationPropertiesEncryption `pulumi:"encryption"`
+	Encryption *PropertiesEncryption `pulumi:"encryption"`
 	// Name of the EnterprisePolicy.
 	EnterprisePolicyName string `pulumi:"enterprisePolicyName"`
 	// The identity of the EnterprisePolicy.
 	Identity *EnterprisePolicyIdentity `pulumi:"identity"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
-	// Settings concerning lockbox.
-	Lockbox *ConfigurationPropertiesLockbox `pulumi:"lockbox"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemData `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -129,19 +125,15 @@ type enterprisePolicyArgs struct {
 // The set of arguments for constructing a EnterprisePolicy resource.
 type EnterprisePolicyArgs struct {
 	// The encryption settings for a configuration store.
-	Encryption ConfigurationPropertiesEncryptionPtrInput
+	Encryption PropertiesEncryptionPtrInput
 	// Name of the EnterprisePolicy.
 	EnterprisePolicyName pulumi.StringInput
 	// The identity of the EnterprisePolicy.
 	Identity EnterprisePolicyIdentityPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
-	// Settings concerning lockbox.
-	Lockbox ConfigurationPropertiesLockboxPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

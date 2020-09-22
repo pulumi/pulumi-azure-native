@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// The provisioning state of the NAT gateway resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// An array of public ip addresses associated with the nat gateway resource.
@@ -181,12 +181,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         [Input("natGatewayName", required: true)]
         public Input<string> NatGatewayName { get; set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the NAT gateway resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         [Input("publicIpAddresses")]
         private InputList<Inputs.SubResourceArgs>? _publicIpAddresses;

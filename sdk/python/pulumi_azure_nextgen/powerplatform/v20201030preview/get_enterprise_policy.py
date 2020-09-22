@@ -48,7 +48,7 @@ class GetEnterprisePolicyResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.ConfigurationPropertiesResponseEncryption']:
+    def encryption(self) -> Optional['outputs.PropertiesResponseEncryption']:
         """
         The encryption settings for a configuration store.
         """
@@ -72,7 +72,7 @@ class GetEnterprisePolicyResult:
 
     @property
     @pulumi.getter
-    def lockbox(self) -> Optional['outputs.ConfigurationPropertiesResponseLockbox']:
+    def lockbox(self) -> Optional['outputs.PropertiesResponseLockbox']:
         """
         Settings concerning lockbox.
         """
@@ -88,7 +88,7 @@ class GetEnterprisePolicyResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional['outputs.SystemDataResponse']:
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Metadata pertaining to creation and last modification of the resource.
         """

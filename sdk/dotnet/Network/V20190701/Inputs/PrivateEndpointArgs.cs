@@ -58,12 +58,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         }
 
         /// <summary>
-        /// The provisioning state of the private endpoint resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
         [Input("subnet")]

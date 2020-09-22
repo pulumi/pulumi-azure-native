@@ -39,7 +39,7 @@ type Subnet struct {
 	// Enable or Disable apply network policies on private link service in the subnet.
 	PrivateLinkServiceNetworkPolicies pulumi.StringPtrOutput `pulumi:"privateLinkServiceNetworkPolicies"`
 	// The provisioning state of the subnet resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
 	Purpose pulumi.StringOutput `pulumi:"purpose"`
 	// An array of references to the external resources using subnet.
@@ -299,8 +299,6 @@ type subnetArgs struct {
 	PrivateEndpointNetworkPolicies *string `pulumi:"privateEndpointNetworkPolicies"`
 	// Enable or Disable apply network policies on private link service in the subnet.
 	PrivateLinkServiceNetworkPolicies *string `pulumi:"privateLinkServiceNetworkPolicies"`
-	// The provisioning state of the subnet resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// An array of references to the external resources using subnet.
@@ -341,8 +339,6 @@ type SubnetArgs struct {
 	PrivateEndpointNetworkPolicies pulumi.StringPtrInput
 	// Enable or Disable apply network policies on private link service in the subnet.
 	PrivateLinkServiceNetworkPolicies pulumi.StringPtrInput
-	// The provisioning state of the subnet resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// An array of references to the external resources using subnet.

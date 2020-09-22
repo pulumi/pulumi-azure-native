@@ -40,7 +40,7 @@ type LookupExperimentResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
+	ResourceState string `pulumi:"resourceState"`
 	// The uri to the Script used in the Experiment
 	ScriptFileUri string `pulumi:"scriptFileUri"`
 	// The description of Experiment status from the server side

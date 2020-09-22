@@ -1017,7 +1017,7 @@ type PrivateEndpointConnectionItemResponse struct {
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the private endpoint connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionItemResponseInput is an input type that accepts PrivateEndpointConnectionItemResponseArgs and PrivateEndpointConnectionItemResponseOutput values.
@@ -1038,7 +1038,7 @@ type PrivateEndpointConnectionItemResponseArgs struct {
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionItemResponseArgs) ElementType() reflect.Type {
@@ -1106,8 +1106,8 @@ func (o PrivateEndpointConnectionItemResponseOutput) PrivateLinkServiceConnectio
 }
 
 // Provisioning state of the private endpoint connection.
-func (o PrivateEndpointConnectionItemResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o PrivateEndpointConnectionItemResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type PrivateEndpointConnectionItemResponseArrayOutput struct{ *pulumi.OutputState }

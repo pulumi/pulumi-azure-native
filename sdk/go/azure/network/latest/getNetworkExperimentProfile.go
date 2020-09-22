@@ -34,7 +34,7 @@ type LookupNetworkExperimentProfileResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
+	ResourceState string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

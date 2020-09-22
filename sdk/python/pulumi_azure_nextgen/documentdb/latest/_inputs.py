@@ -1068,14 +1068,12 @@ class LocationArgs:
     def __init__(__self__, *,
                  failover_priority: Optional[pulumi.Input[int]] = None,
                  is_zone_redundant: Optional[pulumi.Input[bool]] = None,
-                 location_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 location_name: Optional[pulumi.Input[str]] = None):
         """
         A region in which the Azure Cosmos DB database account is deployed.
         :param pulumi.Input[int] failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         :param pulumi.Input[bool] is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
         :param pulumi.Input[str] location_name: The name of the region.
-        :param pulumi.Input[str] provisioning_state: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
         """
         if failover_priority is not None:
             pulumi.set(__self__, "failover_priority", failover_priority)
@@ -1083,8 +1081,6 @@ class LocationArgs:
             pulumi.set(__self__, "is_zone_redundant", is_zone_redundant)
         if location_name is not None:
             pulumi.set(__self__, "location_name", location_name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="failoverPriority")
@@ -1121,18 +1117,6 @@ class LocationArgs:
     @location_name.setter
     def location_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location_name", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type

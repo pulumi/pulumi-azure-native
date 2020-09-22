@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// The provisioning state of the virtual hub resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The routeTable associated with this virtual hub.
@@ -206,12 +206,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         [Input("p2SVpnGateway")]
         public Input<Inputs.SubResourceArgs>? P2SVpnGateway { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the virtual hub resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualHub.

@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <summary>
         /// The state of the disk.
         /// </summary>
-        public readonly string? DiskState;
+        public readonly string DiskState;
         /// <summary>
         /// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         /// </summary>
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             int? diskSizeGB,
 
-            string? diskState,
+            string diskState,
 
             Outputs.EncryptionResponse? encryption,
 

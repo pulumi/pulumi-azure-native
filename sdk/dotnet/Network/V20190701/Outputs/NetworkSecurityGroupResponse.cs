@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the network security group resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The resource GUID property of the network security group resource.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             ImmutableArray<Outputs.NetworkInterfaceResponse> networkInterfaces,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? resourceGuid,
 

@@ -34,7 +34,7 @@ type LookupP2sVpnGatewayResult struct {
 	// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
 	P2SVpnServerConfiguration *SubResourceResponse `pulumi:"p2SVpnServerConfiguration"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

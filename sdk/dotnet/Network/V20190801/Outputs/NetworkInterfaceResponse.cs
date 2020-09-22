@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
         /// <summary>
         /// The provisioning state of the network interface resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The resource GUID property of the network interface resource.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Outputs
 
             Outputs.PrivateEndpointResponse privateEndpoint,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? resourceGuid,
 

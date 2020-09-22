@@ -52,12 +52,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         public Input<string>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
-        /// The provisioning state of the frontend IP configuration resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// The reference of the Public IP resource.
         /// </summary>
         [Input("publicIPAddress")]

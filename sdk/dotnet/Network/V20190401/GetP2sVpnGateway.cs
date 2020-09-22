@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
 
             Outputs.SubResourceResponse? p2SVpnServerConfiguration,
 
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -67,7 +67,7 @@ class GetExpressRouteCircuitConnectionResult:
 
     @property
     @pulumi.getter(name="circuitConnectionStatus")
-    def circuit_connection_status(self) -> Optional[str]:
+    def circuit_connection_status(self) -> str:
         """
         Express Route Circuit connection state.
         """

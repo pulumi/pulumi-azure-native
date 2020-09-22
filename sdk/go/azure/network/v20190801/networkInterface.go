@@ -39,7 +39,7 @@ type NetworkInterface struct {
 	// A reference to the private endpoint to which the network interface is linked.
 	PrivateEndpoint PrivateEndpointResponseOutput `pulumi:"privateEndpoint"`
 	// The provisioning state of the network interface resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource GUID property of the network interface resource.
 	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
 	// Resource tags.
@@ -292,8 +292,6 @@ type networkInterfaceArgs struct {
 	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
 	// Whether this is a primary network interface on a virtual machine.
 	Primary *bool `pulumi:"primary"`
-	// The provisioning state of the network interface resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the network interface resource.
@@ -328,8 +326,6 @@ type NetworkInterfaceArgs struct {
 	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
 	// Whether this is a primary network interface on a virtual machine.
 	Primary pulumi.BoolPtrInput
-	// The provisioning state of the network interface resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource GUID property of the network interface resource.

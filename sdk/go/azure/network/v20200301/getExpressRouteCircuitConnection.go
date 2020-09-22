@@ -34,7 +34,7 @@ type LookupExpressRouteCircuitConnectionResult struct {
 	// The authorization key.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// Express Route Circuit connection state.
-	CircuitConnectionStatus *string `pulumi:"circuitConnectionStatus"`
+	CircuitConnectionStatus string `pulumi:"circuitConnectionStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.

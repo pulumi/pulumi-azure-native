@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
         /// <summary>
         /// Specifies the date and time when the workspace is created.
         /// </summary>
-        public readonly string? CreatedDateTime;
+        public readonly string CreatedDateTime;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
 
             Outputs.CreatedByResponse? createdBy,
 
-            string? createdDateTime,
+            string createdDateTime,
 
             string location,
 

@@ -19,7 +19,7 @@ type Workspace struct {
 	// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
 	CreatedBy CreatedByResponsePtrOutput `pulumi:"createdBy"`
 	// Specifies the date and time when the workspace is created.
-	CreatedDateTime pulumi.StringPtrOutput `pulumi:"createdDateTime"`
+	CreatedDateTime pulumi.StringOutput `pulumi:"createdDateTime"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The managed resource group Id.
@@ -170,8 +170,6 @@ func (WorkspaceState) ElementType() reflect.Type {
 type workspaceArgs struct {
 	// The workspace provider authorizations.
 	Authorizations []WorkspaceProviderAuthorization `pulumi:"authorizations"`
-	// Specifies the date and time when the workspace is created.
-	CreatedDateTime *string `pulumi:"createdDateTime"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The managed resource group Id.
@@ -194,8 +192,6 @@ type workspaceArgs struct {
 type WorkspaceArgs struct {
 	// The workspace provider authorizations.
 	Authorizations WorkspaceProviderAuthorizationArrayInput
-	// Specifies the date and time when the workspace is created.
-	CreatedDateTime pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The managed resource group Id.

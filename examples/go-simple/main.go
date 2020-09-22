@@ -24,7 +24,6 @@ func main() {
 			Location:          resourceGroup.Location,
 			Sku: &storage.SkuArgs{
 				Name: pulumi.String("Standard_LRS"),
-				Tier: pulumi.String("Standard"),
 			},
 			Kind: pulumi.String("StorageV2"),
 		})

@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
         /// <summary>
         /// The provisioning state of the network interface IP configuration.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Public IP address bound to the IP configuration.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Outputs
 
             Outputs.NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse privateLinkConnectionProperties,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.PublicIPAddressResponse? publicIPAddress,
 

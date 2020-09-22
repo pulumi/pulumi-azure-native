@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190318Preview
         /// <summary>
         /// Specifies the operating system settings for the hybrid machine.
         /// </summary>
-        public readonly Outputs.OSProfileResponse? OsProfile;
+        public readonly Outputs.OSProfileResponse OsProfile;
         /// <summary>
         /// The version of Operating System running on the hybrid machine.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190318Preview
 
             string osName,
 
-            Outputs.OSProfileResponse? osProfile,
+            Outputs.OSProfileResponse osProfile,
 
             string osVersion,
 

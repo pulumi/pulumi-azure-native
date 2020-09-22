@@ -71,7 +71,7 @@ export interface GetConnectionMonitorResult {
     /**
      * The provisioning state of the connection monitor.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Describes the source of connection monitor.
      */

@@ -5341,8 +5341,6 @@ type Location struct {
 	IsZoneRedundant *bool `pulumi:"isZoneRedundant"`
 	// The name of the region.
 	LocationName *string `pulumi:"locationName"`
-	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
-	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
 // LocationInput is an input type that accepts LocationArgs and LocationOutput values.
@@ -5364,8 +5362,6 @@ type LocationArgs struct {
 	IsZoneRedundant pulumi.BoolPtrInput `pulumi:"isZoneRedundant"`
 	// The name of the region.
 	LocationName pulumi.StringPtrInput `pulumi:"locationName"`
-	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (LocationArgs) ElementType() reflect.Type {
@@ -5435,11 +5431,6 @@ func (o LocationOutput) LocationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Location) *string { return v.LocationName }).(pulumi.StringPtrOutput)
 }
 
-// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
-func (o LocationOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Location) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 type LocationArrayOutput struct{ *pulumi.OutputState }
 
 func (LocationArrayOutput) ElementType() reflect.Type {
@@ -5473,7 +5464,7 @@ type LocationResponse struct {
 	// The name of the region.
 	LocationName *string `pulumi:"locationName"`
 	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 }
 
 // LocationResponseInput is an input type that accepts LocationResponseArgs and LocationResponseOutput values.
@@ -5500,7 +5491,7 @@ type LocationResponseArgs struct {
 	// The name of the region.
 	LocationName pulumi.StringPtrInput `pulumi:"locationName"`
 	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
 
 func (LocationResponseArgs) ElementType() reflect.Type {
@@ -5581,8 +5572,8 @@ func (o LocationResponseOutput) LocationName() pulumi.StringPtrOutput {
 }
 
 // The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
-func (o LocationResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o LocationResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type LocationResponseArrayOutput struct{ *pulumi.OutputState }

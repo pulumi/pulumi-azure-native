@@ -7,22 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
+namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Outputs
 {
 
-    /// <summary>
-    /// Settings concerning lockbox.
-    /// </summary>
-    public sealed class ConfigurationPropertiesLockboxArgs : Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class PropertiesResponseLockbox
     {
         /// <summary>
         /// lockbox configuration
         /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
+        public readonly string Status;
 
-        public ConfigurationPropertiesLockboxArgs()
+        [OutputConstructor]
+        private PropertiesResponseLockbox(string status)
         {
+            Status = status;
         }
     }
 }

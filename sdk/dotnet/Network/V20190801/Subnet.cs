@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// The provisioning state of the subnet resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
@@ -280,12 +280,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         [Input("privateLinkServiceNetworkPolicies")]
         public Input<string>? PrivateLinkServiceNetworkPolicies { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the subnet resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

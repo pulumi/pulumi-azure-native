@@ -88,7 +88,7 @@ export interface GetInboundNatRuleResult {
     /**
      * The provisioning state of the inbound NAT rule resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Type of the resource.
      */

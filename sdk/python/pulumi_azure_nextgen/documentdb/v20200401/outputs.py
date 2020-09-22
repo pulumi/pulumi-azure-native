@@ -1301,29 +1301,28 @@ class LocationResponse(dict):
     def __init__(__self__, *,
                  document_endpoint: str,
                  id: str,
+                 provisioning_state: str,
                  failover_priority: Optional[int] = None,
                  is_zone_redundant: Optional[bool] = None,
-                 location_name: Optional[str] = None,
-                 provisioning_state: Optional[str] = None):
+                 location_name: Optional[str] = None):
         """
         A region in which the Azure Cosmos DB database account is deployed.
         :param str document_endpoint: The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
         :param str id: The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+        :param str provisioning_state: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
         :param int failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         :param bool is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
         :param str location_name: The name of the region.
-        :param str provisioning_state: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
         """
         pulumi.set(__self__, "document_endpoint", document_endpoint)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if failover_priority is not None:
             pulumi.set(__self__, "failover_priority", failover_priority)
         if is_zone_redundant is not None:
             pulumi.set(__self__, "is_zone_redundant", is_zone_redundant)
         if location_name is not None:
             pulumi.set(__self__, "location_name", location_name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="documentEndpoint")
@@ -1340,6 +1339,14 @@ class LocationResponse(dict):
         The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="failoverPriority")
@@ -1364,14 +1371,6 @@ class LocationResponse(dict):
         The name of the region.
         """
         return pulumi.get(self, "location_name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

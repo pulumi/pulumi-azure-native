@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101.Outputs
         /// <summary>
         /// Express Route Circuit connection state.
         /// </summary>
-        public readonly string? CircuitConnectionStatus;
+        public readonly string CircuitConnectionStatus;
         /// <summary>
         /// The name of the express route circuit connection resource.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101.Outputs
 
             string? authResourceGuid,
 
-            string? circuitConnectionStatus,
+            string circuitConnectionStatus,
 
             string? connectionName,
 

@@ -473,7 +473,7 @@ type ManagedHsmProperties struct {
 	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
 	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
 	// The URI of the managed hsm pool for performing operations on keys.
-	HsmPoolUri *string `pulumi:"hsmPoolUri"`
+	HsmUri *string `pulumi:"hsmUri"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds []string `pulumi:"initialAdminObjectIds"`
 	// softDelete data retention days. It accepts >=7 and <=90.
@@ -502,7 +502,7 @@ type ManagedHsmPropertiesArgs struct {
 	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
 	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
 	// The URI of the managed hsm pool for performing operations on keys.
-	HsmPoolUri pulumi.StringPtrInput `pulumi:"hsmPoolUri"`
+	HsmUri pulumi.StringPtrInput `pulumi:"hsmUri"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds pulumi.StringArrayInput `pulumi:"initialAdminObjectIds"`
 	// softDelete data retention days. It accepts >=7 and <=90.
@@ -605,8 +605,8 @@ func (o ManagedHsmPropertiesOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 }
 
 // The URI of the managed hsm pool for performing operations on keys.
-func (o ManagedHsmPropertiesOutput) HsmPoolUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedHsmProperties) *string { return v.HsmPoolUri }).(pulumi.StringPtrOutput)
+func (o ManagedHsmPropertiesOutput) HsmUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *string { return v.HsmUri }).(pulumi.StringPtrOutput)
 }
 
 // Array of initial administrators object ids for this managed hsm pool.
@@ -673,12 +673,12 @@ func (o ManagedHsmPropertiesPtrOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
 }
 
 // The URI of the managed hsm pool for performing operations on keys.
-func (o ManagedHsmPropertiesPtrOutput) HsmPoolUri() pulumi.StringPtrOutput {
+func (o ManagedHsmPropertiesPtrOutput) HsmUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedHsmProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.HsmPoolUri
+		return v.HsmUri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -721,7 +721,7 @@ type ManagedHsmPropertiesResponse struct {
 	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
 	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
 	// The URI of the managed hsm pool for performing operations on keys.
-	HsmPoolUri *string `pulumi:"hsmPoolUri"`
+	HsmUri *string `pulumi:"hsmUri"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds []string `pulumi:"initialAdminObjectIds"`
 	// Provisioning state.
@@ -754,7 +754,7 @@ type ManagedHsmPropertiesResponseArgs struct {
 	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
 	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
 	// The URI of the managed hsm pool for performing operations on keys.
-	HsmPoolUri pulumi.StringPtrInput `pulumi:"hsmPoolUri"`
+	HsmUri pulumi.StringPtrInput `pulumi:"hsmUri"`
 	// Array of initial administrators object ids for this managed hsm pool.
 	InitialAdminObjectIds pulumi.StringArrayInput `pulumi:"initialAdminObjectIds"`
 	// Provisioning state.
@@ -861,8 +861,8 @@ func (o ManagedHsmPropertiesResponseOutput) EnableSoftDelete() pulumi.BoolPtrOut
 }
 
 // The URI of the managed hsm pool for performing operations on keys.
-func (o ManagedHsmPropertiesResponseOutput) HsmPoolUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *string { return v.HsmPoolUri }).(pulumi.StringPtrOutput)
+func (o ManagedHsmPropertiesResponseOutput) HsmUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *string { return v.HsmUri }).(pulumi.StringPtrOutput)
 }
 
 // Array of initial administrators object ids for this managed hsm pool.
@@ -939,12 +939,12 @@ func (o ManagedHsmPropertiesResponsePtrOutput) EnableSoftDelete() pulumi.BoolPtr
 }
 
 // The URI of the managed hsm pool for performing operations on keys.
-func (o ManagedHsmPropertiesResponsePtrOutput) HsmPoolUri() pulumi.StringPtrOutput {
+func (o ManagedHsmPropertiesResponsePtrOutput) HsmUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.HsmPoolUri
+		return v.HsmUri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1857,7 +1857,7 @@ type PrivateEndpointConnectionItemResponse struct {
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the private endpoint connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionItemResponseInput is an input type that accepts PrivateEndpointConnectionItemResponseArgs and PrivateEndpointConnectionItemResponseOutput values.
@@ -1878,7 +1878,7 @@ type PrivateEndpointConnectionItemResponseArgs struct {
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionItemResponseArgs) ElementType() reflect.Type {
@@ -1946,8 +1946,8 @@ func (o PrivateEndpointConnectionItemResponseOutput) PrivateLinkServiceConnectio
 }
 
 // Provisioning state of the private endpoint connection.
-func (o PrivateEndpointConnectionItemResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o PrivateEndpointConnectionItemResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type PrivateEndpointConnectionItemResponseArrayOutput struct{ *pulumi.OutputState }

@@ -43,7 +43,7 @@ type ExpressRouteCircuitPeering struct {
 	// The primary address prefix.
 	PrimaryPeerAddressPrefix pulumi.StringPtrOutput `pulumi:"primaryPeerAddressPrefix"`
 	// The provisioning state of the express route circuit peering resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The reference of the RouteFilter resource.
 	RouteFilter SubResourceResponsePtrOutput `pulumi:"routeFilter"`
 	// The secondary port.
@@ -331,8 +331,6 @@ type expressRouteCircuitPeeringArgs struct {
 	PrimaryAzurePort *string `pulumi:"primaryAzurePort"`
 	// The primary address prefix.
 	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
-	// The provisioning state of the express route circuit peering resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The reference of the RouteFilter resource.
@@ -381,8 +379,6 @@ type ExpressRouteCircuitPeeringArgs struct {
 	PrimaryAzurePort pulumi.StringPtrInput
 	// The primary address prefix.
 	PrimaryPeerAddressPrefix pulumi.StringPtrInput
-	// The provisioning state of the express route circuit peering resource.
-	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The reference of the RouteFilter resource.

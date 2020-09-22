@@ -28,7 +28,6 @@ class LoadBalancer(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutboundRuleArgs']]]]] = None,
                  probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProbeArgs']]]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['LoadBalancerSkuArgs']]] = None,
@@ -52,7 +51,6 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutboundRuleArgs']]]] outbound_rules: The outbound rules.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProbeArgs']]]] probes: Collection of probe objects used in the load balancer.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the load balancer resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the load balancer resource.
         :param pulumi.Input[pulumi.InputType['LoadBalancerSkuArgs']] sku: The load balancer SKU.
@@ -88,7 +86,6 @@ class LoadBalancer(pulumi.CustomResource):
             __props__['location'] = location
             __props__['outbound_rules'] = outbound_rules
             __props__['probes'] = probes
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -96,6 +93,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20150615:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160330:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20161201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170301:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20171001:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20171101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180701:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181001:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190701:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20191101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20191201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200301:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200501:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200601:LoadBalancer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -205,7 +203,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the load balancer resource.
         """

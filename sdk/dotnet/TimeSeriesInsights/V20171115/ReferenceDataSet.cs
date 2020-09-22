@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

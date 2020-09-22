@@ -46,12 +46,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The provisioning state of the hub virtual network connection resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Reference to the remote virtual network.
         /// </summary>
         [Input("remoteVirtualNetwork")]

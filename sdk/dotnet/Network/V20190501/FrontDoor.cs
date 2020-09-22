@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20190501
         /// Resource status of the Front Door.
         /// </summary>
         [Output("resourceState")]
-        public Output<string?> ResourceState { get; private set; } = null!;
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Routing rules associated with this Front Door.
@@ -241,12 +241,6 @@ namespace Pulumi.AzureNextGen.Network.V20190501
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Resource status of the Front Door.
-        /// </summary>
-        [Input("resourceState")]
-        public Input<string>? ResourceState { get; set; }
 
         [Input("routingRules")]
         private InputList<Inputs.RoutingRuleArgs>? _routingRules;

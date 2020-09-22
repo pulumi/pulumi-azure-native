@@ -63,7 +63,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * The provisioning state of the virtual network peering resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The reference of the remote virtual network address space.
      */
@@ -103,13 +103,13 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["peeringState"] = args ? args.peeringState : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
             inputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
+            inputs["provisioningState"] = undefined /*out*/;
         } else {
             inputs["allowForwardedTraffic"] = undefined /*out*/;
             inputs["allowGatewayTransit"] = undefined /*out*/;
@@ -167,10 +167,6 @@ export interface VirtualNetworkPeeringArgs {
      * The status of the virtual network peering.
      */
     readonly peeringState?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the virtual network peering resource.
-     */
-    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The reference of the remote virtual network address space.
      */

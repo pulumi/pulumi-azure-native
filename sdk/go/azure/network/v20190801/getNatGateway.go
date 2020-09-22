@@ -36,7 +36,7 @@ type LookupNatGatewayResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state of the NAT gateway resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// An array of public ip addresses associated with the nat gateway resource.
 	PublicIpAddresses []SubResourceResponse `pulumi:"publicIpAddresses"`
 	// An array of public ip prefixes associated with the nat gateway resource.

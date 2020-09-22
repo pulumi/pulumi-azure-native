@@ -59,7 +59,7 @@ export interface GetNatGatewayResult {
     /**
      * The provisioning state of the NAT gateway resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * An array of public ip addresses associated with the nat gateway resource.
      */

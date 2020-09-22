@@ -39,12 +39,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
-        /// <summary>
-        /// The provisioning state of the NAT rule collection resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
         [Input("rules")]
         private InputList<Inputs.AzureFirewallNatRuleArgs>? _rules;
 

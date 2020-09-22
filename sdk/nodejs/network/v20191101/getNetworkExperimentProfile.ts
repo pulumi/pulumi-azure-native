@@ -54,7 +54,7 @@ export interface GetNetworkExperimentProfileResult {
     /**
      * Resource status.
      */
-    readonly resourceState?: string;
+    readonly resourceState: string;
     /**
      * Resource tags.
      */

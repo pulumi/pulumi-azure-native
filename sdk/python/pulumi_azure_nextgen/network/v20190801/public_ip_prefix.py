@@ -23,7 +23,6 @@ class PublicIPPrefix(pulumi.CustomResource):
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_ip_address_version: Optional[pulumi.Input[str]] = None,
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferencedPublicIpAddressArgs']]]]] = None,
                  public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
@@ -46,7 +45,6 @@ class PublicIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]] ip_tags: The list of tags associated with the public IP prefix.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[int] prefix_length: The Length of the Public IP Prefix.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the public IP prefix resource.
         :param pulumi.Input[str] public_ip_address_version: The public IP address version.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferencedPublicIpAddressArgs']]]] public_ip_addresses: The list of all referenced PublicIPAddresses.
         :param pulumi.Input[str] public_ip_prefix_name: The name of the public IP prefix.
@@ -79,7 +77,6 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__['ip_tags'] = ip_tags
             __props__['location'] = location
             __props__['prefix_length'] = prefix_length
-            __props__['provisioning_state'] = provisioning_state
             __props__['public_ip_address_version'] = public_ip_address_version
             __props__['public_ip_addresses'] = public_ip_addresses
             if public_ip_prefix_name is None:
@@ -94,6 +91,7 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__['zones'] = zones
             __props__['load_balancer_frontend_ip_configuration'] = None
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -179,7 +177,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the public IP prefix resource.
         """

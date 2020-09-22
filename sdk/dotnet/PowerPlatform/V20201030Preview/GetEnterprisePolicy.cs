@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// The encryption settings for a configuration store.
         /// </summary>
-        public readonly Outputs.ConfigurationPropertiesResponseEncryption? Encryption;
+        public readonly Outputs.PropertiesResponseEncryption? Encryption;
         /// <summary>
         /// The identity of the EnterprisePolicy.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// Settings concerning lockbox.
         /// </summary>
-        public readonly Outputs.ConfigurationPropertiesResponseLockbox? Lockbox;
+        public readonly Outputs.PropertiesResponseLockbox? Lockbox;
         /// <summary>
         /// Name of the EnterprisePolicy.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse? SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -74,17 +74,17 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
 
         [OutputConstructor]
         private GetEnterprisePolicyResult(
-            Outputs.ConfigurationPropertiesResponseEncryption? encryption,
+            Outputs.PropertiesResponseEncryption? encryption,
 
             Outputs.EnterprisePolicyIdentityResponse? identity,
 
             string location,
 
-            Outputs.ConfigurationPropertiesResponseLockbox? lockbox,
+            Outputs.PropertiesResponseLockbox? lockbox,
 
             string name,
 
-            Outputs.SystemDataResponse? systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

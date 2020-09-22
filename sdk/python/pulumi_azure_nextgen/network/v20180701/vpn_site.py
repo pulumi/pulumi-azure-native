@@ -23,7 +23,6 @@ class VpnSite(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -43,7 +42,6 @@ class VpnSite(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] ip_address: The ip-address for the vpn-site.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnSite.
         :param pulumi.Input[str] site_key: The key for vpn-site that can be used for connections.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -75,7 +73,6 @@ class VpnSite(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -87,6 +84,7 @@ class VpnSite(pulumi.CustomResource):
             __props__['vpn_site_name'] = vpn_site_name
             __props__['etag'] = None
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VpnSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -172,7 +170,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """

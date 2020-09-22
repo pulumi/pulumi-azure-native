@@ -120,7 +120,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def links(self) -> pulumi.Output[Optional['outputs.AssessmentLinksResponse']]:
+    def links(self) -> pulumi.Output['outputs.AssessmentLinksResponse']:
         """
         Links relevant to the assessment
         """

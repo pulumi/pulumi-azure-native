@@ -58,12 +58,6 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The provisioning state of the request routing rule resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Redirect configuration resource of the application gateway.
         /// </summary>
         [Input("redirectConfiguration")]

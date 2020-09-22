@@ -59,7 +59,7 @@ export interface GetPacketCaptureResult {
     /**
      * The provisioning state of the packet capture session.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Describes the storage location for a packet capture session.
      */

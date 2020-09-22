@@ -27,12 +27,6 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
         [Input("key")]
         public Input<Inputs.KeyPropertiesArgs>? Key { get; set; }
 
-        /// <summary>
-        /// The state of onboarding, which only appears in the response.
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
         public KeyVaultPropertiesArgs()
         {
         }

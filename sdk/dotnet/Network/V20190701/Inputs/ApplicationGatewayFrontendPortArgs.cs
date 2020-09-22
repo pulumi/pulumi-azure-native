@@ -40,12 +40,6 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The provisioning state of the frontend port resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Type of the resource.
         /// </summary>
         [Input("type")]

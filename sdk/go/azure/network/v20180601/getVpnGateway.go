@@ -38,7 +38,7 @@ type LookupVpnGatewayResult struct {
 	// The policies applied to this vpn gateway.
 	Policies *PoliciesResponse `pulumi:"policies"`
 	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

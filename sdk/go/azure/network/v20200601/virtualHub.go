@@ -39,7 +39,7 @@ type VirtualHub struct {
 	// The routeTable associated with this virtual hub.
 	RouteTable VirtualHubRouteTableResponsePtrOutput `pulumi:"routeTable"`
 	// The routing state.
-	RoutingState pulumi.StringPtrOutput `pulumi:"routingState"`
+	RoutingState pulumi.StringOutput `pulumi:"routingState"`
 	// The securityPartnerProvider associated with this VirtualHub.
 	SecurityPartnerProvider SubResourceResponsePtrOutput `pulumi:"securityPartnerProvider"`
 	// The Security Provider name.
@@ -279,8 +279,6 @@ type virtualHubArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The routeTable associated with this virtual hub.
 	RouteTable *VirtualHubRouteTable `pulumi:"routeTable"`
-	// The routing state.
-	RoutingState *string `pulumi:"routingState"`
 	// The securityPartnerProvider associated with this VirtualHub.
 	SecurityPartnerProvider *SubResource `pulumi:"securityPartnerProvider"`
 	// The Security Provider name.
@@ -323,8 +321,6 @@ type VirtualHubArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The routeTable associated with this virtual hub.
 	RouteTable VirtualHubRouteTablePtrInput
-	// The routing state.
-	RoutingState pulumi.StringPtrInput
 	// The securityPartnerProvider associated with this VirtualHub.
 	SecurityPartnerProvider SubResourcePtrInput
 	// The Security Provider name.

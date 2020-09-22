@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// <summary>
         /// The connection status.
         /// </summary>
-        public readonly string? ConnectionStatus;
+        public readonly string ConnectionStatus;
         /// <summary>
         /// The dead peer detection timeout for a vpn connection in seconds.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         private GetVpnConnectionResult(
             int? connectionBandwidth,
 
-            string? connectionStatus,
+            string connectionStatus,
 
             int? dpdTimeoutSeconds,
 

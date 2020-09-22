@@ -25,7 +25,6 @@ class PrivateLinkService(pulumi.CustomResource):
                  load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -46,7 +45,6 @@ class PrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]] load_balancer_frontend_ip_configurations: An array of references to the load balancer IP configurations.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: An array of list about connections to the private endpoint.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the private link service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the private link service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -77,7 +75,6 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__['load_balancer_frontend_ip_configurations'] = load_balancer_frontend_ip_configurations
             __props__['location'] = location
             __props__['private_endpoint_connections'] = private_endpoint_connections
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -89,6 +86,7 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__['alias'] = None
             __props__['name'] = None
             __props__['network_interfaces'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateLinkService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -198,7 +196,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the private link service.
         """
