@@ -172,7 +172,7 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 		return nil, errors.New("'AdditionalProperties' defined as a sibling to a $ref")
 	}
 
-	// Note that a bunch of other Open API schema properties isn't validated above
+	// Note that many other Open API schema properties aren't validated above
 	// because those aren't used in our code generation, or in Azure specs in general.
 
 	return &Schema{ptr.ReferenceContext, &resolvedSchema}, nil
