@@ -117,7 +117,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 			}
 			exampleParams := exampleJSON["parameters"].(map[string]interface{})
 
-			flattened, err := flattenInput(exampleParams, resourceParams, metadata.Types)
+			flattened, err := FlattenParams(exampleParams, resourceParams, metadata.Types)
 			if err != nil {
 				fmt.Printf("tranforming input for example %s for resource %s: %v", example.Description, pulumiToken, err)
 				continue
@@ -319,20 +319,18 @@ func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string,
 	return nil
 }
 
-// flattenInput takes the parameters specified in Azure API specs and flattens them
-// to match the desired format for the Pulumi schema. resourceParams is a mapping
-// of API parameter names to provider.AzureApiParameter and types is a mapping for
-// the API type names to provider.AzureApiType. The latter two can be derived from
-// the metadata generated during schema generation.
-func flattenInput(
+// FlattenParams takes the parameters specified in Azure API specs/ARM templates and
+// flattens them to match the desired format for the Pulumi schema.
+// resourceParams is a mapping of API parameter names to provider.AzureApiParameter
+// and types is a mapping for the API type names to provider.AzureApiType.
+// The latter two can be derived from the metadata generated during schema generation.
+func FlattenParams(
 	input map[string]interface{},
 	resourceParams map[string]provider.AzureAPIParameter,
 	types map[string]provider.AzureAPIType,
 ) (map[string]interface{}, error) {
-	sortedResourceParamKeys := codegen.SortedKeys(resourceParams)
 	containers := map[string]codegen.StringSet{}
-	for _, k := range sortedResourceParamKeys {
-		v := resourceParams[k]
+	for k, v := range resourceParams {
 		if v.Value != nil && v.Value.Container != "" {
 			if _, ok := containers[v.Value.Container]; !ok {
 				containers[v.Value.Container] = codegen.NewStringSet()
@@ -341,23 +339,21 @@ func flattenInput(
 		}
 	}
 
-	sortedInputKeys := codegen.SortedKeys(input)
 	out := map[string]interface{}{}
-	for _, k := range sortedInputKeys {
-		v := input[k]
+	for k, v := range input {
 		switch k {
 		case "If-Match": // TODO: Not handled in schema
 			continue
-		case "api-version", "subscriptionId":
+		case "api-version", "apiVersion", "subscriptionId":
 			continue // No need to emit these since we auto inject them
 		}
 
 		if _, ok := containers[k]; ok {
 			contained, ok := v.(map[string]interface{})
 			if !ok {
-				return nil, fmt.Errorf("property %s is expected to be a map, received: %T", k, v)
+				return nil, fmt.Errorf("property %s is expected to be a map, recieved: %T", k, v)
 			}
-			flattened, err := flattenInput(contained, resourceParams, types)
+			flattened, err := FlattenParams(contained, resourceParams, types)
 			if err != nil {
 				return nil, err
 			}
@@ -375,7 +371,7 @@ func flattenInput(
 		if paramMetadata.Body != nil {
 			inBody, ok := v.(map[string]interface{})
 			if !ok {
-				return nil, fmt.Errorf("expect body for param %s to be a map, received %T", k, v)
+				return nil, fmt.Errorf("expect body for param %s to be a map, recieved %T", k, v)
 			}
 			bodyVals, ok := inBody["properties"]
 			if !ok {
@@ -383,18 +379,16 @@ func flattenInput(
 				bodyVals = inBody
 			} else if len(inBody) > 1 {
 				debug.Log("items in body outside of 'properties' field, will merge them into properties")
-				sortedBodyKeys := codegen.SortedKeys(inBody)
-				for _, k := range sortedBodyKeys {
+				for k, v := range inBody {
 					if k != "properties" {
-						bodyVals.(map[string]interface{})[k] = inBody[k]
+						bodyVals.(map[string]interface{})[k] = v
 					}
 				}
 			}
 			bodyValsMap := bodyVals.(map[string]interface{})
 			bodyProps := map[string]provider.AzureAPIProperty{}
-			sortedBodyPropertyKeys := codegen.SortedKeys(paramMetadata.Body.Properties)
-			for _, k := range sortedBodyPropertyKeys {
-				props := paramMetadata.Body.Properties[k]
+			for k, v := range paramMetadata.Body.Properties {
+				props := v
 				props.Container = ""
 				bodyProps[k] = props
 			}
@@ -413,8 +407,7 @@ func flattenInput(
 	return out, nil
 }
 
-func transformProperty(prop *provider.AzureAPIProperty, types map[string]provider.AzureAPIType,
-	val interface{}) interface{} {
+func transformProperty(prop *provider.AzureAPIProperty, types map[string]provider.AzureAPIType, val interface{}) interface{} {
 	switch reflect.TypeOf(val).Kind() {
 	case reflect.Map:
 		if prop.Ref == "" {
@@ -432,10 +425,11 @@ func transformProperty(prop *provider.AzureAPIProperty, types map[string]provide
 	case reflect.Slice, reflect.Array:
 		var result []interface{}
 		s := reflect.ValueOf(val)
-
 		for i := 0; i < s.Len(); i++ {
 			if prop.Items != nil {
 				result = append(result, transformProperty(prop.Items, types, s.Index(i).Interface()))
+			} else {
+				result = append(result, s.Index(i).Interface())
 			}
 		}
 		return result
@@ -443,8 +437,11 @@ func transformProperty(prop *provider.AzureAPIProperty, types map[string]provide
 	return val
 }
 
-func transformProperties(props map[string]provider.AzureAPIProperty, types map[string]provider.AzureAPIType,
-	values map[string]interface{}) map[string]interface{} {
+func transformProperties(
+	props map[string]provider.AzureAPIProperty,
+	types map[string]provider.AzureAPIType,
+	values map[string]interface{},
+) map[string]interface{} {
 	containers := codegen.NewStringSet()
 	for _, v := range props {
 		if v.Container != "" {
@@ -452,29 +449,28 @@ func transformProperties(props map[string]provider.AzureAPIProperty, types map[s
 		}
 	}
 
-	sortedValueKeys := codegen.SortedKeys(values)
 	result := map[string]interface{}{}
-	for _, k := range sortedValueKeys {
-		v := values[k]
+	for k, v := range values {
 		prop, ok := props[k]
-		if !ok {
+		if !ok && !containers.Has(k) {
 			debug.Log("missing '%s' in props: %#v", k, props)
 			continue
 		}
+		if !ok && containers.Has(k) {
+			if v != nil {
+				// Expect container types to wrap maps.
+				container := transformProperties(props, types, v.(map[string]interface{}))
+				mergeMap(result, container)
+			}
+			continue
+		}
+
 		sdkName := k
 
 		if prop.SdkName != "" {
 			sdkName = prop.SdkName
 		}
 
-		if containers.Has(k) {
-			if v != nil {
-				container := transformProperty(&prop, types, v)
-				// Expect container types to wrap maps.
-				mergeMap(result, container.(map[string]interface{}))
-			}
-			continue
-		}
 		if v != nil {
 			result[sdkName] = transformProperty(&prop, types, v)
 		}
