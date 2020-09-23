@@ -1,7 +1,10 @@
 name: nightly-sdk-generation
 "on":
   schedule:
-    - cron: 30 16 * * *
+    - cron: 45 16 * * *
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   generate-sdk:
