@@ -1,0 +1,52 @@
+name: nightly-sdk-generation
+"on":
+  schedule:
+    - cron: 30 16 * * *
+
+jobs:
+  generate-sdk:
+    name: prerequisites
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.goversion }}
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+        with:
+          repo: pulumi/pulumictl
+      - name: Install Pulumi CLI
+        uses: pulumi/action-install-pulumi-cli@releases/v1
+      - name: Update submodules
+        run: make update_submodules
+      - name: Build codegen binaries
+        run: make codegen
+      - name: Build Schema
+        run: make generate_schema
+      - name: Build provider binary
+        run: make provider
+      - name: git status
+        run: git status
+      - name: commit changes
+        uses: EndBug/add-and-commit@v4
+        with:
+          ref: "generate-sdk/${{ github.run_id }}-${{ github.run_number }}"
+          author_name: pulumi-bot
+          author_email: "bot@pulumi.com"
+      - name: Git submodule commit hash
+        id: vars
+        run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
+        working-directory: azure-rest-api-specs
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: "generate-sdk/${{ github.run_id }}-${{ github.run_number }}"
+          destination_branch: "master"
+          pr_title: "Automated SDK generation @ azure-rest-api-specs ${{ steps.vars.outputs.commit-hash }}"
+          pr_body: "*Automated PR*"
+          pr_label: "automation/merge"
+          pr_allow_empty: true
+          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
