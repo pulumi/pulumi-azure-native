@@ -237,3 +237,13 @@ jobs:
       - name: Run tests
         run: cd examples && go test -v -test.short -count=1 -cover -timeout 2h -tags=${{ matrix.language
           }} -parallel 4 .
+  automerge:
+    runs-on: ubuntu-latest
+    name: automerge
+    needs: test
+    steps:
+      - name: Automerge event
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          event-type: automerge
