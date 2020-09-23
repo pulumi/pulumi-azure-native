@@ -4772,7 +4772,6 @@
         "machinelearningservices/v20200901preview/listMachineLearningComputeKeys.ts",
         "machinelearningservices/v20200901preview/listMachineLearningComputeNodes.ts",
         "machinelearningservices/v20200901preview/listWorkspaceKeys.ts",
-        "machinelearningservices/v20200901preview/listWorkspaceNotebookKeys.ts",
         "machinelearningservices/v20200901preview/machineLearningCompute.ts",
         "machinelearningservices/v20200901preview/machineLearningService.ts",
         "machinelearningservices/v20200901preview/privateEndpointConnection.ts",

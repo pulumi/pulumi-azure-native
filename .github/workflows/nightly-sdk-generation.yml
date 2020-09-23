@@ -1,10 +1,10 @@
 name: nightly-sdk-generation
 "on":
   schedule:
-    - cron: 45 16 * * *
+    - cron: 35 17 * * *
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
 
 jobs:
   generate-sdk:
@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
       - name: Install Go
         uses: actions/setup-go@v2
         with:
@@ -27,8 +29,8 @@ jobs:
         run: make update_submodules
       - name: Build codegen binaries
         run: make codegen
-      - name: Build Schema
-        run: make generate_schema
+      - name: Build Schema + SDKs
+        run: make local_generate
       - name: Build provider binary
         run: make provider
       - name: git status
