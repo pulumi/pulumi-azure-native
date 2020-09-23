@@ -6613,7 +6613,8 @@ type NetworkRuleSet struct {
 	// Specifies the default action of allow or deny when no other rules match.
 	DefaultAction string `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
-	IpRules []IPRule `pulumi:"ipRules"`
+	IpRules             []IPRule             `pulumi:"ipRules"`
+	ResourceAccessRules []ResourceAccessRule `pulumi:"resourceAccessRules"`
 	// Sets the virtual network rules
 	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
@@ -6636,7 +6637,8 @@ type NetworkRuleSetArgs struct {
 	// Specifies the default action of allow or deny when no other rules match.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
-	IpRules IPRuleArrayInput `pulumi:"ipRules"`
+	IpRules             IPRuleArrayInput             `pulumi:"ipRules"`
+	ResourceAccessRules ResourceAccessRuleArrayInput `pulumi:"resourceAccessRules"`
 	// Sets the virtual network rules
 	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
@@ -6734,6 +6736,10 @@ func (o NetworkRuleSetOutput) IpRules() IPRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []IPRule { return v.IpRules }).(IPRuleArrayOutput)
 }
 
+func (o NetworkRuleSetOutput) ResourceAccessRules() ResourceAccessRuleArrayOutput {
+	return o.ApplyT(func(v NetworkRuleSet) []ResourceAccessRule { return v.ResourceAccessRules }).(ResourceAccessRuleArrayOutput)
+}
+
 // Sets the virtual network rules
 func (o NetworkRuleSetOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []VirtualNetworkRule { return v.VirtualNetworkRules }).(VirtualNetworkRuleArrayOutput)
@@ -6787,6 +6793,15 @@ func (o NetworkRuleSetPtrOutput) IpRules() IPRuleArrayOutput {
 	}).(IPRuleArrayOutput)
 }
 
+func (o NetworkRuleSetPtrOutput) ResourceAccessRules() ResourceAccessRuleArrayOutput {
+	return o.ApplyT(func(v *NetworkRuleSet) []ResourceAccessRule {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAccessRules
+	}).(ResourceAccessRuleArrayOutput)
+}
+
 // Sets the virtual network rules
 func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []VirtualNetworkRule {
@@ -6804,7 +6819,8 @@ type NetworkRuleSetResponse struct {
 	// Specifies the default action of allow or deny when no other rules match.
 	DefaultAction string `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
-	IpRules []IPRuleResponse `pulumi:"ipRules"`
+	IpRules             []IPRuleResponse             `pulumi:"ipRules"`
+	ResourceAccessRules []ResourceAccessRuleResponse `pulumi:"resourceAccessRules"`
 	// Sets the virtual network rules
 	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
 }
@@ -6827,7 +6843,8 @@ type NetworkRuleSetResponseArgs struct {
 	// Specifies the default action of allow or deny when no other rules match.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
-	IpRules IPRuleResponseArrayInput `pulumi:"ipRules"`
+	IpRules             IPRuleResponseArrayInput             `pulumi:"ipRules"`
+	ResourceAccessRules ResourceAccessRuleResponseArrayInput `pulumi:"resourceAccessRules"`
 	// Sets the virtual network rules
 	VirtualNetworkRules VirtualNetworkRuleResponseArrayInput `pulumi:"virtualNetworkRules"`
 }
@@ -6925,6 +6942,10 @@ func (o NetworkRuleSetResponseOutput) IpRules() IPRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []IPRuleResponse { return v.IpRules }).(IPRuleResponseArrayOutput)
 }
 
+func (o NetworkRuleSetResponseOutput) ResourceAccessRules() ResourceAccessRuleResponseArrayOutput {
+	return o.ApplyT(func(v NetworkRuleSetResponse) []ResourceAccessRuleResponse { return v.ResourceAccessRules }).(ResourceAccessRuleResponseArrayOutput)
+}
+
 // Sets the virtual network rules
 func (o NetworkRuleSetResponseOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []VirtualNetworkRuleResponse { return v.VirtualNetworkRules }).(VirtualNetworkRuleResponseArrayOutput)
@@ -6976,6 +6997,15 @@ func (o NetworkRuleSetResponsePtrOutput) IpRules() IPRuleResponseArrayOutput {
 		}
 		return v.IpRules
 	}).(IPRuleResponseArrayOutput)
+}
+
+func (o NetworkRuleSetResponsePtrOutput) ResourceAccessRules() ResourceAccessRuleResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkRuleSetResponse) []ResourceAccessRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAccessRules
+	}).(ResourceAccessRuleResponseArrayOutput)
 }
 
 // Sets the virtual network rules
@@ -8173,6 +8203,224 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 		}
 		return v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Access Rule.
+type ResourceAccessRule struct {
+	// Resource Id
+	ResourceId *string `pulumi:"resourceId"`
+	// Tenant Id
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ResourceAccessRuleInput is an input type that accepts ResourceAccessRuleArgs and ResourceAccessRuleOutput values.
+// You can construct a concrete instance of `ResourceAccessRuleInput` via:
+//
+//          ResourceAccessRuleArgs{...}
+type ResourceAccessRuleInput interface {
+	pulumi.Input
+
+	ToResourceAccessRuleOutput() ResourceAccessRuleOutput
+	ToResourceAccessRuleOutputWithContext(context.Context) ResourceAccessRuleOutput
+}
+
+// Resource Access Rule.
+type ResourceAccessRuleArgs struct {
+	// Resource Id
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// Tenant Id
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ResourceAccessRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAccessRule)(nil)).Elem()
+}
+
+func (i ResourceAccessRuleArgs) ToResourceAccessRuleOutput() ResourceAccessRuleOutput {
+	return i.ToResourceAccessRuleOutputWithContext(context.Background())
+}
+
+func (i ResourceAccessRuleArgs) ToResourceAccessRuleOutputWithContext(ctx context.Context) ResourceAccessRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAccessRuleOutput)
+}
+
+// ResourceAccessRuleArrayInput is an input type that accepts ResourceAccessRuleArray and ResourceAccessRuleArrayOutput values.
+// You can construct a concrete instance of `ResourceAccessRuleArrayInput` via:
+//
+//          ResourceAccessRuleArray{ ResourceAccessRuleArgs{...} }
+type ResourceAccessRuleArrayInput interface {
+	pulumi.Input
+
+	ToResourceAccessRuleArrayOutput() ResourceAccessRuleArrayOutput
+	ToResourceAccessRuleArrayOutputWithContext(context.Context) ResourceAccessRuleArrayOutput
+}
+
+type ResourceAccessRuleArray []ResourceAccessRuleInput
+
+func (ResourceAccessRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAccessRule)(nil)).Elem()
+}
+
+func (i ResourceAccessRuleArray) ToResourceAccessRuleArrayOutput() ResourceAccessRuleArrayOutput {
+	return i.ToResourceAccessRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceAccessRuleArray) ToResourceAccessRuleArrayOutputWithContext(ctx context.Context) ResourceAccessRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAccessRuleArrayOutput)
+}
+
+// Resource Access Rule.
+type ResourceAccessRuleOutput struct{ *pulumi.OutputState }
+
+func (ResourceAccessRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAccessRule)(nil)).Elem()
+}
+
+func (o ResourceAccessRuleOutput) ToResourceAccessRuleOutput() ResourceAccessRuleOutput {
+	return o
+}
+
+func (o ResourceAccessRuleOutput) ToResourceAccessRuleOutputWithContext(ctx context.Context) ResourceAccessRuleOutput {
+	return o
+}
+
+// Resource Id
+func (o ResourceAccessRuleOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceAccessRule) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id
+func (o ResourceAccessRuleOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceAccessRule) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ResourceAccessRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceAccessRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAccessRule)(nil)).Elem()
+}
+
+func (o ResourceAccessRuleArrayOutput) ToResourceAccessRuleArrayOutput() ResourceAccessRuleArrayOutput {
+	return o
+}
+
+func (o ResourceAccessRuleArrayOutput) ToResourceAccessRuleArrayOutputWithContext(ctx context.Context) ResourceAccessRuleArrayOutput {
+	return o
+}
+
+func (o ResourceAccessRuleArrayOutput) Index(i pulumi.IntInput) ResourceAccessRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAccessRule {
+		return vs[0].([]ResourceAccessRule)[vs[1].(int)]
+	}).(ResourceAccessRuleOutput)
+}
+
+// Resource Access Rule.
+type ResourceAccessRuleResponse struct {
+	// Resource Id
+	ResourceId *string `pulumi:"resourceId"`
+	// Tenant Id
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ResourceAccessRuleResponseInput is an input type that accepts ResourceAccessRuleResponseArgs and ResourceAccessRuleResponseOutput values.
+// You can construct a concrete instance of `ResourceAccessRuleResponseInput` via:
+//
+//          ResourceAccessRuleResponseArgs{...}
+type ResourceAccessRuleResponseInput interface {
+	pulumi.Input
+
+	ToResourceAccessRuleResponseOutput() ResourceAccessRuleResponseOutput
+	ToResourceAccessRuleResponseOutputWithContext(context.Context) ResourceAccessRuleResponseOutput
+}
+
+// Resource Access Rule.
+type ResourceAccessRuleResponseArgs struct {
+	// Resource Id
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// Tenant Id
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ResourceAccessRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAccessRuleResponse)(nil)).Elem()
+}
+
+func (i ResourceAccessRuleResponseArgs) ToResourceAccessRuleResponseOutput() ResourceAccessRuleResponseOutput {
+	return i.ToResourceAccessRuleResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceAccessRuleResponseArgs) ToResourceAccessRuleResponseOutputWithContext(ctx context.Context) ResourceAccessRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAccessRuleResponseOutput)
+}
+
+// ResourceAccessRuleResponseArrayInput is an input type that accepts ResourceAccessRuleResponseArray and ResourceAccessRuleResponseArrayOutput values.
+// You can construct a concrete instance of `ResourceAccessRuleResponseArrayInput` via:
+//
+//          ResourceAccessRuleResponseArray{ ResourceAccessRuleResponseArgs{...} }
+type ResourceAccessRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToResourceAccessRuleResponseArrayOutput() ResourceAccessRuleResponseArrayOutput
+	ToResourceAccessRuleResponseArrayOutputWithContext(context.Context) ResourceAccessRuleResponseArrayOutput
+}
+
+type ResourceAccessRuleResponseArray []ResourceAccessRuleResponseInput
+
+func (ResourceAccessRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAccessRuleResponse)(nil)).Elem()
+}
+
+func (i ResourceAccessRuleResponseArray) ToResourceAccessRuleResponseArrayOutput() ResourceAccessRuleResponseArrayOutput {
+	return i.ToResourceAccessRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceAccessRuleResponseArray) ToResourceAccessRuleResponseArrayOutputWithContext(ctx context.Context) ResourceAccessRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAccessRuleResponseArrayOutput)
+}
+
+// Resource Access Rule.
+type ResourceAccessRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceAccessRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAccessRuleResponse)(nil)).Elem()
+}
+
+func (o ResourceAccessRuleResponseOutput) ToResourceAccessRuleResponseOutput() ResourceAccessRuleResponseOutput {
+	return o
+}
+
+func (o ResourceAccessRuleResponseOutput) ToResourceAccessRuleResponseOutputWithContext(ctx context.Context) ResourceAccessRuleResponseOutput {
+	return o
+}
+
+// Resource Id
+func (o ResourceAccessRuleResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceAccessRuleResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id
+func (o ResourceAccessRuleResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceAccessRuleResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ResourceAccessRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceAccessRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAccessRuleResponse)(nil)).Elem()
+}
+
+func (o ResourceAccessRuleResponseArrayOutput) ToResourceAccessRuleResponseArrayOutput() ResourceAccessRuleResponseArrayOutput {
+	return o
+}
+
+func (o ResourceAccessRuleResponseArrayOutput) ToResourceAccessRuleResponseArrayOutputWithContext(ctx context.Context) ResourceAccessRuleResponseArrayOutput {
+	return o
+}
+
+func (o ResourceAccessRuleResponseArrayOutput) Index(i pulumi.IntInput) ResourceAccessRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAccessRuleResponse {
+		return vs[0].([]ResourceAccessRuleResponse)[vs[1].(int)]
+	}).(ResourceAccessRuleResponseOutput)
 }
 
 // Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
@@ -10200,6 +10448,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceAccessRuleOutput{})
+	pulumi.RegisterOutputType(ResourceAccessRuleArrayOutput{})
+	pulumi.RegisterOutputType(ResourceAccessRuleResponseOutput{})
+	pulumi.RegisterOutputType(ResourceAccessRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(RoutingPreferenceOutput{})
 	pulumi.RegisterOutputType(RoutingPreferencePtrOutput{})
 	pulumi.RegisterOutputType(RoutingPreferenceResponseOutput{})
