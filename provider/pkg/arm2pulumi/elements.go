@@ -36,14 +36,14 @@ type TemplateElement interface {
 }
 
 type implicitVariables interface {
-	defaultResourceGroupName()(*model.Variable, *dependencyTracking, error)
-	defaultResourceGroup()(*model.Variable, *dependencyTracking, error)
+	defaultResourceGroupName() (*model.Variable, *dependencyTracking, error)
+	defaultResourceGroup() (*model.Variable, *dependencyTracking, error)
 }
 
 type pclRenderContext struct {
 	metadata *provider.AzureAPIMetadata
 	pkgSpec  *schema.PackageSpec
-	dep *dependencyTracking
+	dep      *dependencyTracking
 }
 
 // lookupResources looks up the specified resource token and
@@ -93,16 +93,19 @@ func newDependencyTracking(e TemplateElement) *dependencyTracking {
 	return &dependencyTracking{
 		TemplateElement: e,
 		dependencies:    map[*dependencyTracking]bool{},
+		incoming:        map[*dependencyTracking]bool{},
 	}
 }
 
 type dependencyTracking struct {
 	TemplateElement
 	dependencies map[*dependencyTracking]bool // things this item references (dependencies, i.e. must precede in topo sort order)
+	incoming     map[*dependencyTracking]bool // things that refer to this item
 }
 
 func (d *dependencyTracking) RefersTo(ref *dependencyTracking) {
 	d.dependencies[ref] = true
+	ref.incoming[d] = true
 }
 
 func (d *dependencyTracking) Dependencies() []*dependencyTracking {
@@ -350,7 +353,7 @@ func (t *TemplateElements) EvaluateExpressions(preliminaryPhase bool) error {
 		args := el.TemplateElement.Args()
 		var err error
 		if preliminaryPhase {
-			args, err = t.evalTemplateExpressions(el, args, "", "reference" )
+			args, err = t.evalTemplateExpressions(el, args, "", "reference")
 		} else {
 			args, err = t.evalTemplateExpressions(el, args, "")
 		}
@@ -547,8 +550,8 @@ func (t *TemplateElements) handleAddResource(args map[string]interface{}, parent
 			return err
 		}
 		val := tle.FunctionCallValue{
-			NameToken:             tle.NewToken(tle.Literal, 0, "concat"),
-			ArgumentExpressions:   []tle.Value{parentNameParse.Expression,
+			NameToken: tle.NewToken(tle.Literal, 0, "concat"),
+			ArgumentExpressions: []tle.Value{parentNameParse.Expression,
 				tle.NewStringValue(tle.CreateQuotedString(0, "/")), thisNameParse.Expression},
 		}
 		namestr, err = tle.ToTemplateExpressionString(&val)
@@ -625,7 +628,7 @@ func (t *TemplateElements) Validate() error {
 		ctx := pclRenderContext{
 			metadata: metadata,
 			pkgSpec:  pkgSpec,
-			dep: el,
+			dep:      el,
 		}
 		if err := el.TemplateElement.FinishInitializing(&ctx, t); err != nil {
 			diag := &Diagnostic{}
@@ -647,6 +650,11 @@ func (t *TemplateElements) RenderPCL(
 	}
 
 	elements, err := t.topologicalOrder()
+	if err != nil {
+		return nil, err
+	}
+
+	elements, err = t.filterUnusedElements(elements)
 	if err != nil {
 		return nil, err
 	}
@@ -700,7 +708,7 @@ func (t *TemplateElements) defaultResourceGroupName() (*model.Variable, *depende
 		Name:         "resourceGroupNameParam",
 		VariableType: model.DynamicType,
 	}
-	return  resourceGroupName, rgName, nil
+	return resourceGroupName, rgName, nil
 }
 
 func (t *TemplateElements) defaultResourceGroup() (*model.Variable, *dependencyTracking, error) {
@@ -716,7 +724,6 @@ func (t *TemplateElements) defaultResourceGroup() (*model.Variable, *dependencyT
 
 	return resourceGroupVar, rgVar, nil
 }
-
 
 // We are primarily focussed on ARM templates targeting a specific resource group. ARM has a bunch of implicit
 // behavior around filling in the default resource group name or referring to it through template functions.
@@ -750,6 +757,29 @@ func (t *TemplateElements) ensureGlobals() (
 		resourceGroupVar.RefersTo(resourceGroupNameParam)
 	}
 	return
+}
+
+func (t *TemplateElements) filterUnusedElements(elements []*dependencyTracking) ([]*dependencyTracking, error) {
+	var filtered []*dependencyTracking
+	_, rgVar, err := t.ensureGlobals()
+	if err != nil {
+		return nil, err
+	}
+
+	for _, el := range elements {
+		if len(el.incoming) == 0 {
+			switch el.TemplateElement.(type) {
+			case *resource:
+				if el.TemplateElement.Name() != rgVar.Name() {
+					// Don't filter unused resources unless its the resource group we injected ourselves
+					filtered = append(filtered, el)
+				}
+			}
+			continue
+		}
+		filtered = append(filtered, el)
+	}
+	return filtered, nil
 }
 
 func topoSort(e *dependencyTracking, visited map[*dependencyTracking]bool, order []*dependencyTracking) ([]*dependencyTracking, error) {
