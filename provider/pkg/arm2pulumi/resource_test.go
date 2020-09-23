@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/arm2pulumi/internal/test"
 	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -79,6 +80,33 @@ func TestAddResource(t *testing.T) {
 			body, err := templateElements.RenderPCL(metadata, pkgSpec)
 			require.NoError(t, err)
 			require.Equal(t, testCase.expectedResourceBody, fmt.Sprintf("%v", body))
+		})
+	}
+}
+
+func Test_toResourceToken(t *testing.T) {
+	type args struct {
+		resourceType string
+		apiVersion   string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Preview",
+			args: args{
+				resourceType: "Microsoft.DocumentDb/databaseAccounts",
+				apiVersion: "2020-06-01-preview",
+			},
+			want: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := toResourceToken(tt.args.resourceType, tt.args.apiVersion)
+			assert.Equal(t, tt.want, got)
 		})
 	}
 }

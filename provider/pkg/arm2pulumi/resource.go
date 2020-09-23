@@ -11,13 +11,13 @@ import (
 	"strings"
 )
 
-func newResource(name string, rawBody map[string]interface{}, resourceToken string) *resource {
+func newResource(name string, rawBody map[string]interface{}, resourceToken string) (*resource, error) {
 	return &resource{
 		resourceName:  name,
 		rawBody:       rawBody,
 		resourceToken: resourceToken,
 		resourceParams: map[string]interface{}{},
-	}
+	}, nil
 }
 
 type resource struct {
@@ -78,7 +78,7 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 		case "properties":
 			r.resourceParams = map[string]interface{} { "properties": r.rawBody[k].(map[string]interface{})}
 		case "dependsOn":
-			// TODO
+
 			continue
 			// var arr []string
 			// switch val := reflect.ValueOf(v); val.Kind() {
@@ -147,14 +147,20 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 	}
 
 	required := codegen.NewStringSet()
+	hasLocation := false
 	for _, param := range res.PutParameters {
-		if param.IsRequired {
+		// We fold body params in so we don't look for the body field directly
+		if param.IsRequired && param.Body == nil {
 			required.Add(param.Name)
 		}
+		// Add the required properties in the body as well
 		if param.Body != nil {
 			for _, req := range param.Body.RequiredProperties {
 				required.Add(req)
 			}
+		}
+		if param.Name == "location" {
+			hasLocation = true
 		}
 	}
 
@@ -173,7 +179,7 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 	}
 
 	if _, ok := r.resourceParams["location"]; !ok {
-		if required.Has("location"){
+		if hasLocation{
 			if location != nil {
 				r.resourceParams["location"] = location
 			} else {
@@ -184,6 +190,13 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 				r.resourceParams["location"] = pcl.RelativeTraversal(model.VariableReference(variable), "location")
 				ctx.dep.RefersTo(dep)
 			}
+		}
+	}
+
+	// TODO: Need to find the missing required link back to the parent resource
+	for req := range required {
+		if _, ok := r.resourceParams[req]; !ok {
+
 		}
 	}
 
@@ -277,7 +290,12 @@ func (r *resource) transformRequestBody(ctx *pclRenderContext,
 func toResourceToken(resourceType, apiVersion string) string {
 	apiVersion = "v" + strings.ReplaceAll(apiVersion, "-", "")
 	provAndResource := strings.Split(resourceType, "/")
-	prov, resource := provAndResource[0], provAndResource[len(provAndResource)-1]
+	prov, resourceParts := provAndResource[0], provAndResource[1:]
+
+	var resource string
+	for _, part := range resourceParts {
+		resource = resource + inflector.Singularize(strings.Title(gen.ToLowerCamel(part)))
+	}
 
 	if strings.HasPrefix(prov, "Microsoft.") {
 		prov = strings.TrimPrefix(strings.ToLower(prov), "microsoft.")

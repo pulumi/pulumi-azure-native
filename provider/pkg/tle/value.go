@@ -1,6 +1,8 @@
 package tle
 
-import "github.com/pulumi/pulumi/sdk/go/common/util/contract"
+import (
+	"github.com/pulumi/pulumi/sdk/go/common/util/contract"
+)
 
 type Value interface {
 	Span() *Span
@@ -115,6 +117,8 @@ func (a *ArrayAccessValue) Span() *Span {
 func (a *ArrayAccessValue) Accept(v Visitor) error {
 	return v.VisitArrayAccessValue(a)
 }
+
+
 
 type FunctionCallValue struct {
 	NamespaceToken        *Token

@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/tle"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"reflect"
 	"sort"
@@ -349,7 +350,7 @@ func (t *TemplateElements) EvaluateExpressions(preliminaryPhase bool) error {
 		args := el.TemplateElement.Args()
 		var err error
 		if preliminaryPhase {
-			args, err = t.evalTemplateExpressions(el, args, "", "reference")
+			args, err = t.evalTemplateExpressions(el, args, "", "reference" )
 		} else {
 			args, err = t.evalTemplateExpressions(el, args, "")
 		}
@@ -498,6 +499,14 @@ func (t *TemplateElements) AddOutput(name string, args map[string]interface{}, a
 }
 
 func (t *TemplateElements) AddResource(args map[string]interface{}) error {
+	err := t.handleAddResource(args, "", "")
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (t *TemplateElements) handleAddResource(args map[string]interface{}, parentName, parentType string) error {
 	name, ok := args["name"]
 	if !ok {
 		return errors.New("missing required name field in resource")
@@ -527,6 +536,33 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 	// a template expression - in which case we just add a 'Resource' suffix.
 	// Otherwise just use the resource name field.
 	namestr := name.(string)
+
+	if parentName != "" {
+		thisNameParse, err := tle.Parse(namestr)
+		if err != nil {
+			return err
+		}
+		parentNameParse, err := tle.Parse(parentName)
+		if err != nil {
+			return err
+		}
+		val := tle.FunctionCallValue{
+			NameToken:             tle.NewToken(tle.Literal, 0, "concat"),
+			ArgumentExpressions:   []tle.Value{parentNameParse.Expression,
+				tle.NewStringValue(tle.CreateQuotedString(0, "/")), thisNameParse.Expression},
+		}
+		namestr, err = tle.ToTemplateExpressionString(&val)
+		if err != nil {
+			return err
+		}
+		args["name"] = namestr
+	}
+
+	if parentType != "" {
+		typestr = fmt.Sprintf("%s/%s", parentType, typestr)
+		args["type"] = typestr
+	}
+
 	if !isTemplateExpression(namestr) {
 		prefix = []string{namestr}
 	}
@@ -539,7 +575,7 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 
 	// Since anything can be a template expression referring to other resources
 	// we can't really take the name or the resource token for granted at
-	// face value at this stage.
+	// at this stage.
 	var resourceToken string
 	apiVersion, ok := args["apiVersion"]
 	if !ok {
@@ -553,9 +589,30 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 	}
 
 	varName = t.recordCanonicalizedName(varName)
-	r := newResource(varName, args, resourceToken)
+	r, err := newResource(varName, args, resourceToken)
+	if err != nil {
+		return err
+	}
 	dep := newDependencyTracking(r)
 	t.elements[varName] = dep
+
+	if subResources, ok := args["resources"]; ok {
+		subResourcesSlice, ok := subResources.([]interface{})
+		if !ok {
+			return errors.New("expect sub-resources to be a slice")
+		}
+
+		for _, sub := range subResourcesSlice {
+			resMap, ok := sub.(map[string]interface{})
+			if !ok {
+				return fmt.Errorf("expect resource body to be a map, got: %T", sub)
+			}
+			if err = t.handleAddResource(resMap, namestr, typestr); err != nil {
+				return err
+			}
+		}
+	}
+
 	return nil
 }
 

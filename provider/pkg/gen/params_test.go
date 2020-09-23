@@ -633,9 +633,117 @@ func TestFlattenParams(t *testing.T) {
   }
 }`),
 			resourceName: "azure-nextgen:containerinstance/latest:ContainerGroup",
-			expected:     map[string]interface{}{},
+			expected: map[string]interface{}{
+				"containers": []interface{}{
+					map[string]interface{}{
+						"image": "[parameters('image')]",
+						"name":  "[parameters('name')]",
+						"ports": []interface{}{
+							map[string]interface{}{
+								"port": "[parameters('port')]",
+							},
+						},
+						"resources": map[string]interface{}{
+							"requests": map[string]interface{}{
+								"cpu": "[parameters('cpuCores')]", "memoryInGB": "[parameters('memoryInGb')]",
+							},
+						},
+					},
+				},
+				"ipAddress": map[string]interface{}{
+					"ports": []interface{}{
+						map[string]interface{}{
+							"port":     "[parameters('port')]",
+							"protocol": "Tcp",
+						},
+					},
+					"type": "Public",
+				},
+				"osType":        "Linux",
+				"restartPolicy": "[parameters('restartPolicy')]",
+			},
 		},
-	}[8:] {
+		{
+			name: "Site",
+			inputFunc: serialize(`
+{
+  "parameters": {
+    "siteEnvelope": {
+      "properties": {
+        "siteConfig": "[variables('configReference')[parameters('language')]]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
+      }
+    }
+  }
+}`),
+			resourceName: "azure-nextgen:web/v20150801:Site",
+			expected: map[string]interface{}{
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
+				"siteConfig":   "[variables('configReference')[parameters('language')]]",
+			},
+		},
+		{
+			name: "DatabaseAccount",
+			inputFunc: serialize(`
+{
+  "parameters": {
+    "createUpdateParameters": {
+      "properties": {
+        "properties": {
+          "databaseAccountOfferType": "Standard",
+          "locations": [
+            {
+                "id": "[concat(parameters('name'), '-', parameters('location'))]",
+                "failoverPriority": 0,
+                "locationName": "[parameters('location')]"
+            }
+          ],
+          "backupPolicy": {
+            "type": "Periodic",
+            "periodicModeProperties": {
+                "backupIntervalInMinutes": 240,
+                "backupRetentionIntervalInHours": 8
+            }
+          },
+          "capabilities": [
+            {
+                "name": "EnableServerless"
+            }
+          ],
+          "enableFreeTier": false
+        }
+      }
+    }
+  }
+}`),
+			resourceName: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount",
+			expected: map[string]interface{}{
+				"properties": map[string]interface{}{
+					"backupPolicy": map[string]interface{}{
+						"periodicModeProperties": map[string]interface{}{
+							"backupIntervalInMinutes":        240,
+							"backupRetentionIntervalInHours": 8,
+						},
+						"type": "Periodic",
+					},
+					"capabilities": []interface{}{
+						map[string]interface{}{
+							"name": "EnableServerless",
+						},
+					},
+					"databaseAccountOfferType": "Standard",
+					"enableFreeTier":           false,
+					"locations": []interface{}{
+						map[string]interface{}{
+							"failoverPriority": 0,
+							"id":               "[concat(parameters('name'), '-', parameters('location'))]",
+							"locationName":     "[parameters('location')]",
+						},
+					},
+				},
+			},
+		},
+	} {
 		t.Run(test.name, func(t *testing.T) {
 			if test.input == nil {
 				test.input = test.inputFunc(t)

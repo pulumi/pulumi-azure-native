@@ -14,6 +14,66 @@ type TLEParseResult struct {
 	RightSquareBracketToken *Token
 }
 
+type tleGenVisitor struct{
+	builder strings.Builder
+}
+
+func (t *tleGenVisitor) VisitArrayAccessValue(value *ArrayAccessValue) error {
+	if err := value.source.Accept(t); err != nil {
+		return err
+	}
+	_, _ = t.builder.WriteString("[")
+	if err := value.indexValue.Accept(t); err != nil {
+		return err
+	}
+	_, _ = t.builder.WriteString("]")
+	return nil
+}
+
+func (t *tleGenVisitor) VisitFunctionCallValue(value *FunctionCallValue) error {
+	// WriteString never returns a non-nil error
+	_, _ = t.builder.WriteString(value.NameToken.stringValue)
+	_, _ = t.builder.WriteString("(")
+	for i, a := range value.ArgumentExpressions {
+		if err := a.Accept(t); err != nil {
+			return err
+		}
+		if i < len(value.ArgumentExpressions) - 1 {
+			_, _ = t.builder.WriteString(",")
+		}
+	}
+	t.builder.WriteString(")")
+	return nil
+}
+
+func (t *tleGenVisitor) VisitNumberValue(value *NumberValue) error {
+	t.builder.WriteString(value.token.stringValue)
+	return nil
+}
+
+func (t *tleGenVisitor) VisitPropertyAccessValue(value *PropertyAccessValue) error {
+	if err := value.source.Accept(t); err != nil {
+		return err
+	}
+	_, _ = t.builder.WriteString(fmt.Sprintf(".%s", value.nameToken.stringValue))
+	return nil
+}
+
+func (t *tleGenVisitor) VisitStringValue(value *StringValue) error {
+	_, _ = t.builder.WriteString(quote(value.token.stringValue))
+	return nil
+}
+
+func ToTemplateExpressionString(value Value) (string, error) {
+	gen := &tleGenVisitor{}
+	_, _ = gen.builder.WriteString("[")
+	if err := value.Accept(gen); err != nil {
+		return "", err
+	}
+	_, _ = gen.builder.WriteString("]")
+	return quote(gen.builder.String()), nil
+}
+
 func Parse(s string) (*TLEParseResult, error) {
 	return parseString(quote(s))
 }
@@ -232,7 +292,6 @@ func parseFunctionCall(tokenizer *Tokenizer) (*FunctionCallValue, error) {
 	if tokenizer.HasCurrent() {
 		expectingArgument := true
 
-		// tslint:disable-next-line: strict-boolean-expressions
 		for tokenizer.Current() != nil {
 			if tokenizer.Current().GetType() == RightParenthesis || tokenizer.Current().GetType() == RightSquareBracket {
 				break
@@ -258,7 +317,6 @@ func parseFunctionCall(tokenizer *Tokenizer) (*FunctionCallValue, error) {
 		return nil, fmt.Errorf("expected a right parenthesis (')')")
 	}
 
-	// tslint:disable-next-line: strict-boolean-expressions
 	if tokenizer.Current() != nil {
 		switch tokenizer.current.GetType() {
 		case RightParenthesis:
