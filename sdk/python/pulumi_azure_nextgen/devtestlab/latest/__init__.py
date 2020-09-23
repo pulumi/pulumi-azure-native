@@ -24,6 +24,7 @@ from .get_service_fabric_schedule import *
 from .get_service_runner import *
 from .get_user import *
 from .get_virtual_machine import *
+from .get_virtual_machine_rdp_file_contents import *
 from .get_virtual_machine_schedule import *
 from .get_virtual_network import *
 from .global_schedule import *

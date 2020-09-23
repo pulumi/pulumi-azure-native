@@ -6,6 +6,7 @@ export * from "./getRegistry";
 export * from "./getReplication";
 export * from "./getTask";
 export * from "./getWebhook";
+export * from "./getWebhookCallbackConfig";
 export * from "./listRegistryBuildSourceUploadUrl";
 export * from "./listRegistryCredentials";
 export * from "./listRunLogSasUrl";

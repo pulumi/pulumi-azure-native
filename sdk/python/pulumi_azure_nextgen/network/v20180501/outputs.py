@@ -7,12 +7,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'ARecordResponse',
     'AaaaRecordResponse',
     'CaaRecordResponse',
     'CnameRecordResponse',
+    'DnsResourceReferenceResponseResult',
     'MxRecordResponse',
     'NsRecordResponse',
     'PtrRecordResponse',
@@ -148,6 +150,41 @@ class CnameRecordResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DnsResourceReferenceResponseResult(dict):
+    """
+    Represents a single Azure resource and its referencing DNS records.
+    """
+    def __init__(__self__, *,
+                 dns_resources: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 target_resource: Optional['outputs.SubResourceResponse'] = None):
+        """
+        Represents a single Azure resource and its referencing DNS records.
+        :param Sequence['SubResourceResponseArgs'] dns_resources: A list of dns Records 
+        :param 'SubResourceResponseArgs' target_resource: A reference to an azure resource from where the dns resource value is taken.
+        """
+        if dns_resources is not None:
+            pulumi.set(__self__, "dns_resources", dns_resources)
+        if target_resource is not None:
+            pulumi.set(__self__, "target_resource", target_resource)
+
+    @property
+    @pulumi.getter(name="dnsResources")
+    def dns_resources(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        A list of dns Records 
+        """
+        return pulumi.get(self, "dns_resources")
+
+    @property
+    @pulumi.getter(name="targetResource")
+    def target_resource(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        A reference to an azure resource from where the dns resource value is taken.
+        """
+        return pulumi.get(self, "target_resource")
 
 
 @pulumi.output_type

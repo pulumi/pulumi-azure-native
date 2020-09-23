@@ -62,6 +62,7 @@ __all__ = [
     'AzureFirewallSkuArgs',
     'BackendAddressPoolArgs',
     'BastionHostIPConfigurationArgs',
+    'BastionShareableLinkArgs',
     'BgpSettingsArgs',
     'BreakOutCategoryPoliciesArgs',
     'ConnectionMonitorDestinationArgs',
@@ -175,6 +176,7 @@ __all__ = [
     'TrafficAnalyticsConfigurationPropertiesArgs',
     'TrafficAnalyticsPropertiesArgs',
     'TrafficSelectorPolicyArgs',
+    'VMArgs',
     'VirtualApplianceSkuPropertiesArgs',
     'VirtualHubIdArgs',
     'VirtualHubRouteArgs',
@@ -4579,6 +4581,29 @@ class BastionHostIPConfigurationArgs:
     @private_ip_allocation_method.setter
     def private_ip_allocation_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
+
+
+@pulumi.input_type
+class BastionShareableLinkArgs:
+    def __init__(__self__, *,
+                 vm: 'VMArgs'):
+        """
+        Bastion Shareable Link.
+        :param 'VMArgs' vm: Reference of the virtual machine resource.
+        """
+        pulumi.set(__self__, "vm", vm)
+
+    @property
+    @pulumi.getter
+    def vm(self) -> 'VMArgs':
+        """
+        Reference of the virtual machine resource.
+        """
+        return pulumi.get(self, "vm")
+
+    @vm.setter
+    def vm(self, value: 'VMArgs'):
+        pulumi.set(self, "vm", value)
 
 
 @pulumi.input_type
@@ -12689,6 +12714,62 @@ class TrafficSelectorPolicyArgs:
     @remote_address_ranges.setter
     def remote_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "remote_address_ranges", value)
+
+
+@pulumi.input_type
+class VMArgs:
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 location: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Describes a Virtual Machine.
+        :param str id: Resource ID.
+        :param str location: Resource location.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[Mapping[str, str]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

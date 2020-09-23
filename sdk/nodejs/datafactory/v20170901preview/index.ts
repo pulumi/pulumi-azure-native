@@ -7,6 +7,8 @@ export * from "./factory";
 export * from "./getDataset";
 export * from "./getFactory";
 export * from "./getIntegrationRuntime";
+export * from "./getIntegrationRuntimeConnectionInfo";
+export * from "./getIntegrationRuntimeStatus";
 export * from "./getLinkedService";
 export * from "./getPipeline";
 export * from "./getTrigger";

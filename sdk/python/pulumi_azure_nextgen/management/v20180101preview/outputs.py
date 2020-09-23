@@ -10,10 +10,127 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'EntityInfoResponseResult',
+    'EntityParentGroupInfoResponseResult',
     'ManagementGroupChildInfoResponse',
     'ManagementGroupDetailsResponse',
     'ParentGroupInfoResponse',
 ]
+
+@pulumi.output_type
+class EntityInfoResponseResult(dict):
+    """
+    The entity.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 display_name: Optional[str] = None,
+                 parent: Optional['outputs.EntityParentGroupInfoResponseResult'] = None,
+                 permissions: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        The entity.
+        :param str id: The fully qualified ID for the entity.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        :param str name: The name of the entity. For example, 00000000-0000-0000-0000-000000000000
+        :param str type: The type of the resource. For example, /providers/Microsoft.Management/managementGroups
+        :param str display_name: The friendly name of the management group.
+        :param 'EntityParentGroupInfoResponseArgs' parent: (Optional) The ID of the parent management group.
+        :param str permissions: The users specific permissions to this item.
+        :param str tenant_id: The AAD Tenant ID associated with the entity. For example, 00000000-0000-0000-0000-000000000000
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if parent is not None:
+            pulumi.set(__self__, "parent", parent)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The fully qualified ID for the entity.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the entity. For example, 00000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. For example, /providers/Microsoft.Management/managementGroups
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The friendly name of the management group.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional['outputs.EntityParentGroupInfoResponseResult']:
+        """
+        (Optional) The ID of the parent management group.
+        """
+        return pulumi.get(self, "parent")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[str]:
+        """
+        The users specific permissions to this item.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The AAD Tenant ID associated with the entity. For example, 00000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class EntityParentGroupInfoResponseResult(dict):
+    """
+    (Optional) The ID of the parent management group.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        (Optional) The ID of the parent management group.
+        :param str id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "id")
+
 
 @pulumi.output_type
 class ManagementGroupChildInfoResponse(dict):

@@ -12,6 +12,8 @@ from . import outputs
 __all__ = [
     'AdditionalUnattendContentResponse',
     'ApiEntityReferenceResponse',
+    'ApiErrorBaseResponseResult',
+    'ApiErrorResponseResult',
     'AutoOSUpgradePolicyResponse',
     'BootDiagnosticsInstanceViewResponse',
     'BootDiagnosticsResponse',
@@ -24,10 +26,12 @@ __all__ = [
     'ImageOSDiskResponse',
     'ImageReferenceResponse',
     'ImageStorageProfileResponse',
+    'InnerErrorResponseResult',
     'InstanceViewStatusResponse',
     'KeyVaultKeyReferenceResponse',
     'KeyVaultSecretReferenceResponse',
     'LinuxConfigurationResponse',
+    'LogAnalyticsOutputResponseResult',
     'MaintenanceRedeployStatusResponse',
     'ManagedDiskParametersResponse',
     'NetworkInterfaceReferenceResponse',
@@ -159,6 +163,124 @@ class ApiEntityReferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ApiErrorBaseResponseResult(dict):
+    """
+    Api error base.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None,
+                 target: Optional[str] = None):
+        """
+        Api error base.
+        :param str code: The error code.
+        :param str message: The error message.
+        :param str target: The target of the particular error.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The target of the particular error.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class ApiErrorResponseResult(dict):
+    """
+    Api error.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 details: Optional[Sequence['outputs.ApiErrorBaseResponseResult']] = None,
+                 innererror: Optional['outputs.InnerErrorResponseResult'] = None,
+                 message: Optional[str] = None,
+                 target: Optional[str] = None):
+        """
+        Api error.
+        :param str code: The error code.
+        :param Sequence['ApiErrorBaseResponseArgs'] details: The Api error details
+        :param 'InnerErrorResponseArgs' innererror: The Api inner error
+        :param str message: The error message.
+        :param str target: The target of the particular error.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if innererror is not None:
+            pulumi.set(__self__, "innererror", innererror)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[Sequence['outputs.ApiErrorBaseResponseResult']]:
+        """
+        The Api error details
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def innererror(self) -> Optional['outputs.InnerErrorResponseResult']:
+        """
+        The Api inner error
+        """
+        return pulumi.get(self, "innererror")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The target of the particular error.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -863,6 +985,41 @@ class ImageStorageProfileResponse(dict):
 
 
 @pulumi.output_type
+class InnerErrorResponseResult(dict):
+    """
+    Inner error details.
+    """
+    def __init__(__self__, *,
+                 errordetail: Optional[str] = None,
+                 exceptiontype: Optional[str] = None):
+        """
+        Inner error details.
+        :param str errordetail: The internal error message or exception dump.
+        :param str exceptiontype: The exception type.
+        """
+        if errordetail is not None:
+            pulumi.set(__self__, "errordetail", errordetail)
+        if exceptiontype is not None:
+            pulumi.set(__self__, "exceptiontype", exceptiontype)
+
+    @property
+    @pulumi.getter
+    def errordetail(self) -> Optional[str]:
+        """
+        The internal error message or exception dump.
+        """
+        return pulumi.get(self, "errordetail")
+
+    @property
+    @pulumi.getter
+    def exceptiontype(self) -> Optional[str]:
+        """
+        The exception type.
+        """
+        return pulumi.get(self, "exceptiontype")
+
+
+@pulumi.output_type
 class InstanceViewStatusResponse(dict):
     """
     Instance view status.
@@ -1044,6 +1201,28 @@ class LinuxConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LogAnalyticsOutputResponseResult(dict):
+    """
+    LogAnalytics output properties
+    """
+    def __init__(__self__, *,
+                 output: str):
+        """
+        LogAnalytics output properties
+        :param str output: Output file Uri path to blob container.
+        """
+        pulumi.set(__self__, "output", output)
+
+    @property
+    @pulumi.getter
+    def output(self) -> str:
+        """
+        Output file Uri path to blob container.
+        """
+        return pulumi.get(self, "output")
 
 
 @pulumi.output_type

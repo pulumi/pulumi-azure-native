@@ -31,6 +31,7 @@ export * from "./getApiIssue";
 export * from "./getApiIssueAttachment";
 export * from "./getApiIssueComment";
 export * from "./getApiManagementService";
+export * from "./getApiManagementServiceSsoToken";
 export * from "./getApiOperation";
 export * from "./getApiOperationPolicy";
 export * from "./getApiPolicy";

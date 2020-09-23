@@ -14,6 +14,7 @@ __all__ = [
     'AccountEncryptionResponse',
     'AkamaiAccessControlResponse',
     'AkamaiSignatureHeaderAuthenticationKeyResponse',
+    'AssetFileEncryptionMetadataResponseResult',
     'AssetStreamingLocatorResponseResult',
     'AudioAnalyzerPresetResponse',
     'AudioOverlayResponse',
@@ -240,6 +241,52 @@ class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AssetFileEncryptionMetadataResponseResult(dict):
+    """
+    The Asset File Storage encryption metadata.
+    """
+    def __init__(__self__, *,
+                 asset_file_id: str,
+                 asset_file_name: Optional[str] = None,
+                 initialization_vector: Optional[str] = None):
+        """
+        The Asset File Storage encryption metadata.
+        :param str asset_file_id: The Asset File Id.
+        :param str asset_file_name: The Asset File name.
+        :param str initialization_vector: The Asset File initialization vector.
+        """
+        pulumi.set(__self__, "asset_file_id", asset_file_id)
+        if asset_file_name is not None:
+            pulumi.set(__self__, "asset_file_name", asset_file_name)
+        if initialization_vector is not None:
+            pulumi.set(__self__, "initialization_vector", initialization_vector)
+
+    @property
+    @pulumi.getter(name="assetFileId")
+    def asset_file_id(self) -> str:
+        """
+        The Asset File Id.
+        """
+        return pulumi.get(self, "asset_file_id")
+
+    @property
+    @pulumi.getter(name="assetFileName")
+    def asset_file_name(self) -> Optional[str]:
+        """
+        The Asset File name.
+        """
+        return pulumi.get(self, "asset_file_name")
+
+    @property
+    @pulumi.getter(name="initializationVector")
+    def initialization_vector(self) -> Optional[str]:
+        """
+        The Asset File initialization vector.
+        """
+        return pulumi.get(self, "initialization_vector")
 
 
 @pulumi.output_type

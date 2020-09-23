@@ -159,10 +159,15 @@ __all__ = [
     'JsonFormatResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
     'LinkedIntegrationRuntimeRbacAuthorizationResponse',
+    'LinkedIntegrationRuntimeResponseResult',
     'LinkedServiceReferenceResponse',
     'MagentoLinkedServiceResponse',
     'MagentoObjectDatasetResponse',
+    'ManagedIntegrationRuntimeErrorResponseResult',
+    'ManagedIntegrationRuntimeNodeResponseResult',
+    'ManagedIntegrationRuntimeOperationResultResponseResult',
     'ManagedIntegrationRuntimeResponse',
+    'ManagedIntegrationRuntimeStatusResponseResult',
     'ManagedPrivateEndpointResponse',
     'MappingDataFlowResponse',
     'MariaDBLinkedServiceResponse',
@@ -236,7 +241,9 @@ __all__ = [
     'ScriptActionResponse',
     'SecureStringResponse',
     'SelfDependencyTumblingWindowTriggerReferenceResponse',
+    'SelfHostedIntegrationRuntimeNodeResponseResult',
     'SelfHostedIntegrationRuntimeResponse',
+    'SelfHostedIntegrationRuntimeStatusResponseResult',
     'ServiceNowLinkedServiceResponse',
     'ServiceNowObjectDatasetResponse',
     'SftpLocationResponse',
@@ -253,6 +260,13 @@ __all__ = [
     'SqlServerTableDatasetResponse',
     'SquareLinkedServiceResponse',
     'SquareObjectDatasetResponse',
+    'SsisEnvironmentReferenceResponseResult',
+    'SsisEnvironmentResponseResult',
+    'SsisFolderResponseResult',
+    'SsisPackageResponseResult',
+    'SsisParameterResponseResult',
+    'SsisProjectResponseResult',
+    'SsisVariableResponseResult',
     'SybaseLinkedServiceResponse',
     'SybaseTableDatasetResponse',
     'TeradataLinkedServiceResponse',
@@ -263,6 +277,7 @@ __all__ = [
     'TriggerPipelineReferenceResponse',
     'TriggerReferenceResponse',
     'TumblingWindowTriggerResponse',
+    'UserAccessPolicyResponseResult',
     'UserPropertyResponse',
     'VariableSpecificationResponse',
     'VerticaLinkedServiceResponse',
@@ -17864,6 +17879,72 @@ class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
 
 
 @pulumi.output_type
+class LinkedIntegrationRuntimeResponseResult(dict):
+    """
+    The linked integration runtime information.
+    """
+    def __init__(__self__, *,
+                 create_time: str,
+                 data_factory_location: str,
+                 data_factory_name: str,
+                 name: str,
+                 subscription_id: str):
+        """
+        The linked integration runtime information.
+        :param str create_time: The creating time of the linked integration runtime.
+        :param str data_factory_location: The location of the data factory for which the linked integration runtime belong to.
+        :param str data_factory_name: The name of the data factory for which the linked integration runtime belong to.
+        :param str name: The name of the linked integration runtime.
+        :param str subscription_id: The subscription ID for which the linked integration runtime belong to.
+        """
+        pulumi.set(__self__, "create_time", create_time)
+        pulumi.set(__self__, "data_factory_location", data_factory_location)
+        pulumi.set(__self__, "data_factory_name", data_factory_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> str:
+        """
+        The creating time of the linked integration runtime.
+        """
+        return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="dataFactoryLocation")
+    def data_factory_location(self) -> str:
+        """
+        The location of the data factory for which the linked integration runtime belong to.
+        """
+        return pulumi.get(self, "data_factory_location")
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> str:
+        """
+        The name of the data factory for which the linked integration runtime belong to.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the linked integration runtime.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        The subscription ID for which the linked integration runtime belong to.
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
 class LinkedServiceReferenceResponse(dict):
     """
     Linked service reference type.
@@ -18176,6 +18257,183 @@ class MagentoObjectDatasetResponse(dict):
 
 
 @pulumi.output_type
+class ManagedIntegrationRuntimeErrorResponseResult(dict):
+    """
+    Error definition for managed integration runtime.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 message: str,
+                 parameters: Sequence[str],
+                 time: str):
+        """
+        Error definition for managed integration runtime.
+        :param str code: Error code.
+        :param str message: Error message.
+        :param Sequence[str] parameters: Managed integration runtime error parameters.
+        :param str time: The time when the error occurred.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence[str]:
+        """
+        Managed integration runtime error parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The time when the error occurred.
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class ManagedIntegrationRuntimeNodeResponseResult(dict):
+    """
+    Properties of integration runtime node.
+    """
+    def __init__(__self__, *,
+                 node_id: str,
+                 status: str,
+                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']] = None):
+        """
+        Properties of integration runtime node.
+        :param str node_id: The managed integration runtime node id.
+        :param str status: The managed integration runtime node status.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] errors: The errors that occurred on this integration runtime node.
+        """
+        pulumi.set(__self__, "node_id", node_id)
+        pulumi.set(__self__, "status", status)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> str:
+        """
+        The managed integration runtime node id.
+        """
+        return pulumi.get(self, "node_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The managed integration runtime node status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']]:
+        """
+        The errors that occurred on this integration runtime node.
+        """
+        return pulumi.get(self, "errors")
+
+
+@pulumi.output_type
+class ManagedIntegrationRuntimeOperationResultResponseResult(dict):
+    """
+    Properties of managed integration runtime operation result.
+    """
+    def __init__(__self__, *,
+                 activity_id: str,
+                 error_code: str,
+                 parameters: Sequence[str],
+                 result: str,
+                 start_time: str,
+                 type: str):
+        """
+        Properties of managed integration runtime operation result.
+        :param str activity_id: The activity id for the operation request.
+        :param str error_code: The error code.
+        :param Sequence[str] parameters: Managed integration runtime error parameters.
+        :param str result: The operation result.
+        :param str start_time: The start time of the operation.
+        :param str type: The operation type. Could be start or stop.
+        """
+        pulumi.set(__self__, "activity_id", activity_id)
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "result", result)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="activityId")
+    def activity_id(self) -> str:
+        """
+        The activity id for the operation request.
+        """
+        return pulumi.get(self, "activity_id")
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence[str]:
+        """
+        Managed integration runtime error parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def result(self) -> str:
+        """
+        The operation result.
+        """
+        return pulumi.get(self, "result")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The start time of the operation.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The operation type. Could be start or stop.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ManagedIntegrationRuntimeResponse(dict):
     """
     Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
@@ -18245,6 +18503,94 @@ class ManagedIntegrationRuntimeResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedIntegrationRuntimeStatusResponseResult(dict):
+    """
+    Managed integration runtime status.
+    """
+    def __init__(__self__, *,
+                 create_time: str,
+                 data_factory_name: str,
+                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult',
+                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult'],
+                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult'],
+                 state: str,
+                 type: str):
+        """
+        Managed integration runtime status.
+        :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
+        :param str data_factory_name: The data factory name which the integration runtime belong to.
+        :param 'ManagedIntegrationRuntimeOperationResultResponseArgs' last_operation: The last operation result that occurred on this integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for managed integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] other_errors: The errors that occurred on this integration runtime.
+        :param str state: The state of integration runtime.
+        :param str type: Type of integration runtime.
+        """
+        pulumi.set(__self__, "create_time", create_time)
+        pulumi.set(__self__, "data_factory_name", data_factory_name)
+        pulumi.set(__self__, "last_operation", last_operation)
+        pulumi.set(__self__, "nodes", nodes)
+        pulumi.set(__self__, "other_errors", other_errors)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "type", 'Managed')
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> str:
+        """
+        The time at which the integration runtime was created, in ISO8601 format.
+        """
+        return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> str:
+        """
+        The data factory name which the integration runtime belong to.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @property
+    @pulumi.getter(name="lastOperation")
+    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult':
+        """
+        The last operation result that occurred on this integration runtime.
+        """
+        return pulumi.get(self, "last_operation")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult']:
+        """
+        The list of nodes for managed integration runtime.
+        """
+        return pulumi.get(self, "nodes")
+
+    @property
+    @pulumi.getter(name="otherErrors")
+    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']:
+        """
+        The errors that occurred on this integration runtime.
+        """
+        return pulumi.get(self, "other_errors")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of integration runtime.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of integration runtime.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -27287,6 +27633,215 @@ class SelfDependencyTumblingWindowTriggerReferenceResponse(dict):
 
 
 @pulumi.output_type
+class SelfHostedIntegrationRuntimeNodeResponseResult(dict):
+    """
+    Properties of Self-hosted integration runtime node.
+    """
+    def __init__(__self__, *,
+                 capabilities: Mapping[str, str],
+                 concurrent_jobs_limit: int,
+                 expiry_time: str,
+                 host_service_uri: str,
+                 is_active_dispatcher: bool,
+                 last_connect_time: str,
+                 last_end_update_time: str,
+                 last_start_time: str,
+                 last_start_update_time: str,
+                 last_stop_time: str,
+                 last_update_result: str,
+                 machine_name: str,
+                 max_concurrent_jobs: int,
+                 node_name: str,
+                 register_time: str,
+                 status: str,
+                 version: str,
+                 version_status: str):
+        """
+        Properties of Self-hosted integration runtime node.
+        :param Mapping[str, str] capabilities: The integration runtime capabilities dictionary
+        :param int concurrent_jobs_limit: Maximum concurrent jobs on the integration runtime node.
+        :param str expiry_time: The time at which the integration runtime will expire in ISO8601 format.
+        :param str host_service_uri: URI for the host machine of the integration runtime.
+        :param bool is_active_dispatcher: Indicates whether this node is the active dispatcher for integration runtime requests.
+        :param str last_connect_time: The most recent time at which the integration runtime was connected in ISO8601 format.
+        :param str last_end_update_time: The last time for the integration runtime node update end.
+        :param str last_start_time: The time the node last started up.
+        :param str last_start_update_time: The last time for the integration runtime node update start.
+        :param str last_stop_time: The integration runtime node last stop time.
+        :param str last_update_result: The result of the last integration runtime node update.
+        :param str machine_name: Machine name of the integration runtime node.
+        :param int max_concurrent_jobs: The maximum concurrent jobs in this integration runtime.
+        :param str node_name: Name of the integration runtime node.
+        :param str register_time: The time at which the integration runtime node was registered in ISO8601 format.
+        :param str status: Status of the integration runtime node.
+        :param str version: Version of the integration runtime node.
+        :param str version_status: Status of the integration runtime node version.
+        """
+        pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "concurrent_jobs_limit", concurrent_jobs_limit)
+        pulumi.set(__self__, "expiry_time", expiry_time)
+        pulumi.set(__self__, "host_service_uri", host_service_uri)
+        pulumi.set(__self__, "is_active_dispatcher", is_active_dispatcher)
+        pulumi.set(__self__, "last_connect_time", last_connect_time)
+        pulumi.set(__self__, "last_end_update_time", last_end_update_time)
+        pulumi.set(__self__, "last_start_time", last_start_time)
+        pulumi.set(__self__, "last_start_update_time", last_start_update_time)
+        pulumi.set(__self__, "last_stop_time", last_stop_time)
+        pulumi.set(__self__, "last_update_result", last_update_result)
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "max_concurrent_jobs", max_concurrent_jobs)
+        pulumi.set(__self__, "node_name", node_name)
+        pulumi.set(__self__, "register_time", register_time)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "version", version)
+        pulumi.set(__self__, "version_status", version_status)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Mapping[str, str]:
+        """
+        The integration runtime capabilities dictionary
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="concurrentJobsLimit")
+    def concurrent_jobs_limit(self) -> int:
+        """
+        Maximum concurrent jobs on the integration runtime node.
+        """
+        return pulumi.get(self, "concurrent_jobs_limit")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> str:
+        """
+        The time at which the integration runtime will expire in ISO8601 format.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter(name="hostServiceUri")
+    def host_service_uri(self) -> str:
+        """
+        URI for the host machine of the integration runtime.
+        """
+        return pulumi.get(self, "host_service_uri")
+
+    @property
+    @pulumi.getter(name="isActiveDispatcher")
+    def is_active_dispatcher(self) -> bool:
+        """
+        Indicates whether this node is the active dispatcher for integration runtime requests.
+        """
+        return pulumi.get(self, "is_active_dispatcher")
+
+    @property
+    @pulumi.getter(name="lastConnectTime")
+    def last_connect_time(self) -> str:
+        """
+        The most recent time at which the integration runtime was connected in ISO8601 format.
+        """
+        return pulumi.get(self, "last_connect_time")
+
+    @property
+    @pulumi.getter(name="lastEndUpdateTime")
+    def last_end_update_time(self) -> str:
+        """
+        The last time for the integration runtime node update end.
+        """
+        return pulumi.get(self, "last_end_update_time")
+
+    @property
+    @pulumi.getter(name="lastStartTime")
+    def last_start_time(self) -> str:
+        """
+        The time the node last started up.
+        """
+        return pulumi.get(self, "last_start_time")
+
+    @property
+    @pulumi.getter(name="lastStartUpdateTime")
+    def last_start_update_time(self) -> str:
+        """
+        The last time for the integration runtime node update start.
+        """
+        return pulumi.get(self, "last_start_update_time")
+
+    @property
+    @pulumi.getter(name="lastStopTime")
+    def last_stop_time(self) -> str:
+        """
+        The integration runtime node last stop time.
+        """
+        return pulumi.get(self, "last_stop_time")
+
+    @property
+    @pulumi.getter(name="lastUpdateResult")
+    def last_update_result(self) -> str:
+        """
+        The result of the last integration runtime node update.
+        """
+        return pulumi.get(self, "last_update_result")
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> str:
+        """
+        Machine name of the integration runtime node.
+        """
+        return pulumi.get(self, "machine_name")
+
+    @property
+    @pulumi.getter(name="maxConcurrentJobs")
+    def max_concurrent_jobs(self) -> int:
+        """
+        The maximum concurrent jobs in this integration runtime.
+        """
+        return pulumi.get(self, "max_concurrent_jobs")
+
+    @property
+    @pulumi.getter(name="nodeName")
+    def node_name(self) -> str:
+        """
+        Name of the integration runtime node.
+        """
+        return pulumi.get(self, "node_name")
+
+    @property
+    @pulumi.getter(name="registerTime")
+    def register_time(self) -> str:
+        """
+        The time at which the integration runtime node was registered in ISO8601 format.
+        """
+        return pulumi.get(self, "register_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the integration runtime node.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Version of the integration runtime node.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="versionStatus")
+    def version_status(self) -> str:
+        """
+        Status of the integration runtime node version.
+        """
+        return pulumi.get(self, "version_status")
+
+
+@pulumi.output_type
 class SelfHostedIntegrationRuntimeResponse(dict):
     """
     Self-hosted integration runtime.
@@ -27333,6 +27888,228 @@ class SelfHostedIntegrationRuntimeResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
+    """
+    Self-hosted integration runtime status.
+    """
+    def __init__(__self__, *,
+                 auto_update: str,
+                 auto_update_eta: str,
+                 capabilities: Mapping[str, str],
+                 create_time: str,
+                 data_factory_name: str,
+                 internal_channel_encryption: str,
+                 latest_version: str,
+                 local_time_zone_offset: str,
+                 pushed_version: str,
+                 scheduled_update_date: str,
+                 service_urls: Sequence[str],
+                 state: str,
+                 task_queue_id: str,
+                 type: str,
+                 update_delay_offset: str,
+                 version: str,
+                 version_status: str,
+                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']] = None,
+                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']] = None):
+        """
+        Self-hosted integration runtime status.
+        :param str auto_update: Whether Self-hosted integration runtime auto update has been turned on.
+        :param str auto_update_eta: The estimated time when the self-hosted integration runtime will be updated.
+        :param Mapping[str, str] capabilities: Object with additional information about integration runtime capabilities.
+        :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
+        :param str data_factory_name: The data factory name which the integration runtime belong to.
+        :param str internal_channel_encryption: It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
+        :param str latest_version: The latest version on download center.
+        :param str local_time_zone_offset: The local time zone offset in hours.
+        :param str pushed_version: The version that the integration runtime is going to update to.
+        :param str scheduled_update_date: The date at which the integration runtime will be scheduled to update, in ISO8601 format.
+        :param Sequence[str] service_urls: The URLs for the services used in integration runtime backend service.
+        :param str state: The state of integration runtime.
+        :param str task_queue_id: The task queue id of the integration runtime.
+        :param str type: Type of integration runtime.
+        :param str update_delay_offset: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
+        :param str version: Version of the integration runtime.
+        :param str version_status: Status of the integration runtime version.
+        :param Sequence['LinkedIntegrationRuntimeResponseArgs'] links: The list of linked integration runtimes that are created to share with this integration runtime.
+        :param Sequence['SelfHostedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for this integration runtime.
+        """
+        pulumi.set(__self__, "auto_update", auto_update)
+        pulumi.set(__self__, "auto_update_eta", auto_update_eta)
+        pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "create_time", create_time)
+        pulumi.set(__self__, "data_factory_name", data_factory_name)
+        pulumi.set(__self__, "internal_channel_encryption", internal_channel_encryption)
+        pulumi.set(__self__, "latest_version", latest_version)
+        pulumi.set(__self__, "local_time_zone_offset", local_time_zone_offset)
+        pulumi.set(__self__, "pushed_version", pushed_version)
+        pulumi.set(__self__, "scheduled_update_date", scheduled_update_date)
+        pulumi.set(__self__, "service_urls", service_urls)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "task_queue_id", task_queue_id)
+        pulumi.set(__self__, "type", 'SelfHosted')
+        pulumi.set(__self__, "update_delay_offset", update_delay_offset)
+        pulumi.set(__self__, "version", version)
+        pulumi.set(__self__, "version_status", version_status)
+        if links is not None:
+            pulumi.set(__self__, "links", links)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+
+    @property
+    @pulumi.getter(name="autoUpdate")
+    def auto_update(self) -> str:
+        """
+        Whether Self-hosted integration runtime auto update has been turned on.
+        """
+        return pulumi.get(self, "auto_update")
+
+    @property
+    @pulumi.getter(name="autoUpdateETA")
+    def auto_update_eta(self) -> str:
+        """
+        The estimated time when the self-hosted integration runtime will be updated.
+        """
+        return pulumi.get(self, "auto_update_eta")
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Mapping[str, str]:
+        """
+        Object with additional information about integration runtime capabilities.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> str:
+        """
+        The time at which the integration runtime was created, in ISO8601 format.
+        """
+        return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> str:
+        """
+        The data factory name which the integration runtime belong to.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @property
+    @pulumi.getter(name="internalChannelEncryption")
+    def internal_channel_encryption(self) -> str:
+        """
+        It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
+        """
+        return pulumi.get(self, "internal_channel_encryption")
+
+    @property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> str:
+        """
+        The latest version on download center.
+        """
+        return pulumi.get(self, "latest_version")
+
+    @property
+    @pulumi.getter(name="localTimeZoneOffset")
+    def local_time_zone_offset(self) -> str:
+        """
+        The local time zone offset in hours.
+        """
+        return pulumi.get(self, "local_time_zone_offset")
+
+    @property
+    @pulumi.getter(name="pushedVersion")
+    def pushed_version(self) -> str:
+        """
+        The version that the integration runtime is going to update to.
+        """
+        return pulumi.get(self, "pushed_version")
+
+    @property
+    @pulumi.getter(name="scheduledUpdateDate")
+    def scheduled_update_date(self) -> str:
+        """
+        The date at which the integration runtime will be scheduled to update, in ISO8601 format.
+        """
+        return pulumi.get(self, "scheduled_update_date")
+
+    @property
+    @pulumi.getter(name="serviceUrls")
+    def service_urls(self) -> Sequence[str]:
+        """
+        The URLs for the services used in integration runtime backend service.
+        """
+        return pulumi.get(self, "service_urls")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of integration runtime.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskQueueId")
+    def task_queue_id(self) -> str:
+        """
+        The task queue id of the integration runtime.
+        """
+        return pulumi.get(self, "task_queue_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of integration runtime.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updateDelayOffset")
+    def update_delay_offset(self) -> str:
+        """
+        The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
+        """
+        return pulumi.get(self, "update_delay_offset")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Version of the integration runtime.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="versionStatus")
+    def version_status(self) -> str:
+        """
+        Status of the integration runtime version.
+        """
+        return pulumi.get(self, "version_status")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']]:
+        """
+        The list of linked integration runtimes that are created to share with this integration runtime.
+        """
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']]:
+        """
+        The list of nodes for this integration runtime.
+        """
+        return pulumi.get(self, "nodes")
 
 
 @pulumi.output_type
@@ -29564,6 +30341,667 @@ class SquareObjectDatasetResponse(dict):
 
 
 @pulumi.output_type
+class SsisEnvironmentReferenceResponseResult(dict):
+    """
+    Ssis environment reference.
+    """
+    def __init__(__self__, *,
+                 environment_folder_name: Optional[str] = None,
+                 environment_name: Optional[str] = None,
+                 id: Optional[int] = None,
+                 reference_type: Optional[str] = None):
+        """
+        Ssis environment reference.
+        :param str environment_folder_name: Environment folder name.
+        :param str environment_name: Environment name.
+        :param int id: Environment reference id.
+        :param str reference_type: Reference type
+        """
+        if environment_folder_name is not None:
+            pulumi.set(__self__, "environment_folder_name", environment_folder_name)
+        if environment_name is not None:
+            pulumi.set(__self__, "environment_name", environment_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if reference_type is not None:
+            pulumi.set(__self__, "reference_type", reference_type)
+
+    @property
+    @pulumi.getter(name="environmentFolderName")
+    def environment_folder_name(self) -> Optional[str]:
+        """
+        Environment folder name.
+        """
+        return pulumi.get(self, "environment_folder_name")
+
+    @property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> Optional[str]:
+        """
+        Environment name.
+        """
+        return pulumi.get(self, "environment_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        """
+        Environment reference id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="referenceType")
+    def reference_type(self) -> Optional[str]:
+        """
+        Reference type
+        """
+        return pulumi.get(self, "reference_type")
+
+
+@pulumi.output_type
+class SsisEnvironmentResponseResult(dict):
+    """
+    Ssis environment.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 description: Optional[str] = None,
+                 folder_id: Optional[int] = None,
+                 id: Optional[int] = None,
+                 name: Optional[str] = None,
+                 variables: Optional[Sequence['outputs.SsisVariableResponseResult']] = None):
+        """
+        Ssis environment.
+        :param str type: Type of metadata.
+        :param str description: Metadata description.
+        :param int folder_id: Folder id which contains environment.
+        :param int id: Metadata id.
+        :param str name: Metadata name.
+        :param Sequence['SsisVariableResponseArgs'] variables: Variable in environment
+        """
+        pulumi.set(__self__, "type", 'Environment')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder_id is not None:
+            pulumi.set(__self__, "folder_id", folder_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of metadata.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Metadata description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="folderId")
+    def folder_id(self) -> Optional[int]:
+        """
+        Folder id which contains environment.
+        """
+        return pulumi.get(self, "folder_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        """
+        Metadata id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Metadata name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[Sequence['outputs.SsisVariableResponseResult']]:
+        """
+        Variable in environment
+        """
+        return pulumi.get(self, "variables")
+
+
+@pulumi.output_type
+class SsisFolderResponseResult(dict):
+    """
+    Ssis folder.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 description: Optional[str] = None,
+                 id: Optional[int] = None,
+                 name: Optional[str] = None):
+        """
+        Ssis folder.
+        :param str type: Type of metadata.
+        :param str description: Metadata description.
+        :param int id: Metadata id.
+        :param str name: Metadata name.
+        """
+        pulumi.set(__self__, "type", 'Folder')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of metadata.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Metadata description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        """
+        Metadata id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Metadata name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SsisPackageResponseResult(dict):
+    """
+    Ssis Package.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 description: Optional[str] = None,
+                 folder_id: Optional[int] = None,
+                 id: Optional[int] = None,
+                 name: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
+                 project_id: Optional[int] = None,
+                 project_version: Optional[int] = None):
+        """
+        Ssis Package.
+        :param str type: Type of metadata.
+        :param str description: Metadata description.
+        :param int folder_id: Folder id which contains package.
+        :param int id: Metadata id.
+        :param str name: Metadata name.
+        :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in package
+        :param int project_id: Project id which contains package.
+        :param int project_version: Project version which contains package.
+        """
+        pulumi.set(__self__, "type", 'Package')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder_id is not None:
+            pulumi.set(__self__, "folder_id", folder_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if project_version is not None:
+            pulumi.set(__self__, "project_version", project_version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of metadata.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Metadata description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="folderId")
+    def folder_id(self) -> Optional[int]:
+        """
+        Folder id which contains package.
+        """
+        return pulumi.get(self, "folder_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        """
+        Metadata id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Metadata name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponseResult']]:
+        """
+        Parameters in package
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[int]:
+        """
+        Project id which contains package.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="projectVersion")
+    def project_version(self) -> Optional[int]:
+        """
+        Project version which contains package.
+        """
+        return pulumi.get(self, "project_version")
+
+
+@pulumi.output_type
+class SsisParameterResponseResult(dict):
+    """
+    Ssis parameter.
+    """
+    def __init__(__self__, *,
+                 data_type: Optional[str] = None,
+                 default_value: Optional[str] = None,
+                 description: Optional[str] = None,
+                 design_default_value: Optional[str] = None,
+                 id: Optional[int] = None,
+                 name: Optional[str] = None,
+                 required: Optional[bool] = None,
+                 sensitive: Optional[bool] = None,
+                 sensitive_default_value: Optional[str] = None,
+                 value_set: Optional[bool] = None,
+                 value_type: Optional[str] = None,
+                 variable: Optional[str] = None):
+        """
+        Ssis parameter.
+        :param str data_type: Parameter type.
+        :param str default_value: Default value of parameter.
+        :param str description: Parameter description.
+        :param str design_default_value: Design default value of parameter.
+        :param int id: Parameter id.
+        :param str name: Parameter name.
+        :param bool required: Whether parameter is required.
+        :param bool sensitive: Whether parameter is sensitive.
+        :param str sensitive_default_value: Default sensitive value of parameter.
+        :param bool value_set: Parameter value set.
+        :param str value_type: Parameter value type.
+        :param str variable: Parameter reference variable.
+        """
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if design_default_value is not None:
+            pulumi.set(__self__, "design_default_value", design_default_value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+        if sensitive is not None:
+            pulumi.set(__self__, "sensitive", sensitive)
+        if sensitive_default_value is not None:
+            pulumi.set(__self__, "sensitive_default_value", sensitive_default_value)
+        if value_set is not None:
+            pulumi.set(__self__, "value_set", value_set)
+        if value_type is not None:
+            pulumi.set(__self__, "value_type", value_type)
+        if variable is not None:
+            pulumi.set(__self__, "variable", variable)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[str]:
+        """
+        Parameter type.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        """
+        Default value of parameter.
+        """
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Parameter description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="designDefaultValue")
+    def design_default_value(self) -> Optional[str]:
+        """
+        Design default value of parameter.
+        """
+        return pulumi.get(self, "design_default_value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        """
+        Parameter id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[bool]:
+        """
+        Whether parameter is required.
+        """
+        return pulumi.get(self, "required")
+
+    @property
+    @pulumi.getter
+    def sensitive(self) -> Optional[bool]:
+        """
+        Whether parameter is sensitive.
+        """
+        return pulumi.get(self, "sensitive")
+
+    @property
+    @pulumi.getter(name="sensitiveDefaultValue")
+    def sensitive_default_value(self) -> Optional[str]:
+        """
+        Default sensitive value of parameter.
+        """
+        return pulumi.get(self, "sensitive_default_value")
+
+    @property
+    @pulumi.getter(name="valueSet")
+    def value_set(self) -> Optional[bool]:
+        """
+        Parameter value set.
+        """
+        return pulumi.get(self, "value_set")
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> Optional[str]:
+        """
+        Parameter value type.
+        """
+        return pulumi.get(self, "value_type")
+
+    @property
+    @pulumi.getter
+    def variable(self) -> Optional[str]:
+        """
+        Parameter reference variable.
+        """
+        return pulumi.get(self, "variable")
+
+
+@pulumi.output_type
+class SsisProjectResponseResult(dict):
+    """
+    Ssis project.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 description: Optional[str] = None,
+                 environment_refs: Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']] = None,
+                 folder_id: Optional[int] = None,
+                 id: Optional[int] = None,
+                 name: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
+                 version: Optional[int] = None):
+        """
+        Ssis project.
+        :param str type: Type of metadata.
+        :param str description: Metadata description.
+        :param Sequence['SsisEnvironmentReferenceResponseArgs'] environment_refs: Environment reference in project
+        :param int folder_id: Folder id which contains project.
+        :param int id: Metadata id.
+        :param str name: Metadata name.
+        :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in project
+        :param int version: Project version.
+        """
+        pulumi.set(__self__, "type", 'Project')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if environment_refs is not None:
+            pulumi.set(__self__, "environment_refs", environment_refs)
+        if folder_id is not None:
+            pulumi.set(__self__, "folder_id", folder_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of metadata.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Metadata description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="environmentRefs")
+    def environment_refs(self) -> Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']]:
+        """
+        Environment reference in project
+        """
+        return pulumi.get(self, "environment_refs")
+
+    @property
+    @pulumi.getter(name="folderId")
+    def folder_id(self) -> Optional[int]:
+        """
+        Folder id which contains project.
+        """
+        return pulumi.get(self, "folder_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        """
+        Metadata id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Metadata name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponseResult']]:
+        """
+        Parameters in project
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[int]:
+        """
+        Project version.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class SsisVariableResponseResult(dict):
+    """
+    Ssis variable.
+    """
+    def __init__(__self__, *,
+                 data_type: Optional[str] = None,
+                 description: Optional[str] = None,
+                 id: Optional[int] = None,
+                 name: Optional[str] = None,
+                 sensitive: Optional[bool] = None,
+                 sensitive_value: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Ssis variable.
+        :param str data_type: Variable type.
+        :param str description: Variable description.
+        :param int id: Variable id.
+        :param str name: Variable name.
+        :param bool sensitive: Whether variable is sensitive.
+        :param str sensitive_value: Variable sensitive value.
+        :param str value: Variable value.
+        """
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sensitive is not None:
+            pulumi.set(__self__, "sensitive", sensitive)
+        if sensitive_value is not None:
+            pulumi.set(__self__, "sensitive_value", sensitive_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[str]:
+        """
+        Variable type.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Variable description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        """
+        Variable id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Variable name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sensitive(self) -> Optional[bool]:
+        """
+        Whether variable is sensitive.
+        """
+        return pulumi.get(self, "sensitive")
+
+    @property
+    @pulumi.getter(name="sensitiveValue")
+    def sensitive_value(self) -> Optional[str]:
+        """
+        Variable sensitive value.
+        """
+        return pulumi.get(self, "sensitive_value")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Variable value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class SybaseLinkedServiceResponse(dict):
     """
     Linked service for Sybase data source.
@@ -30580,6 +32018,77 @@ class TumblingWindowTriggerResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserAccessPolicyResponseResult(dict):
+    """
+    Get Data Plane read only token request definition.
+    """
+    def __init__(__self__, *,
+                 access_resource_path: Optional[str] = None,
+                 expire_time: Optional[str] = None,
+                 permissions: Optional[str] = None,
+                 profile_name: Optional[str] = None,
+                 start_time: Optional[str] = None):
+        """
+        Get Data Plane read only token request definition.
+        :param str access_resource_path: The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
+        :param str expire_time: Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.
+        :param str permissions: The string with permissions for Data Plane access. Currently only 'r' is supported which grants read only access.
+        :param str profile_name: The name of the profile. Currently only the default is supported. The default value is DefaultProfile.
+        :param str start_time: Start time for the token. If not specified the current time will be used.
+        """
+        if access_resource_path is not None:
+            pulumi.set(__self__, "access_resource_path", access_resource_path)
+        if expire_time is not None:
+            pulumi.set(__self__, "expire_time", expire_time)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if profile_name is not None:
+            pulumi.set(__self__, "profile_name", profile_name)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="accessResourcePath")
+    def access_resource_path(self) -> Optional[str]:
+        """
+        The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
+        """
+        return pulumi.get(self, "access_resource_path")
+
+    @property
+    @pulumi.getter(name="expireTime")
+    def expire_time(self) -> Optional[str]:
+        """
+        Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.
+        """
+        return pulumi.get(self, "expire_time")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[str]:
+        """
+        The string with permissions for Data Plane access. Currently only 'r' is supported which grants read only access.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> Optional[str]:
+        """
+        The name of the profile. Currently only the default is supported. The default value is DefaultProfile.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Start time for the token. If not specified the current time will be used.
+        """
+        return pulumi.get(self, "start_time")
 
 
 @pulumi.output_type

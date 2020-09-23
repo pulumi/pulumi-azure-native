@@ -40,7 +40,11 @@ from .get_security_rule import *
 from .get_subnet import *
 from .get_virtual_network import *
 from .get_virtual_network_gateway import *
+from .get_virtual_network_gateway_advertised_routes import *
+from .get_virtual_network_gateway_bgp_peer_status import *
 from .get_virtual_network_gateway_connection import *
+from .get_virtual_network_gateway_learned_routes import *
+from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .get_virtual_network_peering import *
 from .inbound_nat_rule import *
 from .load_balancer import *

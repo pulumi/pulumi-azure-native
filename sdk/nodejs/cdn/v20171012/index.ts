@@ -7,4 +7,5 @@ export * from "./endpoint";
 export * from "./getCustomDomain";
 export * from "./getEndpoint";
 export * from "./getProfile";
+export * from "./getProfileSupportedOptimizationTypes";
 export * from "./profile";

@@ -15,6 +15,8 @@ __all__ = [
     'ApplicationGatewayAutoscaleConfigurationResponse',
     'ApplicationGatewayBackendAddressPoolResponse',
     'ApplicationGatewayBackendAddressResponse',
+    'ApplicationGatewayBackendHealthHttpSettingsResponseResult',
+    'ApplicationGatewayBackendHealthServerResponseResult',
     'ApplicationGatewayBackendHttpSettingsResponse',
     'ApplicationGatewayConnectionDrainingResponse',
     'ApplicationGatewayCustomErrorResponse',
@@ -57,6 +59,7 @@ __all__ = [
     'BackendPoolsSettingsResponse',
     'BackendResponse',
     'BastionHostIPConfigurationResponse',
+    'BgpPeerStatusResponseResult',
     'BgpSettingsResponse',
     'CacheConfigurationResponse',
     'ConnectionMonitorDestinationResponse',
@@ -87,6 +90,7 @@ __all__ = [
     'FrontendEndpointResponse',
     'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink',
     'FrontendIPConfigurationResponse',
+    'GatewayRouteResponseResult',
     'HealthProbeSettingsModelResponse',
     'HubVirtualNetworkConnectionResponse',
     'IPConfigurationProfileResponse',
@@ -158,6 +162,7 @@ __all__ = [
     'VirtualNetworkPeeringResponse',
     'VirtualNetworkTapResponse',
     'VpnClientConfigurationResponse',
+    'VpnClientConnectionHealthDetailResponseResult',
     'VpnClientConnectionHealthResponse',
     'VpnClientRevokedCertificateResponse',
     'VpnClientRootCertificateResponse',
@@ -448,6 +453,100 @@ class ApplicationGatewayBackendAddressResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ApplicationGatewayBackendHealthHttpSettingsResponseResult(dict):
+    """
+    Application gateway BackendHealthHttp settings.
+    """
+    def __init__(__self__, *,
+                 backend_http_settings: Optional['outputs.ApplicationGatewayBackendHttpSettingsResponse'] = None,
+                 servers: Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponseResult']] = None):
+        """
+        Application gateway BackendHealthHttp settings.
+        :param 'ApplicationGatewayBackendHttpSettingsResponseArgs' backend_http_settings: Reference of an ApplicationGatewayBackendHttpSettings resource.
+        :param Sequence['ApplicationGatewayBackendHealthServerResponseArgs'] servers: List of ApplicationGatewayBackendHealthServer resources.
+        """
+        if backend_http_settings is not None:
+            pulumi.set(__self__, "backend_http_settings", backend_http_settings)
+        if servers is not None:
+            pulumi.set(__self__, "servers", servers)
+
+    @property
+    @pulumi.getter(name="backendHttpSettings")
+    def backend_http_settings(self) -> Optional['outputs.ApplicationGatewayBackendHttpSettingsResponse']:
+        """
+        Reference of an ApplicationGatewayBackendHttpSettings resource.
+        """
+        return pulumi.get(self, "backend_http_settings")
+
+    @property
+    @pulumi.getter
+    def servers(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponseResult']]:
+        """
+        List of ApplicationGatewayBackendHealthServer resources.
+        """
+        return pulumi.get(self, "servers")
+
+
+@pulumi.output_type
+class ApplicationGatewayBackendHealthServerResponseResult(dict):
+    """
+    Application gateway backendhealth http settings.
+    """
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 health: Optional[str] = None,
+                 health_probe_log: Optional[str] = None,
+                 ip_configuration: Optional['outputs.NetworkInterfaceIPConfigurationResponse'] = None):
+        """
+        Application gateway backendhealth http settings.
+        :param str address: IP address or FQDN of backend server.
+        :param str health: Health of backend server.
+        :param str health_probe_log: Health Probe Log.
+        :param 'NetworkInterfaceIPConfigurationResponseArgs' ip_configuration: Reference of IP configuration of backend server.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if health is not None:
+            pulumi.set(__self__, "health", health)
+        if health_probe_log is not None:
+            pulumi.set(__self__, "health_probe_log", health_probe_log)
+        if ip_configuration is not None:
+            pulumi.set(__self__, "ip_configuration", ip_configuration)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        IP address or FQDN of backend server.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def health(self) -> Optional[str]:
+        """
+        Health of backend server.
+        """
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter(name="healthProbeLog")
+    def health_probe_log(self) -> Optional[str]:
+        """
+        Health Probe Log.
+        """
+        return pulumi.get(self, "health_probe_log")
+
+    @property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> Optional['outputs.NetworkInterfaceIPConfigurationResponse']:
+        """
+        Reference of IP configuration of backend server.
+        """
+        return pulumi.get(self, "ip_configuration")
 
 
 @pulumi.output_type
@@ -4551,6 +4650,105 @@ class BastionHostIPConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class BgpPeerStatusResponseResult(dict):
+    """
+    BGP peer status details.
+    """
+    def __init__(__self__, *,
+                 asn: int,
+                 connected_duration: str,
+                 local_address: str,
+                 messages_received: int,
+                 messages_sent: int,
+                 neighbor: str,
+                 routes_received: int,
+                 state: str):
+        """
+        BGP peer status details.
+        :param int asn: The autonomous system number of the remote BGP peer.
+        :param str connected_duration: For how long the peering has been up.
+        :param str local_address: The virtual network gateway's local address.
+        :param int messages_received: The number of BGP messages received.
+        :param int messages_sent: The number of BGP messages sent.
+        :param str neighbor: The remote BGP peer.
+        :param int routes_received: The number of routes learned from this peer.
+        :param str state: The BGP peer state.
+        """
+        pulumi.set(__self__, "asn", asn)
+        pulumi.set(__self__, "connected_duration", connected_duration)
+        pulumi.set(__self__, "local_address", local_address)
+        pulumi.set(__self__, "messages_received", messages_received)
+        pulumi.set(__self__, "messages_sent", messages_sent)
+        pulumi.set(__self__, "neighbor", neighbor)
+        pulumi.set(__self__, "routes_received", routes_received)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> int:
+        """
+        The autonomous system number of the remote BGP peer.
+        """
+        return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter(name="connectedDuration")
+    def connected_duration(self) -> str:
+        """
+        For how long the peering has been up.
+        """
+        return pulumi.get(self, "connected_duration")
+
+    @property
+    @pulumi.getter(name="localAddress")
+    def local_address(self) -> str:
+        """
+        The virtual network gateway's local address.
+        """
+        return pulumi.get(self, "local_address")
+
+    @property
+    @pulumi.getter(name="messagesReceived")
+    def messages_received(self) -> int:
+        """
+        The number of BGP messages received.
+        """
+        return pulumi.get(self, "messages_received")
+
+    @property
+    @pulumi.getter(name="messagesSent")
+    def messages_sent(self) -> int:
+        """
+        The number of BGP messages sent.
+        """
+        return pulumi.get(self, "messages_sent")
+
+    @property
+    @pulumi.getter
+    def neighbor(self) -> str:
+        """
+        The remote BGP peer.
+        """
+        return pulumi.get(self, "neighbor")
+
+    @property
+    @pulumi.getter(name="routesReceived")
+    def routes_received(self) -> int:
+        """
+        The number of routes learned from this peer.
+        """
+        return pulumi.get(self, "routes_received")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The BGP peer state.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class BgpSettingsResponse(dict):
     """
     BGP settings details.
@@ -6822,6 +7020,94 @@ class FrontendIPConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteResponseResult(dict):
+    """
+    Gateway routing details.
+    """
+    def __init__(__self__, *,
+                 as_path: str,
+                 local_address: str,
+                 network: str,
+                 next_hop: str,
+                 origin: str,
+                 source_peer: str,
+                 weight: int):
+        """
+        Gateway routing details.
+        :param str as_path: The route's AS path sequence.
+        :param str local_address: The gateway's local address.
+        :param str network: The route's network prefix.
+        :param str next_hop: The route's next hop.
+        :param str origin: The source this route was learned from.
+        :param str source_peer: The peer this route was learned from.
+        :param int weight: The route's weight.
+        """
+        pulumi.set(__self__, "as_path", as_path)
+        pulumi.set(__self__, "local_address", local_address)
+        pulumi.set(__self__, "network", network)
+        pulumi.set(__self__, "next_hop", next_hop)
+        pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "source_peer", source_peer)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="asPath")
+    def as_path(self) -> str:
+        """
+        The route's AS path sequence.
+        """
+        return pulumi.get(self, "as_path")
+
+    @property
+    @pulumi.getter(name="localAddress")
+    def local_address(self) -> str:
+        """
+        The gateway's local address.
+        """
+        return pulumi.get(self, "local_address")
+
+    @property
+    @pulumi.getter
+    def network(self) -> str:
+        """
+        The route's network prefix.
+        """
+        return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter(name="nextHop")
+    def next_hop(self) -> str:
+        """
+        The route's next hop.
+        """
+        return pulumi.get(self, "next_hop")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> str:
+        """
+        The source this route was learned from.
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter(name="sourcePeer")
+    def source_peer(self) -> str:
+        """
+        The peer this route was learned from.
+        """
+        return pulumi.get(self, "source_peer")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        """
+        The route's weight.
+        """
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
@@ -13755,6 +14041,149 @@ class VpnClientConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VpnClientConnectionHealthDetailResponseResult(dict):
+    """
+    VPN client connection health detail.
+    """
+    def __init__(__self__, *,
+                 egress_bytes_transferred: int,
+                 egress_packets_transferred: int,
+                 ingress_bytes_transferred: int,
+                 ingress_packets_transferred: int,
+                 max_bandwidth: int,
+                 max_packets_per_second: int,
+                 private_ip_address: str,
+                 public_ip_address: str,
+                 vpn_connection_duration: int,
+                 vpn_connection_id: str,
+                 vpn_connection_time: str,
+                 vpn_user_name: str):
+        """
+        VPN client connection health detail.
+        :param int egress_bytes_transferred: The egress bytes per second.
+        :param int egress_packets_transferred: The egress packets per second.
+        :param int ingress_bytes_transferred: The ingress bytes per second.
+        :param int ingress_packets_transferred: The ingress packets per second.
+        :param int max_bandwidth: The max band width.
+        :param int max_packets_per_second: The max packets transferred per second.
+        :param str private_ip_address: The assigned private Ip of a connected vpn client.
+        :param str public_ip_address: The public Ip of a connected vpn client.
+        :param int vpn_connection_duration: The duration time of a connected vpn client.
+        :param str vpn_connection_id: The vpn client Id.
+        :param str vpn_connection_time: The start time of a connected vpn client.
+        :param str vpn_user_name: The user name of a connected vpn client.
+        """
+        pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
+        pulumi.set(__self__, "egress_packets_transferred", egress_packets_transferred)
+        pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
+        pulumi.set(__self__, "ingress_packets_transferred", ingress_packets_transferred)
+        pulumi.set(__self__, "max_bandwidth", max_bandwidth)
+        pulumi.set(__self__, "max_packets_per_second", max_packets_per_second)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        pulumi.set(__self__, "vpn_connection_duration", vpn_connection_duration)
+        pulumi.set(__self__, "vpn_connection_id", vpn_connection_id)
+        pulumi.set(__self__, "vpn_connection_time", vpn_connection_time)
+        pulumi.set(__self__, "vpn_user_name", vpn_user_name)
+
+    @property
+    @pulumi.getter(name="egressBytesTransferred")
+    def egress_bytes_transferred(self) -> int:
+        """
+        The egress bytes per second.
+        """
+        return pulumi.get(self, "egress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="egressPacketsTransferred")
+    def egress_packets_transferred(self) -> int:
+        """
+        The egress packets per second.
+        """
+        return pulumi.get(self, "egress_packets_transferred")
+
+    @property
+    @pulumi.getter(name="ingressBytesTransferred")
+    def ingress_bytes_transferred(self) -> int:
+        """
+        The ingress bytes per second.
+        """
+        return pulumi.get(self, "ingress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="ingressPacketsTransferred")
+    def ingress_packets_transferred(self) -> int:
+        """
+        The ingress packets per second.
+        """
+        return pulumi.get(self, "ingress_packets_transferred")
+
+    @property
+    @pulumi.getter(name="maxBandwidth")
+    def max_bandwidth(self) -> int:
+        """
+        The max band width.
+        """
+        return pulumi.get(self, "max_bandwidth")
+
+    @property
+    @pulumi.getter(name="maxPacketsPerSecond")
+    def max_packets_per_second(self) -> int:
+        """
+        The max packets transferred per second.
+        """
+        return pulumi.get(self, "max_packets_per_second")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        """
+        The assigned private Ip of a connected vpn client.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> str:
+        """
+        The public Ip of a connected vpn client.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter(name="vpnConnectionDuration")
+    def vpn_connection_duration(self) -> int:
+        """
+        The duration time of a connected vpn client.
+        """
+        return pulumi.get(self, "vpn_connection_duration")
+
+    @property
+    @pulumi.getter(name="vpnConnectionId")
+    def vpn_connection_id(self) -> str:
+        """
+        The vpn client Id.
+        """
+        return pulumi.get(self, "vpn_connection_id")
+
+    @property
+    @pulumi.getter(name="vpnConnectionTime")
+    def vpn_connection_time(self) -> str:
+        """
+        The start time of a connected vpn client.
+        """
+        return pulumi.get(self, "vpn_connection_time")
+
+    @property
+    @pulumi.getter(name="vpnUserName")
+    def vpn_user_name(self) -> str:
+        """
+        The user name of a connected vpn client.
+        """
+        return pulumi.get(self, "vpn_user_name")
 
 
 @pulumi.output_type

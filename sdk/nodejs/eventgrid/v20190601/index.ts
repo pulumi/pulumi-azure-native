@@ -8,6 +8,7 @@ export * from "./eventSubscription";
 export * from "./getDomain";
 export * from "./getDomainTopic";
 export * from "./getEventSubscription";
+export * from "./getEventSubscriptionFullUrl";
 export * from "./getTopic";
 export * from "./listDomainSharedAccessKeys";
 export * from "./listTopicSharedAccessKeys";

@@ -9,8 +9,13 @@ from .gallery_image import *
 from .get_environment import *
 from .get_environment_setting import *
 from .get_gallery_image import *
+from .get_global_user_environment import *
+from .get_global_user_operation_batch_status import *
+from .get_global_user_operation_status import *
+from .get_global_user_personal_preferences import *
 from .get_lab import *
 from .get_lab_account import *
+from .get_lab_account_regional_availability import *
 from .get_user import *
 from .lab import *
 from .lab_account import *

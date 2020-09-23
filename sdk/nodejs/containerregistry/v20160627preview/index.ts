@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./getRegistry";
+export * from "./getRegistryCredentials";
 export * from "./registry";

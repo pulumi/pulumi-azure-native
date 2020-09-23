@@ -9,6 +9,7 @@ from .get_custom_domain import *
 from .get_endpoint import *
 from .get_policy import *
 from .get_profile import *
+from .get_profile_supported_optimization_types import *
 from .policy import *
 from .profile import *
 from ._inputs import *

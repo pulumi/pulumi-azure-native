@@ -1124,6 +1124,124 @@ func (o AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput) Index(i pulum
 	}).(AkamaiSignatureHeaderAuthenticationKeyResponseOutput)
 }
 
+// The Asset File Storage encryption metadata.
+type AssetFileEncryptionMetadataResponse struct {
+	// The Asset File Id.
+	AssetFileId string `pulumi:"assetFileId"`
+	// The Asset File name.
+	AssetFileName *string `pulumi:"assetFileName"`
+	// The Asset File initialization vector.
+	InitializationVector *string `pulumi:"initializationVector"`
+}
+
+// AssetFileEncryptionMetadataResponseInput is an input type that accepts AssetFileEncryptionMetadataResponseArgs and AssetFileEncryptionMetadataResponseOutput values.
+// You can construct a concrete instance of `AssetFileEncryptionMetadataResponseInput` via:
+//
+//          AssetFileEncryptionMetadataResponseArgs{...}
+type AssetFileEncryptionMetadataResponseInput interface {
+	pulumi.Input
+
+	ToAssetFileEncryptionMetadataResponseOutput() AssetFileEncryptionMetadataResponseOutput
+	ToAssetFileEncryptionMetadataResponseOutputWithContext(context.Context) AssetFileEncryptionMetadataResponseOutput
+}
+
+// The Asset File Storage encryption metadata.
+type AssetFileEncryptionMetadataResponseArgs struct {
+	// The Asset File Id.
+	AssetFileId pulumi.StringInput `pulumi:"assetFileId"`
+	// The Asset File name.
+	AssetFileName pulumi.StringPtrInput `pulumi:"assetFileName"`
+	// The Asset File initialization vector.
+	InitializationVector pulumi.StringPtrInput `pulumi:"initializationVector"`
+}
+
+func (AssetFileEncryptionMetadataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFileEncryptionMetadataResponse)(nil)).Elem()
+}
+
+func (i AssetFileEncryptionMetadataResponseArgs) ToAssetFileEncryptionMetadataResponseOutput() AssetFileEncryptionMetadataResponseOutput {
+	return i.ToAssetFileEncryptionMetadataResponseOutputWithContext(context.Background())
+}
+
+func (i AssetFileEncryptionMetadataResponseArgs) ToAssetFileEncryptionMetadataResponseOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFileEncryptionMetadataResponseOutput)
+}
+
+// AssetFileEncryptionMetadataResponseArrayInput is an input type that accepts AssetFileEncryptionMetadataResponseArray and AssetFileEncryptionMetadataResponseArrayOutput values.
+// You can construct a concrete instance of `AssetFileEncryptionMetadataResponseArrayInput` via:
+//
+//          AssetFileEncryptionMetadataResponseArray{ AssetFileEncryptionMetadataResponseArgs{...} }
+type AssetFileEncryptionMetadataResponseArrayInput interface {
+	pulumi.Input
+
+	ToAssetFileEncryptionMetadataResponseArrayOutput() AssetFileEncryptionMetadataResponseArrayOutput
+	ToAssetFileEncryptionMetadataResponseArrayOutputWithContext(context.Context) AssetFileEncryptionMetadataResponseArrayOutput
+}
+
+type AssetFileEncryptionMetadataResponseArray []AssetFileEncryptionMetadataResponseInput
+
+func (AssetFileEncryptionMetadataResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetFileEncryptionMetadataResponse)(nil)).Elem()
+}
+
+func (i AssetFileEncryptionMetadataResponseArray) ToAssetFileEncryptionMetadataResponseArrayOutput() AssetFileEncryptionMetadataResponseArrayOutput {
+	return i.ToAssetFileEncryptionMetadataResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AssetFileEncryptionMetadataResponseArray) ToAssetFileEncryptionMetadataResponseArrayOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFileEncryptionMetadataResponseArrayOutput)
+}
+
+// The Asset File Storage encryption metadata.
+type AssetFileEncryptionMetadataResponseOutput struct{ *pulumi.OutputState }
+
+func (AssetFileEncryptionMetadataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFileEncryptionMetadataResponse)(nil)).Elem()
+}
+
+func (o AssetFileEncryptionMetadataResponseOutput) ToAssetFileEncryptionMetadataResponseOutput() AssetFileEncryptionMetadataResponseOutput {
+	return o
+}
+
+func (o AssetFileEncryptionMetadataResponseOutput) ToAssetFileEncryptionMetadataResponseOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataResponseOutput {
+	return o
+}
+
+// The Asset File Id.
+func (o AssetFileEncryptionMetadataResponseOutput) AssetFileId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetFileEncryptionMetadataResponse) string { return v.AssetFileId }).(pulumi.StringOutput)
+}
+
+// The Asset File name.
+func (o AssetFileEncryptionMetadataResponseOutput) AssetFileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetFileEncryptionMetadataResponse) *string { return v.AssetFileName }).(pulumi.StringPtrOutput)
+}
+
+// The Asset File initialization vector.
+func (o AssetFileEncryptionMetadataResponseOutput) InitializationVector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetFileEncryptionMetadataResponse) *string { return v.InitializationVector }).(pulumi.StringPtrOutput)
+}
+
+type AssetFileEncryptionMetadataResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetFileEncryptionMetadataResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetFileEncryptionMetadataResponse)(nil)).Elem()
+}
+
+func (o AssetFileEncryptionMetadataResponseArrayOutput) ToAssetFileEncryptionMetadataResponseArrayOutput() AssetFileEncryptionMetadataResponseArrayOutput {
+	return o
+}
+
+func (o AssetFileEncryptionMetadataResponseArrayOutput) ToAssetFileEncryptionMetadataResponseArrayOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataResponseArrayOutput {
+	return o
+}
+
+func (o AssetFileEncryptionMetadataResponseArrayOutput) Index(i pulumi.IntInput) AssetFileEncryptionMetadataResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetFileEncryptionMetadataResponse {
+		return vs[0].([]AssetFileEncryptionMetadataResponse)[vs[1].(int)]
+	}).(AssetFileEncryptionMetadataResponseOutput)
+}
+
 // Properties of the Streaming Locator.
 type AssetStreamingLocatorResponse struct {
 	// Asset Name.
@@ -20556,6 +20674,8 @@ func init() {
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyArrayOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(AssetFileEncryptionMetadataResponseOutput{})
+	pulumi.RegisterOutputType(AssetFileEncryptionMetadataResponseArrayOutput{})
 	pulumi.RegisterOutputType(AssetStreamingLocatorResponseOutput{})
 	pulumi.RegisterOutputType(AssetStreamingLocatorResponseArrayOutput{})
 	pulumi.RegisterOutputType(AudioOutput{})

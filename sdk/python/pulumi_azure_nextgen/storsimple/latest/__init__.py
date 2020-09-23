@@ -22,6 +22,7 @@ from .get_file_share import *
 from .get_iscsi_disk import *
 from .get_iscsi_server import *
 from .get_manager import *
+from .get_manager_encryption_key import *
 from .get_manager_extended_info import *
 from .get_storage_account_credential import *
 from .get_storage_domain import *

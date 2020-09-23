@@ -7,6 +7,8 @@ export * from "./connectorMapping";
 export * from "./getConnector";
 export * from "./getConnectorMapping";
 export * from "./getHub";
+export * from "./getImageUploadUrlForData";
+export * from "./getImageUploadUrlForEntityType";
 export * from "./getKpi";
 export * from "./getLink";
 export * from "./getProfile";

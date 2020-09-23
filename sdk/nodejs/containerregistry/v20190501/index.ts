@@ -5,6 +5,7 @@
 export * from "./getRegistry";
 export * from "./getReplication";
 export * from "./getWebhook";
+export * from "./getWebhookCallbackConfig";
 export * from "./listRegistryCredentials";
 export * from "./listWebhookEvents";
 export * from "./registry";

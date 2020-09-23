@@ -7,6 +7,7 @@ from .get_registry import *
 from .get_replication import *
 from .get_task import *
 from .get_webhook import *
+from .get_webhook_callback_config import *
 from .list_registry_build_source_upload_url import *
 from .list_registry_credentials import *
 from .list_run_log_sas_url import *

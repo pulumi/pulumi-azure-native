@@ -16,9 +16,12 @@ __all__ = [
     'LabDetailsResponseResult',
     'LatestOperationResultResponse',
     'NetworkInterfaceResponse',
+    'OperationBatchStatusResponseItemResponseResult',
     'ReferenceVmResponse',
+    'RegionalAvailabilityResponseResult',
     'ResourceSetResponse',
     'ResourceSettingsResponse',
+    'SizeAvailabilityResponseResult',
     'SizeConfigurationPropertiesResponse',
     'SizeInfoResponse',
     'VirtualMachineDetailsResponseResult',
@@ -477,6 +480,39 @@ class NetworkInterfaceResponse(dict):
 
 
 @pulumi.output_type
+class OperationBatchStatusResponseItemResponseResult(dict):
+    """
+    Represents the status of an operation that used the batch API.
+    """
+    def __init__(__self__, *,
+                 operation_url: str,
+                 status: str):
+        """
+        Represents the status of an operation that used the batch API.
+        :param str operation_url: status of the long running operation for an environment
+        :param str status: status of the long running operation for an environment
+        """
+        pulumi.set(__self__, "operation_url", operation_url)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="operationUrl")
+    def operation_url(self) -> str:
+        """
+        status of the long running operation for an environment
+        """
+        return pulumi.get(self, "operation_url")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        status of the long running operation for an environment
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class ReferenceVmResponse(dict):
     """
     Details of a Reference Vm
@@ -533,6 +569,41 @@ class ReferenceVmResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RegionalAvailabilityResponseResult(dict):
+    """
+    The availability information of sizes across regions
+    """
+    def __init__(__self__, *,
+                 region: Optional[str] = None,
+                 size_availabilities: Optional[Sequence['outputs.SizeAvailabilityResponseResult']] = None):
+        """
+        The availability information of sizes across regions
+        :param str region: Corresponding region
+        :param Sequence['SizeAvailabilityResponseArgs'] size_availabilities: List of all the size information for the region
+        """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if size_availabilities is not None:
+            pulumi.set(__self__, "size_availabilities", size_availabilities)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Corresponding region
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="sizeAvailabilities")
+    def size_availabilities(self) -> Optional[Sequence['outputs.SizeAvailabilityResponseResult']]:
+        """
+        List of all the size information for the region
+        """
+        return pulumi.get(self, "size_availabilities")
 
 
 @pulumi.output_type
@@ -653,6 +724,41 @@ class ResourceSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SizeAvailabilityResponseResult(dict):
+    """
+    Represents the size information
+    """
+    def __init__(__self__, *,
+                 is_available: Optional[bool] = None,
+                 size_category: Optional[str] = None):
+        """
+        Represents the size information
+        :param bool is_available: Whether or not this size category is available
+        :param str size_category: The category of the size (Basic, Standard, Performance).
+        """
+        if is_available is not None:
+            pulumi.set(__self__, "is_available", is_available)
+        if size_category is not None:
+            pulumi.set(__self__, "size_category", size_category)
+
+    @property
+    @pulumi.getter(name="isAvailable")
+    def is_available(self) -> Optional[bool]:
+        """
+        Whether or not this size category is available
+        """
+        return pulumi.get(self, "is_available")
+
+    @property
+    @pulumi.getter(name="sizeCategory")
+    def size_category(self) -> Optional[str]:
+        """
+        The category of the size (Basic, Standard, Performance).
+        """
+        return pulumi.get(self, "size_category")
 
 
 @pulumi.output_type

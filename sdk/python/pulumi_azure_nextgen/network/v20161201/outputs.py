@@ -29,6 +29,7 @@ __all__ = [
     'ApplicationGatewayUrlPathMapResponse',
     'ApplicationGatewayWebApplicationFirewallConfigurationResponse',
     'BackendAddressPoolResponse',
+    'BgpPeerStatusResponseResult',
     'BgpSettingsResponse',
     'DhcpOptionsResponse',
     'ExpressRouteCircuitAuthorizationResponse',
@@ -38,6 +39,7 @@ __all__ = [
     'ExpressRouteCircuitSkuResponse',
     'ExpressRouteCircuitStatsResponse',
     'FrontendIPConfigurationResponse',
+    'GatewayRouteResponseResult',
     'IPConfigurationResponse',
     'InboundNatPoolResponse',
     'InboundNatRuleResponse',
@@ -1628,6 +1630,101 @@ class BackendAddressPoolResponse(dict):
 
 
 @pulumi.output_type
+class BgpPeerStatusResponseResult(dict):
+    def __init__(__self__, *,
+                 asn: int,
+                 connected_duration: str,
+                 local_address: str,
+                 messages_received: int,
+                 messages_sent: int,
+                 neighbor: str,
+                 routes_received: int,
+                 state: str):
+        """
+        :param int asn: The autonomous system number of the remote BGP peer
+        :param str connected_duration: For how long the peering has been up
+        :param str local_address: The virtual network gateway's local address
+        :param int messages_received: The number of BGP messages received
+        :param int messages_sent: The number of BGP messages sent
+        :param str neighbor: The remote BGP peer
+        :param int routes_received: The number of routes learned from this peer
+        :param str state: The BGP peer state
+        """
+        pulumi.set(__self__, "asn", asn)
+        pulumi.set(__self__, "connected_duration", connected_duration)
+        pulumi.set(__self__, "local_address", local_address)
+        pulumi.set(__self__, "messages_received", messages_received)
+        pulumi.set(__self__, "messages_sent", messages_sent)
+        pulumi.set(__self__, "neighbor", neighbor)
+        pulumi.set(__self__, "routes_received", routes_received)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> int:
+        """
+        The autonomous system number of the remote BGP peer
+        """
+        return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter(name="connectedDuration")
+    def connected_duration(self) -> str:
+        """
+        For how long the peering has been up
+        """
+        return pulumi.get(self, "connected_duration")
+
+    @property
+    @pulumi.getter(name="localAddress")
+    def local_address(self) -> str:
+        """
+        The virtual network gateway's local address
+        """
+        return pulumi.get(self, "local_address")
+
+    @property
+    @pulumi.getter(name="messagesReceived")
+    def messages_received(self) -> int:
+        """
+        The number of BGP messages received
+        """
+        return pulumi.get(self, "messages_received")
+
+    @property
+    @pulumi.getter(name="messagesSent")
+    def messages_sent(self) -> int:
+        """
+        The number of BGP messages sent
+        """
+        return pulumi.get(self, "messages_sent")
+
+    @property
+    @pulumi.getter
+    def neighbor(self) -> str:
+        """
+        The remote BGP peer
+        """
+        return pulumi.get(self, "neighbor")
+
+    @property
+    @pulumi.getter(name="routesReceived")
+    def routes_received(self) -> int:
+        """
+        The number of routes learned from this peer
+        """
+        return pulumi.get(self, "routes_received")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The BGP peer state
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class BgpSettingsResponse(dict):
     def __init__(__self__, *,
                  asn: Optional[int] = None,
@@ -2401,6 +2498,90 @@ class FrontendIPConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteResponseResult(dict):
+    def __init__(__self__, *,
+                 as_path: str,
+                 local_address: str,
+                 network: str,
+                 next_hop: str,
+                 origin: str,
+                 source_peer: str,
+                 weight: int):
+        """
+        :param str as_path: The route's AS path sequence
+        :param str local_address: The gateway's local address
+        :param str network: The route's network prefix
+        :param str next_hop: The route's next hop
+        :param str origin: The source this route was learned from
+        :param str source_peer: The peer this route was learned from
+        :param int weight: The route's weight
+        """
+        pulumi.set(__self__, "as_path", as_path)
+        pulumi.set(__self__, "local_address", local_address)
+        pulumi.set(__self__, "network", network)
+        pulumi.set(__self__, "next_hop", next_hop)
+        pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "source_peer", source_peer)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="asPath")
+    def as_path(self) -> str:
+        """
+        The route's AS path sequence
+        """
+        return pulumi.get(self, "as_path")
+
+    @property
+    @pulumi.getter(name="localAddress")
+    def local_address(self) -> str:
+        """
+        The gateway's local address
+        """
+        return pulumi.get(self, "local_address")
+
+    @property
+    @pulumi.getter
+    def network(self) -> str:
+        """
+        The route's network prefix
+        """
+        return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter(name="nextHop")
+    def next_hop(self) -> str:
+        """
+        The route's next hop
+        """
+        return pulumi.get(self, "next_hop")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> str:
+        """
+        The source this route was learned from
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter(name="sourcePeer")
+    def source_peer(self) -> str:
+        """
+        The peer this route was learned from
+        """
+        return pulumi.get(self, "source_peer")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        """
+        The route's weight
+        """
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type

@@ -7,6 +7,8 @@ export * from "./disk";
 export * from "./getAvailabilitySet";
 export * from "./getDisk";
 export * from "./getImage";
+export * from "./getLogAnalyticExportRequestRateByInterval";
+export * from "./getLogAnalyticExportThrottledRequests";
 export * from "./getProximityPlacementGroup";
 export * from "./getSnapshot";
 export * from "./getVirtualMachine";

@@ -10,6 +10,8 @@ from .get_availability_set import *
 from .get_dedicated_host import *
 from .get_dedicated_host_group import *
 from .get_image import *
+from .get_log_analytic_export_request_rate_by_interval import *
+from .get_log_analytic_export_throttled_requests import *
 from .get_proximity_placement_group import *
 from .get_ssh_public_key import *
 from .get_virtual_machine import *

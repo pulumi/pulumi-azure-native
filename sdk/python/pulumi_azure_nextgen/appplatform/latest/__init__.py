@@ -9,10 +9,12 @@ from .certificate import *
 from .custom_domain import *
 from .deployment import *
 from .get_app import *
+from .get_app_resource_upload_url import *
 from .get_binding import *
 from .get_certificate import *
 from .get_custom_domain import *
 from .get_deployment import *
+from .get_deployment_log_file_url import *
 from .get_service import *
 from .list_service_test_keys import *
 from .service import *
