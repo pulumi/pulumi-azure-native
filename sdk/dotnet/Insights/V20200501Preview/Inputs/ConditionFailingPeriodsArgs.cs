@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview.Inputs
         /// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
         /// </summary>
         [Input("minFailingPeriodsToAlert")]
-        public Input<double>? MinFailingPeriodsToAlert { get; set; }
+        public Input<int>? MinFailingPeriodsToAlert { get; set; }
 
         /// <summary>
         /// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
         /// </summary>
         [Input("numberOfEvaluationPeriods")]
-        public Input<double>? NumberOfEvaluationPeriods { get; set; }
+        public Input<int>? NumberOfEvaluationPeriods { get; set; }
 
         public ConditionFailingPeriodsArgs()
         {

@@ -26,7 +26,7 @@ export interface GetIotSensorArgs {
      */
     readonly iotSensorName: string;
     /**
-     * Scope of the query, can be subscription (/subscriptions/326b1ffa-8ac7-4034-8437-69bef733dede) or IoT Hub (/providers/Microsoft.Devices/iotHubs/myHub)
+     * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
      */
     readonly scope: string;
 }

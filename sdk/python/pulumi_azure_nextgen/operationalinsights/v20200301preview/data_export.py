@@ -15,7 +15,6 @@ class DataExport(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_tables: Optional[pulumi.Input[bool]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  data_export_id: Optional[pulumi.Input[str]] = None,
                  data_export_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +33,6 @@ class DataExport(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] all_tables: When ‘true’, all workspace's tables are exported.
         :param pulumi.Input[str] created_date: The latest data export rule modification time.
         :param pulumi.Input[str] data_export_id: The data export rule ID.
         :param pulumi.Input[str] data_export_name: The data export rule name.
@@ -63,7 +61,6 @@ class DataExport(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['all_tables'] = all_tables
             __props__['created_date'] = created_date
             __props__['data_export_id'] = data_export_id
             if data_export_name is None:
@@ -109,14 +106,6 @@ class DataExport(pulumi.CustomResource):
         __props__ = dict()
 
         return DataExport(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="allTables")
-    def all_tables(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When ‘true’, all workspace's tables are exported.
-        """
-        return pulumi.get(self, "all_tables")
 
     @property
     @pulumi.getter(name="createdDate")

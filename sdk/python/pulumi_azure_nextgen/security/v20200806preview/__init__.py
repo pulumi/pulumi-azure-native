@@ -5,5 +5,7 @@
 # Export this package's modules as members:
 from .get_iot_defender_setting import *
 from .get_iot_sensor import *
+from .get_on_premise_iot_sensor import *
 from .iot_defender_setting import *
 from .iot_sensor import *
+from .on_premise_iot_sensor import *
