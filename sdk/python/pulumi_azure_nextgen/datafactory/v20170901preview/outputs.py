@@ -97,10 +97,15 @@ __all__ = [
     'JsonFormatResponse',
     'LinkedIntegrationRuntimeKeyResponse',
     'LinkedIntegrationRuntimeRbacResponse',
+    'LinkedIntegrationRuntimeResponseResult',
     'LinkedServiceReferenceResponse',
     'MagentoLinkedServiceResponse',
     'MagentoObjectDatasetResponse',
+    'ManagedIntegrationRuntimeErrorResponseResult',
+    'ManagedIntegrationRuntimeNodeResponseResult',
+    'ManagedIntegrationRuntimeOperationResultResponseResult',
     'ManagedIntegrationRuntimeResponse',
+    'ManagedIntegrationRuntimeStatusResponseResult',
     'MariaDBLinkedServiceResponse',
     'MariaDBTableDatasetResponse',
     'MarketoLinkedServiceResponse',
@@ -144,7 +149,9 @@ __all__ = [
     'SapEccResourceDatasetResponse',
     'SapHanaLinkedServiceResponse',
     'SecureStringResponse',
+    'SelfHostedIntegrationRuntimeNodeResponseResult',
     'SelfHostedIntegrationRuntimeResponse',
+    'SelfHostedIntegrationRuntimeStatusResponseResult',
     'ServiceNowLinkedServiceResponse',
     'ServiceNowObjectDatasetResponse',
     'SftpServerLinkedServiceResponse',
@@ -9715,6 +9722,72 @@ class LinkedIntegrationRuntimeRbacResponse(dict):
 
 
 @pulumi.output_type
+class LinkedIntegrationRuntimeResponseResult(dict):
+    """
+    The linked integration runtime information.
+    """
+    def __init__(__self__, *,
+                 create_time: str,
+                 data_factory_location: str,
+                 data_factory_name: str,
+                 name: str,
+                 subscription_id: str):
+        """
+        The linked integration runtime information.
+        :param str create_time: The creating time of the linked integration runtime.
+        :param str data_factory_location: The location of the data factory for which the linked integration runtime belong to.
+        :param str data_factory_name: The name of the data factory for which the linked integration runtime belong to.
+        :param str name: The name of the linked integration runtime.
+        :param str subscription_id: The subscription ID for which the linked integration runtime belong to.
+        """
+        pulumi.set(__self__, "create_time", create_time)
+        pulumi.set(__self__, "data_factory_location", data_factory_location)
+        pulumi.set(__self__, "data_factory_name", data_factory_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> str:
+        """
+        The creating time of the linked integration runtime.
+        """
+        return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="dataFactoryLocation")
+    def data_factory_location(self) -> str:
+        """
+        The location of the data factory for which the linked integration runtime belong to.
+        """
+        return pulumi.get(self, "data_factory_location")
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> str:
+        """
+        The name of the data factory for which the linked integration runtime belong to.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the linked integration runtime.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        The subscription ID for which the linked integration runtime belong to.
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
 class LinkedServiceReferenceResponse(dict):
     """
     Linked service reference type.
@@ -9991,6 +10064,183 @@ class MagentoObjectDatasetResponse(dict):
 
 
 @pulumi.output_type
+class ManagedIntegrationRuntimeErrorResponseResult(dict):
+    """
+    Error definition for managed integration runtime.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 message: str,
+                 parameters: Sequence[str],
+                 time: str):
+        """
+        Error definition for managed integration runtime.
+        :param str code: Error code.
+        :param str message: Error message.
+        :param Sequence[str] parameters: Managed integration runtime error parameters.
+        :param str time: The time when the error occurred.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence[str]:
+        """
+        Managed integration runtime error parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The time when the error occurred.
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class ManagedIntegrationRuntimeNodeResponseResult(dict):
+    """
+    Properties of integration runtime node.
+    """
+    def __init__(__self__, *,
+                 node_id: str,
+                 status: str,
+                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']] = None):
+        """
+        Properties of integration runtime node.
+        :param str node_id: The managed integration runtime node id.
+        :param str status: The managed integration runtime node status.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] errors: The errors that occurred on this integration runtime node.
+        """
+        pulumi.set(__self__, "node_id", node_id)
+        pulumi.set(__self__, "status", status)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> str:
+        """
+        The managed integration runtime node id.
+        """
+        return pulumi.get(self, "node_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The managed integration runtime node status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']]:
+        """
+        The errors that occurred on this integration runtime node.
+        """
+        return pulumi.get(self, "errors")
+
+
+@pulumi.output_type
+class ManagedIntegrationRuntimeOperationResultResponseResult(dict):
+    """
+    Properties of managed integration runtime operation result.
+    """
+    def __init__(__self__, *,
+                 activity_id: str,
+                 error_code: str,
+                 parameters: Sequence[str],
+                 result: str,
+                 start_time: str,
+                 type: str):
+        """
+        Properties of managed integration runtime operation result.
+        :param str activity_id: The activity id for the operation request.
+        :param str error_code: The error code.
+        :param Sequence[str] parameters: Managed integration runtime error parameters.
+        :param str result: The operation result.
+        :param str start_time: The start time of the operation.
+        :param str type: The operation type. Could be start or stop.
+        """
+        pulumi.set(__self__, "activity_id", activity_id)
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "result", result)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="activityId")
+    def activity_id(self) -> str:
+        """
+        The activity id for the operation request.
+        """
+        return pulumi.get(self, "activity_id")
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence[str]:
+        """
+        Managed integration runtime error parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def result(self) -> str:
+        """
+        The operation result.
+        """
+        return pulumi.get(self, "result")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The start time of the operation.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The operation type. Could be start or stop.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ManagedIntegrationRuntimeResponse(dict):
     """
     Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
@@ -10060,6 +10310,95 @@ class ManagedIntegrationRuntimeResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedIntegrationRuntimeStatusResponseResult(dict):
+    """
+    Managed integration runtime status.
+    """
+    def __init__(__self__, *,
+                 create_time: str,
+                 data_factory_name: str,
+                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult',
+                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult'],
+                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult'],
+                 state: str,
+                 type: Optional[str] = None):
+        """
+        Managed integration runtime status.
+        :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
+        :param str data_factory_name: The data factory name which the integration runtime belong to.
+        :param 'ManagedIntegrationRuntimeOperationResultResponseArgs' last_operation: The last operation result that occurred on this integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for managed integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] other_errors: The errors that occurred on this integration runtime.
+        :param str state: The state of integration runtime.
+        :param str type: Type of integration runtime.
+        """
+        pulumi.set(__self__, "create_time", create_time)
+        pulumi.set(__self__, "data_factory_name", data_factory_name)
+        pulumi.set(__self__, "last_operation", last_operation)
+        pulumi.set(__self__, "nodes", nodes)
+        pulumi.set(__self__, "other_errors", other_errors)
+        pulumi.set(__self__, "state", state)
+        if type is not None:
+            pulumi.set(__self__, "type", 'Managed')
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> str:
+        """
+        The time at which the integration runtime was created, in ISO8601 format.
+        """
+        return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> str:
+        """
+        The data factory name which the integration runtime belong to.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @property
+    @pulumi.getter(name="lastOperation")
+    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult':
+        """
+        The last operation result that occurred on this integration runtime.
+        """
+        return pulumi.get(self, "last_operation")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult']:
+        """
+        The list of nodes for managed integration runtime.
+        """
+        return pulumi.get(self, "nodes")
+
+    @property
+    @pulumi.getter(name="otherErrors")
+    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']:
+        """
+        The errors that occurred on this integration runtime.
+        """
+        return pulumi.get(self, "other_errors")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of integration runtime.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of integration runtime.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -14624,6 +14963,215 @@ class SecureStringResponse(dict):
 
 
 @pulumi.output_type
+class SelfHostedIntegrationRuntimeNodeResponseResult(dict):
+    """
+    Properties of Self-hosted integration runtime node.
+    """
+    def __init__(__self__, *,
+                 capabilities: Mapping[str, str],
+                 concurrent_jobs_limit: int,
+                 expiry_time: str,
+                 host_service_uri: str,
+                 is_active_dispatcher: bool,
+                 last_connect_time: str,
+                 last_end_update_time: str,
+                 last_start_time: str,
+                 last_start_update_time: str,
+                 last_stop_time: str,
+                 last_update_result: str,
+                 machine_name: str,
+                 max_concurrent_jobs: int,
+                 node_name: str,
+                 register_time: str,
+                 status: str,
+                 version: str,
+                 version_status: str):
+        """
+        Properties of Self-hosted integration runtime node.
+        :param Mapping[str, str] capabilities: The integration runtime capabilities dictionary
+        :param int concurrent_jobs_limit: Maximum concurrent jobs on the integration runtime node.
+        :param str expiry_time: The time at which the integration runtime will expire in ISO8601 format.
+        :param str host_service_uri: URI for the host machine of the integration runtime.
+        :param bool is_active_dispatcher: Indicates whether this node is the active dispatcher for integration runtime requests.
+        :param str last_connect_time: The most recent time at which the integration runtime was connected in ISO8601 format.
+        :param str last_end_update_time: The last time for the integration runtime node update end.
+        :param str last_start_time: The time the node last started up.
+        :param str last_start_update_time: The last time for the integration runtime node update start.
+        :param str last_stop_time: The integration runtime node last stop time.
+        :param str last_update_result: The result of the last integration runtime node update.
+        :param str machine_name: Machine name of the integration runtime node.
+        :param int max_concurrent_jobs: The maximum concurrent jobs in this integration runtime.
+        :param str node_name: Name of the integration runtime node.
+        :param str register_time: The time at which the integration runtime node was registered in ISO8601 format.
+        :param str status: Status of the integration runtime node.
+        :param str version: Version of the integration runtime node.
+        :param str version_status: Status of the integration runtime node version.
+        """
+        pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "concurrent_jobs_limit", concurrent_jobs_limit)
+        pulumi.set(__self__, "expiry_time", expiry_time)
+        pulumi.set(__self__, "host_service_uri", host_service_uri)
+        pulumi.set(__self__, "is_active_dispatcher", is_active_dispatcher)
+        pulumi.set(__self__, "last_connect_time", last_connect_time)
+        pulumi.set(__self__, "last_end_update_time", last_end_update_time)
+        pulumi.set(__self__, "last_start_time", last_start_time)
+        pulumi.set(__self__, "last_start_update_time", last_start_update_time)
+        pulumi.set(__self__, "last_stop_time", last_stop_time)
+        pulumi.set(__self__, "last_update_result", last_update_result)
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "max_concurrent_jobs", max_concurrent_jobs)
+        pulumi.set(__self__, "node_name", node_name)
+        pulumi.set(__self__, "register_time", register_time)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "version", version)
+        pulumi.set(__self__, "version_status", version_status)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Mapping[str, str]:
+        """
+        The integration runtime capabilities dictionary
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="concurrentJobsLimit")
+    def concurrent_jobs_limit(self) -> int:
+        """
+        Maximum concurrent jobs on the integration runtime node.
+        """
+        return pulumi.get(self, "concurrent_jobs_limit")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> str:
+        """
+        The time at which the integration runtime will expire in ISO8601 format.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter(name="hostServiceUri")
+    def host_service_uri(self) -> str:
+        """
+        URI for the host machine of the integration runtime.
+        """
+        return pulumi.get(self, "host_service_uri")
+
+    @property
+    @pulumi.getter(name="isActiveDispatcher")
+    def is_active_dispatcher(self) -> bool:
+        """
+        Indicates whether this node is the active dispatcher for integration runtime requests.
+        """
+        return pulumi.get(self, "is_active_dispatcher")
+
+    @property
+    @pulumi.getter(name="lastConnectTime")
+    def last_connect_time(self) -> str:
+        """
+        The most recent time at which the integration runtime was connected in ISO8601 format.
+        """
+        return pulumi.get(self, "last_connect_time")
+
+    @property
+    @pulumi.getter(name="lastEndUpdateTime")
+    def last_end_update_time(self) -> str:
+        """
+        The last time for the integration runtime node update end.
+        """
+        return pulumi.get(self, "last_end_update_time")
+
+    @property
+    @pulumi.getter(name="lastStartTime")
+    def last_start_time(self) -> str:
+        """
+        The time the node last started up.
+        """
+        return pulumi.get(self, "last_start_time")
+
+    @property
+    @pulumi.getter(name="lastStartUpdateTime")
+    def last_start_update_time(self) -> str:
+        """
+        The last time for the integration runtime node update start.
+        """
+        return pulumi.get(self, "last_start_update_time")
+
+    @property
+    @pulumi.getter(name="lastStopTime")
+    def last_stop_time(self) -> str:
+        """
+        The integration runtime node last stop time.
+        """
+        return pulumi.get(self, "last_stop_time")
+
+    @property
+    @pulumi.getter(name="lastUpdateResult")
+    def last_update_result(self) -> str:
+        """
+        The result of the last integration runtime node update.
+        """
+        return pulumi.get(self, "last_update_result")
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> str:
+        """
+        Machine name of the integration runtime node.
+        """
+        return pulumi.get(self, "machine_name")
+
+    @property
+    @pulumi.getter(name="maxConcurrentJobs")
+    def max_concurrent_jobs(self) -> int:
+        """
+        The maximum concurrent jobs in this integration runtime.
+        """
+        return pulumi.get(self, "max_concurrent_jobs")
+
+    @property
+    @pulumi.getter(name="nodeName")
+    def node_name(self) -> str:
+        """
+        Name of the integration runtime node.
+        """
+        return pulumi.get(self, "node_name")
+
+    @property
+    @pulumi.getter(name="registerTime")
+    def register_time(self) -> str:
+        """
+        The time at which the integration runtime node was registered in ISO8601 format.
+        """
+        return pulumi.get(self, "register_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the integration runtime node.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Version of the integration runtime node.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="versionStatus")
+    def version_status(self) -> str:
+        """
+        Status of the integration runtime node version.
+        """
+        return pulumi.get(self, "version_status")
+
+
+@pulumi.output_type
 class SelfHostedIntegrationRuntimeResponse(dict):
     """
     Self-hosted integration runtime.
@@ -14670,6 +15218,196 @@ class SelfHostedIntegrationRuntimeResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
+    """
+    Self-hosted integration runtime status.
+    """
+    def __init__(__self__, *,
+                 auto_update: str,
+                 capabilities: Mapping[str, str],
+                 create_time: str,
+                 data_factory_name: str,
+                 internal_channel_encryption: str,
+                 local_time_zone_offset: str,
+                 scheduled_update_date: str,
+                 service_urls: Sequence[str],
+                 state: str,
+                 task_queue_id: str,
+                 update_delay_offset: str,
+                 version: str,
+                 version_status: str,
+                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']] = None,
+                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']] = None,
+                 type: Optional[str] = None):
+        """
+        Self-hosted integration runtime status.
+        :param str auto_update: Whether Self-hosted integration runtime auto update has been turned on.
+        :param Mapping[str, str] capabilities: Object with additional information about integration runtime capabilities.
+        :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
+        :param str data_factory_name: The data factory name which the integration runtime belong to.
+        :param str internal_channel_encryption: It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
+        :param str local_time_zone_offset: The local time zone offset in hours.
+        :param str scheduled_update_date: The date at which the integration runtime will be scheduled to update, in ISO8601 format.
+        :param Sequence[str] service_urls: The URLs for the services used in integration runtime backend service.
+        :param str state: The state of integration runtime.
+        :param str task_queue_id: The task queue id of the integration runtime.
+        :param str update_delay_offset: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
+        :param str version: Version of the integration runtime.
+        :param str version_status: Status of the integration runtime version.
+        :param Sequence['LinkedIntegrationRuntimeResponseArgs'] links: The list of linked integration runtimes that are created to share with this integration runtime.
+        :param Sequence['SelfHostedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for this integration runtime.
+        :param str type: Type of integration runtime.
+        """
+        pulumi.set(__self__, "auto_update", auto_update)
+        pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "create_time", create_time)
+        pulumi.set(__self__, "data_factory_name", data_factory_name)
+        pulumi.set(__self__, "internal_channel_encryption", internal_channel_encryption)
+        pulumi.set(__self__, "local_time_zone_offset", local_time_zone_offset)
+        pulumi.set(__self__, "scheduled_update_date", scheduled_update_date)
+        pulumi.set(__self__, "service_urls", service_urls)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "task_queue_id", task_queue_id)
+        pulumi.set(__self__, "update_delay_offset", update_delay_offset)
+        pulumi.set(__self__, "version", version)
+        pulumi.set(__self__, "version_status", version_status)
+        if links is not None:
+            pulumi.set(__self__, "links", links)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+        if type is not None:
+            pulumi.set(__self__, "type", 'SelfHosted')
+
+    @property
+    @pulumi.getter(name="autoUpdate")
+    def auto_update(self) -> str:
+        """
+        Whether Self-hosted integration runtime auto update has been turned on.
+        """
+        return pulumi.get(self, "auto_update")
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Mapping[str, str]:
+        """
+        Object with additional information about integration runtime capabilities.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> str:
+        """
+        The time at which the integration runtime was created, in ISO8601 format.
+        """
+        return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> str:
+        """
+        The data factory name which the integration runtime belong to.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @property
+    @pulumi.getter(name="internalChannelEncryption")
+    def internal_channel_encryption(self) -> str:
+        """
+        It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
+        """
+        return pulumi.get(self, "internal_channel_encryption")
+
+    @property
+    @pulumi.getter(name="localTimeZoneOffset")
+    def local_time_zone_offset(self) -> str:
+        """
+        The local time zone offset in hours.
+        """
+        return pulumi.get(self, "local_time_zone_offset")
+
+    @property
+    @pulumi.getter(name="scheduledUpdateDate")
+    def scheduled_update_date(self) -> str:
+        """
+        The date at which the integration runtime will be scheduled to update, in ISO8601 format.
+        """
+        return pulumi.get(self, "scheduled_update_date")
+
+    @property
+    @pulumi.getter(name="serviceUrls")
+    def service_urls(self) -> Sequence[str]:
+        """
+        The URLs for the services used in integration runtime backend service.
+        """
+        return pulumi.get(self, "service_urls")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of integration runtime.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskQueueId")
+    def task_queue_id(self) -> str:
+        """
+        The task queue id of the integration runtime.
+        """
+        return pulumi.get(self, "task_queue_id")
+
+    @property
+    @pulumi.getter(name="updateDelayOffset")
+    def update_delay_offset(self) -> str:
+        """
+        The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
+        """
+        return pulumi.get(self, "update_delay_offset")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Version of the integration runtime.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="versionStatus")
+    def version_status(self) -> str:
+        """
+        Status of the integration runtime version.
+        """
+        return pulumi.get(self, "version_status")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']]:
+        """
+        The list of linked integration runtimes that are created to share with this integration runtime.
+        """
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']]:
+        """
+        The list of nodes for this integration runtime.
+        """
+        return pulumi.get(self, "nodes")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of integration runtime.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

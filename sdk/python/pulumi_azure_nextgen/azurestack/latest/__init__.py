@@ -6,6 +6,7 @@
 from .customer_subscription import *
 from .get_customer_subscription import *
 from .get_registration import *
+from .get_registration_activation_key import *
 from .list_product_details import *
 from .registration import *
 from . import outputs

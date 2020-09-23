@@ -4,6 +4,7 @@
 // Export members:
 export * from "./eventSubscription";
 export * from "./getEventSubscription";
+export * from "./getEventSubscriptionFullUrl";
 export * from "./getTopic";
 export * from "./listTopicSharedAccessKeys";
 export * from "./topic";

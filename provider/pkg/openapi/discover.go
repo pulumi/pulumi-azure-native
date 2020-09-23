@@ -202,16 +202,23 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 		}
 	}
 
-	// Add a list invoke entry.
+	// Add a POST invoke entry.
 	if pathItem.Post != nil {
 		parts := strings.Split(path, "/")
-		listOperation := parts[len(parts)-1]
-		if !strings.HasPrefix(listOperation, "list") {
+		operationName := parts[len(parts)-1]
+		prefix := ""
+		switch {
+		case strings.HasPrefix(operationName, "list"):
+			prefix = "list"
+		case strings.HasPrefix(operationName, "get"):
+			prefix = "get"
+		default:
 			return
 		}
+
 		typeName := provider.ResourceName(pathItem.Post.ID)
 		if typeName != "" {
-			version.Invokes[typeName] = &ResourceSpec{
+			version.Invokes[prefix+typeName] = &ResourceSpec{
 				Path:     path,
 				PathItem: &pathItem,
 				Swagger:  spec,

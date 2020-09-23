@@ -914,6 +914,115 @@ func (o CnameRecordResponsePtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents a single Azure resource and its referencing DNS records.
+type DnsResourceReferenceResponse struct {
+	// A list of dns Records
+	DnsResources []SubResourceResponse `pulumi:"dnsResources"`
+	// A reference to an azure resource from where the dns resource value is taken.
+	TargetResource *SubResourceResponse `pulumi:"targetResource"`
+}
+
+// DnsResourceReferenceResponseInput is an input type that accepts DnsResourceReferenceResponseArgs and DnsResourceReferenceResponseOutput values.
+// You can construct a concrete instance of `DnsResourceReferenceResponseInput` via:
+//
+//          DnsResourceReferenceResponseArgs{...}
+type DnsResourceReferenceResponseInput interface {
+	pulumi.Input
+
+	ToDnsResourceReferenceResponseOutput() DnsResourceReferenceResponseOutput
+	ToDnsResourceReferenceResponseOutputWithContext(context.Context) DnsResourceReferenceResponseOutput
+}
+
+// Represents a single Azure resource and its referencing DNS records.
+type DnsResourceReferenceResponseArgs struct {
+	// A list of dns Records
+	DnsResources SubResourceResponseArrayInput `pulumi:"dnsResources"`
+	// A reference to an azure resource from where the dns resource value is taken.
+	TargetResource SubResourceResponsePtrInput `pulumi:"targetResource"`
+}
+
+func (DnsResourceReferenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsResourceReferenceResponse)(nil)).Elem()
+}
+
+func (i DnsResourceReferenceResponseArgs) ToDnsResourceReferenceResponseOutput() DnsResourceReferenceResponseOutput {
+	return i.ToDnsResourceReferenceResponseOutputWithContext(context.Background())
+}
+
+func (i DnsResourceReferenceResponseArgs) ToDnsResourceReferenceResponseOutputWithContext(ctx context.Context) DnsResourceReferenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsResourceReferenceResponseOutput)
+}
+
+// DnsResourceReferenceResponseArrayInput is an input type that accepts DnsResourceReferenceResponseArray and DnsResourceReferenceResponseArrayOutput values.
+// You can construct a concrete instance of `DnsResourceReferenceResponseArrayInput` via:
+//
+//          DnsResourceReferenceResponseArray{ DnsResourceReferenceResponseArgs{...} }
+type DnsResourceReferenceResponseArrayInput interface {
+	pulumi.Input
+
+	ToDnsResourceReferenceResponseArrayOutput() DnsResourceReferenceResponseArrayOutput
+	ToDnsResourceReferenceResponseArrayOutputWithContext(context.Context) DnsResourceReferenceResponseArrayOutput
+}
+
+type DnsResourceReferenceResponseArray []DnsResourceReferenceResponseInput
+
+func (DnsResourceReferenceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DnsResourceReferenceResponse)(nil)).Elem()
+}
+
+func (i DnsResourceReferenceResponseArray) ToDnsResourceReferenceResponseArrayOutput() DnsResourceReferenceResponseArrayOutput {
+	return i.ToDnsResourceReferenceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DnsResourceReferenceResponseArray) ToDnsResourceReferenceResponseArrayOutputWithContext(ctx context.Context) DnsResourceReferenceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsResourceReferenceResponseArrayOutput)
+}
+
+// Represents a single Azure resource and its referencing DNS records.
+type DnsResourceReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (DnsResourceReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsResourceReferenceResponse)(nil)).Elem()
+}
+
+func (o DnsResourceReferenceResponseOutput) ToDnsResourceReferenceResponseOutput() DnsResourceReferenceResponseOutput {
+	return o
+}
+
+func (o DnsResourceReferenceResponseOutput) ToDnsResourceReferenceResponseOutputWithContext(ctx context.Context) DnsResourceReferenceResponseOutput {
+	return o
+}
+
+// A list of dns Records
+func (o DnsResourceReferenceResponseOutput) DnsResources() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v DnsResourceReferenceResponse) []SubResourceResponse { return v.DnsResources }).(SubResourceResponseArrayOutput)
+}
+
+// A reference to an azure resource from where the dns resource value is taken.
+func (o DnsResourceReferenceResponseOutput) TargetResource() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v DnsResourceReferenceResponse) *SubResourceResponse { return v.TargetResource }).(SubResourceResponsePtrOutput)
+}
+
+type DnsResourceReferenceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DnsResourceReferenceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DnsResourceReferenceResponse)(nil)).Elem()
+}
+
+func (o DnsResourceReferenceResponseArrayOutput) ToDnsResourceReferenceResponseArrayOutput() DnsResourceReferenceResponseArrayOutput {
+	return o
+}
+
+func (o DnsResourceReferenceResponseArrayOutput) ToDnsResourceReferenceResponseArrayOutputWithContext(ctx context.Context) DnsResourceReferenceResponseArrayOutput {
+	return o
+}
+
+func (o DnsResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) DnsResourceReferenceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DnsResourceReferenceResponse {
+		return vs[0].([]DnsResourceReferenceResponse)[vs[1].(int)]
+	}).(DnsResourceReferenceResponseOutput)
+}
+
 // An MX record.
 type MxRecord struct {
 	// The domain name of the mail host for this MX record.
@@ -2857,6 +2966,8 @@ func init() {
 	pulumi.RegisterOutputType(CnameRecordPtrOutput{})
 	pulumi.RegisterOutputType(CnameRecordResponseOutput{})
 	pulumi.RegisterOutputType(CnameRecordResponsePtrOutput{})
+	pulumi.RegisterOutputType(DnsResourceReferenceResponseOutput{})
+	pulumi.RegisterOutputType(DnsResourceReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordOutput{})
 	pulumi.RegisterOutputType(MxRecordArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordResponseOutput{})

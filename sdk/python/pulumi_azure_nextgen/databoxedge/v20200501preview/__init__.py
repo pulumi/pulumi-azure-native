@@ -9,6 +9,7 @@ from .device import *
 from .get_bandwidth_schedule import *
 from .get_container import *
 from .get_device import *
+from .get_device_extended_information import *
 from .get_order import *
 from .get_role import *
 from .get_share import *

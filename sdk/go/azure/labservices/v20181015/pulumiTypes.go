@@ -1075,6 +1075,115 @@ func (o NetworkInterfaceResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents the status of an operation that used the batch API.
+type OperationBatchStatusResponseItemResponse struct {
+	// status of the long running operation for an environment
+	OperationUrl string `pulumi:"operationUrl"`
+	// status of the long running operation for an environment
+	Status string `pulumi:"status"`
+}
+
+// OperationBatchStatusResponseItemResponseInput is an input type that accepts OperationBatchStatusResponseItemResponseArgs and OperationBatchStatusResponseItemResponseOutput values.
+// You can construct a concrete instance of `OperationBatchStatusResponseItemResponseInput` via:
+//
+//          OperationBatchStatusResponseItemResponseArgs{...}
+type OperationBatchStatusResponseItemResponseInput interface {
+	pulumi.Input
+
+	ToOperationBatchStatusResponseItemResponseOutput() OperationBatchStatusResponseItemResponseOutput
+	ToOperationBatchStatusResponseItemResponseOutputWithContext(context.Context) OperationBatchStatusResponseItemResponseOutput
+}
+
+// Represents the status of an operation that used the batch API.
+type OperationBatchStatusResponseItemResponseArgs struct {
+	// status of the long running operation for an environment
+	OperationUrl pulumi.StringInput `pulumi:"operationUrl"`
+	// status of the long running operation for an environment
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (OperationBatchStatusResponseItemResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationBatchStatusResponseItemResponse)(nil)).Elem()
+}
+
+func (i OperationBatchStatusResponseItemResponseArgs) ToOperationBatchStatusResponseItemResponseOutput() OperationBatchStatusResponseItemResponseOutput {
+	return i.ToOperationBatchStatusResponseItemResponseOutputWithContext(context.Background())
+}
+
+func (i OperationBatchStatusResponseItemResponseArgs) ToOperationBatchStatusResponseItemResponseOutputWithContext(ctx context.Context) OperationBatchStatusResponseItemResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OperationBatchStatusResponseItemResponseOutput)
+}
+
+// OperationBatchStatusResponseItemResponseArrayInput is an input type that accepts OperationBatchStatusResponseItemResponseArray and OperationBatchStatusResponseItemResponseArrayOutput values.
+// You can construct a concrete instance of `OperationBatchStatusResponseItemResponseArrayInput` via:
+//
+//          OperationBatchStatusResponseItemResponseArray{ OperationBatchStatusResponseItemResponseArgs{...} }
+type OperationBatchStatusResponseItemResponseArrayInput interface {
+	pulumi.Input
+
+	ToOperationBatchStatusResponseItemResponseArrayOutput() OperationBatchStatusResponseItemResponseArrayOutput
+	ToOperationBatchStatusResponseItemResponseArrayOutputWithContext(context.Context) OperationBatchStatusResponseItemResponseArrayOutput
+}
+
+type OperationBatchStatusResponseItemResponseArray []OperationBatchStatusResponseItemResponseInput
+
+func (OperationBatchStatusResponseItemResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OperationBatchStatusResponseItemResponse)(nil)).Elem()
+}
+
+func (i OperationBatchStatusResponseItemResponseArray) ToOperationBatchStatusResponseItemResponseArrayOutput() OperationBatchStatusResponseItemResponseArrayOutput {
+	return i.ToOperationBatchStatusResponseItemResponseArrayOutputWithContext(context.Background())
+}
+
+func (i OperationBatchStatusResponseItemResponseArray) ToOperationBatchStatusResponseItemResponseArrayOutputWithContext(ctx context.Context) OperationBatchStatusResponseItemResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OperationBatchStatusResponseItemResponseArrayOutput)
+}
+
+// Represents the status of an operation that used the batch API.
+type OperationBatchStatusResponseItemResponseOutput struct{ *pulumi.OutputState }
+
+func (OperationBatchStatusResponseItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationBatchStatusResponseItemResponse)(nil)).Elem()
+}
+
+func (o OperationBatchStatusResponseItemResponseOutput) ToOperationBatchStatusResponseItemResponseOutput() OperationBatchStatusResponseItemResponseOutput {
+	return o
+}
+
+func (o OperationBatchStatusResponseItemResponseOutput) ToOperationBatchStatusResponseItemResponseOutputWithContext(ctx context.Context) OperationBatchStatusResponseItemResponseOutput {
+	return o
+}
+
+// status of the long running operation for an environment
+func (o OperationBatchStatusResponseItemResponseOutput) OperationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v OperationBatchStatusResponseItemResponse) string { return v.OperationUrl }).(pulumi.StringOutput)
+}
+
+// status of the long running operation for an environment
+func (o OperationBatchStatusResponseItemResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v OperationBatchStatusResponseItemResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type OperationBatchStatusResponseItemResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OperationBatchStatusResponseItemResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OperationBatchStatusResponseItemResponse)(nil)).Elem()
+}
+
+func (o OperationBatchStatusResponseItemResponseArrayOutput) ToOperationBatchStatusResponseItemResponseArrayOutput() OperationBatchStatusResponseItemResponseArrayOutput {
+	return o
+}
+
+func (o OperationBatchStatusResponseItemResponseArrayOutput) ToOperationBatchStatusResponseItemResponseArrayOutputWithContext(ctx context.Context) OperationBatchStatusResponseItemResponseArrayOutput {
+	return o
+}
+
+func (o OperationBatchStatusResponseItemResponseArrayOutput) Index(i pulumi.IntInput) OperationBatchStatusResponseItemResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OperationBatchStatusResponseItemResponse {
+		return vs[0].([]OperationBatchStatusResponseItemResponse)[vs[1].(int)]
+	}).(OperationBatchStatusResponseItemResponseOutput)
+}
+
 // Details of a Reference Vm
 type ReferenceVm struct {
 	// The password of the virtual machine. This will be set to null in GET resource API
@@ -1417,6 +1526,115 @@ func (o ReferenceVmResponsePtrOutput) VmStateDetails() VmStateDetailsResponsePtr
 		}
 		return &v.VmStateDetails
 	}).(VmStateDetailsResponsePtrOutput)
+}
+
+// The availability information of sizes across regions
+type RegionalAvailabilityResponse struct {
+	// Corresponding region
+	Region *string `pulumi:"region"`
+	// List of all the size information for the region
+	SizeAvailabilities []SizeAvailabilityResponse `pulumi:"sizeAvailabilities"`
+}
+
+// RegionalAvailabilityResponseInput is an input type that accepts RegionalAvailabilityResponseArgs and RegionalAvailabilityResponseOutput values.
+// You can construct a concrete instance of `RegionalAvailabilityResponseInput` via:
+//
+//          RegionalAvailabilityResponseArgs{...}
+type RegionalAvailabilityResponseInput interface {
+	pulumi.Input
+
+	ToRegionalAvailabilityResponseOutput() RegionalAvailabilityResponseOutput
+	ToRegionalAvailabilityResponseOutputWithContext(context.Context) RegionalAvailabilityResponseOutput
+}
+
+// The availability information of sizes across regions
+type RegionalAvailabilityResponseArgs struct {
+	// Corresponding region
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// List of all the size information for the region
+	SizeAvailabilities SizeAvailabilityResponseArrayInput `pulumi:"sizeAvailabilities"`
+}
+
+func (RegionalAvailabilityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegionalAvailabilityResponse)(nil)).Elem()
+}
+
+func (i RegionalAvailabilityResponseArgs) ToRegionalAvailabilityResponseOutput() RegionalAvailabilityResponseOutput {
+	return i.ToRegionalAvailabilityResponseOutputWithContext(context.Background())
+}
+
+func (i RegionalAvailabilityResponseArgs) ToRegionalAvailabilityResponseOutputWithContext(ctx context.Context) RegionalAvailabilityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionalAvailabilityResponseOutput)
+}
+
+// RegionalAvailabilityResponseArrayInput is an input type that accepts RegionalAvailabilityResponseArray and RegionalAvailabilityResponseArrayOutput values.
+// You can construct a concrete instance of `RegionalAvailabilityResponseArrayInput` via:
+//
+//          RegionalAvailabilityResponseArray{ RegionalAvailabilityResponseArgs{...} }
+type RegionalAvailabilityResponseArrayInput interface {
+	pulumi.Input
+
+	ToRegionalAvailabilityResponseArrayOutput() RegionalAvailabilityResponseArrayOutput
+	ToRegionalAvailabilityResponseArrayOutputWithContext(context.Context) RegionalAvailabilityResponseArrayOutput
+}
+
+type RegionalAvailabilityResponseArray []RegionalAvailabilityResponseInput
+
+func (RegionalAvailabilityResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegionalAvailabilityResponse)(nil)).Elem()
+}
+
+func (i RegionalAvailabilityResponseArray) ToRegionalAvailabilityResponseArrayOutput() RegionalAvailabilityResponseArrayOutput {
+	return i.ToRegionalAvailabilityResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RegionalAvailabilityResponseArray) ToRegionalAvailabilityResponseArrayOutputWithContext(ctx context.Context) RegionalAvailabilityResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionalAvailabilityResponseArrayOutput)
+}
+
+// The availability information of sizes across regions
+type RegionalAvailabilityResponseOutput struct{ *pulumi.OutputState }
+
+func (RegionalAvailabilityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegionalAvailabilityResponse)(nil)).Elem()
+}
+
+func (o RegionalAvailabilityResponseOutput) ToRegionalAvailabilityResponseOutput() RegionalAvailabilityResponseOutput {
+	return o
+}
+
+func (o RegionalAvailabilityResponseOutput) ToRegionalAvailabilityResponseOutputWithContext(ctx context.Context) RegionalAvailabilityResponseOutput {
+	return o
+}
+
+// Corresponding region
+func (o RegionalAvailabilityResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegionalAvailabilityResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// List of all the size information for the region
+func (o RegionalAvailabilityResponseOutput) SizeAvailabilities() SizeAvailabilityResponseArrayOutput {
+	return o.ApplyT(func(v RegionalAvailabilityResponse) []SizeAvailabilityResponse { return v.SizeAvailabilities }).(SizeAvailabilityResponseArrayOutput)
+}
+
+type RegionalAvailabilityResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RegionalAvailabilityResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegionalAvailabilityResponse)(nil)).Elem()
+}
+
+func (o RegionalAvailabilityResponseArrayOutput) ToRegionalAvailabilityResponseArrayOutput() RegionalAvailabilityResponseArrayOutput {
+	return o
+}
+
+func (o RegionalAvailabilityResponseArrayOutput) ToRegionalAvailabilityResponseArrayOutputWithContext(ctx context.Context) RegionalAvailabilityResponseArrayOutput {
+	return o
+}
+
+func (o RegionalAvailabilityResponseArrayOutput) Index(i pulumi.IntInput) RegionalAvailabilityResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegionalAvailabilityResponse {
+		return vs[0].([]RegionalAvailabilityResponse)[vs[1].(int)]
+	}).(RegionalAvailabilityResponseOutput)
 }
 
 // Represents a VM and the setting Id it was created for.
@@ -2126,6 +2344,115 @@ func (o ResourceSettingsResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents the size information
+type SizeAvailabilityResponse struct {
+	// Whether or not this size category is available
+	IsAvailable *bool `pulumi:"isAvailable"`
+	// The category of the size (Basic, Standard, Performance).
+	SizeCategory *string `pulumi:"sizeCategory"`
+}
+
+// SizeAvailabilityResponseInput is an input type that accepts SizeAvailabilityResponseArgs and SizeAvailabilityResponseOutput values.
+// You can construct a concrete instance of `SizeAvailabilityResponseInput` via:
+//
+//          SizeAvailabilityResponseArgs{...}
+type SizeAvailabilityResponseInput interface {
+	pulumi.Input
+
+	ToSizeAvailabilityResponseOutput() SizeAvailabilityResponseOutput
+	ToSizeAvailabilityResponseOutputWithContext(context.Context) SizeAvailabilityResponseOutput
+}
+
+// Represents the size information
+type SizeAvailabilityResponseArgs struct {
+	// Whether or not this size category is available
+	IsAvailable pulumi.BoolPtrInput `pulumi:"isAvailable"`
+	// The category of the size (Basic, Standard, Performance).
+	SizeCategory pulumi.StringPtrInput `pulumi:"sizeCategory"`
+}
+
+func (SizeAvailabilityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SizeAvailabilityResponse)(nil)).Elem()
+}
+
+func (i SizeAvailabilityResponseArgs) ToSizeAvailabilityResponseOutput() SizeAvailabilityResponseOutput {
+	return i.ToSizeAvailabilityResponseOutputWithContext(context.Background())
+}
+
+func (i SizeAvailabilityResponseArgs) ToSizeAvailabilityResponseOutputWithContext(ctx context.Context) SizeAvailabilityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SizeAvailabilityResponseOutput)
+}
+
+// SizeAvailabilityResponseArrayInput is an input type that accepts SizeAvailabilityResponseArray and SizeAvailabilityResponseArrayOutput values.
+// You can construct a concrete instance of `SizeAvailabilityResponseArrayInput` via:
+//
+//          SizeAvailabilityResponseArray{ SizeAvailabilityResponseArgs{...} }
+type SizeAvailabilityResponseArrayInput interface {
+	pulumi.Input
+
+	ToSizeAvailabilityResponseArrayOutput() SizeAvailabilityResponseArrayOutput
+	ToSizeAvailabilityResponseArrayOutputWithContext(context.Context) SizeAvailabilityResponseArrayOutput
+}
+
+type SizeAvailabilityResponseArray []SizeAvailabilityResponseInput
+
+func (SizeAvailabilityResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SizeAvailabilityResponse)(nil)).Elem()
+}
+
+func (i SizeAvailabilityResponseArray) ToSizeAvailabilityResponseArrayOutput() SizeAvailabilityResponseArrayOutput {
+	return i.ToSizeAvailabilityResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SizeAvailabilityResponseArray) ToSizeAvailabilityResponseArrayOutputWithContext(ctx context.Context) SizeAvailabilityResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SizeAvailabilityResponseArrayOutput)
+}
+
+// Represents the size information
+type SizeAvailabilityResponseOutput struct{ *pulumi.OutputState }
+
+func (SizeAvailabilityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SizeAvailabilityResponse)(nil)).Elem()
+}
+
+func (o SizeAvailabilityResponseOutput) ToSizeAvailabilityResponseOutput() SizeAvailabilityResponseOutput {
+	return o
+}
+
+func (o SizeAvailabilityResponseOutput) ToSizeAvailabilityResponseOutputWithContext(ctx context.Context) SizeAvailabilityResponseOutput {
+	return o
+}
+
+// Whether or not this size category is available
+func (o SizeAvailabilityResponseOutput) IsAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SizeAvailabilityResponse) *bool { return v.IsAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// The category of the size (Basic, Standard, Performance).
+func (o SizeAvailabilityResponseOutput) SizeCategory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SizeAvailabilityResponse) *string { return v.SizeCategory }).(pulumi.StringPtrOutput)
+}
+
+type SizeAvailabilityResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SizeAvailabilityResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SizeAvailabilityResponse)(nil)).Elem()
+}
+
+func (o SizeAvailabilityResponseArrayOutput) ToSizeAvailabilityResponseArrayOutput() SizeAvailabilityResponseArrayOutput {
+	return o
+}
+
+func (o SizeAvailabilityResponseArrayOutput) ToSizeAvailabilityResponseArrayOutputWithContext(ctx context.Context) SizeAvailabilityResponseArrayOutput {
+	return o
+}
+
+func (o SizeAvailabilityResponseArrayOutput) Index(i pulumi.IntInput) SizeAvailabilityResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SizeAvailabilityResponse {
+		return vs[0].([]SizeAvailabilityResponse)[vs[1].(int)]
+	}).(SizeAvailabilityResponseOutput)
+}
+
 // Represents the size configuration under the lab account
 type SizeConfigurationPropertiesResponse struct {
 	// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
@@ -2691,10 +3018,14 @@ func init() {
 	pulumi.RegisterOutputType(LatestOperationResultResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponsePtrOutput{})
+	pulumi.RegisterOutputType(OperationBatchStatusResponseItemResponseOutput{})
+	pulumi.RegisterOutputType(OperationBatchStatusResponseItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(ReferenceVmOutput{})
 	pulumi.RegisterOutputType(ReferenceVmPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceVmResponseOutput{})
 	pulumi.RegisterOutputType(ReferenceVmResponsePtrOutput{})
+	pulumi.RegisterOutputType(RegionalAvailabilityResponseOutput{})
+	pulumi.RegisterOutputType(RegionalAvailabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSetOutput{})
 	pulumi.RegisterOutputType(ResourceSetPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetResponseOutput{})
@@ -2703,6 +3034,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SizeAvailabilityResponseOutput{})
+	pulumi.RegisterOutputType(SizeAvailabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(SizeConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SizeConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseOutput{})

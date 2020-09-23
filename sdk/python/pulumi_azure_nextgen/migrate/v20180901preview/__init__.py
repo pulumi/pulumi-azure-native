@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .get_migrate_project import *
 from .get_solution import *
+from .get_solution_config import *
 from .migrate_project import *
 from .solution import *
 from ._inputs import *

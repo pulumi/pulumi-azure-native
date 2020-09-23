@@ -23,6 +23,7 @@ export * from "./getServiceFabricSchedule";
 export * from "./getServiceRunner";
 export * from "./getUser";
 export * from "./getVirtualMachine";
+export * from "./getVirtualMachineRdpFileContents";
 export * from "./getVirtualMachineSchedule";
 export * from "./getVirtualNetwork";
 export * from "./globalSchedule";

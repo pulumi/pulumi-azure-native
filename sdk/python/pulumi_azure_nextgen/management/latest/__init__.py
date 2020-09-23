@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .deployment_at_management_group_scope import *
 from .get_deployment_at_management_group_scope import *
+from .get_entity import *
 from .get_hierarchy_setting import *
 from .get_management_group import *
 from .get_management_group_subscription import *

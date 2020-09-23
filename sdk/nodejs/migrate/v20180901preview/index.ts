@@ -4,5 +4,6 @@
 // Export members:
 export * from "./getMigrateProject";
 export * from "./getSolution";
+export * from "./getSolutionConfig";
 export * from "./migrateProject";
 export * from "./solution";

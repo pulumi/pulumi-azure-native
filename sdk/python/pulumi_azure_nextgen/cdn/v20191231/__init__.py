@@ -10,6 +10,7 @@ from .get_endpoint import *
 from .get_origin import *
 from .get_origin_group import *
 from .get_profile import *
+from .get_profile_supported_optimization_types import *
 from .origin import *
 from .origin_group import *
 from .profile import *

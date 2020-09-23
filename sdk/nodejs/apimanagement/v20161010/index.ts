@@ -4,3 +4,4 @@
 // Export members:
 export * from "./apiManagementService";
 export * from "./getApiManagementService";
+export * from "./getApiManagementServiceSsoToken";

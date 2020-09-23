@@ -6,6 +6,7 @@ export * from "./domain";
 export * from "./eventSubscription";
 export * from "./getDomain";
 export * from "./getEventSubscription";
+export * from "./getEventSubscriptionFullUrl";
 export * from "./getTopic";
 export * from "./listDomainSharedAccessKeys";
 export * from "./listTopicSharedAccessKeys";

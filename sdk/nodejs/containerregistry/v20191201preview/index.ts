@@ -10,6 +10,7 @@ export * from "./getPrivateEndpointConnection";
 export * from "./getRegistry";
 export * from "./getReplication";
 export * from "./getWebhook";
+export * from "./getWebhookCallbackConfig";
 export * from "./importPipeline";
 export * from "./listRegistryCredentials";
 export * from "./listWebhookEvents";

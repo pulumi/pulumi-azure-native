@@ -532,6 +532,215 @@ func (o ApiEntityReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Api error base.
+type ApiErrorBaseResponse struct {
+	// The error code.
+	Code *string `pulumi:"code"`
+	// The error message.
+	Message *string `pulumi:"message"`
+	// The target of the particular error.
+	Target *string `pulumi:"target"`
+}
+
+// ApiErrorBaseResponseInput is an input type that accepts ApiErrorBaseResponseArgs and ApiErrorBaseResponseOutput values.
+// You can construct a concrete instance of `ApiErrorBaseResponseInput` via:
+//
+//          ApiErrorBaseResponseArgs{...}
+type ApiErrorBaseResponseInput interface {
+	pulumi.Input
+
+	ToApiErrorBaseResponseOutput() ApiErrorBaseResponseOutput
+	ToApiErrorBaseResponseOutputWithContext(context.Context) ApiErrorBaseResponseOutput
+}
+
+// Api error base.
+type ApiErrorBaseResponseArgs struct {
+	// The error code.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// The error message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The target of the particular error.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ApiErrorBaseResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiErrorBaseResponse)(nil)).Elem()
+}
+
+func (i ApiErrorBaseResponseArgs) ToApiErrorBaseResponseOutput() ApiErrorBaseResponseOutput {
+	return i.ToApiErrorBaseResponseOutputWithContext(context.Background())
+}
+
+func (i ApiErrorBaseResponseArgs) ToApiErrorBaseResponseOutputWithContext(ctx context.Context) ApiErrorBaseResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiErrorBaseResponseOutput)
+}
+
+// ApiErrorBaseResponseArrayInput is an input type that accepts ApiErrorBaseResponseArray and ApiErrorBaseResponseArrayOutput values.
+// You can construct a concrete instance of `ApiErrorBaseResponseArrayInput` via:
+//
+//          ApiErrorBaseResponseArray{ ApiErrorBaseResponseArgs{...} }
+type ApiErrorBaseResponseArrayInput interface {
+	pulumi.Input
+
+	ToApiErrorBaseResponseArrayOutput() ApiErrorBaseResponseArrayOutput
+	ToApiErrorBaseResponseArrayOutputWithContext(context.Context) ApiErrorBaseResponseArrayOutput
+}
+
+type ApiErrorBaseResponseArray []ApiErrorBaseResponseInput
+
+func (ApiErrorBaseResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiErrorBaseResponse)(nil)).Elem()
+}
+
+func (i ApiErrorBaseResponseArray) ToApiErrorBaseResponseArrayOutput() ApiErrorBaseResponseArrayOutput {
+	return i.ToApiErrorBaseResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApiErrorBaseResponseArray) ToApiErrorBaseResponseArrayOutputWithContext(ctx context.Context) ApiErrorBaseResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiErrorBaseResponseArrayOutput)
+}
+
+// Api error base.
+type ApiErrorBaseResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiErrorBaseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiErrorBaseResponse)(nil)).Elem()
+}
+
+func (o ApiErrorBaseResponseOutput) ToApiErrorBaseResponseOutput() ApiErrorBaseResponseOutput {
+	return o
+}
+
+func (o ApiErrorBaseResponseOutput) ToApiErrorBaseResponseOutputWithContext(ctx context.Context) ApiErrorBaseResponseOutput {
+	return o
+}
+
+// The error code.
+func (o ApiErrorBaseResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorBaseResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// The error message.
+func (o ApiErrorBaseResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorBaseResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error.
+func (o ApiErrorBaseResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorBaseResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ApiErrorBaseResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiErrorBaseResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiErrorBaseResponse)(nil)).Elem()
+}
+
+func (o ApiErrorBaseResponseArrayOutput) ToApiErrorBaseResponseArrayOutput() ApiErrorBaseResponseArrayOutput {
+	return o
+}
+
+func (o ApiErrorBaseResponseArrayOutput) ToApiErrorBaseResponseArrayOutputWithContext(ctx context.Context) ApiErrorBaseResponseArrayOutput {
+	return o
+}
+
+func (o ApiErrorBaseResponseArrayOutput) Index(i pulumi.IntInput) ApiErrorBaseResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiErrorBaseResponse {
+		return vs[0].([]ApiErrorBaseResponse)[vs[1].(int)]
+	}).(ApiErrorBaseResponseOutput)
+}
+
+// Api error.
+type ApiErrorResponse struct {
+	// The error code.
+	Code *string `pulumi:"code"`
+	// The Api error details
+	Details []ApiErrorBaseResponse `pulumi:"details"`
+	// The Api inner error
+	Innererror *InnerErrorResponse `pulumi:"innererror"`
+	// The error message.
+	Message *string `pulumi:"message"`
+	// The target of the particular error.
+	Target *string `pulumi:"target"`
+}
+
+// ApiErrorResponseInput is an input type that accepts ApiErrorResponseArgs and ApiErrorResponseOutput values.
+// You can construct a concrete instance of `ApiErrorResponseInput` via:
+//
+//          ApiErrorResponseArgs{...}
+type ApiErrorResponseInput interface {
+	pulumi.Input
+
+	ToApiErrorResponseOutput() ApiErrorResponseOutput
+	ToApiErrorResponseOutputWithContext(context.Context) ApiErrorResponseOutput
+}
+
+// Api error.
+type ApiErrorResponseArgs struct {
+	// The error code.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// The Api error details
+	Details ApiErrorBaseResponseArrayInput `pulumi:"details"`
+	// The Api inner error
+	Innererror InnerErrorResponsePtrInput `pulumi:"innererror"`
+	// The error message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The target of the particular error.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ApiErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiErrorResponse)(nil)).Elem()
+}
+
+func (i ApiErrorResponseArgs) ToApiErrorResponseOutput() ApiErrorResponseOutput {
+	return i.ToApiErrorResponseOutputWithContext(context.Background())
+}
+
+func (i ApiErrorResponseArgs) ToApiErrorResponseOutputWithContext(ctx context.Context) ApiErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiErrorResponseOutput)
+}
+
+// Api error.
+type ApiErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiErrorResponse)(nil)).Elem()
+}
+
+func (o ApiErrorResponseOutput) ToApiErrorResponseOutput() ApiErrorResponseOutput {
+	return o
+}
+
+func (o ApiErrorResponseOutput) ToApiErrorResponseOutputWithContext(ctx context.Context) ApiErrorResponseOutput {
+	return o
+}
+
+// The error code.
+func (o ApiErrorResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// The Api error details
+func (o ApiErrorResponseOutput) Details() ApiErrorBaseResponseArrayOutput {
+	return o.ApplyT(func(v ApiErrorResponse) []ApiErrorBaseResponse { return v.Details }).(ApiErrorBaseResponseArrayOutput)
+}
+
+// The Api inner error
+func (o ApiErrorResponseOutput) Innererror() InnerErrorResponsePtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *InnerErrorResponse { return v.Innererror }).(InnerErrorResponsePtrOutput)
+}
+
+// The error message.
+func (o ApiErrorResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error.
+func (o ApiErrorResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
 // The configuration parameters used for performing automatic OS upgrade.
 type AutoOSUpgradePolicy struct {
 	// Whether OS image rollback feature should be disabled. Default value is false.
@@ -4252,6 +4461,159 @@ func (o ImageStorageProfileResponsePtrOutput) ZoneResilient() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Inner error details.
+type InnerErrorResponse struct {
+	// The internal error message or exception dump.
+	Errordetail *string `pulumi:"errordetail"`
+	// The exception type.
+	Exceptiontype *string `pulumi:"exceptiontype"`
+}
+
+// InnerErrorResponseInput is an input type that accepts InnerErrorResponseArgs and InnerErrorResponseOutput values.
+// You can construct a concrete instance of `InnerErrorResponseInput` via:
+//
+//          InnerErrorResponseArgs{...}
+type InnerErrorResponseInput interface {
+	pulumi.Input
+
+	ToInnerErrorResponseOutput() InnerErrorResponseOutput
+	ToInnerErrorResponseOutputWithContext(context.Context) InnerErrorResponseOutput
+}
+
+// Inner error details.
+type InnerErrorResponseArgs struct {
+	// The internal error message or exception dump.
+	Errordetail pulumi.StringPtrInput `pulumi:"errordetail"`
+	// The exception type.
+	Exceptiontype pulumi.StringPtrInput `pulumi:"exceptiontype"`
+}
+
+func (InnerErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InnerErrorResponse)(nil)).Elem()
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponseOutput() InnerErrorResponseOutput {
+	return i.ToInnerErrorResponseOutputWithContext(context.Background())
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponseOutputWithContext(ctx context.Context) InnerErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponseOutput)
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return i.ToInnerErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponseOutput).ToInnerErrorResponsePtrOutputWithContext(ctx)
+}
+
+// InnerErrorResponsePtrInput is an input type that accepts InnerErrorResponseArgs, InnerErrorResponsePtr and InnerErrorResponsePtrOutput values.
+// You can construct a concrete instance of `InnerErrorResponsePtrInput` via:
+//
+//          InnerErrorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type InnerErrorResponsePtrInput interface {
+	pulumi.Input
+
+	ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput
+	ToInnerErrorResponsePtrOutputWithContext(context.Context) InnerErrorResponsePtrOutput
+}
+
+type innerErrorResponsePtrType InnerErrorResponseArgs
+
+func InnerErrorResponsePtr(v *InnerErrorResponseArgs) InnerErrorResponsePtrInput {
+	return (*innerErrorResponsePtrType)(v)
+}
+
+func (*innerErrorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InnerErrorResponse)(nil)).Elem()
+}
+
+func (i *innerErrorResponsePtrType) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return i.ToInnerErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *innerErrorResponsePtrType) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponsePtrOutput)
+}
+
+// Inner error details.
+type InnerErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (InnerErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InnerErrorResponse)(nil)).Elem()
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponseOutput() InnerErrorResponseOutput {
+	return o
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponseOutputWithContext(ctx context.Context) InnerErrorResponseOutput {
+	return o
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return o.ToInnerErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return o.ApplyT(func(v InnerErrorResponse) *InnerErrorResponse {
+		return &v
+	}).(InnerErrorResponsePtrOutput)
+}
+
+// The internal error message or exception dump.
+func (o InnerErrorResponseOutput) Errordetail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InnerErrorResponse) *string { return v.Errordetail }).(pulumi.StringPtrOutput)
+}
+
+// The exception type.
+func (o InnerErrorResponseOutput) Exceptiontype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InnerErrorResponse) *string { return v.Exceptiontype }).(pulumi.StringPtrOutput)
+}
+
+type InnerErrorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (InnerErrorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InnerErrorResponse)(nil)).Elem()
+}
+
+func (o InnerErrorResponsePtrOutput) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return o
+}
+
+func (o InnerErrorResponsePtrOutput) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return o
+}
+
+func (o InnerErrorResponsePtrOutput) Elem() InnerErrorResponseOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) InnerErrorResponse { return *v }).(InnerErrorResponseOutput)
+}
+
+// The internal error message or exception dump.
+func (o InnerErrorResponsePtrOutput) Errordetail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Errordetail
+	}).(pulumi.StringPtrOutput)
+}
+
+// The exception type.
+func (o InnerErrorResponsePtrOutput) Exceptiontype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exceptiontype
+	}).(pulumi.StringPtrOutput)
+}
+
 // Instance view status.
 type InstanceViewStatus struct {
 	// The status code.
@@ -5559,6 +5921,61 @@ func (o LinuxConfigurationResponsePtrOutput) Ssh() SshConfigurationResponsePtrOu
 		}
 		return v.Ssh
 	}).(SshConfigurationResponsePtrOutput)
+}
+
+// LogAnalytics output properties
+type LogAnalyticsOutputResponse struct {
+	// Output file Uri path to blob container.
+	Output string `pulumi:"output"`
+}
+
+// LogAnalyticsOutputResponseInput is an input type that accepts LogAnalyticsOutputResponseArgs and LogAnalyticsOutputResponseOutput values.
+// You can construct a concrete instance of `LogAnalyticsOutputResponseInput` via:
+//
+//          LogAnalyticsOutputResponseArgs{...}
+type LogAnalyticsOutputResponseInput interface {
+	pulumi.Input
+
+	ToLogAnalyticsOutputResponseOutput() LogAnalyticsOutputResponseOutput
+	ToLogAnalyticsOutputResponseOutputWithContext(context.Context) LogAnalyticsOutputResponseOutput
+}
+
+// LogAnalytics output properties
+type LogAnalyticsOutputResponseArgs struct {
+	// Output file Uri path to blob container.
+	Output pulumi.StringInput `pulumi:"output"`
+}
+
+func (LogAnalyticsOutputResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsOutputResponse)(nil)).Elem()
+}
+
+func (i LogAnalyticsOutputResponseArgs) ToLogAnalyticsOutputResponseOutput() LogAnalyticsOutputResponseOutput {
+	return i.ToLogAnalyticsOutputResponseOutputWithContext(context.Background())
+}
+
+func (i LogAnalyticsOutputResponseArgs) ToLogAnalyticsOutputResponseOutputWithContext(ctx context.Context) LogAnalyticsOutputResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsOutputResponseOutput)
+}
+
+// LogAnalytics output properties
+type LogAnalyticsOutputResponseOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsOutputResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsOutputResponse)(nil)).Elem()
+}
+
+func (o LogAnalyticsOutputResponseOutput) ToLogAnalyticsOutputResponseOutput() LogAnalyticsOutputResponseOutput {
+	return o
+}
+
+func (o LogAnalyticsOutputResponseOutput) ToLogAnalyticsOutputResponseOutputWithContext(ctx context.Context) LogAnalyticsOutputResponseOutput {
+	return o
+}
+
+// Output file Uri path to blob container.
+func (o LogAnalyticsOutputResponseOutput) Output() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAnalyticsOutputResponse) string { return v.Output }).(pulumi.StringOutput)
 }
 
 // Maintenance Operation Status.
@@ -19516,6 +19933,9 @@ func init() {
 	pulumi.RegisterOutputType(ApiEntityReferencePtrOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiErrorBaseResponseOutput{})
+	pulumi.RegisterOutputType(ApiErrorBaseResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApiErrorResponseOutput{})
 	pulumi.RegisterOutputType(AutoOSUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(AutoOSUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutoOSUpgradePolicyResponseOutput{})
@@ -19561,6 +19981,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(ImageStorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(ImageStorageProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(InnerErrorResponseOutput{})
+	pulumi.RegisterOutputType(InnerErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusArrayOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusResponseOutput{})
@@ -19578,6 +20000,7 @@ func init() {
 	pulumi.RegisterOutputType(LinuxConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsOutputResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceRedeployStatusResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceRedeployStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedDiskParametersOutput{})

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_entity import *
 from .get_hierarchy_setting import *
 from .get_management_group import *
 from .get_management_group_subscription import *

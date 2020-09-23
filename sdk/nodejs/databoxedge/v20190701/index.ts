@@ -6,6 +6,7 @@ export * from "./bandwidthSchedule";
 export * from "./device";
 export * from "./getBandwidthSchedule";
 export * from "./getDevice";
+export * from "./getDeviceExtendedInformation";
 export * from "./getOrder";
 export * from "./getRole";
 export * from "./getShare";
