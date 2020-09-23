@@ -25,6 +25,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Outputs
         /// Sets the IP ACL rules
         /// </summary>
         public readonly ImmutableArray<Outputs.IPRuleResponse> IpRules;
+        public readonly ImmutableArray<Outputs.ResourceAccessRuleResponse> ResourceAccessRules;
         /// <summary>
         /// Sets the virtual network rules
         /// </summary>
@@ -38,11 +39,14 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Outputs
 
             ImmutableArray<Outputs.IPRuleResponse> ipRules,
 
+            ImmutableArray<Outputs.ResourceAccessRuleResponse> resourceAccessRules,
+
             ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules)
         {
             Bypass = bypass;
             DefaultAction = defaultAction;
             IpRules = ipRules;
+            ResourceAccessRules = resourceAccessRules;
             VirtualNetworkRules = virtualNetworkRules;
         }
     }
