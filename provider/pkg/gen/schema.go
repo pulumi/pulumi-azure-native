@@ -280,7 +280,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 				gen.genResources(providerName, typeName, resource.Path, resource.PathItem, resource.Swagger, resource.CompatibleVersions)
 			}
 
-			// Populate list invokes.
+			// Populate POST invokes.
 			var invokes []string
 			for invoke := range items.Invokes {
 				invokes = append(invokes, invoke)
@@ -289,7 +289,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 
 			for _, typeName := range invokes {
 				invoke := items.Invokes[typeName]
-				gen.genListFunctions(providerName, typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
+				gen.genPostFunctions(providerName, typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
 			}
 		}
 	}
@@ -509,8 +509,9 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 	return nil
 }
 
-// genListFunctions defines functions for list* (listKeys, listSecrets, etc.) POST endpoints.
-func (g *packageGenerator) genListFunctions(prov, typeName, path string, pathItem *spec.PathItem, swagger *openapi.Spec) {
+// genPostFunctions defines functions for list* (listKeys, listSecrets, etc.)
+// and get* (getFullUrl, getBastionShareableLink, etc.) POST endpoints.
+func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathItem *spec.PathItem, swagger *openapi.Spec) {
 	module := g.providerToModule(prov)
 	gen := moduleGenerator{
 		pkg:           g.pkg,
@@ -523,7 +524,7 @@ func (g *packageGenerator) genListFunctions(prov, typeName, path string, pathIte
 	}
 
 	// Generate the function to get this resource.
-	functionTok := fmt.Sprintf(`%s:%s:list%s`, g.pkg.Name, module, typeName)
+	functionTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
 
 	parameters := swagger.MergeParameters(pathItem.Post.Parameters, pathItem.Parameters)
 	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)

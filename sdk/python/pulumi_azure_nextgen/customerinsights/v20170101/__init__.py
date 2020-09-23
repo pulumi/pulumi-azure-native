@@ -8,6 +8,8 @@ from .connector_mapping import *
 from .get_connector import *
 from .get_connector_mapping import *
 from .get_hub import *
+from .get_image_upload_url_for_data import *
+from .get_image_upload_url_for_entity_type import *
 from .get_kpi import *
 from .get_link import *
 from .get_profile import *

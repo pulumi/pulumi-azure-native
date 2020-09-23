@@ -4975,6 +4975,142 @@ func (o LinkedIntegrationRuntimeRbacAuthorizationResponseOutput) ResourceId() pu
 	return o.ApplyT(func(v LinkedIntegrationRuntimeRbacAuthorizationResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// The linked integration runtime information.
+type LinkedIntegrationRuntimeResponse struct {
+	// The creating time of the linked integration runtime.
+	CreateTime string `pulumi:"createTime"`
+	// The location of the workspace for which the linked integration runtime belong to.
+	DataFactoryLocation string `pulumi:"dataFactoryLocation"`
+	// The name of the workspace for which the linked integration runtime belong to.
+	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The name of the linked integration runtime.
+	Name string `pulumi:"name"`
+	// The subscription ID for which the linked integration runtime belong to.
+	SubscriptionId string `pulumi:"subscriptionId"`
+}
+
+// LinkedIntegrationRuntimeResponseInput is an input type that accepts LinkedIntegrationRuntimeResponseArgs and LinkedIntegrationRuntimeResponseOutput values.
+// You can construct a concrete instance of `LinkedIntegrationRuntimeResponseInput` via:
+//
+//          LinkedIntegrationRuntimeResponseArgs{...}
+type LinkedIntegrationRuntimeResponseInput interface {
+	pulumi.Input
+
+	ToLinkedIntegrationRuntimeResponseOutput() LinkedIntegrationRuntimeResponseOutput
+	ToLinkedIntegrationRuntimeResponseOutputWithContext(context.Context) LinkedIntegrationRuntimeResponseOutput
+}
+
+// The linked integration runtime information.
+type LinkedIntegrationRuntimeResponseArgs struct {
+	// The creating time of the linked integration runtime.
+	CreateTime pulumi.StringInput `pulumi:"createTime"`
+	// The location of the workspace for which the linked integration runtime belong to.
+	DataFactoryLocation pulumi.StringInput `pulumi:"dataFactoryLocation"`
+	// The name of the workspace for which the linked integration runtime belong to.
+	DataFactoryName pulumi.StringInput `pulumi:"dataFactoryName"`
+	// The name of the linked integration runtime.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The subscription ID for which the linked integration runtime belong to.
+	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
+}
+
+func (LinkedIntegrationRuntimeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedIntegrationRuntimeResponse)(nil)).Elem()
+}
+
+func (i LinkedIntegrationRuntimeResponseArgs) ToLinkedIntegrationRuntimeResponseOutput() LinkedIntegrationRuntimeResponseOutput {
+	return i.ToLinkedIntegrationRuntimeResponseOutputWithContext(context.Background())
+}
+
+func (i LinkedIntegrationRuntimeResponseArgs) ToLinkedIntegrationRuntimeResponseOutputWithContext(ctx context.Context) LinkedIntegrationRuntimeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedIntegrationRuntimeResponseOutput)
+}
+
+// LinkedIntegrationRuntimeResponseArrayInput is an input type that accepts LinkedIntegrationRuntimeResponseArray and LinkedIntegrationRuntimeResponseArrayOutput values.
+// You can construct a concrete instance of `LinkedIntegrationRuntimeResponseArrayInput` via:
+//
+//          LinkedIntegrationRuntimeResponseArray{ LinkedIntegrationRuntimeResponseArgs{...} }
+type LinkedIntegrationRuntimeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLinkedIntegrationRuntimeResponseArrayOutput() LinkedIntegrationRuntimeResponseArrayOutput
+	ToLinkedIntegrationRuntimeResponseArrayOutputWithContext(context.Context) LinkedIntegrationRuntimeResponseArrayOutput
+}
+
+type LinkedIntegrationRuntimeResponseArray []LinkedIntegrationRuntimeResponseInput
+
+func (LinkedIntegrationRuntimeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedIntegrationRuntimeResponse)(nil)).Elem()
+}
+
+func (i LinkedIntegrationRuntimeResponseArray) ToLinkedIntegrationRuntimeResponseArrayOutput() LinkedIntegrationRuntimeResponseArrayOutput {
+	return i.ToLinkedIntegrationRuntimeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedIntegrationRuntimeResponseArray) ToLinkedIntegrationRuntimeResponseArrayOutputWithContext(ctx context.Context) LinkedIntegrationRuntimeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedIntegrationRuntimeResponseArrayOutput)
+}
+
+// The linked integration runtime information.
+type LinkedIntegrationRuntimeResponseOutput struct{ *pulumi.OutputState }
+
+func (LinkedIntegrationRuntimeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedIntegrationRuntimeResponse)(nil)).Elem()
+}
+
+func (o LinkedIntegrationRuntimeResponseOutput) ToLinkedIntegrationRuntimeResponseOutput() LinkedIntegrationRuntimeResponseOutput {
+	return o
+}
+
+func (o LinkedIntegrationRuntimeResponseOutput) ToLinkedIntegrationRuntimeResponseOutputWithContext(ctx context.Context) LinkedIntegrationRuntimeResponseOutput {
+	return o
+}
+
+// The creating time of the linked integration runtime.
+func (o LinkedIntegrationRuntimeResponseOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedIntegrationRuntimeResponse) string { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+// The location of the workspace for which the linked integration runtime belong to.
+func (o LinkedIntegrationRuntimeResponseOutput) DataFactoryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedIntegrationRuntimeResponse) string { return v.DataFactoryLocation }).(pulumi.StringOutput)
+}
+
+// The name of the workspace for which the linked integration runtime belong to.
+func (o LinkedIntegrationRuntimeResponseOutput) DataFactoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedIntegrationRuntimeResponse) string { return v.DataFactoryName }).(pulumi.StringOutput)
+}
+
+// The name of the linked integration runtime.
+func (o LinkedIntegrationRuntimeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedIntegrationRuntimeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The subscription ID for which the linked integration runtime belong to.
+func (o LinkedIntegrationRuntimeResponseOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedIntegrationRuntimeResponse) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+type LinkedIntegrationRuntimeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedIntegrationRuntimeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedIntegrationRuntimeResponse)(nil)).Elem()
+}
+
+func (o LinkedIntegrationRuntimeResponseArrayOutput) ToLinkedIntegrationRuntimeResponseArrayOutput() LinkedIntegrationRuntimeResponseArrayOutput {
+	return o
+}
+
+func (o LinkedIntegrationRuntimeResponseArrayOutput) ToLinkedIntegrationRuntimeResponseArrayOutputWithContext(ctx context.Context) LinkedIntegrationRuntimeResponseArrayOutput {
+	return o
+}
+
+func (o LinkedIntegrationRuntimeResponseArrayOutput) Index(i pulumi.IntInput) LinkedIntegrationRuntimeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedIntegrationRuntimeResponse {
+		return vs[0].([]LinkedIntegrationRuntimeResponse)[vs[1].(int)]
+	}).(LinkedIntegrationRuntimeResponseOutput)
+}
+
 // The workspace managed identity
 type ManagedIdentity struct {
 	// The type of managed identity for the workspace
@@ -5363,6 +5499,353 @@ func (o ManagedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Error definition for managed integration runtime.
+type ManagedIntegrationRuntimeErrorResponse struct {
+	// Error code.
+	Code string `pulumi:"code"`
+	// Error message.
+	Message string `pulumi:"message"`
+	// Managed integration runtime error parameters.
+	Parameters []string `pulumi:"parameters"`
+	// The time when the error occurred.
+	Time string `pulumi:"time"`
+}
+
+// ManagedIntegrationRuntimeErrorResponseInput is an input type that accepts ManagedIntegrationRuntimeErrorResponseArgs and ManagedIntegrationRuntimeErrorResponseOutput values.
+// You can construct a concrete instance of `ManagedIntegrationRuntimeErrorResponseInput` via:
+//
+//          ManagedIntegrationRuntimeErrorResponseArgs{...}
+type ManagedIntegrationRuntimeErrorResponseInput interface {
+	pulumi.Input
+
+	ToManagedIntegrationRuntimeErrorResponseOutput() ManagedIntegrationRuntimeErrorResponseOutput
+	ToManagedIntegrationRuntimeErrorResponseOutputWithContext(context.Context) ManagedIntegrationRuntimeErrorResponseOutput
+}
+
+// Error definition for managed integration runtime.
+type ManagedIntegrationRuntimeErrorResponseArgs struct {
+	// Error code.
+	Code pulumi.StringInput `pulumi:"code"`
+	// Error message.
+	Message pulumi.StringInput `pulumi:"message"`
+	// Managed integration runtime error parameters.
+	Parameters pulumi.StringArrayInput `pulumi:"parameters"`
+	// The time when the error occurred.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedIntegrationRuntimeErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIntegrationRuntimeErrorResponse)(nil)).Elem()
+}
+
+func (i ManagedIntegrationRuntimeErrorResponseArgs) ToManagedIntegrationRuntimeErrorResponseOutput() ManagedIntegrationRuntimeErrorResponseOutput {
+	return i.ToManagedIntegrationRuntimeErrorResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedIntegrationRuntimeErrorResponseArgs) ToManagedIntegrationRuntimeErrorResponseOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeErrorResponseOutput)
+}
+
+// ManagedIntegrationRuntimeErrorResponseArrayInput is an input type that accepts ManagedIntegrationRuntimeErrorResponseArray and ManagedIntegrationRuntimeErrorResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedIntegrationRuntimeErrorResponseArrayInput` via:
+//
+//          ManagedIntegrationRuntimeErrorResponseArray{ ManagedIntegrationRuntimeErrorResponseArgs{...} }
+type ManagedIntegrationRuntimeErrorResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedIntegrationRuntimeErrorResponseArrayOutput() ManagedIntegrationRuntimeErrorResponseArrayOutput
+	ToManagedIntegrationRuntimeErrorResponseArrayOutputWithContext(context.Context) ManagedIntegrationRuntimeErrorResponseArrayOutput
+}
+
+type ManagedIntegrationRuntimeErrorResponseArray []ManagedIntegrationRuntimeErrorResponseInput
+
+func (ManagedIntegrationRuntimeErrorResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedIntegrationRuntimeErrorResponse)(nil)).Elem()
+}
+
+func (i ManagedIntegrationRuntimeErrorResponseArray) ToManagedIntegrationRuntimeErrorResponseArrayOutput() ManagedIntegrationRuntimeErrorResponseArrayOutput {
+	return i.ToManagedIntegrationRuntimeErrorResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedIntegrationRuntimeErrorResponseArray) ToManagedIntegrationRuntimeErrorResponseArrayOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeErrorResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeErrorResponseArrayOutput)
+}
+
+// Error definition for managed integration runtime.
+type ManagedIntegrationRuntimeErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIntegrationRuntimeErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIntegrationRuntimeErrorResponse)(nil)).Elem()
+}
+
+func (o ManagedIntegrationRuntimeErrorResponseOutput) ToManagedIntegrationRuntimeErrorResponseOutput() ManagedIntegrationRuntimeErrorResponseOutput {
+	return o
+}
+
+func (o ManagedIntegrationRuntimeErrorResponseOutput) ToManagedIntegrationRuntimeErrorResponseOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeErrorResponseOutput {
+	return o
+}
+
+// Error code.
+func (o ManagedIntegrationRuntimeErrorResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeErrorResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Error message.
+func (o ManagedIntegrationRuntimeErrorResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeErrorResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Managed integration runtime error parameters.
+func (o ManagedIntegrationRuntimeErrorResponseOutput) Parameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeErrorResponse) []string { return v.Parameters }).(pulumi.StringArrayOutput)
+}
+
+// The time when the error occurred.
+func (o ManagedIntegrationRuntimeErrorResponseOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeErrorResponse) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedIntegrationRuntimeErrorResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedIntegrationRuntimeErrorResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedIntegrationRuntimeErrorResponse)(nil)).Elem()
+}
+
+func (o ManagedIntegrationRuntimeErrorResponseArrayOutput) ToManagedIntegrationRuntimeErrorResponseArrayOutput() ManagedIntegrationRuntimeErrorResponseArrayOutput {
+	return o
+}
+
+func (o ManagedIntegrationRuntimeErrorResponseArrayOutput) ToManagedIntegrationRuntimeErrorResponseArrayOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeErrorResponseArrayOutput {
+	return o
+}
+
+func (o ManagedIntegrationRuntimeErrorResponseArrayOutput) Index(i pulumi.IntInput) ManagedIntegrationRuntimeErrorResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedIntegrationRuntimeErrorResponse {
+		return vs[0].([]ManagedIntegrationRuntimeErrorResponse)[vs[1].(int)]
+	}).(ManagedIntegrationRuntimeErrorResponseOutput)
+}
+
+// Properties of integration runtime node.
+type ManagedIntegrationRuntimeNodeResponse struct {
+	// The errors that occurred on this integration runtime node.
+	Errors []ManagedIntegrationRuntimeErrorResponse `pulumi:"errors"`
+	// The managed integration runtime node id.
+	NodeId string `pulumi:"nodeId"`
+	// The managed integration runtime node status.
+	Status string `pulumi:"status"`
+}
+
+// ManagedIntegrationRuntimeNodeResponseInput is an input type that accepts ManagedIntegrationRuntimeNodeResponseArgs and ManagedIntegrationRuntimeNodeResponseOutput values.
+// You can construct a concrete instance of `ManagedIntegrationRuntimeNodeResponseInput` via:
+//
+//          ManagedIntegrationRuntimeNodeResponseArgs{...}
+type ManagedIntegrationRuntimeNodeResponseInput interface {
+	pulumi.Input
+
+	ToManagedIntegrationRuntimeNodeResponseOutput() ManagedIntegrationRuntimeNodeResponseOutput
+	ToManagedIntegrationRuntimeNodeResponseOutputWithContext(context.Context) ManagedIntegrationRuntimeNodeResponseOutput
+}
+
+// Properties of integration runtime node.
+type ManagedIntegrationRuntimeNodeResponseArgs struct {
+	// The errors that occurred on this integration runtime node.
+	Errors ManagedIntegrationRuntimeErrorResponseArrayInput `pulumi:"errors"`
+	// The managed integration runtime node id.
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
+	// The managed integration runtime node status.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (ManagedIntegrationRuntimeNodeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIntegrationRuntimeNodeResponse)(nil)).Elem()
+}
+
+func (i ManagedIntegrationRuntimeNodeResponseArgs) ToManagedIntegrationRuntimeNodeResponseOutput() ManagedIntegrationRuntimeNodeResponseOutput {
+	return i.ToManagedIntegrationRuntimeNodeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedIntegrationRuntimeNodeResponseArgs) ToManagedIntegrationRuntimeNodeResponseOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeNodeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeNodeResponseOutput)
+}
+
+// ManagedIntegrationRuntimeNodeResponseArrayInput is an input type that accepts ManagedIntegrationRuntimeNodeResponseArray and ManagedIntegrationRuntimeNodeResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedIntegrationRuntimeNodeResponseArrayInput` via:
+//
+//          ManagedIntegrationRuntimeNodeResponseArray{ ManagedIntegrationRuntimeNodeResponseArgs{...} }
+type ManagedIntegrationRuntimeNodeResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedIntegrationRuntimeNodeResponseArrayOutput() ManagedIntegrationRuntimeNodeResponseArrayOutput
+	ToManagedIntegrationRuntimeNodeResponseArrayOutputWithContext(context.Context) ManagedIntegrationRuntimeNodeResponseArrayOutput
+}
+
+type ManagedIntegrationRuntimeNodeResponseArray []ManagedIntegrationRuntimeNodeResponseInput
+
+func (ManagedIntegrationRuntimeNodeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedIntegrationRuntimeNodeResponse)(nil)).Elem()
+}
+
+func (i ManagedIntegrationRuntimeNodeResponseArray) ToManagedIntegrationRuntimeNodeResponseArrayOutput() ManagedIntegrationRuntimeNodeResponseArrayOutput {
+	return i.ToManagedIntegrationRuntimeNodeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedIntegrationRuntimeNodeResponseArray) ToManagedIntegrationRuntimeNodeResponseArrayOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeNodeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeNodeResponseArrayOutput)
+}
+
+// Properties of integration runtime node.
+type ManagedIntegrationRuntimeNodeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIntegrationRuntimeNodeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIntegrationRuntimeNodeResponse)(nil)).Elem()
+}
+
+func (o ManagedIntegrationRuntimeNodeResponseOutput) ToManagedIntegrationRuntimeNodeResponseOutput() ManagedIntegrationRuntimeNodeResponseOutput {
+	return o
+}
+
+func (o ManagedIntegrationRuntimeNodeResponseOutput) ToManagedIntegrationRuntimeNodeResponseOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeNodeResponseOutput {
+	return o
+}
+
+// The errors that occurred on this integration runtime node.
+func (o ManagedIntegrationRuntimeNodeResponseOutput) Errors() ManagedIntegrationRuntimeErrorResponseArrayOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeNodeResponse) []ManagedIntegrationRuntimeErrorResponse {
+		return v.Errors
+	}).(ManagedIntegrationRuntimeErrorResponseArrayOutput)
+}
+
+// The managed integration runtime node id.
+func (o ManagedIntegrationRuntimeNodeResponseOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeNodeResponse) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// The managed integration runtime node status.
+func (o ManagedIntegrationRuntimeNodeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeNodeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type ManagedIntegrationRuntimeNodeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedIntegrationRuntimeNodeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedIntegrationRuntimeNodeResponse)(nil)).Elem()
+}
+
+func (o ManagedIntegrationRuntimeNodeResponseArrayOutput) ToManagedIntegrationRuntimeNodeResponseArrayOutput() ManagedIntegrationRuntimeNodeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedIntegrationRuntimeNodeResponseArrayOutput) ToManagedIntegrationRuntimeNodeResponseArrayOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeNodeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedIntegrationRuntimeNodeResponseArrayOutput) Index(i pulumi.IntInput) ManagedIntegrationRuntimeNodeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedIntegrationRuntimeNodeResponse {
+		return vs[0].([]ManagedIntegrationRuntimeNodeResponse)[vs[1].(int)]
+	}).(ManagedIntegrationRuntimeNodeResponseOutput)
+}
+
+// Properties of managed integration runtime operation result.
+type ManagedIntegrationRuntimeOperationResultResponse struct {
+	// The activity id for the operation request.
+	ActivityId string `pulumi:"activityId"`
+	// The error code.
+	ErrorCode string `pulumi:"errorCode"`
+	// Managed integration runtime error parameters.
+	Parameters []string `pulumi:"parameters"`
+	// The operation result.
+	Result string `pulumi:"result"`
+	// The start time of the operation.
+	StartTime string `pulumi:"startTime"`
+	// The operation type. Could be start or stop.
+	Type string `pulumi:"type"`
+}
+
+// ManagedIntegrationRuntimeOperationResultResponseInput is an input type that accepts ManagedIntegrationRuntimeOperationResultResponseArgs and ManagedIntegrationRuntimeOperationResultResponseOutput values.
+// You can construct a concrete instance of `ManagedIntegrationRuntimeOperationResultResponseInput` via:
+//
+//          ManagedIntegrationRuntimeOperationResultResponseArgs{...}
+type ManagedIntegrationRuntimeOperationResultResponseInput interface {
+	pulumi.Input
+
+	ToManagedIntegrationRuntimeOperationResultResponseOutput() ManagedIntegrationRuntimeOperationResultResponseOutput
+	ToManagedIntegrationRuntimeOperationResultResponseOutputWithContext(context.Context) ManagedIntegrationRuntimeOperationResultResponseOutput
+}
+
+// Properties of managed integration runtime operation result.
+type ManagedIntegrationRuntimeOperationResultResponseArgs struct {
+	// The activity id for the operation request.
+	ActivityId pulumi.StringInput `pulumi:"activityId"`
+	// The error code.
+	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
+	// Managed integration runtime error parameters.
+	Parameters pulumi.StringArrayInput `pulumi:"parameters"`
+	// The operation result.
+	Result pulumi.StringInput `pulumi:"result"`
+	// The start time of the operation.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// The operation type. Could be start or stop.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedIntegrationRuntimeOperationResultResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIntegrationRuntimeOperationResultResponse)(nil)).Elem()
+}
+
+func (i ManagedIntegrationRuntimeOperationResultResponseArgs) ToManagedIntegrationRuntimeOperationResultResponseOutput() ManagedIntegrationRuntimeOperationResultResponseOutput {
+	return i.ToManagedIntegrationRuntimeOperationResultResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedIntegrationRuntimeOperationResultResponseArgs) ToManagedIntegrationRuntimeOperationResultResponseOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeOperationResultResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeOperationResultResponseOutput)
+}
+
+// Properties of managed integration runtime operation result.
+type ManagedIntegrationRuntimeOperationResultResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIntegrationRuntimeOperationResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIntegrationRuntimeOperationResultResponse)(nil)).Elem()
+}
+
+func (o ManagedIntegrationRuntimeOperationResultResponseOutput) ToManagedIntegrationRuntimeOperationResultResponseOutput() ManagedIntegrationRuntimeOperationResultResponseOutput {
+	return o
+}
+
+func (o ManagedIntegrationRuntimeOperationResultResponseOutput) ToManagedIntegrationRuntimeOperationResultResponseOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeOperationResultResponseOutput {
+	return o
+}
+
+// The activity id for the operation request.
+func (o ManagedIntegrationRuntimeOperationResultResponseOutput) ActivityId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeOperationResultResponse) string { return v.ActivityId }).(pulumi.StringOutput)
+}
+
+// The error code.
+func (o ManagedIntegrationRuntimeOperationResultResponseOutput) ErrorCode() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeOperationResultResponse) string { return v.ErrorCode }).(pulumi.StringOutput)
+}
+
+// Managed integration runtime error parameters.
+func (o ManagedIntegrationRuntimeOperationResultResponseOutput) Parameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeOperationResultResponse) []string { return v.Parameters }).(pulumi.StringArrayOutput)
+}
+
+// The operation result.
+func (o ManagedIntegrationRuntimeOperationResultResponseOutput) Result() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeOperationResultResponse) string { return v.Result }).(pulumi.StringOutput)
+}
+
+// The start time of the operation.
+func (o ManagedIntegrationRuntimeOperationResultResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeOperationResultResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The operation type. Could be start or stop.
+func (o ManagedIntegrationRuntimeOperationResultResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeOperationResultResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
 type ManagedIntegrationRuntimeResponse struct {
 	// The compute resource for managed integration runtime.
@@ -5456,6 +5939,121 @@ func (o ManagedIntegrationRuntimeResponseOutput) State() pulumi.StringOutput {
 // Type of integration runtime.
 func (o ManagedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Managed integration runtime status.
+type ManagedIntegrationRuntimeStatusResponse struct {
+	// The time at which the integration runtime was created, in ISO8601 format.
+	CreateTime string `pulumi:"createTime"`
+	// The workspace name which the integration runtime belong to.
+	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The last operation result that occurred on this integration runtime.
+	LastOperation ManagedIntegrationRuntimeOperationResultResponse `pulumi:"lastOperation"`
+	// The list of nodes for managed integration runtime.
+	Nodes []ManagedIntegrationRuntimeNodeResponse `pulumi:"nodes"`
+	// The errors that occurred on this integration runtime.
+	OtherErrors []ManagedIntegrationRuntimeErrorResponse `pulumi:"otherErrors"`
+	// The state of integration runtime.
+	State string `pulumi:"state"`
+	// Type of integration runtime.
+	Type string `pulumi:"type"`
+}
+
+// ManagedIntegrationRuntimeStatusResponseInput is an input type that accepts ManagedIntegrationRuntimeStatusResponseArgs and ManagedIntegrationRuntimeStatusResponseOutput values.
+// You can construct a concrete instance of `ManagedIntegrationRuntimeStatusResponseInput` via:
+//
+//          ManagedIntegrationRuntimeStatusResponseArgs{...}
+type ManagedIntegrationRuntimeStatusResponseInput interface {
+	pulumi.Input
+
+	ToManagedIntegrationRuntimeStatusResponseOutput() ManagedIntegrationRuntimeStatusResponseOutput
+	ToManagedIntegrationRuntimeStatusResponseOutputWithContext(context.Context) ManagedIntegrationRuntimeStatusResponseOutput
+}
+
+// Managed integration runtime status.
+type ManagedIntegrationRuntimeStatusResponseArgs struct {
+	// The time at which the integration runtime was created, in ISO8601 format.
+	CreateTime pulumi.StringInput `pulumi:"createTime"`
+	// The workspace name which the integration runtime belong to.
+	DataFactoryName pulumi.StringInput `pulumi:"dataFactoryName"`
+	// The last operation result that occurred on this integration runtime.
+	LastOperation ManagedIntegrationRuntimeOperationResultResponseInput `pulumi:"lastOperation"`
+	// The list of nodes for managed integration runtime.
+	Nodes ManagedIntegrationRuntimeNodeResponseArrayInput `pulumi:"nodes"`
+	// The errors that occurred on this integration runtime.
+	OtherErrors ManagedIntegrationRuntimeErrorResponseArrayInput `pulumi:"otherErrors"`
+	// The state of integration runtime.
+	State pulumi.StringInput `pulumi:"state"`
+	// Type of integration runtime.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedIntegrationRuntimeStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIntegrationRuntimeStatusResponse)(nil)).Elem()
+}
+
+func (i ManagedIntegrationRuntimeStatusResponseArgs) ToManagedIntegrationRuntimeStatusResponseOutput() ManagedIntegrationRuntimeStatusResponseOutput {
+	return i.ToManagedIntegrationRuntimeStatusResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedIntegrationRuntimeStatusResponseArgs) ToManagedIntegrationRuntimeStatusResponseOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeStatusResponseOutput)
+}
+
+// Managed integration runtime status.
+type ManagedIntegrationRuntimeStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIntegrationRuntimeStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIntegrationRuntimeStatusResponse)(nil)).Elem()
+}
+
+func (o ManagedIntegrationRuntimeStatusResponseOutput) ToManagedIntegrationRuntimeStatusResponseOutput() ManagedIntegrationRuntimeStatusResponseOutput {
+	return o
+}
+
+func (o ManagedIntegrationRuntimeStatusResponseOutput) ToManagedIntegrationRuntimeStatusResponseOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeStatusResponseOutput {
+	return o
+}
+
+// The time at which the integration runtime was created, in ISO8601 format.
+func (o ManagedIntegrationRuntimeStatusResponseOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+// The workspace name which the integration runtime belong to.
+func (o ManagedIntegrationRuntimeStatusResponseOutput) DataFactoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.DataFactoryName }).(pulumi.StringOutput)
+}
+
+// The last operation result that occurred on this integration runtime.
+func (o ManagedIntegrationRuntimeStatusResponseOutput) LastOperation() ManagedIntegrationRuntimeOperationResultResponseOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) ManagedIntegrationRuntimeOperationResultResponse {
+		return v.LastOperation
+	}).(ManagedIntegrationRuntimeOperationResultResponseOutput)
+}
+
+// The list of nodes for managed integration runtime.
+func (o ManagedIntegrationRuntimeStatusResponseOutput) Nodes() ManagedIntegrationRuntimeNodeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) []ManagedIntegrationRuntimeNodeResponse {
+		return v.Nodes
+	}).(ManagedIntegrationRuntimeNodeResponseArrayOutput)
+}
+
+// The errors that occurred on this integration runtime.
+func (o ManagedIntegrationRuntimeStatusResponseOutput) OtherErrors() ManagedIntegrationRuntimeErrorResponseArrayOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) []ManagedIntegrationRuntimeErrorResponse {
+		return v.OtherErrors
+	}).(ManagedIntegrationRuntimeErrorResponseArrayOutput)
+}
+
+// The state of integration runtime.
+func (o ManagedIntegrationRuntimeStatusResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Type of integration runtime.
+func (o ManagedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A private endpoint connection
@@ -6547,6 +7145,259 @@ func (o SelfHostedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Properties of Self-hosted integration runtime node.
+type SelfHostedIntegrationRuntimeNodeResponse struct {
+	// The integration runtime capabilities dictionary
+	Capabilities map[string]string `pulumi:"capabilities"`
+	// Maximum concurrent jobs on the integration runtime node.
+	ConcurrentJobsLimit int `pulumi:"concurrentJobsLimit"`
+	// The time at which the integration runtime will expire in ISO8601 format.
+	ExpiryTime string `pulumi:"expiryTime"`
+	// URI for the host machine of the integration runtime.
+	HostServiceUri string `pulumi:"hostServiceUri"`
+	// Indicates whether this node is the active dispatcher for integration runtime requests.
+	IsActiveDispatcher bool `pulumi:"isActiveDispatcher"`
+	// The most recent time at which the integration runtime was connected in ISO8601 format.
+	LastConnectTime string `pulumi:"lastConnectTime"`
+	// The last time for the integration runtime node update end.
+	LastEndUpdateTime string `pulumi:"lastEndUpdateTime"`
+	// The time the node last started up.
+	LastStartTime string `pulumi:"lastStartTime"`
+	// The last time for the integration runtime node update start.
+	LastStartUpdateTime string `pulumi:"lastStartUpdateTime"`
+	// The integration runtime node last stop time.
+	LastStopTime string `pulumi:"lastStopTime"`
+	// The result of the last integration runtime node update.
+	LastUpdateResult string `pulumi:"lastUpdateResult"`
+	// Machine name of the integration runtime node.
+	MachineName string `pulumi:"machineName"`
+	// The maximum concurrent jobs in this integration runtime.
+	MaxConcurrentJobs int `pulumi:"maxConcurrentJobs"`
+	// Name of the integration runtime node.
+	NodeName string `pulumi:"nodeName"`
+	// The time at which the integration runtime node was registered in ISO8601 format.
+	RegisterTime string `pulumi:"registerTime"`
+	// Status of the integration runtime node.
+	Status string `pulumi:"status"`
+	// Version of the integration runtime node.
+	Version string `pulumi:"version"`
+	// Status of the integration runtime node version.
+	VersionStatus string `pulumi:"versionStatus"`
+}
+
+// SelfHostedIntegrationRuntimeNodeResponseInput is an input type that accepts SelfHostedIntegrationRuntimeNodeResponseArgs and SelfHostedIntegrationRuntimeNodeResponseOutput values.
+// You can construct a concrete instance of `SelfHostedIntegrationRuntimeNodeResponseInput` via:
+//
+//          SelfHostedIntegrationRuntimeNodeResponseArgs{...}
+type SelfHostedIntegrationRuntimeNodeResponseInput interface {
+	pulumi.Input
+
+	ToSelfHostedIntegrationRuntimeNodeResponseOutput() SelfHostedIntegrationRuntimeNodeResponseOutput
+	ToSelfHostedIntegrationRuntimeNodeResponseOutputWithContext(context.Context) SelfHostedIntegrationRuntimeNodeResponseOutput
+}
+
+// Properties of Self-hosted integration runtime node.
+type SelfHostedIntegrationRuntimeNodeResponseArgs struct {
+	// The integration runtime capabilities dictionary
+	Capabilities pulumi.StringMapInput `pulumi:"capabilities"`
+	// Maximum concurrent jobs on the integration runtime node.
+	ConcurrentJobsLimit pulumi.IntInput `pulumi:"concurrentJobsLimit"`
+	// The time at which the integration runtime will expire in ISO8601 format.
+	ExpiryTime pulumi.StringInput `pulumi:"expiryTime"`
+	// URI for the host machine of the integration runtime.
+	HostServiceUri pulumi.StringInput `pulumi:"hostServiceUri"`
+	// Indicates whether this node is the active dispatcher for integration runtime requests.
+	IsActiveDispatcher pulumi.BoolInput `pulumi:"isActiveDispatcher"`
+	// The most recent time at which the integration runtime was connected in ISO8601 format.
+	LastConnectTime pulumi.StringInput `pulumi:"lastConnectTime"`
+	// The last time for the integration runtime node update end.
+	LastEndUpdateTime pulumi.StringInput `pulumi:"lastEndUpdateTime"`
+	// The time the node last started up.
+	LastStartTime pulumi.StringInput `pulumi:"lastStartTime"`
+	// The last time for the integration runtime node update start.
+	LastStartUpdateTime pulumi.StringInput `pulumi:"lastStartUpdateTime"`
+	// The integration runtime node last stop time.
+	LastStopTime pulumi.StringInput `pulumi:"lastStopTime"`
+	// The result of the last integration runtime node update.
+	LastUpdateResult pulumi.StringInput `pulumi:"lastUpdateResult"`
+	// Machine name of the integration runtime node.
+	MachineName pulumi.StringInput `pulumi:"machineName"`
+	// The maximum concurrent jobs in this integration runtime.
+	MaxConcurrentJobs pulumi.IntInput `pulumi:"maxConcurrentJobs"`
+	// Name of the integration runtime node.
+	NodeName pulumi.StringInput `pulumi:"nodeName"`
+	// The time at which the integration runtime node was registered in ISO8601 format.
+	RegisterTime pulumi.StringInput `pulumi:"registerTime"`
+	// Status of the integration runtime node.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Version of the integration runtime node.
+	Version pulumi.StringInput `pulumi:"version"`
+	// Status of the integration runtime node version.
+	VersionStatus pulumi.StringInput `pulumi:"versionStatus"`
+}
+
+func (SelfHostedIntegrationRuntimeNodeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelfHostedIntegrationRuntimeNodeResponse)(nil)).Elem()
+}
+
+func (i SelfHostedIntegrationRuntimeNodeResponseArgs) ToSelfHostedIntegrationRuntimeNodeResponseOutput() SelfHostedIntegrationRuntimeNodeResponseOutput {
+	return i.ToSelfHostedIntegrationRuntimeNodeResponseOutputWithContext(context.Background())
+}
+
+func (i SelfHostedIntegrationRuntimeNodeResponseArgs) ToSelfHostedIntegrationRuntimeNodeResponseOutputWithContext(ctx context.Context) SelfHostedIntegrationRuntimeNodeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelfHostedIntegrationRuntimeNodeResponseOutput)
+}
+
+// SelfHostedIntegrationRuntimeNodeResponseArrayInput is an input type that accepts SelfHostedIntegrationRuntimeNodeResponseArray and SelfHostedIntegrationRuntimeNodeResponseArrayOutput values.
+// You can construct a concrete instance of `SelfHostedIntegrationRuntimeNodeResponseArrayInput` via:
+//
+//          SelfHostedIntegrationRuntimeNodeResponseArray{ SelfHostedIntegrationRuntimeNodeResponseArgs{...} }
+type SelfHostedIntegrationRuntimeNodeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSelfHostedIntegrationRuntimeNodeResponseArrayOutput() SelfHostedIntegrationRuntimeNodeResponseArrayOutput
+	ToSelfHostedIntegrationRuntimeNodeResponseArrayOutputWithContext(context.Context) SelfHostedIntegrationRuntimeNodeResponseArrayOutput
+}
+
+type SelfHostedIntegrationRuntimeNodeResponseArray []SelfHostedIntegrationRuntimeNodeResponseInput
+
+func (SelfHostedIntegrationRuntimeNodeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelfHostedIntegrationRuntimeNodeResponse)(nil)).Elem()
+}
+
+func (i SelfHostedIntegrationRuntimeNodeResponseArray) ToSelfHostedIntegrationRuntimeNodeResponseArrayOutput() SelfHostedIntegrationRuntimeNodeResponseArrayOutput {
+	return i.ToSelfHostedIntegrationRuntimeNodeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SelfHostedIntegrationRuntimeNodeResponseArray) ToSelfHostedIntegrationRuntimeNodeResponseArrayOutputWithContext(ctx context.Context) SelfHostedIntegrationRuntimeNodeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelfHostedIntegrationRuntimeNodeResponseArrayOutput)
+}
+
+// Properties of Self-hosted integration runtime node.
+type SelfHostedIntegrationRuntimeNodeResponseOutput struct{ *pulumi.OutputState }
+
+func (SelfHostedIntegrationRuntimeNodeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelfHostedIntegrationRuntimeNodeResponse)(nil)).Elem()
+}
+
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) ToSelfHostedIntegrationRuntimeNodeResponseOutput() SelfHostedIntegrationRuntimeNodeResponseOutput {
+	return o
+}
+
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) ToSelfHostedIntegrationRuntimeNodeResponseOutputWithContext(ctx context.Context) SelfHostedIntegrationRuntimeNodeResponseOutput {
+	return o
+}
+
+// The integration runtime capabilities dictionary
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) Capabilities() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) map[string]string { return v.Capabilities }).(pulumi.StringMapOutput)
+}
+
+// Maximum concurrent jobs on the integration runtime node.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) ConcurrentJobsLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) int { return v.ConcurrentJobsLimit }).(pulumi.IntOutput)
+}
+
+// The time at which the integration runtime will expire in ISO8601 format.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) ExpiryTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.ExpiryTime }).(pulumi.StringOutput)
+}
+
+// URI for the host machine of the integration runtime.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) HostServiceUri() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.HostServiceUri }).(pulumi.StringOutput)
+}
+
+// Indicates whether this node is the active dispatcher for integration runtime requests.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) IsActiveDispatcher() pulumi.BoolOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) bool { return v.IsActiveDispatcher }).(pulumi.BoolOutput)
+}
+
+// The most recent time at which the integration runtime was connected in ISO8601 format.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) LastConnectTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.LastConnectTime }).(pulumi.StringOutput)
+}
+
+// The last time for the integration runtime node update end.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) LastEndUpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.LastEndUpdateTime }).(pulumi.StringOutput)
+}
+
+// The time the node last started up.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) LastStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.LastStartTime }).(pulumi.StringOutput)
+}
+
+// The last time for the integration runtime node update start.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) LastStartUpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.LastStartUpdateTime }).(pulumi.StringOutput)
+}
+
+// The integration runtime node last stop time.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) LastStopTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.LastStopTime }).(pulumi.StringOutput)
+}
+
+// The result of the last integration runtime node update.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) LastUpdateResult() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.LastUpdateResult }).(pulumi.StringOutput)
+}
+
+// Machine name of the integration runtime node.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) MachineName() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.MachineName }).(pulumi.StringOutput)
+}
+
+// The maximum concurrent jobs in this integration runtime.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) MaxConcurrentJobs() pulumi.IntOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) int { return v.MaxConcurrentJobs }).(pulumi.IntOutput)
+}
+
+// Name of the integration runtime node.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) NodeName() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.NodeName }).(pulumi.StringOutput)
+}
+
+// The time at which the integration runtime node was registered in ISO8601 format.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) RegisterTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.RegisterTime }).(pulumi.StringOutput)
+}
+
+// Status of the integration runtime node.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Version of the integration runtime node.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// Status of the integration runtime node version.
+func (o SelfHostedIntegrationRuntimeNodeResponseOutput) VersionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeNodeResponse) string { return v.VersionStatus }).(pulumi.StringOutput)
+}
+
+type SelfHostedIntegrationRuntimeNodeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SelfHostedIntegrationRuntimeNodeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelfHostedIntegrationRuntimeNodeResponse)(nil)).Elem()
+}
+
+func (o SelfHostedIntegrationRuntimeNodeResponseArrayOutput) ToSelfHostedIntegrationRuntimeNodeResponseArrayOutput() SelfHostedIntegrationRuntimeNodeResponseArrayOutput {
+	return o
+}
+
+func (o SelfHostedIntegrationRuntimeNodeResponseArrayOutput) ToSelfHostedIntegrationRuntimeNodeResponseArrayOutputWithContext(ctx context.Context) SelfHostedIntegrationRuntimeNodeResponseArrayOutput {
+	return o
+}
+
+func (o SelfHostedIntegrationRuntimeNodeResponseArrayOutput) Index(i pulumi.IntInput) SelfHostedIntegrationRuntimeNodeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SelfHostedIntegrationRuntimeNodeResponse {
+		return vs[0].([]SelfHostedIntegrationRuntimeNodeResponse)[vs[1].(int)]
+	}).(SelfHostedIntegrationRuntimeNodeResponseOutput)
+}
+
 // Self-hosted integration runtime.
 type SelfHostedIntegrationRuntimeResponse struct {
 	// Integration runtime description.
@@ -6618,6 +7469,225 @@ func (o SelfHostedIntegrationRuntimeResponseOutput) LinkedInfo() pulumi.AnyOutpu
 // Type of integration runtime.
 func (o SelfHostedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Self-hosted integration runtime status.
+type SelfHostedIntegrationRuntimeStatusResponse struct {
+	// Whether Self-hosted integration runtime auto update has been turned on.
+	AutoUpdate string `pulumi:"autoUpdate"`
+	// The estimated time when the self-hosted integration runtime will be updated.
+	AutoUpdateETA string `pulumi:"autoUpdateETA"`
+	// Object with additional information about integration runtime capabilities.
+	Capabilities map[string]string `pulumi:"capabilities"`
+	// The time at which the integration runtime was created, in ISO8601 format.
+	CreateTime string `pulumi:"createTime"`
+	// The workspace name which the integration runtime belong to.
+	DataFactoryName string `pulumi:"dataFactoryName"`
+	// It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
+	InternalChannelEncryption string `pulumi:"internalChannelEncryption"`
+	// The latest version on download center.
+	LatestVersion string `pulumi:"latestVersion"`
+	// The list of linked integration runtimes that are created to share with this integration runtime.
+	Links []LinkedIntegrationRuntimeResponse `pulumi:"links"`
+	// The local time zone offset in hours.
+	LocalTimeZoneOffset string `pulumi:"localTimeZoneOffset"`
+	// The list of nodes for this integration runtime.
+	Nodes []SelfHostedIntegrationRuntimeNodeResponse `pulumi:"nodes"`
+	// The version that the integration runtime is going to update to.
+	PushedVersion string `pulumi:"pushedVersion"`
+	// The date at which the integration runtime will be scheduled to update, in ISO8601 format.
+	ScheduledUpdateDate string `pulumi:"scheduledUpdateDate"`
+	// The URLs for the services used in integration runtime backend service.
+	ServiceUrls []string `pulumi:"serviceUrls"`
+	// The state of integration runtime.
+	State string `pulumi:"state"`
+	// The task queue id of the integration runtime.
+	TaskQueueId string `pulumi:"taskQueueId"`
+	// Type of integration runtime.
+	Type string `pulumi:"type"`
+	// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
+	UpdateDelayOffset string `pulumi:"updateDelayOffset"`
+	// Version of the integration runtime.
+	Version string `pulumi:"version"`
+	// Status of the integration runtime version.
+	VersionStatus string `pulumi:"versionStatus"`
+}
+
+// SelfHostedIntegrationRuntimeStatusResponseInput is an input type that accepts SelfHostedIntegrationRuntimeStatusResponseArgs and SelfHostedIntegrationRuntimeStatusResponseOutput values.
+// You can construct a concrete instance of `SelfHostedIntegrationRuntimeStatusResponseInput` via:
+//
+//          SelfHostedIntegrationRuntimeStatusResponseArgs{...}
+type SelfHostedIntegrationRuntimeStatusResponseInput interface {
+	pulumi.Input
+
+	ToSelfHostedIntegrationRuntimeStatusResponseOutput() SelfHostedIntegrationRuntimeStatusResponseOutput
+	ToSelfHostedIntegrationRuntimeStatusResponseOutputWithContext(context.Context) SelfHostedIntegrationRuntimeStatusResponseOutput
+}
+
+// Self-hosted integration runtime status.
+type SelfHostedIntegrationRuntimeStatusResponseArgs struct {
+	// Whether Self-hosted integration runtime auto update has been turned on.
+	AutoUpdate pulumi.StringInput `pulumi:"autoUpdate"`
+	// The estimated time when the self-hosted integration runtime will be updated.
+	AutoUpdateETA pulumi.StringInput `pulumi:"autoUpdateETA"`
+	// Object with additional information about integration runtime capabilities.
+	Capabilities pulumi.StringMapInput `pulumi:"capabilities"`
+	// The time at which the integration runtime was created, in ISO8601 format.
+	CreateTime pulumi.StringInput `pulumi:"createTime"`
+	// The workspace name which the integration runtime belong to.
+	DataFactoryName pulumi.StringInput `pulumi:"dataFactoryName"`
+	// It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
+	InternalChannelEncryption pulumi.StringInput `pulumi:"internalChannelEncryption"`
+	// The latest version on download center.
+	LatestVersion pulumi.StringInput `pulumi:"latestVersion"`
+	// The list of linked integration runtimes that are created to share with this integration runtime.
+	Links LinkedIntegrationRuntimeResponseArrayInput `pulumi:"links"`
+	// The local time zone offset in hours.
+	LocalTimeZoneOffset pulumi.StringInput `pulumi:"localTimeZoneOffset"`
+	// The list of nodes for this integration runtime.
+	Nodes SelfHostedIntegrationRuntimeNodeResponseArrayInput `pulumi:"nodes"`
+	// The version that the integration runtime is going to update to.
+	PushedVersion pulumi.StringInput `pulumi:"pushedVersion"`
+	// The date at which the integration runtime will be scheduled to update, in ISO8601 format.
+	ScheduledUpdateDate pulumi.StringInput `pulumi:"scheduledUpdateDate"`
+	// The URLs for the services used in integration runtime backend service.
+	ServiceUrls pulumi.StringArrayInput `pulumi:"serviceUrls"`
+	// The state of integration runtime.
+	State pulumi.StringInput `pulumi:"state"`
+	// The task queue id of the integration runtime.
+	TaskQueueId pulumi.StringInput `pulumi:"taskQueueId"`
+	// Type of integration runtime.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
+	UpdateDelayOffset pulumi.StringInput `pulumi:"updateDelayOffset"`
+	// Version of the integration runtime.
+	Version pulumi.StringInput `pulumi:"version"`
+	// Status of the integration runtime version.
+	VersionStatus pulumi.StringInput `pulumi:"versionStatus"`
+}
+
+func (SelfHostedIntegrationRuntimeStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelfHostedIntegrationRuntimeStatusResponse)(nil)).Elem()
+}
+
+func (i SelfHostedIntegrationRuntimeStatusResponseArgs) ToSelfHostedIntegrationRuntimeStatusResponseOutput() SelfHostedIntegrationRuntimeStatusResponseOutput {
+	return i.ToSelfHostedIntegrationRuntimeStatusResponseOutputWithContext(context.Background())
+}
+
+func (i SelfHostedIntegrationRuntimeStatusResponseArgs) ToSelfHostedIntegrationRuntimeStatusResponseOutputWithContext(ctx context.Context) SelfHostedIntegrationRuntimeStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelfHostedIntegrationRuntimeStatusResponseOutput)
+}
+
+// Self-hosted integration runtime status.
+type SelfHostedIntegrationRuntimeStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (SelfHostedIntegrationRuntimeStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelfHostedIntegrationRuntimeStatusResponse)(nil)).Elem()
+}
+
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) ToSelfHostedIntegrationRuntimeStatusResponseOutput() SelfHostedIntegrationRuntimeStatusResponseOutput {
+	return o
+}
+
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) ToSelfHostedIntegrationRuntimeStatusResponseOutputWithContext(ctx context.Context) SelfHostedIntegrationRuntimeStatusResponseOutput {
+	return o
+}
+
+// Whether Self-hosted integration runtime auto update has been turned on.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) AutoUpdate() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.AutoUpdate }).(pulumi.StringOutput)
+}
+
+// The estimated time when the self-hosted integration runtime will be updated.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) AutoUpdateETA() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.AutoUpdateETA }).(pulumi.StringOutput)
+}
+
+// Object with additional information about integration runtime capabilities.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) Capabilities() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) map[string]string { return v.Capabilities }).(pulumi.StringMapOutput)
+}
+
+// The time at which the integration runtime was created, in ISO8601 format.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+// The workspace name which the integration runtime belong to.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) DataFactoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.DataFactoryName }).(pulumi.StringOutput)
+}
+
+// It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) InternalChannelEncryption() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.InternalChannelEncryption }).(pulumi.StringOutput)
+}
+
+// The latest version on download center.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) LatestVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.LatestVersion }).(pulumi.StringOutput)
+}
+
+// The list of linked integration runtimes that are created to share with this integration runtime.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) Links() LinkedIntegrationRuntimeResponseArrayOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) []LinkedIntegrationRuntimeResponse { return v.Links }).(LinkedIntegrationRuntimeResponseArrayOutput)
+}
+
+// The local time zone offset in hours.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) LocalTimeZoneOffset() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.LocalTimeZoneOffset }).(pulumi.StringOutput)
+}
+
+// The list of nodes for this integration runtime.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) Nodes() SelfHostedIntegrationRuntimeNodeResponseArrayOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) []SelfHostedIntegrationRuntimeNodeResponse {
+		return v.Nodes
+	}).(SelfHostedIntegrationRuntimeNodeResponseArrayOutput)
+}
+
+// The version that the integration runtime is going to update to.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) PushedVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.PushedVersion }).(pulumi.StringOutput)
+}
+
+// The date at which the integration runtime will be scheduled to update, in ISO8601 format.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) ScheduledUpdateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.ScheduledUpdateDate }).(pulumi.StringOutput)
+}
+
+// The URLs for the services used in integration runtime backend service.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) ServiceUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) []string { return v.ServiceUrls }).(pulumi.StringArrayOutput)
+}
+
+// The state of integration runtime.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The task queue id of the integration runtime.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) TaskQueueId() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.TaskQueueId }).(pulumi.StringOutput)
+}
+
+// Type of integration runtime.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) UpdateDelayOffset() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.UpdateDelayOffset }).(pulumi.StringOutput)
+}
+
+// Version of the integration runtime.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// Status of the integration runtime version.
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) VersionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.VersionStatus }).(pulumi.StringOutput)
 }
 
 // SQL pool SKU
@@ -6962,6 +8032,904 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// Ssis environment reference.
+type SsisEnvironmentReferenceResponse struct {
+	// Environment folder name.
+	EnvironmentFolderName *string `pulumi:"environmentFolderName"`
+	// Environment name.
+	EnvironmentName *string `pulumi:"environmentName"`
+	// Environment reference id.
+	Id *int `pulumi:"id"`
+	// Reference type
+	ReferenceType *string `pulumi:"referenceType"`
+}
+
+// SsisEnvironmentReferenceResponseInput is an input type that accepts SsisEnvironmentReferenceResponseArgs and SsisEnvironmentReferenceResponseOutput values.
+// You can construct a concrete instance of `SsisEnvironmentReferenceResponseInput` via:
+//
+//          SsisEnvironmentReferenceResponseArgs{...}
+type SsisEnvironmentReferenceResponseInput interface {
+	pulumi.Input
+
+	ToSsisEnvironmentReferenceResponseOutput() SsisEnvironmentReferenceResponseOutput
+	ToSsisEnvironmentReferenceResponseOutputWithContext(context.Context) SsisEnvironmentReferenceResponseOutput
+}
+
+// Ssis environment reference.
+type SsisEnvironmentReferenceResponseArgs struct {
+	// Environment folder name.
+	EnvironmentFolderName pulumi.StringPtrInput `pulumi:"environmentFolderName"`
+	// Environment name.
+	EnvironmentName pulumi.StringPtrInput `pulumi:"environmentName"`
+	// Environment reference id.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Reference type
+	ReferenceType pulumi.StringPtrInput `pulumi:"referenceType"`
+}
+
+func (SsisEnvironmentReferenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisEnvironmentReferenceResponse)(nil)).Elem()
+}
+
+func (i SsisEnvironmentReferenceResponseArgs) ToSsisEnvironmentReferenceResponseOutput() SsisEnvironmentReferenceResponseOutput {
+	return i.ToSsisEnvironmentReferenceResponseOutputWithContext(context.Background())
+}
+
+func (i SsisEnvironmentReferenceResponseArgs) ToSsisEnvironmentReferenceResponseOutputWithContext(ctx context.Context) SsisEnvironmentReferenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SsisEnvironmentReferenceResponseOutput)
+}
+
+// SsisEnvironmentReferenceResponseArrayInput is an input type that accepts SsisEnvironmentReferenceResponseArray and SsisEnvironmentReferenceResponseArrayOutput values.
+// You can construct a concrete instance of `SsisEnvironmentReferenceResponseArrayInput` via:
+//
+//          SsisEnvironmentReferenceResponseArray{ SsisEnvironmentReferenceResponseArgs{...} }
+type SsisEnvironmentReferenceResponseArrayInput interface {
+	pulumi.Input
+
+	ToSsisEnvironmentReferenceResponseArrayOutput() SsisEnvironmentReferenceResponseArrayOutput
+	ToSsisEnvironmentReferenceResponseArrayOutputWithContext(context.Context) SsisEnvironmentReferenceResponseArrayOutput
+}
+
+type SsisEnvironmentReferenceResponseArray []SsisEnvironmentReferenceResponseInput
+
+func (SsisEnvironmentReferenceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SsisEnvironmentReferenceResponse)(nil)).Elem()
+}
+
+func (i SsisEnvironmentReferenceResponseArray) ToSsisEnvironmentReferenceResponseArrayOutput() SsisEnvironmentReferenceResponseArrayOutput {
+	return i.ToSsisEnvironmentReferenceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SsisEnvironmentReferenceResponseArray) ToSsisEnvironmentReferenceResponseArrayOutputWithContext(ctx context.Context) SsisEnvironmentReferenceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SsisEnvironmentReferenceResponseArrayOutput)
+}
+
+// Ssis environment reference.
+type SsisEnvironmentReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (SsisEnvironmentReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisEnvironmentReferenceResponse)(nil)).Elem()
+}
+
+func (o SsisEnvironmentReferenceResponseOutput) ToSsisEnvironmentReferenceResponseOutput() SsisEnvironmentReferenceResponseOutput {
+	return o
+}
+
+func (o SsisEnvironmentReferenceResponseOutput) ToSsisEnvironmentReferenceResponseOutputWithContext(ctx context.Context) SsisEnvironmentReferenceResponseOutput {
+	return o
+}
+
+// Environment folder name.
+func (o SsisEnvironmentReferenceResponseOutput) EnvironmentFolderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentReferenceResponse) *string { return v.EnvironmentFolderName }).(pulumi.StringPtrOutput)
+}
+
+// Environment name.
+func (o SsisEnvironmentReferenceResponseOutput) EnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentReferenceResponse) *string { return v.EnvironmentName }).(pulumi.StringPtrOutput)
+}
+
+// Environment reference id.
+func (o SsisEnvironmentReferenceResponseOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentReferenceResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// Reference type
+func (o SsisEnvironmentReferenceResponseOutput) ReferenceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentReferenceResponse) *string { return v.ReferenceType }).(pulumi.StringPtrOutput)
+}
+
+type SsisEnvironmentReferenceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SsisEnvironmentReferenceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SsisEnvironmentReferenceResponse)(nil)).Elem()
+}
+
+func (o SsisEnvironmentReferenceResponseArrayOutput) ToSsisEnvironmentReferenceResponseArrayOutput() SsisEnvironmentReferenceResponseArrayOutput {
+	return o
+}
+
+func (o SsisEnvironmentReferenceResponseArrayOutput) ToSsisEnvironmentReferenceResponseArrayOutputWithContext(ctx context.Context) SsisEnvironmentReferenceResponseArrayOutput {
+	return o
+}
+
+func (o SsisEnvironmentReferenceResponseArrayOutput) Index(i pulumi.IntInput) SsisEnvironmentReferenceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SsisEnvironmentReferenceResponse {
+		return vs[0].([]SsisEnvironmentReferenceResponse)[vs[1].(int)]
+	}).(SsisEnvironmentReferenceResponseOutput)
+}
+
+// Ssis environment.
+type SsisEnvironmentResponse struct {
+	// Metadata description.
+	Description *string `pulumi:"description"`
+	// Folder id which contains environment.
+	FolderId *int `pulumi:"folderId"`
+	// Metadata id.
+	Id *int `pulumi:"id"`
+	// Metadata name.
+	Name *string `pulumi:"name"`
+	// Type of metadata.
+	Type string `pulumi:"type"`
+	// Variable in environment
+	Variables []SsisVariableResponse `pulumi:"variables"`
+}
+
+// SsisEnvironmentResponseInput is an input type that accepts SsisEnvironmentResponseArgs and SsisEnvironmentResponseOutput values.
+// You can construct a concrete instance of `SsisEnvironmentResponseInput` via:
+//
+//          SsisEnvironmentResponseArgs{...}
+type SsisEnvironmentResponseInput interface {
+	pulumi.Input
+
+	ToSsisEnvironmentResponseOutput() SsisEnvironmentResponseOutput
+	ToSsisEnvironmentResponseOutputWithContext(context.Context) SsisEnvironmentResponseOutput
+}
+
+// Ssis environment.
+type SsisEnvironmentResponseArgs struct {
+	// Metadata description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Folder id which contains environment.
+	FolderId pulumi.IntPtrInput `pulumi:"folderId"`
+	// Metadata id.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Metadata name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Type of metadata.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Variable in environment
+	Variables SsisVariableResponseArrayInput `pulumi:"variables"`
+}
+
+func (SsisEnvironmentResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisEnvironmentResponse)(nil)).Elem()
+}
+
+func (i SsisEnvironmentResponseArgs) ToSsisEnvironmentResponseOutput() SsisEnvironmentResponseOutput {
+	return i.ToSsisEnvironmentResponseOutputWithContext(context.Background())
+}
+
+func (i SsisEnvironmentResponseArgs) ToSsisEnvironmentResponseOutputWithContext(ctx context.Context) SsisEnvironmentResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SsisEnvironmentResponseOutput)
+}
+
+// Ssis environment.
+type SsisEnvironmentResponseOutput struct{ *pulumi.OutputState }
+
+func (SsisEnvironmentResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisEnvironmentResponse)(nil)).Elem()
+}
+
+func (o SsisEnvironmentResponseOutput) ToSsisEnvironmentResponseOutput() SsisEnvironmentResponseOutput {
+	return o
+}
+
+func (o SsisEnvironmentResponseOutput) ToSsisEnvironmentResponseOutputWithContext(ctx context.Context) SsisEnvironmentResponseOutput {
+	return o
+}
+
+// Metadata description.
+func (o SsisEnvironmentResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Folder id which contains environment.
+func (o SsisEnvironmentResponseOutput) FolderId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentResponse) *int { return v.FolderId }).(pulumi.IntPtrOutput)
+}
+
+// Metadata id.
+func (o SsisEnvironmentResponseOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// Metadata name.
+func (o SsisEnvironmentResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisEnvironmentResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Type of metadata.
+func (o SsisEnvironmentResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SsisEnvironmentResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Variable in environment
+func (o SsisEnvironmentResponseOutput) Variables() SsisVariableResponseArrayOutput {
+	return o.ApplyT(func(v SsisEnvironmentResponse) []SsisVariableResponse { return v.Variables }).(SsisVariableResponseArrayOutput)
+}
+
+// Ssis folder.
+type SsisFolderResponse struct {
+	// Metadata description.
+	Description *string `pulumi:"description"`
+	// Metadata id.
+	Id *int `pulumi:"id"`
+	// Metadata name.
+	Name *string `pulumi:"name"`
+	// Type of metadata.
+	Type string `pulumi:"type"`
+}
+
+// SsisFolderResponseInput is an input type that accepts SsisFolderResponseArgs and SsisFolderResponseOutput values.
+// You can construct a concrete instance of `SsisFolderResponseInput` via:
+//
+//          SsisFolderResponseArgs{...}
+type SsisFolderResponseInput interface {
+	pulumi.Input
+
+	ToSsisFolderResponseOutput() SsisFolderResponseOutput
+	ToSsisFolderResponseOutputWithContext(context.Context) SsisFolderResponseOutput
+}
+
+// Ssis folder.
+type SsisFolderResponseArgs struct {
+	// Metadata description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Metadata id.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Metadata name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Type of metadata.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SsisFolderResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisFolderResponse)(nil)).Elem()
+}
+
+func (i SsisFolderResponseArgs) ToSsisFolderResponseOutput() SsisFolderResponseOutput {
+	return i.ToSsisFolderResponseOutputWithContext(context.Background())
+}
+
+func (i SsisFolderResponseArgs) ToSsisFolderResponseOutputWithContext(ctx context.Context) SsisFolderResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SsisFolderResponseOutput)
+}
+
+// Ssis folder.
+type SsisFolderResponseOutput struct{ *pulumi.OutputState }
+
+func (SsisFolderResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisFolderResponse)(nil)).Elem()
+}
+
+func (o SsisFolderResponseOutput) ToSsisFolderResponseOutput() SsisFolderResponseOutput {
+	return o
+}
+
+func (o SsisFolderResponseOutput) ToSsisFolderResponseOutputWithContext(ctx context.Context) SsisFolderResponseOutput {
+	return o
+}
+
+// Metadata description.
+func (o SsisFolderResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisFolderResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Metadata id.
+func (o SsisFolderResponseOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisFolderResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// Metadata name.
+func (o SsisFolderResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisFolderResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Type of metadata.
+func (o SsisFolderResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SsisFolderResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Ssis Package.
+type SsisPackageResponse struct {
+	// Metadata description.
+	Description *string `pulumi:"description"`
+	// Folder id which contains package.
+	FolderId *int `pulumi:"folderId"`
+	// Metadata id.
+	Id *int `pulumi:"id"`
+	// Metadata name.
+	Name *string `pulumi:"name"`
+	// Parameters in package
+	Parameters []SsisParameterResponse `pulumi:"parameters"`
+	// Project id which contains package.
+	ProjectId *int `pulumi:"projectId"`
+	// Project version which contains package.
+	ProjectVersion *int `pulumi:"projectVersion"`
+	// Type of metadata.
+	Type string `pulumi:"type"`
+}
+
+// SsisPackageResponseInput is an input type that accepts SsisPackageResponseArgs and SsisPackageResponseOutput values.
+// You can construct a concrete instance of `SsisPackageResponseInput` via:
+//
+//          SsisPackageResponseArgs{...}
+type SsisPackageResponseInput interface {
+	pulumi.Input
+
+	ToSsisPackageResponseOutput() SsisPackageResponseOutput
+	ToSsisPackageResponseOutputWithContext(context.Context) SsisPackageResponseOutput
+}
+
+// Ssis Package.
+type SsisPackageResponseArgs struct {
+	// Metadata description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Folder id which contains package.
+	FolderId pulumi.IntPtrInput `pulumi:"folderId"`
+	// Metadata id.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Metadata name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Parameters in package
+	Parameters SsisParameterResponseArrayInput `pulumi:"parameters"`
+	// Project id which contains package.
+	ProjectId pulumi.IntPtrInput `pulumi:"projectId"`
+	// Project version which contains package.
+	ProjectVersion pulumi.IntPtrInput `pulumi:"projectVersion"`
+	// Type of metadata.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SsisPackageResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisPackageResponse)(nil)).Elem()
+}
+
+func (i SsisPackageResponseArgs) ToSsisPackageResponseOutput() SsisPackageResponseOutput {
+	return i.ToSsisPackageResponseOutputWithContext(context.Background())
+}
+
+func (i SsisPackageResponseArgs) ToSsisPackageResponseOutputWithContext(ctx context.Context) SsisPackageResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SsisPackageResponseOutput)
+}
+
+// Ssis Package.
+type SsisPackageResponseOutput struct{ *pulumi.OutputState }
+
+func (SsisPackageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisPackageResponse)(nil)).Elem()
+}
+
+func (o SsisPackageResponseOutput) ToSsisPackageResponseOutput() SsisPackageResponseOutput {
+	return o
+}
+
+func (o SsisPackageResponseOutput) ToSsisPackageResponseOutputWithContext(ctx context.Context) SsisPackageResponseOutput {
+	return o
+}
+
+// Metadata description.
+func (o SsisPackageResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisPackageResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Folder id which contains package.
+func (o SsisPackageResponseOutput) FolderId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisPackageResponse) *int { return v.FolderId }).(pulumi.IntPtrOutput)
+}
+
+// Metadata id.
+func (o SsisPackageResponseOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisPackageResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// Metadata name.
+func (o SsisPackageResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisPackageResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Parameters in package
+func (o SsisPackageResponseOutput) Parameters() SsisParameterResponseArrayOutput {
+	return o.ApplyT(func(v SsisPackageResponse) []SsisParameterResponse { return v.Parameters }).(SsisParameterResponseArrayOutput)
+}
+
+// Project id which contains package.
+func (o SsisPackageResponseOutput) ProjectId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisPackageResponse) *int { return v.ProjectId }).(pulumi.IntPtrOutput)
+}
+
+// Project version which contains package.
+func (o SsisPackageResponseOutput) ProjectVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisPackageResponse) *int { return v.ProjectVersion }).(pulumi.IntPtrOutput)
+}
+
+// Type of metadata.
+func (o SsisPackageResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SsisPackageResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Ssis parameter.
+type SsisParameterResponse struct {
+	// Parameter type.
+	DataType *string `pulumi:"dataType"`
+	// Default value of parameter.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// Parameter description.
+	Description *string `pulumi:"description"`
+	// Design default value of parameter.
+	DesignDefaultValue *string `pulumi:"designDefaultValue"`
+	// Parameter id.
+	Id *int `pulumi:"id"`
+	// Parameter name.
+	Name *string `pulumi:"name"`
+	// Whether parameter is required.
+	Required *bool `pulumi:"required"`
+	// Whether parameter is sensitive.
+	Sensitive *bool `pulumi:"sensitive"`
+	// Default sensitive value of parameter.
+	SensitiveDefaultValue *string `pulumi:"sensitiveDefaultValue"`
+	// Parameter value set.
+	ValueSet *bool `pulumi:"valueSet"`
+	// Parameter value type.
+	ValueType *string `pulumi:"valueType"`
+	// Parameter reference variable.
+	Variable *string `pulumi:"variable"`
+}
+
+// SsisParameterResponseInput is an input type that accepts SsisParameterResponseArgs and SsisParameterResponseOutput values.
+// You can construct a concrete instance of `SsisParameterResponseInput` via:
+//
+//          SsisParameterResponseArgs{...}
+type SsisParameterResponseInput interface {
+	pulumi.Input
+
+	ToSsisParameterResponseOutput() SsisParameterResponseOutput
+	ToSsisParameterResponseOutputWithContext(context.Context) SsisParameterResponseOutput
+}
+
+// Ssis parameter.
+type SsisParameterResponseArgs struct {
+	// Parameter type.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// Default value of parameter.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// Parameter description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Design default value of parameter.
+	DesignDefaultValue pulumi.StringPtrInput `pulumi:"designDefaultValue"`
+	// Parameter id.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Parameter name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Whether parameter is required.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Whether parameter is sensitive.
+	Sensitive pulumi.BoolPtrInput `pulumi:"sensitive"`
+	// Default sensitive value of parameter.
+	SensitiveDefaultValue pulumi.StringPtrInput `pulumi:"sensitiveDefaultValue"`
+	// Parameter value set.
+	ValueSet pulumi.BoolPtrInput `pulumi:"valueSet"`
+	// Parameter value type.
+	ValueType pulumi.StringPtrInput `pulumi:"valueType"`
+	// Parameter reference variable.
+	Variable pulumi.StringPtrInput `pulumi:"variable"`
+}
+
+func (SsisParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisParameterResponse)(nil)).Elem()
+}
+
+func (i SsisParameterResponseArgs) ToSsisParameterResponseOutput() SsisParameterResponseOutput {
+	return i.ToSsisParameterResponseOutputWithContext(context.Background())
+}
+
+func (i SsisParameterResponseArgs) ToSsisParameterResponseOutputWithContext(ctx context.Context) SsisParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SsisParameterResponseOutput)
+}
+
+// SsisParameterResponseArrayInput is an input type that accepts SsisParameterResponseArray and SsisParameterResponseArrayOutput values.
+// You can construct a concrete instance of `SsisParameterResponseArrayInput` via:
+//
+//          SsisParameterResponseArray{ SsisParameterResponseArgs{...} }
+type SsisParameterResponseArrayInput interface {
+	pulumi.Input
+
+	ToSsisParameterResponseArrayOutput() SsisParameterResponseArrayOutput
+	ToSsisParameterResponseArrayOutputWithContext(context.Context) SsisParameterResponseArrayOutput
+}
+
+type SsisParameterResponseArray []SsisParameterResponseInput
+
+func (SsisParameterResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SsisParameterResponse)(nil)).Elem()
+}
+
+func (i SsisParameterResponseArray) ToSsisParameterResponseArrayOutput() SsisParameterResponseArrayOutput {
+	return i.ToSsisParameterResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SsisParameterResponseArray) ToSsisParameterResponseArrayOutputWithContext(ctx context.Context) SsisParameterResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SsisParameterResponseArrayOutput)
+}
+
+// Ssis parameter.
+type SsisParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (SsisParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisParameterResponse)(nil)).Elem()
+}
+
+func (o SsisParameterResponseOutput) ToSsisParameterResponseOutput() SsisParameterResponseOutput {
+	return o
+}
+
+func (o SsisParameterResponseOutput) ToSsisParameterResponseOutputWithContext(ctx context.Context) SsisParameterResponseOutput {
+	return o
+}
+
+// Parameter type.
+func (o SsisParameterResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// Default value of parameter.
+func (o SsisParameterResponseOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Parameter description.
+func (o SsisParameterResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Design default value of parameter.
+func (o SsisParameterResponseOutput) DesignDefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *string { return v.DesignDefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Parameter id.
+func (o SsisParameterResponseOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// Parameter name.
+func (o SsisParameterResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Whether parameter is required.
+func (o SsisParameterResponseOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+// Whether parameter is sensitive.
+func (o SsisParameterResponseOutput) Sensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *bool { return v.Sensitive }).(pulumi.BoolPtrOutput)
+}
+
+// Default sensitive value of parameter.
+func (o SsisParameterResponseOutput) SensitiveDefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *string { return v.SensitiveDefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Parameter value set.
+func (o SsisParameterResponseOutput) ValueSet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *bool { return v.ValueSet }).(pulumi.BoolPtrOutput)
+}
+
+// Parameter value type.
+func (o SsisParameterResponseOutput) ValueType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *string { return v.ValueType }).(pulumi.StringPtrOutput)
+}
+
+// Parameter reference variable.
+func (o SsisParameterResponseOutput) Variable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisParameterResponse) *string { return v.Variable }).(pulumi.StringPtrOutput)
+}
+
+type SsisParameterResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SsisParameterResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SsisParameterResponse)(nil)).Elem()
+}
+
+func (o SsisParameterResponseArrayOutput) ToSsisParameterResponseArrayOutput() SsisParameterResponseArrayOutput {
+	return o
+}
+
+func (o SsisParameterResponseArrayOutput) ToSsisParameterResponseArrayOutputWithContext(ctx context.Context) SsisParameterResponseArrayOutput {
+	return o
+}
+
+func (o SsisParameterResponseArrayOutput) Index(i pulumi.IntInput) SsisParameterResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SsisParameterResponse {
+		return vs[0].([]SsisParameterResponse)[vs[1].(int)]
+	}).(SsisParameterResponseOutput)
+}
+
+// Ssis project.
+type SsisProjectResponse struct {
+	// Metadata description.
+	Description *string `pulumi:"description"`
+	// Environment reference in project
+	EnvironmentRefs []SsisEnvironmentReferenceResponse `pulumi:"environmentRefs"`
+	// Folder id which contains project.
+	FolderId *int `pulumi:"folderId"`
+	// Metadata id.
+	Id *int `pulumi:"id"`
+	// Metadata name.
+	Name *string `pulumi:"name"`
+	// Parameters in project
+	Parameters []SsisParameterResponse `pulumi:"parameters"`
+	// Type of metadata.
+	Type string `pulumi:"type"`
+	// Project version.
+	Version *int `pulumi:"version"`
+}
+
+// SsisProjectResponseInput is an input type that accepts SsisProjectResponseArgs and SsisProjectResponseOutput values.
+// You can construct a concrete instance of `SsisProjectResponseInput` via:
+//
+//          SsisProjectResponseArgs{...}
+type SsisProjectResponseInput interface {
+	pulumi.Input
+
+	ToSsisProjectResponseOutput() SsisProjectResponseOutput
+	ToSsisProjectResponseOutputWithContext(context.Context) SsisProjectResponseOutput
+}
+
+// Ssis project.
+type SsisProjectResponseArgs struct {
+	// Metadata description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Environment reference in project
+	EnvironmentRefs SsisEnvironmentReferenceResponseArrayInput `pulumi:"environmentRefs"`
+	// Folder id which contains project.
+	FolderId pulumi.IntPtrInput `pulumi:"folderId"`
+	// Metadata id.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Metadata name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Parameters in project
+	Parameters SsisParameterResponseArrayInput `pulumi:"parameters"`
+	// Type of metadata.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Project version.
+	Version pulumi.IntPtrInput `pulumi:"version"`
+}
+
+func (SsisProjectResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisProjectResponse)(nil)).Elem()
+}
+
+func (i SsisProjectResponseArgs) ToSsisProjectResponseOutput() SsisProjectResponseOutput {
+	return i.ToSsisProjectResponseOutputWithContext(context.Background())
+}
+
+func (i SsisProjectResponseArgs) ToSsisProjectResponseOutputWithContext(ctx context.Context) SsisProjectResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SsisProjectResponseOutput)
+}
+
+// Ssis project.
+type SsisProjectResponseOutput struct{ *pulumi.OutputState }
+
+func (SsisProjectResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisProjectResponse)(nil)).Elem()
+}
+
+func (o SsisProjectResponseOutput) ToSsisProjectResponseOutput() SsisProjectResponseOutput {
+	return o
+}
+
+func (o SsisProjectResponseOutput) ToSsisProjectResponseOutputWithContext(ctx context.Context) SsisProjectResponseOutput {
+	return o
+}
+
+// Metadata description.
+func (o SsisProjectResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisProjectResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Environment reference in project
+func (o SsisProjectResponseOutput) EnvironmentRefs() SsisEnvironmentReferenceResponseArrayOutput {
+	return o.ApplyT(func(v SsisProjectResponse) []SsisEnvironmentReferenceResponse { return v.EnvironmentRefs }).(SsisEnvironmentReferenceResponseArrayOutput)
+}
+
+// Folder id which contains project.
+func (o SsisProjectResponseOutput) FolderId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisProjectResponse) *int { return v.FolderId }).(pulumi.IntPtrOutput)
+}
+
+// Metadata id.
+func (o SsisProjectResponseOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisProjectResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// Metadata name.
+func (o SsisProjectResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisProjectResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Parameters in project
+func (o SsisProjectResponseOutput) Parameters() SsisParameterResponseArrayOutput {
+	return o.ApplyT(func(v SsisProjectResponse) []SsisParameterResponse { return v.Parameters }).(SsisParameterResponseArrayOutput)
+}
+
+// Type of metadata.
+func (o SsisProjectResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SsisProjectResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Project version.
+func (o SsisProjectResponseOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisProjectResponse) *int { return v.Version }).(pulumi.IntPtrOutput)
+}
+
+// Ssis variable.
+type SsisVariableResponse struct {
+	// Variable type.
+	DataType *string `pulumi:"dataType"`
+	// Variable description.
+	Description *string `pulumi:"description"`
+	// Variable id.
+	Id *int `pulumi:"id"`
+	// Variable name.
+	Name *string `pulumi:"name"`
+	// Whether variable is sensitive.
+	Sensitive *bool `pulumi:"sensitive"`
+	// Variable sensitive value.
+	SensitiveValue *string `pulumi:"sensitiveValue"`
+	// Variable value.
+	Value *string `pulumi:"value"`
+}
+
+// SsisVariableResponseInput is an input type that accepts SsisVariableResponseArgs and SsisVariableResponseOutput values.
+// You can construct a concrete instance of `SsisVariableResponseInput` via:
+//
+//          SsisVariableResponseArgs{...}
+type SsisVariableResponseInput interface {
+	pulumi.Input
+
+	ToSsisVariableResponseOutput() SsisVariableResponseOutput
+	ToSsisVariableResponseOutputWithContext(context.Context) SsisVariableResponseOutput
+}
+
+// Ssis variable.
+type SsisVariableResponseArgs struct {
+	// Variable type.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// Variable description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Variable id.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// Variable name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Whether variable is sensitive.
+	Sensitive pulumi.BoolPtrInput `pulumi:"sensitive"`
+	// Variable sensitive value.
+	SensitiveValue pulumi.StringPtrInput `pulumi:"sensitiveValue"`
+	// Variable value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SsisVariableResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisVariableResponse)(nil)).Elem()
+}
+
+func (i SsisVariableResponseArgs) ToSsisVariableResponseOutput() SsisVariableResponseOutput {
+	return i.ToSsisVariableResponseOutputWithContext(context.Background())
+}
+
+func (i SsisVariableResponseArgs) ToSsisVariableResponseOutputWithContext(ctx context.Context) SsisVariableResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SsisVariableResponseOutput)
+}
+
+// SsisVariableResponseArrayInput is an input type that accepts SsisVariableResponseArray and SsisVariableResponseArrayOutput values.
+// You can construct a concrete instance of `SsisVariableResponseArrayInput` via:
+//
+//          SsisVariableResponseArray{ SsisVariableResponseArgs{...} }
+type SsisVariableResponseArrayInput interface {
+	pulumi.Input
+
+	ToSsisVariableResponseArrayOutput() SsisVariableResponseArrayOutput
+	ToSsisVariableResponseArrayOutputWithContext(context.Context) SsisVariableResponseArrayOutput
+}
+
+type SsisVariableResponseArray []SsisVariableResponseInput
+
+func (SsisVariableResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SsisVariableResponse)(nil)).Elem()
+}
+
+func (i SsisVariableResponseArray) ToSsisVariableResponseArrayOutput() SsisVariableResponseArrayOutput {
+	return i.ToSsisVariableResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SsisVariableResponseArray) ToSsisVariableResponseArrayOutputWithContext(ctx context.Context) SsisVariableResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SsisVariableResponseArrayOutput)
+}
+
+// Ssis variable.
+type SsisVariableResponseOutput struct{ *pulumi.OutputState }
+
+func (SsisVariableResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SsisVariableResponse)(nil)).Elem()
+}
+
+func (o SsisVariableResponseOutput) ToSsisVariableResponseOutput() SsisVariableResponseOutput {
+	return o
+}
+
+func (o SsisVariableResponseOutput) ToSsisVariableResponseOutputWithContext(ctx context.Context) SsisVariableResponseOutput {
+	return o
+}
+
+// Variable type.
+func (o SsisVariableResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisVariableResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// Variable description.
+func (o SsisVariableResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisVariableResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Variable id.
+func (o SsisVariableResponseOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SsisVariableResponse) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// Variable name.
+func (o SsisVariableResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisVariableResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Whether variable is sensitive.
+func (o SsisVariableResponseOutput) Sensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SsisVariableResponse) *bool { return v.Sensitive }).(pulumi.BoolPtrOutput)
+}
+
+// Variable sensitive value.
+func (o SsisVariableResponseOutput) SensitiveValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisVariableResponse) *string { return v.SensitiveValue }).(pulumi.StringPtrOutput)
+}
+
+// Variable value.
+func (o SsisVariableResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SsisVariableResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SsisVariableResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SsisVariableResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SsisVariableResponse)(nil)).Elem()
+}
+
+func (o SsisVariableResponseArrayOutput) ToSsisVariableResponseArrayOutput() SsisVariableResponseArrayOutput {
+	return o
+}
+
+func (o SsisVariableResponseArrayOutput) ToSsisVariableResponseArrayOutputWithContext(ctx context.Context) SsisVariableResponseArrayOutput {
+	return o
+}
+
+func (o SsisVariableResponseArrayOutput) Index(i pulumi.IntInput) SsisVariableResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SsisVariableResponse {
+		return vs[0].([]SsisVariableResponse)[vs[1].(int)]
+	}).(SsisVariableResponseOutput)
 }
 
 // Virtual Network Profile
@@ -7641,12 +9609,20 @@ func init() {
 	pulumi.RegisterOutputType(LinkedIntegrationRuntimeKeyAuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(LinkedIntegrationRuntimeRbacAuthorizationOutput{})
 	pulumi.RegisterOutputType(LinkedIntegrationRuntimeRbacAuthorizationResponseOutput{})
+	pulumi.RegisterOutputType(LinkedIntegrationRuntimeResponseOutput{})
+	pulumi.RegisterOutputType(LinkedIntegrationRuntimeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedIntegrationRuntimeOutput{})
+	pulumi.RegisterOutputType(ManagedIntegrationRuntimeErrorResponseOutput{})
+	pulumi.RegisterOutputType(ManagedIntegrationRuntimeErrorResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedIntegrationRuntimeNodeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedIntegrationRuntimeNodeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedIntegrationRuntimeOperationResultResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIntegrationRuntimeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedIntegrationRuntimeStatusResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
@@ -7662,11 +9638,24 @@ func init() {
 	pulumi.RegisterOutputType(SecureStringResponseOutput{})
 	pulumi.RegisterOutputType(SecureStringResponsePtrOutput{})
 	pulumi.RegisterOutputType(SelfHostedIntegrationRuntimeOutput{})
+	pulumi.RegisterOutputType(SelfHostedIntegrationRuntimeNodeResponseOutput{})
+	pulumi.RegisterOutputType(SelfHostedIntegrationRuntimeNodeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SelfHostedIntegrationRuntimeResponseOutput{})
+	pulumi.RegisterOutputType(SelfHostedIntegrationRuntimeStatusResponseOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SsisEnvironmentReferenceResponseOutput{})
+	pulumi.RegisterOutputType(SsisEnvironmentReferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(SsisEnvironmentResponseOutput{})
+	pulumi.RegisterOutputType(SsisFolderResponseOutput{})
+	pulumi.RegisterOutputType(SsisPackageResponseOutput{})
+	pulumi.RegisterOutputType(SsisParameterResponseOutput{})
+	pulumi.RegisterOutputType(SsisParameterResponseArrayOutput{})
+	pulumi.RegisterOutputType(SsisProjectResponseOutput{})
+	pulumi.RegisterOutputType(SsisVariableResponseOutput{})
+	pulumi.RegisterOutputType(SsisVariableResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponseOutput{})

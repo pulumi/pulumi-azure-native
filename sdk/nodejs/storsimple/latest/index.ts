@@ -21,6 +21,7 @@ export * from "./getFileShare";
 export * from "./getIscsiDisk";
 export * from "./getIscsiServer";
 export * from "./getManager";
+export * from "./getManagerEncryptionKey";
 export * from "./getManagerExtendedInfo";
 export * from "./getStorageAccountCredential";
 export * from "./getStorageDomain";

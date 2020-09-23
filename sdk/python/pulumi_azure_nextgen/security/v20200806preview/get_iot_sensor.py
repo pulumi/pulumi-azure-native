@@ -61,7 +61,7 @@ def get_iot_sensor(iot_sensor_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str iot_sensor_name: Name of the IoT sensor
-    :param str scope: Scope of the query, can be subscription (/subscriptions/326b1ffa-8ac7-4034-8437-69bef733dede) or IoT Hub (/providers/Microsoft.Devices/iotHubs/myHub)
+    :param str scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
     """
     __args__ = dict()
     __args__['iotSensorName'] = iot_sensor_name

@@ -42,7 +42,7 @@ func FlattenParams(
 		if _, ok := containers[k]; ok {
 			contained, ok := v.(map[string]interface{})
 			if !ok {
-				return nil, fmt.Errorf("property %s is expected to be a map, recieved: %T", k, v)
+				return nil, fmt.Errorf("property %s is expected to be a map, received: %T", k, v)
 			}
 			flattened, err := FlattenParams(contained, resourceParams, types)
 			if err != nil {
@@ -62,7 +62,7 @@ func FlattenParams(
 		if paramMetadata.Body != nil {
 			inBody, ok := v.(map[string]interface{})
 			if !ok {
-				return nil, fmt.Errorf("expect body for param %s to be a map, recieved %T", k, v)
+				return nil, fmt.Errorf("expect body for param %s to be a map, received %T", k, v)
 			}
 			bodyVals, ok := inBody["properties"]
 			if !ok {
@@ -98,7 +98,8 @@ func FlattenParams(
 	return out, nil
 }
 
-func transformProperty(prop *provider.AzureAPIProperty, types map[string]provider.AzureAPIType, val interface{}) interface{} {
+func transformProperty(prop *provider.AzureAPIProperty,
+	types map[string]provider.AzureAPIType, val interface{}) interface{} {
 	switch reflect.TypeOf(val).Kind() {
 	case reflect.Map:
 		if prop.Ref == "" {

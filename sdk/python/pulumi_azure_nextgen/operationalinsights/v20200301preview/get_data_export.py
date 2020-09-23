@@ -19,10 +19,7 @@ class GetDataExportResult:
     """
     The top level data export resource container.
     """
-    def __init__(__self__, all_tables=None, created_date=None, data_export_id=None, enable=None, event_hub_name=None, last_modified_date=None, name=None, resource_id=None, table_names=None, type=None):
-        if all_tables and not isinstance(all_tables, bool):
-            raise TypeError("Expected argument 'all_tables' to be a bool")
-        pulumi.set(__self__, "all_tables", all_tables)
+    def __init__(__self__, created_date=None, data_export_id=None, enable=None, event_hub_name=None, last_modified_date=None, name=None, resource_id=None, table_names=None, type=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -50,14 +47,6 @@ class GetDataExportResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="allTables")
-    def all_tables(self) -> Optional[bool]:
-        """
-        When ‘true’, all workspace's tables are exported.
-        """
-        return pulumi.get(self, "all_tables")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -138,7 +127,6 @@ class AwaitableGetDataExportResult(GetDataExportResult):
         if False:
             yield self
         return GetDataExportResult(
-            all_tables=self.all_tables,
             created_date=self.created_date,
             data_export_id=self.data_export_id,
             enable=self.enable,
@@ -172,7 +160,6 @@ def get_data_export(data_export_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:operationalinsights/v20200301preview:getDataExport', __args__, opts=opts, typ=GetDataExportResult).value
 
     return AwaitableGetDataExportResult(
-        all_tables=__ret__.all_tables,
         created_date=__ret__.created_date,
         data_export_id=__ret__.data_export_id,
         enable=__ret__.enable,

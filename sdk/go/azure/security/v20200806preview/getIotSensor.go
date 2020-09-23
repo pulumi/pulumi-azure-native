@@ -19,7 +19,7 @@ func LookupIotSensor(ctx *pulumi.Context, args *LookupIotSensorArgs, opts ...pul
 type LookupIotSensorArgs struct {
 	// Name of the IoT sensor
 	IotSensorName string `pulumi:"iotSensorName"`
-	// Scope of the query, can be subscription (/subscriptions/326b1ffa-8ac7-4034-8437-69bef733dede) or IoT Hub (/providers/Microsoft.Devices/iotHubs/myHub)
+	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
 	Scope string `pulumi:"scope"`
 }
 

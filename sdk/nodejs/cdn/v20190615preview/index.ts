@@ -8,5 +8,6 @@ export * from "./getCustomDomain";
 export * from "./getEndpoint";
 export * from "./getPolicy";
 export * from "./getProfile";
+export * from "./getProfileSupportedOptimizationTypes";
 export * from "./policy";
 export * from "./profile";

@@ -8,6 +8,8 @@ from .factory import *
 from .get_dataset import *
 from .get_factory import *
 from .get_integration_runtime import *
+from .get_integration_runtime_connection_info import *
+from .get_integration_runtime_status import *
 from .get_linked_service import *
 from .get_pipeline import *
 from .get_trigger import *

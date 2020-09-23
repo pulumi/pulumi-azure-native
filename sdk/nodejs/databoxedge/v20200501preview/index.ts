@@ -8,6 +8,7 @@ export * from "./device";
 export * from "./getBandwidthSchedule";
 export * from "./getContainer";
 export * from "./getDevice";
+export * from "./getDeviceExtendedInformation";
 export * from "./getOrder";
 export * from "./getRole";
 export * from "./getShare";

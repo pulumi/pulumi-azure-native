@@ -43,6 +43,7 @@ __all__ = [
     'KeyVaultSecretReferenceResponse',
     'LastPatchInstallationSummaryResponse',
     'LinuxConfigurationResponse',
+    'LogAnalyticsOutputResponseResult',
     'MaintenanceRedeployStatusResponse',
     'ManagedDiskParametersResponse',
     'NetworkInterfaceReferenceResponse',
@@ -1946,6 +1947,28 @@ class LinuxConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LogAnalyticsOutputResponseResult(dict):
+    """
+    LogAnalytics output properties
+    """
+    def __init__(__self__, *,
+                 output: str):
+        """
+        LogAnalytics output properties
+        :param str output: Output file Uri path to blob container.
+        """
+        pulumi.set(__self__, "output", output)
+
+    @property
+    @pulumi.getter
+    def output(self) -> str:
+        """
+        Output file Uri path to blob container.
+        """
+        return pulumi.get(self, "output")
 
 
 @pulumi.output_type

@@ -102,10 +102,19 @@ func Test_toResourceToken(t *testing.T) {
 			},
 			want: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount",
 		},
+		{
+			name: "SubResource",
+			args: args{
+				resourceType: "Microsoft.Web/sites/sourcecontrols",
+				apiVersion: "2019-08-01",
+			},
+			want: "azure-nextgen:web/v20190801:SiteSourcecontrol",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := toResourceToken(tt.args.resourceType, tt.args.apiVersion)
+			got, err := toResourceToken(tt.args.resourceType, tt.args.apiVersion)
+			assert.NoError(t, err)
 			assert.Equal(t, tt.want, got)
 		})
 	}

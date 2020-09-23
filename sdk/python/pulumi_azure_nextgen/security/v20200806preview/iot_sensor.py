@@ -26,7 +26,7 @@ class IotSensor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] iot_sensor_name: Name of the IoT sensor
-        :param pulumi.Input[str] scope: Scope of the query, can be subscription (/subscriptions/326b1ffa-8ac7-4034-8437-69bef733dede) or IoT Hub (/providers/Microsoft.Devices/iotHubs/myHub)
+        :param pulumi.Input[str] scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

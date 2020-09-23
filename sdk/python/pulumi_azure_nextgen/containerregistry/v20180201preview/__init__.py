@@ -5,8 +5,10 @@
 # Export this package's modules as members:
 from .build_step import *
 from .build_task import *
+from .get_build_log_link import *
 from .get_build_step import *
 from .get_build_task import *
+from .get_registry_build_source_upload_url import *
 from .list_build_step_build_arguments import *
 from .list_build_task_source_repository_properties import *
 from ._inputs import *

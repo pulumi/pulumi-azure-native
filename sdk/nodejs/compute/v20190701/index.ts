@@ -23,6 +23,8 @@ export * from "./getGalleryApplicationVersion";
 export * from "./getGalleryImage";
 export * from "./getGalleryImageVersion";
 export * from "./getImage";
+export * from "./getLogAnalyticExportRequestRateByInterval";
+export * from "./getLogAnalyticExportThrottledRequests";
 export * from "./getProximityPlacementGroup";
 export * from "./getSnapshot";
 export * from "./getVirtualMachine";

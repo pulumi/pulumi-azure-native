@@ -8,6 +8,7 @@ from .endpoint import *
 from .get_custom_domain import *
 from .get_endpoint import *
 from .get_profile import *
+from .get_profile_supported_optimization_types import *
 from .profile import *
 from ._inputs import *
 from . import outputs

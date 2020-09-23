@@ -11,6 +11,8 @@ from . import outputs
 
 __all__ = [
     'AssignmentPrincipalResponse',
+    'CanonicalProfileDefinitionResponseResult',
+    'CanonicalProfileDefinitionResponsePropertiesResult',
     'ConnectorMappingAvailabilityResponse',
     'ConnectorMappingCompleteOperationResponse',
     'ConnectorMappingErrorManagementResponse',
@@ -26,6 +28,8 @@ __all__ = [
     'KpiThresholdsResponse',
     'ParticipantProfilePropertyReferenceResponse',
     'ParticipantPropertyReferenceResponse',
+    'PredictionDistributionDefinitionResponseResult',
+    'PredictionDistributionDefinitionResponseDistributionsResult',
     'PredictionResponseGrades',
     'PredictionResponseMappings',
     'PredictionResponseSystemGeneratedEntities',
@@ -85,6 +89,112 @@ class AssignmentPrincipalResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CanonicalProfileDefinitionResponseResult(dict):
+    """
+    Definition of canonical profile.
+    """
+    def __init__(__self__, *,
+                 canonical_profile_id: Optional[int] = None,
+                 properties: Optional[Sequence['outputs.CanonicalProfileDefinitionResponsePropertiesResult']] = None):
+        """
+        Definition of canonical profile.
+        :param int canonical_profile_id: Canonical profile ID.
+        :param Sequence['CanonicalProfileDefinitionResponsePropertiesArgs'] properties: Properties of the canonical profile.
+        """
+        if canonical_profile_id is not None:
+            pulumi.set(__self__, "canonical_profile_id", canonical_profile_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="canonicalProfileId")
+    def canonical_profile_id(self) -> Optional[int]:
+        """
+        Canonical profile ID.
+        """
+        return pulumi.get(self, "canonical_profile_id")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Sequence['outputs.CanonicalProfileDefinitionResponsePropertiesResult']]:
+        """
+        Properties of the canonical profile.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class CanonicalProfileDefinitionResponsePropertiesResult(dict):
+    """
+    The definition of a canonical profile property.
+    """
+    def __init__(__self__, *,
+                 profile_name: Optional[str] = None,
+                 profile_property_name: Optional[str] = None,
+                 rank: Optional[int] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        The definition of a canonical profile property.
+        :param str profile_name: Profile name.
+        :param str profile_property_name: Property name of profile.
+        :param int rank: The rank.
+        :param str type: Type of canonical property value.
+        :param str value: Value of the canonical property.
+        """
+        if profile_name is not None:
+            pulumi.set(__self__, "profile_name", profile_name)
+        if profile_property_name is not None:
+            pulumi.set(__self__, "profile_property_name", profile_property_name)
+        if rank is not None:
+            pulumi.set(__self__, "rank", rank)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> Optional[str]:
+        """
+        Profile name.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @property
+    @pulumi.getter(name="profilePropertyName")
+    def profile_property_name(self) -> Optional[str]:
+        """
+        Property name of profile.
+        """
+        return pulumi.get(self, "profile_property_name")
+
+    @property
+    @pulumi.getter
+    def rank(self) -> Optional[int]:
+        """
+        The rank.
+        """
+        return pulumi.get(self, "rank")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of canonical property value.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of the canonical property.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -844,6 +954,124 @@ class ParticipantPropertyReferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PredictionDistributionDefinitionResponseResult(dict):
+    """
+    The definition of the prediction distribution.
+    """
+    def __init__(__self__, *,
+                 distributions: Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributionsResult']] = None,
+                 total_negatives: Optional[int] = None,
+                 total_positives: Optional[int] = None):
+        """
+        The definition of the prediction distribution.
+        :param Sequence['PredictionDistributionDefinitionResponseDistributionsArgs'] distributions: Distributions of the prediction.
+        :param int total_negatives: Total negatives in the distribution.
+        :param int total_positives: Total positive in the distribution.
+        """
+        if distributions is not None:
+            pulumi.set(__self__, "distributions", distributions)
+        if total_negatives is not None:
+            pulumi.set(__self__, "total_negatives", total_negatives)
+        if total_positives is not None:
+            pulumi.set(__self__, "total_positives", total_positives)
+
+    @property
+    @pulumi.getter
+    def distributions(self) -> Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributionsResult']]:
+        """
+        Distributions of the prediction.
+        """
+        return pulumi.get(self, "distributions")
+
+    @property
+    @pulumi.getter(name="totalNegatives")
+    def total_negatives(self) -> Optional[int]:
+        """
+        Total negatives in the distribution.
+        """
+        return pulumi.get(self, "total_negatives")
+
+    @property
+    @pulumi.getter(name="totalPositives")
+    def total_positives(self) -> Optional[int]:
+        """
+        Total positive in the distribution.
+        """
+        return pulumi.get(self, "total_positives")
+
+
+@pulumi.output_type
+class PredictionDistributionDefinitionResponseDistributionsResult(dict):
+    """
+    The definition of a prediction distribution.
+    """
+    def __init__(__self__, *,
+                 negatives: Optional[int] = None,
+                 negatives_above_threshold: Optional[int] = None,
+                 positives: Optional[int] = None,
+                 positives_above_threshold: Optional[int] = None,
+                 score_threshold: Optional[int] = None):
+        """
+        The definition of a prediction distribution.
+        :param int negatives: Number of negatives.
+        :param int negatives_above_threshold: Number of negatives above threshold.
+        :param int positives: Number of positives.
+        :param int positives_above_threshold: Number of positives above threshold.
+        :param int score_threshold: Score threshold.
+        """
+        if negatives is not None:
+            pulumi.set(__self__, "negatives", negatives)
+        if negatives_above_threshold is not None:
+            pulumi.set(__self__, "negatives_above_threshold", negatives_above_threshold)
+        if positives is not None:
+            pulumi.set(__self__, "positives", positives)
+        if positives_above_threshold is not None:
+            pulumi.set(__self__, "positives_above_threshold", positives_above_threshold)
+        if score_threshold is not None:
+            pulumi.set(__self__, "score_threshold", score_threshold)
+
+    @property
+    @pulumi.getter
+    def negatives(self) -> Optional[int]:
+        """
+        Number of negatives.
+        """
+        return pulumi.get(self, "negatives")
+
+    @property
+    @pulumi.getter(name="negativesAboveThreshold")
+    def negatives_above_threshold(self) -> Optional[int]:
+        """
+        Number of negatives above threshold.
+        """
+        return pulumi.get(self, "negatives_above_threshold")
+
+    @property
+    @pulumi.getter
+    def positives(self) -> Optional[int]:
+        """
+        Number of positives.
+        """
+        return pulumi.get(self, "positives")
+
+    @property
+    @pulumi.getter(name="positivesAboveThreshold")
+    def positives_above_threshold(self) -> Optional[int]:
+        """
+        Number of positives above threshold.
+        """
+        return pulumi.get(self, "positives_above_threshold")
+
+    @property
+    @pulumi.getter(name="scoreThreshold")
+    def score_threshold(self) -> Optional[int]:
+        """
+        Score threshold.
+        """
+        return pulumi.get(self, "score_threshold")
 
 
 @pulumi.output_type

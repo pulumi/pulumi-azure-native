@@ -4,6 +4,7 @@
 // Export members:
 export * from "./deploymentAtManagementGroupScope";
 export * from "./getDeploymentAtManagementGroupScope";
+export * from "./getEntity";
 export * from "./getHierarchySetting";
 export * from "./getManagementGroup";
 export * from "./getManagementGroupSubscription";

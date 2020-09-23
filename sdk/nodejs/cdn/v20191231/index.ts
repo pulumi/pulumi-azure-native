@@ -9,6 +9,7 @@ export * from "./getEndpoint";
 export * from "./getOrigin";
 export * from "./getOriginGroup";
 export * from "./getProfile";
+export * from "./getProfileSupportedOptimizationTypes";
 export * from "./origin";
 export * from "./originGroup";
 export * from "./profile";

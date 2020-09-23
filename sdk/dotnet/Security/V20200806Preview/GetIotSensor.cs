@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         public string IotSensorName { get; set; } = null!;
 
         /// <summary>
-        /// Scope of the query, can be subscription (/subscriptions/326b1ffa-8ac7-4034-8437-69bef733dede) or IoT Hub (/providers/Microsoft.Devices/iotHubs/myHub)
+        /// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;

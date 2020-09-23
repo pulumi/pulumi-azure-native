@@ -7449,6 +7449,169 @@ func (o BackendAddressPoolResponseArrayOutput) Index(i pulumi.IntInput) BackendA
 	}).(BackendAddressPoolResponseOutput)
 }
 
+// BGP peer status details
+type BgpPeerStatusResponse struct {
+	// The autonomous system number of the remote BGP peer
+	Asn int `pulumi:"asn"`
+	// For how long the peering has been up
+	ConnectedDuration string `pulumi:"connectedDuration"`
+	// The virtual network gateway's local address
+	LocalAddress string `pulumi:"localAddress"`
+	// The number of BGP messages received
+	MessagesReceived int `pulumi:"messagesReceived"`
+	// The number of BGP messages sent
+	MessagesSent int `pulumi:"messagesSent"`
+	// The remote BGP peer
+	Neighbor string `pulumi:"neighbor"`
+	// The number of routes learned from this peer
+	RoutesReceived int `pulumi:"routesReceived"`
+	// The BGP peer state
+	State string `pulumi:"state"`
+}
+
+// BgpPeerStatusResponseInput is an input type that accepts BgpPeerStatusResponseArgs and BgpPeerStatusResponseOutput values.
+// You can construct a concrete instance of `BgpPeerStatusResponseInput` via:
+//
+//          BgpPeerStatusResponseArgs{...}
+type BgpPeerStatusResponseInput interface {
+	pulumi.Input
+
+	ToBgpPeerStatusResponseOutput() BgpPeerStatusResponseOutput
+	ToBgpPeerStatusResponseOutputWithContext(context.Context) BgpPeerStatusResponseOutput
+}
+
+// BGP peer status details
+type BgpPeerStatusResponseArgs struct {
+	// The autonomous system number of the remote BGP peer
+	Asn pulumi.IntInput `pulumi:"asn"`
+	// For how long the peering has been up
+	ConnectedDuration pulumi.StringInput `pulumi:"connectedDuration"`
+	// The virtual network gateway's local address
+	LocalAddress pulumi.StringInput `pulumi:"localAddress"`
+	// The number of BGP messages received
+	MessagesReceived pulumi.IntInput `pulumi:"messagesReceived"`
+	// The number of BGP messages sent
+	MessagesSent pulumi.IntInput `pulumi:"messagesSent"`
+	// The remote BGP peer
+	Neighbor pulumi.StringInput `pulumi:"neighbor"`
+	// The number of routes learned from this peer
+	RoutesReceived pulumi.IntInput `pulumi:"routesReceived"`
+	// The BGP peer state
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (BgpPeerStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpPeerStatusResponse)(nil)).Elem()
+}
+
+func (i BgpPeerStatusResponseArgs) ToBgpPeerStatusResponseOutput() BgpPeerStatusResponseOutput {
+	return i.ToBgpPeerStatusResponseOutputWithContext(context.Background())
+}
+
+func (i BgpPeerStatusResponseArgs) ToBgpPeerStatusResponseOutputWithContext(ctx context.Context) BgpPeerStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerStatusResponseOutput)
+}
+
+// BgpPeerStatusResponseArrayInput is an input type that accepts BgpPeerStatusResponseArray and BgpPeerStatusResponseArrayOutput values.
+// You can construct a concrete instance of `BgpPeerStatusResponseArrayInput` via:
+//
+//          BgpPeerStatusResponseArray{ BgpPeerStatusResponseArgs{...} }
+type BgpPeerStatusResponseArrayInput interface {
+	pulumi.Input
+
+	ToBgpPeerStatusResponseArrayOutput() BgpPeerStatusResponseArrayOutput
+	ToBgpPeerStatusResponseArrayOutputWithContext(context.Context) BgpPeerStatusResponseArrayOutput
+}
+
+type BgpPeerStatusResponseArray []BgpPeerStatusResponseInput
+
+func (BgpPeerStatusResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BgpPeerStatusResponse)(nil)).Elem()
+}
+
+func (i BgpPeerStatusResponseArray) ToBgpPeerStatusResponseArrayOutput() BgpPeerStatusResponseArrayOutput {
+	return i.ToBgpPeerStatusResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BgpPeerStatusResponseArray) ToBgpPeerStatusResponseArrayOutputWithContext(ctx context.Context) BgpPeerStatusResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerStatusResponseArrayOutput)
+}
+
+// BGP peer status details
+type BgpPeerStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (BgpPeerStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpPeerStatusResponse)(nil)).Elem()
+}
+
+func (o BgpPeerStatusResponseOutput) ToBgpPeerStatusResponseOutput() BgpPeerStatusResponseOutput {
+	return o
+}
+
+func (o BgpPeerStatusResponseOutput) ToBgpPeerStatusResponseOutputWithContext(ctx context.Context) BgpPeerStatusResponseOutput {
+	return o
+}
+
+// The autonomous system number of the remote BGP peer
+func (o BgpPeerStatusResponseOutput) Asn() pulumi.IntOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.Asn }).(pulumi.IntOutput)
+}
+
+// For how long the peering has been up
+func (o BgpPeerStatusResponseOutput) ConnectedDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) string { return v.ConnectedDuration }).(pulumi.StringOutput)
+}
+
+// The virtual network gateway's local address
+func (o BgpPeerStatusResponseOutput) LocalAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) string { return v.LocalAddress }).(pulumi.StringOutput)
+}
+
+// The number of BGP messages received
+func (o BgpPeerStatusResponseOutput) MessagesReceived() pulumi.IntOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.MessagesReceived }).(pulumi.IntOutput)
+}
+
+// The number of BGP messages sent
+func (o BgpPeerStatusResponseOutput) MessagesSent() pulumi.IntOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.MessagesSent }).(pulumi.IntOutput)
+}
+
+// The remote BGP peer
+func (o BgpPeerStatusResponseOutput) Neighbor() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) string { return v.Neighbor }).(pulumi.StringOutput)
+}
+
+// The number of routes learned from this peer
+func (o BgpPeerStatusResponseOutput) RoutesReceived() pulumi.IntOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.RoutesReceived }).(pulumi.IntOutput)
+}
+
+// The BGP peer state
+func (o BgpPeerStatusResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+type BgpPeerStatusResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BgpPeerStatusResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BgpPeerStatusResponse)(nil)).Elem()
+}
+
+func (o BgpPeerStatusResponseArrayOutput) ToBgpPeerStatusResponseArrayOutput() BgpPeerStatusResponseArrayOutput {
+	return o
+}
+
+func (o BgpPeerStatusResponseArrayOutput) ToBgpPeerStatusResponseArrayOutputWithContext(ctx context.Context) BgpPeerStatusResponseArrayOutput {
+	return o
+}
+
+func (o BgpPeerStatusResponseArrayOutput) Index(i pulumi.IntInput) BgpPeerStatusResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BgpPeerStatusResponse {
+		return vs[0].([]BgpPeerStatusResponse)[vs[1].(int)]
+	}).(BgpPeerStatusResponseOutput)
+}
+
 // BGP settings details
 type BgpSettings struct {
 	// The BGP speaker's ASN.
@@ -10793,6 +10956,160 @@ func (o FrontendIPConfigurationResponseArrayOutput) Index(i pulumi.IntInput) Fro
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontendIPConfigurationResponse {
 		return vs[0].([]FrontendIPConfigurationResponse)[vs[1].(int)]
 	}).(FrontendIPConfigurationResponseOutput)
+}
+
+// Gateway routing details
+type GatewayRouteResponse struct {
+	// The route's AS path sequence
+	AsPath string `pulumi:"asPath"`
+	// The gateway's local address
+	LocalAddress string `pulumi:"localAddress"`
+	// The route's network prefix
+	Network string `pulumi:"network"`
+	// The route's next hop
+	NextHop string `pulumi:"nextHop"`
+	// The source this route was learned from
+	Origin string `pulumi:"origin"`
+	// The peer this route was learned from
+	SourcePeer string `pulumi:"sourcePeer"`
+	// The route's weight
+	Weight int `pulumi:"weight"`
+}
+
+// GatewayRouteResponseInput is an input type that accepts GatewayRouteResponseArgs and GatewayRouteResponseOutput values.
+// You can construct a concrete instance of `GatewayRouteResponseInput` via:
+//
+//          GatewayRouteResponseArgs{...}
+type GatewayRouteResponseInput interface {
+	pulumi.Input
+
+	ToGatewayRouteResponseOutput() GatewayRouteResponseOutput
+	ToGatewayRouteResponseOutputWithContext(context.Context) GatewayRouteResponseOutput
+}
+
+// Gateway routing details
+type GatewayRouteResponseArgs struct {
+	// The route's AS path sequence
+	AsPath pulumi.StringInput `pulumi:"asPath"`
+	// The gateway's local address
+	LocalAddress pulumi.StringInput `pulumi:"localAddress"`
+	// The route's network prefix
+	Network pulumi.StringInput `pulumi:"network"`
+	// The route's next hop
+	NextHop pulumi.StringInput `pulumi:"nextHop"`
+	// The source this route was learned from
+	Origin pulumi.StringInput `pulumi:"origin"`
+	// The peer this route was learned from
+	SourcePeer pulumi.StringInput `pulumi:"sourcePeer"`
+	// The route's weight
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (GatewayRouteResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteResponse)(nil)).Elem()
+}
+
+func (i GatewayRouteResponseArgs) ToGatewayRouteResponseOutput() GatewayRouteResponseOutput {
+	return i.ToGatewayRouteResponseOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteResponseArgs) ToGatewayRouteResponseOutputWithContext(ctx context.Context) GatewayRouteResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteResponseOutput)
+}
+
+// GatewayRouteResponseArrayInput is an input type that accepts GatewayRouteResponseArray and GatewayRouteResponseArrayOutput values.
+// You can construct a concrete instance of `GatewayRouteResponseArrayInput` via:
+//
+//          GatewayRouteResponseArray{ GatewayRouteResponseArgs{...} }
+type GatewayRouteResponseArrayInput interface {
+	pulumi.Input
+
+	ToGatewayRouteResponseArrayOutput() GatewayRouteResponseArrayOutput
+	ToGatewayRouteResponseArrayOutputWithContext(context.Context) GatewayRouteResponseArrayOutput
+}
+
+type GatewayRouteResponseArray []GatewayRouteResponseInput
+
+func (GatewayRouteResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRouteResponse)(nil)).Elem()
+}
+
+func (i GatewayRouteResponseArray) ToGatewayRouteResponseArrayOutput() GatewayRouteResponseArrayOutput {
+	return i.ToGatewayRouteResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteResponseArray) ToGatewayRouteResponseArrayOutputWithContext(ctx context.Context) GatewayRouteResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteResponseArrayOutput)
+}
+
+// Gateway routing details
+type GatewayRouteResponseOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteResponse)(nil)).Elem()
+}
+
+func (o GatewayRouteResponseOutput) ToGatewayRouteResponseOutput() GatewayRouteResponseOutput {
+	return o
+}
+
+func (o GatewayRouteResponseOutput) ToGatewayRouteResponseOutputWithContext(ctx context.Context) GatewayRouteResponseOutput {
+	return o
+}
+
+// The route's AS path sequence
+func (o GatewayRouteResponseOutput) AsPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.AsPath }).(pulumi.StringOutput)
+}
+
+// The gateway's local address
+func (o GatewayRouteResponseOutput) LocalAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.LocalAddress }).(pulumi.StringOutput)
+}
+
+// The route's network prefix
+func (o GatewayRouteResponseOutput) Network() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.Network }).(pulumi.StringOutput)
+}
+
+// The route's next hop
+func (o GatewayRouteResponseOutput) NextHop() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.NextHop }).(pulumi.StringOutput)
+}
+
+// The source this route was learned from
+func (o GatewayRouteResponseOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.Origin }).(pulumi.StringOutput)
+}
+
+// The peer this route was learned from
+func (o GatewayRouteResponseOutput) SourcePeer() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.SourcePeer }).(pulumi.StringOutput)
+}
+
+// The route's weight
+func (o GatewayRouteResponseOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GatewayRouteResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRouteResponse)(nil)).Elem()
+}
+
+func (o GatewayRouteResponseArrayOutput) ToGatewayRouteResponseArrayOutput() GatewayRouteResponseArrayOutput {
+	return o
+}
+
+func (o GatewayRouteResponseArrayOutput) ToGatewayRouteResponseArrayOutputWithContext(ctx context.Context) GatewayRouteResponseArrayOutput {
+	return o
+}
+
+func (o GatewayRouteResponseArrayOutput) Index(i pulumi.IntInput) GatewayRouteResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRouteResponse {
+		return vs[0].([]GatewayRouteResponse)[vs[1].(int)]
+	}).(GatewayRouteResponseOutput)
 }
 
 // IP configuration
@@ -25146,6 +25463,8 @@ func init() {
 	pulumi.RegisterOutputType(BackendAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolResponseOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolResponseArrayOutput{})
+	pulumi.RegisterOutputType(BgpPeerStatusResponseOutput{})
+	pulumi.RegisterOutputType(BgpPeerStatusResponseArrayOutput{})
 	pulumi.RegisterOutputType(BgpSettingsOutput{})
 	pulumi.RegisterOutputType(BgpSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BgpSettingsResponseOutput{})
@@ -25182,6 +25501,8 @@ func init() {
 	pulumi.RegisterOutputType(FrontendIPConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FrontendIPConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(FrontendIPConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRouteResponseOutput{})
+	pulumi.RegisterOutputType(GatewayRouteResponseArrayOutput{})
 	pulumi.RegisterOutputType(IPConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(IPConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPConfigurationResponseArrayOutput{})

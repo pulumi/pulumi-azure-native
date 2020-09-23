@@ -9,6 +9,8 @@ export * from "./getAvailabilitySet";
 export * from "./getDedicatedHost";
 export * from "./getDedicatedHostGroup";
 export * from "./getImage";
+export * from "./getLogAnalyticExportRequestRateByInterval";
+export * from "./getLogAnalyticExportThrottledRequests";
 export * from "./getProximityPlacementGroup";
 export * from "./getSshPublicKey";
 export * from "./getVirtualMachine";
