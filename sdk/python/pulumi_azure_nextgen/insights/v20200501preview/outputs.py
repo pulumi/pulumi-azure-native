@@ -168,12 +168,12 @@ class ConditionResponseFailingPeriods(dict):
     The minimum number of violations required within the selected lookback time window required to raise an alert.
     """
     def __init__(__self__, *,
-                 min_failing_periods_to_alert: Optional[float] = None,
-                 number_of_evaluation_periods: Optional[float] = None):
+                 min_failing_periods_to_alert: Optional[int] = None,
+                 number_of_evaluation_periods: Optional[int] = None):
         """
         The minimum number of violations required within the selected lookback time window required to raise an alert.
-        :param float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-        :param float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        :param int min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        :param int number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
         """
         if min_failing_periods_to_alert is not None:
             pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
@@ -182,7 +182,7 @@ class ConditionResponseFailingPeriods(dict):
 
     @property
     @pulumi.getter(name="minFailingPeriodsToAlert")
-    def min_failing_periods_to_alert(self) -> Optional[float]:
+    def min_failing_periods_to_alert(self) -> Optional[int]:
         """
         The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
         """
@@ -190,7 +190,7 @@ class ConditionResponseFailingPeriods(dict):
 
     @property
     @pulumi.getter(name="numberOfEvaluationPeriods")
-    def number_of_evaluation_periods(self) -> Optional[float]:
+    def number_of_evaluation_periods(self) -> Optional[int]:
         """
         The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
         """

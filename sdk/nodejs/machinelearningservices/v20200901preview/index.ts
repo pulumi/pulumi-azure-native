@@ -11,6 +11,7 @@ export * from "./linkedService";
 export * from "./listMachineLearningComputeKeys";
 export * from "./listMachineLearningComputeNodes";
 export * from "./listWorkspaceKeys";
+export * from "./listWorkspaceNotebookKeys";
 export * from "./machineLearningCompute";
 export * from "./machineLearningService";
 export * from "./privateEndpointConnection";
