@@ -108,13 +108,21 @@ func Test_toResourceToken(t *testing.T) {
 				resourceType: "Microsoft.Web/sites/sourcecontrols",
 				apiVersion: "2019-08-01",
 			},
-			want: "azure-nextgen:web/v20190801:SiteSourcecontrol",
+			want: "azure-nextgen:web/v20150801:SiteSourceControl",
+		},
+		{
+			name: "SecurityRules",
+			args: args{
+				resourceType: "Microsoft.Network/networkSecurityGroups/securityRules",
+				apiVersion: "2020-05-01",
+			},
+			want: "azure-nextgen:network/v20200501:SecurityRule",
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := toResourceToken(tt.args.resourceType, tt.args.apiVersion)
-			assert.NoError(t, err)
+			got, ok := toResourceToken(tt.args.resourceType, tt.args.apiVersion)
+			assert.True(t, ok)
 			assert.Equal(t, tt.want, got)
 		})
 	}

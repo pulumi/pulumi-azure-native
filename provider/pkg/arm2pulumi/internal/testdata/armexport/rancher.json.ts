@@ -2,27 +2,66 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azure_nextgen from "@pulumi/azure-nextgen";
 
 const config = new pulumi.Config();
-const availabilitySets_pulumirancher_avset_nameParam = config.get("availabilitySets_pulumirancher_avset_nameParam") || "pulumirancher-avset";
+const availabilitySetsPulumirancherAvsetNameParam = config.get("availabilitySetsPulumirancherAvsetNameParam") || "pulumirancher-avset";
+const resourceGroupNameParam = config.require("resourceGroupNameParam");
 const availabilitySetResource = new azure_nextgen.compute.v20190701.AvailabilitySet("availabilitySetResource", {
-    availabilitySetName: availabilitySets_pulumirancher_avset_nameParam,
+    availabilitySetName: availabilitySetsPulumirancherAvsetNameParam,
     location: "westus2",
     platformFaultDomainCount: 1,
     platformUpdateDomainCount: 1,
+    resourceGroupName: resourceGroupNameParam,
     virtualMachines: [{}],
 });
-const extensions_DockerExtension_caParam = config.require("extensions_DockerExtension_caParam");
-const extensions_DockerExtension_certParam = config.require("extensions_DockerExtension_certParam");
-const extensions_DockerExtension_keyParam = config.require("extensions_DockerExtension_keyParam");
-const virtualMachines_pulumirancher_nameParam = config.get("virtualMachines_pulumirancher_nameParam") || "pulumirancher";
-const extensionResource = undefined;
-const extensions_enablevmaccess_expirationParam = config.require("extensions_enablevmaccess_expirationParam");
-const extensions_enablevmaccess_passwordParam = config.require("extensions_enablevmaccess_passwordParam");
-const extensions_enablevmaccess_remove_userParam = config.require("extensions_enablevmaccess_remove_userParam");
-const extensions_enablevmaccess_reset_sshParam = config.require("extensions_enablevmaccess_reset_sshParam");
-const extensions_enablevmaccess_ssh_keyParam = config.require("extensions_enablevmaccess_ssh_keyParam");
-const extensions_enablevmaccess_usernameParam = config.require("extensions_enablevmaccess_usernameParam");
-const extensionResource0 = undefined;
-const networkInterfaces_pulumirancher_nic_nameParam = config.get("networkInterfaces_pulumirancher_nic_nameParam") || "pulumirancher-nic";
+const extensionsDockerExtensionCaParam = config.require("extensionsDockerExtensionCaParam");
+const extensionsDockerExtensionCertParam = config.require("extensionsDockerExtensionCertParam");
+const extensionsDockerExtensionKeyParam = config.require("extensionsDockerExtensionKeyParam");
+const virtualMachinesPulumirancherNameParam = config.get("virtualMachinesPulumirancherNameParam") || "pulumirancher";
+const extensionResource = new azure_nextgen.compute.v20190701.VirtualMachineExtension("extensionResource", {
+    autoUpgradeMinorVersion: true,
+    location: "westus2",
+    protectedSettings: {
+        certs: {
+            ca: extensionsDockerExtensionCaParam,
+            cert: extensionsDockerExtensionCertParam,
+            key: extensionsDockerExtensionKeyParam,
+        },
+    },
+    publisher: "Microsoft.Azure.Extensions",
+    resourceGroupName: resourceGroupNameParam,
+    settings: {
+        docker: {
+            port: "2375",
+        },
+    },
+    type: "DockerExtension",
+    typeHandlerVersion: "1.0",
+    vmExtensionName: `${virtualMachinesPulumirancherNameParam}/DockerExtension`,
+});
+const extensionsEnablevmaccessExpirationParam = config.require("extensionsEnablevmaccessExpirationParam");
+const extensionsEnablevmaccessPasswordParam = config.require("extensionsEnablevmaccessPasswordParam");
+const extensionsEnablevmaccessRemoveUserParam = config.require("extensionsEnablevmaccessRemoveUserParam");
+const extensionsEnablevmaccessResetSshParam = config.require("extensionsEnablevmaccessResetSshParam");
+const extensionsEnablevmaccessSshKeyParam = config.require("extensionsEnablevmaccessSshKeyParam");
+const extensionsEnablevmaccessUsernameParam = config.require("extensionsEnablevmaccessUsernameParam");
+const extensionResource0 = new azure_nextgen.compute.v20190701.VirtualMachineExtension("extensionResource0", {
+    autoUpgradeMinorVersion: true,
+    location: "westus2",
+    protectedSettings: {
+        expiration: extensionsEnablevmaccessExpirationParam,
+        password: extensionsEnablevmaccessPasswordParam,
+        remove_user: extensionsEnablevmaccessRemoveUserParam,
+        reset_ssh: extensionsEnablevmaccessResetSshParam,
+        ssh_key: extensionsEnablevmaccessSshKeyParam,
+        username: extensionsEnablevmaccessUsernameParam,
+    },
+    publisher: "Microsoft.OSTCExtensions",
+    resourceGroupName: resourceGroupNameParam,
+    settings: {},
+    type: "VMAccessForLinux",
+    typeHandlerVersion: "1.4",
+    vmExtensionName: `${virtualMachinesPulumirancherNameParam}/enablevmaccess`,
+});
+const networkInterfacesPulumirancherNicNameParam = config.get("networkInterfacesPulumirancherNicNameParam") || "pulumirancher-nic";
 const networkInterfaceResource = new azure_nextgen.network.v20200501.NetworkInterface("networkInterfaceResource", {
     dnsSettings: {
         dnsServers: [],
@@ -35,20 +74,18 @@ const networkInterfaceResource = new azure_nextgen.network.v20200501.NetworkInte
         privateIPAddress: "192.168.254.4",
         privateIPAddressVersion: "IPv4",
         privateIPAllocationMethod: "Dynamic",
-        publicIPAddress: {
-            id: undefined,
-        },
-        subnet: {
-            id: undefined,
-        },
+        publicIPAddress: {},
+        subnet: {},
     }],
     location: "westus2",
-    networkInterfaceName: networkInterfaces_pulumirancher_nic_nameParam,
+    networkInterfaceName: networkInterfacesPulumirancherNicNameParam,
+    resourceGroupName: resourceGroupNameParam,
 });
-const networkSecurityGroups_pulumirancher_nsg_nameParam = config.get("networkSecurityGroups_pulumirancher_nsg_nameParam") || "pulumirancher-nsg";
+const networkSecurityGroupsPulumirancherNsgNameParam = config.get("networkSecurityGroupsPulumirancherNsgNameParam") || "pulumirancher-nsg";
 const networkSecurityGroupResource = new azure_nextgen.network.v20200501.NetworkSecurityGroup("networkSecurityGroupResource", {
     location: "westus2",
-    networkSecurityGroupName: networkSecurityGroups_pulumirancher_nsg_nameParam,
+    networkSecurityGroupName: networkSecurityGroupsPulumirancherNsgNameParam,
+    resourceGroupName: resourceGroupNameParam,
     securityRules: [
         {
             access: "Allow",
@@ -100,7 +137,7 @@ const networkSecurityGroupResource = new azure_nextgen.network.v20200501.Network
         },
     ],
 });
-const publicIPAddresses_pulumirancher_pip1_nameParam = config.get("publicIPAddresses_pulumirancher_pip1_nameParam") || "pulumirancher-pip1";
+const publicIPAddressesPulumirancherPip1NameParam = config.get("publicIPAddressesPulumirancherPip1NameParam") || "pulumirancher-pip1";
 const publicIPAddressResource = new azure_nextgen.network.v20200501.PublicIPAddress("publicIPAddressResource", {
     dnsSettings: {
         domainNameLabel: "pulumirancher",
@@ -112,8 +149,8 @@ const publicIPAddressResource = new azure_nextgen.network.v20200501.PublicIPAddr
     location: "westus2",
     publicIPAddressVersion: "IPv4",
     publicIPAllocationMethod: "Static",
-    publicIpAddressName: publicIPAddresses_pulumirancher_pip1_nameParam,
-    resourceGroupName: resource
+    publicIpAddressName: publicIPAddressesPulumirancherPip1NameParam,
+    resourceGroupName: resourceGroupNameParam,
 });
 const securityRuleResource = new azure_nextgen.network.v20200501.SecurityRule("securityRuleResource", {
     access: "Allow",
@@ -125,7 +162,8 @@ const securityRuleResource = new azure_nextgen.network.v20200501.SecurityRule("s
     direction: "Inbound",
     priority: 300,
     protocol: "Tcp",
-    securityRuleName: "networkSecurityGroups_pulumirancher_nsg_nameParam}/Docker",
+    resourceGroupName: resourceGroupNameParam,
+    securityRuleName: `${networkSecurityGroupsPulumirancherNsgNameParam}/Docker`,
     sourceAddressPrefix: "*",
     sourceAddressPrefixes: [],
     sourcePortRange: "*",
@@ -141,7 +179,8 @@ const securityRuleResource0 = new azure_nextgen.network.v20200501.SecurityRule("
     direction: "Inbound",
     priority: 200,
     protocol: "Tcp",
-    securityRuleName: "networkSecurityGroups_pulumirancher_nsg_nameParam}/Rancher",
+    resourceGroupName: resourceGroupNameParam,
+    securityRuleName: `${networkSecurityGroupsPulumirancherNsgNameParam}/Rancher`,
     sourceAddressPrefix: "*",
     sourceAddressPrefixes: [],
     sourcePortRange: "*",
@@ -157,20 +196,22 @@ const securityRuleResource1 = new azure_nextgen.network.v20200501.SecurityRule("
     direction: "Inbound",
     priority: 100,
     protocol: "*",
-    securityRuleName: "networkSecurityGroups_pulumirancher_nsg_nameParam}/SSH",
+    resourceGroupName: resourceGroupNameParam,
+    securityRuleName: `${networkSecurityGroupsPulumirancherNsgNameParam}/SSH`,
     sourceAddressPrefix: "*",
     sourceAddressPrefixes: [],
     sourcePortRange: "*",
     sourcePortRanges: [],
 });
-const virtualNetworks_pulumirancher_vnet_nameParam = config.get("virtualNetworks_pulumirancher_vnet_nameParam") || "pulumirancher-vnet";
+const virtualNetworksPulumirancherVnetNameParam = config.get("virtualNetworksPulumirancherVnetNameParam") || "pulumirancher-vnet";
 const subnetResource = new azure_nextgen.network.v20200501.Subnet("subnetResource", {
     addressPrefix: "192.168.254.0/24",
     delegations: [],
     networkSecurityGroup: {},
     privateEndpointNetworkPolicies: "Enabled",
     privateLinkServiceNetworkPolicies: "Enabled",
-    subnetName: "virtualNetworks_pulumirancher_vnet_nameParam}/pulumirancher-subnet",
+    resourceGroupName: resourceGroupNameParam,
+    subnetName: `${virtualNetworksPulumirancherVnetNameParam}/pulumirancher-subnet`,
 });
 const virtualMachineResource = new azure_nextgen.compute.v20190701.VirtualMachine("virtualMachineResource", {
     availabilitySet: {},
@@ -183,12 +224,13 @@ const virtualMachineResource = new azure_nextgen.compute.v20190701.VirtualMachin
     },
     osProfile: {
         adminUsername: "pulumibot",
-        computerName: virtualMachines_pulumirancher_nameParam,
+        computerName: virtualMachinesPulumirancherNameParam,
         linuxConfiguration: {
             disablePasswordAuthentication: false,
         },
         secrets: [],
     },
+    resourceGroupName: resourceGroupNameParam,
     storageProfile: {
         dataDisks: [],
         imageReference: {
@@ -204,11 +246,11 @@ const virtualMachineResource = new azure_nextgen.compute.v20190701.VirtualMachin
             managedDisk: {
                 storageAccountType: "Standard_LRS",
             },
-            name: "virtualMachines_pulumirancher_nameParam}_Os_Disk_1",
+            name: `${virtualMachinesPulumirancherNameParam}_Os_Disk_1`,
             osType: "Linux",
         },
     },
-    vmName: virtualMachines_pulumirancher_nameParam,
+    vmName: virtualMachinesPulumirancherNameParam,
 });
 const virtualNetworkResource = new azure_nextgen.network.v20200501.VirtualNetwork("virtualNetworkResource", {
     addressSpace: {
@@ -217,16 +259,15 @@ const virtualNetworkResource = new azure_nextgen.network.v20200501.VirtualNetwor
     enableDdosProtection: false,
     enableVmProtection: false,
     location: "westus2",
+    resourceGroupName: resourceGroupNameParam,
     subnets: [{
         addressPrefix: "192.168.254.0/24",
         delegations: [],
         name: "pulumirancher-subnet",
-        networkSecurityGroup: {
-            id: undefined,
-        },
+        networkSecurityGroup: {},
         privateEndpointNetworkPolicies: "Enabled",
         privateLinkServiceNetworkPolicies: "Enabled",
     }],
-    virtualNetworkName: virtualNetworks_pulumirancher_vnet_nameParam,
+    virtualNetworkName: virtualNetworksPulumirancherVnetNameParam,
     virtualNetworkPeerings: [],
 });

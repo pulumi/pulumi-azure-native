@@ -46,49 +46,6 @@ type pclRenderContext struct {
 	dep      *dependencyTracking
 }
 
-// lookupResources looks up the specified resource token and
-// returns a corresponding resource if found.
-// We don't have every resource in metadata so this does a slower
-// lookup for aliases in the package spec if the metadata misses.
-// Also, since the templates seem to be case insensitive, we allow
-// a slow case insensitive lookup.
-func (p *pclRenderContext) lookupResource(resourceToken string) (string, *provider.AzureAPIResource, bool) {
-	var actualResourceToken string
-	res, ok := p.metadata.Resources[resourceToken]
-	if !ok {
-		resourceToken = strings.ToLower(resourceToken)
-		// first search for case insensitive hit on metadata
-		for k := range p.metadata.Resources {
-			if strings.ToLower(k) == resourceToken {
-				actualResourceToken = k
-				break
-			}
-		}
-		// next search for aliases in pkgSpec
-		for name, r := range p.pkgSpec.Resources {
-			if actualResourceToken != "" {
-				break // detect inner loop break
-			}
-			if strings.ToLower(actualResourceToken) == resourceToken {
-				actualResourceToken = name
-				break
-			}
-			for _, a := range r.Aliases {
-				if a.Type != nil && strings.ToLower(*a.Type) == resourceToken {
-					actualResourceToken = name
-					break
-				}
-			}
-		}
-		if actualResourceToken != "" {
-			res, ok = p.metadata.Resources[actualResourceToken]
-		}
-	} else {
-		actualResourceToken = resourceToken
-	}
-	return actualResourceToken, &res, ok
-}
-
 func newDependencyTracking(e TemplateElement) *dependencyTracking {
 	return &dependencyTracking{
 		TemplateElement: e,
@@ -576,23 +533,16 @@ func (t *TemplateElements) handleAddResource(args map[string]interface{}, parent
 		return fmt.Errorf("another resource with name: %s already defined", name)
 	}
 
-	// Since anything can be a template expression referring to other resources
-	// we can't really take the name or the resource token for granted at
-	// at this stage.
-	var resourceToken string
-	apiVersion, ok := args["apiVersion"]
+	_, ok = args["apiVersion"]
 	if !ok {
 		return fmt.Errorf("required field 'apiVersion' missing for %s", name)
 	}
-	apiVersionStr, ok := apiVersion.(string)
-	if ok {
-		if !isTemplateExpression(apiVersionStr) && !isTemplateExpression(typestr) {
-			resourceToken = toResourceToken(typestr, apiVersionStr)
-		}
-	}
 
 	varName = t.recordCanonicalizedName(varName)
-	r, err := newResource(varName, args, resourceToken)
+	// Since anything can be a template expression referring to other resources
+	// we can't really take the name or the resource token for granted at
+	// at this stage so we use the variable name as resource token temporarily
+	r, err := newResource(varName, args, varName)
 	if err != nil {
 		return err
 	}

@@ -123,15 +123,14 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 
 	// Can't trust the casing in the template.
 	// Need to do a soft-match against resources supported
-	token := toResourceToken(typ, apiVersion)
-	diag.SourceToken = token
-	actual, res, ok := ctx.lookupResource(token)
+	token, ok := toResourceToken(typ, apiVersion)
 	if !ok {
 		r.exclude = true
 		diag.Description = "no metadata found for resource"
 		return &diag
 	}
-	r.resourceToken = actual
+	diag.SourceToken = token
+	r.resourceToken = token
 	diag.SourceToken = r.resourceToken
 
 	if gen.ShouldExclude(r.resourceToken) {
@@ -141,26 +140,29 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 	}
 
 	var err error
+
+	_, res, _ := lookupResource(token)
 	r.resourceParams, err = r.transformRequestBody(ctx, res, r.resourceParams, templateName)
 	if err != nil {
 		return err
 	}
 
+	supported := codegen.NewStringSet()
 	required := codegen.NewStringSet()
-	hasLocation := false
 	for _, param := range res.PutParameters {
 		// We fold body params in so we don't look for the body field directly
 		if param.IsRequired && param.Body == nil {
 			required.Add(param.Name)
+			supported.Add(param.Name)
 		}
 		// Add the required properties in the body as well
 		if param.Body != nil {
 			for _, req := range param.Body.RequiredProperties {
 				required.Add(req)
 			}
-		}
-		if param.Name == "location" {
-			hasLocation = true
+			for prop := range param.Body.Properties {
+				supported.Add(prop)
+			}
 		}
 	}
 
@@ -179,7 +181,7 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 	}
 
 	if _, ok := r.resourceParams["location"]; !ok {
-		if hasLocation{
+		if supported.Has("location") {
 			if location != nil {
 				r.resourceParams["location"] = location
 			} else {
@@ -287,20 +289,98 @@ func (r *resource) transformRequestBody(ctx *pclRenderContext,
 	return flattened, nil
 }
 
-func toResourceToken(resourceType, apiVersion string) string {
+// toResourceToken will return the resource token relevant to azure-nextgen
+// provider given the resourceType and API version provided by the ARM template.
+// Returns true as second arg if one is found, otherwise false.
+//
+// Given the provider and type we get from ARM we can't find an easy
+// direct mapping to pulumi providers since we don't have access to the intended
+// operation id. This tries to different heuristics and returns the token
+// for the first that matches.
+func toResourceToken(resourceType, apiVersion string) (string, bool) {
 	apiVersion = "v" + strings.ReplaceAll(apiVersion, "-", "")
 	provAndResource := strings.Split(resourceType, "/")
 	prov, resourceParts := provAndResource[0], provAndResource[1:]
 
-	var resource string
-	for _, part := range resourceParts {
-		resource = resource + inflector.Singularize(strings.Title(gen.ToLowerCamel(part)))
+	genResourceToken := func(prov string, resourceParts []string) (string, bool) {
+		var resource string
+		for _, part := range resourceParts {
+			resource = resource + inflector.Singularize(strings.Title(gen.ToLowerCamel(part)))
+		}
+
+		if strings.HasPrefix(prov, "Microsoft.") {
+			prov = strings.TrimPrefix(strings.ToLower(prov), "microsoft.")
+		}
+		res := inflector.Singularize(strings.Title(gen.ToLowerCamel(resource)))
+		resourceToken := fmt.Sprintf("azure-nextgen:%s/%s:%s", prov, apiVersion, res)
+
+		if actual, _, ok := lookupResource(resourceToken); ok {
+			return actual, true
+		}
+		return "", false
 	}
 
-	if strings.HasPrefix(prov, "Microsoft.") {
-		prov = strings.TrimPrefix(strings.ToLower(prov), "microsoft.")
+	if token, found := genResourceToken(prov, resourceParts); found {
+		return token, true
 	}
-	res := inflector.Singularize(strings.Title(gen.ToLowerCamel(resource)))
-	return fmt.Sprintf("azure-nextgen:%s/%s:%s", prov, apiVersion, res)
+
+	prov, resourceParts = provAndResource[0], provAndResource[len(provAndResource) - 1:]
+	if token, found := genResourceToken(prov, resourceParts); found {
+		return token, true
+	}
+	return "", false
 }
 
+// lookupResources looks up the specified resource token and
+// returns a corresponding resource if found.
+// We don't have every resource in metadata so this does a slower
+// lookup for aliases in the package spec if the metadata misses.
+// Also, since the templates seem to be case insensitive, we allow
+// a slow case insensitive lookup.
+func lookupResource(resourceToken string) (string, *provider.AzureAPIResource, bool) {
+	var actualResourceToken string
+
+	metadata, err := loadMetadata()
+	if err != nil {
+		panic(err)
+	}
+
+	pkgSpec, err := loadSchema()
+	if err != nil {
+		panic(err)
+	}
+
+	res, ok := metadata.Resources[resourceToken]
+	if !ok {
+		resourceToken = strings.ToLower(resourceToken)
+		// first search for case insensitive hit on metadata
+		for k := range metadata.Resources {
+			if strings.ToLower(k) == resourceToken {
+				actualResourceToken = k
+				break
+			}
+		}
+		// next search for aliases in pkgSpec
+		for name, r := range pkgSpec.Resources {
+			if actualResourceToken != "" {
+				break // detect inner loop break
+			}
+			if strings.ToLower(actualResourceToken) == resourceToken {
+				actualResourceToken = name
+				break
+			}
+			for _, a := range r.Aliases {
+				if a.Type != nil && strings.ToLower(*a.Type) == resourceToken {
+					actualResourceToken = name
+					break
+				}
+			}
+		}
+		if actualResourceToken != "" {
+			res, ok = metadata.Resources[actualResourceToken]
+		}
+	} else {
+		actualResourceToken = resourceToken
+	}
+	return actualResourceToken, &res, ok
+}
