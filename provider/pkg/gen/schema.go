@@ -35,7 +35,7 @@ import (
 )
 
 // Note - this needs to be kept in sync with the layout in the SDK package
-const goBasePath = "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure-nextgen"
+const goBasePath = "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure"
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
 func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureAPIMetadata, map[string][]provider.AzureAPIExample, error) {
