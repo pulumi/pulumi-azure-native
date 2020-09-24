@@ -1,27 +1,27 @@
-jobs:
-  automerge:
-    name: automerge labelled pull-requests
-    runs-on: ubuntu-latest
-    steps:
-      - env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_COMMIT_MESSAGE: pull-request-title
-          MERGE_FORKS: "false"
-          MERGE_LABELS: automation/merge
-          MERGE_METHOD: squash
-          MERGE_REMOVE_LABELS: automation/merge
-          MERGE_RETRIES: "3"
-          MERGE_RETRY_SLEEP: "3600000"
-          UPDATE_LABELS: automation/update
-          UPDATE_METHOD: rebase
-        name: Automerge
-        uses: pascalgn/automerge-action@4775c532c615e0491d53bc42c0893840ae7cc07a
-name: pr-automation
-"on":
-  check_suite:
-    types:
-      - completed
-  repository_dispatch:
-    types:
-      - automerge
-  status: {}
+#jobs:
+#  automerge:
+#    name: automerge labelled pull-requests
+#    runs-on: ubuntu-latest
+#    steps:
+#      - env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          MERGE_COMMIT_MESSAGE: pull-request-title
+#          MERGE_FORKS: "false"
+#          MERGE_LABELS: automation/merge
+#          MERGE_METHOD: squash
+#          MERGE_REMOVE_LABELS: automation/merge
+#          MERGE_RETRIES: "3"
+#          MERGE_RETRY_SLEEP: "3600000"
+#          UPDATE_LABELS: automation/update
+#          UPDATE_METHOD: rebase
+#        name: Automerge
+#        uses: pascalgn/automerge-action@4775c532c615e0491d53bc42c0893840ae7cc07a
+#name: pr-automation
+#"on":
+#  check_suite:
+#    types:
+#      - completed
+#  repository_dispatch:
+#    types:
+#      - automerge
+#  status: {}
