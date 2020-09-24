@@ -22,40 +22,40 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
 jobs:
-  lint:
-    name: lint
-    runs-on: ubuntu-latest
-    container: golangci/golangci-lint:latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-      - name: Checkout Scripts Repo
-        uses: actions/checkout@v2
-        with:
-          path: ci-scripts
-          repository: pulumi/scripts
-      - name: Unshallow clone for tags
-        run: git fetch --prune --unshallow --tags
-      - name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: ${{ matrix.goversion }}
-      - name: Install pulumictl
-        uses: jaxxstorm/action-install-gh-release@release/v1-alpha
-        with:
-          repo: pulumi/pulumictl
-      - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@releases/v1
-      - name: Initialize submodules
-        run: make init_submodules
-      - name: Build codegen binaries
-        run: make codegen
-      - name: Build Schema
-        run: make generate_schema
-      - name: Build provider binary
-        run: make provider
-      - name: Lint provider
-        run: make lint_provider
+#  lint:
+#    name: lint
+#    runs-on: ubuntu-latest
+#    container: golangci/golangci-lint:latest
+#    steps:
+#      - name: Checkout Repo
+#        uses: actions/checkout@v2
+#      - name: Checkout Scripts Repo
+#        uses: actions/checkout@v2
+#        with:
+#          path: ci-scripts
+#          repository: pulumi/scripts
+#      - name: Unshallow clone for tags
+#        run: git fetch --prune --unshallow --tags
+#      - name: Install Go
+#        uses: actions/setup-go@v2
+#        with:
+#          go-version: ${{ matrix.goversion }}
+#      - name: Install pulumictl
+#        uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+#        with:
+#          repo: pulumi/pulumictl
+#      - name: Install Pulumi CLI
+#        uses: pulumi/action-install-pulumi-cli@releases/v1
+#      - name: Initialize submodules
+#        run: make init_submodules
+#      - name: Build codegen binaries
+#        run: make codegen
+#      - name: Build Schema
+#        run: make generate_schema
+#      - name: Build provider binary
+#        run: make provider
+#      - name: Lint provider
+#        run: make lint_provider
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
