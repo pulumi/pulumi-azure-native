@@ -18,7 +18,7 @@ func TestToLowerCamel(t *testing.T) {
 	for _, i := range cases {
 		in := i[0]
 		out := i[1]
-		result := toLowerCamel(in)
+		result := ToLowerCamel(in)
 		if result != out {
 			t.Error("'" + result + "' != '" + out + "'")
 		}

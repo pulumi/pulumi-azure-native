@@ -8,9 +8,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/blang/semver"
 	"github.com/hashicorp/hcl/v2"
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/pcl"
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
@@ -53,18 +51,16 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 	if err != nil {
 		return err
 	}
-	loaderOption := hcl2.Loader(&inMemoryLoader{
-		pkgs: map[string]*schema.Package{
-			"azure-nextgen": pkg,
-		},
-	})
+	loaderOption := hcl2.Loader(InMemoryPackageLoader(map[string]*schema.Package{
+		"azure-nextgen": pkg,
+	}))
 	for _, pulumiToken := range sortedKeys {
 		err := bar.Add(1)
 		if err != nil {
 			log.Printf("error in the progress bar %v", err)
 		}
 
-		if shouldExclude(pulumiToken) {
+		if ShouldExclude(pulumiToken) {
 			log.Printf("Skipping '%s' since it matches exclusion pattern", pulumiToken)
 			continue
 		}
@@ -166,18 +162,6 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 	return nil
 }
 
-type inMemoryLoader struct {
-	pkgs map[string]*schema.Package
-}
-
-func (l *inMemoryLoader) LoadPackage(pkg string, _ *semver.Version) (*schema.Package, error) {
-	if p, ok := l.pkgs[pkg]; ok {
-		return p, nil
-	}
-
-	return nil, errors.Errorf("package %s not found in the in-memory map", pkg)
-}
-
 type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
 
 func generateExamplePrograms(example provider.AzureAPIExample, body *model.Body, languages []string,
@@ -189,7 +173,7 @@ func generateExamplePrograms(example provider.AzureAPIExample, body *model.Body,
 		return nil, fmt.Errorf("failed to parse IR - file: %s: %v", example.Location, err)
 	}
 	if parser.Diagnostics.HasErrors() {
-		fmt.Print(programBody)
+		debug.Log(programBody)
 		err := parser.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(parser.Diagnostics)
 		if err != nil {
 			log.Printf("failed to write diagnostics: %v", err)
