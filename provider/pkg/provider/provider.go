@@ -641,7 +641,7 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 	if inputs == nil {
 		// There may be no old state (i.e., importing a new resource).
 		// Extract inputs from resource's ID and response body.
-		pathItems, err := k.parseResourceId(id, res.Path)
+		pathItems, err := k.parseResourceID(id, res.Path)
 		if err != nil {
 			return nil, err
 		}

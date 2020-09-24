@@ -132,7 +132,7 @@ func (k *azureNextGenProvider) responseToSdkOutputs(props map[string]AzureAPIPro
 	return result
 }
 
-func (k *azureNextGenProvider) parseResourceId(id, path string) (map[string]string, error) {
+func (k *azureNextGenProvider) parseResourceID(id, path string) (map[string]string, error) {
 	pathParts := strings.Split(path, "/")
 	idParts := strings.Split(id, "/")
 	if len(pathParts) != len(idParts) {
@@ -144,9 +144,9 @@ func (k *azureNextGenProvider) parseResourceId(id, path string) (map[string]stri
 		value := idParts[i]
 		switch {
 		case strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}"):
-			name := s[1:len(s)-1]
+			name := s[1 : len(s)-1]
 			result[name] = value
-		case strings.ToLower(s) != strings.ToLower(value):
+		case !strings.EqualFold(s, value):
 			return nil, errors.Errorf("failed parsing id: %s <> %s", s, value)
 		}
 	}
@@ -154,7 +154,7 @@ func (k *azureNextGenProvider) parseResourceId(id, path string) (map[string]stri
 }
 
 func (k *azureNextGenProvider) responseToSdkInputs(parameters []AzureAPIParameter,
-	path map[string]string, body map[string]interface{}) map[string]interface{} {
+	pathValues map[string]string, response map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 	for _, param := range parameters {
 		switch {
@@ -162,9 +162,9 @@ func (k *azureNextGenProvider) responseToSdkInputs(parameters []AzureAPIParamete
 			// Ignore
 		case param.Location == "path":
 			name := param.Name
-			result[name] = path[name]
-		case param.Location == "body":
-			bodyProps := k.responseToSdkOutputs(param.Body.Properties, body)
+			result[name] = pathValues[name]
+		case param.Location == body:
+			bodyProps := k.responseToSdkOutputs(param.Body.Properties, response)
 			for k, v := range bodyProps {
 				switch {
 				case k == "id":
@@ -183,7 +183,7 @@ func (k *azureNextGenProvider) responseToSdkInputs(parameters []AzureAPIParamete
 
 func removeTrivialValues(value interface{}) interface{} {
 	switch value := value.(type) {
-	case map[string]interface{} :
+	case map[string]interface{}:
 		result := map[string]interface{}{}
 		for k, v := range value {
 			resultValue := removeTrivialValues(v)
@@ -195,7 +195,7 @@ func removeTrivialValues(value interface{}) interface{} {
 			return nil
 		}
 		return result
-	case []interface{} :
+	case []interface{}:
 		var result []interface{}
 		for _, v := range value {
 			resultValue := removeTrivialValues(v)
