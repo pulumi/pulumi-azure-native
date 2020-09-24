@@ -872,17 +872,18 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		if allOfSchema.Discriminator != "" {
 			discriminator := allOfSchema.Discriminator
 			prop := allOfProperties.properties[discriminator]
+			sdkDiscriminator := discriminator
 			if prop.SdkName != "" {
-				discriminator = prop.SdkName
+				sdkDiscriminator = prop.SdkName
 			}
 
-			propSpec := allOfProperties.specs[discriminator]
+			propSpec := allOfProperties.specs[sdkDiscriminator]
 			discriminatorValue := resolvedSchema.ReferenceContext.ReferenceName
 			if v, ok := resolvedSchema.Extensions.GetString("x-ms-discriminator-value"); ok {
 				discriminatorValue = v
 			}
 			propSpec.Const = discriminatorValue
-			allOfProperties.specs[discriminator] = propSpec
+			allOfProperties.specs[sdkDiscriminator] = propSpec
 			prop.Const = discriminatorValue
 			allOfProperties.properties[discriminator] = prop
 		}
