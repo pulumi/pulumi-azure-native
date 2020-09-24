@@ -24,8 +24,8 @@ func (s *StringValue) Accept(visitor Visitor) error {
 	return visitor.VisitStringValue(s)
 }
 
-func (n *StringValue) Token() Token {
-	return n.token
+func (s *StringValue) Token() Token {
+	return s.token
 }
 
 func (s *StringValue) Span() *Span {
@@ -85,7 +85,12 @@ func (p *PropertyAccessValue) Accept(v Visitor) error {
 	return v.VisitPropertyAccessValue(p)
 }
 
-func NewArrayAccessValue(source Value, leftSquareBracketToken Token, indexValue Value, rightSquareBracketToken Token) *ArrayAccessValue {
+func NewArrayAccessValue(
+	source Value,
+	leftSquareBracketToken Token,
+	indexValue Value,
+	rightSquareBracketToken Token,
+) *ArrayAccessValue {
 	return &ArrayAccessValue{
 		source:                  source,
 		leftSquareBracketToken:  leftSquareBracketToken,
@@ -117,8 +122,6 @@ func (a *ArrayAccessValue) Span() *Span {
 func (a *ArrayAccessValue) Accept(v Visitor) error {
 	return v.VisitArrayAccessValue(a)
 }
-
-
 
 type FunctionCallValue struct {
 	NamespaceToken        *Token

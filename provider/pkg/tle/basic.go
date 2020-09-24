@@ -61,22 +61,22 @@ var (
 	tokenCarriageReturnNewLine = basicToken{"\r\n", carriageReturnNewLine}
 )
 
-// Letters creates a Token from the provided text.
-func Letters(text string) basicToken {
+// lettersFromText creates a Token from the provided text.
+func lettersFromText(text string) basicToken {
 	return basicToken{text: text, typ: letters}
 }
 
 /**
- * Create a Digits Token from the provided text.
+ * Create a digitsFromText Token from the provided text.
  */
-func Digits(text string) basicToken {
+func digitsFromText(text string) basicToken {
 	return basicToken{text: text, typ: digits}
 }
 
 /**
- * Create an Unrecognized Token from the provided text.
+ * Create an unrecognizedFromText Token from the provided text.
  */
-func Unrecognized(text string) basicToken {
+func unrecognizedFromText(text string) basicToken {
 	return basicToken{text: text, typ: unrecognized}
 }
 
@@ -100,15 +100,11 @@ func (t *basicToken) toString() string {
 	return t.text
 }
 
-func (t *basicToken) getLength() int {
-	return len(t.text)
-}
-
 func (t *basicToken) getType() BasicTokenType {
 	return t.typ
 }
 
-func NewBasicTokenizer(text string) *basicTokenizer {
+func newBasicTokenizer(text string) *basicTokenizer {
 	return &basicTokenizer{
 		text:       text,
 		textIndex:  -1,
@@ -163,91 +159,57 @@ func (t *basicTokenizer) MoveNext() bool {
 		case '{':
 			t.currentToken = &tokenLeftCurlyBracket
 			t.nextCharacter()
-			break
 		case '}':
 			t.currentToken = &tokenRightCurlyBracket
 			t.nextCharacter()
-			break
 		case '[':
 			t.currentToken = &tokenLeftSquareBracket
 			t.nextCharacter()
-			break
-
 		case ']':
 			t.currentToken = &tokenRightSquareBracket
 			t.nextCharacter()
-			break
-
 		case '(':
 			t.currentToken = &tokenLeftParenthesis
 			t.nextCharacter()
-			break
-
 		case ')':
 			t.currentToken = &tokenRightParenthesis
 			t.nextCharacter()
-			break
-
 		case '_':
 			t.currentToken = &tokenUnderscore
 			t.nextCharacter()
-			break
-
 		case '.':
 			t.currentToken = &tokenPeriod
 			t.nextCharacter()
-			break
-
 		case '-':
 			t.currentToken = &tokenDash
 			t.nextCharacter()
-			break
-
 		case '+':
 			t.currentToken = &tokenPlus
 			t.nextCharacter()
-			break
-
 		case ',':
 			t.currentToken = &tokenComma
 			t.nextCharacter()
-			break
-
 		case ':':
 			t.currentToken = &tokenColon
 			t.nextCharacter()
-			break
-
 		case '\'':
 			t.currentToken = &tokenSingleQuote
 			t.nextCharacter()
-			break
-
 		case '"':
 			t.currentToken = &tokenDoubleQuote
 			t.nextCharacter()
-			break
-
 		case '\\':
 			t.currentToken = &tokenBackslash
 			t.nextCharacter()
-			break
-
 		case '/':
 			t.currentToken = &tokenForwardSlash
 			t.nextCharacter()
-			break
-
 		case '*':
 			t.currentToken = &tokenAsterisk
 			t.nextCharacter()
-			break
-
 		case '\n':
 			t.currentToken = &tokenNewLine
 			t.nextCharacter()
-			break
-
 		case '\r':
 			t.nextCharacter()
 			var newC byte
@@ -258,35 +220,28 @@ func (t *basicTokenizer) MoveNext() bool {
 			} else {
 				t.currentToken = &tokenCarriageReturn
 			}
-			break
-
 		case ' ':
 			t.currentToken = &tokenSpace
 			t.nextCharacter()
-			break
-
 		case '\t':
 			t.currentToken = &tokenTab
 			t.nextCharacter()
-			break
-
 		default:
 			if isLetter(c) {
-				letters := Letters(t.readWhile(isLetter))
+				letters := lettersFromText(t.readWhile(isLetter))
 				t.currentToken = &letters
 				break
 			}
 			var cNew byte
-			cNew, eof = t.currentCharacter()
+			cNew, _ = t.currentCharacter()
 			if isDigit(cNew) {
-				digits := Digits(t.readWhile(isDigit))
+				digits := digitsFromText(t.readWhile(isDigit))
 				t.currentToken = &digits
 			} else {
-				unrecognized := Unrecognized(string(cNew))
+				unrecognized := unrecognizedFromText(string(cNew))
 				t.currentToken = &unrecognized
 				t.nextCharacter()
 			}
-			break
 		}
 	}
 
@@ -295,10 +250,10 @@ func (t *basicTokenizer) MoveNext() bool {
 
 func (t *basicTokenizer) readWhile(condition func(character byte) bool) string {
 	var result string
-	res, eof := t.currentCharacter()
+	res, _ := t.currentCharacter()
 	result = string(res)
 	t.nextCharacter()
-	res, eof = t.currentCharacter()
+	_, eof := t.currentCharacter()
 
 	for !eof {
 		res, eof = t.currentCharacter()
@@ -328,9 +283,6 @@ func readWhitespace(iterator TokenIterator) []*basicToken {
 		case space, tab, carriageReturn, newLine, carriageReturnNewLine:
 			whitespaceTokens = append(whitespaceTokens, current)
 			iterator.MoveNext()
-			current = iterator.Current()
-			break
-
 		default:
 			return whitespaceTokens
 		}
@@ -345,7 +297,8 @@ func readWhitespace(iterator TokenIterator) []*basicToken {
  */
 func readQuotedString(iterator TokenIterator) []*basicToken {
 	startingToken := iterator.Current()
-	contract.Assert(startingToken != nil && (startingToken.getType() == singleQuote || startingToken.getType() == doubleQuote))
+	contract.Assert(startingToken != nil &&
+		(startingToken.getType() == singleQuote || startingToken.getType() == doubleQuote))
 
 	startQuote := startingToken
 	quotedStringTokens := []*basicToken{startQuote}
@@ -376,7 +329,7 @@ func readQuotedString(iterator TokenIterator) []*basicToken {
 
 /**
  * Read a JSON number from the provided iterator. The iterator must be pointing at either a
- * Dash or Digits Token when this function is called.
+ * Dash or digitsFromText Token when this function is called.
  */
 func readNumber(iterator TokenIterator) []*basicToken {
 	var numberBasicTokens []*basicToken

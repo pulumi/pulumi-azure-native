@@ -18,7 +18,7 @@ func quote(s string) string {
 	if s[0] == '\'' && s[len(s)-1] == '\'' {
 		return s
 	}
-	if strings.IndexAny(s, "\"") != -1 {
+	if strings.ContainsAny(s, "\"") {
 		return fmt.Sprintf("'%s'", s)
 	}
 	return fmt.Sprintf("\"%s\"", s)

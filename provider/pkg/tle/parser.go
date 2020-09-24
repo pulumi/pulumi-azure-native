@@ -8,14 +8,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/common/util/contract"
 )
 
-// TLEParseResult provides the result of calling Parse on a string.
-type TLEParseResult struct {
+// ParseResult provides the result of calling Parse on a string.
+type ParseResult struct {
 	LeftSquareBracketToken  *Token
 	Expression              Value
 	RightSquareBracketToken *Token
 }
 
-type tleGenVisitor struct{
+type tleGenVisitor struct {
 	builder strings.Builder
 }
 
@@ -39,7 +39,7 @@ func (t *tleGenVisitor) VisitFunctionCallValue(value *FunctionCallValue) error {
 		if err := a.Accept(t); err != nil {
 			return err
 		}
-		if i < len(value.ArgumentExpressions) - 1 {
+		if i < len(value.ArgumentExpressions)-1 {
 			_, _ = t.builder.WriteString(",")
 		}
 	}
@@ -81,11 +81,11 @@ func ToTemplateExpressionString(value Value) (string, error) {
 
 // Parse takes a string which may potentially be a TLE expression and generates the
 // AST for it.
-func Parse(s string) (*TLEParseResult, error) {
+func Parse(s string) (*ParseResult, error) {
 	return parseString(quote(s))
 }
 
-func parseString(quotedStringValue string) (*TLEParseResult, error) {
+func parseString(quotedStringValue string) (*ParseResult, error) {
 	contract.Assert(1 <= len(quotedStringValue)) // TLE strings must be at least 1 character
 	// The first character in the TLE string to parse must be a quote character
 	contract.Assert(isQuoteCharacter(quotedStringValue[0]))
@@ -110,7 +110,9 @@ func parseString(quotedStringValue string) (*TLEParseResult, error) {
 			if tokenizer.Current() != nil &&
 				tokenizer.Current().GetType() != Literal &&
 				tokenizer.Current().GetType() != RightSquareBracket {
-				return nil, fmt.Errorf("Expected a literal value: %s:%v", quotedStringValue, tokenizer.Current().Span().getStartIndex())
+				return nil, fmt.Errorf("expected a literal value: %s:%v",
+					quotedStringValue,
+					tokenizer.Current().Span().getStartIndex())
 			}
 
 			var err error
@@ -125,16 +127,24 @@ func parseString(quotedStringValue string) (*TLEParseResult, error) {
 					tokenizer.Next()
 					break
 				} else {
-					return nil, fmt.Errorf("nxpected end of string: %s:%v", quotedStringValue, tokenizer.Current().Span().getStartIndex())
+					return nil, fmt.Errorf("expected end of string: %s:%v",
+						quotedStringValue, tokenizer.Current().Span().getStartIndex())
 				}
 			}
 
 			if rightSquareBracketToken != nil {
 				if tokenizer.Current() != nil {
-					return nil, fmt.Errorf("nothing should exist after the closing ']' except for whitespace, %s:%v", quotedStringValue, tokenizer.Current().Span().getStartIndex())
+					return nil, fmt.Errorf(
+						"nothing should exist after the closing ']' except for whitespace, %s:%v",
+						quotedStringValue,
+						tokenizer.Current().Span().getStartIndex(),
+					)
 				}
 			} else {
-				return nil, fmt.Errorf("expected a right square bracket (']'), %s:%v", quotedStringValue, len(quotedStringValue)-1)
+				return nil, fmt.Errorf("expected a right square bracket (']'), %s:%v",
+					quotedStringValue,
+					len(quotedStringValue)-1,
+				)
 			}
 
 			if expression == nil {
@@ -142,12 +152,15 @@ func parseString(quotedStringValue string) (*TLEParseResult, error) {
 				if rightSquareBracketToken != nil {
 					errorSpan = union(errorSpan, &rightSquareBracketToken.span)
 				}
-				return nil, fmt.Errorf("expected a function of property expression, %s:%v", quotedStringValue, errorSpan.getStartIndex())
+				return nil, fmt.Errorf("expected a function of property expression, %s:%v",
+					quotedStringValue,
+					errorSpan.getStartIndex(),
+				)
 			}
 		}
 	}
 
-	return &TLEParseResult{
+	return &ParseResult{
 		LeftSquareBracketToken:  leftSquareBracketToken,
 		Expression:              expression,
 		RightSquareBracketToken: rightSquareBracketToken,
@@ -289,7 +302,7 @@ func parseFunctionCall(tokenizer *Tokenizer) (*FunctionCallValue, error) {
 			} else if tokenizer.Current().GetType() == RightSquareBracket {
 				return nil, fmt.Errorf("Missing function argument list: %d", nameToken.Span().getStartIndex())
 			} else {
-				return nil, fmt.Errorf("Expected the end of the string: %d", nameToken.Span().getStartIndex())
+				return nil, fmt.Errorf("expected the end of the string: %d", nameToken.Span().getStartIndex())
 			}
 		}
 	} else {
@@ -329,8 +342,6 @@ func parseFunctionCall(tokenizer *Tokenizer) (*FunctionCallValue, error) {
 		case RightParenthesis:
 			rightParanthesisToken = tokenizer.Current()
 			tokenizer.Next()
-			break
-
 		case RightSquareBracket:
 			if leftParenthesisToken != nil {
 				return nil, fmt.Errorf("expected a right parenthesis (')')")

@@ -32,7 +32,7 @@ func fromString(stringValue string) *Tokenizer {
 	}
 	trimmedString := stringValue[1:trimmedLength]
 
-	return NewTokenizer(NewBasicTokenizer(trimmedString), stringValue)
+	return NewTokenizer(newBasicTokenizer(trimmedString), stringValue)
 }
 
 func (t *Tokenizer) HasStarted() bool {
@@ -70,38 +70,26 @@ func (t *Tokenizer) ReadToken() *Token {
 			curr := CreateLeftParenthesis(t.currentTokenStartIndex)
 			t.current = &curr
 			t.nextBasicToken()
-			break
-
 		case rightParenthesis:
 			curr := CreateRightParenthesis(t.currentTokenStartIndex)
 			t.current = &curr
 			t.nextBasicToken()
-			break
-
 		case leftSquareBracket:
 			curr := CreateLeftSquareBracket(t.currentTokenStartIndex)
 			t.current = &curr
 			t.nextBasicToken()
-			break
-
 		case rightSquareBracket:
 			curr := CreateRightSquareBracket(t.currentTokenStartIndex)
 			t.current = &curr
 			t.nextBasicToken()
-			break
-
 		case comma:
 			curr := CreateComma(t.currentTokenStartIndex)
 			t.current = &curr
 			t.nextBasicToken()
-			break
-
 		case period:
 			curr := CreatePeriod(t.currentTokenStartIndex)
 			t.current = &curr
 			t.nextBasicToken()
-			break
-
 		case space, tab, carriageReturn, newLine, carriageReturnNewLine:
 			ws := readWhitespace(t.basicTokenizer)
 			var strs []stringable
@@ -111,8 +99,6 @@ func (t *Tokenizer) ReadToken() *Token {
 			curr := CreateWhitespace(
 				t.currentTokenStartIndex, getCombinedText(strs...))
 			t.current = &curr
-			break
-
 		case doubleQuote:
 			qs := readQuotedString(t.basicTokenizer)
 			var strs []stringable
@@ -123,8 +109,6 @@ func (t *Tokenizer) ReadToken() *Token {
 				t.currentTokenStartIndex,
 				getCombinedText(strs...))
 			t.current = &curr
-			break
-
 		case singleQuote:
 			qts := readQuotedTLEString(t.basicTokenizer)
 			var strs []stringable
@@ -135,8 +119,6 @@ func (t *Tokenizer) ReadToken() *Token {
 				t.currentTokenStartIndex,
 				getCombinedText(strs...))
 			t.current = &curr
-			break
-
 		case dash, digits:
 			ns := readNumber(t.basicTokenizer)
 			var strs []stringable
@@ -147,8 +129,6 @@ func (t *Tokenizer) ReadToken() *Token {
 				t.currentTokenStartIndex,
 				getCombinedText(strs...))
 			t.current = &curr
-			break
-
 		default:
 			literalTokens := []*basicToken{currentBasicToken}
 			t.nextBasicToken()
@@ -167,7 +147,6 @@ func (t *Tokenizer) ReadToken() *Token {
 			}
 			curr := CreateLiteral(t.currentTokenStartIndex, getCombinedText(ls...))
 			t.current = &curr
-			break
 		}
 	}
 
