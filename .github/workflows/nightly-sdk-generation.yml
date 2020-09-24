@@ -25,6 +25,15 @@ jobs:
           repo: pulumi/pulumictl
       - name: Install Pulumi CLI
         uses: pulumi/action-install-pulumi-cli@releases/v1
+      - name: Cleanup SDK folder
+        run: make clean
+      - name: commit changes
+        uses: EndBug/add-and-commit@v4
+        with:
+          ref: "generate-sdk/${{ github.run_id }}-${{ github.run_number }}"
+          author_name: pulumi-bot
+          author_email: "bot@pulumi.com"
+          message: "Preparing the SDK folder for regeneration"
       - name: Update submodules
         run: make update_submodules
       - name: Build codegen binaries
@@ -35,16 +44,17 @@ jobs:
         run: make provider
       - name: git status
         run: git status
+      - name: Git submodule commit hash
+        id: vars
+        run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
+        working-directory: azure-rest-api-specs
       - name: commit changes
         uses: EndBug/add-and-commit@v4
         with:
           ref: "generate-sdk/${{ github.run_id }}-${{ github.run_number }}"
           author_name: pulumi-bot
           author_email: "bot@pulumi.com"
-      - name: Git submodule commit hash
-        id: vars
-        run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
-        working-directory: azure-rest-api-specs
+          message: "Regenerating SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
