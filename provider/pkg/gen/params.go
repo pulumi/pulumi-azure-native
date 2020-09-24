@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 )
 

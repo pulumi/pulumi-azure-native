@@ -24,7 +24,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/version"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"

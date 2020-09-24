@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
 	"github.com/stretchr/testify/require"
 )
 
