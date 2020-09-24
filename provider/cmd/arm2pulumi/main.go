@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/arm2pulumi"
 	"io"
 	"log"
 	"os"

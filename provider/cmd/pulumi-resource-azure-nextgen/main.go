@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/version"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version"
 )
 
 var providerName = "azure-nextgen"

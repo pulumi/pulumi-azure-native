@@ -5,8 +5,8 @@ import (
 	"compress/gzip"
 	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/version"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 )
 
