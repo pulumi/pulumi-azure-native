@@ -43,6 +43,8 @@ type LookupStorageAccountResult struct {
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
 	Encryption EncryptionResponse `pulumi:"encryption"`
+	// The extendedLocation of the resource.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// If the failover is in progress, the value will be true, otherwise, it will be null.
 	FailoverInProgress bool `pulumi:"failoverInProgress"`
 	// Geo Replication Stats

@@ -69,6 +69,10 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<outputs.storage.v20200801preview.EncryptionResponse>;
     /**
+     * The extendedLocation of the resource.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.storage.v20200801preview.ExtendedLocationResponse | undefined>;
+    /**
      * If the failover is in progress, the value will be true, otherwise, it will be null.
      */
     public /*out*/ readonly failoverInProgress!: pulumi.Output<boolean>;
@@ -193,6 +197,7 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["customDomain"] = args ? args.customDomain : undefined;
             inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
             inputs["kind"] = args ? args.kind : undefined;
@@ -228,6 +233,7 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["customDomain"] = undefined /*out*/;
             inputs["enableHttpsTrafficOnly"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["failoverInProgress"] = undefined /*out*/;
             inputs["geoReplicationStats"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
@@ -297,6 +303,10 @@ export interface StorageAccountArgs {
      * Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
      */
     readonly encryption?: pulumi.Input<inputs.storage.v20200801preview.Encryption>;
+    /**
+     * Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.storage.v20200801preview.ExtendedLocation>;
     /**
      * The identity of the resource.
      */

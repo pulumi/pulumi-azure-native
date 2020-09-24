@@ -43,6 +43,7 @@ __all__ = [
     'MongoIndexOptionsArgs',
     'PeriodicModeBackupPolicyArgs',
     'PeriodicModePropertiesArgs',
+    'PermissionArgs',
     'RestoreParametersArgs',
     'RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs',
     'SpatialSpecArgs',
@@ -1814,6 +1815,46 @@ class PeriodicModePropertiesArgs:
     @backup_retention_interval_in_hours.setter
     def backup_retention_interval_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_interval_in_hours", value)
+
+
+@pulumi.input_type
+class PermissionArgs:
+    def __init__(__self__, *,
+                 data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 not_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of data plane operations permitted through this Role Definition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_actions: An array of data actions that are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_data_actions: An array of data actions that are denied.
+        """
+        if data_actions is not None:
+            pulumi.set(__self__, "data_actions", data_actions)
+        if not_data_actions is not None:
+            pulumi.set(__self__, "not_data_actions", not_data_actions)
+
+    @property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of data actions that are allowed.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @data_actions.setter
+    def data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "data_actions", value)
+
+    @property
+    @pulumi.getter(name="notDataActions")
+    def not_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of data actions that are denied.
+        """
+        return pulumi.get(self, "not_data_actions")
+
+    @not_data_actions.setter
+    def not_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "not_data_actions", value)
 
 
 @pulumi.input_type

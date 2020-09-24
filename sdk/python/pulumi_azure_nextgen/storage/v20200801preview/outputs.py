@@ -22,6 +22,7 @@ __all__ = [
     'EncryptionServiceResponse',
     'EncryptionServicesResponse',
     'EndpointsResponse',
+    'ExtendedLocationResponse',
     'GeoReplicationStatsResponse',
     'IPRuleResponse',
     'IdentityResponse',
@@ -658,6 +659,44 @@ class EndpointsResponse(dict):
         Gets the microsoft routing storage endpoints.
         """
         return pulumi.get(self, "microsoft_endpoints")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    The complex type of the extended location.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The complex type of the extended location.
+        :param str name: The name of the extended location.
+        :param str type: The type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

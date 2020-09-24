@@ -63,6 +63,12 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         public Output<Outputs.EncryptionResponse> Encryption { get; private set; } = null!;
 
         /// <summary>
+        /// The extendedLocation of the resource.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// If the failover is in progress, the value will be true, otherwise, it will be null.
         /// </summary>
         [Output("failoverInProgress")]
@@ -303,6 +309,12 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// The identity of the resource.
