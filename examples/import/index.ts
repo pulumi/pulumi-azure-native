@@ -9,7 +9,7 @@ async function main() {
     const resourceGroupName = `${name}-rg`;
     const virtualNetworkName = `${name}-vnet`;
     const location = "westus2";
-    const virtualNetworkRange = "10.1.0.0";
+    const virtualNetworkRange = `10.${Math.floor(Math.random() * 250) + 4}.0.0`;
 
     // Create resources with Azure SDKs, so that we had something to import.
     const subscriptionID = await manual.createResources({ resourceGroupName, location, virtualNetworkName, virtualNetworkRange });
