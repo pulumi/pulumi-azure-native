@@ -29,7 +29,7 @@ func init() {
 	}
 }
 
-func shouldExclude(pulumiToken string) bool {
+func ShouldExclude(pulumiToken string) bool {
 	for _, re := range excludeRegexes {
 		if re.MatchString(pulumiToken) {
 			return true

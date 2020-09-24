@@ -15,16 +15,16 @@ var null = &model.Variable{
 	VariableType: model.NoneType,
 }
 
-// RenderValue renders an AST node that represents a YAML value as its equivalent PCL. Most nodes are rendered as one
-// would expect (e.g. sequences -> tuple construction, maps -> object construction, etc.). Function calls are the lone
-// exception; see renderFunction for more details.
+// RenderValue renders an object that represents a json value into PCL. Most nodes are rendered as one
+// would expect (e.g. sequences -> tuple construction, maps -> object construction, etc.).
 func RenderValue(node interface{}) (model.Expression, error) {
 	if node == nil {
 		return model.VariableReference(null), nil
 	}
 
+	typ := reflect.TypeOf(node)
 	val := reflect.ValueOf(node)
-	kind := reflect.TypeOf(node).Kind()
+	kind := typ.Kind()
 	switch kind {
 	case reflect.Slice:
 		var expressions []model.Expression
@@ -47,19 +47,10 @@ func RenderValue(node interface{}) (model.Expression, error) {
 		return &model.LiteralValueExpression{
 			Value: cty.NumberFloatVal(val.Float()),
 		}, nil
-	case reflect.Int, reflect.Int8, reflect.Int16,
-		reflect.Int32, reflect.Int64, reflect.Uint,
-		reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
-		var value cty.Value
-		switch v := node.(type) {
-		case int64:
-			value = cty.NumberIntVal(v)
-		case uint64:
-			value = cty.NumberUIntVal(v)
-		default:
-			contract.Failf("unexpected value of type %T in integer node", v)
-		}
-		return &model.LiteralValueExpression{Value: value}, nil
+	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
+		return &model.LiteralValueExpression{Value: cty.NumberIntVal(val.Int())}, nil
+	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+		return &model.LiteralValueExpression{Value: cty.NumberUIntVal(val.Uint())}, nil
 	case reflect.String:
 		return QuotedLit(val.String()), nil
 	case reflect.Map:
@@ -74,7 +65,6 @@ func RenderValue(node interface{}) (model.Expression, error) {
 			}
 			consItems[k.String()] = rendered
 		}
-
 		var items []model.ObjectConsItem
 		for _, k := range codegen.SortedKeys(consItems) {
 			items = append(items, ObjectConsItem(k, consItems[k]))
@@ -82,6 +72,13 @@ func RenderValue(node interface{}) (model.Expression, error) {
 		return &model.ObjectConsExpression{
 			Items: items,
 		}, nil
+	case reflect.Ptr:
+		nodeExpr, ok := node.(model.Expression)
+		if !ok {
+			// only expect model.Expression as the embedded interface
+			panic(val)
+		}
+		return nodeExpr, nil
 	default:
 		contract.Failf("unexpected type %T", node)
 		return nil, nil

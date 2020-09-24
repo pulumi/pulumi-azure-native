@@ -7,8 +7,8 @@ import (
 	"unicode"
 )
 
-// makeLegalIdentifier removes characters that are not allowed in identifiers.
-func makeLegalIdentifier(s string) string {
+// MakeLegalIdentifier removes characters that are not allowed in identifiers.
+func MakeLegalIdentifier(s string) string {
 	replacer := strings.NewReplacer("-", "", "[", "", "]", "")
 	return replacer.Replace(s)
 }
@@ -22,10 +22,10 @@ func firstToLower(s string) string {
 	return string(append([]rune{unicode.ToLower(runes[0])}, runes[1:]...))
 }
 
-// toLowerCamel converts a string to lowerCamelCase.
+// ToLowerCamel converts a string to lowerCamelCase.
 // The code is adopted from https://github.com/iancoleman/strcase but changed in several ways to handle
 // all the cases that are found in Azure in a most user-friendly way.
-func toLowerCamel(s string) string {
+func ToLowerCamel(s string) string {
 	if s == "" {
 		return s
 	}
