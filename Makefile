@@ -42,6 +42,9 @@ generate_schema::
 generate_docs::
 	$(WORKING_DIR)/bin/$(CODEGEN) docs ${VERSION}
 
+arm2pulumi::
+	(cd provider && go build -a -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi)
+
 codegen::
 	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN))
 

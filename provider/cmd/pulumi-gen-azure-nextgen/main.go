@@ -101,7 +101,7 @@ func main() {
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
-func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageName string, emitJson bool) error {
+func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageName string, emitJSON bool) error {
 	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 	if err != nil {
 		return errors.Wrap(err, "marshaling Pulumi schema")
@@ -127,7 +127,7 @@ var pulumiSchema = %#v
 		return errors.Wrap(err, "saving metadata")
 	}
 
-	if emitJson {
+	if emitJSON {
 		if err := emitFile(outDir, "schema-full.json", schemaJSON); err != nil {
 			return err
 		}
@@ -145,7 +145,7 @@ func emitDocsSchema(pkgSpec *schema.PackageSpec, outDir string) error {
 	return emitFile(outDir, "schema.json", schemaJSON)
 }
 
-func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string, goPackageName string, emitJson bool) error {
+func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string, goPackageName string, emitJSON bool) error {
 	compressedMeta := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedMeta)
 	err := json.NewEncoder(compressedWriter).Encode(metadata)
@@ -169,7 +169,7 @@ var azureApiResources = %#v
 		return err
 	}
 
-	if emitJson {
+	if emitJSON {
 		err := emitFile(outDir, "metadata.json", formatted)
 		if err != nil {
 			return err
