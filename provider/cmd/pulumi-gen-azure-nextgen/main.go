@@ -61,7 +61,9 @@ func main() {
 
 			// Now emit schema and metadata as byte encoded files for arm2pulumi
 			arm2pulumiDir := path.Join(".", "provider", "pkg", "arm2pulumi")
-			if err = emitSchema(*pkgSpec, version, arm2pulumiDir, "arm2pulumi", false); err != nil {
+			// avoid putting the version in the schema so we don't dirty the working directory in CI.
+			// arm2pulumi will inject its own version on its end.
+			if err = emitSchema(*pkgSpec, "", arm2pulumiDir, "arm2pulumi", false); err != nil {
 				break
 			}
 			// Also, emit the resource metadata for the provider.
