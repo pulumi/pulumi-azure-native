@@ -60,8 +60,7 @@ func ObjectConsItem(key string, value model.Expression) model.ObjectConsItem {
 	}
 }
 
-// Invoke returns a new call to `invoke` with the given token and inputs. The inputs are combined into an
-// ObjectConsExpression.
+// Invoke returns a new function call expression which invokes the specified function.
 func Invoke(token string, inputs ...model.ObjectConsItem) *model.FunctionCallExpression {
 	args := []model.Expression{QuotedLit(token)}
 	if len(inputs) != 0 {
