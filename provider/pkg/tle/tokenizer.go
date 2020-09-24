@@ -174,7 +174,7 @@ const (
 	RightParenthesis   TokenType = "RightParenthesis"
 	QuotedString       TokenType = "QuotedString"
 	Comma              TokenType = "Comma"
-	Whitespace         TokenType = "Whitespave"
+	Whitespace         TokenType = "Whitespace"
 	Literal            TokenType = "Literal"
 	Period             TokenType = "Period"
 	Number             TokenType = "Number"
