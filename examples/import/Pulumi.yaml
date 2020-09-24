@@ -1,0 +1,3 @@
+name: import
+runtime: nodejs
+description: Example of importing existing resources

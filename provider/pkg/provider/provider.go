@@ -463,6 +463,12 @@ func (k *azureNextGenProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (
 
 	// Extract old inputs from the `__inputs` field of the old state.
 	oldInputs := parseCheckpointObject(oldState)
+	if oldInputs == nil {
+		// Protect against a crash for the transition from pre-__inputs state files.
+		// This shouldn't happen in any real user's stack.
+		oldInputs = resource.PropertyMap{}
+		glog.V(9).Infof("no __inputs found for '%s'", urn)
+	}
 
 	// Get new resource inputs. The user is submitting these as an update.
 	newResInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
@@ -616,9 +622,6 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 		return nil, err
 	}
 
-	// Extract old inputs from the `__inputs` field of the old state.
-	inputs := parseCheckpointObject(oldState)
-
 	resourceKey := string(urn.Type())
 	res, ok := k.resourceMap.Resources[resourceKey]
 	if !ok {
@@ -633,6 +636,19 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 	// Map the raw response to the shape of outputs that the SDKs expect.
 	outputs := k.responseToSdkOutputs(res.Response, response)
 
+	// Extract old inputs from the `__inputs` field of the old state.
+	inputs := parseCheckpointObject(oldState)
+	if inputs == nil {
+		// There may be no old state (i.e., importing a new resource).
+		// Extract inputs from resource's ID and response body.
+		pathItems, err := k.parseResourceId(id, res.Path)
+		if err != nil {
+			return nil, err
+		}
+		inputMap := k.responseToSdkInputs(res.PutParameters, pathItems, response)
+		inputs = resource.NewPropertyMapFromMap(inputMap)
+	}
+
 	// Store both outputs and inputs into the state.
 	obj := checkpointObject(inputs, outputs)
 
@@ -644,7 +660,16 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 	if err != nil {
 		return nil, err
 	}
-	return &rpc.ReadResponse{Id: id, Properties: checkpoint}, nil
+
+	inputsRecord, err := plugin.MarshalProperties(
+		inputs,
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.inputs", label), KeepUnknowns: true, SkipNulls: true},
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	return &rpc.ReadResponse{Id: id, Properties: checkpoint, Inputs: inputsRecord}, nil
 }
 
 // Update updates an existing resource with new values.
@@ -1077,6 +1102,5 @@ func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
 		return inputs.ObjectValue()
 	}
 
-	// This handles the transition from pre-__inputs state files.
-	return obj
+	return nil
 }
