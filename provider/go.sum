@@ -429,6 +429,8 @@ github.com/prometheus/procfs v0.0.0-20190507164030-5867b95ac084/go.mod h1:TjEm7z
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
 github.com/pulumi/pulumi/pkg/v2 v2.10.2-0.20200920185652-988ebd8b8e6f h1:dTcJ/LajqqA9FzSRyBrrQohQjgVd2e50Cd7Q9cRhyIE=
 github.com/pulumi/pulumi/pkg/v2 v2.10.2-0.20200920185652-988ebd8b8e6f/go.mod h1:zQWe2D4tYJDeXNzSclqNmP8/SMSKOh8k22AbWg3+mVc=
+github.com/pulumi/pulumi/sdk v1.14.1 h1:FnUPMgO2AgqvKzSBOy3F2X4nJ8n/SaXCOP2eYSNkAxk=
+github.com/pulumi/pulumi/sdk v1.14.1/go.mod h1:7HttsBa/x9udp5/sO8r/ibSpoQ7/zFo7a16zHWHktZ4=
 github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.10.2-0.20200920185652-988ebd8b8e6f h1:q7JETUzYUbuEilOHI7gUWYxIIFKB8bermiwoeyWOy24=
 github.com/pulumi/pulumi/sdk/v2 v2.10.2-0.20200920185652-988ebd8b8e6f/go.mod h1:EED7KCDOohYIewUppsav5KHTFTmfYGqUFib1uRvYdWQ=
@@ -458,6 +460,7 @@ github.com/spaolacci/murmur3 v0.0.0-20180118202830-f09979ecbc72/go.mod h1:JwIasO
 github.com/spf13/afero v1.1.2/go.mod h1:j4pytiNVoe2o6bmDsKpLACNPDBIoEAkihy7loJ1B0CQ=
 github.com/spf13/cast v1.3.0/go.mod h1:Qx5cxh0v+4UWYiBimWS+eyWzqEqokIECu5etghLkUJE=
 github.com/spf13/cast v1.3.1/go.mod h1:Qx5cxh0v+4UWYiBimWS+eyWzqEqokIECu5etghLkUJE=
+github.com/spf13/cobra v0.0.6/go.mod h1:/6GTrnGXV9HjY+aR4k0oJ5tcvakLuG6EuKReYlHNrgE=
 github.com/spf13/cobra v1.0.0 h1:6m/oheQuQ13N9ks4hubMG6BnvwOeaJrqSPLahSnczz8=
 github.com/spf13/cobra v1.0.0/go.mod h1:/6GTrnGXV9HjY+aR4k0oJ5tcvakLuG6EuKReYlHNrgE=
 github.com/spf13/jwalterweatherman v1.0.0/go.mod h1:cQK4TGJAtQXfYWX+Ddv3mKDzgVb68N+wFjFa4jdeBTo=
