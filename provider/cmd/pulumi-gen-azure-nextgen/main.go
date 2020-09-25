@@ -7,16 +7,16 @@ import (
 	"compress/gzip"
 	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
 	"os"
 	"path"
 	"strings"
 
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v2/codegen/nodejs"
@@ -61,7 +61,9 @@ func main() {
 
 			// Now emit schema and metadata as byte encoded files for arm2pulumi
 			arm2pulumiDir := path.Join(".", "provider", "pkg", "arm2pulumi")
-			if err = emitSchema(*pkgSpec, version, arm2pulumiDir, "arm2pulumi", false); err != nil {
+			// avoid putting the version in the schema so we don't dirty the working directory in CI.
+			// arm2pulumi will inject its own version on its end.
+			if err = emitSchema(*pkgSpec, "", arm2pulumiDir, "arm2pulumi", false); err != nil {
 				break
 			}
 			// Also, emit the resource metadata for the provider.

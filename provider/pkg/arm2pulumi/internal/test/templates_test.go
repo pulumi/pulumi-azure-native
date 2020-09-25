@@ -3,7 +3,7 @@ package test
 import (
 	"fmt"
 	"github.com/magiconair/properties/assert"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/arm2pulumi"
 	"github.com/stretchr/testify/require"
 	"io/ioutil"
 	"os"

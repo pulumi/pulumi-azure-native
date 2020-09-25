@@ -3431,6 +3431,312 @@ func (o EndpointsResponsePtrOutput) Web() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The complex type of the extended location.
+type ExtendedLocation struct {
+	// The name of the extended location.
+	Name *string `pulumi:"name"`
+	// The type of the extended location.
+	Type *string `pulumi:"type"`
+}
+
+// ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
+// You can construct a concrete instance of `ExtendedLocationInput` via:
+//
+//          ExtendedLocationArgs{...}
+type ExtendedLocationInput interface {
+	pulumi.Input
+
+	ToExtendedLocationOutput() ExtendedLocationOutput
+	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
+}
+
+// The complex type of the extended location.
+type ExtendedLocationArgs struct {
+	// The name of the extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the extended location.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExtendedLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return i.ToExtendedLocationOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput)
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput).ToExtendedLocationPtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationPtrInput` via:
+//
+//          ExtendedLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationPtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput
+	ToExtendedLocationPtrOutputWithContext(context.Context) ExtendedLocationPtrOutput
+}
+
+type extendedLocationPtrType ExtendedLocationArgs
+
+func ExtendedLocationPtr(v *ExtendedLocationArgs) ExtendedLocationPtrInput {
+	return (*extendedLocationPtrType)(v)
+}
+
+func (*extendedLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *ExtendedLocation {
+		return &v
+	}).(ExtendedLocationPtrOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation { return *v }).(ExtendedLocationOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponse struct {
+	// The name of the extended location.
+	Name *string `pulumi:"name"`
+	// The type of the extended location.
+	Type *string `pulumi:"type"`
+}
+
+// ExtendedLocationResponseInput is an input type that accepts ExtendedLocationResponseArgs and ExtendedLocationResponseOutput values.
+// You can construct a concrete instance of `ExtendedLocationResponseInput` via:
+//
+//          ExtendedLocationResponseArgs{...}
+type ExtendedLocationResponseInput interface {
+	pulumi.Input
+
+	ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput
+	ToExtendedLocationResponseOutputWithContext(context.Context) ExtendedLocationResponseOutput
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponseArgs struct {
+	// The name of the extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the extended location.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExtendedLocationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return i.ToExtendedLocationResponseOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput)
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput).ToExtendedLocationResponsePtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationResponsePtrInput is an input type that accepts ExtendedLocationResponseArgs, ExtendedLocationResponsePtr and ExtendedLocationResponsePtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationResponsePtrInput` via:
+//
+//          ExtendedLocationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationResponsePtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput
+	ToExtendedLocationResponsePtrOutputWithContext(context.Context) ExtendedLocationResponsePtrOutput
+}
+
+type extendedLocationResponsePtrType ExtendedLocationResponseArgs
+
+func ExtendedLocationResponsePtr(v *ExtendedLocationResponseArgs) ExtendedLocationResponsePtrInput {
+	return (*extendedLocationResponsePtrType)(v)
+}
+
+func (*extendedLocationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponsePtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *ExtendedLocationResponse {
+		return &v
+	}).(ExtendedLocationResponsePtrOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse { return *v }).(ExtendedLocationResponseOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Statistics related to replication for storage account's Blob, Table, Queue and File services. It is only available when geo-redundant replication is enabled for the storage account.
 type GeoReplicationStatsResponse struct {
 	// A boolean flag which indicates whether or not account failover is supported for the account.
@@ -10386,6 +10692,10 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionServicesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponsePtrOutput{})
 	pulumi.RegisterOutputType(GeoReplicationStatsResponseOutput{})
 	pulumi.RegisterOutputType(GeoReplicationStatsResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPRuleOutput{})

@@ -24,6 +24,7 @@ class StorageAccount(pulumi.CustomResource):
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -50,6 +51,7 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CustomDomainArgs']] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
         :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[bool] is_hns_enabled: Account HierarchicalNamespace enabled if sets to true.
         :param pulumi.Input[str] kind: Required. Indicates the type of storage account.
@@ -88,6 +90,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__['custom_domain'] = custom_domain
             __props__['enable_https_traffic_only'] = enable_https_traffic_only
             __props__['encryption'] = encryption
+            __props__['extended_location'] = extended_location
             __props__['identity'] = identity
             __props__['is_hns_enabled'] = is_hns_enabled
             if kind is None:
@@ -211,6 +214,14 @@ class StorageAccount(pulumi.CustomResource):
         Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extendedLocation of the resource.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="failoverInProgress")

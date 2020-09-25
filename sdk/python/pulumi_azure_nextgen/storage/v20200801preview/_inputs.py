@@ -17,6 +17,7 @@ __all__ = [
     'EncryptionArgs',
     'EncryptionServiceArgs',
     'EncryptionServicesArgs',
+    'ExtendedLocationArgs',
     'IPRuleArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
@@ -441,6 +442,46 @@ class EncryptionServicesArgs:
     @table.setter
     def table(self, value: Optional[pulumi.Input['EncryptionServiceArgs']]):
         pulumi.set(self, "table", value)
+
+
+@pulumi.input_type
+class ExtendedLocationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The complex type of the extended location.
+        :param pulumi.Input[str] name: The name of the extended location.
+        :param pulumi.Input[str] type: The type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

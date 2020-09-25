@@ -3,9 +3,9 @@ package arm2pulumi
 import (
 	"fmt"
 	"github.com/gedex/inflector"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/pcl"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/pcl"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/model"
 	"strings"

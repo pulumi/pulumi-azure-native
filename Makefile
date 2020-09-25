@@ -2,7 +2,7 @@ PROJECT_NAME := Pulumi Azure NextGen Resource Provider
 
 PACK            := azure-nextgen
 PACKDIR         := sdk
-PROJECT         := github.com/pulumi/pulumi-azure-nextgen
+PROJECT         := github.com/pulumi/pulumi-azure-nextgen-provider
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
 VERSION         := $(shell pulumictl get version)
@@ -10,7 +10,7 @@ VERSION         := $(shell pulumictl get version)
 PROVIDER_PKGS    := $(shell cd ./provider && go list ./...)
 WORKING_DIR     := $(shell pwd)
 
-VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azure-nextgen/provider/pkg/version.Version=${VERSION}"
+VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version.Version=${VERSION}"
 
 init_submodules::
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \

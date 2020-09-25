@@ -51,6 +51,7 @@ __all__ = [
     'MongoIndexResponse',
     'PeriodicModeBackupPolicyResponse',
     'PeriodicModePropertiesResponse',
+    'PermissionResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
@@ -1923,6 +1924,44 @@ class PeriodicModePropertiesResponse(dict):
         An integer representing the time (in hours) that each backup is retained
         """
         return pulumi.get(self, "backup_retention_interval_in_hours")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PermissionResponse(dict):
+    """
+    The set of data plane operations permitted through this Role Definition.
+    """
+    def __init__(__self__, *,
+                 data_actions: Optional[Sequence[str]] = None,
+                 not_data_actions: Optional[Sequence[str]] = None):
+        """
+        The set of data plane operations permitted through this Role Definition.
+        :param Sequence[str] data_actions: An array of data actions that are allowed.
+        :param Sequence[str] not_data_actions: An array of data actions that are denied.
+        """
+        if data_actions is not None:
+            pulumi.set(__self__, "data_actions", data_actions)
+        if not_data_actions is not None:
+            pulumi.set(__self__, "not_data_actions", not_data_actions)
+
+    @property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Optional[Sequence[str]]:
+        """
+        An array of data actions that are allowed.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @property
+    @pulumi.getter(name="notDataActions")
+    def not_data_actions(self) -> Optional[Sequence[str]]:
+        """
+        An array of data actions that are denied.
+        """
+        return pulumi.get(self, "not_data_actions")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

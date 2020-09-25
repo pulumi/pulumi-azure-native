@@ -10,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/hashicorp/hcl/v2"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/pcl"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/tle"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/pcl"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/tle"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/model"
 )

@@ -9,9 +9,9 @@ import (
 	"text/template"
 
 	"github.com/hashicorp/hcl/v2"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/pcl"
-	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/pcl"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
