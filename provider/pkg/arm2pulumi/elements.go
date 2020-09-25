@@ -566,7 +566,7 @@ func (t *TemplateElements) GetDiagnostics() map[string][]Diagnostic {
 	return t.diagnostics
 }
 
-func (t *TemplateElements) Validate() error {
+func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata) error {
 	for _, el := range t.elements {
 		ctx := pclRenderContext{
 			metadata: metadata,

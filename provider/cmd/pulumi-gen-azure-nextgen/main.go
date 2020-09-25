@@ -60,14 +60,12 @@ func main() {
 			}
 
 			// Now emit schema and metadata as byte encoded files for arm2pulumi
-			arm2pulumiDir := path.Join(".", "provider", "pkg", "arm2pulumi")
-			// avoid putting the version in the schema so we don't dirty the working directory in CI.
-			// arm2pulumi will inject its own version on its end.
-			if err = emitSchema(*pkgSpec, "", arm2pulumiDir, "arm2pulumi", false); err != nil {
+			arm2pulumiDir := path.Join(".", "provider", "cmd", "arm2pulumi")
+			if err = emitSchema(*pkgSpec, version, arm2pulumiDir, "main", false); err != nil {
 				break
 			}
 			// Also, emit the resource metadata for the provider.
-			err = emitMetadata(meta, arm2pulumiDir, "arm2pulumi", false)
+			err = emitMetadata(meta, arm2pulumiDir, "main", false)
 		case "docs":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-nextgen")
 			docsProviders := openapi.SingleVersion(azureProviders)

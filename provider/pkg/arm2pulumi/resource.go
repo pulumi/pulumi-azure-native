@@ -91,7 +91,7 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 
 	// Can't trust the casing in the template.
 	// Need to do a soft-match against resources supported
-	token, ok := toResourceToken(typ, apiVersion)
+	token, ok := toResourceToken(ctx, typ, apiVersion)
 	if !ok {
 		r.exclude = true
 		diag.Description = "no metadata found for resource"
@@ -109,7 +109,7 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 
 	var err error
 
-	_, res, _ := lookupResource(token)
+	_, res, _ := lookupResource(ctx, token)
 	r.resourceParams, err = r.transformRequestBody(ctx, res, r.resourceParams, templateName)
 	if err != nil {
 		return err
@@ -266,7 +266,7 @@ func (r *resource) transformRequestBody(ctx *pclRenderContext,
 // direct mapping to pulumi providers since we don't have access to the intended
 // operation id. This tries to different heuristics and returns the token
 // for the first that matches.
-func toResourceToken(resourceType, apiVersion string) (string, bool) {
+func toResourceToken(ctx *pclRenderContext, resourceType, apiVersion string) (string, bool) {
 	apiVersion = "v" + strings.ReplaceAll(apiVersion, "-", "")
 	provAndResource := strings.Split(resourceType, "/")
 	prov, resourceParts := provAndResource[0], provAndResource[1:]
@@ -283,7 +283,7 @@ func toResourceToken(resourceType, apiVersion string) (string, bool) {
 		res := inflector.Singularize(strings.Title(gen.ToLowerCamel(resource)))
 		resourceToken := fmt.Sprintf("azure-nextgen:%s/%s:%s", prov, apiVersion, res)
 
-		if actual, _, ok := lookupResource(resourceToken); ok {
+		if actual, _, ok := lookupResource(ctx, resourceToken); ok {
 			return actual, true
 		}
 		return "", false
@@ -306,31 +306,21 @@ func toResourceToken(resourceType, apiVersion string) (string, bool) {
 // lookup for aliases in the package spec if the metadata misses.
 // Also, since the templates seem to be case insensitive, we allow
 // a slow case insensitive lookup.
-func lookupResource(resourceToken string) (string, *provider.AzureAPIResource, bool) {
+func lookupResource(ctx *pclRenderContext, resourceToken string) (string, *provider.AzureAPIResource, bool) {
 	var actualResourceToken string
 
-	metadata, err := loadMetadata()
-	if err != nil {
-		panic(err)
-	}
-
-	pkgSpec, err := loadSchema()
-	if err != nil {
-		panic(err)
-	}
-
-	res, ok := metadata.Resources[resourceToken]
+	res, ok := ctx.metadata.Resources[resourceToken]
 	if !ok {
 		resourceToken = strings.ToLower(resourceToken)
 		// first search for case insensitive hit on metadata
-		for k := range metadata.Resources {
+		for k := range ctx.metadata.Resources {
 			if strings.ToLower(k) == resourceToken {
 				actualResourceToken = k
 				break
 			}
 		}
 		// next search for aliases in pkgSpec
-		for name, r := range pkgSpec.Resources {
+		for name, r := range ctx.pkgSpec.Resources {
 			if actualResourceToken != "" {
 				break // detect inner loop break
 			}
@@ -346,7 +336,7 @@ func lookupResource(resourceToken string) (string, *provider.AzureAPIResource, b
 			}
 		}
 		if actualResourceToken != "" {
-			res, ok = metadata.Resources[actualResourceToken]
+			res, ok = ctx.metadata.Resources[actualResourceToken]
 		}
 	} else {
 		actualResourceToken = resourceToken
