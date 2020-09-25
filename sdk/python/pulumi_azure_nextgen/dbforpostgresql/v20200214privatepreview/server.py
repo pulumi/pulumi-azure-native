@@ -110,6 +110,8 @@ class Server(pulumi.CustomResource):
             __props__['standby_availability_zone'] = None
             __props__['state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200214preview:Server")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azure-nextgen:dbforpostgresql/v20200214privatepreview:Server',
             resource_name,

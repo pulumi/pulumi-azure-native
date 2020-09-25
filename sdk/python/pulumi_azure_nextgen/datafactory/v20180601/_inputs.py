@@ -169,6 +169,8 @@ __all__ = [
     'MarketoObjectDatasetArgs',
     'MicrosoftAccessLinkedServiceArgs',
     'MicrosoftAccessTableDatasetArgs',
+    'MongoDbAtlasCollectionDatasetArgs',
+    'MongoDbAtlasLinkedServiceArgs',
     'MongoDbCollectionDatasetArgs',
     'MongoDbLinkedServiceArgs',
     'MongoDbV2CollectionDatasetArgs',
@@ -23752,6 +23754,272 @@ class MicrosoftAccessTableDatasetArgs:
     @table_name.setter
     def table_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "table_name", value)
+
+
+@pulumi.input_type
+class MongoDbAtlasCollectionDatasetArgs:
+    def __init__(__self__, *,
+                 collection: pulumi.Input[Mapping[str, Any]],
+                 linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 schema: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        The MongoDB Atlas database dataset.
+        :param pulumi.Input[Mapping[str, Any]] collection: The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input[str] type: Type of dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[str] description: Dataset description.
+        :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
+        :param pulumi.Input[Mapping[str, Any]] schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        pulumi.set(__self__, "collection", collection)
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "type", 'MongoDbAtlasCollection')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+
+    @property
+    @pulumi.getter
+    def collection(self) -> pulumi.Input[Mapping[str, Any]]:
+        """
+        The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "collection")
+
+    @collection.setter
+    def collection(self, value: pulumi.Input[Mapping[str, Any]]):
+        pulumi.set(self, "collection", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of dataset.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional[pulumi.Input['DatasetFolderArgs']]:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @folder.setter
+    def folder(self, value: Optional[pulumi.Input['DatasetFolderArgs']]):
+        pulumi.set(self, "folder", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+    @structure.setter
+    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class MongoDbAtlasLinkedServiceArgs:
+    def __init__(__self__, *,
+                 connection_string: pulumi.Input[Mapping[str, Any]],
+                 database: pulumi.Input[Mapping[str, Any]],
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
+        """
+        Linked service for MongoDB Atlas data source.
+        :param pulumi.Input[Mapping[str, Any]] connection_string: The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param pulumi.Input[Mapping[str, Any]] database: The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] type: Type of linked service.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input[str] description: Linked service description.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "connection_string", connection_string)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "type", 'MongoDbAtlas')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> pulumi.Input[Mapping[str, Any]]:
+        """
+        The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: pulumi.Input[Mapping[str, Any]]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> pulumi.Input[Mapping[str, Any]]:
+        """
+        The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: pulumi.Input[Mapping[str, Any]]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of linked service.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @connect_via.setter
+    def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
+        pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
