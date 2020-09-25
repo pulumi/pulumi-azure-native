@@ -20,6 +20,7 @@ from . import (
     authorization,
     automanage,
     automation,
+    autonomousdevelopmentplatform,
     avs,
     azureactivedirectory,
     azuredata,

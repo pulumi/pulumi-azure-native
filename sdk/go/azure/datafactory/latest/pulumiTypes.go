@@ -45327,6 +45327,484 @@ func (o MicrosoftAccessTableDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MicrosoftAccessTableDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The MongoDB Atlas database dataset.
+type MongoDbAtlasCollectionDataset struct {
+	// List of tags that can be used for describing the Dataset.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
+	Collection map[string]interface{} `pulumi:"collection"`
+	// Dataset description.
+	Description *string `pulumi:"description"`
+	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+	Folder *DatasetFolder `pulumi:"folder"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReference `pulumi:"linkedServiceName"`
+	// Parameters for dataset.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+	Schema map[string]interface{} `pulumi:"schema"`
+	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+	Structure map[string]interface{} `pulumi:"structure"`
+	// Type of dataset.
+	Type string `pulumi:"type"`
+}
+
+// MongoDbAtlasCollectionDatasetInput is an input type that accepts MongoDbAtlasCollectionDatasetArgs and MongoDbAtlasCollectionDatasetOutput values.
+// You can construct a concrete instance of `MongoDbAtlasCollectionDatasetInput` via:
+//
+//          MongoDbAtlasCollectionDatasetArgs{...}
+type MongoDbAtlasCollectionDatasetInput interface {
+	pulumi.Input
+
+	ToMongoDbAtlasCollectionDatasetOutput() MongoDbAtlasCollectionDatasetOutput
+	ToMongoDbAtlasCollectionDatasetOutputWithContext(context.Context) MongoDbAtlasCollectionDatasetOutput
+}
+
+// The MongoDB Atlas database dataset.
+type MongoDbAtlasCollectionDatasetArgs struct {
+	// List of tags that can be used for describing the Dataset.
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
+	// The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
+	Collection pulumi.MapInput `pulumi:"collection"`
+	// Dataset description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+	Folder DatasetFolderPtrInput `pulumi:"folder"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReferenceInput `pulumi:"linkedServiceName"`
+	// Parameters for dataset.
+	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
+	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+	Schema pulumi.MapInput `pulumi:"schema"`
+	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+	Structure pulumi.MapInput `pulumi:"structure"`
+	// Type of dataset.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MongoDbAtlasCollectionDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDbAtlasCollectionDataset)(nil)).Elem()
+}
+
+func (i MongoDbAtlasCollectionDatasetArgs) ToMongoDbAtlasCollectionDatasetOutput() MongoDbAtlasCollectionDatasetOutput {
+	return i.ToMongoDbAtlasCollectionDatasetOutputWithContext(context.Background())
+}
+
+func (i MongoDbAtlasCollectionDatasetArgs) ToMongoDbAtlasCollectionDatasetOutputWithContext(ctx context.Context) MongoDbAtlasCollectionDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDbAtlasCollectionDatasetOutput)
+}
+
+// The MongoDB Atlas database dataset.
+type MongoDbAtlasCollectionDatasetOutput struct{ *pulumi.OutputState }
+
+func (MongoDbAtlasCollectionDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDbAtlasCollectionDataset)(nil)).Elem()
+}
+
+func (o MongoDbAtlasCollectionDatasetOutput) ToMongoDbAtlasCollectionDatasetOutput() MongoDbAtlasCollectionDatasetOutput {
+	return o
+}
+
+func (o MongoDbAtlasCollectionDatasetOutput) ToMongoDbAtlasCollectionDatasetOutputWithContext(ctx context.Context) MongoDbAtlasCollectionDatasetOutput {
+	return o
+}
+
+// List of tags that can be used for describing the Dataset.
+func (o MongoDbAtlasCollectionDatasetOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
+}
+
+// The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
+func (o MongoDbAtlasCollectionDatasetOutput) Collection() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDataset) map[string]interface{} { return v.Collection }).(pulumi.MapOutput)
+}
+
+// Dataset description.
+func (o MongoDbAtlasCollectionDatasetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+func (o MongoDbAtlasCollectionDatasetOutput) Folder() DatasetFolderPtrOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDataset) *DatasetFolder { return v.Folder }).(DatasetFolderPtrOutput)
+}
+
+// Linked service reference.
+func (o MongoDbAtlasCollectionDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
+}
+
+// Parameters for dataset.
+func (o MongoDbAtlasCollectionDatasetOutput) Parameters() ParameterSpecificationMapOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
+}
+
+// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+func (o MongoDbAtlasCollectionDatasetOutput) Schema() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDataset) map[string]interface{} { return v.Schema }).(pulumi.MapOutput)
+}
+
+// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+func (o MongoDbAtlasCollectionDatasetOutput) Structure() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
+}
+
+// Type of dataset.
+func (o MongoDbAtlasCollectionDatasetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDataset) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The MongoDB Atlas database dataset.
+type MongoDbAtlasCollectionDatasetResponse struct {
+	// List of tags that can be used for describing the Dataset.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
+	Collection map[string]interface{} `pulumi:"collection"`
+	// Dataset description.
+	Description *string `pulumi:"description"`
+	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+	Folder *DatasetResponseFolder `pulumi:"folder"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReferenceResponse `pulumi:"linkedServiceName"`
+	// Parameters for dataset.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+	Schema map[string]interface{} `pulumi:"schema"`
+	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+	Structure map[string]interface{} `pulumi:"structure"`
+	// Type of dataset.
+	Type string `pulumi:"type"`
+}
+
+// MongoDbAtlasCollectionDatasetResponseInput is an input type that accepts MongoDbAtlasCollectionDatasetResponseArgs and MongoDbAtlasCollectionDatasetResponseOutput values.
+// You can construct a concrete instance of `MongoDbAtlasCollectionDatasetResponseInput` via:
+//
+//          MongoDbAtlasCollectionDatasetResponseArgs{...}
+type MongoDbAtlasCollectionDatasetResponseInput interface {
+	pulumi.Input
+
+	ToMongoDbAtlasCollectionDatasetResponseOutput() MongoDbAtlasCollectionDatasetResponseOutput
+	ToMongoDbAtlasCollectionDatasetResponseOutputWithContext(context.Context) MongoDbAtlasCollectionDatasetResponseOutput
+}
+
+// The MongoDB Atlas database dataset.
+type MongoDbAtlasCollectionDatasetResponseArgs struct {
+	// List of tags that can be used for describing the Dataset.
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
+	// The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
+	Collection pulumi.MapInput `pulumi:"collection"`
+	// Dataset description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+	Folder DatasetResponseFolderPtrInput `pulumi:"folder"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
+	// Parameters for dataset.
+	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
+	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+	Schema pulumi.MapInput `pulumi:"schema"`
+	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+	Structure pulumi.MapInput `pulumi:"structure"`
+	// Type of dataset.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MongoDbAtlasCollectionDatasetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDbAtlasCollectionDatasetResponse)(nil)).Elem()
+}
+
+func (i MongoDbAtlasCollectionDatasetResponseArgs) ToMongoDbAtlasCollectionDatasetResponseOutput() MongoDbAtlasCollectionDatasetResponseOutput {
+	return i.ToMongoDbAtlasCollectionDatasetResponseOutputWithContext(context.Background())
+}
+
+func (i MongoDbAtlasCollectionDatasetResponseArgs) ToMongoDbAtlasCollectionDatasetResponseOutputWithContext(ctx context.Context) MongoDbAtlasCollectionDatasetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDbAtlasCollectionDatasetResponseOutput)
+}
+
+// The MongoDB Atlas database dataset.
+type MongoDbAtlasCollectionDatasetResponseOutput struct{ *pulumi.OutputState }
+
+func (MongoDbAtlasCollectionDatasetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDbAtlasCollectionDatasetResponse)(nil)).Elem()
+}
+
+func (o MongoDbAtlasCollectionDatasetResponseOutput) ToMongoDbAtlasCollectionDatasetResponseOutput() MongoDbAtlasCollectionDatasetResponseOutput {
+	return o
+}
+
+func (o MongoDbAtlasCollectionDatasetResponseOutput) ToMongoDbAtlasCollectionDatasetResponseOutputWithContext(ctx context.Context) MongoDbAtlasCollectionDatasetResponseOutput {
+	return o
+}
+
+// List of tags that can be used for describing the Dataset.
+func (o MongoDbAtlasCollectionDatasetResponseOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDatasetResponse) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
+}
+
+// The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
+func (o MongoDbAtlasCollectionDatasetResponseOutput) Collection() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDatasetResponse) map[string]interface{} { return v.Collection }).(pulumi.MapOutput)
+}
+
+// Dataset description.
+func (o MongoDbAtlasCollectionDatasetResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDatasetResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+func (o MongoDbAtlasCollectionDatasetResponseOutput) Folder() DatasetResponseFolderPtrOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDatasetResponse) *DatasetResponseFolder { return v.Folder }).(DatasetResponseFolderPtrOutput)
+}
+
+// Linked service reference.
+func (o MongoDbAtlasCollectionDatasetResponseOutput) LinkedServiceName() LinkedServiceReferenceResponseOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDatasetResponse) LinkedServiceReferenceResponse {
+		return v.LinkedServiceName
+	}).(LinkedServiceReferenceResponseOutput)
+}
+
+// Parameters for dataset.
+func (o MongoDbAtlasCollectionDatasetResponseOutput) Parameters() ParameterSpecificationResponseMapOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDatasetResponse) map[string]ParameterSpecificationResponse {
+		return v.Parameters
+	}).(ParameterSpecificationResponseMapOutput)
+}
+
+// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+func (o MongoDbAtlasCollectionDatasetResponseOutput) Schema() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDatasetResponse) map[string]interface{} { return v.Schema }).(pulumi.MapOutput)
+}
+
+// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+func (o MongoDbAtlasCollectionDatasetResponseOutput) Structure() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDatasetResponse) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
+}
+
+// Type of dataset.
+func (o MongoDbAtlasCollectionDatasetResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDbAtlasCollectionDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Linked service for MongoDB Atlas data source.
+type MongoDbAtlasLinkedService struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+	ConnectionString map[string]interface{} `pulumi:"connectionString"`
+	// The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
+	Database map[string]interface{} `pulumi:"database"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// Type of linked service.
+	Type string `pulumi:"type"`
+}
+
+// MongoDbAtlasLinkedServiceInput is an input type that accepts MongoDbAtlasLinkedServiceArgs and MongoDbAtlasLinkedServiceOutput values.
+// You can construct a concrete instance of `MongoDbAtlasLinkedServiceInput` via:
+//
+//          MongoDbAtlasLinkedServiceArgs{...}
+type MongoDbAtlasLinkedServiceInput interface {
+	pulumi.Input
+
+	ToMongoDbAtlasLinkedServiceOutput() MongoDbAtlasLinkedServiceOutput
+	ToMongoDbAtlasLinkedServiceOutputWithContext(context.Context) MongoDbAtlasLinkedServiceOutput
+}
+
+// Linked service for MongoDB Atlas data source.
+type MongoDbAtlasLinkedServiceArgs struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
+	// The integration runtime reference.
+	ConnectVia IntegrationRuntimeReferencePtrInput `pulumi:"connectVia"`
+	// The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
+	// The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
+	Database pulumi.MapInput `pulumi:"database"`
+	// Linked service description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Parameters for linked service.
+	Parameters ParameterSpecificationMapInput `pulumi:"parameters"`
+	// Type of linked service.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MongoDbAtlasLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDbAtlasLinkedService)(nil)).Elem()
+}
+
+func (i MongoDbAtlasLinkedServiceArgs) ToMongoDbAtlasLinkedServiceOutput() MongoDbAtlasLinkedServiceOutput {
+	return i.ToMongoDbAtlasLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i MongoDbAtlasLinkedServiceArgs) ToMongoDbAtlasLinkedServiceOutputWithContext(ctx context.Context) MongoDbAtlasLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDbAtlasLinkedServiceOutput)
+}
+
+// Linked service for MongoDB Atlas data source.
+type MongoDbAtlasLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (MongoDbAtlasLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDbAtlasLinkedService)(nil)).Elem()
+}
+
+func (o MongoDbAtlasLinkedServiceOutput) ToMongoDbAtlasLinkedServiceOutput() MongoDbAtlasLinkedServiceOutput {
+	return o
+}
+
+func (o MongoDbAtlasLinkedServiceOutput) ToMongoDbAtlasLinkedServiceOutputWithContext(ctx context.Context) MongoDbAtlasLinkedServiceOutput {
+	return o
+}
+
+// List of tags that can be used for describing the linked service.
+func (o MongoDbAtlasLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
+}
+
+// The integration runtime reference.
+func (o MongoDbAtlasLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
+}
+
+// The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+func (o MongoDbAtlasLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
+}
+
+// The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
+func (o MongoDbAtlasLinkedServiceOutput) Database() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedService) map[string]interface{} { return v.Database }).(pulumi.MapOutput)
+}
+
+// Linked service description.
+func (o MongoDbAtlasLinkedServiceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Parameters for linked service.
+func (o MongoDbAtlasLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
+}
+
+// Type of linked service.
+func (o MongoDbAtlasLinkedServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedService) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Linked service for MongoDB Atlas data source.
+type MongoDbAtlasLinkedServiceResponse struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+	ConnectionString map[string]interface{} `pulumi:"connectionString"`
+	// The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
+	Database map[string]interface{} `pulumi:"database"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Type of linked service.
+	Type string `pulumi:"type"`
+}
+
+// MongoDbAtlasLinkedServiceResponseInput is an input type that accepts MongoDbAtlasLinkedServiceResponseArgs and MongoDbAtlasLinkedServiceResponseOutput values.
+// You can construct a concrete instance of `MongoDbAtlasLinkedServiceResponseInput` via:
+//
+//          MongoDbAtlasLinkedServiceResponseArgs{...}
+type MongoDbAtlasLinkedServiceResponseInput interface {
+	pulumi.Input
+
+	ToMongoDbAtlasLinkedServiceResponseOutput() MongoDbAtlasLinkedServiceResponseOutput
+	ToMongoDbAtlasLinkedServiceResponseOutputWithContext(context.Context) MongoDbAtlasLinkedServiceResponseOutput
+}
+
+// Linked service for MongoDB Atlas data source.
+type MongoDbAtlasLinkedServiceResponseArgs struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
+	// The integration runtime reference.
+	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
+	// The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
+	// The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
+	Database pulumi.MapInput `pulumi:"database"`
+	// Linked service description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Parameters for linked service.
+	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
+	// Type of linked service.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MongoDbAtlasLinkedServiceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDbAtlasLinkedServiceResponse)(nil)).Elem()
+}
+
+func (i MongoDbAtlasLinkedServiceResponseArgs) ToMongoDbAtlasLinkedServiceResponseOutput() MongoDbAtlasLinkedServiceResponseOutput {
+	return i.ToMongoDbAtlasLinkedServiceResponseOutputWithContext(context.Background())
+}
+
+func (i MongoDbAtlasLinkedServiceResponseArgs) ToMongoDbAtlasLinkedServiceResponseOutputWithContext(ctx context.Context) MongoDbAtlasLinkedServiceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDbAtlasLinkedServiceResponseOutput)
+}
+
+// Linked service for MongoDB Atlas data source.
+type MongoDbAtlasLinkedServiceResponseOutput struct{ *pulumi.OutputState }
+
+func (MongoDbAtlasLinkedServiceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDbAtlasLinkedServiceResponse)(nil)).Elem()
+}
+
+func (o MongoDbAtlasLinkedServiceResponseOutput) ToMongoDbAtlasLinkedServiceResponseOutput() MongoDbAtlasLinkedServiceResponseOutput {
+	return o
+}
+
+func (o MongoDbAtlasLinkedServiceResponseOutput) ToMongoDbAtlasLinkedServiceResponseOutputWithContext(ctx context.Context) MongoDbAtlasLinkedServiceResponseOutput {
+	return o
+}
+
+// List of tags that can be used for describing the linked service.
+func (o MongoDbAtlasLinkedServiceResponseOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedServiceResponse) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
+}
+
+// The integration runtime reference.
+func (o MongoDbAtlasLinkedServiceResponseOutput) ConnectVia() IntegrationRuntimeReferenceResponsePtrOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedServiceResponse) *IntegrationRuntimeReferenceResponse { return v.ConnectVia }).(IntegrationRuntimeReferenceResponsePtrOutput)
+}
+
+// The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+func (o MongoDbAtlasLinkedServiceResponseOutput) ConnectionString() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedServiceResponse) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
+}
+
+// The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
+func (o MongoDbAtlasLinkedServiceResponseOutput) Database() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedServiceResponse) map[string]interface{} { return v.Database }).(pulumi.MapOutput)
+}
+
+// Linked service description.
+func (o MongoDbAtlasLinkedServiceResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedServiceResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Parameters for linked service.
+func (o MongoDbAtlasLinkedServiceResponseOutput) Parameters() ParameterSpecificationResponseMapOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedServiceResponse) map[string]ParameterSpecificationResponse {
+		return v.Parameters
+	}).(ParameterSpecificationResponseMapOutput)
+}
+
+// Type of linked service.
+func (o MongoDbAtlasLinkedServiceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDbAtlasLinkedServiceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The MongoDB database dataset.
 type MongoDbCollectionDataset struct {
 	// List of tags that can be used for describing the Dataset.
@@ -75676,6 +76154,10 @@ func init() {
 	pulumi.RegisterOutputType(MicrosoftAccessLinkedServiceResponseOutput{})
 	pulumi.RegisterOutputType(MicrosoftAccessTableDatasetOutput{})
 	pulumi.RegisterOutputType(MicrosoftAccessTableDatasetResponseOutput{})
+	pulumi.RegisterOutputType(MongoDbAtlasCollectionDatasetOutput{})
+	pulumi.RegisterOutputType(MongoDbAtlasCollectionDatasetResponseOutput{})
+	pulumi.RegisterOutputType(MongoDbAtlasLinkedServiceOutput{})
+	pulumi.RegisterOutputType(MongoDbAtlasLinkedServiceResponseOutput{})
 	pulumi.RegisterOutputType(MongoDbCollectionDatasetOutput{})
 	pulumi.RegisterOutputType(MongoDbCollectionDatasetResponseOutput{})
 	pulumi.RegisterOutputType(MongoDbLinkedServiceOutput{})

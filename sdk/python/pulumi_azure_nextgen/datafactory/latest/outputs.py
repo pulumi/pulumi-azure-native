@@ -176,6 +176,8 @@ __all__ = [
     'MarketoObjectDatasetResponse',
     'MicrosoftAccessLinkedServiceResponse',
     'MicrosoftAccessTableDatasetResponse',
+    'MongoDbAtlasCollectionDatasetResponse',
+    'MongoDbAtlasLinkedServiceResponse',
     'MongoDbCollectionDatasetResponse',
     'MongoDbLinkedServiceResponse',
     'MongoDbV2CollectionDatasetResponse',
@@ -19550,6 +19552,220 @@ class MicrosoftAccessTableDatasetResponse(dict):
         The Microsoft Access table name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MongoDbAtlasCollectionDatasetResponse(dict):
+    """
+    The MongoDB Atlas database dataset.
+    """
+    def __init__(__self__, *,
+                 collection: Mapping[str, Any],
+                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
+                 type: str,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 description: Optional[str] = None,
+                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 schema: Optional[Mapping[str, Any]] = None,
+                 structure: Optional[Mapping[str, Any]] = None):
+        """
+        The MongoDB Atlas database dataset.
+        :param Mapping[str, Any] collection: The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
+        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param str type: Type of dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param str description: Dataset description.
+        :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, Any] schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        pulumi.set(__self__, "collection", collection)
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "type", 'MongoDbAtlasCollection')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+
+    @property
+    @pulumi.getter
+    def collection(self) -> Mapping[str, Any]:
+        """
+        The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "collection")
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Mapping[str, Any]]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Mapping[str, Any]]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MongoDbAtlasLinkedServiceResponse(dict):
+    """
+    Linked service for MongoDB Atlas data source.
+    """
+    def __init__(__self__, *,
+                 connection_string: Mapping[str, Any],
+                 database: Mapping[str, Any],
+                 type: str,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Linked service for MongoDB Atlas data source.
+        :param Mapping[str, Any] connection_string: The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Mapping[str, Any] database: The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
+        :param str type: Type of linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "connection_string", connection_string)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "type", 'MongoDbAtlas')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Mapping[str, Any]:
+        """
+        The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Mapping[str, Any]:
+        """
+        The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
