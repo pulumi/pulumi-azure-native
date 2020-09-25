@@ -78,6 +78,10 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// </summary>
         public readonly Outputs.EncryptionResponse Encryption;
         /// <summary>
+        /// The extendedLocation of the resource.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// If the failover is in progress, the value will be true, otherwise, it will be null.
         /// </summary>
         public readonly bool FailoverInProgress;
@@ -188,6 +192,8 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 
             Outputs.EncryptionResponse encryption,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             bool failoverInProgress,
 
             Outputs.GeoReplicationStatsResponse geoReplicationStats,
@@ -242,6 +248,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
             CustomDomain = customDomain;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             Encryption = encryption;
+            ExtendedLocation = extendedLocation;
             FailoverInProgress = failoverInProgress;
             GeoReplicationStats = geoReplicationStats;
             Identity = identity;

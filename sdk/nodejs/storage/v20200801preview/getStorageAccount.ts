@@ -73,6 +73,10 @@ export interface GetStorageAccountResult {
      */
     readonly encryption: outputs.storage.v20200801preview.EncryptionResponse;
     /**
+     * The extendedLocation of the resource.
+     */
+    readonly extendedLocation?: outputs.storage.v20200801preview.ExtendedLocationResponse;
+    /**
      * If the failover is in progress, the value will be true, otherwise, it will be null.
      */
     readonly failoverInProgress: boolean;

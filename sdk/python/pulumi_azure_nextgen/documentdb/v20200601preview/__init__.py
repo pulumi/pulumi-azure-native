@@ -16,6 +16,8 @@ from .get_mongo_db_resource_mongo_db_database import *
 from .get_notebook_workspace import *
 from .get_sql_resource_sql_container import *
 from .get_sql_resource_sql_database import *
+from .get_sql_resource_sql_role_assignment import *
+from .get_sql_resource_sql_role_definition import *
 from .get_sql_resource_sql_stored_procedure import *
 from .get_sql_resource_sql_trigger import *
 from .get_sql_resource_sql_user_defined_function import *
@@ -30,6 +32,8 @@ from .mongo_db_resource_mongo_db_database import *
 from .notebook_workspace import *
 from .sql_resource_sql_container import *
 from .sql_resource_sql_database import *
+from .sql_resource_sql_role_assignment import *
+from .sql_resource_sql_role_definition import *
 from .sql_resource_sql_stored_procedure import *
 from .sql_resource_sql_trigger import *
 from .sql_resource_sql_user_defined_function import *
