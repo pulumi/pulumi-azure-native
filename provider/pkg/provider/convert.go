@@ -158,7 +158,7 @@ func (k *azureNextGenProvider) responseToSdkInputs(parameters []AzureAPIParamete
 	result := map[string]interface{}{}
 	for _, param := range parameters {
 		switch {
-		case param.Name == "subscriptionId":
+		case strings.EqualFold(param.Name, "subscriptionId"):
 			// Ignore
 		case param.Location == "path":
 			name := param.Name
