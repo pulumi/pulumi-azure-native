@@ -132,6 +132,8 @@ func (k *azureNextGenProvider) responseToSdkOutputs(props map[string]AzureAPIPro
 	return result
 }
 
+// parseResourceID extracts templated values from the given resource ID based on the names of those templated
+// values in an HTTP path. The structure of id and path must match: same segment count and segment names.
 func (k *azureNextGenProvider) parseResourceID(id, path string) (map[string]string, error) {
 	pathParts := strings.Split(path, "/")
 	idParts := strings.Split(id, "/")
@@ -153,6 +155,8 @@ func (k *azureNextGenProvider) parseResourceID(id, path string) (map[string]stri
 	return result, nil
 }
 
+// responseToSdkInputs calculates a map of input values that would produce the given resource path and
+// response. This is useful when we need to import an existing resource based on its current properties.
 func (k *azureNextGenProvider) responseToSdkInputs(parameters []AzureAPIParameter,
 	pathValues map[string]string, response map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
@@ -173,7 +177,11 @@ func (k *azureNextGenProvider) responseToSdkInputs(parameters []AzureAPIParamete
 					// the result of a Read operation and block import. So, don't copy it to inputs.
 					continue
 				default:
-					result[k] = removeTrivialValues(v)
+					// Attempt to exclude insignificant properties from the inputs. A resource response would
+					// contain a lot of default values, e.g. empty arrays when no values were specified, empty
+					// strings, or false booleans. The decision to remove them is somewhat arbitrary but it
+					// seems to make the practical import experience smoother.
+					result[k] = removeDefaultValues(v)
 				}
 			}
 		}
@@ -181,12 +189,14 @@ func (k *azureNextGenProvider) responseToSdkInputs(parameters []AzureAPIParamete
 	return result
 }
 
-func removeTrivialValues(value interface{}) interface{} {
+// removeDefaultValues returns nil if the given value is a default for its type (e.g. `false`, or an
+// empty string). It also applies this recursively for values in arrays and maps.
+func removeDefaultValues(value interface{}) interface{} {
 	switch value := value.(type) {
 	case map[string]interface{}:
 		result := map[string]interface{}{}
 		for k, v := range value {
-			resultValue := removeTrivialValues(v)
+			resultValue := removeDefaultValues(v)
 			if resultValue != nil {
 				result[k] = resultValue
 			}
@@ -198,7 +208,7 @@ func removeTrivialValues(value interface{}) interface{} {
 	case []interface{}:
 		var result []interface{}
 		for _, v := range value {
-			resultValue := removeTrivialValues(v)
+			resultValue := removeDefaultValues(v)
 			if resultValue != nil {
 				result = append(result, resultValue)
 			}
