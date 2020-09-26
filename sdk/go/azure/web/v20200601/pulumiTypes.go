@@ -8431,6 +8431,8 @@ type SiteConfig struct {
 	ScmIpSecurityRestrictions []IpSecurityRestriction `pulumi:"scmIpSecurityRestrictions"`
 	// IP security restrictions for scm to use main.
 	ScmIpSecurityRestrictionsUseMain *bool `pulumi:"scmIpSecurityRestrictionsUseMain"`
+	// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+	ScmMinTlsVersion *string `pulumi:"scmMinTlsVersion"`
 	// SCM type.
 	ScmType *string `pulumi:"scmType"`
 	// Tracing options.
@@ -8555,6 +8557,8 @@ type SiteConfigArgs struct {
 	ScmIpSecurityRestrictions IpSecurityRestrictionArrayInput `pulumi:"scmIpSecurityRestrictions"`
 	// IP security restrictions for scm to use main.
 	ScmIpSecurityRestrictionsUseMain pulumi.BoolPtrInput `pulumi:"scmIpSecurityRestrictionsUseMain"`
+	// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+	ScmMinTlsVersion pulumi.StringPtrInput `pulumi:"scmMinTlsVersion"`
 	// SCM type.
 	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
 	// Tracing options.
@@ -8880,6 +8884,11 @@ func (o SiteConfigOutput) ScmIpSecurityRestrictions() IpSecurityRestrictionArray
 // IP security restrictions for scm to use main.
 func (o SiteConfigOutput) ScmIpSecurityRestrictionsUseMain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.ScmIpSecurityRestrictionsUseMain }).(pulumi.BoolPtrOutput)
+}
+
+// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+func (o SiteConfigOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.ScmMinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // SCM type.
@@ -9401,6 +9410,16 @@ func (o SiteConfigPtrOutput) ScmIpSecurityRestrictionsUseMain() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+func (o SiteConfigPtrOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScmMinTlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // SCM type.
 func (o SiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
@@ -9578,6 +9597,8 @@ type SiteConfigResponse struct {
 	ScmIpSecurityRestrictions []IpSecurityRestrictionResponse `pulumi:"scmIpSecurityRestrictions"`
 	// IP security restrictions for scm to use main.
 	ScmIpSecurityRestrictionsUseMain *bool `pulumi:"scmIpSecurityRestrictionsUseMain"`
+	// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+	ScmMinTlsVersion *string `pulumi:"scmMinTlsVersion"`
 	// SCM type.
 	ScmType *string `pulumi:"scmType"`
 	// Tracing options.
@@ -9704,6 +9725,8 @@ type SiteConfigResponseArgs struct {
 	ScmIpSecurityRestrictions IpSecurityRestrictionResponseArrayInput `pulumi:"scmIpSecurityRestrictions"`
 	// IP security restrictions for scm to use main.
 	ScmIpSecurityRestrictionsUseMain pulumi.BoolPtrInput `pulumi:"scmIpSecurityRestrictionsUseMain"`
+	// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+	ScmMinTlsVersion pulumi.StringPtrInput `pulumi:"scmMinTlsVersion"`
 	// SCM type.
 	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
 	// Tracing options.
@@ -10034,6 +10057,11 @@ func (o SiteConfigResponseOutput) ScmIpSecurityRestrictions() IpSecurityRestrict
 // IP security restrictions for scm to use main.
 func (o SiteConfigResponseOutput) ScmIpSecurityRestrictionsUseMain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.ScmIpSecurityRestrictionsUseMain }).(pulumi.BoolPtrOutput)
+}
+
+// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+func (o SiteConfigResponseOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *string { return v.ScmMinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // SCM type.
@@ -10563,6 +10591,16 @@ func (o SiteConfigResponsePtrOutput) ScmIpSecurityRestrictionsUseMain() pulumi.B
 		}
 		return v.ScmIpSecurityRestrictionsUseMain
 	}).(pulumi.BoolPtrOutput)
+}
+
+// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+func (o SiteConfigResponsePtrOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScmMinTlsVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // SCM type.
