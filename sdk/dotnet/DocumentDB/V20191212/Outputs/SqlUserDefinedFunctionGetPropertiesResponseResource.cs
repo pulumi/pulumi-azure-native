@@ -29,10 +29,6 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212.Outputs
         /// A system generated property. A unique identifier.
         /// </summary>
         public readonly string Rid;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> Ts;
 
         [OutputConstructor]
         private SqlUserDefinedFunctionGetPropertiesResponseResource(
@@ -42,15 +38,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212.Outputs
 
             string id,
 
-            string rid,
-
-            ImmutableDictionary<string, object> ts)
+            string rid)
         {
             Body = body;
             Etag = etag;
             Id = id;
             Rid = rid;
-            Ts = ts;
         }
     }
 }

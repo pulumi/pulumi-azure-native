@@ -742,8 +742,6 @@ func (o RemediationFiltersResponsePtrOutput) Locations() pulumi.StringArrayOutpu
 
 // Scenario specific error details.
 type TypedErrorInfoResponse struct {
-	// The scenario specific error details.
-	Info map[string]interface{} `pulumi:"info"`
 	// The type of included error details.
 	Type string `pulumi:"type"`
 }
@@ -761,8 +759,6 @@ type TypedErrorInfoResponseInput interface {
 
 // Scenario specific error details.
 type TypedErrorInfoResponseArgs struct {
-	// The scenario specific error details.
-	Info pulumi.MapInput `pulumi:"info"`
 	// The type of included error details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -817,11 +813,6 @@ func (o TypedErrorInfoResponseOutput) ToTypedErrorInfoResponseOutput() TypedErro
 
 func (o TypedErrorInfoResponseOutput) ToTypedErrorInfoResponseOutputWithContext(ctx context.Context) TypedErrorInfoResponseOutput {
 	return o
-}
-
-// The scenario specific error details.
-func (o TypedErrorInfoResponseOutput) Info() pulumi.MapOutput {
-	return o.ApplyT(func(v TypedErrorInfoResponse) map[string]interface{} { return v.Info }).(pulumi.MapOutput)
 }
 
 // The type of included error details.

@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Outputs
         /// <summary>
         /// the criteria time aggregation types.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> TimeAggregation;
+        public readonly string TimeAggregation;
 
         [OutputConstructor]
         private MetricCriteriaResponse(
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Outputs
 
             double threshold,
 
-            ImmutableDictionary<string, object> timeAggregation)
+            string timeAggregation)
         {
             CriterionType = criterionType;
             Dimensions = dimensions;

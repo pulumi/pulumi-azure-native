@@ -34,12 +34,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         public Input<string>? CreatedTime { get; set; }
 
         [Input("metadata")]
-        private InputMap<object>? _metadata;
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The batch release criteria.

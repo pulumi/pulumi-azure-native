@@ -22,7 +22,7 @@ class Schedule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  expiry_time: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
-                 interval: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 interval: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_name: Optional[pulumi.Input[str]] = None,
@@ -41,7 +41,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] description: Gets or sets the description of the schedule.
         :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
         :param pulumi.Input[str] frequency: Gets or sets the frequency of the schedule.
-        :param pulumi.Input[Mapping[str, Any]] interval: Gets or sets the interval of the schedule.
+        :param Any interval: Gets or sets the interval of the schedule.
         :param pulumi.Input[str] name: Gets or sets the name of the Schedule.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] schedule_name: The schedule name.
@@ -169,14 +169,6 @@ class Schedule(pulumi.CustomResource):
         Gets or sets the frequency of the schedule.
         """
         return pulumi.get(self, "frequency")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
-        """
-        Gets or sets the interval of the schedule.
-        """
-        return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter(name="isEnabled")

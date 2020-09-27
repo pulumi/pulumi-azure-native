@@ -376,7 +376,6 @@ class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
                  account_name: Optional[str] = None,
                  auto_key_config_url: Optional[str] = None,
                  description: Optional[str] = None,
-                 fluentd_config_url: Optional[Mapping[str, Any]] = None,
                  ma_config_url: Optional[str] = None,
                  name: Optional[str] = None,
                  namespace: Optional[str] = None):
@@ -386,7 +385,6 @@ class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
         :param str account_name: Azure Internal monitoring pipeline account.
         :param str auto_key_config_url: Azure Internal monitoring pipeline autokey associated with the certificate.
         :param str description: A description of the sink.
-        :param Mapping[str, Any] fluentd_config_url: Azure Internal monitoring agent fluentd configuration.
         :param str ma_config_url: Azure Internal monitoring agent configuration.
         :param str name: Name of the sink. This value is referenced by DiagnosticsReferenceDescription
         :param str namespace: Azure Internal monitoring pipeline account namespace.
@@ -398,8 +396,6 @@ class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
             pulumi.set(__self__, "auto_key_config_url", auto_key_config_url)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if fluentd_config_url is not None:
-            pulumi.set(__self__, "fluentd_config_url", fluentd_config_url)
         if ma_config_url is not None:
             pulumi.set(__self__, "ma_config_url", ma_config_url)
         if name is not None:
@@ -438,14 +434,6 @@ class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
         A description of the sink.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="fluentdConfigUrl")
-    def fluentd_config_url(self) -> Optional[Mapping[str, Any]]:
-        """
-        Azure Internal monitoring agent fluentd configuration.
-        """
-        return pulumi.get(self, "fluentd_config_url")
 
     @property
     @pulumi.getter(name="maConfigUrl")

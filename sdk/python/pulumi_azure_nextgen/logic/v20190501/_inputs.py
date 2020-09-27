@@ -1074,11 +1074,11 @@ class AssemblyPropertiesArgs:
                  assembly_public_key_token: Optional[pulumi.Input[str]] = None,
                  assembly_version: Optional[pulumi.Input[str]] = None,
                  changed_time: Optional[pulumi.Input[str]] = None,
-                 content: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 content: Optional[Any] = None,
                  content_link: Optional[pulumi.Input['ContentLinkArgs']] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 metadata: Optional[Any] = None):
         """
         The assembly properties definition.
         :param pulumi.Input[str] assembly_name: The assembly name.
@@ -1172,11 +1172,11 @@ class AssemblyPropertiesArgs:
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def content(self) -> Optional[Any]:
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def content(self, value: Optional[Any]):
         pulumi.set(self, "content", value)
 
     @property
@@ -1217,11 +1217,11 @@ class AssemblyPropertiesArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Any]:
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
 
@@ -1256,7 +1256,7 @@ class BatchConfigurationPropertiesArgs:
                  release_criteria: pulumi.Input['BatchReleaseCriteriaArgs'],
                  changed_time: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 metadata: Optional[Any] = None):
         """
         The batch configuration properties definition.
         :param pulumi.Input[str] batch_group_name: The name of the batch group.
@@ -1323,11 +1323,11 @@ class BatchConfigurationPropertiesArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Any]:
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
 

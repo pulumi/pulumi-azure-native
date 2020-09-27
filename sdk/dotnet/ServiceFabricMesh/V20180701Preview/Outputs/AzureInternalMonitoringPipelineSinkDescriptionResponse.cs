@@ -26,10 +26,6 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Azure Internal monitoring agent fluentd configuration.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? FluentdConfigUrl;
-        /// <summary>
         /// The kind of DiagnosticsSink.
         /// </summary>
         public readonly string Kind;
@@ -54,8 +50,6 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, object>? fluentdConfigUrl,
-
             string kind,
 
             string? maConfigUrl,
@@ -67,7 +61,6 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Outputs
             AccountName = accountName;
             AutoKeyConfigUrl = autoKeyConfigUrl;
             Description = description;
-            FluentdConfigUrl = fluentdConfigUrl;
             Kind = kind;
             MaConfigUrl = maConfigUrl;
             Name = name;

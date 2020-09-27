@@ -33,7 +33,6 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
         /// The artifact changed time.
         /// </summary>
         public readonly string? ChangedTime;
-        public readonly ImmutableDictionary<string, object>? Content;
         /// <summary>
         /// The content link.
         /// </summary>
@@ -46,7 +45,6 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
         /// The artifact creation time.
         /// </summary>
         public readonly string? CreatedTime;
-        public readonly ImmutableDictionary<string, object>? Metadata;
 
         [OutputConstructor]
         private AssemblyPropertiesResponse(
@@ -60,26 +58,20 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
 
             string? changedTime,
 
-            ImmutableDictionary<string, object>? content,
-
             Outputs.ContentLinkResponse? contentLink,
 
             string? contentType,
 
-            string? createdTime,
-
-            ImmutableDictionary<string, object>? metadata)
+            string? createdTime)
         {
             AssemblyCulture = assemblyCulture;
             AssemblyName = assemblyName;
             AssemblyPublicKeyToken = assemblyPublicKeyToken;
             AssemblyVersion = assemblyVersion;
             ChangedTime = changedTime;
-            Content = content;
             ContentLink = contentLink;
             ContentType = contentType;
             CreatedTime = createdTime;
-            Metadata = metadata;
         }
     }
 }

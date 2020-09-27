@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("fluentdConfigUrl")]
-        private InputMap<object>? _fluentdConfigUrl;
-
         /// <summary>
         /// Azure Internal monitoring agent fluentd configuration.
         /// </summary>
-        public InputMap<object> FluentdConfigUrl
-        {
-            get => _fluentdConfigUrl ?? (_fluentdConfigUrl = new InputMap<object>());
-            set => _fluentdConfigUrl = value;
-        }
+        [Input("fluentdConfigUrl")]
+        public Input<object>? FluentdConfigUrl { get; set; }
 
         /// <summary>
         /// The kind of DiagnosticsSink.

@@ -20,7 +20,7 @@ class GetScheduleResult:
     """
     Definition of the schedule.
     """
-    def __init__(__self__, advanced_schedule=None, creation_time=None, description=None, expiry_time=None, expiry_time_offset_minutes=None, frequency=None, interval=None, is_enabled=None, last_modified_time=None, name=None, next_run=None, next_run_offset_minutes=None, start_time=None, start_time_offset_minutes=None, time_zone=None, type=None):
+    def __init__(__self__, advanced_schedule=None, creation_time=None, description=None, expiry_time=None, expiry_time_offset_minutes=None, frequency=None, is_enabled=None, last_modified_time=None, name=None, next_run=None, next_run_offset_minutes=None, start_time=None, start_time_offset_minutes=None, time_zone=None, type=None):
         if advanced_schedule and not isinstance(advanced_schedule, dict):
             raise TypeError("Expected argument 'advanced_schedule' to be a dict")
         pulumi.set(__self__, "advanced_schedule", advanced_schedule)
@@ -39,9 +39,6 @@ class GetScheduleResult:
         if frequency and not isinstance(frequency, str):
             raise TypeError("Expected argument 'frequency' to be a str")
         pulumi.set(__self__, "frequency", frequency)
-        if interval and not isinstance(interval, dict):
-            raise TypeError("Expected argument 'interval' to be a dict")
-        pulumi.set(__self__, "interval", interval)
         if is_enabled and not isinstance(is_enabled, bool):
             raise TypeError("Expected argument 'is_enabled' to be a bool")
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -117,14 +114,6 @@ class GetScheduleResult:
         Gets or sets the frequency of the schedule.
         """
         return pulumi.get(self, "frequency")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[Mapping[str, Any]]:
-        """
-        Gets or sets the interval of the schedule.
-        """
-        return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -211,7 +200,6 @@ class AwaitableGetScheduleResult(GetScheduleResult):
             expiry_time=self.expiry_time,
             expiry_time_offset_minutes=self.expiry_time_offset_minutes,
             frequency=self.frequency,
-            interval=self.interval,
             is_enabled=self.is_enabled,
             last_modified_time=self.last_modified_time,
             name=self.name,
@@ -251,7 +239,6 @@ def get_schedule(automation_account_name: Optional[str] = None,
         expiry_time=__ret__.expiry_time,
         expiry_time_offset_minutes=__ret__.expiry_time_offset_minutes,
         frequency=__ret__.frequency,
-        interval=__ret__.interval,
         is_enabled=__ret__.is_enabled,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,

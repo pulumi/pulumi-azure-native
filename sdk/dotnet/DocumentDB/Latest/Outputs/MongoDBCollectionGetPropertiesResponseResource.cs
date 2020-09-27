@@ -37,10 +37,6 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         /// A key-value pair of shard keys to be applied for the request.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ShardKey;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> Ts;
 
         [OutputConstructor]
         private MongoDBCollectionGetPropertiesResponseResource(
@@ -54,9 +50,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
 
             string rid,
 
-            ImmutableDictionary<string, string>? shardKey,
-
-            ImmutableDictionary<string, object> ts)
+            ImmutableDictionary<string, string>? shardKey)
         {
             AnalyticalStorageTtl = analyticalStorageTtl;
             Etag = etag;
@@ -64,7 +58,6 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
             Indexes = indexes;
             Rid = rid;
             ShardKey = shardKey;
-            Ts = ts;
         }
     }
 }

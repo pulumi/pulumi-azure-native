@@ -69,17 +69,11 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
 
-        [Input("timeAggregation", required: true)]
-        private InputMap<object>? _timeAggregation;
-
         /// <summary>
         /// the criteria time aggregation types.
         /// </summary>
-        public InputMap<object> TimeAggregation
-        {
-            get => _timeAggregation ?? (_timeAggregation = new InputMap<object>());
-            set => _timeAggregation = value;
-        }
+        [Input("timeAggregation", required: true)]
+        public Input<string> TimeAggregation { get; set; } = null!;
 
         public MetricCriteriaArgs()
         {

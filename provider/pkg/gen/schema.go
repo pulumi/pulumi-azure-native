@@ -988,7 +988,8 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 	// Type specification specifies either a primitive type (e.g. 'string') or a reference to a separately defined
 	// strongly-typed object. Either `primitiveTypeName` or `referencedTypeName` should be filled, but not both.
 	var tok, primitiveTypeName, referencedTypeName string
-	if len(resolvedSchema.Properties) > 0 || len(resolvedSchema.AllOf) > 0 {
+	switch {
+	case len(resolvedSchema.Properties) > 0 || len(resolvedSchema.AllOf) > 0:
 		ptr := schema.Ref.GetPointer()
 		if ptr != nil && !ptr.IsEmpty() {
 			tok = m.typeName(resolvedSchema.ReferenceContext, isOutput)
@@ -996,10 +997,27 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			// Inline properties have no type in the Open API schema, so we use parent type's name + property name.
 			tok = m.typeName(context, isOutput) + strings.Title(propertyName)
 		}
-	} else if len(resolvedSchema.Type) > 0 {
+	case len(resolvedSchema.Type) > 0:
 		primitiveTypeName = resolvedSchema.Type[0]
-	} else {
+	case len(resolvedSchema.Enum) > 0:
+		// Enums are always strings in Azure.
+		primitiveTypeName = "string"
+	case resolvedSchema.AdditionalProperties != nil:
+		// Additional properties suggest a dictionary.
 		primitiveTypeName = "object"
+	case isOutput:
+		// No type is specified for an output property. Ignore it, otherwise we may not be able to deserialize
+		// it when a payload of an unexpected shape comes (particularly, in typed runtimes like .NET).
+		// We may want to change those serializers in the future to get the symmetry of inputs/outputs.
+		// See https://github.com/pulumi/pulumi/issues/5446
+		return nil, nil
+	default:
+		// Open API v2:
+		// > A schema without a type matches any data type – numbers, strings, objects, and so on.
+		// No type is specified for an input property. Treat it as an "any" type.
+		return &pschema.TypeSpec{
+			Ref: "pulumi.json#/Any",
+		}, nil
 	}
 
 	// If an object type is referenced, add its definition to the type map.

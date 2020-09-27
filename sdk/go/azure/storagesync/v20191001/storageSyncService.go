@@ -130,8 +130,8 @@ func (StorageSyncServiceState) ElementType() reflect.Type {
 
 type storageSyncServiceArgs struct {
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location   string                 `pulumi:"location"`
-	Properties map[string]interface{} `pulumi:"properties"`
+	Location   string      `pulumi:"location"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Storage Sync Service resource.
@@ -144,7 +144,7 @@ type storageSyncServiceArgs struct {
 type StorageSyncServiceArgs struct {
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location   pulumi.StringInput
-	Properties pulumi.MapInput
+	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Name of Storage Sync Service resource.

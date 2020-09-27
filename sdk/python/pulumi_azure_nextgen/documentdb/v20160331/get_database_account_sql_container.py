@@ -20,7 +20,7 @@ class GetDatabaseAccountSqlContainerResult:
     """
     An Azure Cosmos DB container.
     """
-    def __init__(__self__, conflict_resolution_policy=None, default_ttl=None, etag=None, indexing_policy=None, location=None, name=None, partition_key=None, rid=None, tags=None, ts=None, type=None, unique_key_policy=None):
+    def __init__(__self__, conflict_resolution_policy=None, default_ttl=None, etag=None, indexing_policy=None, location=None, name=None, partition_key=None, rid=None, tags=None, type=None, unique_key_policy=None):
         if conflict_resolution_policy and not isinstance(conflict_resolution_policy, dict):
             raise TypeError("Expected argument 'conflict_resolution_policy' to be a dict")
         pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
@@ -48,9 +48,6 @@ class GetDatabaseAccountSqlContainerResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if ts and not isinstance(ts, dict):
-            raise TypeError("Expected argument 'ts' to be a dict")
-        pulumi.set(__self__, "ts", ts)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -132,14 +129,6 @@ class GetDatabaseAccountSqlContainerResult:
 
     @property
     @pulumi.getter
-    def ts(self) -> Optional[Mapping[str, Any]]:
-        """
-        A system generated property that denotes the last updated timestamp of the resource.
-        """
-        return pulumi.get(self, "ts")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         The type of Azure resource.
@@ -170,7 +159,6 @@ class AwaitableGetDatabaseAccountSqlContainerResult(GetDatabaseAccountSqlContain
             partition_key=self.partition_key,
             rid=self.rid,
             tags=self.tags,
-            ts=self.ts,
             type=self.type,
             unique_key_policy=self.unique_key_policy)
 
@@ -209,6 +197,5 @@ def get_database_account_sql_container(account_name: Optional[str] = None,
         partition_key=__ret__.partition_key,
         rid=__ret__.rid,
         tags=__ret__.tags,
-        ts=__ret__.ts,
         type=__ret__.type,
         unique_key_policy=__ret__.unique_key_policy)

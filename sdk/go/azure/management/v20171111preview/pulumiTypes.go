@@ -166,9 +166,9 @@ func (o BlueprintStatusResponsePtrOutput) TimeCreated() pulumi.StringPtrOutput {
 // Represent a parameter with constrains and metadata.
 type ParameterDefinition struct {
 	// Array of allowed values for this parameter.
-	AllowedValues []map[string]interface{} `pulumi:"allowedValues"`
+	AllowedValues []interface{} `pulumi:"allowedValues"`
 	// Default Value for this parameter.
-	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
+	DefaultValue interface{} `pulumi:"defaultValue"`
 	// Description of this parameter/resourceGroup.
 	Description *string `pulumi:"description"`
 	// DisplayName of this parameter/resourceGroup.
@@ -193,9 +193,9 @@ type ParameterDefinitionInput interface {
 // Represent a parameter with constrains and metadata.
 type ParameterDefinitionArgs struct {
 	// Array of allowed values for this parameter.
-	AllowedValues pulumi.MapArrayInput `pulumi:"allowedValues"`
+	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
 	// Default Value for this parameter.
-	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
+	DefaultValue pulumi.Input `pulumi:"defaultValue"`
 	// Description of this parameter/resourceGroup.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// DisplayName of this parameter/resourceGroup.
@@ -259,13 +259,13 @@ func (o ParameterDefinitionOutput) ToParameterDefinitionOutputWithContext(ctx co
 }
 
 // Array of allowed values for this parameter.
-func (o ParameterDefinitionOutput) AllowedValues() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ParameterDefinition) []map[string]interface{} { return v.AllowedValues }).(pulumi.MapArrayOutput)
+func (o ParameterDefinitionOutput) AllowedValues() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ParameterDefinition) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
 }
 
 // Default Value for this parameter.
-func (o ParameterDefinitionOutput) DefaultValue() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterDefinition) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
+func (o ParameterDefinitionOutput) DefaultValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterDefinition) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
 // Description of this parameter/resourceGroup.
@@ -310,10 +310,6 @@ func (o ParameterDefinitionMapOutput) MapIndex(k pulumi.StringInput) ParameterDe
 
 // Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponse struct {
-	// Array of allowed values for this parameter.
-	AllowedValues []map[string]interface{} `pulumi:"allowedValues"`
-	// Default Value for this parameter.
-	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
 	// Description of this parameter/resourceGroup.
 	Description *string `pulumi:"description"`
 	// DisplayName of this parameter/resourceGroup.
@@ -337,10 +333,6 @@ type ParameterDefinitionResponseInput interface {
 
 // Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponseArgs struct {
-	// Array of allowed values for this parameter.
-	AllowedValues pulumi.MapArrayInput `pulumi:"allowedValues"`
-	// Default Value for this parameter.
-	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
 	// Description of this parameter/resourceGroup.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// DisplayName of this parameter/resourceGroup.
@@ -401,16 +393,6 @@ func (o ParameterDefinitionResponseOutput) ToParameterDefinitionResponseOutput()
 
 func (o ParameterDefinitionResponseOutput) ToParameterDefinitionResponseOutputWithContext(ctx context.Context) ParameterDefinitionResponseOutput {
 	return o
-}
-
-// Array of allowed values for this parameter.
-func (o ParameterDefinitionResponseOutput) AllowedValues() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ParameterDefinitionResponse) []map[string]interface{} { return v.AllowedValues }).(pulumi.MapArrayOutput)
-}
-
-// Default Value for this parameter.
-func (o ParameterDefinitionResponseOutput) DefaultValue() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterDefinitionResponse) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
 }
 
 // Description of this parameter/resourceGroup.

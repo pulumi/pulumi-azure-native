@@ -33,12 +33,6 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
         public Output<string> CloudRackName { get; private set; } = null!;
 
         /// <summary>
-        /// date time the resource was created
-        /// </summary>
-        [Output("created")]
-        public Output<ImmutableDictionary<string, object>> Created { get; private set; } = null!;
-
-        /// <summary>
         /// Azure region
         /// </summary>
         [Output("location")]

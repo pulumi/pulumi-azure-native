@@ -795,7 +795,7 @@ type DynamicMetricCriteria struct {
 	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
 	// the criteria time aggregation types.
-	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
+	TimeAggregation string `pulumi:"timeAggregation"`
 }
 
 // DynamicMetricCriteriaInput is an input type that accepts DynamicMetricCriteriaArgs and DynamicMetricCriteriaOutput values.
@@ -832,7 +832,7 @@ type DynamicMetricCriteriaArgs struct {
 	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
 	// the criteria time aggregation types.
-	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
+	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
 }
 
 func (DynamicMetricCriteriaArgs) ElementType() reflect.Type {
@@ -913,8 +913,8 @@ func (o DynamicMetricCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput
 }
 
 // the criteria time aggregation types.
-func (o DynamicMetricCriteriaOutput) TimeAggregation() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
+func (o DynamicMetricCriteriaOutput) TimeAggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
 // Criterion for dynamic threshold.
@@ -940,7 +940,7 @@ type DynamicMetricCriteriaResponse struct {
 	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
 	// the criteria time aggregation types.
-	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
+	TimeAggregation string `pulumi:"timeAggregation"`
 }
 
 // DynamicMetricCriteriaResponseInput is an input type that accepts DynamicMetricCriteriaResponseArgs and DynamicMetricCriteriaResponseOutput values.
@@ -977,7 +977,7 @@ type DynamicMetricCriteriaResponseArgs struct {
 	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
 	// the criteria time aggregation types.
-	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
+	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
 }
 
 func (DynamicMetricCriteriaResponseArgs) ElementType() reflect.Type {
@@ -1058,8 +1058,8 @@ func (o DynamicMetricCriteriaResponseOutput) SkipMetricValidation() pulumi.BoolP
 }
 
 // the criteria time aggregation types.
-func (o DynamicMetricCriteriaResponseOutput) TimeAggregation() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicMetricCriteriaResponse) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
+func (o DynamicMetricCriteriaResponseOutput) TimeAggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
 // The minimum number of violations required within the selected lookback time window required to raise an alert.
@@ -2420,7 +2420,7 @@ type MetricCriteria struct {
 	// the criteria threshold value that activates the alert.
 	Threshold float64 `pulumi:"threshold"`
 	// the criteria time aggregation types.
-	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
+	TimeAggregation string `pulumi:"timeAggregation"`
 }
 
 // MetricCriteriaInput is an input type that accepts MetricCriteriaArgs and MetricCriteriaOutput values.
@@ -2453,7 +2453,7 @@ type MetricCriteriaArgs struct {
 	// the criteria threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// the criteria time aggregation types.
-	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
+	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
 }
 
 func (MetricCriteriaArgs) ElementType() reflect.Type {
@@ -2549,8 +2549,8 @@ func (o MetricCriteriaOutput) Threshold() pulumi.Float64Output {
 }
 
 // the criteria time aggregation types.
-func (o MetricCriteriaOutput) TimeAggregation() pulumi.MapOutput {
-	return o.ApplyT(func(v MetricCriteria) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
+func (o MetricCriteriaOutput) TimeAggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCriteria) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
 type MetricCriteriaArrayOutput struct{ *pulumi.OutputState }
@@ -2592,7 +2592,7 @@ type MetricCriteriaResponse struct {
 	// the criteria threshold value that activates the alert.
 	Threshold float64 `pulumi:"threshold"`
 	// the criteria time aggregation types.
-	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
+	TimeAggregation string `pulumi:"timeAggregation"`
 }
 
 // MetricCriteriaResponseInput is an input type that accepts MetricCriteriaResponseArgs and MetricCriteriaResponseOutput values.
@@ -2625,7 +2625,7 @@ type MetricCriteriaResponseArgs struct {
 	// the criteria threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// the criteria time aggregation types.
-	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
+	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
 }
 
 func (MetricCriteriaResponseArgs) ElementType() reflect.Type {
@@ -2721,8 +2721,8 @@ func (o MetricCriteriaResponseOutput) Threshold() pulumi.Float64Output {
 }
 
 // the criteria time aggregation types.
-func (o MetricCriteriaResponseOutput) TimeAggregation() pulumi.MapOutput {
-	return o.ApplyT(func(v MetricCriteriaResponse) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
+func (o MetricCriteriaResponseOutput) TimeAggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
 type MetricCriteriaResponseArrayOutput struct{ *pulumi.OutputState }

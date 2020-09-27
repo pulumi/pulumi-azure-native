@@ -37,10 +37,6 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Outputs
         /// Schema of the Cosmos DB Cassandra table
         /// </summary>
         public readonly Outputs.CassandraSchemaResponse? Schema;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> Ts;
 
         [OutputConstructor]
         private CassandraTableGetPropertiesResponseResource(
@@ -54,9 +50,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Outputs
 
             string rid,
 
-            Outputs.CassandraSchemaResponse? schema,
-
-            ImmutableDictionary<string, object> ts)
+            Outputs.CassandraSchemaResponse? schema)
         {
             AnalyticalStorageTtl = analyticalStorageTtl;
             DefaultTtl = defaultTtl;
@@ -64,7 +58,6 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Outputs
             Id = id;
             Rid = rid;
             Schema = schema;
-            Ts = ts;
         }
     }
 }

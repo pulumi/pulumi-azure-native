@@ -350,8 +350,6 @@ type CassandraKeyspaceGetPropertiesResponseResource struct {
 	Id string `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // CassandraKeyspaceGetPropertiesResponseResourceInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseResourceArgs and CassandraKeyspaceGetPropertiesResponseResourceOutput values.
@@ -372,8 +370,6 @@ type CassandraKeyspaceGetPropertiesResponseResourceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (CassandraKeyspaceGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -468,11 +464,6 @@ func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Rid() pulumi.Strin
 	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 type CassandraKeyspaceGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
@@ -521,16 +512,6 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Rid() pulumi.St
 		}
 		return &v.Rid
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB Cassandra keyspace resource object
@@ -1355,8 +1336,6 @@ type CassandraTableGetPropertiesResponseResource struct {
 	Rid string `pulumi:"rid"`
 	// Schema of the Cosmos DB Cassandra table
 	Schema *CassandraSchemaResponse `pulumi:"schema"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // CassandraTableGetPropertiesResponseResourceInput is an input type that accepts CassandraTableGetPropertiesResponseResourceArgs and CassandraTableGetPropertiesResponseResourceOutput values.
@@ -1381,8 +1360,6 @@ type CassandraTableGetPropertiesResponseResourceArgs struct {
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// Schema of the Cosmos DB Cassandra table
 	Schema CassandraSchemaResponsePtrInput `pulumi:"schema"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (CassandraTableGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -1487,11 +1464,6 @@ func (o CassandraTableGetPropertiesResponseResourceOutput) Schema() CassandraSch
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *CassandraSchemaResponse { return v.Schema }).(CassandraSchemaResponsePtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraTableGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 type CassandraTableGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (CassandraTableGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
@@ -1560,16 +1532,6 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Schema() Cassandra
 		}
 		return v.Schema
 	}).(CassandraSchemaResponsePtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB Cassandra table resource object
@@ -4119,8 +4081,6 @@ type GremlinDatabaseGetPropertiesResponseResource struct {
 	Id string `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // GremlinDatabaseGetPropertiesResponseResourceInput is an input type that accepts GremlinDatabaseGetPropertiesResponseResourceArgs and GremlinDatabaseGetPropertiesResponseResourceOutput values.
@@ -4141,8 +4101,6 @@ type GremlinDatabaseGetPropertiesResponseResourceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (GremlinDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -4237,11 +4195,6 @@ func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringO
 	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 type GremlinDatabaseGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (GremlinDatabaseGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
@@ -4290,16 +4243,6 @@ func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.Stri
 		}
 		return &v.Rid
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB Gremlin database resource object
@@ -4582,8 +4525,6 @@ type GremlinGraphGetPropertiesResponseResource struct {
 	PartitionKey *ContainerPartitionKeyResponse `pulumi:"partitionKey"`
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy *UniqueKeyPolicyResponse `pulumi:"uniqueKeyPolicy"`
 }
@@ -4614,8 +4555,6 @@ type GremlinGraphGetPropertiesResponseResourceArgs struct {
 	PartitionKey ContainerPartitionKeyResponsePtrInput `pulumi:"partitionKey"`
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy UniqueKeyPolicyResponsePtrInput `pulumi:"uniqueKeyPolicy"`
 }
@@ -4736,11 +4675,6 @@ func (o GremlinGraphGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutp
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinGraphGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 func (o GremlinGraphGetPropertiesResponseResourceOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *UniqueKeyPolicyResponse { return v.UniqueKeyPolicy }).(UniqueKeyPolicyResponsePtrOutput)
@@ -4834,16 +4768,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringP
 		}
 		return &v.Rid
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -6404,8 +6328,6 @@ type MongoDBCollectionGetPropertiesResponseResource struct {
 	Rid string `pulumi:"rid"`
 	// A key-value pair of shard keys to be applied for the request.
 	ShardKey map[string]string `pulumi:"shardKey"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // MongoDBCollectionGetPropertiesResponseResourceInput is an input type that accepts MongoDBCollectionGetPropertiesResponseResourceArgs and MongoDBCollectionGetPropertiesResponseResourceOutput values.
@@ -6430,8 +6352,6 @@ type MongoDBCollectionGetPropertiesResponseResourceArgs struct {
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// A key-value pair of shard keys to be applied for the request.
 	ShardKey pulumi.StringMapInput `pulumi:"shardKey"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (MongoDBCollectionGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -6536,11 +6456,6 @@ func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ShardKey() pulumi.
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) map[string]string { return v.ShardKey }).(pulumi.StringMapOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 type MongoDBCollectionGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
@@ -6609,16 +6524,6 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ShardKey() pulu
 		}
 		return v.ShardKey
 	}).(pulumi.StringMapOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB MongoDB collection resource object
@@ -6933,8 +6838,6 @@ type MongoDBDatabaseGetPropertiesResponseResource struct {
 	Id string `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // MongoDBDatabaseGetPropertiesResponseResourceInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseResourceArgs and MongoDBDatabaseGetPropertiesResponseResourceOutput values.
@@ -6955,8 +6858,6 @@ type MongoDBDatabaseGetPropertiesResponseResourceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (MongoDBDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -7051,11 +6952,6 @@ func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringO
 	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 type MongoDBDatabaseGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
@@ -7104,16 +7000,6 @@ func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.Stri
 		}
 		return &v.Rid
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB MongoDB database resource object
@@ -8827,8 +8713,6 @@ type SqlContainerGetPropertiesResponseResource struct {
 	PartitionKey *ContainerPartitionKeyResponse `pulumi:"partitionKey"`
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy *UniqueKeyPolicyResponse `pulumi:"uniqueKeyPolicy"`
 }
@@ -8859,8 +8743,6 @@ type SqlContainerGetPropertiesResponseResourceArgs struct {
 	PartitionKey ContainerPartitionKeyResponsePtrInput `pulumi:"partitionKey"`
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy UniqueKeyPolicyResponsePtrInput `pulumi:"uniqueKeyPolicy"`
 }
@@ -8981,11 +8863,6 @@ func (o SqlContainerGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutp
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlContainerGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 func (o SqlContainerGetPropertiesResponseResourceOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *UniqueKeyPolicyResponse { return v.UniqueKeyPolicy }).(UniqueKeyPolicyResponsePtrOutput)
@@ -9079,16 +8956,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringP
 		}
 		return &v.Rid
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -9470,8 +9337,6 @@ type SqlDatabaseGetPropertiesResponseResource struct {
 	Id string `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 	// A system generated property that specifies the addressable path of the users resource.
 	Users *string `pulumi:"users"`
 }
@@ -9496,8 +9361,6 @@ type SqlDatabaseGetPropertiesResponseResourceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 	// A system generated property that specifies the addressable path of the users resource.
 	Users pulumi.StringPtrInput `pulumi:"users"`
 }
@@ -9599,11 +9462,6 @@ func (o SqlDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutpu
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 // A system generated property that specifies the addressable path of the users resource.
 func (o SqlDatabaseGetPropertiesResponseResourceOutput) Users() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *string { return v.Users }).(pulumi.StringPtrOutput)
@@ -9665,16 +9523,6 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPt
 		}
 		return &v.Rid
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // A system generated property that specifies the addressable path of the users resource.
@@ -9830,8 +9678,6 @@ type SqlStoredProcedureGetPropertiesResponseResource struct {
 	Id string `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // SqlStoredProcedureGetPropertiesResponseResourceInput is an input type that accepts SqlStoredProcedureGetPropertiesResponseResourceArgs and SqlStoredProcedureGetPropertiesResponseResourceOutput values.
@@ -9854,8 +9700,6 @@ type SqlStoredProcedureGetPropertiesResponseResourceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (SqlStoredProcedureGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -9955,11 +9799,6 @@ func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Rid() pulumi.Stri
 	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 type SqlStoredProcedureGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
@@ -10018,16 +9857,6 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Rid() pulumi.S
 		}
 		return &v.Rid
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB SQL storedProcedure resource object
@@ -10196,8 +10025,6 @@ type SqlTriggerGetPropertiesResponseResource struct {
 	TriggerOperation *string `pulumi:"triggerOperation"`
 	// Type of the Trigger
 	TriggerType *string `pulumi:"triggerType"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // SqlTriggerGetPropertiesResponseResourceInput is an input type that accepts SqlTriggerGetPropertiesResponseResourceArgs and SqlTriggerGetPropertiesResponseResourceOutput values.
@@ -10224,8 +10051,6 @@ type SqlTriggerGetPropertiesResponseResourceArgs struct {
 	TriggerOperation pulumi.StringPtrInput `pulumi:"triggerOperation"`
 	// Type of the Trigger
 	TriggerType pulumi.StringPtrInput `pulumi:"triggerType"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (SqlTriggerGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -10335,11 +10160,6 @@ func (o SqlTriggerGetPropertiesResponseResourceOutput) TriggerType() pulumi.Stri
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *string { return v.TriggerType }).(pulumi.StringPtrOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlTriggerGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 type SqlTriggerGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (SqlTriggerGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
@@ -10416,16 +10236,6 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) TriggerType() pulumi.S
 		}
 		return v.TriggerType
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB SQL trigger resource object
@@ -10628,8 +10438,6 @@ type SqlUserDefinedFunctionGetPropertiesResponseResource struct {
 	Id string `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // SqlUserDefinedFunctionGetPropertiesResponseResourceInput is an input type that accepts SqlUserDefinedFunctionGetPropertiesResponseResourceArgs and SqlUserDefinedFunctionGetPropertiesResponseResourceOutput values.
@@ -10652,8 +10460,6 @@ type SqlUserDefinedFunctionGetPropertiesResponseResourceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (SqlUserDefinedFunctionGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -10753,11 +10559,6 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Rid() pulumi.
 	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 type SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
@@ -10816,16 +10617,6 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Rid() pulu
 		}
 		return &v.Rid
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB SQL userDefinedFunction resource object
@@ -11119,8 +10910,6 @@ type TableGetPropertiesResponseResource struct {
 	Id string `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // TableGetPropertiesResponseResourceInput is an input type that accepts TableGetPropertiesResponseResourceArgs and TableGetPropertiesResponseResourceOutput values.
@@ -11141,8 +10930,6 @@ type TableGetPropertiesResponseResourceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (TableGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -11237,11 +11024,6 @@ func (o TableGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o TableGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v TableGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
-}
-
 type TableGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (TableGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
@@ -11288,16 +11070,6 @@ func (o TableGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutpu
 		}
 		return &v.Rid
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o TableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *TableGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Ts
-	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB table resource object

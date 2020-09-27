@@ -95,7 +95,7 @@ type accountArgs struct {
 	// The Azure instance location.
 	Location *string `pulumi:"location"`
 	// The type of the operation.
-	OperationType map[string]interface{} `pulumi:"operationType"`
+	OperationType *string `pulumi:"operationType"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the resource.
@@ -111,7 +111,7 @@ type AccountArgs struct {
 	// The Azure instance location.
 	Location pulumi.StringPtrInput
 	// The type of the operation.
-	OperationType pulumi.MapInput
+	OperationType pulumi.StringPtrInput
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the resource.

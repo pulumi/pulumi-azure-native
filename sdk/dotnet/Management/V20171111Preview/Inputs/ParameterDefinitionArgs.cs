@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.Management.V20171111Preview.Inputs
     public sealed class ParameterDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("allowedValues")]
-        private InputList<ImmutableDictionary<string, object>>? _allowedValues;
+        private InputList<object>? _allowedValues;
 
         /// <summary>
         /// Array of allowed values for this parameter.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> AllowedValues
+        public InputList<object> AllowedValues
         {
-            get => _allowedValues ?? (_allowedValues = new InputList<ImmutableDictionary<string, object>>());
+            get => _allowedValues ?? (_allowedValues = new InputList<object>());
             set => _allowedValues = value;
         }
-
-        [Input("defaultValue")]
-        private InputMap<object>? _defaultValue;
 
         /// <summary>
         /// Default Value for this parameter.
         /// </summary>
-        public InputMap<object> DefaultValue
-        {
-            get => _defaultValue ?? (_defaultValue = new InputMap<object>());
-            set => _defaultValue = value;
-        }
+        [Input("defaultValue")]
+        public Input<object>? DefaultValue { get; set; }
 
         /// <summary>
         /// Description of this parameter/resourceGroup.

@@ -70,10 +70,6 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Ts;
-        /// <summary>
         /// The type of Azure resource.
         /// </summary>
         public readonly string Type;
@@ -96,8 +92,6 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableDictionary<string, object>? ts,
-
             string type,
 
             string? users)
@@ -108,7 +102,6 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106
             Name = name;
             Rid = rid;
             Tags = tags;
-            Ts = ts;
             Type = type;
             Users = users;
         }

@@ -217,7 +217,7 @@ class DynamicMetricCriteriaResponse(dict):
                  metric_name: str,
                  name: str,
                  operator: str,
-                 time_aggregation: Mapping[str, Any],
+                 time_aggregation: str,
                  dimensions: Optional[Sequence['outputs.MetricDimensionResponse']] = None,
                  ignore_data_before: Optional[str] = None,
                  metric_namespace: Optional[str] = None,
@@ -230,7 +230,7 @@ class DynamicMetricCriteriaResponse(dict):
         :param str metric_name: Name of the metric.
         :param str name: Name of the criteria.
         :param str operator: The operator used to compare the metric value against the threshold.
-        :param Mapping[str, Any] time_aggregation: the criteria time aggregation types.
+        :param str time_aggregation: the criteria time aggregation types.
         :param Sequence['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
         :param str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         :param str metric_namespace: Namespace of the metric.
@@ -302,7 +302,7 @@ class DynamicMetricCriteriaResponse(dict):
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> Mapping[str, Any]:
+    def time_aggregation(self) -> str:
         """
         the criteria time aggregation types.
         """
@@ -666,7 +666,7 @@ class MetricCriteriaResponse(dict):
                  name: str,
                  operator: str,
                  threshold: float,
-                 time_aggregation: Mapping[str, Any],
+                 time_aggregation: str,
                  dimensions: Optional[Sequence['outputs.MetricDimensionResponse']] = None,
                  metric_namespace: Optional[str] = None,
                  skip_metric_validation: Optional[bool] = None):
@@ -677,7 +677,7 @@ class MetricCriteriaResponse(dict):
         :param str name: Name of the criteria.
         :param str operator: the criteria operator.
         :param float threshold: the criteria threshold value that activates the alert.
-        :param Mapping[str, Any] time_aggregation: the criteria time aggregation types.
+        :param str time_aggregation: the criteria time aggregation types.
         :param Sequence['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -737,7 +737,7 @@ class MetricCriteriaResponse(dict):
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> Mapping[str, Any]:
+    def time_aggregation(self) -> str:
         """
         the criteria time aggregation types.
         """
