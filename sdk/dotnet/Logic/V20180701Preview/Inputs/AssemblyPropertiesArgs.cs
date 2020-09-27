@@ -46,12 +46,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Inputs
         public Input<string>? ChangedTime { get; set; }
 
         [Input("content")]
-        private InputMap<object>? _content;
-        public InputMap<object> Content
-        {
-            get => _content ?? (_content = new InputMap<object>());
-            set => _content = value;
-        }
+        public Input<object>? Content { get; set; }
 
         /// <summary>
         /// The content link.
@@ -72,12 +67,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Inputs
         public Input<string>? CreatedTime { get; set; }
 
         [Input("metadata")]
-        private InputMap<object>? _metadata;
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        public Input<object>? Metadata { get; set; }
 
         public AssemblyPropertiesArgs()
         {

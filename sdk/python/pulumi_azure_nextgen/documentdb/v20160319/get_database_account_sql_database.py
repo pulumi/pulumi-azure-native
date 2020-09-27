@@ -19,7 +19,7 @@ class GetDatabaseAccountSqlDatabaseResult:
     """
     An Azure Cosmos DB SQL database.
     """
-    def __init__(__self__, colls=None, etag=None, location=None, name=None, rid=None, tags=None, ts=None, type=None, users=None):
+    def __init__(__self__, colls=None, etag=None, location=None, name=None, rid=None, tags=None, type=None, users=None):
         if colls and not isinstance(colls, str):
             raise TypeError("Expected argument 'colls' to be a str")
         pulumi.set(__self__, "colls", colls)
@@ -38,9 +38,6 @@ class GetDatabaseAccountSqlDatabaseResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if ts and not isinstance(ts, dict):
-            raise TypeError("Expected argument 'ts' to be a dict")
-        pulumi.set(__self__, "ts", ts)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -98,14 +95,6 @@ class GetDatabaseAccountSqlDatabaseResult:
 
     @property
     @pulumi.getter
-    def ts(self) -> Optional[Mapping[str, Any]]:
-        """
-        A system generated property that denotes the last updated timestamp of the resource.
-        """
-        return pulumi.get(self, "ts")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         The type of Azure resource.
@@ -133,7 +122,6 @@ class AwaitableGetDatabaseAccountSqlDatabaseResult(GetDatabaseAccountSqlDatabase
             name=self.name,
             rid=self.rid,
             tags=self.tags,
-            ts=self.ts,
             type=self.type,
             users=self.users)
 
@@ -166,6 +154,5 @@ def get_database_account_sql_database(account_name: Optional[str] = None,
         name=__ret__.name,
         rid=__ret__.rid,
         tags=__ret__.tags,
-        ts=__ret__.ts,
         type=__ret__.type,
         users=__ret__.users)

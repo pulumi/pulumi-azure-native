@@ -61,10 +61,6 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A system generated property that denotes the last updated timestamp of the resource.
-     */
-    public /*out*/ readonly ts!: pulumi.Output<{[key: string]: any} | undefined>;
-    /**
      * The type of Azure resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -109,7 +105,6 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["rid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
-            inputs["ts"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["users"] = undefined /*out*/;
         } else {
@@ -119,7 +114,6 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["rid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
-            inputs["ts"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["users"] = undefined /*out*/;
         }

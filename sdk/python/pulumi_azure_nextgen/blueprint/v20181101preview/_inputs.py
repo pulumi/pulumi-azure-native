@@ -151,16 +151,16 @@ class ManagedServiceIdentityArgs:
 class ParameterDefinitionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 default_value: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 default_value: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  strong_type: Optional[pulumi.Input[str]] = None):
         """
         Represent a parameter with constrains and metadata.
         :param pulumi.Input[str] type: Allowed data types for Resource Manager template parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] allowed_values: Array of allowed values for this parameter.
-        :param pulumi.Input[Mapping[str, Any]] default_value: Default Value for this parameter.
+        :param pulumi.Input[Sequence[Any]] allowed_values: Array of allowed values for this parameter.
+        :param Any default_value: Default Value for this parameter.
         :param pulumi.Input[str] description: Description of this parameter/resourceGroup.
         :param pulumi.Input[str] display_name: DisplayName of this parameter/resourceGroup.
         :param pulumi.Input[str] strong_type: StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
@@ -191,26 +191,26 @@ class ParameterDefinitionArgs:
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         Array of allowed values for this parameter.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "allowed_values", value)
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def default_value(self) -> Optional[Any]:
         """
         Default Value for this parameter.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def default_value(self, value: Optional[Any]):
         pulumi.set(self, "default_value", value)
 
     @property

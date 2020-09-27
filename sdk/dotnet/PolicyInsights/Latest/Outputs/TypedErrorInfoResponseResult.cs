@@ -14,21 +14,13 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest.Outputs
     public sealed class TypedErrorInfoResponseResult
     {
         /// <summary>
-        /// The scenario specific error details.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> Info;
-        /// <summary>
         /// The type of included error details.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
-        private TypedErrorInfoResponseResult(
-            ImmutableDictionary<string, object> info,
-
-            string type)
+        private TypedErrorInfoResponseResult(string type)
         {
-            Info = info;
             Type = type;
         }
     }

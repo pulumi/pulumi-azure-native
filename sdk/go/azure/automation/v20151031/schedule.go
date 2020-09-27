@@ -26,8 +26,6 @@ type Schedule struct {
 	ExpiryTimeOffsetMinutes pulumi.Float64PtrOutput `pulumi:"expiryTimeOffsetMinutes"`
 	// Gets or sets the frequency of the schedule.
 	Frequency pulumi.StringPtrOutput `pulumi:"frequency"`
-	// Gets or sets the interval of the schedule.
-	Interval pulumi.MapOutput `pulumi:"interval"`
 	// Gets or sets a value indicating whether this schedule is enabled.
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 	// Gets or sets the last modified time.
@@ -112,8 +110,6 @@ type scheduleState struct {
 	ExpiryTimeOffsetMinutes *float64 `pulumi:"expiryTimeOffsetMinutes"`
 	// Gets or sets the frequency of the schedule.
 	Frequency *string `pulumi:"frequency"`
-	// Gets or sets the interval of the schedule.
-	Interval map[string]interface{} `pulumi:"interval"`
 	// Gets or sets a value indicating whether this schedule is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// Gets or sets the last modified time.
@@ -147,8 +143,6 @@ type ScheduleState struct {
 	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput
 	// Gets or sets the frequency of the schedule.
 	Frequency pulumi.StringPtrInput
-	// Gets or sets the interval of the schedule.
-	Interval pulumi.MapInput
 	// Gets or sets a value indicating whether this schedule is enabled.
 	IsEnabled pulumi.BoolPtrInput
 	// Gets or sets the last modified time.
@@ -185,7 +179,7 @@ type scheduleArgs struct {
 	// Gets or sets the frequency of the schedule.
 	Frequency string `pulumi:"frequency"`
 	// Gets or sets the interval of the schedule.
-	Interval map[string]interface{} `pulumi:"interval"`
+	Interval interface{} `pulumi:"interval"`
 	// Gets or sets the name of the Schedule.
 	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
@@ -211,7 +205,7 @@ type ScheduleArgs struct {
 	// Gets or sets the frequency of the schedule.
 	Frequency pulumi.StringInput
 	// Gets or sets the interval of the schedule.
-	Interval pulumi.MapInput
+	Interval pulumi.Input
 	// Gets or sets the name of the Schedule.
 	Name pulumi.StringInput
 	// Name of an Azure Resource group.

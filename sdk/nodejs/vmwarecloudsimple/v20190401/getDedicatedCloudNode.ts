@@ -48,10 +48,6 @@ export interface GetDedicatedCloudNodeResult {
      */
     readonly cloudRackName: string;
     /**
-     * date time the resource was created
-     */
-    readonly created: {[key: string]: any};
-    /**
      * Azure region
      */
     readonly location: string;

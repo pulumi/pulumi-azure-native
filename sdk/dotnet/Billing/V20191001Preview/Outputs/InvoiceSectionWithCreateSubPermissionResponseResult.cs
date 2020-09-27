@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Billing.V20191001Preview.Outputs
         /// <summary>
         /// The status of the billing profile.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> BillingProfileStatus;
+        public readonly string BillingProfileStatus;
         /// <summary>
         /// Reason for the specified billing profile status.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Billing.V20191001Preview.Outputs
 
             string billingProfileSpendingLimit,
 
-            ImmutableDictionary<string, object> billingProfileStatus,
+            string billingProfileStatus,
 
             string billingProfileStatusReasonCode,
 

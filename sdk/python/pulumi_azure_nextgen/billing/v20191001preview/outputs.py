@@ -57,7 +57,7 @@ class InvoiceSectionWithCreateSubPermissionResponseResult(dict):
                  billing_profile_display_name: str,
                  billing_profile_id: str,
                  billing_profile_spending_limit: str,
-                 billing_profile_status: Mapping[str, Any],
+                 billing_profile_status: str,
                  billing_profile_status_reason_code: str,
                  invoice_section_display_name: str,
                  invoice_section_id: str,
@@ -67,7 +67,7 @@ class InvoiceSectionWithCreateSubPermissionResponseResult(dict):
         :param str billing_profile_display_name: The name of the billing profile for the invoice section.
         :param str billing_profile_id: The ID of the billing profile for the invoice section.
         :param str billing_profile_spending_limit: The billing profile spending limit.
-        :param Mapping[str, Any] billing_profile_status: The status of the billing profile.
+        :param str billing_profile_status: The status of the billing profile.
         :param str billing_profile_status_reason_code: Reason for the specified billing profile status.
         :param str invoice_section_display_name: The name of the invoice section.
         :param str invoice_section_id: The ID of the invoice section.
@@ -109,7 +109,7 @@ class InvoiceSectionWithCreateSubPermissionResponseResult(dict):
 
     @property
     @pulumi.getter(name="billingProfileStatus")
-    def billing_profile_status(self) -> Mapping[str, Any]:
+    def billing_profile_status(self) -> str:
         """
         The status of the billing profile.
         """

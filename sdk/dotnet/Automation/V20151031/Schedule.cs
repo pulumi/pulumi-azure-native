@@ -51,12 +51,6 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         public Output<string?> Frequency { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the interval of the schedule.
-        /// </summary>
-        [Output("interval")]
-        public Output<ImmutableDictionary<string, object>?> Interval { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets a value indicating whether this schedule is enabled.
         /// </summary>
         [Output("isEnabled")]
@@ -189,17 +183,11 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 
-        [Input("interval")]
-        private InputMap<object>? _interval;
-
         /// <summary>
         /// Gets or sets the interval of the schedule.
         /// </summary>
-        public InputMap<object> Interval
-        {
-            get => _interval ?? (_interval = new InputMap<object>());
-            set => _interval = value;
-        }
+        [Input("interval")]
+        public Input<object>? Interval { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the Schedule.

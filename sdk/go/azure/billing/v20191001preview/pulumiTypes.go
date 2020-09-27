@@ -128,7 +128,7 @@ type InvoiceSectionWithCreateSubPermissionResponse struct {
 	// The billing profile spending limit.
 	BillingProfileSpendingLimit string `pulumi:"billingProfileSpendingLimit"`
 	// The status of the billing profile.
-	BillingProfileStatus map[string]interface{} `pulumi:"billingProfileStatus"`
+	BillingProfileStatus string `pulumi:"billingProfileStatus"`
 	// Reason for the specified billing profile status.
 	BillingProfileStatusReasonCode string `pulumi:"billingProfileStatusReasonCode"`
 	// Enabled azure plans for the associated billing profile.
@@ -159,7 +159,7 @@ type InvoiceSectionWithCreateSubPermissionResponseArgs struct {
 	// The billing profile spending limit.
 	BillingProfileSpendingLimit pulumi.StringInput `pulumi:"billingProfileSpendingLimit"`
 	// The status of the billing profile.
-	BillingProfileStatus pulumi.MapInput `pulumi:"billingProfileStatus"`
+	BillingProfileStatus pulumi.StringInput `pulumi:"billingProfileStatus"`
 	// Reason for the specified billing profile status.
 	BillingProfileStatusReasonCode pulumi.StringInput `pulumi:"billingProfileStatusReasonCode"`
 	// Enabled azure plans for the associated billing profile.
@@ -238,10 +238,8 @@ func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileSpend
 }
 
 // The status of the billing profile.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileStatus() pulumi.MapOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) map[string]interface{} {
-		return v.BillingProfileStatus
-	}).(pulumi.MapOutput)
+func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileStatus }).(pulumi.StringOutput)
 }
 
 // Reason for the specified billing profile status.

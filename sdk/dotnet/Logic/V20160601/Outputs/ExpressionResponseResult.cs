@@ -19,7 +19,6 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Outputs
         public readonly Outputs.AzureResourceErrorInfoResponseResult? Error;
         public readonly ImmutableArray<Outputs.ExpressionResponseResult> Subexpressions;
         public readonly string? Text;
-        public readonly ImmutableDictionary<string, object>? Value;
 
         [OutputConstructor]
         private ExpressionResponseResult(
@@ -27,14 +26,11 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Outputs
 
             ImmutableArray<Outputs.ExpressionResponseResult> subexpressions,
 
-            string? text,
-
-            ImmutableDictionary<string, object>? value)
+            string? text)
         {
             Error = error;
             Subexpressions = subexpressions;
             Text = text;
-            Value = value;
         }
     }
 }

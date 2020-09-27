@@ -36,7 +36,7 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_key_config_url: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 fluentd_config_url: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 fluentd_config_url: Optional[Any] = None,
                  ma_config_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None):
@@ -46,7 +46,7 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
         :param pulumi.Input[str] account_name: Azure Internal monitoring pipeline account.
         :param pulumi.Input[str] auto_key_config_url: Azure Internal monitoring pipeline autokey associated with the certificate.
         :param pulumi.Input[str] description: A description of the sink.
-        :param pulumi.Input[Mapping[str, Any]] fluentd_config_url: Azure Internal monitoring agent fluentd configuration.
+        :param Any fluentd_config_url: Azure Internal monitoring agent fluentd configuration.
         :param pulumi.Input[str] ma_config_url: Azure Internal monitoring agent configuration.
         :param pulumi.Input[str] name: Name of the sink. This value is referenced by DiagnosticsReferenceDescription
         :param pulumi.Input[str] namespace: Azure Internal monitoring pipeline account namespace.
@@ -117,14 +117,14 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
 
     @property
     @pulumi.getter(name="fluentdConfigUrl")
-    def fluentd_config_url(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def fluentd_config_url(self) -> Optional[Any]:
         """
         Azure Internal monitoring agent fluentd configuration.
         """
         return pulumi.get(self, "fluentd_config_url")
 
     @fluentd_config_url.setter
-    def fluentd_config_url(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def fluentd_config_url(self, value: Optional[Any]):
         pulumi.set(self, "fluentd_config_url", value)
 
     @property

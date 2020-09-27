@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Outputs
         /// <summary>
         /// the criteria time aggregation types.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> TimeAggregation;
+        public readonly string TimeAggregation;
 
         [OutputConstructor]
         private DynamicMetricCriteriaResponse(
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Outputs
 
             bool? skipMetricValidation,
 
-            ImmutableDictionary<string, object> timeAggregation)
+            string timeAggregation)
         {
             AlertSensitivity = alertSensitivity;
             CriterionType = criterionType;

@@ -109,7 +109,7 @@ export interface AccountArgs {
     /**
      * The type of the operation.
      */
-    readonly operationType?: pulumi.Input<{[key: string]: any}>;
+    readonly operationType?: pulumi.Input<string>;
     /**
      * Name of the resource group within the Azure subscription.
      */

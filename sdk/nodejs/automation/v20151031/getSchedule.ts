@@ -65,10 +65,6 @@ export interface GetScheduleResult {
      */
     readonly frequency?: string;
     /**
-     * Gets or sets the interval of the schedule.
-     */
-    readonly interval?: {[key: string]: any};
-    /**
      * Gets or sets a value indicating whether this schedule is enabled.
      */
     readonly isEnabled?: boolean;

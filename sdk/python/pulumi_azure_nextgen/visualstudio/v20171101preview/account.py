@@ -17,7 +17,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 operation_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 operation_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -31,7 +31,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The account name.
         :param pulumi.Input[str] location: The Azure instance location.
-        :param pulumi.Input[Mapping[str, Any]] operation_type: The type of the operation.
+        :param pulumi.Input[str] operation_type: The type of the operation.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         :param pulumi.Input[str] resource_name_: Name of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The custom tags of the resource.

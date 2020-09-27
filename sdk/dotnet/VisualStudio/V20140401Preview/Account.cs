@@ -99,17 +99,11 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("operationType")]
-        private InputMap<object>? _operationType;
-
         /// <summary>
         /// The type of the operation.
         /// </summary>
-        public InputMap<object> OperationType
-        {
-            get => _operationType ?? (_operationType = new InputMap<object>());
-            set => _operationType = value;
-        }
+        [Input("operationType")]
+        public Input<string>? OperationType { get; set; }
 
         /// <summary>
         /// Name of the resource group within the Azure subscription.

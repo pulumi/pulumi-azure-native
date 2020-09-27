@@ -14,14 +14,6 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview.Outputs
     public sealed class ParameterDefinitionResponse
     {
         /// <summary>
-        /// Array of allowed values for this parameter.
-        /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> AllowedValues;
-        /// <summary>
-        /// Default Value for this parameter.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? DefaultValue;
-        /// <summary>
         /// Description of this parameter/resourceGroup.
         /// </summary>
         public readonly string? Description;
@@ -40,10 +32,6 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview.Outputs
 
         [OutputConstructor]
         private ParameterDefinitionResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> allowedValues,
-
-            ImmutableDictionary<string, object>? defaultValue,
-
             string? description,
 
             string? displayName,
@@ -52,8 +40,6 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview.Outputs
 
             string type)
         {
-            AllowedValues = allowedValues;
-            DefaultValue = defaultValue;
             Description = description;
             DisplayName = displayName;
             StrongType = strongType;

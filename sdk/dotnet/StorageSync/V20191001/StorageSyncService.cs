@@ -114,12 +114,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
         public Input<string> Location { get; set; } = null!;
 
         [Input("properties")]
-        private InputMap<object>? _properties;
-        public InputMap<object> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
-        }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
