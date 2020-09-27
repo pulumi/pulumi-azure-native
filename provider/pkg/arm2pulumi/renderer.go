@@ -5,6 +5,7 @@ import (
 	"github.com/hashicorp/hcl/v2"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2"
@@ -24,13 +25,27 @@ import (
 	"github.com/sourcegraph/jsonx"
 )
 
+type Renderer struct {
+	pkgSpec  *schema.PackageSpec
+	metadata *provider.AzureAPIMetadata
+}
+
+// NewRenderer creates a new Renderer which can be used to
+// generate Pulumi programs from ARM templates.
+func NewRenderer(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata) *Renderer {
+	return &Renderer{
+		pkgSpec:  pkgSpec,
+		metadata: metadata,
+	}
+}
+
 // RenderIR generates an intermediate representation from template
 // files passed as a map of file name to content.
 // If metadata or pkgSpec are nil, they are loaded from the serialized
 // versions generated at schema generation time.
 // The return type is a *model.Body along with diagnostic information
 // grouped by template element name.
-func RenderIR(files map[string]string) (*model.Body, map[string][]Diagnostic, error) {
+func (r *Renderer) RenderIR(files map[string]string) (*model.Body, map[string][]Diagnostic, error) {
 	jsonxMap := map[string]*jsonx.Node{}
 
 	for fileName, content := range files {
@@ -40,7 +55,7 @@ func RenderIR(files map[string]string) (*model.Body, map[string][]Diagnostic, er
 			return nil, nil, err
 		}
 	}
-	return renderTemplate(jsonxMap)
+	return renderTemplate(r.pkgSpec, r.metadata, jsonxMap)
 }
 
 // RenderIRFromReader generates an intermediate representation from template
@@ -51,7 +66,7 @@ func RenderIR(files map[string]string) (*model.Body, map[string][]Diagnostic, er
 //
 // The return type is a *model.Body along with diagnostic information
 // grouped by template element name.
-func RenderIRFromReader(reader io.Reader) (*model.Body, map[string][]Diagnostic, error) {
+func (r *Renderer) RenderIRFromReader(reader io.Reader) (*model.Body, map[string][]Diagnostic, error) {
 
 	buf := new(strings.Builder)
 	if _, err := io.Copy(buf, reader); err != nil {
@@ -61,7 +76,7 @@ func RenderIRFromReader(reader io.Reader) (*model.Body, map[string][]Diagnostic,
 	if err != nil {
 		return nil, nil, err
 	}
-	return renderTemplate(map[string]*jsonx.Node{"azure-deploy.json": root})
+	return renderTemplate(r.pkgSpec, r.metadata, map[string]*jsonx.Node{"azure-deploy.json": root})
 }
 
 // RenderFileIR generates an intermediate representation from template body
@@ -71,7 +86,7 @@ func RenderIRFromReader(reader io.Reader) (*model.Body, map[string][]Diagnostic,
 // The return type is a *model.Body along with diagnostic information
 // grouped by template element name. If there are fatal errors processing
 // the template, an error is returned.
-func RenderFileIR(path string) (*model.Body, map[string][]Diagnostic, error) {
+func (r *Renderer) RenderFileIR(path string) (*model.Body, map[string][]Diagnostic, error) {
 
 	fileInfo, err := os.Stat(path)
 	if err != nil {
@@ -111,26 +126,22 @@ func RenderFileIR(path string) (*model.Body, map[string][]Diagnostic, error) {
 
 	}
 
-	return renderTemplate(parseTrees)
+	return renderTemplate(r.pkgSpec, r.metadata, parseTrees)
 }
 
 // renderTemplate renders a parsed ARM template to a PCL program body.
 // If there are errors in the template, the function returns an error.
 // Otherwise partial failures are returned through a map of diagnostics
 // keyed by the element name.
-func renderTemplate(templates map[string]*jsonx.Node) (*model.Body, map[string][]Diagnostic, error) {
+func renderTemplate(
+	pkgSpec *schema.PackageSpec,
+	metadata *provider.AzureAPIMetadata,
+	templates map[string]*jsonx.Node,
+) (*model.Body, map[string][]Diagnostic, error) {
 	switch len(templates) {
 	case 0:
 		return &model.Body{}, nil, nil
 	}
-
-	if _, err := loadSchema(); err != nil {
-		return nil, nil, err
-	}
-	if _, err := loadMetadata(); err != nil {
-		return nil, nil, err
-	}
-
 	templ := NewTemplateElements()
 
 	for _, root := range templates {
@@ -214,7 +225,7 @@ func renderTemplate(templates map[string]*jsonx.Node) (*model.Body, map[string][
 		return nil, nil, err
 	}
 
-	if err := templ.Validate(); err != nil {
+	if err := templ.Validate(pkgSpec, metadata); err != nil {
 		return nil, nil, err
 	}
 
@@ -246,11 +257,11 @@ func parseJsonxTree(text string) (*jsonx.Node, error) {
 // the second return value is set to 'false' and an error is returned but partial successes are
 // returned in the map.
 // If all languages succeeded, true is returned for success and error is nil.
-func RenderPrograms(body *model.Body, languages []string) (map[string]string, bool, error) {
+func (r *Renderer) RenderPrograms(body *model.Body, languages []string) (map[string]string, bool, error) {
 	programBody := fmt.Sprintf("%v", body)
 	debug.Log("%s\n", programBody)
 
-	pkg, err := schema.ImportSpec(*pkgSpec, nil)
+	pkg, err := schema.ImportSpec(*r.pkgSpec, nil)
 	if err != nil {
 		return nil, false, fmt.Errorf("importing package spec: %w", err)
 	}

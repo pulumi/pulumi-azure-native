@@ -1,8 +1,14 @@
 package main
 
 import (
+	"bytes"
+	"compress/gzip"
+	"encoding/json"
 	"fmt"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"io"
 	"log"
 	"os"
@@ -34,9 +40,20 @@ func main() {
 		langs = os.Args[2]
 	}
 
+	pkgSpec, err := loadSchema()
+	if err != nil {
+		log.Fatalf("Failed to load schema: %+v", err)
+	}
+
+	metadata, err := loadMetadata()
+	if err != nil {
+		log.Fatalf("Failed to load metadata: %+v", err)
+	}
+
+	renderer := arm2pulumi.NewRenderer(pkgSpec, metadata)
 	log.Print("Starting render\n")
 	dir := time.Now()
-	body, diagnostics, err := arm2pulumi.RenderIRFromReader(readFrom)
+	body, diagnostics, err := renderer.RenderIRFromReader(readFrom)
 	if err != nil {
 		log.Fatalf("Failure rendering IR from template: %+v", err)
 	}
@@ -46,7 +63,7 @@ func main() {
 
 	languages := strings.Split(langs, ",")
 	dpro := time.Now()
-	programsMap, _, err := arm2pulumi.RenderPrograms(body, languages)
+	programsMap, _, err := renderer.RenderPrograms(body, languages)
 	if err != nil {
 		log.Printf("Failure rendering programs: %+v", err)
 	}
@@ -68,4 +85,36 @@ func main() {
 		}
 		fmt.Println()
 	}
+}
+
+// loadMetadata loads the serialized/compressed metadata generated during
+// schema generation from metadata.go
+func loadMetadata() (*provider.AzureAPIMetadata, error) {
+	metadata, err := provider.LoadMetadata(azureApiResources)
+	if err != nil {
+		return nil, fmt.Errorf("loading metadata: %w", err)
+	}
+	return metadata, nil
+}
+
+// loadSchema loads the serialized/compressed schema generated during
+// generation from schema.go
+func loadSchema() (*schema.PackageSpec, error) {
+	var pkgSpec schema.PackageSpec
+	uncompressed, err := gzip.NewReader(bytes.NewReader(pulumiSchema))
+	if err != nil {
+		return nil, fmt.Errorf("loading schema: %w", err)
+	}
+
+	if err = json.NewDecoder(uncompressed).Decode(&pkgSpec); err != nil {
+		return nil, fmt.Errorf("deserializing schema: %w", err)
+	}
+	if err = uncompressed.Close(); err != nil {
+		return nil, fmt.Errorf("closing uncompress stream for schema: %w", err)
+	}
+	// embed version because go codegen is particularly sensitive to this.
+	if pkgSpec.Version == "" {
+		pkgSpec.Version = version.Version
+	}
+	return &pkgSpec, nil
 }

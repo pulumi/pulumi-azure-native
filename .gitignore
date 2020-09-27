@@ -13,9 +13,7 @@ yarn.lock
 package-lock.json
 
 **/metadata.go
-!/provider/pkg/arm2pulumi/metadata.go
 **/schema.go
-!/provider/pkg/arm2pulumi/schema.go
 **/version.txt
 **/nuget
 **/dist
