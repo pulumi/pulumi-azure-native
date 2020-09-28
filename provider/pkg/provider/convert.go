@@ -2,7 +2,11 @@
 
 package provider
 
-import "strings"
+import (
+	"strings"
+
+	"github.com/pkg/errors"
+)
 
 func (k *azureNextGenProvider) sdkPropertyToRequest(prop *AzureAPIProperty, value interface{}) interface{} {
 	switch value := value.(type) {
@@ -126,4 +130,101 @@ func (k *azureNextGenProvider) responseToSdkOutputs(props map[string]AzureAPIPro
 		}
 	}
 	return result
+}
+
+// parseResourceID extracts templated values from the given resource ID based on the names of those templated
+// values in an HTTP path. The structure of id and path must match: same segment count and segment names.
+func (k *azureNextGenProvider) parseResourceID(id, path string) (map[string]string, error) {
+	pathParts := strings.Split(path, "/")
+	idParts := strings.Split(id, "/")
+	if len(pathParts) != len(idParts) {
+		return nil, errors.Errorf("length of id doesn't match the path: '%s' vs. '%s'", id, path)
+	}
+
+	result := map[string]string{}
+	for i, s := range pathParts {
+		value := idParts[i]
+		switch {
+		case strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}"):
+			name := s[1 : len(s)-1]
+			result[name] = value
+		case !strings.EqualFold(s, value):
+			return nil, errors.Errorf("failed parsing id: %s <> %s", s, value)
+		}
+	}
+	return result, nil
+}
+
+// responseToSdkInputs calculates a map of input values that would produce the given resource path and
+// response. This is useful when we need to import an existing resource based on its current properties.
+func (k *azureNextGenProvider) responseToSdkInputs(parameters []AzureAPIParameter,
+	pathValues map[string]string, response map[string]interface{}) map[string]interface{} {
+	result := map[string]interface{}{}
+	for _, param := range parameters {
+		switch {
+		case strings.EqualFold(param.Name, "subscriptionId"):
+			// Ignore
+		case param.Location == "path":
+			name := param.Name
+			result[name] = pathValues[name]
+		case param.Location == body:
+			bodyProps := k.responseToSdkOutputs(param.Body.Properties, response)
+			for k, v := range bodyProps {
+				switch {
+				case k == "id":
+					// Some resources have a top-level `id` property which is (probably incorrectly) marked as
+					// non-readonly. `id` is a special property to Pulumi and will always cause diffs if set in
+					// the result of a Read operation and block import. So, don't copy it to inputs.
+					continue
+				default:
+					// Attempt to exclude insignificant properties from the inputs. A resource response would
+					// contain a lot of default values, e.g. empty arrays when no values were specified, empty
+					// strings, or false booleans. The decision to remove them is somewhat arbitrary but it
+					// seems to make the practical import experience smoother.
+					result[k] = removeDefaultValues(v)
+				}
+			}
+		}
+	}
+	return result
+}
+
+// removeDefaultValues returns nil if the given value is a default for its type (e.g. `false`, or an
+// empty string). It also applies this recursively for values in arrays and maps.
+func removeDefaultValues(value interface{}) interface{} {
+	switch value := value.(type) {
+	case map[string]interface{}:
+		result := map[string]interface{}{}
+		for k, v := range value {
+			resultValue := removeDefaultValues(v)
+			if resultValue != nil {
+				result[k] = resultValue
+			}
+		}
+		if len(result) == 0 {
+			return nil
+		}
+		return result
+	case []interface{}:
+		var result []interface{}
+		for _, v := range value {
+			resultValue := removeDefaultValues(v)
+			if resultValue != nil {
+				result = append(result, resultValue)
+			}
+		}
+		if len(result) == 0 {
+			return nil
+		}
+		return result
+	case bool:
+		if !value {
+			return nil
+		}
+	case string:
+		if len(value) == 0 {
+			return nil
+		}
+	}
+	return value
 }
