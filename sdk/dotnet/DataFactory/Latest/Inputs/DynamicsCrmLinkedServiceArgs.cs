@@ -123,17 +123,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("servicePrincipalCredential")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalCredential { get; set; }
 
-        [Input("servicePrincipalCredentialType")]
-        private InputMap<object>? _servicePrincipalCredentialType;
-
         /// <summary>
         /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ServicePrincipalCredentialType
-        {
-            get => _servicePrincipalCredentialType ?? (_servicePrincipalCredentialType = new InputMap<object>());
-            set => _servicePrincipalCredentialType = value;
-        }
+        [Input("servicePrincipalCredentialType")]
+        public Input<string>? ServicePrincipalCredentialType { get; set; }
 
         [Input("servicePrincipalId")]
         private InputMap<object>? _servicePrincipalId;

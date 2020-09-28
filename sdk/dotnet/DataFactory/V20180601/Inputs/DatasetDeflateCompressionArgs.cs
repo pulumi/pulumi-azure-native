@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class DatasetDeflateCompressionArgs : Pulumi.ResourceArgs
     {
-        [Input("level")]
-        private InputMap<object>? _level;
-
         /// <summary>
         /// The Deflate compression level.
         /// </summary>
-        public InputMap<object> Level
-        {
-            get => _level ?? (_level = new InputMap<object>());
-            set => _level = value;
-        }
+        [Input("level")]
+        public Input<string>? Level { get; set; }
 
         /// <summary>
         /// Type of dataset compression.

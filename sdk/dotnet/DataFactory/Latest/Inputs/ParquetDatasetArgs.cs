@@ -28,12 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         }
 
         [Input("compressionCodec")]
-        private InputMap<object>? _compressionCodec;
-        public InputMap<object> CompressionCodec
-        {
-            get => _compressionCodec ?? (_compressionCodec = new InputMap<object>());
-            set => _compressionCodec = value;
-        }
+        public Input<string>? CompressionCodec { get; set; }
 
         /// <summary>
         /// Dataset description.

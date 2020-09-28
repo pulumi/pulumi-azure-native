@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The ZipDeflate compression level.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Level;
+        public readonly string? Level;
         /// <summary>
         /// Type of dataset compression.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private DatasetZipDeflateCompressionResponse(
-            ImmutableDictionary<string, object>? level,
+            string? level,
 
             string type)
         {

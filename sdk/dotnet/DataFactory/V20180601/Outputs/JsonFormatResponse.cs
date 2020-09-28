@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? FilePattern;
+        public readonly string? FilePattern;
         /// <summary>
         /// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             ImmutableDictionary<string, object>? encodingName,
 
-            ImmutableDictionary<string, object>? filePattern,
+            string? filePattern,
 
             ImmutableDictionary<string, object>? jsonNodeReference,
 

@@ -5496,11 +5496,11 @@ class DatasetBZip2CompressionArgs:
 class DatasetDeflateCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 level: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 level: Optional[pulumi.Input[str]] = None):
         """
         The Deflate compression method used on a dataset.
         :param pulumi.Input[str] type: Type of dataset compression.
-        :param pulumi.Input[Mapping[str, Any]] level: The Deflate compression level.
+        :param pulumi.Input[str] level: The Deflate compression level.
         """
         pulumi.set(__self__, "type", 'Deflate')
         if level is not None:
@@ -5520,14 +5520,14 @@ class DatasetDeflateCompressionArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def level(self) -> Optional[pulumi.Input[str]]:
         """
         The Deflate compression level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
 
 
@@ -5535,11 +5535,11 @@ class DatasetDeflateCompressionArgs:
 class DatasetGZipCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 level: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 level: Optional[pulumi.Input[str]] = None):
         """
         The GZip compression method used on a dataset.
         :param pulumi.Input[str] type: Type of dataset compression.
-        :param pulumi.Input[Mapping[str, Any]] level: The GZip compression level.
+        :param pulumi.Input[str] level: The GZip compression level.
         """
         pulumi.set(__self__, "type", 'GZip')
         if level is not None:
@@ -5559,14 +5559,14 @@ class DatasetGZipCompressionArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def level(self) -> Optional[pulumi.Input[str]]:
         """
         The GZip compression level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
 
 
@@ -5574,11 +5574,11 @@ class DatasetGZipCompressionArgs:
 class DatasetZipDeflateCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 level: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 level: Optional[pulumi.Input[str]] = None):
         """
         The ZipDeflate compression method used on a dataset.
         :param pulumi.Input[str] type: Type of dataset compression.
-        :param pulumi.Input[Mapping[str, Any]] level: The ZipDeflate compression level.
+        :param pulumi.Input[str] level: The ZipDeflate compression level.
         """
         pulumi.set(__self__, "type", 'ZipDeflate')
         if level is not None:
@@ -5598,14 +5598,14 @@ class DatasetZipDeflateCompressionArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def level(self) -> Optional[pulumi.Input[str]]:
         """
         The ZipDeflate compression level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
 
 
@@ -6249,8 +6249,8 @@ class DynamicsEntityDatasetArgs:
 @pulumi.input_type
 class DynamicsLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[Mapping[str, Any]],
-                 deployment_type: pulumi.Input[Mapping[str, Any]],
+                 authentication_type: pulumi.Input[str],
+                 deployment_type: pulumi.Input[str],
                  type: pulumi.Input[str],
                  username: pulumi.Input[Mapping[str, Any]],
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
@@ -6265,8 +6265,8 @@ class DynamicsLinkedServiceArgs:
                  service_uri: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Dynamics linked service.
-        :param pulumi.Input[Mapping[str, Any]] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Mapping[str, Any]] username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
@@ -6307,26 +6307,26 @@ class DynamicsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[Mapping[str, Any]]:
+    def authentication_type(self) -> pulumi.Input[str]:
         """
         The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[Mapping[str, Any]]):
+    def authentication_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "authentication_type", value)
 
     @property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> pulumi.Input[Mapping[str, Any]]:
+    def deployment_type(self) -> pulumi.Input[str]:
         """
         The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
-    def deployment_type(self, value: pulumi.Input[Mapping[str, Any]]):
+    def deployment_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "deployment_type", value)
 
     @property

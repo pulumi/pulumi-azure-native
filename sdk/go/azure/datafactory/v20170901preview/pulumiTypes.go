@@ -9765,7 +9765,7 @@ func (o DatasetBZip2CompressionResponseOutput) Type() pulumi.StringOutput {
 // The Deflate compression method used on a dataset.
 type DatasetDeflateCompression struct {
 	// The Deflate compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -9784,7 +9784,7 @@ type DatasetDeflateCompressionInput interface {
 // The Deflate compression method used on a dataset.
 type DatasetDeflateCompressionArgs struct {
 	// The Deflate compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -9817,8 +9817,8 @@ func (o DatasetDeflateCompressionOutput) ToDatasetDeflateCompressionOutputWithCo
 }
 
 // The Deflate compression level.
-func (o DatasetDeflateCompressionOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetDeflateCompression) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetDeflateCompressionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDeflateCompression) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -9829,7 +9829,7 @@ func (o DatasetDeflateCompressionOutput) Type() pulumi.StringOutput {
 // The Deflate compression method used on a dataset.
 type DatasetDeflateCompressionResponse struct {
 	// The Deflate compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -9848,7 +9848,7 @@ type DatasetDeflateCompressionResponseInput interface {
 // The Deflate compression method used on a dataset.
 type DatasetDeflateCompressionResponseArgs struct {
 	// The Deflate compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -9881,8 +9881,8 @@ func (o DatasetDeflateCompressionResponseOutput) ToDatasetDeflateCompressionResp
 }
 
 // The Deflate compression level.
-func (o DatasetDeflateCompressionResponseOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetDeflateCompressionResponse) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetDeflateCompressionResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDeflateCompressionResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -9893,7 +9893,7 @@ func (o DatasetDeflateCompressionResponseOutput) Type() pulumi.StringOutput {
 // The GZip compression method used on a dataset.
 type DatasetGZipCompression struct {
 	// The GZip compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -9912,7 +9912,7 @@ type DatasetGZipCompressionInput interface {
 // The GZip compression method used on a dataset.
 type DatasetGZipCompressionArgs struct {
 	// The GZip compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -9945,8 +9945,8 @@ func (o DatasetGZipCompressionOutput) ToDatasetGZipCompressionOutputWithContext(
 }
 
 // The GZip compression level.
-func (o DatasetGZipCompressionOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetGZipCompression) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetGZipCompressionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetGZipCompression) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -9957,7 +9957,7 @@ func (o DatasetGZipCompressionOutput) Type() pulumi.StringOutput {
 // The GZip compression method used on a dataset.
 type DatasetGZipCompressionResponse struct {
 	// The GZip compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -9976,7 +9976,7 @@ type DatasetGZipCompressionResponseInput interface {
 // The GZip compression method used on a dataset.
 type DatasetGZipCompressionResponseArgs struct {
 	// The GZip compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10009,8 +10009,8 @@ func (o DatasetGZipCompressionResponseOutput) ToDatasetGZipCompressionResponseOu
 }
 
 // The GZip compression level.
-func (o DatasetGZipCompressionResponseOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetGZipCompressionResponse) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetGZipCompressionResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetGZipCompressionResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -10021,7 +10021,7 @@ func (o DatasetGZipCompressionResponseOutput) Type() pulumi.StringOutput {
 // The ZipDeflate compression method used on a dataset.
 type DatasetZipDeflateCompression struct {
 	// The ZipDeflate compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -10040,7 +10040,7 @@ type DatasetZipDeflateCompressionInput interface {
 // The ZipDeflate compression method used on a dataset.
 type DatasetZipDeflateCompressionArgs struct {
 	// The ZipDeflate compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10073,8 +10073,8 @@ func (o DatasetZipDeflateCompressionOutput) ToDatasetZipDeflateCompressionOutput
 }
 
 // The ZipDeflate compression level.
-func (o DatasetZipDeflateCompressionOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetZipDeflateCompression) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetZipDeflateCompressionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetZipDeflateCompression) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -10085,7 +10085,7 @@ func (o DatasetZipDeflateCompressionOutput) Type() pulumi.StringOutput {
 // The ZipDeflate compression method used on a dataset.
 type DatasetZipDeflateCompressionResponse struct {
 	// The ZipDeflate compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -10104,7 +10104,7 @@ type DatasetZipDeflateCompressionResponseInput interface {
 // The ZipDeflate compression method used on a dataset.
 type DatasetZipDeflateCompressionResponseArgs struct {
 	// The ZipDeflate compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10137,8 +10137,8 @@ func (o DatasetZipDeflateCompressionResponseOutput) ToDatasetZipDeflateCompressi
 }
 
 // The ZipDeflate compression level.
-func (o DatasetZipDeflateCompressionResponseOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetZipDeflateCompressionResponse) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetZipDeflateCompressionResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetZipDeflateCompressionResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -11297,11 +11297,11 @@ type DynamicsLinkedService struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-	AuthenticationType map[string]interface{} `pulumi:"authenticationType"`
+	AuthenticationType string `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
 	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-	DeploymentType map[string]interface{} `pulumi:"deploymentType"`
+	DeploymentType string `pulumi:"deploymentType"`
 	// Linked service description.
 	Description *string `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -11340,11 +11340,11 @@ type DynamicsLinkedServiceArgs struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-	AuthenticationType pulumi.MapInput `pulumi:"authenticationType"`
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia IntegrationRuntimeReferencePtrInput `pulumi:"connectVia"`
 	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-	DeploymentType pulumi.MapInput `pulumi:"deploymentType"`
+	DeploymentType pulumi.StringInput `pulumi:"deploymentType"`
 	// Linked service description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -11400,8 +11400,8 @@ func (o DynamicsLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
 }
 
 // The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) AuthenticationType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.AuthenticationType }).(pulumi.MapOutput)
+func (o DynamicsLinkedServiceOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicsLinkedService) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
 // The integration runtime reference.
@@ -11410,8 +11410,8 @@ func (o DynamicsLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtr
 }
 
 // The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) DeploymentType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.DeploymentType }).(pulumi.MapOutput)
+func (o DynamicsLinkedServiceOutput) DeploymentType() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicsLinkedService) string { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
 // Linked service description.
@@ -11469,11 +11469,11 @@ type DynamicsLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-	AuthenticationType map[string]interface{} `pulumi:"authenticationType"`
+	AuthenticationType string `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
 	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-	DeploymentType map[string]interface{} `pulumi:"deploymentType"`
+	DeploymentType string `pulumi:"deploymentType"`
 	// Linked service description.
 	Description *string `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -11512,11 +11512,11 @@ type DynamicsLinkedServiceResponseArgs struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-	AuthenticationType pulumi.MapInput `pulumi:"authenticationType"`
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
 	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-	DeploymentType pulumi.MapInput `pulumi:"deploymentType"`
+	DeploymentType pulumi.StringInput `pulumi:"deploymentType"`
 	// Linked service description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -11572,8 +11572,8 @@ func (o DynamicsLinkedServiceResponseOutput) Annotations() pulumi.MapArrayOutput
 }
 
 // The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceResponseOutput) AuthenticationType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedServiceResponse) map[string]interface{} { return v.AuthenticationType }).(pulumi.MapOutput)
+func (o DynamicsLinkedServiceResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicsLinkedServiceResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
 // The integration runtime reference.
@@ -11582,8 +11582,8 @@ func (o DynamicsLinkedServiceResponseOutput) ConnectVia() IntegrationRuntimeRefe
 }
 
 // The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceResponseOutput) DeploymentType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedServiceResponse) map[string]interface{} { return v.DeploymentType }).(pulumi.MapOutput)
+func (o DynamicsLinkedServiceResponseOutput) DeploymentType() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicsLinkedServiceResponse) string { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
 // Linked service description.

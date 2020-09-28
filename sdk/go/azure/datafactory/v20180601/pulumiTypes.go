@@ -15842,7 +15842,7 @@ type CommonDataServiceForAppsLinkedService struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential interface{} `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType map[string]interface{} `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType *string `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId map[string]interface{} `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -15891,7 +15891,7 @@ type CommonDataServiceForAppsLinkedServiceArgs struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential pulumi.Input `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType pulumi.MapInput `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType pulumi.StringPtrInput `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -15990,10 +15990,8 @@ func (o CommonDataServiceForAppsLinkedServiceOutput) ServicePrincipalCredential(
 }
 
 // The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-func (o CommonDataServiceForAppsLinkedServiceOutput) ServicePrincipalCredentialType() pulumi.MapOutput {
-	return o.ApplyT(func(v CommonDataServiceForAppsLinkedService) map[string]interface{} {
-		return v.ServicePrincipalCredentialType
-	}).(pulumi.MapOutput)
+func (o CommonDataServiceForAppsLinkedServiceOutput) ServicePrincipalCredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommonDataServiceForAppsLinkedService) *string { return v.ServicePrincipalCredentialType }).(pulumi.StringPtrOutput)
 }
 
 // The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
@@ -16043,7 +16041,7 @@ type CommonDataServiceForAppsLinkedServiceResponse struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential interface{} `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType map[string]interface{} `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType *string `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId map[string]interface{} `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -16092,7 +16090,7 @@ type CommonDataServiceForAppsLinkedServiceResponseArgs struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential pulumi.Input `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType pulumi.MapInput `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType pulumi.StringPtrInput `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -16199,10 +16197,8 @@ func (o CommonDataServiceForAppsLinkedServiceResponseOutput) ServicePrincipalCre
 }
 
 // The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-func (o CommonDataServiceForAppsLinkedServiceResponseOutput) ServicePrincipalCredentialType() pulumi.MapOutput {
-	return o.ApplyT(func(v CommonDataServiceForAppsLinkedServiceResponse) map[string]interface{} {
-		return v.ServicePrincipalCredentialType
-	}).(pulumi.MapOutput)
+func (o CommonDataServiceForAppsLinkedServiceResponseOutput) ServicePrincipalCredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommonDataServiceForAppsLinkedServiceResponse) *string { return v.ServicePrincipalCredentialType }).(pulumi.StringPtrOutput)
 }
 
 // The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
@@ -20136,7 +20132,7 @@ func (o DatasetBZip2CompressionResponseOutput) Type() pulumi.StringOutput {
 // The Deflate compression method used on a dataset.
 type DatasetDeflateCompression struct {
 	// The Deflate compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -20155,7 +20151,7 @@ type DatasetDeflateCompressionInput interface {
 // The Deflate compression method used on a dataset.
 type DatasetDeflateCompressionArgs struct {
 	// The Deflate compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -20188,8 +20184,8 @@ func (o DatasetDeflateCompressionOutput) ToDatasetDeflateCompressionOutputWithCo
 }
 
 // The Deflate compression level.
-func (o DatasetDeflateCompressionOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetDeflateCompression) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetDeflateCompressionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDeflateCompression) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -20200,7 +20196,7 @@ func (o DatasetDeflateCompressionOutput) Type() pulumi.StringOutput {
 // The Deflate compression method used on a dataset.
 type DatasetDeflateCompressionResponse struct {
 	// The Deflate compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -20219,7 +20215,7 @@ type DatasetDeflateCompressionResponseInput interface {
 // The Deflate compression method used on a dataset.
 type DatasetDeflateCompressionResponseArgs struct {
 	// The Deflate compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -20252,8 +20248,8 @@ func (o DatasetDeflateCompressionResponseOutput) ToDatasetDeflateCompressionResp
 }
 
 // The Deflate compression level.
-func (o DatasetDeflateCompressionResponseOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetDeflateCompressionResponse) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetDeflateCompressionResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDeflateCompressionResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -20398,7 +20394,7 @@ func (o DatasetFolderPtrOutput) Name() pulumi.StringPtrOutput {
 // The GZip compression method used on a dataset.
 type DatasetGZipCompression struct {
 	// The GZip compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -20417,7 +20413,7 @@ type DatasetGZipCompressionInput interface {
 // The GZip compression method used on a dataset.
 type DatasetGZipCompressionArgs struct {
 	// The GZip compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -20450,8 +20446,8 @@ func (o DatasetGZipCompressionOutput) ToDatasetGZipCompressionOutputWithContext(
 }
 
 // The GZip compression level.
-func (o DatasetGZipCompressionOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetGZipCompression) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetGZipCompressionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetGZipCompression) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -20462,7 +20458,7 @@ func (o DatasetGZipCompressionOutput) Type() pulumi.StringOutput {
 // The GZip compression method used on a dataset.
 type DatasetGZipCompressionResponse struct {
 	// The GZip compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -20481,7 +20477,7 @@ type DatasetGZipCompressionResponseInput interface {
 // The GZip compression method used on a dataset.
 type DatasetGZipCompressionResponseArgs struct {
 	// The GZip compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -20514,8 +20510,8 @@ func (o DatasetGZipCompressionResponseOutput) ToDatasetGZipCompressionResponseOu
 }
 
 // The GZip compression level.
-func (o DatasetGZipCompressionResponseOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetGZipCompressionResponse) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetGZipCompressionResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetGZipCompressionResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -21114,7 +21110,7 @@ func (o DatasetTarCompressionResponseOutput) Type() pulumi.StringOutput {
 // The TarGZip compression method used on a dataset.
 type DatasetTarGZipCompression struct {
 	// The TarGZip compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -21133,7 +21129,7 @@ type DatasetTarGZipCompressionInput interface {
 // The TarGZip compression method used on a dataset.
 type DatasetTarGZipCompressionArgs struct {
 	// The TarGZip compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -21166,8 +21162,8 @@ func (o DatasetTarGZipCompressionOutput) ToDatasetTarGZipCompressionOutputWithCo
 }
 
 // The TarGZip compression level.
-func (o DatasetTarGZipCompressionOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetTarGZipCompression) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetTarGZipCompressionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetTarGZipCompression) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -21178,7 +21174,7 @@ func (o DatasetTarGZipCompressionOutput) Type() pulumi.StringOutput {
 // The TarGZip compression method used on a dataset.
 type DatasetTarGZipCompressionResponse struct {
 	// The TarGZip compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -21197,7 +21193,7 @@ type DatasetTarGZipCompressionResponseInput interface {
 // The TarGZip compression method used on a dataset.
 type DatasetTarGZipCompressionResponseArgs struct {
 	// The TarGZip compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -21230,8 +21226,8 @@ func (o DatasetTarGZipCompressionResponseOutput) ToDatasetTarGZipCompressionResp
 }
 
 // The TarGZip compression level.
-func (o DatasetTarGZipCompressionResponseOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetTarGZipCompressionResponse) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetTarGZipCompressionResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetTarGZipCompressionResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -21242,7 +21238,7 @@ func (o DatasetTarGZipCompressionResponseOutput) Type() pulumi.StringOutput {
 // The ZipDeflate compression method used on a dataset.
 type DatasetZipDeflateCompression struct {
 	// The ZipDeflate compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -21261,7 +21257,7 @@ type DatasetZipDeflateCompressionInput interface {
 // The ZipDeflate compression method used on a dataset.
 type DatasetZipDeflateCompressionArgs struct {
 	// The ZipDeflate compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -21294,8 +21290,8 @@ func (o DatasetZipDeflateCompressionOutput) ToDatasetZipDeflateCompressionOutput
 }
 
 // The ZipDeflate compression level.
-func (o DatasetZipDeflateCompressionOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetZipDeflateCompression) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetZipDeflateCompressionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetZipDeflateCompression) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -21306,7 +21302,7 @@ func (o DatasetZipDeflateCompressionOutput) Type() pulumi.StringOutput {
 // The ZipDeflate compression method used on a dataset.
 type DatasetZipDeflateCompressionResponse struct {
 	// The ZipDeflate compression level.
-	Level map[string]interface{} `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
 }
@@ -21325,7 +21321,7 @@ type DatasetZipDeflateCompressionResponseInput interface {
 // The ZipDeflate compression method used on a dataset.
 type DatasetZipDeflateCompressionResponseArgs struct {
 	// The ZipDeflate compression level.
-	Level pulumi.MapInput `pulumi:"level"`
+	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Type of dataset compression.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -21358,8 +21354,8 @@ func (o DatasetZipDeflateCompressionResponseOutput) ToDatasetZipDeflateCompressi
 }
 
 // The ZipDeflate compression level.
-func (o DatasetZipDeflateCompressionResponseOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetZipDeflateCompressionResponse) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
+func (o DatasetZipDeflateCompressionResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetZipDeflateCompressionResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Type of dataset compression.
@@ -21989,9 +21985,9 @@ type DelimitedTextDataset struct {
 	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The column delimiter. Type: string (or Expression with resultType string).
 	ColumnDelimiter  map[string]interface{} `pulumi:"columnDelimiter"`
-	CompressionCodec map[string]interface{} `pulumi:"compressionCodec"`
+	CompressionCodec *string                `pulumi:"compressionCodec"`
 	// The data compression method used for DelimitedText.
-	CompressionLevel map[string]interface{} `pulumi:"compressionLevel"`
+	CompressionLevel *string `pulumi:"compressionLevel"`
 	// Dataset description.
 	Description *string `pulumi:"description"`
 	// The code page name of the preferred encoding. If miss, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
@@ -22038,10 +22034,10 @@ type DelimitedTextDatasetArgs struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The column delimiter. Type: string (or Expression with resultType string).
-	ColumnDelimiter  pulumi.MapInput `pulumi:"columnDelimiter"`
-	CompressionCodec pulumi.MapInput `pulumi:"compressionCodec"`
+	ColumnDelimiter  pulumi.MapInput       `pulumi:"columnDelimiter"`
+	CompressionCodec pulumi.StringPtrInput `pulumi:"compressionCodec"`
 	// The data compression method used for DelimitedText.
-	CompressionLevel pulumi.MapInput `pulumi:"compressionLevel"`
+	CompressionLevel pulumi.StringPtrInput `pulumi:"compressionLevel"`
 	// Dataset description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The code page name of the preferred encoding. If miss, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
@@ -22109,13 +22105,13 @@ func (o DelimitedTextDatasetOutput) ColumnDelimiter() pulumi.MapOutput {
 	return o.ApplyT(func(v DelimitedTextDataset) map[string]interface{} { return v.ColumnDelimiter }).(pulumi.MapOutput)
 }
 
-func (o DelimitedTextDatasetOutput) CompressionCodec() pulumi.MapOutput {
-	return o.ApplyT(func(v DelimitedTextDataset) map[string]interface{} { return v.CompressionCodec }).(pulumi.MapOutput)
+func (o DelimitedTextDatasetOutput) CompressionCodec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DelimitedTextDataset) *string { return v.CompressionCodec }).(pulumi.StringPtrOutput)
 }
 
 // The data compression method used for DelimitedText.
-func (o DelimitedTextDatasetOutput) CompressionLevel() pulumi.MapOutput {
-	return o.ApplyT(func(v DelimitedTextDataset) map[string]interface{} { return v.CompressionLevel }).(pulumi.MapOutput)
+func (o DelimitedTextDatasetOutput) CompressionLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DelimitedTextDataset) *string { return v.CompressionLevel }).(pulumi.StringPtrOutput)
 }
 
 // Dataset description.
@@ -22194,9 +22190,9 @@ type DelimitedTextDatasetResponse struct {
 	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The column delimiter. Type: string (or Expression with resultType string).
 	ColumnDelimiter  map[string]interface{} `pulumi:"columnDelimiter"`
-	CompressionCodec map[string]interface{} `pulumi:"compressionCodec"`
+	CompressionCodec *string                `pulumi:"compressionCodec"`
 	// The data compression method used for DelimitedText.
-	CompressionLevel map[string]interface{} `pulumi:"compressionLevel"`
+	CompressionLevel *string `pulumi:"compressionLevel"`
 	// Dataset description.
 	Description *string `pulumi:"description"`
 	// The code page name of the preferred encoding. If miss, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
@@ -22243,10 +22239,10 @@ type DelimitedTextDatasetResponseArgs struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The column delimiter. Type: string (or Expression with resultType string).
-	ColumnDelimiter  pulumi.MapInput `pulumi:"columnDelimiter"`
-	CompressionCodec pulumi.MapInput `pulumi:"compressionCodec"`
+	ColumnDelimiter  pulumi.MapInput       `pulumi:"columnDelimiter"`
+	CompressionCodec pulumi.StringPtrInput `pulumi:"compressionCodec"`
 	// The data compression method used for DelimitedText.
-	CompressionLevel pulumi.MapInput `pulumi:"compressionLevel"`
+	CompressionLevel pulumi.StringPtrInput `pulumi:"compressionLevel"`
 	// Dataset description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The code page name of the preferred encoding. If miss, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
@@ -22314,13 +22310,13 @@ func (o DelimitedTextDatasetResponseOutput) ColumnDelimiter() pulumi.MapOutput {
 	return o.ApplyT(func(v DelimitedTextDatasetResponse) map[string]interface{} { return v.ColumnDelimiter }).(pulumi.MapOutput)
 }
 
-func (o DelimitedTextDatasetResponseOutput) CompressionCodec() pulumi.MapOutput {
-	return o.ApplyT(func(v DelimitedTextDatasetResponse) map[string]interface{} { return v.CompressionCodec }).(pulumi.MapOutput)
+func (o DelimitedTextDatasetResponseOutput) CompressionCodec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DelimitedTextDatasetResponse) *string { return v.CompressionCodec }).(pulumi.StringPtrOutput)
 }
 
 // The data compression method used for DelimitedText.
-func (o DelimitedTextDatasetResponseOutput) CompressionLevel() pulumi.MapOutput {
-	return o.ApplyT(func(v DelimitedTextDatasetResponse) map[string]interface{} { return v.CompressionLevel }).(pulumi.MapOutput)
+func (o DelimitedTextDatasetResponseOutput) CompressionLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DelimitedTextDatasetResponse) *string { return v.CompressionLevel }).(pulumi.StringPtrOutput)
 }
 
 // Dataset description.
@@ -23986,7 +23982,7 @@ type DynamicsCrmLinkedService struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential interface{} `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType map[string]interface{} `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType *string `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId map[string]interface{} `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -24035,7 +24031,7 @@ type DynamicsCrmLinkedServiceArgs struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential pulumi.Input `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType pulumi.MapInput `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType pulumi.StringPtrInput `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -24134,8 +24130,8 @@ func (o DynamicsCrmLinkedServiceOutput) ServicePrincipalCredential() pulumi.AnyO
 }
 
 // The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-func (o DynamicsCrmLinkedServiceOutput) ServicePrincipalCredentialType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsCrmLinkedService) map[string]interface{} { return v.ServicePrincipalCredentialType }).(pulumi.MapOutput)
+func (o DynamicsCrmLinkedServiceOutput) ServicePrincipalCredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicsCrmLinkedService) *string { return v.ServicePrincipalCredentialType }).(pulumi.StringPtrOutput)
 }
 
 // The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
@@ -24185,7 +24181,7 @@ type DynamicsCrmLinkedServiceResponse struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential interface{} `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType map[string]interface{} `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType *string `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId map[string]interface{} `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -24234,7 +24230,7 @@ type DynamicsCrmLinkedServiceResponseArgs struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential pulumi.Input `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType pulumi.MapInput `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType pulumi.StringPtrInput `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -24335,10 +24331,8 @@ func (o DynamicsCrmLinkedServiceResponseOutput) ServicePrincipalCredential() pul
 }
 
 // The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-func (o DynamicsCrmLinkedServiceResponseOutput) ServicePrincipalCredentialType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsCrmLinkedServiceResponse) map[string]interface{} {
-		return v.ServicePrincipalCredentialType
-	}).(pulumi.MapOutput)
+func (o DynamicsCrmLinkedServiceResponseOutput) ServicePrincipalCredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicsCrmLinkedServiceResponse) *string { return v.ServicePrincipalCredentialType }).(pulumi.StringPtrOutput)
 }
 
 // The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
@@ -24620,11 +24614,11 @@ type DynamicsLinkedService struct {
 	// List of tags that can be used for describing the linked service.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-	AuthenticationType map[string]interface{} `pulumi:"authenticationType"`
+	AuthenticationType string `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
 	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-	DeploymentType map[string]interface{} `pulumi:"deploymentType"`
+	DeploymentType string `pulumi:"deploymentType"`
 	// Linked service description.
 	Description *string `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -24642,7 +24636,7 @@ type DynamicsLinkedService struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential interface{} `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType map[string]interface{} `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType *string `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId map[string]interface{} `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -24669,11 +24663,11 @@ type DynamicsLinkedServiceArgs struct {
 	// List of tags that can be used for describing the linked service.
 	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-	AuthenticationType pulumi.MapInput `pulumi:"authenticationType"`
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia IntegrationRuntimeReferencePtrInput `pulumi:"connectVia"`
 	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-	DeploymentType pulumi.MapInput `pulumi:"deploymentType"`
+	DeploymentType pulumi.StringInput `pulumi:"deploymentType"`
 	// Linked service description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -24691,7 +24685,7 @@ type DynamicsLinkedServiceArgs struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential pulumi.Input `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType pulumi.MapInput `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType pulumi.StringPtrInput `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -24735,8 +24729,8 @@ func (o DynamicsLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
 }
 
 // The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) AuthenticationType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.AuthenticationType }).(pulumi.MapOutput)
+func (o DynamicsLinkedServiceOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicsLinkedService) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
 // The integration runtime reference.
@@ -24745,8 +24739,8 @@ func (o DynamicsLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtr
 }
 
 // The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) DeploymentType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.DeploymentType }).(pulumi.MapOutput)
+func (o DynamicsLinkedServiceOutput) DeploymentType() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicsLinkedService) string { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
 // Linked service description.
@@ -24790,8 +24784,8 @@ func (o DynamicsLinkedServiceOutput) ServicePrincipalCredential() pulumi.AnyOutp
 }
 
 // The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) ServicePrincipalCredentialType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.ServicePrincipalCredentialType }).(pulumi.MapOutput)
+func (o DynamicsLinkedServiceOutput) ServicePrincipalCredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicsLinkedService) *string { return v.ServicePrincipalCredentialType }).(pulumi.StringPtrOutput)
 }
 
 // The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
@@ -24819,11 +24813,11 @@ type DynamicsLinkedServiceResponse struct {
 	// List of tags that can be used for describing the linked service.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-	AuthenticationType map[string]interface{} `pulumi:"authenticationType"`
+	AuthenticationType string `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
 	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-	DeploymentType map[string]interface{} `pulumi:"deploymentType"`
+	DeploymentType string `pulumi:"deploymentType"`
 	// Linked service description.
 	Description *string `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -24841,7 +24835,7 @@ type DynamicsLinkedServiceResponse struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential interface{} `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType map[string]interface{} `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType *string `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId map[string]interface{} `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -24868,11 +24862,11 @@ type DynamicsLinkedServiceResponseArgs struct {
 	// List of tags that can be used for describing the linked service.
 	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-	AuthenticationType pulumi.MapInput `pulumi:"authenticationType"`
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
 	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-	DeploymentType pulumi.MapInput `pulumi:"deploymentType"`
+	DeploymentType pulumi.StringInput `pulumi:"deploymentType"`
 	// Linked service description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -24890,7 +24884,7 @@ type DynamicsLinkedServiceResponseArgs struct {
 	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
 	ServicePrincipalCredential pulumi.Input `pulumi:"servicePrincipalCredential"`
 	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-	ServicePrincipalCredentialType pulumi.MapInput `pulumi:"servicePrincipalCredentialType"`
+	ServicePrincipalCredentialType pulumi.StringPtrInput `pulumi:"servicePrincipalCredentialType"`
 	// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
 	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
 	// The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
@@ -24934,8 +24928,8 @@ func (o DynamicsLinkedServiceResponseOutput) Annotations() pulumi.MapArrayOutput
 }
 
 // The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceResponseOutput) AuthenticationType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedServiceResponse) map[string]interface{} { return v.AuthenticationType }).(pulumi.MapOutput)
+func (o DynamicsLinkedServiceResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicsLinkedServiceResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
 // The integration runtime reference.
@@ -24944,8 +24938,8 @@ func (o DynamicsLinkedServiceResponseOutput) ConnectVia() IntegrationRuntimeRefe
 }
 
 // The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceResponseOutput) DeploymentType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedServiceResponse) map[string]interface{} { return v.DeploymentType }).(pulumi.MapOutput)
+func (o DynamicsLinkedServiceResponseOutput) DeploymentType() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicsLinkedServiceResponse) string { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
 // Linked service description.
@@ -24989,8 +24983,8 @@ func (o DynamicsLinkedServiceResponseOutput) ServicePrincipalCredential() pulumi
 }
 
 // The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceResponseOutput) ServicePrincipalCredentialType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedServiceResponse) map[string]interface{} { return v.ServicePrincipalCredentialType }).(pulumi.MapOutput)
+func (o DynamicsLinkedServiceResponseOutput) ServicePrincipalCredentialType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicsLinkedServiceResponse) *string { return v.ServicePrincipalCredentialType }).(pulumi.StringPtrOutput)
 }
 
 // The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
@@ -40554,7 +40548,7 @@ type JsonFormat struct {
 	// The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
 	EncodingName map[string]interface{} `pulumi:"encodingName"`
 	// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-	FilePattern map[string]interface{} `pulumi:"filePattern"`
+	FilePattern *string `pulumi:"filePattern"`
 	// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
 	JsonNodeReference map[string]interface{} `pulumi:"jsonNodeReference"`
 	// The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
@@ -40585,7 +40579,7 @@ type JsonFormatArgs struct {
 	// The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
 	EncodingName pulumi.MapInput `pulumi:"encodingName"`
 	// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-	FilePattern pulumi.MapInput `pulumi:"filePattern"`
+	FilePattern pulumi.StringPtrInput `pulumi:"filePattern"`
 	// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
 	JsonNodeReference pulumi.MapInput `pulumi:"jsonNodeReference"`
 	// The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
@@ -40636,8 +40630,8 @@ func (o JsonFormatOutput) EncodingName() pulumi.MapOutput {
 }
 
 // File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-func (o JsonFormatOutput) FilePattern() pulumi.MapOutput {
-	return o.ApplyT(func(v JsonFormat) map[string]interface{} { return v.FilePattern }).(pulumi.MapOutput)
+func (o JsonFormatOutput) FilePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JsonFormat) *string { return v.FilePattern }).(pulumi.StringPtrOutput)
 }
 
 // The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
@@ -40672,7 +40666,7 @@ type JsonFormatResponse struct {
 	// The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
 	EncodingName map[string]interface{} `pulumi:"encodingName"`
 	// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-	FilePattern map[string]interface{} `pulumi:"filePattern"`
+	FilePattern *string `pulumi:"filePattern"`
 	// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
 	JsonNodeReference map[string]interface{} `pulumi:"jsonNodeReference"`
 	// The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
@@ -40703,7 +40697,7 @@ type JsonFormatResponseArgs struct {
 	// The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
 	EncodingName pulumi.MapInput `pulumi:"encodingName"`
 	// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-	FilePattern pulumi.MapInput `pulumi:"filePattern"`
+	FilePattern pulumi.StringPtrInput `pulumi:"filePattern"`
 	// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
 	JsonNodeReference pulumi.MapInput `pulumi:"jsonNodeReference"`
 	// The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
@@ -40754,8 +40748,8 @@ func (o JsonFormatResponseOutput) EncodingName() pulumi.MapOutput {
 }
 
 // File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-func (o JsonFormatResponseOutput) FilePattern() pulumi.MapOutput {
-	return o.ApplyT(func(v JsonFormatResponse) map[string]interface{} { return v.FilePattern }).(pulumi.MapOutput)
+func (o JsonFormatResponseOutput) FilePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JsonFormatResponse) *string { return v.FilePattern }).(pulumi.StringPtrOutput)
 }
 
 // The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
@@ -51756,7 +51750,7 @@ func (o ParameterSpecificationResponseMapOutput) MapIndex(k pulumi.StringInput) 
 type ParquetDataset struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations      []map[string]interface{} `pulumi:"annotations"`
-	CompressionCodec map[string]interface{}   `pulumi:"compressionCodec"`
+	CompressionCodec *string                  `pulumi:"compressionCodec"`
 	// Dataset description.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -51789,8 +51783,8 @@ type ParquetDatasetInput interface {
 // Parquet dataset.
 type ParquetDatasetArgs struct {
 	// List of tags that can be used for describing the Dataset.
-	Annotations      pulumi.MapArrayInput `pulumi:"annotations"`
-	CompressionCodec pulumi.MapInput      `pulumi:"compressionCodec"`
+	Annotations      pulumi.MapArrayInput  `pulumi:"annotations"`
+	CompressionCodec pulumi.StringPtrInput `pulumi:"compressionCodec"`
 	// Dataset description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -51841,8 +51835,8 @@ func (o ParquetDatasetOutput) Annotations() pulumi.MapArrayOutput {
 	return o.ApplyT(func(v ParquetDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
-func (o ParquetDatasetOutput) CompressionCodec() pulumi.MapOutput {
-	return o.ApplyT(func(v ParquetDataset) map[string]interface{} { return v.CompressionCodec }).(pulumi.MapOutput)
+func (o ParquetDatasetOutput) CompressionCodec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParquetDataset) *string { return v.CompressionCodec }).(pulumi.StringPtrOutput)
 }
 
 // Dataset description.
@@ -51889,7 +51883,7 @@ func (o ParquetDatasetOutput) Type() pulumi.StringOutput {
 type ParquetDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations      []map[string]interface{} `pulumi:"annotations"`
-	CompressionCodec map[string]interface{}   `pulumi:"compressionCodec"`
+	CompressionCodec *string                  `pulumi:"compressionCodec"`
 	// Dataset description.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -51922,8 +51916,8 @@ type ParquetDatasetResponseInput interface {
 // Parquet dataset.
 type ParquetDatasetResponseArgs struct {
 	// List of tags that can be used for describing the Dataset.
-	Annotations      pulumi.MapArrayInput `pulumi:"annotations"`
-	CompressionCodec pulumi.MapInput      `pulumi:"compressionCodec"`
+	Annotations      pulumi.MapArrayInput  `pulumi:"annotations"`
+	CompressionCodec pulumi.StringPtrInput `pulumi:"compressionCodec"`
 	// Dataset description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -51974,8 +51968,8 @@ func (o ParquetDatasetResponseOutput) Annotations() pulumi.MapArrayOutput {
 	return o.ApplyT(func(v ParquetDatasetResponse) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
-func (o ParquetDatasetResponseOutput) CompressionCodec() pulumi.MapOutput {
-	return o.ApplyT(func(v ParquetDatasetResponse) map[string]interface{} { return v.CompressionCodec }).(pulumi.MapOutput)
+func (o ParquetDatasetResponseOutput) CompressionCodec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParquetDatasetResponse) *string { return v.CompressionCodec }).(pulumi.StringPtrOutput)
 }
 
 // Dataset description.
@@ -63162,7 +63156,7 @@ type ScriptAction struct {
 	// The parameters for the script action.
 	Parameters *string `pulumi:"parameters"`
 	// The node types on which the script action should be executed.
-	Roles map[string]interface{} `pulumi:"roles"`
+	Roles string `pulumi:"roles"`
 	// The URI for the script action.
 	Uri string `pulumi:"uri"`
 }
@@ -63185,7 +63179,7 @@ type ScriptActionArgs struct {
 	// The parameters for the script action.
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
 	// The node types on which the script action should be executed.
-	Roles pulumi.MapInput `pulumi:"roles"`
+	Roles pulumi.StringInput `pulumi:"roles"`
 	// The URI for the script action.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
@@ -63253,8 +63247,8 @@ func (o ScriptActionOutput) Parameters() pulumi.StringPtrOutput {
 }
 
 // The node types on which the script action should be executed.
-func (o ScriptActionOutput) Roles() pulumi.MapOutput {
-	return o.ApplyT(func(v ScriptAction) map[string]interface{} { return v.Roles }).(pulumi.MapOutput)
+func (o ScriptActionOutput) Roles() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptAction) string { return v.Roles }).(pulumi.StringOutput)
 }
 
 // The URI for the script action.
@@ -63289,7 +63283,7 @@ type ScriptActionResponse struct {
 	// The parameters for the script action.
 	Parameters *string `pulumi:"parameters"`
 	// The node types on which the script action should be executed.
-	Roles map[string]interface{} `pulumi:"roles"`
+	Roles string `pulumi:"roles"`
 	// The URI for the script action.
 	Uri string `pulumi:"uri"`
 }
@@ -63312,7 +63306,7 @@ type ScriptActionResponseArgs struct {
 	// The parameters for the script action.
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
 	// The node types on which the script action should be executed.
-	Roles pulumi.MapInput `pulumi:"roles"`
+	Roles pulumi.StringInput `pulumi:"roles"`
 	// The URI for the script action.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
@@ -63380,8 +63374,8 @@ func (o ScriptActionResponseOutput) Parameters() pulumi.StringPtrOutput {
 }
 
 // The node types on which the script action should be executed.
-func (o ScriptActionResponseOutput) Roles() pulumi.MapOutput {
-	return o.ApplyT(func(v ScriptActionResponse) map[string]interface{} { return v.Roles }).(pulumi.MapOutput)
+func (o ScriptActionResponseOutput) Roles() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptActionResponse) string { return v.Roles }).(pulumi.StringOutput)
 }
 
 // The URI for the script action.

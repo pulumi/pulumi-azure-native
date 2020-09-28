@@ -4475,11 +4475,11 @@ class DatasetDeflateCompressionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 level: Optional[Mapping[str, Any]] = None):
+                 level: Optional[str] = None):
         """
         The Deflate compression method used on a dataset.
         :param str type: Type of dataset compression.
-        :param Mapping[str, Any] level: The Deflate compression level.
+        :param str level: The Deflate compression level.
         """
         pulumi.set(__self__, "type", 'Deflate')
         if level is not None:
@@ -4495,7 +4495,7 @@ class DatasetDeflateCompressionResponse(dict):
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[Mapping[str, Any]]:
+    def level(self) -> Optional[str]:
         """
         The Deflate compression level.
         """
@@ -4512,11 +4512,11 @@ class DatasetGZipCompressionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 level: Optional[Mapping[str, Any]] = None):
+                 level: Optional[str] = None):
         """
         The GZip compression method used on a dataset.
         :param str type: Type of dataset compression.
-        :param Mapping[str, Any] level: The GZip compression level.
+        :param str level: The GZip compression level.
         """
         pulumi.set(__self__, "type", 'GZip')
         if level is not None:
@@ -4532,7 +4532,7 @@ class DatasetGZipCompressionResponse(dict):
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[Mapping[str, Any]]:
+    def level(self) -> Optional[str]:
         """
         The GZip compression level.
         """
@@ -4549,11 +4549,11 @@ class DatasetZipDeflateCompressionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 level: Optional[Mapping[str, Any]] = None):
+                 level: Optional[str] = None):
         """
         The ZipDeflate compression method used on a dataset.
         :param str type: Type of dataset compression.
-        :param Mapping[str, Any] level: The ZipDeflate compression level.
+        :param str level: The ZipDeflate compression level.
         """
         pulumi.set(__self__, "type", 'ZipDeflate')
         if level is not None:
@@ -4569,7 +4569,7 @@ class DatasetZipDeflateCompressionResponse(dict):
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[Mapping[str, Any]]:
+    def level(self) -> Optional[str]:
         """
         The ZipDeflate compression level.
         """
@@ -5100,8 +5100,8 @@ class DynamicsLinkedServiceResponse(dict):
     Dynamics linked service.
     """
     def __init__(__self__, *,
-                 authentication_type: Mapping[str, Any],
-                 deployment_type: Mapping[str, Any],
+                 authentication_type: str,
+                 deployment_type: str,
                  type: str,
                  username: Mapping[str, Any],
                  annotations: Optional[Sequence[Mapping[str, Any]]] = None,
@@ -5116,8 +5116,8 @@ class DynamicsLinkedServiceResponse(dict):
                  service_uri: Optional[Mapping[str, Any]] = None):
         """
         Dynamics linked service.
-        :param Mapping[str, Any] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
+        :param str authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
+        :param str deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
         :param Mapping[str, Any] username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
         :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -5158,7 +5158,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Mapping[str, Any]:
+    def authentication_type(self) -> str:
         """
         The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
         """
@@ -5166,7 +5166,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Mapping[str, Any]:
+    def deployment_type(self) -> str:
         """
         The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         """

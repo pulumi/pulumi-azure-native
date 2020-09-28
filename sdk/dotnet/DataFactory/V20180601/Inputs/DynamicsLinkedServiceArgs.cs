@@ -27,17 +27,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
             set => _annotations = value;
         }
 
-        [Input("authenticationType", required: true)]
-        private InputMap<object>? _authenticationType;
-
         /// <summary>
         /// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AuthenticationType
-        {
-            get => _authenticationType ?? (_authenticationType = new InputMap<object>());
-            set => _authenticationType = value;
-        }
+        [Input("authenticationType", required: true)]
+        public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -45,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("deploymentType", required: true)]
-        private InputMap<object>? _deploymentType;
-
         /// <summary>
         /// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> DeploymentType
-        {
-            get => _deploymentType ?? (_deploymentType = new InputMap<object>());
-            set => _deploymentType = value;
-        }
+        [Input("deploymentType", required: true)]
+        public Input<string> DeploymentType { get; set; } = null!;
 
         /// <summary>
         /// Linked service description.
@@ -135,17 +123,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("servicePrincipalCredential")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalCredential { get; set; }
 
-        [Input("servicePrincipalCredentialType")]
-        private InputMap<object>? _servicePrincipalCredentialType;
-
         /// <summary>
         /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ServicePrincipalCredentialType
-        {
-            get => _servicePrincipalCredentialType ?? (_servicePrincipalCredentialType = new InputMap<object>());
-            set => _servicePrincipalCredentialType = value;
-        }
+        [Input("servicePrincipalCredentialType")]
+        public Input<string>? ServicePrincipalCredentialType { get; set; }
 
         [Input("servicePrincipalId")]
         private InputMap<object>? _servicePrincipalId;

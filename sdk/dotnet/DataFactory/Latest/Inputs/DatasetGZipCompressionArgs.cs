@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     /// </summary>
     public sealed class DatasetGZipCompressionArgs : Pulumi.ResourceArgs
     {
-        [Input("level")]
-        private InputMap<object>? _level;
-
         /// <summary>
         /// The GZip compression level.
         /// </summary>
-        public InputMap<object> Level
-        {
-            get => _level ?? (_level = new InputMap<object>());
-            set => _level = value;
-        }
+        [Input("level")]
+        public Input<string>? Level { get; set; }
 
         /// <summary>
         /// Type of dataset compression.

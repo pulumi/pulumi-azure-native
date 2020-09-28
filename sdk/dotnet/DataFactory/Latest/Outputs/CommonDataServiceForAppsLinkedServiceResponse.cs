@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ServicePrincipalCredentialType;
+        public readonly string? ServicePrincipalCredentialType;
         /// <summary>
         /// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalCredential,
 
-            ImmutableDictionary<string, object>? servicePrincipalCredentialType,
+            string? servicePrincipalCredentialType,
 
             ImmutableDictionary<string, object>? servicePrincipalId,
 

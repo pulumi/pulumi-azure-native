@@ -40,24 +40,13 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         }
 
         [Input("compressionCodec")]
-        private InputMap<object>? _compressionCodec;
-        public InputMap<object> CompressionCodec
-        {
-            get => _compressionCodec ?? (_compressionCodec = new InputMap<object>());
-            set => _compressionCodec = value;
-        }
-
-        [Input("compressionLevel")]
-        private InputMap<object>? _compressionLevel;
+        public Input<string>? CompressionCodec { get; set; }
 
         /// <summary>
         /// The data compression method used for DelimitedText.
         /// </summary>
-        public InputMap<object> CompressionLevel
-        {
-            get => _compressionLevel ?? (_compressionLevel = new InputMap<object>());
-            set => _compressionLevel = value;
-        }
+        [Input("compressionLevel")]
+        public Input<string>? CompressionLevel { get; set; }
 
         /// <summary>
         /// Dataset description.
