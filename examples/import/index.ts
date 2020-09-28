@@ -4,12 +4,22 @@ import * as network from "@pulumi/azure-nextgen/network/latest";
 import * as resources from "@pulumi/azure-nextgen/resources/latest";
 import * as manual from "./manualResource";
 
+function hashCode(s: string) {
+    var hash = 0;
+    for (var i = 0; i < s.length; i++) {
+        var character = s.charCodeAt(i);
+        hash = ((hash<<5)-hash)+character;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash;
+}
+
 async function main() {
     const name = pulumi.getStack().toLowerCase();
     const resourceGroupName = `${name}-rg`;
     const virtualNetworkName = `${name}-vnet`;
     const location = "westus2";
-    const virtualNetworkRange = `10.${Math.floor(Math.random() * 250) + 4}.0.0`;
+    const virtualNetworkRange = `10.${hashCode(name)%250 + 4}.0.0`;
 
     // Create resources with Azure SDKs, so that we had something to import.
     const subscriptionID = await manual.createResources({ resourceGroupName, location, virtualNetworkName, virtualNetworkRange });
