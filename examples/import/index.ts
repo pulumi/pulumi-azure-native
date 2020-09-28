@@ -11,7 +11,7 @@ function hashCode(s: string) {
         hash = ((hash<<5)-hash)+character;
         hash = hash & hash; // Convert to 32bit integer
     }
-    return hash;
+    return Math.abs(hash);
 }
 
 async function main() {
