@@ -812,6 +812,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			apiProperty = provider.AzureAPIProperty{
 				OneOf: m.getOneOfValues(propertySpec),
 				Ref:   propertySpec.Ref,
+				Items: m.itemTypeToProperty(propertySpec.Items),
 			}
 		} else {
 			apiProperty = provider.AzureAPIProperty{
@@ -824,6 +825,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				MinLength: resolvedProperty.MinLength,
 				MaxLength: resolvedProperty.MaxLength,
 				Pattern:   resolvedProperty.Pattern,
+				Items:     m.itemTypeToProperty(propertySpec.Items),
 			}
 
 			// Mutability extension signals whether a property can be updated in-place. Lack of the extension means
@@ -847,12 +849,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		if sdkName != name {
 			apiProperty.SdkName = sdkName
 		}
-		if propertySpec.Items != nil {
-			apiProperty.Items = &provider.AzureAPIProperty{
-				Type: propertySpec.Items.Type,
-				Ref:  propertySpec.Items.Ref,
-			}
-		}
+
 		result.properties[name] = apiProperty
 		result.specs[sdkName] = *propertySpec
 	}
@@ -948,6 +945,21 @@ func (m *moduleGenerator) getOneOfValues(property *pschema.PropertySpec) (values
 		values = append(values, value.Ref)
 	}
 	return
+}
+
+// itemTypeToProperty converts a type of an element in an array to a corresponding API property
+// definition of that element type. It only converts the relevant subset of properties, and does
+// so recursively.
+func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *provider.AzureAPIProperty {
+	if typ == nil {
+		return nil
+	}
+
+	return &provider.AzureAPIProperty{
+		Type:  typ.Type,
+		Ref:   typ.Ref,
+		Items: m.itemTypeToProperty(typ.Items),
+	}
 }
 
 func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
