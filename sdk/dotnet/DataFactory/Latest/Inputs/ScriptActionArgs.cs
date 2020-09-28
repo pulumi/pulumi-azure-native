@@ -27,17 +27,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
 
-        [Input("roles", required: true)]
-        private InputMap<object>? _roles;
-
         /// <summary>
         /// The node types on which the script action should be executed.
         /// </summary>
-        public InputMap<object> Roles
-        {
-            get => _roles ?? (_roles = new InputMap<object>());
-            set => _roles = value;
-        }
+        [Input("roles", required: true)]
+        public Input<string> Roles { get; set; } = null!;
 
         /// <summary>
         /// The URI for the script action.

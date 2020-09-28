@@ -21,11 +21,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// The column delimiter. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly ImmutableDictionary<string, object>? ColumnDelimiter;
-        public readonly ImmutableDictionary<string, object>? CompressionCodec;
+        public readonly string? CompressionCodec;
         /// <summary>
         /// The data compression method used for DelimitedText.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? CompressionLevel;
+        public readonly string? CompressionLevel;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -89,9 +89,9 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             ImmutableDictionary<string, object>? columnDelimiter,
 
-            ImmutableDictionary<string, object>? compressionCodec,
+            string? compressionCodec,
 
-            ImmutableDictionary<string, object>? compressionLevel,
+            string? compressionLevel,
 
             string? description,
 

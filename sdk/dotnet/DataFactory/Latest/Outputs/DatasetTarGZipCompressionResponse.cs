@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The TarGZip compression level.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Level;
+        public readonly string? Level;
         /// <summary>
         /// Type of dataset compression.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
         [OutputConstructor]
         private DatasetTarGZipCompressionResponse(
-            ImmutableDictionary<string, object>? level,
+            string? level,
 
             string type)
         {

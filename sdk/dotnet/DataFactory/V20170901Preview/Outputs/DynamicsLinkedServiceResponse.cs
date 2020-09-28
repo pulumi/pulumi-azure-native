@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> AuthenticationType;
+        public readonly string AuthenticationType;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> DeploymentType;
+        public readonly string DeploymentType;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -74,11 +74,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         private DynamicsLinkedServiceResponse(
             ImmutableArray<ImmutableDictionary<string, object>> annotations,
 
-            ImmutableDictionary<string, object> authenticationType,
+            string authenticationType,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object> deploymentType,
+            string deploymentType,
 
             string? description,
 

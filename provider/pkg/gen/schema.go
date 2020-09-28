@@ -1009,11 +1009,14 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			// Inline properties have no type in the Open API schema, so we use parent type's name + property name.
 			tok = m.typeName(context, isOutput) + strings.Title(propertyName)
 		}
+	case len(resolvedSchema.Enum) > 0:
+		// Default Enum properties to strings if the type isn't specified.
+		primitiveTypeName = "string"
+		if len(resolvedSchema.Type) > 0 && resolvedSchema.Type[0] != "object" {
+			primitiveTypeName = resolvedSchema.Type[0]
+		}
 	case len(resolvedSchema.Type) > 0:
 		primitiveTypeName = resolvedSchema.Type[0]
-	case len(resolvedSchema.Enum) > 0:
-		// Enums are always strings in Azure.
-		primitiveTypeName = "string"
 	case resolvedSchema.AdditionalProperties != nil:
 		// Additional properties suggest a dictionary.
 		primitiveTypeName = "object"

@@ -27,17 +27,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
             set => _annotations = value;
         }
 
-        [Input("authenticationType", required: true)]
-        private InputMap<object>? _authenticationType;
-
         /// <summary>
         /// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AuthenticationType
-        {
-            get => _authenticationType ?? (_authenticationType = new InputMap<object>());
-            set => _authenticationType = value;
-        }
+        [Input("authenticationType", required: true)]
+        public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -45,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("deploymentType", required: true)]
-        private InputMap<object>? _deploymentType;
-
         /// <summary>
         /// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> DeploymentType
-        {
-            get => _deploymentType ?? (_deploymentType = new InputMap<object>());
-            set => _deploymentType = value;
-        }
+        [Input("deploymentType", required: true)]
+        public Input<string> DeploymentType { get; set; } = null!;
 
         /// <summary>
         /// Linked service description.

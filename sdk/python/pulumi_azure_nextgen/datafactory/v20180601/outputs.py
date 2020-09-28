@@ -7555,7 +7555,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
                  password: Optional[Any] = None,
                  port: Optional[Mapping[str, Any]] = None,
                  service_principal_credential: Optional[Any] = None,
-                 service_principal_credential_type: Optional[Mapping[str, Any]] = None,
+                 service_principal_credential_type: Optional[str] = None,
                  service_principal_id: Optional[Mapping[str, Any]] = None,
                  service_uri: Optional[Mapping[str, Any]] = None,
                  username: Optional[Mapping[str, Any]] = None):
@@ -7574,7 +7574,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the Common Data Service for Apps instance.
         :param Mapping[str, Any] port: The port of on-premises Common Data Service for Apps server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
-        :param Mapping[str, Any] service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param str service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] service_uri: The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] username: User name to access the Common Data Service for Apps instance. Type: string (or Expression with resultType string).
@@ -7717,7 +7717,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="servicePrincipalCredentialType")
-    def service_principal_credential_type(self) -> Optional[Mapping[str, Any]]:
+    def service_principal_credential_type(self) -> Optional[str]:
         """
         The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         """
@@ -9273,11 +9273,11 @@ class DatasetDeflateCompressionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 level: Optional[Mapping[str, Any]] = None):
+                 level: Optional[str] = None):
         """
         The Deflate compression method used on a dataset.
         :param str type: Type of dataset compression.
-        :param Mapping[str, Any] level: The Deflate compression level.
+        :param str level: The Deflate compression level.
         """
         pulumi.set(__self__, "type", 'Deflate')
         if level is not None:
@@ -9293,7 +9293,7 @@ class DatasetDeflateCompressionResponse(dict):
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[Mapping[str, Any]]:
+    def level(self) -> Optional[str]:
         """
         The Deflate compression level.
         """
@@ -9310,11 +9310,11 @@ class DatasetGZipCompressionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 level: Optional[Mapping[str, Any]] = None):
+                 level: Optional[str] = None):
         """
         The GZip compression method used on a dataset.
         :param str type: Type of dataset compression.
-        :param Mapping[str, Any] level: The GZip compression level.
+        :param str level: The GZip compression level.
         """
         pulumi.set(__self__, "type", 'GZip')
         if level is not None:
@@ -9330,7 +9330,7 @@ class DatasetGZipCompressionResponse(dict):
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[Mapping[str, Any]]:
+    def level(self) -> Optional[str]:
         """
         The GZip compression level.
         """
@@ -9446,11 +9446,11 @@ class DatasetTarGZipCompressionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 level: Optional[Mapping[str, Any]] = None):
+                 level: Optional[str] = None):
         """
         The TarGZip compression method used on a dataset.
         :param str type: Type of dataset compression.
-        :param Mapping[str, Any] level: The TarGZip compression level.
+        :param str level: The TarGZip compression level.
         """
         pulumi.set(__self__, "type", 'TarGZip')
         if level is not None:
@@ -9466,7 +9466,7 @@ class DatasetTarGZipCompressionResponse(dict):
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[Mapping[str, Any]]:
+    def level(self) -> Optional[str]:
         """
         The TarGZip compression level.
         """
@@ -9483,11 +9483,11 @@ class DatasetZipDeflateCompressionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 level: Optional[Mapping[str, Any]] = None):
+                 level: Optional[str] = None):
         """
         The ZipDeflate compression method used on a dataset.
         :param str type: Type of dataset compression.
-        :param Mapping[str, Any] level: The ZipDeflate compression level.
+        :param str level: The ZipDeflate compression level.
         """
         pulumi.set(__self__, "type", 'ZipDeflate')
         if level is not None:
@@ -9503,7 +9503,7 @@ class DatasetZipDeflateCompressionResponse(dict):
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[Mapping[str, Any]]:
+    def level(self) -> Optional[str]:
         """
         The ZipDeflate compression level.
         """
@@ -9837,8 +9837,8 @@ class DelimitedTextDatasetResponse(dict):
                  type: str,
                  annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  column_delimiter: Optional[Mapping[str, Any]] = None,
-                 compression_codec: Optional[Mapping[str, Any]] = None,
-                 compression_level: Optional[Mapping[str, Any]] = None,
+                 compression_codec: Optional[str] = None,
+                 compression_level: Optional[str] = None,
                  description: Optional[str] = None,
                  encoding_name: Optional[Mapping[str, Any]] = None,
                  escape_char: Optional[Mapping[str, Any]] = None,
@@ -9857,7 +9857,7 @@ class DelimitedTextDatasetResponse(dict):
         :param str type: Type of dataset.
         :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Mapping[str, Any] column_delimiter: The column delimiter. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] compression_level: The data compression method used for DelimitedText.
+        :param str compression_level: The data compression method used for DelimitedText.
         :param str description: Dataset description.
         :param Mapping[str, Any] encoding_name: The code page name of the preferred encoding. If miss, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] escape_char: The escape character. Type: string (or Expression with resultType string).
@@ -9946,12 +9946,12 @@ class DelimitedTextDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="compressionCodec")
-    def compression_codec(self) -> Optional[Mapping[str, Any]]:
+    def compression_codec(self) -> Optional[str]:
         return pulumi.get(self, "compression_codec")
 
     @property
     @pulumi.getter(name="compressionLevel")
-    def compression_level(self) -> Optional[Mapping[str, Any]]:
+    def compression_level(self) -> Optional[str]:
         """
         The data compression method used for DelimitedText.
         """
@@ -10807,7 +10807,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
                  password: Optional[Any] = None,
                  port: Optional[Mapping[str, Any]] = None,
                  service_principal_credential: Optional[Any] = None,
-                 service_principal_credential_type: Optional[Mapping[str, Any]] = None,
+                 service_principal_credential_type: Optional[str] = None,
                  service_principal_id: Optional[Mapping[str, Any]] = None,
                  service_uri: Optional[Mapping[str, Any]] = None,
                  username: Optional[Mapping[str, Any]] = None):
@@ -10826,7 +10826,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the Dynamics CRM instance.
         :param Mapping[str, Any] port: The port of on-premises Dynamics CRM server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
-        :param Mapping[str, Any] service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param str service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] service_uri: The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] username: User name to access the Dynamics CRM instance. Type: string (or Expression with resultType string).
@@ -10969,7 +10969,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="servicePrincipalCredentialType")
-    def service_principal_credential_type(self) -> Optional[Mapping[str, Any]]:
+    def service_principal_credential_type(self) -> Optional[str]:
         """
         The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         """
@@ -11129,8 +11129,8 @@ class DynamicsLinkedServiceResponse(dict):
     Dynamics linked service.
     """
     def __init__(__self__, *,
-                 authentication_type: Mapping[str, Any],
-                 deployment_type: Mapping[str, Any],
+                 authentication_type: str,
+                 deployment_type: str,
                  type: str,
                  annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -11142,14 +11142,14 @@ class DynamicsLinkedServiceResponse(dict):
                  password: Optional[Any] = None,
                  port: Optional[Mapping[str, Any]] = None,
                  service_principal_credential: Optional[Any] = None,
-                 service_principal_credential_type: Optional[Mapping[str, Any]] = None,
+                 service_principal_credential_type: Optional[str] = None,
                  service_principal_id: Optional[Mapping[str, Any]] = None,
                  service_uri: Optional[Mapping[str, Any]] = None,
                  username: Optional[Mapping[str, Any]] = None):
         """
         Dynamics linked service.
-        :param Mapping[str, Any] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
+        :param str authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
+        :param str deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
         :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -11161,7 +11161,7 @@ class DynamicsLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the Dynamics instance.
         :param Mapping[str, Any] port: The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
-        :param Mapping[str, Any] service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param str service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] service_uri: The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
@@ -11200,7 +11200,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Mapping[str, Any]:
+    def authentication_type(self) -> str:
         """
         The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         """
@@ -11208,7 +11208,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Mapping[str, Any]:
+    def deployment_type(self) -> str:
         """
         The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         """
@@ -11304,7 +11304,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="servicePrincipalCredentialType")
-    def service_principal_credential_type(self) -> Optional[Mapping[str, Any]]:
+    def service_principal_credential_type(self) -> Optional[str]:
         """
         The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         """
@@ -17708,7 +17708,7 @@ class JsonFormatResponse(dict):
                  type: str,
                  deserializer: Optional[Mapping[str, Any]] = None,
                  encoding_name: Optional[Mapping[str, Any]] = None,
-                 file_pattern: Optional[Mapping[str, Any]] = None,
+                 file_pattern: Optional[str] = None,
                  json_node_reference: Optional[Mapping[str, Any]] = None,
                  json_path_definition: Optional[Mapping[str, Any]] = None,
                  nesting_separator: Optional[Mapping[str, Any]] = None,
@@ -17718,7 +17718,7 @@ class JsonFormatResponse(dict):
         :param str type: Type of dataset storage format.
         :param Mapping[str, Any] deserializer: Deserializer. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] encoding_name: The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] file_pattern: File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
+        :param str file_pattern: File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         :param Mapping[str, Any] json_node_reference: The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
         :param Mapping[str, Any] json_path_definition: The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
         :param Mapping[str, Any] nesting_separator: The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
@@ -17766,7 +17766,7 @@ class JsonFormatResponse(dict):
 
     @property
     @pulumi.getter(name="filePattern")
-    def file_pattern(self) -> Optional[Mapping[str, Any]]:
+    def file_pattern(self) -> Optional[str]:
         """
         File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         """
@@ -22481,7 +22481,7 @@ class ParquetDatasetResponse(dict):
                  location: Any,
                  type: str,
                  annotations: Optional[Sequence[Mapping[str, Any]]] = None,
-                 compression_codec: Optional[Mapping[str, Any]] = None,
+                 compression_codec: Optional[str] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -22551,7 +22551,7 @@ class ParquetDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="compressionCodec")
-    def compression_codec(self) -> Optional[Mapping[str, Any]]:
+    def compression_codec(self) -> Optional[str]:
         return pulumi.get(self, "compression_codec")
 
     @property
@@ -27712,13 +27712,13 @@ class ScriptActionResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 roles: Mapping[str, Any],
+                 roles: str,
                  uri: str,
                  parameters: Optional[str] = None):
         """
         Custom script action to run on HDI ondemand cluster once it's up.
         :param str name: The user provided name of the script action.
-        :param Mapping[str, Any] roles: The node types on which the script action should be executed.
+        :param str roles: The node types on which the script action should be executed.
         :param str uri: The URI for the script action.
         :param str parameters: The parameters for the script action.
         """
@@ -27738,7 +27738,7 @@ class ScriptActionResponse(dict):
 
     @property
     @pulumi.getter
-    def roles(self) -> Mapping[str, Any]:
+    def roles(self) -> str:
         """
         The node types on which the script action should be executed.
         """

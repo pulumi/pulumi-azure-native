@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The node types on which the script action should be executed.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Roles;
+        public readonly string Roles;
         /// <summary>
         /// The URI for the script action.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             string? parameters,
 
-            ImmutableDictionary<string, object> roles,
+            string roles,
 
             string uri)
         {

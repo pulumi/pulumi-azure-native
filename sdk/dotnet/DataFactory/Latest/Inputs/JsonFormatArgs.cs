@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             set => _encodingName = value;
         }
 
-        [Input("filePattern")]
-        private InputMap<object>? _filePattern;
-
         /// <summary>
         /// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         /// </summary>
-        public InputMap<object> FilePattern
-        {
-            get => _filePattern ?? (_filePattern = new InputMap<object>());
-            set => _filePattern = value;
-        }
+        [Input("filePattern")]
+        public Input<string>? FilePattern { get; set; }
 
         [Input("jsonNodeReference")]
         private InputMap<object>? _jsonNodeReference;

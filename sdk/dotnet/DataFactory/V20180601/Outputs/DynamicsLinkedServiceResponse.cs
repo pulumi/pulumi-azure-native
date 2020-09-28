@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> AuthenticationType;
+        public readonly string AuthenticationType;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> DeploymentType;
+        public readonly string DeploymentType;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ServicePrincipalCredentialType;
+        public readonly string? ServicePrincipalCredentialType;
         /// <summary>
         /// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         private DynamicsLinkedServiceResponse(
             ImmutableArray<ImmutableDictionary<string, object>> annotations,
 
-            ImmutableDictionary<string, object> authenticationType,
+            string authenticationType,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object> deploymentType,
+            string deploymentType,
 
             string? description,
 
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalCredential,
 
-            ImmutableDictionary<string, object>? servicePrincipalCredentialType,
+            string? servicePrincipalCredentialType,
 
             ImmutableDictionary<string, object>? servicePrincipalId,
 

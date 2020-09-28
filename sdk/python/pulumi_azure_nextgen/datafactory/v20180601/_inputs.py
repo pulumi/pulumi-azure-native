@@ -9360,7 +9360,7 @@ class CommonDataServiceForAppsLinkedServiceArgs:
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  service_principal_credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 service_principal_credential_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 service_principal_credential_type: Optional[pulumi.Input[str]] = None,
                  service_principal_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  service_uri: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
@@ -9379,7 +9379,7 @@ class CommonDataServiceForAppsLinkedServiceArgs:
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password to access the Common Data Service for Apps instance.
         :param pulumi.Input[Mapping[str, Any]] port: The port of on-premises Common Data Service for Apps server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
-        :param pulumi.Input[Mapping[str, Any]] service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] service_uri: The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] username: User name to access the Common Data Service for Apps instance. Type: string (or Expression with resultType string).
@@ -9574,14 +9574,14 @@ class CommonDataServiceForAppsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="servicePrincipalCredentialType")
-    def service_principal_credential_type(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_principal_credential_type(self) -> Optional[pulumi.Input[str]]:
         """
         The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_credential_type")
 
     @service_principal_credential_type.setter
-    def service_principal_credential_type(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_principal_credential_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_principal_credential_type", value)
 
     @property
@@ -11421,11 +11421,11 @@ class DatasetBZip2CompressionArgs:
 class DatasetDeflateCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 level: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 level: Optional[pulumi.Input[str]] = None):
         """
         The Deflate compression method used on a dataset.
         :param pulumi.Input[str] type: Type of dataset compression.
-        :param pulumi.Input[Mapping[str, Any]] level: The Deflate compression level.
+        :param pulumi.Input[str] level: The Deflate compression level.
         """
         pulumi.set(__self__, "type", 'Deflate')
         if level is not None:
@@ -11445,14 +11445,14 @@ class DatasetDeflateCompressionArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def level(self) -> Optional[pulumi.Input[str]]:
         """
         The Deflate compression level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
 
 
@@ -11484,11 +11484,11 @@ class DatasetFolderArgs:
 class DatasetGZipCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 level: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 level: Optional[pulumi.Input[str]] = None):
         """
         The GZip compression method used on a dataset.
         :param pulumi.Input[str] type: Type of dataset compression.
-        :param pulumi.Input[Mapping[str, Any]] level: The GZip compression level.
+        :param pulumi.Input[str] level: The GZip compression level.
         """
         pulumi.set(__self__, "type", 'GZip')
         if level is not None:
@@ -11508,14 +11508,14 @@ class DatasetGZipCompressionArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def level(self) -> Optional[pulumi.Input[str]]:
         """
         The GZip compression level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
 
 
@@ -11600,11 +11600,11 @@ class DatasetTarCompressionArgs:
 class DatasetTarGZipCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 level: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 level: Optional[pulumi.Input[str]] = None):
         """
         The TarGZip compression method used on a dataset.
         :param pulumi.Input[str] type: Type of dataset compression.
-        :param pulumi.Input[Mapping[str, Any]] level: The TarGZip compression level.
+        :param pulumi.Input[str] level: The TarGZip compression level.
         """
         pulumi.set(__self__, "type", 'TarGZip')
         if level is not None:
@@ -11624,14 +11624,14 @@ class DatasetTarGZipCompressionArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def level(self) -> Optional[pulumi.Input[str]]:
         """
         The TarGZip compression level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
 
 
@@ -11639,11 +11639,11 @@ class DatasetTarGZipCompressionArgs:
 class DatasetZipDeflateCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 level: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 level: Optional[pulumi.Input[str]] = None):
         """
         The ZipDeflate compression method used on a dataset.
         :param pulumi.Input[str] type: Type of dataset compression.
-        :param pulumi.Input[Mapping[str, Any]] level: The ZipDeflate compression level.
+        :param pulumi.Input[str] level: The ZipDeflate compression level.
         """
         pulumi.set(__self__, "type", 'ZipDeflate')
         if level is not None:
@@ -11663,14 +11663,14 @@ class DatasetZipDeflateCompressionArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def level(self) -> Optional[pulumi.Input[str]]:
         """
         The ZipDeflate compression level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
 
 
@@ -12079,8 +12079,8 @@ class DelimitedTextDatasetArgs:
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  column_delimiter: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 compression_codec: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 compression_level: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 compression_codec: Optional[pulumi.Input[str]] = None,
+                 compression_level: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encoding_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  escape_char: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -12099,7 +12099,7 @@ class DelimitedTextDatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Mapping[str, Any]] column_delimiter: The column delimiter. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] compression_level: The data compression method used for DelimitedText.
+        :param pulumi.Input[str] compression_level: The data compression method used for DelimitedText.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, Any]] encoding_name: The code page name of the preferred encoding. If miss, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] escape_char: The escape character. Type: string (or Expression with resultType string).
@@ -12208,23 +12208,23 @@ class DelimitedTextDatasetArgs:
 
     @property
     @pulumi.getter(name="compressionCodec")
-    def compression_codec(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def compression_codec(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "compression_codec")
 
     @compression_codec.setter
-    def compression_codec(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def compression_codec(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compression_codec", value)
 
     @property
     @pulumi.getter(name="compressionLevel")
-    def compression_level(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def compression_level(self) -> Optional[pulumi.Input[str]]:
         """
         The data compression method used for DelimitedText.
         """
         return pulumi.get(self, "compression_level")
 
     @compression_level.setter
-    def compression_level(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def compression_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compression_level", value)
 
     @property
@@ -13303,7 +13303,7 @@ class DynamicsCrmLinkedServiceArgs:
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  service_principal_credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 service_principal_credential_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 service_principal_credential_type: Optional[pulumi.Input[str]] = None,
                  service_principal_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  service_uri: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
@@ -13322,7 +13322,7 @@ class DynamicsCrmLinkedServiceArgs:
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password to access the Dynamics CRM instance.
         :param pulumi.Input[Mapping[str, Any]] port: The port of on-premises Dynamics CRM server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
-        :param pulumi.Input[Mapping[str, Any]] service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] service_uri: The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] username: User name to access the Dynamics CRM instance. Type: string (or Expression with resultType string).
@@ -13517,14 +13517,14 @@ class DynamicsCrmLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="servicePrincipalCredentialType")
-    def service_principal_credential_type(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_principal_credential_type(self) -> Optional[pulumi.Input[str]]:
         """
         The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_credential_type")
 
     @service_principal_credential_type.setter
-    def service_principal_credential_type(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_principal_credential_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_principal_credential_type", value)
 
     @property
@@ -13717,8 +13717,8 @@ class DynamicsEntityDatasetArgs:
 @pulumi.input_type
 class DynamicsLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[Mapping[str, Any]],
-                 deployment_type: pulumi.Input[Mapping[str, Any]],
+                 authentication_type: pulumi.Input[str],
+                 deployment_type: pulumi.Input[str],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -13730,14 +13730,14 @@ class DynamicsLinkedServiceArgs:
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  service_principal_credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 service_principal_credential_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 service_principal_credential_type: Optional[pulumi.Input[str]] = None,
                  service_principal_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  service_uri: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Dynamics linked service.
-        :param pulumi.Input[Mapping[str, Any]] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -13749,7 +13749,7 @@ class DynamicsLinkedServiceArgs:
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password to access the Dynamics instance.
         :param pulumi.Input[Mapping[str, Any]] port: The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
-        :param pulumi.Input[Mapping[str, Any]] service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] service_uri: The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
@@ -13788,26 +13788,26 @@ class DynamicsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[Mapping[str, Any]]:
+    def authentication_type(self) -> pulumi.Input[str]:
         """
         The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[Mapping[str, Any]]):
+    def authentication_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "authentication_type", value)
 
     @property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> pulumi.Input[Mapping[str, Any]]:
+    def deployment_type(self) -> pulumi.Input[str]:
         """
         The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
-    def deployment_type(self, value: pulumi.Input[Mapping[str, Any]]):
+    def deployment_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "deployment_type", value)
 
     @property
@@ -13944,14 +13944,14 @@ class DynamicsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="servicePrincipalCredentialType")
-    def service_principal_credential_type(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_principal_credential_type(self) -> Optional[pulumi.Input[str]]:
         """
         The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_credential_type")
 
     @service_principal_credential_type.setter
-    def service_principal_credential_type(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_principal_credential_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_principal_credential_type", value)
 
     @property
@@ -21938,7 +21938,7 @@ class JsonFormatArgs:
                  type: pulumi.Input[str],
                  deserializer: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  encoding_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 file_pattern: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 file_pattern: Optional[pulumi.Input[str]] = None,
                  json_node_reference: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  json_path_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  nesting_separator: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -21948,7 +21948,7 @@ class JsonFormatArgs:
         :param pulumi.Input[str] type: Type of dataset storage format.
         :param pulumi.Input[Mapping[str, Any]] deserializer: Deserializer. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] encoding_name: The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] file_pattern: File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
+        :param pulumi.Input[str] file_pattern: File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         :param pulumi.Input[Mapping[str, Any]] json_node_reference: The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, Any]] json_path_definition: The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
         :param pulumi.Input[Mapping[str, Any]] nesting_separator: The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
@@ -22008,14 +22008,14 @@ class JsonFormatArgs:
 
     @property
     @pulumi.getter(name="filePattern")
-    def file_pattern(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def file_pattern(self) -> Optional[pulumi.Input[str]]:
         """
         File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         """
         return pulumi.get(self, "file_pattern")
 
     @file_pattern.setter
-    def file_pattern(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def file_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_pattern", value)
 
     @property
@@ -27388,7 +27388,7 @@ class ParquetDatasetArgs:
                  location: pulumi.Input[Union['AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 compression_codec: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 compression_codec: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -27474,11 +27474,11 @@ class ParquetDatasetArgs:
 
     @property
     @pulumi.getter(name="compressionCodec")
-    def compression_codec(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def compression_codec(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "compression_codec")
 
     @compression_codec.setter
-    def compression_codec(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def compression_codec(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compression_codec", value)
 
     @property
@@ -33962,13 +33962,13 @@ class SapTableResourceDatasetArgs:
 class ScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 roles: pulumi.Input[Mapping[str, Any]],
+                 roles: pulumi.Input[str],
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
         Custom script action to run on HDI ondemand cluster once it's up.
         :param pulumi.Input[str] name: The user provided name of the script action.
-        :param pulumi.Input[Mapping[str, Any]] roles: The node types on which the script action should be executed.
+        :param pulumi.Input[str] roles: The node types on which the script action should be executed.
         :param pulumi.Input[str] uri: The URI for the script action.
         :param pulumi.Input[str] parameters: The parameters for the script action.
         """
@@ -33992,14 +33992,14 @@ class ScriptActionArgs:
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Input[Mapping[str, Any]]:
+    def roles(self) -> pulumi.Input[str]:
         """
         The node types on which the script action should be executed.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: pulumi.Input[Mapping[str, Any]]):
+    def roles(self, value: pulumi.Input[str]):
         pulumi.set(self, "roles", value)
 
     @property
