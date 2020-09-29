@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231.Inputs
     /// </summary>
     public sealed class PostArgsMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
-        [Input("matchValues", required: true)]
+        [Input("matchValues")]
         private InputList<string>? _matchValues;
 
         /// <summary>
@@ -45,8 +45,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231.Inputs
         /// <summary>
         /// Name of PostArg to be matched
         /// </summary>
-        [Input("selector", required: true)]
-        public Input<string> Selector { get; set; } = null!;
+        [Input("selector")]
+        public Input<string>? Selector { get; set; }
 
         [Input("transforms")]
         private InputList<string>? _transforms;

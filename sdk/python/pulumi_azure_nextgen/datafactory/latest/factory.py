@@ -21,6 +21,7 @@ class Factory(pulumi.CustomResource):
                  global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  repo_configuration: Optional[pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -36,6 +37,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]] global_parameters: List of parameters for factory.
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: Managed service identity of the factory.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[str] public_network_access: Whether or not public network access is allowed for the data factory.
         :param pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]] repo_configuration: Git repo information of the factory.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -63,6 +65,7 @@ class Factory(pulumi.CustomResource):
             __props__['global_parameters'] = global_parameters
             __props__['identity'] = identity
             __props__['location'] = location
+            __props__['public_network_access'] = public_network_access
             __props__['repo_configuration'] = repo_configuration
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -155,6 +158,14 @@ class Factory(pulumi.CustomResource):
         Factory provisioning state, example Succeeded.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether or not public network access is allowed for the data factory.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="repoConfiguration")

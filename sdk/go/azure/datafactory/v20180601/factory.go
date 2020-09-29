@@ -28,6 +28,8 @@ type Factory struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Factory provisioning state, example Succeeded.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Whether or not public network access is allowed for the data factory.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Git repo information of the factory.
 	RepoConfiguration pulumi.AnyOutput `pulumi:"repoConfiguration"`
 	// The resource tags.
@@ -95,6 +97,8 @@ type factoryState struct {
 	Name *string `pulumi:"name"`
 	// Factory provisioning state, example Succeeded.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Whether or not public network access is allowed for the data factory.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Git repo information of the factory.
 	RepoConfiguration interface{} `pulumi:"repoConfiguration"`
 	// The resource tags.
@@ -120,6 +124,8 @@ type FactoryState struct {
 	Name pulumi.StringPtrInput
 	// Factory provisioning state, example Succeeded.
 	ProvisioningState pulumi.StringPtrInput
+	// Whether or not public network access is allowed for the data factory.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// Git repo information of the factory.
 	RepoConfiguration pulumi.Input
 	// The resource tags.
@@ -143,6 +149,8 @@ type factoryArgs struct {
 	Identity *FactoryIdentity `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// Whether or not public network access is allowed for the data factory.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Git repo information of the factory.
 	RepoConfiguration interface{} `pulumi:"repoConfiguration"`
 	// The resource group name.
@@ -161,6 +169,8 @@ type FactoryArgs struct {
 	Identity FactoryIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// Whether or not public network access is allowed for the data factory.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// Git repo information of the factory.
 	RepoConfiguration pulumi.Input
 	// The resource group name.

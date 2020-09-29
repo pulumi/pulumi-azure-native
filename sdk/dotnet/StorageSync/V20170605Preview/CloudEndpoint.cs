@@ -120,6 +120,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20191001:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:CloudEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

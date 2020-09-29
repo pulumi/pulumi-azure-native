@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200415.Inputs
     /// </summary>
     public sealed class RequestHeaderMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
-        [Input("matchValues", required: true)]
+        [Input("matchValues")]
         private InputList<string>? _matchValues;
 
         /// <summary>
@@ -45,8 +45,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20200415.Inputs
         /// <summary>
         /// Name of Header to be matched
         /// </summary>
-        [Input("selector", required: true)]
-        public Input<string> Selector { get; set; } = null!;
+        [Input("selector")]
+        public Input<string>? Selector { get; set; }
 
         [Input("transforms")]
         private InputList<string>? _transforms;

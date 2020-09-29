@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Outputs
         /// <summary>
         /// Name of Cookies to be matched
         /// </summary>
-        public readonly string Selector;
+        public readonly string? Selector;
         /// <summary>
         /// List of transforms
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Outputs
 
             string @operator,
 
-            string selector,
+            string? selector,
 
             ImmutableArray<string> transforms)
         {

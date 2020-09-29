@@ -39,6 +39,8 @@ type LookupFactoryResult struct {
 	Name string `pulumi:"name"`
 	// Factory provisioning state, example Succeeded.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Whether or not public network access is allowed for the data factory.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Git repo information of the factory.
 	RepoConfiguration interface{} `pulumi:"repoConfiguration"`
 	// The resource tags.

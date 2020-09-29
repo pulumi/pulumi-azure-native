@@ -64,6 +64,10 @@ export interface GetFactoryResult {
      */
     readonly provisioningState: string;
     /**
+     * Whether or not public network access is allowed for the data factory.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * Git repo information of the factory.
      */
     readonly repoConfiguration?: outputs.datafactory.v20180601.FactoryGitHubConfigurationResponse | outputs.datafactory.v20180601.FactoryVSTSConfigurationResponse;

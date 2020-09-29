@@ -35,9 +35,17 @@ export class IotDefenderSetting extends pulumi.CustomResource {
     }
 
     /**
+     * Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+     */
+    public readonly deviceQuota!: pulumi.Output<number>;
+    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Sentinel Workspace Resource Ids
+     */
+    public readonly sentinelWorkspaceResourceIds!: pulumi.Output<string[]>;
     /**
      * Resource type
      */
@@ -50,13 +58,23 @@ export class IotDefenderSetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: IotDefenderSettingArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IotDefenderSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
+            if (!args || args.deviceQuota === undefined) {
+                throw new Error("Missing required property 'deviceQuota'");
+            }
+            if (!args || args.sentinelWorkspaceResourceIds === undefined) {
+                throw new Error("Missing required property 'sentinelWorkspaceResourceIds'");
+            }
+            inputs["deviceQuota"] = args ? args.deviceQuota : undefined;
+            inputs["sentinelWorkspaceResourceIds"] = args ? args.sentinelWorkspaceResourceIds : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["deviceQuota"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["sentinelWorkspaceResourceIds"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -74,4 +92,12 @@ export class IotDefenderSetting extends pulumi.CustomResource {
  * The set of arguments for constructing a IotDefenderSetting resource.
  */
 export interface IotDefenderSettingArgs {
+    /**
+     * Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+     */
+    readonly deviceQuota: pulumi.Input<number>;
+    /**
+     * Sentinel Workspace Resource Ids
+     */
+    readonly sentinelWorkspaceResourceIds: pulumi.Input<pulumi.Input<string>[]>;
 }

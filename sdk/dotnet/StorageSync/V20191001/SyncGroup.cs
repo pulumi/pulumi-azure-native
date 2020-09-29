@@ -72,6 +72,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190301:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:SyncGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

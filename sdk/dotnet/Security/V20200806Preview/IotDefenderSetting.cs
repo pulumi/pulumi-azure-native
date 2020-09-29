@@ -15,10 +15,22 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
     public partial class IotDefenderSetting : Pulumi.CustomResource
     {
         /// <summary>
+        /// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        /// </summary>
+        [Output("deviceQuota")]
+        public Output<int> DeviceQuota { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Sentinel Workspace Resource Ids
+        /// </summary>
+        [Output("sentinelWorkspaceResourceIds")]
+        public Output<ImmutableArray<string>> SentinelWorkspaceResourceIds { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -34,7 +46,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public IotDefenderSetting(string name, IotDefenderSettingArgs? args = null, CustomResourceOptions? options = null)
+        public IotDefenderSetting(string name, IotDefenderSettingArgs args, CustomResourceOptions? options = null)
             : base("azure-nextgen:security/v20200806preview:IotDefenderSetting", name, args ?? new IotDefenderSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -71,6 +83,24 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
 
     public sealed class IotDefenderSettingArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        /// </summary>
+        [Input("deviceQuota", required: true)]
+        public Input<int> DeviceQuota { get; set; } = null!;
+
+        [Input("sentinelWorkspaceResourceIds", required: true)]
+        private InputList<string>? _sentinelWorkspaceResourceIds;
+
+        /// <summary>
+        /// Sentinel Workspace Resource Ids
+        /// </summary>
+        public InputList<string> SentinelWorkspaceResourceIds
+        {
+            get => _sentinelWorkspaceResourceIds ?? (_sentinelWorkspaceResourceIds = new InputList<string>());
+            set => _sentinelWorkspaceResourceIds = value;
+        }
+
         public IotDefenderSettingArgs()
         {
         }
