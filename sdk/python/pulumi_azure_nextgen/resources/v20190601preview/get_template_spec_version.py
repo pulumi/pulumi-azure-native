@@ -96,7 +96,7 @@ class GetTemplateSpecVersionResult:
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[Mapping[str, Any]]:
+    def template(self) -> Optional[Any]:
         """
         The Azure Resource Manager template content.
         """

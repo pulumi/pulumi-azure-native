@@ -20,7 +20,7 @@ class PolicyExemption(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  exemption_category: Optional[pulumi.Input[str]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_exemption_name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +37,7 @@ class PolicyExemption(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the policy exemption.
         :param pulumi.Input[str] exemption_category: The policy exemption category. Possible values are Waiver and Mitigated.
         :param pulumi.Input[str] expires_on: The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        :param Any metadata: The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[str] policy_assignment_id: The ID of the policy assignment that is being exempted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         :param pulumi.Input[str] policy_exemption_name: The name of the policy exemption to delete.
@@ -138,7 +138,7 @@ class PolicyExemption(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         """

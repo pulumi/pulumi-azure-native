@@ -20,12 +20,12 @@ class Blueprint(pulumi.CustomResource):
                  blueprint_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 layout: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 layout: Optional[Any] = None,
                  management_group_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]]] = None,
                  resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]]] = None,
                  target_scope: Optional[pulumi.Input[str]] = None,
-                 versions: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 versions: Optional[Any] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -37,12 +37,12 @@ class Blueprint(pulumi.CustomResource):
         :param pulumi.Input[str] blueprint_name: name of the blueprint.
         :param pulumi.Input[str] description: Multi-line explain this resource.
         :param pulumi.Input[str] display_name: One-liner string explain this resource.
-        :param pulumi.Input[Mapping[str, Any]] layout: Layout view of the blueprint, for UI reference.
+        :param Any layout: Layout view of the blueprint, for UI reference.
         :param pulumi.Input[str] management_group_name: ManagementGroup where blueprint stores.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]] parameters: Parameters required by this Blueprint definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]] resource_groups: Resource group placeholders defined by this Blueprint definition.
         :param pulumi.Input[str] target_scope: The scope where this Blueprint can be applied.
-        :param pulumi.Input[Mapping[str, Any]] versions: Published versions of this blueprint.
+        :param Any versions: Published versions of this blueprint.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,7 +121,7 @@ class Blueprint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def layout(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def layout(self) -> pulumi.Output[Optional[Any]]:
         """
         Layout view of the blueprint, for UI reference.
         """
@@ -177,7 +177,7 @@ class Blueprint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def versions(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def versions(self) -> pulumi.Output[Optional[Any]]:
         """
         Published versions of this blueprint.
         """

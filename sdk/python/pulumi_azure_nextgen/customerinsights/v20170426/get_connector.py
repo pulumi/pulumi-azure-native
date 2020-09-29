@@ -78,7 +78,7 @@ class GetConnectorResult:
 
     @property
     @pulumi.getter(name="connectorProperties")
-    def connector_properties(self) -> Mapping[str, Mapping[str, Any]]:
+    def connector_properties(self) -> Mapping[str, Any]:
         """
         The connector properties.
         """

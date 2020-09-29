@@ -67,7 +67,7 @@ class GetPolicyDefinitionAtManagementGroupResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         """
@@ -99,7 +99,7 @@ class GetPolicyDefinitionAtManagementGroupResult:
 
     @property
     @pulumi.getter(name="policyRule")
-    def policy_rule(self) -> Optional[Mapping[str, Any]]:
+    def policy_rule(self) -> Optional[Any]:
         """
         The policy rule.
         """

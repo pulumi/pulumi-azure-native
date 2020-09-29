@@ -83,7 +83,7 @@ class GetIntegrationAccountCertificateResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The metadata.
         """

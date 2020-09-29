@@ -15,7 +15,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[Any] = None,
                  config_href: Optional[pulumi.Input[str]] = None,
                  files: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
@@ -37,7 +37,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] config: Config information.
+        :param Any config: Config information.
         :param pulumi.Input[str] config_href: Config URI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] files: File list.
         :param pulumi.Input[str] function_app_id: Function App ID.
@@ -120,7 +120,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def config(self) -> pulumi.Output[Optional[Any]]:
         """
         Config information.
         """

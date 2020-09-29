@@ -121,7 +121,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> Optional[Any]:
         """
         ARM tags as name/value pairs.
         """

@@ -90,7 +90,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter
-    def definition(self) -> Optional[Mapping[str, Any]]:
+    def definition(self) -> Optional[Any]:
         """
         The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         """

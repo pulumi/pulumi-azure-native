@@ -73,7 +73,7 @@ class GetStorageSyncServiceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> Optional[Any]:
         """
         The tags of the resource.
         """

@@ -56,7 +56,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Pipeline.
         """

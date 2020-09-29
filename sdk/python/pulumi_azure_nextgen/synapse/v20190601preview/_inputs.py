@@ -137,15 +137,15 @@ class AutoScalePropertiesArgs:
 class CmdkeySetupArgs:
     def __init__(__self__, *,
                  password: pulumi.Input['SecureStringArgs'],
-                 target_name: pulumi.Input[Mapping[str, Any]],
+                 target_name: Any,
                  type: pulumi.Input[str],
-                 user_name: pulumi.Input[Mapping[str, Any]]):
+                 user_name: Any):
         """
         The custom setup of running cmdkey commands.
         :param pulumi.Input['SecureStringArgs'] password: The password of data source access.
-        :param pulumi.Input[Mapping[str, Any]] target_name: The server name of data source access.
+        :param Any target_name: The server name of data source access.
         :param pulumi.Input[str] type: The type of custom setup.
-        :param pulumi.Input[Mapping[str, Any]] user_name: The user name of data source access.
+        :param Any user_name: The user name of data source access.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "target_name", target_name)
@@ -166,14 +166,14 @@ class CmdkeySetupArgs:
 
     @property
     @pulumi.getter(name="targetName")
-    def target_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def target_name(self) -> Any:
         """
         The server name of data source access.
         """
         return pulumi.get(self, "target_name")
 
     @target_name.setter
-    def target_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def target_name(self, value: Any):
         pulumi.set(self, "target_name", value)
 
     @property
@@ -190,14 +190,14 @@ class CmdkeySetupArgs:
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def user_name(self) -> Any:
         """
         The user name of data source access.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def user_name(self, value: Any):
         pulumi.set(self, "user_name", value)
 
 

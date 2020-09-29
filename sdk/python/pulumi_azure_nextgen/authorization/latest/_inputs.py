@@ -72,14 +72,14 @@ class ManagementLockOwnerArgs:
 @pulumi.input_type
 class ParameterDefinitionsValueArgs:
     def __init__(__self__, *,
-                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 default_value: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 default_value: Optional[Any] = None,
                  metadata: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The definition of a parameter that can be provided to the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] allowed_values: The allowed values for the parameter.
-        :param pulumi.Input[Mapping[str, Any]] default_value: The default value for the parameter if no value is provided.
+        :param pulumi.Input[Sequence[Any]] allowed_values: The allowed values for the parameter.
+        :param Any default_value: The default value for the parameter if no value is provided.
         :param pulumi.Input['ParameterDefinitionsValueMetadataArgs'] metadata: General metadata for the parameter.
         :param pulumi.Input[str] type: The data type of the parameter.
         """
@@ -94,26 +94,26 @@ class ParameterDefinitionsValueArgs:
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         The allowed values for the parameter.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "allowed_values", value)
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def default_value(self) -> Optional[Any]:
         """
         The default value for the parameter if no value is provided.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def default_value(self, value: Optional[Any]):
         pulumi.set(self, "default_value", value)
 
     @property
@@ -184,24 +184,24 @@ class ParameterDefinitionsValueMetadataArgs:
 @pulumi.input_type
 class ParameterValuesValueArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 value: Optional[Any] = None):
         """
         The value of a parameter.
-        :param pulumi.Input[Mapping[str, Any]] value: The value of the parameter.
+        :param Any value: The value of the parameter.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def value(self) -> Optional[Any]:
         """
         The value of the parameter.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def value(self, value: Optional[Any]):
         pulumi.set(self, "value", value)
 
 

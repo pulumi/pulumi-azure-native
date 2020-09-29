@@ -1462,14 +1462,14 @@ class ContentLinkArgs:
                  content_hash: Optional[pulumi.Input['ContentHashArgs']] = None,
                  content_size: Optional[pulumi.Input[int]] = None,
                  content_version: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The content link.
         :param pulumi.Input['ContentHashArgs'] content_hash: The content hash.
         :param pulumi.Input[int] content_size: The content size.
         :param pulumi.Input[str] content_version: The content version.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
+        :param Any metadata: The metadata.
         :param pulumi.Input[str] uri: The content link URI.
         """
         if content_hash is not None:
@@ -1521,14 +1521,14 @@ class ContentLinkArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Any]:
         """
         The metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
     @property
@@ -4484,15 +4484,15 @@ class SkuArgs:
 class WorkflowParameterArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 value: Optional[Any] = None):
         """
         The workflow parameters.
         :param pulumi.Input[str] description: The description.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
+        :param Any metadata: The metadata.
         :param pulumi.Input[str] type: The type.
-        :param pulumi.Input[Mapping[str, Any]] value: The value.
+        :param Any value: The value.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -4517,14 +4517,14 @@ class WorkflowParameterArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Any]:
         """
         The metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
     @property
@@ -4541,14 +4541,14 @@ class WorkflowParameterArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def value(self) -> Optional[Any]:
         """
         The value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def value(self, value: Optional[Any]):
         pulumi.set(self, "value", value)
 
 

@@ -61,7 +61,7 @@ class GetDataStoreResult:
 
     @property
     @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> Optional[Mapping[str, Any]]:
+    def extended_properties(self) -> Optional[Any]:
         """
         A generic json used differently by each data source type.
         """

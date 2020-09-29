@@ -20,14 +20,14 @@ class ApplicationDefinition(pulumi.CustomResource):
                  application_definition_name: Optional[pulumi.Input[str]] = None,
                  artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]]] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationProviderAuthorizationArgs']]]]] = None,
-                 create_ui_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 create_ui_definition: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  is_enabled: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_level: Optional[pulumi.Input[str]] = None,
-                 main_template: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 main_template: Optional[Any] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  package_file_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -44,14 +44,14 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] application_definition_name: The name of the managed application definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationProviderAuthorizationArgs']]]] authorizations: The managed application provider authorizations.
-        :param pulumi.Input[Mapping[str, Any]] create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        :param Any create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[str] description: The managed application definition description.
         :param pulumi.Input[str] display_name: The managed application definition display name.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] is_enabled: A value indicating whether the package is enabled or not.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] lock_level: The managed application lock level.
-        :param pulumi.Input[Mapping[str, Any]] main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        :param Any main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
         :param pulumi.Input[str] package_file_uri: The managed application definition package file Uri. Use this element
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -145,7 +145,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createUiDefinition")
-    def create_ui_definition(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def create_ui_definition(self) -> pulumi.Output[Optional[Any]]:
         """
         The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         """
@@ -201,7 +201,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mainTemplate")
-    def main_template(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def main_template(self) -> pulumi.Output[Optional[Any]]:
         """
         The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         """

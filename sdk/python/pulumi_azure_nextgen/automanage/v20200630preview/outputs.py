@@ -71,7 +71,7 @@ class ConfigurationProfilePreferenceAntiMalwareResponse(dict):
     """
     def __init__(__self__, *,
                  enable_real_time_protection: Optional[str] = None,
-                 exclusions: Optional[Mapping[str, Any]] = None,
+                 exclusions: Optional[Any] = None,
                  run_scheduled_scan: Optional[str] = None,
                  scan_day: Optional[str] = None,
                  scan_time_in_minutes: Optional[str] = None,
@@ -79,7 +79,7 @@ class ConfigurationProfilePreferenceAntiMalwareResponse(dict):
         """
         Automanage configuration profile Antimalware preferences.
         :param str enable_real_time_protection: Enables or disables Real Time Protection
-        :param Mapping[str, Any] exclusions: Extensions, Paths and Processes that must be excluded from scan
+        :param Any exclusions: Extensions, Paths and Processes that must be excluded from scan
         :param str run_scheduled_scan: Enables or disables a periodic scan for antimalware
         :param str scan_day: Schedule scan settings day
         :param str scan_time_in_minutes: Schedule scan settings time
@@ -108,7 +108,7 @@ class ConfigurationProfilePreferenceAntiMalwareResponse(dict):
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[Mapping[str, Any]]:
+    def exclusions(self) -> Optional[Any]:
         """
         Extensions, Paths and Processes that must be excluded from scan
         """

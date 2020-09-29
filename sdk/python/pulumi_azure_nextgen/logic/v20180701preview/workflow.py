@@ -17,7 +17,7 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 definition: Optional[Any] = None,
                  integration_account: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
@@ -34,7 +34,7 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] definition: The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+        :param Any definition: The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_account: The integration account.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]] parameters: The parameters.
@@ -133,7 +133,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def definition(self) -> pulumi.Output[Optional[Any]]:
         """
         The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         """

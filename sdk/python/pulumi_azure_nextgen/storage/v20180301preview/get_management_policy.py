@@ -51,7 +51,7 @@ class GetManagementPolicyResult:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[Mapping[str, Any]]:
+    def policy(self) -> Optional[Any]:
         """
         The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """

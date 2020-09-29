@@ -76,7 +76,7 @@ class DetectorArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  image_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  supported_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The detector information. By default this is not populated, unless it's specified in expandDetector
@@ -84,7 +84,7 @@ class DetectorArgs:
         :param pulumi.Input[str] description: The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
         :param pulumi.Input[Sequence[pulumi.Input[str]]] image_paths: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
         :param pulumi.Input[str] name: The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] parameters: The detector's parameters.'
+        :param pulumi.Input[Mapping[str, Any]] parameters: The detector's parameters.'
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_resource_types: The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
         """
         pulumi.set(__self__, "id", id)
@@ -149,14 +149,14 @@ class DetectorArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The detector's parameters.'
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "parameters", value)
 
     @property

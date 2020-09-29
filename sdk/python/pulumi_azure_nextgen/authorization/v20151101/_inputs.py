@@ -74,12 +74,12 @@ class PolicyDefinitionPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 policy_rule: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 policy_rule: Optional[Any] = None):
         """
         Policy definition properties.
         :param pulumi.Input[str] description: Gets or sets the policy definition description.
         :param pulumi.Input[str] display_name: Gets or sets the policy definition display name.
-        :param pulumi.Input[Mapping[str, Any]] policy_rule: The policy rule json.
+        :param Any policy_rule: The policy rule json.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -114,14 +114,14 @@ class PolicyDefinitionPropertiesArgs:
 
     @property
     @pulumi.getter(name="policyRule")
-    def policy_rule(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def policy_rule(self) -> Optional[Any]:
         """
         The policy rule json.
         """
         return pulumi.get(self, "policy_rule")
 
     @policy_rule.setter
-    def policy_rule(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def policy_rule(self, value: Optional[Any]):
         pulumi.set(self, "policy_rule", value)
 
 

@@ -18,7 +18,7 @@ class DataController(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_controller_name: Optional[pulumi.Input[str]] = None,
-                 k8s_raw: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 k8s_raw: Optional[Any] = None,
                  last_uploaded_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  on_premise_property: Optional[pulumi.Input[pulumi.InputType['OnPremisePropertyArgs']]] = None,
@@ -32,7 +32,7 @@ class DataController(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] k8s_raw: The raw kubernetes information
+        :param Any k8s_raw: The raw kubernetes information
         :param pulumi.Input[str] last_uploaded_date: Last uploaded date from on premise cluster. Defaults to current date time
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['OnPremisePropertyArgs']] on_premise_property: Properties from the on premise data controller
@@ -102,7 +102,7 @@ class DataController(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="k8sRaw")
-    def k8s_raw(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def k8s_raw(self) -> pulumi.Output[Optional[Any]]:
         """
         The raw kubernetes information
         """

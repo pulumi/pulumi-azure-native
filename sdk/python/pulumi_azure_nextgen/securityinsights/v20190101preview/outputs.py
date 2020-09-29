@@ -301,10 +301,10 @@ class WatchlistItemResponse(dict):
                  name: str,
                  type: str,
                  watchlist_id: str,
-                 watchlist_item_pair: Mapping[str, Any],
+                 watchlist_item_pair: Any,
                  created_by: Optional['outputs.UserInfoResponse'] = None,
                  created_time_utc: Optional[str] = None,
-                 entity_mapping: Optional[Mapping[str, Any]] = None,
+                 entity_mapping: Optional[Any] = None,
                  last_updated_time_utc: Optional[str] = None,
                  tenant_id: Optional[str] = None,
                  time_to_live_utc: Optional[str] = None,
@@ -317,10 +317,10 @@ class WatchlistItemResponse(dict):
         :param str name: Azure resource name
         :param str type: Azure resource type
         :param str watchlist_id: The watchlist id of the parent of this watchlist item
-        :param Mapping[str, Any] watchlist_item_pair: A key-value pair for a watchlist item
+        :param Any watchlist_item_pair: A key-value pair for a watchlist item
         :param 'UserInfoResponseArgs' created_by: Describes a user that created the watchlist
         :param str created_time_utc: The time the watchlist item was created
-        :param Mapping[str, Any] entity_mapping: A key-value pair for a watchlist item entity mapping
+        :param Any entity_mapping: A key-value pair for a watchlist item entity mapping
         :param str last_updated_time_utc: The last time the watchlist item was updated
         :param str tenant_id: The tenantId to which this watchlist item belongs to
         :param str time_to_live_utc: The time to live for the watchlist item
@@ -386,7 +386,7 @@ class WatchlistItemResponse(dict):
 
     @property
     @pulumi.getter(name="watchlistItemPair")
-    def watchlist_item_pair(self) -> Mapping[str, Any]:
+    def watchlist_item_pair(self) -> Any:
         """
         A key-value pair for a watchlist item
         """
@@ -410,7 +410,7 @@ class WatchlistItemResponse(dict):
 
     @property
     @pulumi.getter(name="entityMapping")
-    def entity_mapping(self) -> Optional[Mapping[str, Any]]:
+    def entity_mapping(self) -> Optional[Any]:
         """
         A key-value pair for a watchlist item entity mapping
         """

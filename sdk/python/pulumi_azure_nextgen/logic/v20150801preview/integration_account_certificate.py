@@ -22,7 +22,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_certificate: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[pulumi.InputType['KeyVaultKeyReferenceArgs']] key: The key details in the key vault.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
+        :param Any metadata: The metadata.
         :param pulumi.Input[str] name: The resource name.
         :param pulumi.Input[str] public_certificate: The public certificate.
         :param pulumi.Input[str] resource_group_name: The resource group name.
@@ -143,7 +143,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
         """
         The metadata.
         """

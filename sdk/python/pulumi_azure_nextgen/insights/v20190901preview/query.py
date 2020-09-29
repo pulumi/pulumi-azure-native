@@ -21,7 +21,7 @@ class Query(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 properties: Optional[Any] = None,
                  query_pack_name: Optional[pulumi.Input[str]] = None,
                  related: Optional[pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class Query(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the query.
         :param pulumi.Input[str] display_name: Unique display name for your query within the Query Pack.
         :param pulumi.Input[str] id: The id of a specific query defined in the Log Analytics QueryPack
-        :param pulumi.Input[Mapping[str, Any]] properties: Additional properties that can be set for the query.
+        :param Any properties: Additional properties that can be set for the query.
         :param pulumi.Input[str] query_pack_name: The name of the Log Analytics QueryPack resource.
         :param pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']] related: The related metadata items for the function.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -152,7 +152,7 @@ class Query(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[Mapping[str, Any]]:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Additional properties that can be set for the query.
         """

@@ -112,15 +112,18 @@ class CassandraKeyspaceGetPropertiesResponseResource(dict):
     def __init__(__self__, *,
                  etag: str,
                  id: str,
-                 rid: str):
+                 rid: str,
+                 ts: Any):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB Cassandra keyspace
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
 
     @property
     @pulumi.getter
@@ -145,6 +148,14 @@ class CassandraKeyspaceGetPropertiesResponseResource(dict):
         A system generated property. A unique identifier.
         """
         return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -254,18 +265,21 @@ class CassandraTableGetPropertiesResponseResource(dict):
                  etag: str,
                  id: str,
                  rid: str,
+                 ts: Any,
                  default_ttl: Optional[int] = None,
                  schema: Optional['outputs.CassandraSchemaResponse'] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB Cassandra table
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         :param int default_ttl: Time to live of the Cosmos DB Cassandra table
         :param 'CassandraSchemaResponseArgs' schema: Schema of the Cosmos DB Cassandra table
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
         if schema is not None:
@@ -294,6 +308,14 @@ class CassandraTableGetPropertiesResponseResource(dict):
         A system generated property. A unique identifier.
         """
         return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     @property
     @pulumi.getter(name="defaultTtl")
@@ -705,15 +727,18 @@ class GremlinDatabaseGetPropertiesResponseResource(dict):
     def __init__(__self__, *,
                  etag: str,
                  id: str,
-                 rid: str):
+                 rid: str,
+                 ts: Any):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB Gremlin database
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
 
     @property
     @pulumi.getter
@@ -738,6 +763,14 @@ class GremlinDatabaseGetPropertiesResponseResource(dict):
         A system generated property. A unique identifier.
         """
         return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -771,6 +804,7 @@ class GremlinGraphGetPropertiesResponseResource(dict):
                  etag: str,
                  id: str,
                  rid: str,
+                 ts: Any,
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
                  default_ttl: Optional[int] = None,
                  indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
@@ -780,6 +814,7 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB Gremlin graph
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         :param 'ConflictResolutionPolicyResponseArgs' conflict_resolution_policy: The conflict resolution policy for the graph.
         :param int default_ttl: Default time to live
         :param 'IndexingPolicyResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
@@ -789,6 +824,7 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if default_ttl is not None:
@@ -823,6 +859,14 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         A system generated property. A unique identifier.
         """
         return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     @property
     @pulumi.getter(name="conflictResolutionPolicy")
@@ -1153,18 +1197,21 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
                  etag: str,
                  id: str,
                  rid: str,
+                 ts: Any,
                  indexes: Optional[Sequence['outputs.MongoIndexResponse']] = None,
                  shard_key: Optional[Mapping[str, str]] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB MongoDB collection
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         :param Sequence['MongoIndexResponseArgs'] indexes: List of index keys
         :param Mapping[str, str] shard_key: A key-value pair of shard keys to be applied for the request.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
         if shard_key is not None:
@@ -1193,6 +1240,14 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
         A system generated property. A unique identifier.
         """
         return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     @property
     @pulumi.getter
@@ -1241,15 +1296,18 @@ class MongoDBDatabaseGetPropertiesResponseResource(dict):
     def __init__(__self__, *,
                  etag: str,
                  id: str,
-                 rid: str):
+                 rid: str,
+                 ts: Any):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB MongoDB database
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
 
     @property
     @pulumi.getter
@@ -1274,6 +1332,14 @@ class MongoDBDatabaseGetPropertiesResponseResource(dict):
         A system generated property. A unique identifier.
         """
         return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1577,6 +1643,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
                  etag: str,
                  id: str,
                  rid: str,
+                 ts: Any,
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
                  default_ttl: Optional[int] = None,
                  indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
@@ -1586,6 +1653,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB SQL container
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         :param 'ConflictResolutionPolicyResponseArgs' conflict_resolution_policy: The conflict resolution policy for the container.
         :param int default_ttl: Default time to live
         :param 'IndexingPolicyResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
@@ -1595,6 +1663,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if default_ttl is not None:
@@ -1629,6 +1698,14 @@ class SqlContainerGetPropertiesResponseResource(dict):
         A system generated property. A unique identifier.
         """
         return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     @property
     @pulumi.getter(name="conflictResolutionPolicy")
@@ -1702,18 +1779,21 @@ class SqlDatabaseGetPropertiesResponseResource(dict):
                  etag: str,
                  id: str,
                  rid: str,
+                 ts: Any,
                  colls: Optional[str] = None,
                  users: Optional[str] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB SQL database
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         :param str colls: A system generated property that specified the addressable path of the collections resource.
         :param str users: A system generated property that specifies the addressable path of the users resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
         if colls is not None:
             pulumi.set(__self__, "colls", colls)
         if users is not None:
@@ -1745,6 +1825,14 @@ class SqlDatabaseGetPropertiesResponseResource(dict):
 
     @property
     @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter
     def colls(self) -> Optional[str]:
         """
         A system generated property that specified the addressable path of the collections resource.
@@ -1769,16 +1857,19 @@ class SqlStoredProcedureGetPropertiesResponseResource(dict):
                  etag: str,
                  id: str,
                  rid: str,
+                 ts: Any,
                  body: Optional[str] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB SQL storedProcedure
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         :param str body: Body of the Stored Procedure
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
         if body is not None:
             pulumi.set(__self__, "body", body)
 
@@ -1808,6 +1899,14 @@ class SqlStoredProcedureGetPropertiesResponseResource(dict):
 
     @property
     @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter
     def body(self) -> Optional[str]:
         """
         Body of the Stored Procedure
@@ -1824,6 +1923,7 @@ class SqlTriggerGetPropertiesResponseResource(dict):
                  etag: str,
                  id: str,
                  rid: str,
+                 ts: Any,
                  body: Optional[str] = None,
                  trigger_operation: Optional[str] = None,
                  trigger_type: Optional[str] = None):
@@ -1831,6 +1931,7 @@ class SqlTriggerGetPropertiesResponseResource(dict):
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB SQL trigger
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         :param str body: Body of the Trigger
         :param str trigger_operation: The operation the trigger is associated with
         :param str trigger_type: Type of the Trigger
@@ -1838,6 +1939,7 @@ class SqlTriggerGetPropertiesResponseResource(dict):
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
         if body is not None:
             pulumi.set(__self__, "body", body)
         if trigger_operation is not None:
@@ -1868,6 +1970,14 @@ class SqlTriggerGetPropertiesResponseResource(dict):
         A system generated property. A unique identifier.
         """
         return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     @property
     @pulumi.getter
@@ -1903,16 +2013,19 @@ class SqlUserDefinedFunctionGetPropertiesResponseResource(dict):
                  etag: str,
                  id: str,
                  rid: str,
+                 ts: Any,
                  body: Optional[str] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB SQL userDefinedFunction
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         :param str body: Body of the User Defined Function
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
         if body is not None:
             pulumi.set(__self__, "body", body)
 
@@ -1939,6 +2052,14 @@ class SqlUserDefinedFunctionGetPropertiesResponseResource(dict):
         A system generated property. A unique identifier.
         """
         return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     @property
     @pulumi.getter
@@ -1979,15 +2100,18 @@ class TableGetPropertiesResponseResource(dict):
     def __init__(__self__, *,
                  etag: str,
                  id: str,
-                 rid: str):
+                 rid: str,
+                 ts: Any):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB table
         :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
 
     @property
     @pulumi.getter
@@ -2012,6 +2136,14 @@ class TableGetPropertiesResponseResource(dict):
         A system generated property. A unique identifier.
         """
         return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

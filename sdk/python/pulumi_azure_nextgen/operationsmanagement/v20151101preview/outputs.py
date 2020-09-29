@@ -89,14 +89,14 @@ class ManagementConfigurationPropertiesResponse(dict):
                  parameters: Sequence['outputs.ArmTemplateParameterResponse'],
                  parent_resource_type: str,
                  provisioning_state: str,
-                 template: Mapping[str, Any],
+                 template: Any,
                  application_id: Optional[str] = None):
         """
         ManagementConfiguration properties supported by the OperationsManagement resource provider.
         :param Sequence['ArmTemplateParameterResponseArgs'] parameters: Parameters to run the ARM template
         :param str parent_resource_type: The type of the parent resource.
         :param str provisioning_state: The provisioning state for the ManagementConfiguration.
-        :param Mapping[str, Any] template: The Json object containing the ARM template to deploy
+        :param Any template: The Json object containing the ARM template to deploy
         :param str application_id: The applicationId of the appliance for this Management.
         """
         pulumi.set(__self__, "parameters", parameters)
@@ -132,7 +132,7 @@ class ManagementConfigurationPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def template(self) -> Mapping[str, Any]:
+    def template(self) -> Any:
         """
         The Json object containing the ARM template to deploy
         """

@@ -18,7 +18,7 @@ class PolicyAssignment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 parameters: Optional[Any] = None,
                  policy_assignment_name: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class PolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: This message will be part of response in case of policy violation.
         :param pulumi.Input[str] display_name: The display name of the policy assignment.
         :param pulumi.Input[str] name: The name of the policy assignment.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Required if a parameter is used in policy rule.
+        :param Any parameters: Required if a parameter is used in policy rule.
         :param pulumi.Input[str] policy_assignment_name: The name of the policy assignment.
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition.
         :param pulumi.Input[str] scope: The scope for the policy assignment.
@@ -121,7 +121,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         Required if a parameter is used in policy rule.
         """

@@ -25,7 +25,7 @@ class Application(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 parameters: Optional[Any] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -46,7 +46,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        :param Any parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: The plan information.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
@@ -241,7 +241,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[Mapping[str, Any]]:
+    def outputs(self) -> pulumi.Output[Any]:
         """
         Name and value pairs that define the managed application outputs.
         """
@@ -249,7 +249,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         """

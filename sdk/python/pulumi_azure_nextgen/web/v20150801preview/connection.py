@@ -28,10 +28,10 @@ class Connection(pulumi.CustomResource):
                  keywords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 non_secret_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
-                 parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 non_secret_parameter_values: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 parameter_values: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionStatusArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -57,8 +57,8 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] non_secret_parameter_values: Tokens/Claim
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] parameter_values: Tokens/Claim
+        :param pulumi.Input[Mapping[str, Any]] non_secret_parameter_values: Tokens/Claim
+        :param pulumi.Input[Mapping[str, Any]] parameter_values: Tokens/Claim
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionStatusArgs']]]] statuses: Status of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -207,7 +207,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "metadata")
 
     @property
@@ -220,7 +220,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nonSecretParameterValues")
-    def non_secret_parameter_values(self) -> pulumi.Output[Optional[Mapping[str, Mapping[str, Any]]]]:
+    def non_secret_parameter_values(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Tokens/Claim
         """
@@ -228,7 +228,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> pulumi.Output[Optional[Mapping[str, Mapping[str, Any]]]]:
+    def parameter_values(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Tokens/Claim
         """

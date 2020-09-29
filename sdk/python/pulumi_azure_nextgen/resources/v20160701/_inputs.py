@@ -21,16 +21,16 @@ __all__ = [
 class DeploymentPropertiesArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 parameters: Optional[Any] = None,
                  parameters_link: Optional[pulumi.Input['ParametersLinkArgs']] = None,
-                 template: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 template: Optional[Any] = None,
                  template_link: Optional[pulumi.Input['TemplateLinkArgs']] = None):
         """
         Deployment properties.
         :param pulumi.Input[str] mode: The deployment mode.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
+        :param Any parameters: Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
         :param pulumi.Input['ParametersLinkArgs'] parameters_link: The parameters URI. Use only one of Parameters or ParametersLink.
-        :param pulumi.Input[Mapping[str, Any]] template: The template content. It can be a JObject or a well formed JSON string. Use only one of Template or TemplateLink.
+        :param Any template: The template content. It can be a JObject or a well formed JSON string. Use only one of Template or TemplateLink.
         :param pulumi.Input['TemplateLinkArgs'] template_link: The template URI. Use only one of Template or TemplateLink.
         """
         pulumi.set(__self__, "mode", mode)
@@ -57,14 +57,14 @@ class DeploymentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -81,14 +81,14 @@ class DeploymentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def template(self) -> Optional[Any]:
         """
         The template content. It can be a JObject or a well formed JSON string. Use only one of Template or TemplateLink.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def template(self, value: Optional[Any]):
         pulumi.set(self, "template", value)
 
     @property

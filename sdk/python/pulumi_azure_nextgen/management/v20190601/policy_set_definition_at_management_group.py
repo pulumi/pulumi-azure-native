@@ -20,8 +20,8 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
+                 parameters: Optional[Any] = None,
                  policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]]] = None,
                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
@@ -36,8 +36,8 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The policy set definition description.
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The policy set definition metadata.
-        :param pulumi.Input[Mapping[str, Any]] parameters: The policy set definition parameters that can be used in policy definition references.
+        :param Any metadata: The policy set definition metadata.
+        :param Any parameters: The policy set definition parameters that can be used in policy definition references.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]] policy_definitions: An array of policy definition references.
         :param pulumi.Input[str] policy_set_definition_name: The name of the policy set definition to create.
         :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -119,7 +119,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy set definition metadata.
         """
@@ -135,7 +135,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy set definition parameters that can be used in policy definition references.
         """

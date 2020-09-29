@@ -853,9 +853,9 @@ class VMSSExtensionArgs:
                  type_handler_version: pulumi.Input[str],
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 protected_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 protected_settings: Optional[Any] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 settings: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 settings: Optional[Any] = None):
         """
         Specifies set of extensions that should be installed onto the virtual machines.
         :param pulumi.Input[str] name: The name of the extension.
@@ -864,9 +864,9 @@ class VMSSExtensionArgs:
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[str] force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-        :param pulumi.Input[Mapping[str, Any]] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
-        :param pulumi.Input[Mapping[str, Any]] settings: Json formatted public settings for the extension.
+        :param Any settings: Json formatted public settings for the extension.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "publisher", publisher)
@@ -957,14 +957,14 @@ class VMSSExtensionArgs:
 
     @property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def protected_settings(self) -> Optional[Any]:
         """
         The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         """
         return pulumi.get(self, "protected_settings")
 
     @protected_settings.setter
-    def protected_settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def protected_settings(self, value: Optional[Any]):
         pulumi.set(self, "protected_settings", value)
 
     @property
@@ -981,14 +981,14 @@ class VMSSExtensionArgs:
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def settings(self) -> Optional[Any]:
         """
         Json formatted public settings for the extension.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def settings(self, value: Optional[Any]):
         pulumi.set(self, "settings", value)
 
 

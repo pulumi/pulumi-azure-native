@@ -214,16 +214,16 @@ class ActivityDependencyArgs:
 @pulumi.input_type
 class ActivityPolicyArgs:
     def __init__(__self__, *,
-                 retry: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 retry: Optional[Any] = None,
                  retry_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  secure_output: Optional[pulumi.Input[bool]] = None,
-                 timeout: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 timeout: Optional[Any] = None):
         """
         Execution policy for an activity.
-        :param pulumi.Input[Mapping[str, Any]] retry: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any retry: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         :param pulumi.Input[int] retry_interval_in_seconds: Interval between each retry attempt (in seconds). The default is 30 sec.
         :param pulumi.Input[bool] secure_output: When set to true, Output from activity is considered as secure and will not be logged to monitoring.
-        :param pulumi.Input[Mapping[str, Any]] timeout: Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any timeout: Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         if retry is not None:
             pulumi.set(__self__, "retry", retry)
@@ -236,14 +236,14 @@ class ActivityPolicyArgs:
 
     @property
     @pulumi.getter
-    def retry(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def retry(self) -> Optional[Any]:
         """
         Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         """
         return pulumi.get(self, "retry")
 
     @retry.setter
-    def retry(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def retry(self, value: Optional[Any]):
         pulumi.set(self, "retry", value)
 
     @property
@@ -272,52 +272,52 @@ class ActivityPolicyArgs:
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def timeout(self) -> Optional[Any]:
         """
         Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def timeout(self, value: Optional[Any]):
         pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
 class AmazonMWSLinkedServiceArgs:
     def __init__(__self__, *,
-                 access_key_id: pulumi.Input[Mapping[str, Any]],
-                 endpoint: pulumi.Input[Mapping[str, Any]],
-                 marketplace_id: pulumi.Input[Mapping[str, Any]],
-                 seller_id: pulumi.Input[Mapping[str, Any]],
+                 access_key_id: Any,
+                 endpoint: Any,
+                 marketplace_id: Any,
+                 seller_id: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  mws_auth_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  secret_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Amazon Marketplace Web Service linked service.
-        :param pulumi.Input[Mapping[str, Any]] access_key_id: The access key id used to access data.
-        :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
-        :param pulumi.Input[Mapping[str, Any]] marketplace_id: The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
-        :param pulumi.Input[Mapping[str, Any]] seller_id: The Amazon seller ID.
+        :param Any access_key_id: The access key id used to access data.
+        :param Any endpoint: The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
+        :param Any marketplace_id: The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
+        :param Any seller_id: The Amazon seller ID.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] mws_auth_token: The Amazon MWS authentication token.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] secret_key: The secret key used to access data.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "access_key_id", access_key_id)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -347,50 +347,50 @@ class AmazonMWSLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def access_key_id(self) -> Any:
         """
         The access key id used to access data.
         """
         return pulumi.get(self, "access_key_id")
 
     @access_key_id.setter
-    def access_key_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def access_key_id(self, value: Any):
         pulumi.set(self, "access_key_id", value)
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Input[Mapping[str, Any]]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: pulumi.Input[Mapping[str, Any]]):
+    def endpoint(self, value: Any):
         pulumi.set(self, "endpoint", value)
 
     @property
     @pulumi.getter(name="marketplaceID")
-    def marketplace_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def marketplace_id(self) -> Any:
         """
         The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
         """
         return pulumi.get(self, "marketplace_id")
 
     @marketplace_id.setter
-    def marketplace_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def marketplace_id(self, value: Any):
         pulumi.set(self, "marketplace_id", value)
 
     @property
     @pulumi.getter(name="sellerID")
-    def seller_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def seller_id(self) -> Any:
         """
         The Amazon seller ID.
         """
         return pulumi.get(self, "seller_id")
 
     @seller_id.setter
-    def seller_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def seller_id(self, value: Any):
         pulumi.set(self, "seller_id", value)
 
     @property
@@ -407,14 +407,14 @@ class AmazonMWSLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -443,14 +443,14 @@ class AmazonMWSLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -491,38 +491,38 @@ class AmazonMWSLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -531,18 +531,18 @@ class AmazonMWSObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Amazon Marketplace Web Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'AmazonMWSObject')
@@ -581,14 +581,14 @@ class AmazonMWSObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -617,44 +617,44 @@ class AmazonMWSObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class AmazonRedshiftLinkedServiceArgs:
     def __init__(__self__, *,
-                 database: pulumi.Input[Mapping[str, Any]],
-                 server: pulumi.Input[Mapping[str, Any]],
+                 database: Any,
+                 server: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 port: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Linked service for Amazon Redshift.
-        :param pulumi.Input[Mapping[str, Any]] database: The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] server: The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
+        :param Any database: The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
+        :param Any server: The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password of the Amazon Redshift source.
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
-        :param pulumi.Input[Mapping[str, Any]] username: The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
+        :param Any port: The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
+        :param Any username: The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "server", server)
@@ -678,26 +678,26 @@ class AmazonRedshiftLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def database(self) -> pulumi.Input[Mapping[str, Any]]:
+    def database(self) -> Any:
         """
         The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: pulumi.Input[Mapping[str, Any]]):
+    def database(self, value: Any):
         pulumi.set(self, "database", value)
 
     @property
     @pulumi.getter
-    def server(self) -> pulumi.Input[Mapping[str, Any]]:
+    def server(self) -> Any:
         """
         The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: pulumi.Input[Mapping[str, Any]]):
+    def server(self, value: Any):
         pulumi.set(self, "server", value)
 
     @property
@@ -714,14 +714,14 @@ class AmazonRedshiftLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -750,14 +750,14 @@ class AmazonRedshiftLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -786,58 +786,58 @@ class AmazonRedshiftLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class AmazonS3DatasetArgs:
     def __init__(__self__, *,
-                 bucket_name: pulumi.Input[Mapping[str, Any]],
+                 bucket_name: Any,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']]] = None,
-                 key: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 key: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 prefix: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 version: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 prefix: Optional[Any] = None,
+                 structure: Optional[Any] = None,
+                 version: Optional[Any] = None):
         """
         A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
-        :param pulumi.Input[Mapping[str, Any]] bucket_name: The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
+        :param Any bucket_name: The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the Amazon S3 object.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']] format: The format of files.
-        :param pulumi.Input[Mapping[str, Any]] key: The key of the Amazon S3 object. Type: string (or Expression with resultType string).
+        :param Any key: The key of the Amazon S3 object. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] prefix: The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param pulumi.Input[Mapping[str, Any]] version: The version for the S3 object. Type: string (or Expression with resultType string).
+        :param Any prefix: The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any version: The version for the S3 object. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -863,14 +863,14 @@ class AmazonS3DatasetArgs:
 
     @property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def bucket_name(self) -> Any:
         """
         The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def bucket_name(self, value: Any):
         pulumi.set(self, "bucket_name", value)
 
     @property
@@ -899,14 +899,14 @@ class AmazonS3DatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -947,14 +947,14 @@ class AmazonS3DatasetArgs:
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def key(self) -> Optional[Any]:
         """
         The key of the Amazon S3 object. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def key(self, value: Optional[Any]):
         pulumi.set(self, "key", value)
 
     @property
@@ -971,38 +971,38 @@ class AmazonS3DatasetArgs:
 
     @property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def prefix(self) -> Optional[Any]:
         """
         The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def prefix(self, value: Optional[Any]):
         pulumi.set(self, "prefix", value)
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def version(self) -> Optional[Any]:
         """
         The version for the S3 object. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def version(self, value: Optional[Any]):
         pulumi.set(self, "version", value)
 
 
@@ -1010,21 +1010,21 @@ class AmazonS3DatasetArgs:
 class AmazonS3LinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 access_key_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 access_key_id: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  secret_access_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None):
         """
         Linked service for Amazon S3.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] secret_access_key: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
         """
@@ -1058,26 +1058,26 @@ class AmazonS3LinkedServiceArgs:
 
     @property
     @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def access_key_id(self) -> Optional[Any]:
         """
         The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "access_key_id")
 
     @access_key_id.setter
-    def access_key_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def access_key_id(self, value: Optional[Any]):
         pulumi.set(self, "access_key_id", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -1106,14 +1106,14 @@ class AmazonS3LinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -1145,13 +1145,13 @@ class AmazonS3LinkedServiceArgs:
 class AvroFormatArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 deserializer: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 serializer: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 deserializer: Optional[Any] = None,
+                 serializer: Optional[Any] = None):
         """
         The data stored in Avro format.
         :param pulumi.Input[str] type: Type of dataset storage format.
-        :param pulumi.Input[Mapping[str, Any]] deserializer: Deserializer. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] serializer: Serializer. Type: string (or Expression with resultType string).
+        :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
+        :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'AvroFormat')
         if deserializer is not None:
@@ -1173,55 +1173,55 @@ class AvroFormatArgs:
 
     @property
     @pulumi.getter
-    def deserializer(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def deserializer(self) -> Optional[Any]:
         """
         Deserializer. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "deserializer")
 
     @deserializer.setter
-    def deserializer(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def deserializer(self, value: Optional[Any]):
         pulumi.set(self, "deserializer", value)
 
     @property
     @pulumi.getter
-    def serializer(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def serializer(self) -> Optional[Any]:
         """
         Serializer. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "serializer")
 
     @serializer.setter
-    def serializer(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def serializer(self, value: Optional[Any]):
         pulumi.set(self, "serializer", value)
 
 
 @pulumi.input_type
 class AzureBatchLinkedServiceArgs:
     def __init__(__self__, *,
-                 account_name: pulumi.Input[Mapping[str, Any]],
-                 batch_uri: pulumi.Input[Mapping[str, Any]],
+                 account_name: Any,
+                 batch_uri: Any,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 pool_name: pulumi.Input[Mapping[str, Any]],
+                 pool_name: Any,
                  type: pulumi.Input[str],
                  access_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Azure Batch linked service.
-        :param pulumi.Input[Mapping[str, Any]] account_name: The Azure Batch account name. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] batch_uri: The Azure Batch URI. Type: string (or Expression with resultType string).
+        :param Any account_name: The Azure Batch account name. Type: string (or Expression with resultType string).
+        :param Any batch_uri: The Azure Batch URI. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: The Azure Storage linked service reference.
-        :param pulumi.Input[Mapping[str, Any]] pool_name: The Azure Batch pool name. Type: string (or Expression with resultType string).
+        :param Any pool_name: The Azure Batch pool name. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_key: The Azure Batch account access key.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -1244,26 +1244,26 @@ class AzureBatchLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def account_name(self) -> Any:
         """
         The Azure Batch account name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def account_name(self, value: Any):
         pulumi.set(self, "account_name", value)
 
     @property
     @pulumi.getter(name="batchUri")
-    def batch_uri(self) -> pulumi.Input[Mapping[str, Any]]:
+    def batch_uri(self) -> Any:
         """
         The Azure Batch URI. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "batch_uri")
 
     @batch_uri.setter
-    def batch_uri(self, value: pulumi.Input[Mapping[str, Any]]):
+    def batch_uri(self, value: Any):
         pulumi.set(self, "batch_uri", value)
 
     @property
@@ -1280,14 +1280,14 @@ class AzureBatchLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="poolName")
-    def pool_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def pool_name(self) -> Any:
         """
         The Azure Batch pool name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "pool_name")
 
     @pool_name.setter
-    def pool_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def pool_name(self, value: Any):
         pulumi.set(self, "pool_name", value)
 
     @property
@@ -1316,14 +1316,14 @@ class AzureBatchLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -1352,14 +1352,14 @@ class AzureBatchLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -1380,28 +1380,28 @@ class AzureBlobDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 file_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 folder_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 file_name: Optional[Any] = None,
+                 folder_path: Optional[Any] = None,
                  format: Optional[pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 table_root_location: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None,
+                 table_root_location: Optional[Any] = None):
         """
         The Azure Blob storage.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the blob storage.
         :param pulumi.Input[str] description: Dataset description.
-        :param pulumi.Input[Mapping[str, Any]] file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] folder_path: The path of the Azure Blob storage. Type: string (or Expression with resultType string).
+        :param Any file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
+        :param Any folder_path: The path of the Azure Blob storage. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']] format: The format of the Azure Blob storage.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param pulumi.Input[Mapping[str, Any]] table_root_location: The root of blob path. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table_root_location: The root of blob path. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'AzureBlob')
@@ -1450,14 +1450,14 @@ class AzureBlobDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -1486,26 +1486,26 @@ class AzureBlobDatasetArgs:
 
     @property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def file_name(self) -> Optional[Any]:
         """
         The name of the Azure Blob. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "file_name")
 
     @file_name.setter
-    def file_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def file_name(self, value: Optional[Any]):
         pulumi.set(self, "file_name", value)
 
     @property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def folder_path(self) -> Optional[Any]:
         """
         The path of the Azure Blob storage. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "folder_path")
 
     @folder_path.setter
-    def folder_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def folder_path(self, value: Optional[Any]):
         pulumi.set(self, "folder_path", value)
 
     @property
@@ -1534,60 +1534,60 @@ class AzureBlobDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
     @property
     @pulumi.getter(name="tableRootLocation")
-    def table_root_location(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def table_root_location(self) -> Optional[Any]:
         """
         The root of blob path. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_root_location")
 
     @table_root_location.setter
-    def table_root_location(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def table_root_location(self, value: Optional[Any]):
         pulumi.set(self, "table_root_location", value)
 
 
 @pulumi.input_type
 class AzureDataLakeAnalyticsLinkedServiceArgs:
     def __init__(__self__, *,
-                 account_name: pulumi.Input[Mapping[str, Any]],
-                 tenant: pulumi.Input[Mapping[str, Any]],
+                 account_name: Any,
+                 tenant: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 data_lake_analytics_uri: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 data_lake_analytics_uri: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 service_principal_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 resource_group_name: Optional[Any] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 subscription_id: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 subscription_id: Optional[Any] = None):
         """
         Azure Data Lake Analytics linked service.
-        :param pulumi.Input[Mapping[str, Any]] account_name: The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any account_name: The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param pulumi.Input[Mapping[str, Any]] data_lake_analytics_uri: Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
+        :param Any data_lake_analytics_uri: Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] resource_group_name: Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
+        :param Any resource_group_name: Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Analytics account.
-        :param pulumi.Input[Mapping[str, Any]] subscription_id: Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
+        :param Any subscription_id: Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "tenant", tenant)
@@ -1615,26 +1615,26 @@ class AzureDataLakeAnalyticsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def account_name(self) -> Any:
         """
         The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def account_name(self, value: Any):
         pulumi.set(self, "account_name", value)
 
     @property
     @pulumi.getter
-    def tenant(self) -> pulumi.Input[Mapping[str, Any]]:
+    def tenant(self) -> Any:
         """
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: pulumi.Input[Mapping[str, Any]]):
+    def tenant(self, value: Any):
         pulumi.set(self, "tenant", value)
 
     @property
@@ -1651,14 +1651,14 @@ class AzureDataLakeAnalyticsLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -1675,14 +1675,14 @@ class AzureDataLakeAnalyticsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="dataLakeAnalyticsUri")
-    def data_lake_analytics_uri(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def data_lake_analytics_uri(self) -> Optional[Any]:
         """
         Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "data_lake_analytics_uri")
 
     @data_lake_analytics_uri.setter
-    def data_lake_analytics_uri(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def data_lake_analytics_uri(self, value: Optional[Any]):
         pulumi.set(self, "data_lake_analytics_uri", value)
 
     @property
@@ -1699,14 +1699,14 @@ class AzureDataLakeAnalyticsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -1723,26 +1723,26 @@ class AzureDataLakeAnalyticsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def resource_group_name(self) -> Optional[Any]:
         """
         Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def resource_group_name(self, value: Optional[Any]):
         pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_principal_id(self, value: Optional[Any]):
         pulumi.set(self, "service_principal_id", value)
 
     @property
@@ -1759,42 +1759,42 @@ class AzureDataLakeAnalyticsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def subscription_id(self) -> Optional[Any]:
         """
         Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def subscription_id(self, value: Optional[Any]):
         pulumi.set(self, "subscription_id", value)
 
 
 @pulumi.input_type
 class AzureDataLakeStoreDatasetArgs:
     def __init__(__self__, *,
-                 folder_path: pulumi.Input[Mapping[str, Any]],
+                 folder_path: Any,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 file_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 file_name: Optional[Any] = None,
                  format: Optional[pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Azure Data Lake Store dataset.
-        :param pulumi.Input[Mapping[str, Any]] folder_path: Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
+        :param Any folder_path: Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
         :param pulumi.Input[str] description: Dataset description.
-        :param pulumi.Input[Mapping[str, Any]] file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
+        :param Any file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']] format: The format of the Data Lake Store.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "folder_path", folder_path)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -1816,14 +1816,14 @@ class AzureDataLakeStoreDatasetArgs:
 
     @property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> pulumi.Input[Mapping[str, Any]]:
+    def folder_path(self) -> Any:
         """
         Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "folder_path")
 
     @folder_path.setter
-    def folder_path(self, value: pulumi.Input[Mapping[str, Any]]):
+    def folder_path(self, value: Any):
         pulumi.set(self, "folder_path", value)
 
     @property
@@ -1852,14 +1852,14 @@ class AzureDataLakeStoreDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -1888,14 +1888,14 @@ class AzureDataLakeStoreDatasetArgs:
 
     @property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def file_name(self) -> Optional[Any]:
         """
         The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "file_name")
 
     @file_name.setter
-    def file_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def file_name(self, value: Optional[Any]):
         pulumi.set(self, "file_name", value)
 
     @property
@@ -1924,48 +1924,48 @@ class AzureDataLakeStoreDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class AzureDataLakeStoreLinkedServiceArgs:
     def __init__(__self__, *,
-                 data_lake_store_uri: pulumi.Input[Mapping[str, Any]],
+                 data_lake_store_uri: Any,
                  type: pulumi.Input[str],
-                 account_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 account_name: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 service_principal_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 resource_group_name: Optional[Any] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 subscription_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 tenant: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 subscription_id: Optional[Any] = None,
+                 tenant: Optional[Any] = None):
         """
         Azure Data Lake Store linked service.
-        :param pulumi.Input[Mapping[str, Any]] data_lake_store_uri: Data Lake Store service URI. Type: string (or Expression with resultType string).
+        :param Any data_lake_store_uri: Data Lake Store service URI. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] account_name: Data Lake Store account name. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any account_name: Data Lake Store account name. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] resource_group_name: Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
+        :param Any resource_group_name: Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Store account.
-        :param pulumi.Input[Mapping[str, Any]] subscription_id: Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any subscription_id: Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "data_lake_store_uri", data_lake_store_uri)
         pulumi.set(__self__, "type", 'AzureDataLakeStore')
@@ -1994,14 +1994,14 @@ class AzureDataLakeStoreLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="dataLakeStoreUri")
-    def data_lake_store_uri(self) -> pulumi.Input[Mapping[str, Any]]:
+    def data_lake_store_uri(self) -> Any:
         """
         Data Lake Store service URI. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "data_lake_store_uri")
 
     @data_lake_store_uri.setter
-    def data_lake_store_uri(self, value: pulumi.Input[Mapping[str, Any]]):
+    def data_lake_store_uri(self, value: Any):
         pulumi.set(self, "data_lake_store_uri", value)
 
     @property
@@ -2018,26 +2018,26 @@ class AzureDataLakeStoreLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def account_name(self) -> Optional[Any]:
         """
         Data Lake Store account name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def account_name(self, value: Optional[Any]):
         pulumi.set(self, "account_name", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -2066,14 +2066,14 @@ class AzureDataLakeStoreLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -2090,26 +2090,26 @@ class AzureDataLakeStoreLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def resource_group_name(self) -> Optional[Any]:
         """
         Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def resource_group_name(self, value: Optional[Any]):
         pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_principal_id(self, value: Optional[Any]):
         pulumi.set(self, "service_principal_id", value)
 
     @property
@@ -2126,26 +2126,26 @@ class AzureDataLakeStoreLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def subscription_id(self) -> Optional[Any]:
         """
         Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def subscription_id(self, value: Optional[Any]):
         pulumi.set(self, "subscription_id", value)
 
     @property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def tenant(self) -> Optional[Any]:
         """
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def tenant(self, value: Optional[Any]):
         pulumi.set(self, "tenant", value)
 
 
@@ -2153,32 +2153,32 @@ class AzureDataLakeStoreLinkedServiceArgs:
 class AzureDatabricksLinkedServiceArgs:
     def __init__(__self__, *,
                  access_token: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
-                 domain: pulumi.Input[Mapping[str, Any]],
+                 domain: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 existing_cluster_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 new_cluster_node_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 new_cluster_num_of_worker: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 new_cluster_spark_conf: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
-                 new_cluster_version: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 existing_cluster_id: Optional[Any] = None,
+                 new_cluster_node_type: Optional[Any] = None,
+                 new_cluster_num_of_worker: Optional[Any] = None,
+                 new_cluster_spark_conf: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 new_cluster_version: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Azure Databricks linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
+        :param Any domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] existing_cluster_id: The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] new_cluster_node_type: The node types of new cluster. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] new_cluster_num_of_worker: Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] new_cluster_spark_conf: a set of optional, user-specified Spark configuration key-value pairs.
-        :param pulumi.Input[Mapping[str, Any]] new_cluster_version: The Spark version of new cluster. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any existing_cluster_id: The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
+        :param Any new_cluster_node_type: The node types of new cluster. Type: string (or Expression with resultType string).
+        :param Any new_cluster_num_of_worker: Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, Any]] new_cluster_spark_conf: a set of optional, user-specified Spark configuration key-value pairs.
+        :param Any new_cluster_version: The Spark version of new cluster. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "access_token", access_token)
@@ -2219,14 +2219,14 @@ class AzureDatabricksLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def domain(self) -> pulumi.Input[Mapping[str, Any]]:
+    def domain(self) -> Any:
         """
         <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: pulumi.Input[Mapping[str, Any]]):
+    def domain(self, value: Any):
         pulumi.set(self, "domain", value)
 
     @property
@@ -2243,14 +2243,14 @@ class AzureDatabricksLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -2279,74 +2279,74 @@ class AzureDatabricksLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
     @pulumi.getter(name="existingClusterId")
-    def existing_cluster_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def existing_cluster_id(self) -> Optional[Any]:
         """
         The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "existing_cluster_id")
 
     @existing_cluster_id.setter
-    def existing_cluster_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def existing_cluster_id(self, value: Optional[Any]):
         pulumi.set(self, "existing_cluster_id", value)
 
     @property
     @pulumi.getter(name="newClusterNodeType")
-    def new_cluster_node_type(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def new_cluster_node_type(self) -> Optional[Any]:
         """
         The node types of new cluster. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "new_cluster_node_type")
 
     @new_cluster_node_type.setter
-    def new_cluster_node_type(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def new_cluster_node_type(self, value: Optional[Any]):
         pulumi.set(self, "new_cluster_node_type", value)
 
     @property
     @pulumi.getter(name="newClusterNumOfWorker")
-    def new_cluster_num_of_worker(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def new_cluster_num_of_worker(self) -> Optional[Any]:
         """
         Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "new_cluster_num_of_worker")
 
     @new_cluster_num_of_worker.setter
-    def new_cluster_num_of_worker(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def new_cluster_num_of_worker(self, value: Optional[Any]):
         pulumi.set(self, "new_cluster_num_of_worker", value)
 
     @property
     @pulumi.getter(name="newClusterSparkConf")
-    def new_cluster_spark_conf(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def new_cluster_spark_conf(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         a set of optional, user-specified Spark configuration key-value pairs.
         """
         return pulumi.get(self, "new_cluster_spark_conf")
 
     @new_cluster_spark_conf.setter
-    def new_cluster_spark_conf(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def new_cluster_spark_conf(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "new_cluster_spark_conf", value)
 
     @property
     @pulumi.getter(name="newClusterVersion")
-    def new_cluster_version(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def new_cluster_version(self) -> Optional[Any]:
         """
         The Spark version of new cluster. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "new_cluster_version")
 
     @new_cluster_version.setter
-    def new_cluster_version(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def new_cluster_version(self, value: Optional[Any]):
         pulumi.set(self, "new_cluster_version", value)
 
     @property
@@ -2365,17 +2365,17 @@ class AzureDatabricksLinkedServiceArgs:
 @pulumi.input_type
 class AzureKeyVaultLinkedServiceArgs:
     def __init__(__self__, *,
-                 base_url: pulumi.Input[Mapping[str, Any]],
+                 base_url: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Azure Key Vault linked service.
-        :param pulumi.Input[Mapping[str, Any]] base_url: The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
+        :param Any base_url: The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -2393,14 +2393,14 @@ class AzureKeyVaultLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="baseUrl")
-    def base_url(self) -> pulumi.Input[Mapping[str, Any]]:
+    def base_url(self) -> Any:
         """
         The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "base_url")
 
     @base_url.setter
-    def base_url(self, value: pulumi.Input[Mapping[str, Any]]):
+    def base_url(self, value: Any):
         pulumi.set(self, "base_url", value)
 
     @property
@@ -2417,14 +2417,14 @@ class AzureKeyVaultLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -2467,16 +2467,16 @@ class AzureKeyVaultLinkedServiceArgs:
 @pulumi.input_type
 class AzureKeyVaultSecretReferenceArgs:
     def __init__(__self__, *,
-                 secret_name: pulumi.Input[Mapping[str, Any]],
+                 secret_name: Any,
                  store: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 secret_version: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 secret_version: Optional[Any] = None):
         """
         Azure Key Vault secret reference.
-        :param pulumi.Input[Mapping[str, Any]] secret_name: The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
+        :param Any secret_name: The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] store: The Azure Key Vault linked service reference.
         :param pulumi.Input[str] type: Type of the secret.
-        :param pulumi.Input[Mapping[str, Any]] secret_version: The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
+        :param Any secret_version: The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "secret_name", secret_name)
         pulumi.set(__self__, "store", store)
@@ -2486,14 +2486,14 @@ class AzureKeyVaultSecretReferenceArgs:
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def secret_name(self) -> Any:
         """
         The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def secret_name(self, value: Any):
         pulumi.set(self, "secret_name", value)
 
     @property
@@ -2522,14 +2522,14 @@ class AzureKeyVaultSecretReferenceArgs:
 
     @property
     @pulumi.getter(name="secretVersion")
-    def secret_version(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def secret_version(self) -> Optional[Any]:
         """
         The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "secret_version")
 
     @secret_version.setter
-    def secret_version(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def secret_version(self, value: Optional[Any]):
         pulumi.set(self, "secret_version", value)
 
 
@@ -2537,31 +2537,31 @@ class AzureKeyVaultSecretReferenceArgs:
 class AzureMLLinkedServiceArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
-                 ml_endpoint: pulumi.Input[Mapping[str, Any]],
+                 ml_endpoint: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 service_principal_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 tenant: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 update_resource_endpoint: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 tenant: Optional[Any] = None,
+                 update_resource_endpoint: Optional[Any] = None):
         """
         Azure ML Web Service linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] api_key: The API key for accessing the Azure ML model endpoint.
-        :param pulumi.Input[Mapping[str, Any]] ml_endpoint: The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
+        :param Any ml_endpoint: The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] service_principal_id: The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service.
-        :param pulumi.Input[Mapping[str, Any]] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] update_resource_endpoint: The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any update_resource_endpoint: The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "ml_endpoint", ml_endpoint)
@@ -2599,14 +2599,14 @@ class AzureMLLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="mlEndpoint")
-    def ml_endpoint(self) -> pulumi.Input[Mapping[str, Any]]:
+    def ml_endpoint(self) -> Any:
         """
         The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "ml_endpoint")
 
     @ml_endpoint.setter
-    def ml_endpoint(self, value: pulumi.Input[Mapping[str, Any]]):
+    def ml_endpoint(self, value: Any):
         pulumi.set(self, "ml_endpoint", value)
 
     @property
@@ -2623,14 +2623,14 @@ class AzureMLLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -2659,14 +2659,14 @@ class AzureMLLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -2683,14 +2683,14 @@ class AzureMLLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_principal_id(self, value: Optional[Any]):
         pulumi.set(self, "service_principal_id", value)
 
     @property
@@ -2707,47 +2707,47 @@ class AzureMLLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def tenant(self) -> Optional[Any]:
         """
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def tenant(self, value: Optional[Any]):
         pulumi.set(self, "tenant", value)
 
     @property
     @pulumi.getter(name="updateResourceEndpoint")
-    def update_resource_endpoint(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def update_resource_endpoint(self) -> Optional[Any]:
         """
         The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "update_resource_endpoint")
 
     @update_resource_endpoint.setter
-    def update_resource_endpoint(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def update_resource_endpoint(self, value: Optional[Any]):
         pulumi.set(self, "update_resource_endpoint", value)
 
 
 @pulumi.input_type
 class AzureMySqlLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[Mapping[str, Any]],
+                 connection_string: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Azure MySQL database linked service.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -2765,14 +2765,14 @@ class AzureMySqlLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[Mapping[str, Any]]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: pulumi.Input[Mapping[str, Any]]):
+    def connection_string(self, value: Any):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -2789,14 +2789,14 @@ class AzureMySqlLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -2825,14 +2825,14 @@ class AzureMySqlLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -2853,20 +2853,20 @@ class AzureMySqlTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 table_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None,
+                 table_name: Optional[Any] = None):
         """
         The Azure MySQL database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param pulumi.Input[Mapping[str, Any]] table_name: The Azure MySQL database table name. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table_name: The Azure MySQL database table name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'AzureMySqlTable')
@@ -2907,14 +2907,14 @@ class AzureMySqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -2943,26 +2943,26 @@ class AzureMySqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def table_name(self) -> Optional[Any]:
         """
         The Azure MySQL database table name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def table_name(self, value: Optional[Any]):
         pulumi.set(self, "table_name", value)
 
 
@@ -2970,20 +2970,20 @@ class AzureMySqlTableDatasetArgs:
 class AzurePostgreSqlLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Azure PostgreSQL linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'AzurePostgreSql')
@@ -3014,14 +3014,14 @@ class AzurePostgreSqlLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3038,14 +3038,14 @@ class AzurePostgreSqlLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -3062,14 +3062,14 @@ class AzurePostgreSqlLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -3090,18 +3090,18 @@ class AzurePostgreSqlTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Azure PostgreSQL dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'AzurePostgreSqlTable')
@@ -3140,14 +3140,14 @@ class AzurePostgreSqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3176,36 +3176,36 @@ class AzurePostgreSqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class AzureSearchIndexDatasetArgs:
     def __init__(__self__, *,
-                 index_name: pulumi.Input[Mapping[str, Any]],
+                 index_name: Any,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The Azure Search Index.
-        :param pulumi.Input[Mapping[str, Any]] index_name: The name of the Azure Search Index. Type: string (or Expression with resultType string).
+        :param Any index_name: The name of the Azure Search Index. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -3221,14 +3221,14 @@ class AzureSearchIndexDatasetArgs:
 
     @property
     @pulumi.getter(name="indexName")
-    def index_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def index_name(self) -> Any:
         """
         The name of the Azure Search Index. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
-    def index_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def index_name(self, value: Any):
         pulumi.set(self, "index_name", value)
 
     @property
@@ -3257,14 +3257,14 @@ class AzureSearchIndexDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3293,14 +3293,14 @@ class AzureSearchIndexDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -3308,21 +3308,21 @@ class AzureSearchIndexDatasetArgs:
 class AzureSearchLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 url: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 url: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Linked service for Windows Azure Search Service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] url: URL for Azure Search service. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any url: URL for Azure Search service. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] key: Admin Key for Azure Search service
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
@@ -3355,26 +3355,26 @@ class AzureSearchLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Input[Mapping[str, Any]]:
+    def url(self) -> Any:
         """
         URL for Azure Search service. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: pulumi.Input[Mapping[str, Any]]):
+    def url(self, value: Any):
         pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3403,14 +3403,14 @@ class AzureSearchLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -3441,28 +3441,28 @@ class AzureSearchLinkedServiceArgs:
 @pulumi.input_type
 class AzureSqlDWLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[Mapping[str, Any]],
+                 connection_string: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 service_principal_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 tenant: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 tenant: Optional[Any] = None):
         """
         Azure SQL Data Warehouse linked service.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
-        :param pulumi.Input[Mapping[str, Any]] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlDW')
@@ -3485,14 +3485,14 @@ class AzureSqlDWLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[Mapping[str, Any]]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: pulumi.Input[Mapping[str, Any]]):
+    def connection_string(self, value: Any):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -3509,14 +3509,14 @@ class AzureSqlDWLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3545,14 +3545,14 @@ class AzureSqlDWLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -3569,14 +3569,14 @@ class AzureSqlDWLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_principal_id(self, value: Optional[Any]):
         pulumi.set(self, "service_principal_id", value)
 
     @property
@@ -3593,14 +3593,14 @@ class AzureSqlDWLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def tenant(self) -> Optional[Any]:
         """
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def tenant(self, value: Optional[Any]):
         pulumi.set(self, "tenant", value)
 
 
@@ -3608,21 +3608,21 @@ class AzureSqlDWLinkedServiceArgs:
 class AzureSqlDWTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 table_name: pulumi.Input[Mapping[str, Any]],
+                 table_name: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The Azure SQL Data Warehouse dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Mapping[str, Any]] table_name: The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
+        :param Any table_name: The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -3650,14 +3650,14 @@ class AzureSqlDWTableDatasetArgs:
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def table_name(self) -> Any:
         """
         The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def table_name(self, value: Any):
         pulumi.set(self, "table_name", value)
 
     @property
@@ -3674,14 +3674,14 @@ class AzureSqlDWTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3710,42 +3710,42 @@ class AzureSqlDWTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class AzureSqlDatabaseLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[Mapping[str, Any]],
+                 connection_string: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 service_principal_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 tenant: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 tenant: Optional[Any] = None):
         """
         Microsoft Azure SQL Database linked service.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] service_principal_id: The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key of the service principal used to authenticate against Azure SQL Database.
-        :param pulumi.Input[Mapping[str, Any]] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlDatabase')
@@ -3768,14 +3768,14 @@ class AzureSqlDatabaseLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[Mapping[str, Any]]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: pulumi.Input[Mapping[str, Any]]):
+    def connection_string(self, value: Any):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -3792,14 +3792,14 @@ class AzureSqlDatabaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3828,14 +3828,14 @@ class AzureSqlDatabaseLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -3852,14 +3852,14 @@ class AzureSqlDatabaseLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_principal_id(self, value: Optional[Any]):
         pulumi.set(self, "service_principal_id", value)
 
     @property
@@ -3876,14 +3876,14 @@ class AzureSqlDatabaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def tenant(self) -> Optional[Any]:
         """
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def tenant(self, value: Optional[Any]):
         pulumi.set(self, "tenant", value)
 
 
@@ -3891,21 +3891,21 @@ class AzureSqlDatabaseLinkedServiceArgs:
 class AzureSqlTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 table_name: pulumi.Input[Mapping[str, Any]],
+                 table_name: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The Azure SQL Server database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Mapping[str, Any]] table_name: The table name of the Azure SQL database. Type: string (or Expression with resultType string).
+        :param Any table_name: The table name of the Azure SQL database. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -3933,14 +3933,14 @@ class AzureSqlTableDatasetArgs:
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def table_name(self) -> Any:
         """
         The table name of the Azure SQL database. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def table_name(self, value: Any):
         pulumi.set(self, "table_name", value)
 
     @property
@@ -3957,14 +3957,14 @@ class AzureSqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -3993,14 +3993,14 @@ class AzureSqlTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -4008,21 +4008,21 @@ class AzureSqlTableDatasetArgs:
 class AzureStorageLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  sas_uri: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None):
         """
         The storage account linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property.
         """
@@ -4056,14 +4056,14 @@ class AzureStorageLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -4080,14 +4080,14 @@ class AzureStorageLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def connection_string(self) -> Optional[Any]:
         """
         The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -4104,14 +4104,14 @@ class AzureStorageLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -4143,21 +4143,21 @@ class AzureStorageLinkedServiceArgs:
 class AzureTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 table_name: pulumi.Input[Mapping[str, Any]],
+                 table_name: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The Azure Table storage dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Mapping[str, Any]] table_name: The table name of the Azure Table storage. Type: string (or Expression with resultType string).
+        :param Any table_name: The table name of the Azure Table storage. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -4185,14 +4185,14 @@ class AzureTableDatasetArgs:
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def table_name(self) -> Any:
         """
         The table name of the Azure Table storage. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def table_name(self, value: Any):
         pulumi.set(self, "table_name", value)
 
     @property
@@ -4209,14 +4209,14 @@ class AzureTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -4245,44 +4245,44 @@ class AzureTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class CassandraLinkedServiceArgs:
     def __init__(__self__, *,
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 authentication_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 port: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Linked service for Cassandra data source.
-        :param pulumi.Input[Mapping[str, Any]] host: Host name for connection. Type: string (or Expression with resultType string).
+        :param Any host: Host name for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[Mapping[str, Any]] authentication_type: AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any authentication_type: AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for authentication.
-        :param pulumi.Input[Mapping[str, Any]] port: The port for the connection. Type: integer (or Expression with resultType integer).
-        :param pulumi.Input[Mapping[str, Any]] username: Username for authentication. Type: string (or Expression with resultType string).
+        :param Any port: The port for the connection. Type: integer (or Expression with resultType integer).
+        :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Cassandra')
@@ -4307,14 +4307,14 @@ class CassandraLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         Host name for connection. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -4331,26 +4331,26 @@ class CassandraLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def authentication_type(self) -> Optional[Any]:
         """
         AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def authentication_type(self, value: Optional[Any]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -4379,14 +4379,14 @@ class CassandraLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -4415,26 +4415,26 @@ class CassandraLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The port for the connection. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         Username for authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
@@ -4443,22 +4443,22 @@ class CassandraTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 keyspace: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 keyspace: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 table_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None,
+                 table_name: Optional[Any] = None):
         """
         The Cassandra database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
-        :param pulumi.Input[Mapping[str, Any]] keyspace: The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
+        :param Any keyspace: The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param pulumi.Input[Mapping[str, Any]] table_name: The table name of the Cassandra database. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table_name: The table name of the Cassandra database. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'CassandraTable')
@@ -4501,14 +4501,14 @@ class CassandraTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -4525,14 +4525,14 @@ class CassandraTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def keyspace(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def keyspace(self) -> Optional[Any]:
         """
         The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "keyspace")
 
     @keyspace.setter
-    def keyspace(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def keyspace(self, value: Optional[Any]):
         pulumi.set(self, "keyspace", value)
 
     @property
@@ -4549,58 +4549,58 @@ class CassandraTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def table_name(self) -> Optional[Any]:
         """
         The table name of the Cassandra database. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def table_name(self, value: Optional[Any]):
         pulumi.set(self, "table_name", value)
 
 
 @pulumi.input_type
 class ConcurLinkedServiceArgs:
     def __init__(__self__, *,
-                 client_id: pulumi.Input[Mapping[str, Any]],
+                 client_id: Any,
                  type: pulumi.Input[str],
-                 username: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 username: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Concur Service linked service.
-        :param pulumi.Input[Mapping[str, Any]] client_id: Application client_id supplied by Concur App Management.
+        :param Any client_id: Application client_id supplied by Concur App Management.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] username: The user name that you use to access Concur Service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any username: The user name that you use to access Concur Service.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name that you provided in the username field.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "type", 'Concur')
@@ -4626,14 +4626,14 @@ class ConcurLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def client_id(self) -> Any:
         """
         Application client_id supplied by Concur App Management.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def client_id(self, value: Any):
         pulumi.set(self, "client_id", value)
 
     @property
@@ -4650,26 +4650,26 @@ class ConcurLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[Mapping[str, Any]]:
+    def username(self) -> Any:
         """
         The user name that you use to access Concur Service.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[Mapping[str, Any]]):
+    def username(self, value: Any):
         pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -4698,14 +4698,14 @@ class ConcurLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -4734,38 +4734,38 @@ class ConcurLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -4774,18 +4774,18 @@ class ConcurObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Concur Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ConcurObject')
@@ -4824,14 +4824,14 @@ class ConcurObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -4860,14 +4860,14 @@ class ConcurObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -4944,21 +4944,21 @@ class ControlActivityArgs:
 @pulumi.input_type
 class CosmosDbLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[Mapping[str, Any]],
+                 connection_string: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Microsoft Azure Cosmos Database (CosmosDB) linked service.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -4976,14 +4976,14 @@ class CosmosDbLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[Mapping[str, Any]]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: pulumi.Input[Mapping[str, Any]]):
+    def connection_string(self, value: Any):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -5000,14 +5000,14 @@ class CosmosDbLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5036,14 +5036,14 @@ class CosmosDbLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -5063,20 +5063,20 @@ class CosmosDbLinkedServiceArgs:
 class CouchbaseLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Couchbase server linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Couchbase')
@@ -5107,14 +5107,14 @@ class CouchbaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5131,14 +5131,14 @@ class CouchbaseLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -5155,14 +5155,14 @@ class CouchbaseLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -5183,18 +5183,18 @@ class CouchbaseTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Couchbase server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'CouchbaseTable')
@@ -5233,14 +5233,14 @@ class CouchbaseTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5269,14 +5269,14 @@ class CouchbaseTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -5284,14 +5284,14 @@ class CouchbaseTableDatasetArgs:
 class CustomDataSourceLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Custom linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -5320,14 +5320,14 @@ class CustomDataSourceLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5372,18 +5372,18 @@ class CustomDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The custom dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'CustomDataset')
@@ -5422,14 +5422,14 @@ class CustomDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5458,14 +5458,14 @@ class CustomDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -5612,30 +5612,30 @@ class DatasetZipDeflateCompressionArgs:
 @pulumi.input_type
 class Db2LinkedServiceArgs:
     def __init__(__self__, *,
-                 database: pulumi.Input[Mapping[str, Any]],
-                 server: pulumi.Input[Mapping[str, Any]],
+                 database: Any,
+                 server: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 username: Optional[Any] = None):
         """
         Linked service for DB2 data source.
-        :param pulumi.Input[Mapping[str, Any]] database: Database name for connection. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] server: Server name for connection. Type: string (or Expression with resultType string).
+        :param Any database: Database name for connection. Type: string (or Expression with resultType string).
+        :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] authentication_type: AuthenticationType to be used for connection.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for authentication.
-        :param pulumi.Input[Mapping[str, Any]] username: Username for authentication. Type: string (or Expression with resultType string).
+        :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "server", server)
@@ -5659,26 +5659,26 @@ class Db2LinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def database(self) -> pulumi.Input[Mapping[str, Any]]:
+    def database(self) -> Any:
         """
         Database name for connection. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: pulumi.Input[Mapping[str, Any]]):
+    def database(self, value: Any):
         pulumi.set(self, "database", value)
 
     @property
     @pulumi.getter
-    def server(self) -> pulumi.Input[Mapping[str, Any]]:
+    def server(self) -> Any:
         """
         Server name for connection. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: pulumi.Input[Mapping[str, Any]]):
+    def server(self, value: Any):
         pulumi.set(self, "server", value)
 
     @property
@@ -5695,14 +5695,14 @@ class Db2LinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5743,14 +5743,14 @@ class Db2LinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -5779,36 +5779,36 @@ class Db2LinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         Username for authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class DocumentDbCollectionDatasetArgs:
     def __init__(__self__, *,
-                 collection_name: pulumi.Input[Mapping[str, Any]],
+                 collection_name: Any,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Microsoft Azure Document Database Collection dataset.
-        :param pulumi.Input[Mapping[str, Any]] collection_name: Document Database collection name. Type: string (or Expression with resultType string).
+        :param Any collection_name: Document Database collection name. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "collection_name", collection_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -5824,14 +5824,14 @@ class DocumentDbCollectionDatasetArgs:
 
     @property
     @pulumi.getter(name="collectionName")
-    def collection_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def collection_name(self) -> Any:
         """
         Document Database collection name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "collection_name")
 
     @collection_name.setter
-    def collection_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def collection_name(self, value: Any):
         pulumi.set(self, "collection_name", value)
 
     @property
@@ -5860,14 +5860,14 @@ class DocumentDbCollectionDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5896,14 +5896,14 @@ class DocumentDbCollectionDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -5911,20 +5911,20 @@ class DocumentDbCollectionDatasetArgs:
 class DrillLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Drill server linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Drill')
@@ -5955,14 +5955,14 @@ class DrillLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5979,14 +5979,14 @@ class DrillLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -6003,14 +6003,14 @@ class DrillLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -6031,18 +6031,18 @@ class DrillTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Drill server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'DrillTable')
@@ -6081,14 +6081,14 @@ class DrillTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6117,14 +6117,14 @@ class DrillTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -6133,20 +6133,20 @@ class DynamicsEntityDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 entity_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 entity_name: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The Dynamics entity dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
-        :param pulumi.Input[Mapping[str, Any]] entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
+        :param Any entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'DynamicsEntity')
@@ -6187,14 +6187,14 @@ class DynamicsEntityDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6211,14 +6211,14 @@ class DynamicsEntityDatasetArgs:
 
     @property
     @pulumi.getter(name="entityName")
-    def entity_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def entity_name(self) -> Optional[Any]:
         """
         The logical name of the entity. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "entity_name")
 
     @entity_name.setter
-    def entity_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def entity_name(self, value: Optional[Any]):
         pulumi.set(self, "entity_name", value)
 
     @property
@@ -6235,14 +6235,14 @@ class DynamicsEntityDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -6252,33 +6252,33 @@ class DynamicsLinkedServiceArgs:
                  authentication_type: pulumi.Input[str],
                  deployment_type: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 username: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 username: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 host_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 organization_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 host_name: Optional[Any] = None,
+                 organization_name: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 service_uri: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 port: Optional[Any] = None,
+                 service_uri: Optional[Any] = None):
         """
         Dynamics linked service.
         :param pulumi.Input[str] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] host_name: The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] organization_name: The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any host_name: The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
+        :param Any organization_name: The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password to access the Dynamics instance.
-        :param pulumi.Input[Mapping[str, Any]] port: The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param pulumi.Input[Mapping[str, Any]] service_uri: The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
+        :param Any port: The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any service_uri: The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "deployment_type", deployment_type)
@@ -6343,26 +6343,26 @@ class DynamicsLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[Mapping[str, Any]]:
+    def username(self) -> Any:
         """
         User name to access the Dynamics instance. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[Mapping[str, Any]]):
+    def username(self, value: Any):
         pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6391,38 +6391,38 @@ class DynamicsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def host_name(self) -> Optional[Any]:
         """
         The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def host_name(self, value: Optional[Any]):
         pulumi.set(self, "host_name", value)
 
     @property
     @pulumi.getter(name="organizationName")
-    def organization_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def organization_name(self) -> Optional[Any]:
         """
         The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
-    def organization_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def organization_name(self, value: Optional[Any]):
         pulumi.set(self, "organization_name", value)
 
     @property
@@ -6451,58 +6451,58 @@ class DynamicsLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="serviceUri")
-    def service_uri(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_uri(self) -> Optional[Any]:
         """
         The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_uri")
 
     @service_uri.setter
-    def service_uri(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_uri(self, value: Optional[Any]):
         pulumi.set(self, "service_uri", value)
 
 
 @pulumi.input_type
 class EloquaLinkedServiceArgs:
     def __init__(__self__, *,
-                 endpoint: pulumi.Input[Mapping[str, Any]],
+                 endpoint: Any,
                  type: pulumi.Input[str],
-                 username: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 username: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Eloqua server linked service.
-        :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the Eloqua server. (i.e. eloqua.example.com)
+        :param Any endpoint: The endpoint of the Eloqua server. (i.e. eloqua.example.com)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] username: The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any username: The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "type", 'Eloqua')
@@ -6528,14 +6528,14 @@ class EloquaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Input[Mapping[str, Any]]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the Eloqua server. (i.e. eloqua.example.com)
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: pulumi.Input[Mapping[str, Any]]):
+    def endpoint(self, value: Any):
         pulumi.set(self, "endpoint", value)
 
     @property
@@ -6552,26 +6552,26 @@ class EloquaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[Mapping[str, Any]]:
+    def username(self) -> Any:
         """
         The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[Mapping[str, Any]]):
+    def username(self, value: Any):
         pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6600,14 +6600,14 @@ class EloquaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -6636,38 +6636,38 @@ class EloquaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -6676,18 +6676,18 @@ class EloquaObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Eloqua server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'EloquaObject')
@@ -6726,14 +6726,14 @@ class EloquaObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -6762,14 +6762,14 @@ class EloquaObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -7061,26 +7061,26 @@ class FactoryVSTSConfigurationArgs:
 @pulumi.input_type
 class FileServerLinkedServiceArgs:
     def __init__(__self__, *,
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 user_id: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_id: Optional[Any] = None):
         """
         File system linked service.
-        :param pulumi.Input[Mapping[str, Any]] host: Host name of the server. Type: string (or Expression with resultType string).
+        :param Any host: Host name of the server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password to logon the server.
-        :param pulumi.Input[Mapping[str, Any]] user_id: User ID to logon the server. Type: string (or Expression with resultType string).
+        :param Any user_id: User ID to logon the server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'FileServer')
@@ -7101,14 +7101,14 @@ class FileServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         Host name of the server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -7125,14 +7125,14 @@ class FileServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -7161,14 +7161,14 @@ class FileServerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -7197,14 +7197,14 @@ class FileServerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_id(self) -> Optional[Any]:
         """
         User ID to logon the server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_id(self, value: Optional[Any]):
         pulumi.set(self, "user_id", value)
 
 
@@ -7213,28 +7213,28 @@ class FileShareDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 file_filter: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 file_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 folder_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 file_filter: Optional[Any] = None,
+                 file_name: Optional[Any] = None,
+                 folder_path: Optional[Any] = None,
                  format: Optional[pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         An on-premises file system dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the file system.
         :param pulumi.Input[str] description: Dataset description.
-        :param pulumi.Input[Mapping[str, Any]] file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] file_name: The name of the on-premises file system. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] folder_path: The path of the on-premises file system. Type: string (or Expression with resultType string).
+        :param Any file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
+        :param Any file_name: The name of the on-premises file system. Type: string (or Expression with resultType string).
+        :param Any folder_path: The path of the on-premises file system. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']] format: The format of the files.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'FileShare')
@@ -7283,14 +7283,14 @@ class FileShareDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -7319,38 +7319,38 @@ class FileShareDatasetArgs:
 
     @property
     @pulumi.getter(name="fileFilter")
-    def file_filter(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def file_filter(self) -> Optional[Any]:
         """
         Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "file_filter")
 
     @file_filter.setter
-    def file_filter(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def file_filter(self, value: Optional[Any]):
         pulumi.set(self, "file_filter", value)
 
     @property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def file_name(self) -> Optional[Any]:
         """
         The name of the on-premises file system. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "file_name")
 
     @file_name.setter
-    def file_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def file_name(self, value: Optional[Any]):
         pulumi.set(self, "file_name", value)
 
     @property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def folder_path(self) -> Optional[Any]:
         """
         The path of the on-premises file system. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "folder_path")
 
     @folder_path.setter
-    def folder_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def folder_path(self, value: Optional[Any]):
         pulumi.set(self, "folder_path", value)
 
     @property
@@ -7379,48 +7379,48 @@ class FileShareDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class FtpServerLinkedServiceArgs:
     def __init__(__self__, *,
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enable_server_certificate_validation: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 enable_server_certificate_validation: Optional[Any] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 port: Optional[Any] = None,
+                 user_name: Optional[Any] = None):
         """
         A FTP server Linked Service.
-        :param pulumi.Input[Mapping[str, Any]] host: Host name of the FTP server. Type: string (or Expression with resultType string).
+        :param Any host: Host name of the FTP server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the FTP server.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] enable_server_certificate_validation: If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] enable_ssl: If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any enable_server_certificate_validation: If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any enable_ssl: If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password to logon the FTP server.
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param pulumi.Input[Mapping[str, Any]] user_name: Username to logon the FTP server. Type: string (or Expression with resultType string).
+        :param Any port: The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any user_name: Username to logon the FTP server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'FtpServer')
@@ -7449,14 +7449,14 @@ class FtpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         Host name of the FTP server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -7473,14 +7473,14 @@ class FtpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -7521,38 +7521,38 @@ class FtpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="enableServerCertificateValidation")
-    def enable_server_certificate_validation(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def enable_server_certificate_validation(self) -> Optional[Any]:
         """
         If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_server_certificate_validation")
 
     @enable_server_certificate_validation.setter
-    def enable_server_certificate_validation(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def enable_server_certificate_validation(self, value: Optional[Any]):
         pulumi.set(self, "enable_server_certificate_validation", value)
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_ssl")
 
     @enable_ssl.setter
-    def enable_ssl(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def enable_ssl(self, value: Optional[Any]):
         pulumi.set(self, "enable_ssl", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -7581,26 +7581,26 @@ class FtpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_name(self) -> Optional[Any]:
         """
         Username to logon the FTP server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
 
 
@@ -7608,41 +7608,41 @@ class FtpServerLinkedServiceArgs:
 class GoogleBigQueryLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 project: pulumi.Input[Mapping[str, Any]],
+                 project: Any,
                  type: pulumi.Input[str],
-                 additional_projects: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 additional_projects: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  client_id: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 email: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 key_file_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 email: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 key_file_path: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  refresh_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 request_google_drive_scope: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 trusted_cert_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_system_trust_store: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 request_google_drive_scope: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None):
         """
         Google BigQuery service linked service.
         :param pulumi.Input[str] authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
-        :param pulumi.Input[Mapping[str, Any]] project: The default BigQuery project to query against.
+        :param Any project: The default BigQuery project to query against.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] additional_projects: A comma-separated list of public BigQuery projects to access.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any additional_projects: A comma-separated list of public BigQuery projects to access.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_id: The client id of the google application used to acquire the refresh token.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret of the google application used to acquire the refresh token.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
+        :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] refresh_token: The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
-        :param pulumi.Input[Mapping[str, Any]] request_google_drive_scope: Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param pulumi.Input[Mapping[str, Any]] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any request_google_drive_scope: Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "project", project)
@@ -7690,14 +7690,14 @@ class GoogleBigQueryLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def project(self) -> pulumi.Input[Mapping[str, Any]]:
+    def project(self) -> Any:
         """
         The default BigQuery project to query against.
         """
         return pulumi.get(self, "project")
 
     @project.setter
-    def project(self, value: pulumi.Input[Mapping[str, Any]]):
+    def project(self, value: Any):
         pulumi.set(self, "project", value)
 
     @property
@@ -7714,26 +7714,26 @@ class GoogleBigQueryLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="additionalProjects")
-    def additional_projects(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def additional_projects(self) -> Optional[Any]:
         """
         A comma-separated list of public BigQuery projects to access.
         """
         return pulumi.get(self, "additional_projects")
 
     @additional_projects.setter
-    def additional_projects(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def additional_projects(self, value: Optional[Any]):
         pulumi.set(self, "additional_projects", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -7786,38 +7786,38 @@ class GoogleBigQueryLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def email(self) -> Optional[Any]:
         """
         The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def email(self, value: Optional[Any]):
         pulumi.set(self, "email", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
     @pulumi.getter(name="keyFilePath")
-    def key_file_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def key_file_path(self) -> Optional[Any]:
         """
         The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
         """
         return pulumi.get(self, "key_file_path")
 
     @key_file_path.setter
-    def key_file_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def key_file_path(self, value: Optional[Any]):
         pulumi.set(self, "key_file_path", value)
 
     @property
@@ -7846,38 +7846,38 @@ class GoogleBigQueryLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="requestGoogleDriveScope")
-    def request_google_drive_scope(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def request_google_drive_scope(self) -> Optional[Any]:
         """
         Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
         """
         return pulumi.get(self, "request_google_drive_scope")
 
     @request_google_drive_scope.setter
-    def request_google_drive_scope(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def request_google_drive_scope(self, value: Optional[Any]):
         pulumi.set(self, "request_google_drive_scope", value)
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
         return pulumi.get(self, "trusted_cert_path")
 
     @trusted_cert_path.setter
-    def trusted_cert_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def trusted_cert_path(self, value: Optional[Any]):
         pulumi.set(self, "trusted_cert_path", value)
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
         return pulumi.get(self, "use_system_trust_store")
 
     @use_system_trust_store.setter
-    def use_system_trust_store(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_system_trust_store(self, value: Optional[Any]):
         pulumi.set(self, "use_system_trust_store", value)
 
 
@@ -7886,18 +7886,18 @@ class GoogleBigQueryObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Google BigQuery service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'GoogleBigQueryObject')
@@ -7936,14 +7936,14 @@ class GoogleBigQueryObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -7972,14 +7972,14 @@ class GoogleBigQueryObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -7987,20 +7987,20 @@ class GoogleBigQueryObjectDatasetArgs:
 class GreenplumLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Greenplum Database linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Greenplum')
@@ -8031,14 +8031,14 @@ class GreenplumLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8055,14 +8055,14 @@ class GreenplumLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -8079,14 +8079,14 @@ class GreenplumLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -8107,18 +8107,18 @@ class GreenplumTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Greenplum Database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'GreenplumTable')
@@ -8157,14 +8157,14 @@ class GreenplumTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8193,14 +8193,14 @@ class GreenplumTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -8208,39 +8208,39 @@ class GreenplumTableDatasetArgs:
 class HBaseLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
-                 allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 http_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 http_path: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 trusted_cert_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 port: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         HBase server linked service.
         :param pulumi.Input[str] authentication_type: The authentication mechanism to use to connect to the HBase server.
-        :param pulumi.Input[Mapping[str, Any]] host: The IP address or host name of the HBase server. (i.e. 192.168.222.160)
+        :param Any host: The IP address or host name of the HBase server. (i.e. 192.168.222.160)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] http_path: The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any http_path: The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name.
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
-        :param pulumi.Input[Mapping[str, Any]] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param pulumi.Input[Mapping[str, Any]] username: The user name used to connect to the HBase instance.
+        :param Any port: The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any username: The user name used to connect to the HBase instance.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -8286,14 +8286,14 @@ class HBaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The IP address or host name of the HBase server. (i.e. 192.168.222.160)
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -8310,38 +8310,38 @@ class HBaseLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
         return pulumi.get(self, "allow_host_name_cn_mismatch")
 
     @allow_host_name_cn_mismatch.setter
-    def allow_host_name_cn_mismatch(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_host_name_cn_mismatch(self, value: Optional[Any]):
         pulumi.set(self, "allow_host_name_cn_mismatch", value)
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
         return pulumi.get(self, "allow_self_signed_server_cert")
 
     @allow_self_signed_server_cert.setter
-    def allow_self_signed_server_cert(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_self_signed_server_cert(self, value: Optional[Any]):
         pulumi.set(self, "allow_self_signed_server_cert", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8370,38 +8370,38 @@ class HBaseLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
         return pulumi.get(self, "enable_ssl")
 
     @enable_ssl.setter
-    def enable_ssl(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def enable_ssl(self, value: Optional[Any]):
         pulumi.set(self, "enable_ssl", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
     @pulumi.getter(name="httpPath")
-    def http_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def http_path(self) -> Optional[Any]:
         """
         The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
         """
         return pulumi.get(self, "http_path")
 
     @http_path.setter
-    def http_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def http_path(self, value: Optional[Any]):
         pulumi.set(self, "http_path", value)
 
     @property
@@ -8430,38 +8430,38 @@ class HBaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
         return pulumi.get(self, "trusted_cert_path")
 
     @trusted_cert_path.setter
-    def trusted_cert_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def trusted_cert_path(self, value: Optional[Any]):
         pulumi.set(self, "trusted_cert_path", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         The user name used to connect to the HBase instance.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
@@ -8470,18 +8470,18 @@ class HBaseObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         HBase server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'HBaseObject')
@@ -8520,14 +8520,14 @@ class HBaseObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8556,44 +8556,44 @@ class HBaseObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class HDInsightLinkedServiceArgs:
     def __init__(__self__, *,
-                 cluster_uri: pulumi.Input[Mapping[str, Any]],
+                 cluster_uri: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  hcatalog_linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_name: Optional[Any] = None):
         """
         HDInsight linked service.
-        :param pulumi.Input[Mapping[str, Any]] cluster_uri: HDInsight cluster URI. Type: string (or Expression with resultType string).
+        :param Any cluster_uri: HDInsight cluster URI. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] hcatalog_linked_service_name: A reference to the Azure SQL linked service that points to the HCatalog database.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: The Azure Storage linked service reference.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: HDInsight cluster password.
-        :param pulumi.Input[Mapping[str, Any]] user_name: HDInsight cluster user name. Type: string (or Expression with resultType string).
+        :param Any user_name: HDInsight cluster user name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "cluster_uri", cluster_uri)
         pulumi.set(__self__, "type", 'HDInsight')
@@ -8618,14 +8618,14 @@ class HDInsightLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clusterUri")
-    def cluster_uri(self) -> pulumi.Input[Mapping[str, Any]]:
+    def cluster_uri(self) -> Any:
         """
         HDInsight cluster URI. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "cluster_uri")
 
     @cluster_uri.setter
-    def cluster_uri(self, value: pulumi.Input[Mapping[str, Any]]):
+    def cluster_uri(self, value: Any):
         pulumi.set(self, "cluster_uri", value)
 
     @property
@@ -8642,14 +8642,14 @@ class HDInsightLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -8678,14 +8678,14 @@ class HDInsightLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -8738,92 +8738,92 @@ class HDInsightLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_name(self) -> Optional[Any]:
         """
         HDInsight cluster user name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type
 class HDInsightOnDemandLinkedServiceArgs:
     def __init__(__self__, *,
-                 cluster_resource_group: pulumi.Input[Mapping[str, Any]],
-                 cluster_size: pulumi.Input[Mapping[str, Any]],
-                 host_subscription_id: pulumi.Input[Mapping[str, Any]],
+                 cluster_resource_group: Any,
+                 cluster_size: Any,
+                 host_subscription_id: Any,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 tenant: pulumi.Input[Mapping[str, Any]],
-                 time_to_live: pulumi.Input[Mapping[str, Any]],
+                 tenant: Any,
+                 time_to_live: Any,
                  type: pulumi.Input[str],
-                 version: pulumi.Input[Mapping[str, Any]],
+                 version: Any,
                  additional_linked_service_names: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 cluster_name_prefix: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 cluster_name_prefix: Optional[Any] = None,
                  cluster_password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  cluster_ssh_password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 cluster_ssh_user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 cluster_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 cluster_user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 cluster_ssh_user_name: Optional[Any] = None,
+                 cluster_type: Optional[Any] = None,
+                 cluster_user_name: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 core_configuration: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 data_node_size: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 core_configuration: Optional[Any] = None,
+                 data_node_size: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 h_base_configuration: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 h_base_configuration: Optional[Any] = None,
                  hcatalog_linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
-                 hdfs_configuration: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 head_node_size: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 hive_configuration: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 map_reduce_configuration: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 oozie_configuration: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 hdfs_configuration: Optional[Any] = None,
+                 head_node_size: Optional[Any] = None,
+                 hive_configuration: Optional[Any] = None,
+                 map_reduce_configuration: Optional[Any] = None,
+                 oozie_configuration: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 service_principal_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 spark_version: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 storm_configuration: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 yarn_configuration: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 zookeeper_node_size: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 spark_version: Optional[Any] = None,
+                 storm_configuration: Optional[Any] = None,
+                 yarn_configuration: Optional[Any] = None,
+                 zookeeper_node_size: Optional[Any] = None):
         """
         HDInsight ondemand linked service.
-        :param pulumi.Input[Mapping[str, Any]] cluster_resource_group: The resource group where the cluster belongs. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] cluster_size: Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] host_subscription_id: The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
+        :param Any cluster_resource_group: The resource group where the cluster belongs. Type: string (or Expression with resultType string).
+        :param Any cluster_size: Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
+        :param Any host_subscription_id: The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
-        :param pulumi.Input[Mapping[str, Any]] tenant: The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] time_to_live: The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
+        :param Any tenant: The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any time_to_live: The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] version: Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
+        :param Any version: Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[Mapping[str, Any]] cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] cluster_password: The password to access the cluster.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
-        :param pulumi.Input[Mapping[str, Any]] cluster_ssh_user_name: The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] cluster_type: The cluster type. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] cluster_user_name: The username to access the cluster. Type: string (or Expression with resultType string).
+        :param Any cluster_ssh_user_name: The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
+        :param Any cluster_type: The cluster type. Type: string (or Expression with resultType string).
+        :param Any cluster_user_name: The username to access the cluster. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param pulumi.Input[Mapping[str, Any]] core_configuration: Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
-        :param pulumi.Input[Mapping[str, Any]] data_node_size: Specifies the size of the data node for the HDInsight cluster.
+        :param Any core_configuration: Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
+        :param Any data_node_size: Specifies the size of the data node for the HDInsight cluster.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] h_base_configuration: Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any h_base_configuration: Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
         :param pulumi.Input['LinkedServiceReferenceArgs'] hcatalog_linked_service_name: The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
-        :param pulumi.Input[Mapping[str, Any]] hdfs_configuration: Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
-        :param pulumi.Input[Mapping[str, Any]] head_node_size: Specifies the size of the head node for the HDInsight cluster.
-        :param pulumi.Input[Mapping[str, Any]] hive_configuration: Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
-        :param pulumi.Input[Mapping[str, Any]] map_reduce_configuration: Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
-        :param pulumi.Input[Mapping[str, Any]] oozie_configuration: Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
+        :param Any hdfs_configuration: Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
+        :param Any head_node_size: Specifies the size of the head node for the HDInsight cluster.
+        :param Any hive_configuration: Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
+        :param Any map_reduce_configuration: Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
+        :param Any oozie_configuration: Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] service_principal_id: The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key for the service principal id.
-        :param pulumi.Input[Mapping[str, Any]] spark_version: The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] storm_configuration: Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
-        :param pulumi.Input[Mapping[str, Any]] yarn_configuration: Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
-        :param pulumi.Input[Mapping[str, Any]] zookeeper_node_size: Specifies the size of the Zoo Keeper node for the HDInsight cluster.
+        :param Any spark_version: The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
+        :param Any storm_configuration: Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
+        :param Any yarn_configuration: Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
+        :param Any zookeeper_node_size: Specifies the size of the Zoo Keeper node for the HDInsight cluster.
         """
         pulumi.set(__self__, "cluster_resource_group", cluster_resource_group)
         pulumi.set(__self__, "cluster_size", cluster_size)
@@ -8890,38 +8890,38 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clusterResourceGroup")
-    def cluster_resource_group(self) -> pulumi.Input[Mapping[str, Any]]:
+    def cluster_resource_group(self) -> Any:
         """
         The resource group where the cluster belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "cluster_resource_group")
 
     @cluster_resource_group.setter
-    def cluster_resource_group(self, value: pulumi.Input[Mapping[str, Any]]):
+    def cluster_resource_group(self, value: Any):
         pulumi.set(self, "cluster_resource_group", value)
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> pulumi.Input[Mapping[str, Any]]:
+    def cluster_size(self) -> Any:
         """
         Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "cluster_size")
 
     @cluster_size.setter
-    def cluster_size(self, value: pulumi.Input[Mapping[str, Any]]):
+    def cluster_size(self, value: Any):
         pulumi.set(self, "cluster_size", value)
 
     @property
     @pulumi.getter(name="hostSubscriptionId")
-    def host_subscription_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host_subscription_id(self) -> Any:
         """
         The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "host_subscription_id")
 
     @host_subscription_id.setter
-    def host_subscription_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host_subscription_id(self, value: Any):
         pulumi.set(self, "host_subscription_id", value)
 
     @property
@@ -8938,26 +8938,26 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def tenant(self) -> pulumi.Input[Mapping[str, Any]]:
+    def tenant(self) -> Any:
         """
         The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: pulumi.Input[Mapping[str, Any]]):
+    def tenant(self, value: Any):
         pulumi.set(self, "tenant", value)
 
     @property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> pulumi.Input[Mapping[str, Any]]:
+    def time_to_live(self) -> Any:
         """
         The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "time_to_live")
 
     @time_to_live.setter
-    def time_to_live(self, value: pulumi.Input[Mapping[str, Any]]):
+    def time_to_live(self, value: Any):
         pulumi.set(self, "time_to_live", value)
 
     @property
@@ -8974,14 +8974,14 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Input[Mapping[str, Any]]:
+    def version(self) -> Any:
         """
         Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[Mapping[str, Any]]):
+    def version(self, value: Any):
         pulumi.set(self, "version", value)
 
     @property
@@ -8998,26 +8998,26 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
     @pulumi.getter(name="clusterNamePrefix")
-    def cluster_name_prefix(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def cluster_name_prefix(self) -> Optional[Any]:
         """
         The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "cluster_name_prefix")
 
     @cluster_name_prefix.setter
-    def cluster_name_prefix(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def cluster_name_prefix(self, value: Optional[Any]):
         pulumi.set(self, "cluster_name_prefix", value)
 
     @property
@@ -9046,38 +9046,38 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clusterSshUserName")
-    def cluster_ssh_user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def cluster_ssh_user_name(self) -> Optional[Any]:
         """
         The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "cluster_ssh_user_name")
 
     @cluster_ssh_user_name.setter
-    def cluster_ssh_user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def cluster_ssh_user_name(self, value: Optional[Any]):
         pulumi.set(self, "cluster_ssh_user_name", value)
 
     @property
     @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def cluster_type(self) -> Optional[Any]:
         """
         The cluster type. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "cluster_type")
 
     @cluster_type.setter
-    def cluster_type(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def cluster_type(self, value: Optional[Any]):
         pulumi.set(self, "cluster_type", value)
 
     @property
     @pulumi.getter(name="clusterUserName")
-    def cluster_user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def cluster_user_name(self) -> Optional[Any]:
         """
         The username to access the cluster. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "cluster_user_name")
 
     @cluster_user_name.setter
-    def cluster_user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def cluster_user_name(self, value: Optional[Any]):
         pulumi.set(self, "cluster_user_name", value)
 
     @property
@@ -9094,26 +9094,26 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="coreConfiguration")
-    def core_configuration(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def core_configuration(self) -> Optional[Any]:
         """
         Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
         """
         return pulumi.get(self, "core_configuration")
 
     @core_configuration.setter
-    def core_configuration(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def core_configuration(self, value: Optional[Any]):
         pulumi.set(self, "core_configuration", value)
 
     @property
     @pulumi.getter(name="dataNodeSize")
-    def data_node_size(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def data_node_size(self) -> Optional[Any]:
         """
         Specifies the size of the data node for the HDInsight cluster.
         """
         return pulumi.get(self, "data_node_size")
 
     @data_node_size.setter
-    def data_node_size(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def data_node_size(self, value: Optional[Any]):
         pulumi.set(self, "data_node_size", value)
 
     @property
@@ -9130,26 +9130,26 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
     @pulumi.getter(name="hBaseConfiguration")
-    def h_base_configuration(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def h_base_configuration(self) -> Optional[Any]:
         """
         Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
         """
         return pulumi.get(self, "h_base_configuration")
 
     @h_base_configuration.setter
-    def h_base_configuration(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def h_base_configuration(self, value: Optional[Any]):
         pulumi.set(self, "h_base_configuration", value)
 
     @property
@@ -9166,62 +9166,62 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="hdfsConfiguration")
-    def hdfs_configuration(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def hdfs_configuration(self) -> Optional[Any]:
         """
         Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
         """
         return pulumi.get(self, "hdfs_configuration")
 
     @hdfs_configuration.setter
-    def hdfs_configuration(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def hdfs_configuration(self, value: Optional[Any]):
         pulumi.set(self, "hdfs_configuration", value)
 
     @property
     @pulumi.getter(name="headNodeSize")
-    def head_node_size(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def head_node_size(self) -> Optional[Any]:
         """
         Specifies the size of the head node for the HDInsight cluster.
         """
         return pulumi.get(self, "head_node_size")
 
     @head_node_size.setter
-    def head_node_size(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def head_node_size(self, value: Optional[Any]):
         pulumi.set(self, "head_node_size", value)
 
     @property
     @pulumi.getter(name="hiveConfiguration")
-    def hive_configuration(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def hive_configuration(self) -> Optional[Any]:
         """
         Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
         """
         return pulumi.get(self, "hive_configuration")
 
     @hive_configuration.setter
-    def hive_configuration(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def hive_configuration(self, value: Optional[Any]):
         pulumi.set(self, "hive_configuration", value)
 
     @property
     @pulumi.getter(name="mapReduceConfiguration")
-    def map_reduce_configuration(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def map_reduce_configuration(self) -> Optional[Any]:
         """
         Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
         """
         return pulumi.get(self, "map_reduce_configuration")
 
     @map_reduce_configuration.setter
-    def map_reduce_configuration(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def map_reduce_configuration(self, value: Optional[Any]):
         pulumi.set(self, "map_reduce_configuration", value)
 
     @property
     @pulumi.getter(name="oozieConfiguration")
-    def oozie_configuration(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def oozie_configuration(self) -> Optional[Any]:
         """
         Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
         """
         return pulumi.get(self, "oozie_configuration")
 
     @oozie_configuration.setter
-    def oozie_configuration(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def oozie_configuration(self, value: Optional[Any]):
         pulumi.set(self, "oozie_configuration", value)
 
     @property
@@ -9238,14 +9238,14 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_principal_id(self, value: Optional[Any]):
         pulumi.set(self, "service_principal_id", value)
 
     @property
@@ -9262,50 +9262,50 @@ class HDInsightOnDemandLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="sparkVersion")
-    def spark_version(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def spark_version(self) -> Optional[Any]:
         """
         The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "spark_version")
 
     @spark_version.setter
-    def spark_version(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def spark_version(self, value: Optional[Any]):
         pulumi.set(self, "spark_version", value)
 
     @property
     @pulumi.getter(name="stormConfiguration")
-    def storm_configuration(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def storm_configuration(self) -> Optional[Any]:
         """
         Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
         """
         return pulumi.get(self, "storm_configuration")
 
     @storm_configuration.setter
-    def storm_configuration(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def storm_configuration(self, value: Optional[Any]):
         pulumi.set(self, "storm_configuration", value)
 
     @property
     @pulumi.getter(name="yarnConfiguration")
-    def yarn_configuration(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def yarn_configuration(self) -> Optional[Any]:
         """
         Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
         """
         return pulumi.get(self, "yarn_configuration")
 
     @yarn_configuration.setter
-    def yarn_configuration(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def yarn_configuration(self, value: Optional[Any]):
         pulumi.set(self, "yarn_configuration", value)
 
     @property
     @pulumi.getter(name="zookeeperNodeSize")
-    def zookeeper_node_size(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def zookeeper_node_size(self) -> Optional[Any]:
         """
         Specifies the size of the Zoo Keeper node for the HDInsight cluster.
         """
         return pulumi.get(self, "zookeeper_node_size")
 
     @zookeeper_node_size.setter
-    def zookeeper_node_size(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def zookeeper_node_size(self, value: Optional[Any]):
         pulumi.set(self, "zookeeper_node_size", value)
 
 
@@ -9313,27 +9313,27 @@ class HDInsightOnDemandLinkedServiceArgs:
 class HdfsLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 url: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 authentication_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 url: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_name: Optional[Any] = None):
         """
         Hadoop Distributed File System (HDFS) linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] url: The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[Mapping[str, Any]] authentication_type: Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
+        :param Any url: The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any authentication_type: Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for Windows authentication.
-        :param pulumi.Input[Mapping[str, Any]] user_name: User name for Windows authentication. Type: string (or Expression with resultType string).
+        :param Any user_name: User name for Windows authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'Hdfs')
         pulumi.set(__self__, "url", url)
@@ -9368,38 +9368,38 @@ class HdfsLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Input[Mapping[str, Any]]:
+    def url(self) -> Any:
         """
         The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: pulumi.Input[Mapping[str, Any]]):
+    def url(self, value: Any):
         pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def authentication_type(self) -> Optional[Any]:
         """
         Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def authentication_type(self, value: Optional[Any]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -9428,14 +9428,14 @@ class HdfsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -9464,14 +9464,14 @@ class HdfsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_name(self) -> Optional[Any]:
         """
         User name for Windows authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
 
 
@@ -9479,51 +9479,51 @@ class HdfsLinkedServiceArgs:
 class HiveLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
-                 allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 http_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 http_path: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 port: Optional[Any] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
-                 service_discovery_mode: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 service_discovery_mode: Optional[Any] = None,
                  thrift_transport_protocol: Optional[pulumi.Input[str]] = None,
-                 trusted_cert_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_native_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_system_trust_store: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 zoo_keeper_name_space: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 trusted_cert_path: Optional[Any] = None,
+                 use_native_query: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None,
+                 zoo_keeper_name_space: Optional[Any] = None):
         """
         Hive Server linked service.
         :param pulumi.Input[str] authentication_type: The authentication method used to access the Hive server.
-        :param pulumi.Input[Mapping[str, Any]] host: IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
+        :param Any host: IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] http_path: The partial URL corresponding to the Hive server.
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any http_path: The partial URL corresponding to the Hive server.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name that you provided in the Username field
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port that the Hive server uses to listen for client connections.
+        :param Any port: The TCP port that the Hive server uses to listen for client connections.
         :param pulumi.Input[str] server_type: The type of Hive server.
-        :param pulumi.Input[Mapping[str, Any]] service_discovery_mode: true to indicate using the ZooKeeper service, false not.
+        :param Any service_discovery_mode: true to indicate using the ZooKeeper service, false not.
         :param pulumi.Input[str] thrift_transport_protocol: The transport protocol to use in the Thrift layer.
-        :param pulumi.Input[Mapping[str, Any]] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param pulumi.Input[Mapping[str, Any]] use_native_query: Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
-        :param pulumi.Input[Mapping[str, Any]] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] username: The user name that you use to access Hive Server.
-        :param pulumi.Input[Mapping[str, Any]] zoo_keeper_name_space: The namespace on ZooKeeper under which Hive Server 2 nodes are added.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_native_query: Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any username: The user name that you use to access Hive Server.
+        :param Any zoo_keeper_name_space: The namespace on ZooKeeper under which Hive Server 2 nodes are added.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -9581,14 +9581,14 @@ class HiveLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -9605,38 +9605,38 @@ class HiveLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
         return pulumi.get(self, "allow_host_name_cn_mismatch")
 
     @allow_host_name_cn_mismatch.setter
-    def allow_host_name_cn_mismatch(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_host_name_cn_mismatch(self, value: Optional[Any]):
         pulumi.set(self, "allow_host_name_cn_mismatch", value)
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
         return pulumi.get(self, "allow_self_signed_server_cert")
 
     @allow_self_signed_server_cert.setter
-    def allow_self_signed_server_cert(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_self_signed_server_cert(self, value: Optional[Any]):
         pulumi.set(self, "allow_self_signed_server_cert", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -9665,38 +9665,38 @@ class HiveLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
         return pulumi.get(self, "enable_ssl")
 
     @enable_ssl.setter
-    def enable_ssl(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def enable_ssl(self, value: Optional[Any]):
         pulumi.set(self, "enable_ssl", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
     @pulumi.getter(name="httpPath")
-    def http_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def http_path(self) -> Optional[Any]:
         """
         The partial URL corresponding to the Hive server.
         """
         return pulumi.get(self, "http_path")
 
     @http_path.setter
-    def http_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def http_path(self, value: Optional[Any]):
         pulumi.set(self, "http_path", value)
 
     @property
@@ -9725,14 +9725,14 @@ class HiveLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the Hive server uses to listen for client connections.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
@@ -9749,14 +9749,14 @@ class HiveLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="serviceDiscoveryMode")
-    def service_discovery_mode(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def service_discovery_mode(self) -> Optional[Any]:
         """
         true to indicate using the ZooKeeper service, false not.
         """
         return pulumi.get(self, "service_discovery_mode")
 
     @service_discovery_mode.setter
-    def service_discovery_mode(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def service_discovery_mode(self, value: Optional[Any]):
         pulumi.set(self, "service_discovery_mode", value)
 
     @property
@@ -9773,62 +9773,62 @@ class HiveLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
         return pulumi.get(self, "trusted_cert_path")
 
     @trusted_cert_path.setter
-    def trusted_cert_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def trusted_cert_path(self, value: Optional[Any]):
         pulumi.set(self, "trusted_cert_path", value)
 
     @property
     @pulumi.getter(name="useNativeQuery")
-    def use_native_query(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_native_query(self) -> Optional[Any]:
         """
         Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
         """
         return pulumi.get(self, "use_native_query")
 
     @use_native_query.setter
-    def use_native_query(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_native_query(self, value: Optional[Any]):
         pulumi.set(self, "use_native_query", value)
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
         return pulumi.get(self, "use_system_trust_store")
 
     @use_system_trust_store.setter
-    def use_system_trust_store(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_system_trust_store(self, value: Optional[Any]):
         pulumi.set(self, "use_system_trust_store", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         The user name that you use to access Hive Server.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter(name="zooKeeperNameSpace")
-    def zoo_keeper_name_space(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def zoo_keeper_name_space(self) -> Optional[Any]:
         """
         The namespace on ZooKeeper under which Hive Server 2 nodes are added.
         """
         return pulumi.get(self, "zoo_keeper_name_space")
 
     @zoo_keeper_name_space.setter
-    def zoo_keeper_name_space(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def zoo_keeper_name_space(self, value: Optional[Any]):
         pulumi.set(self, "zoo_keeper_name_space", value)
 
 
@@ -9837,18 +9837,18 @@ class HiveObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Hive Server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'HiveObject')
@@ -9887,14 +9887,14 @@ class HiveObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -9923,14 +9923,14 @@ class HiveObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -9939,32 +9939,32 @@ class HttpDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 additional_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 additional_headers: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 relative_url: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 request_body: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 request_method: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 relative_url: Optional[Any] = None,
+                 request_body: Optional[Any] = None,
+                 request_method: Optional[Any] = None,
+                 structure: Optional[Any] = None):
         """
         A file in an HTTP web server.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Mapping[str, Any]] additional_headers: The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
+        :param Any additional_headers: The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
                ...
                request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used on files.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']] format: The format of files.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] relative_url: The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] request_body: The body for the HTTP request. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] request_method: The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any relative_url: The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
+        :param Any request_body: The body for the HTTP request. Type: string (or Expression with resultType string).
+        :param Any request_method: The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'HttpFile')
@@ -10015,7 +10015,7 @@ class HttpDatasetArgs:
 
     @property
     @pulumi.getter(name="additionalHeaders")
-    def additional_headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def additional_headers(self) -> Optional[Any]:
         """
         The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
         ...
@@ -10024,19 +10024,19 @@ class HttpDatasetArgs:
         return pulumi.get(self, "additional_headers")
 
     @additional_headers.setter
-    def additional_headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def additional_headers(self, value: Optional[Any]):
         pulumi.set(self, "additional_headers", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10089,50 +10089,50 @@ class HttpDatasetArgs:
 
     @property
     @pulumi.getter(name="relativeUrl")
-    def relative_url(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def relative_url(self) -> Optional[Any]:
         """
         The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "relative_url")
 
     @relative_url.setter
-    def relative_url(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def relative_url(self, value: Optional[Any]):
         pulumi.set(self, "relative_url", value)
 
     @property
     @pulumi.getter(name="requestBody")
-    def request_body(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def request_body(self) -> Optional[Any]:
         """
         The body for the HTTP request. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "request_body")
 
     @request_body.setter
-    def request_body(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def request_body(self, value: Optional[Any]):
         pulumi.set(self, "request_body", value)
 
     @property
     @pulumi.getter(name="requestMethod")
-    def request_method(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def request_method(self) -> Optional[Any]:
         """
         The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "request_method")
 
     @request_method.setter
-    def request_method(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def request_method(self, value: Optional[Any]):
         pulumi.set(self, "request_method", value)
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -10140,33 +10140,33 @@ class HttpDatasetArgs:
 class HttpLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 url: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 url: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
-                 cert_thumbprint: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 cert_thumbprint: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 embedded_cert_data: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 enable_server_certificate_validation: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 embedded_cert_data: Optional[Any] = None,
+                 enable_server_certificate_validation: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_name: Optional[Any] = None):
         """
         Linked service for an HTTP source.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] url: The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any url: The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the HTTP server.
-        :param pulumi.Input[Mapping[str, Any]] cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
+        :param Any cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] embedded_cert_data: Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] enable_server_certificate_validation: If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any embedded_cert_data: Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
+        :param Any enable_server_certificate_validation: If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
-        :param pulumi.Input[Mapping[str, Any]] user_name: User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
+        :param Any user_name: User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'HttpServer')
         pulumi.set(__self__, "url", url)
@@ -10207,26 +10207,26 @@ class HttpLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Input[Mapping[str, Any]]:
+    def url(self) -> Any:
         """
         The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: pulumi.Input[Mapping[str, Any]]):
+    def url(self, value: Any):
         pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10243,14 +10243,14 @@ class HttpLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="certThumbprint")
-    def cert_thumbprint(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def cert_thumbprint(self) -> Optional[Any]:
         """
         Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "cert_thumbprint")
 
     @cert_thumbprint.setter
-    def cert_thumbprint(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def cert_thumbprint(self, value: Optional[Any]):
         pulumi.set(self, "cert_thumbprint", value)
 
     @property
@@ -10279,38 +10279,38 @@ class HttpLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="embeddedCertData")
-    def embedded_cert_data(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def embedded_cert_data(self) -> Optional[Any]:
         """
         Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "embedded_cert_data")
 
     @embedded_cert_data.setter
-    def embedded_cert_data(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def embedded_cert_data(self, value: Optional[Any]):
         pulumi.set(self, "embedded_cert_data", value)
 
     @property
     @pulumi.getter(name="enableServerCertificateValidation")
-    def enable_server_certificate_validation(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def enable_server_certificate_validation(self) -> Optional[Any]:
         """
         If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_server_certificate_validation")
 
     @enable_server_certificate_validation.setter
-    def enable_server_certificate_validation(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def enable_server_certificate_validation(self, value: Optional[Any]):
         pulumi.set(self, "enable_server_certificate_validation", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -10339,48 +10339,48 @@ class HttpLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_name(self) -> Optional[Any]:
         """
         User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type
 class HubspotLinkedServiceArgs:
     def __init__(__self__, *,
-                 client_id: pulumi.Input[Mapping[str, Any]],
+                 client_id: Any,
                  type: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  refresh_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Hubspot Service linked service.
-        :param pulumi.Input[Mapping[str, Any]] client_id: The client ID associated with your Hubspot application.
+        :param Any client_id: The client ID associated with your Hubspot application.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: The access token obtained when initially authenticating your OAuth integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret associated with your Hubspot application.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] refresh_token: The refresh token obtained when initially authenticating your OAuth integration.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "type", 'Hubspot')
@@ -10409,14 +10409,14 @@ class HubspotLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def client_id(self) -> Any:
         """
         The client ID associated with your Hubspot application.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def client_id(self, value: Any):
         pulumi.set(self, "client_id", value)
 
     @property
@@ -10445,14 +10445,14 @@ class HubspotLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10493,14 +10493,14 @@ class HubspotLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -10529,38 +10529,38 @@ class HubspotLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -10569,18 +10569,18 @@ class HubspotObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Hubspot Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'HubspotObject')
@@ -10619,14 +10619,14 @@ class HubspotObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10655,14 +10655,14 @@ class HubspotObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -10670,39 +10670,39 @@ class HubspotObjectDatasetArgs:
 class ImpalaLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
-                 allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 trusted_cert_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_system_trust_store: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 port: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Impala server linked service.
         :param pulumi.Input[str] authentication_type: The authentication type to use.
-        :param pulumi.Input[Mapping[str, Any]] host: The IP address or host name of the Impala server. (i.e. 192.168.222.160)
+        :param Any host: The IP address or host name of the Impala server. (i.e. 192.168.222.160)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name when using UsernameAndPassword.
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
-        :param pulumi.Input[Mapping[str, Any]] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param pulumi.Input[Mapping[str, Any]] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] username: The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
+        :param Any port: The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any username: The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -10748,14 +10748,14 @@ class ImpalaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The IP address or host name of the Impala server. (i.e. 192.168.222.160)
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -10772,38 +10772,38 @@ class ImpalaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
         return pulumi.get(self, "allow_host_name_cn_mismatch")
 
     @allow_host_name_cn_mismatch.setter
-    def allow_host_name_cn_mismatch(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_host_name_cn_mismatch(self, value: Optional[Any]):
         pulumi.set(self, "allow_host_name_cn_mismatch", value)
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
         return pulumi.get(self, "allow_self_signed_server_cert")
 
     @allow_self_signed_server_cert.setter
-    def allow_self_signed_server_cert(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_self_signed_server_cert(self, value: Optional[Any]):
         pulumi.set(self, "allow_self_signed_server_cert", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -10832,26 +10832,26 @@ class ImpalaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
         return pulumi.get(self, "enable_ssl")
 
     @enable_ssl.setter
-    def enable_ssl(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def enable_ssl(self, value: Optional[Any]):
         pulumi.set(self, "enable_ssl", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -10880,50 +10880,50 @@ class ImpalaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
         return pulumi.get(self, "trusted_cert_path")
 
     @trusted_cert_path.setter
-    def trusted_cert_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def trusted_cert_path(self, value: Optional[Any]):
         pulumi.set(self, "trusted_cert_path", value)
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
         return pulumi.get(self, "use_system_trust_store")
 
     @use_system_trust_store.setter
-    def use_system_trust_store(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_system_trust_store(self, value: Optional[Any]):
         pulumi.set(self, "use_system_trust_store", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
@@ -10932,18 +10932,18 @@ class ImpalaObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Impala server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ImpalaObject')
@@ -10982,14 +10982,14 @@ class ImpalaObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -11018,14 +11018,14 @@ class ImpalaObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -11218,12 +11218,12 @@ class IntegrationRuntimeReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Integration runtime reference type.
         :param pulumi.Input[str] reference_name: Reference integration runtime name.
         :param pulumi.Input[str] type: Type of integration runtime.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] parameters: Arguments for integration runtime.
+        :param pulumi.Input[Mapping[str, Any]] parameters: Arguments for integration runtime.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -11256,14 +11256,14 @@ class IntegrationRuntimeReferenceArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Arguments for integration runtime.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -11470,34 +11470,34 @@ class IntegrationRuntimeVNetPropertiesArgs:
 @pulumi.input_type
 class JiraLinkedServiceArgs:
     def __init__(__self__, *,
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
-                 username: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 username: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 port: Optional[Any] = None,
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Jira Service linked service.
-        :param pulumi.Input[Mapping[str, Any]] host: The IP address or host name of the Jira service. (e.g. jira.example.com)
+        :param Any host: The IP address or host name of the Jira service. (e.g. jira.example.com)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] username: The user name that you use to access Jira Service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any username: The user name that you use to access Jira Service.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name that you provided in the username field.
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any port: The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Jira')
@@ -11525,14 +11525,14 @@ class JiraLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The IP address or host name of the Jira service. (e.g. jira.example.com)
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -11549,26 +11549,26 @@ class JiraLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[Mapping[str, Any]]:
+    def username(self) -> Any:
         """
         The user name that you use to access Jira Service.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[Mapping[str, Any]]):
+    def username(self, value: Any):
         pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -11597,14 +11597,14 @@ class JiraLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -11633,50 +11633,50 @@ class JiraLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -11685,18 +11685,18 @@ class JiraObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Jira Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'JiraObject')
@@ -11735,14 +11735,14 @@ class JiraObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -11771,14 +11771,14 @@ class JiraObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -11786,23 +11786,23 @@ class JiraObjectDatasetArgs:
 class JsonFormatArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 deserializer: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encoding_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 deserializer: Optional[Any] = None,
+                 encoding_name: Optional[Any] = None,
                  file_pattern: Optional[pulumi.Input[str]] = None,
-                 json_node_reference: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 json_path_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 nesting_separator: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 serializer: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 json_node_reference: Optional[Any] = None,
+                 json_path_definition: Optional[Any] = None,
+                 nesting_separator: Optional[Any] = None,
+                 serializer: Optional[Any] = None):
         """
         The data stored in JSON format.
         :param pulumi.Input[str] type: Type of dataset storage format.
-        :param pulumi.Input[Mapping[str, Any]] deserializer: Deserializer. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] encoding_name: The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
+        :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
+        :param Any encoding_name: The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] file_pattern: File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-        :param pulumi.Input[Mapping[str, Any]] json_node_reference: The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] json_path_definition: The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
-        :param pulumi.Input[Mapping[str, Any]] nesting_separator: The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] serializer: Serializer. Type: string (or Expression with resultType string).
+        :param Any json_node_reference: The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
+        :param Any json_path_definition: The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
+        :param Any nesting_separator: The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
+        :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'JsonFormat')
         if deserializer is not None:
@@ -11834,26 +11834,26 @@ class JsonFormatArgs:
 
     @property
     @pulumi.getter
-    def deserializer(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def deserializer(self) -> Optional[Any]:
         """
         Deserializer. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "deserializer")
 
     @deserializer.setter
-    def deserializer(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def deserializer(self, value: Optional[Any]):
         pulumi.set(self, "deserializer", value)
 
     @property
     @pulumi.getter(name="encodingName")
-    def encoding_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encoding_name(self) -> Optional[Any]:
         """
         The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encoding_name")
 
     @encoding_name.setter
-    def encoding_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encoding_name(self, value: Optional[Any]):
         pulumi.set(self, "encoding_name", value)
 
     @property
@@ -11870,50 +11870,50 @@ class JsonFormatArgs:
 
     @property
     @pulumi.getter(name="jsonNodeReference")
-    def json_node_reference(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def json_node_reference(self) -> Optional[Any]:
         """
         The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "json_node_reference")
 
     @json_node_reference.setter
-    def json_node_reference(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def json_node_reference(self, value: Optional[Any]):
         pulumi.set(self, "json_node_reference", value)
 
     @property
     @pulumi.getter(name="jsonPathDefinition")
-    def json_path_definition(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def json_path_definition(self) -> Optional[Any]:
         """
         The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
         """
         return pulumi.get(self, "json_path_definition")
 
     @json_path_definition.setter
-    def json_path_definition(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def json_path_definition(self, value: Optional[Any]):
         pulumi.set(self, "json_path_definition", value)
 
     @property
     @pulumi.getter(name="nestingSeparator")
-    def nesting_separator(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def nesting_separator(self) -> Optional[Any]:
         """
         The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "nesting_separator")
 
     @nesting_separator.setter
-    def nesting_separator(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def nesting_separator(self, value: Optional[Any]):
         pulumi.set(self, "nesting_separator", value)
 
     @property
     @pulumi.getter
-    def serializer(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def serializer(self) -> Optional[Any]:
         """
         Serializer. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "serializer")
 
     @serializer.setter
-    def serializer(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def serializer(self, value: Optional[Any]):
         pulumi.set(self, "serializer", value)
 
 
@@ -11998,12 +11998,12 @@ class LinkedServiceReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Linked service reference type.
         :param pulumi.Input[str] reference_name: Reference LinkedService name.
         :param pulumi.Input[str] type: Linked service reference type.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] parameters: Arguments for LinkedService.
+        :param pulumi.Input[Mapping[str, Any]] parameters: Arguments for LinkedService.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -12036,44 +12036,44 @@ class LinkedServiceReferenceArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Arguments for LinkedService.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
 class MagentoLinkedServiceArgs:
     def __init__(__self__, *,
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Magento server linked service.
-        :param pulumi.Input[Mapping[str, Any]] host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
+        :param Any host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: The access token from Magento.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Magento')
@@ -12098,14 +12098,14 @@ class MagentoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -12134,14 +12134,14 @@ class MagentoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12170,14 +12170,14 @@ class MagentoLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -12194,38 +12194,38 @@ class MagentoLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -12234,18 +12234,18 @@ class MagentoObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Magento server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'MagentoObject')
@@ -12284,14 +12284,14 @@ class MagentoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12320,14 +12320,14 @@ class MagentoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -12406,20 +12406,20 @@ class ManagedIntegrationRuntimeArgs:
 class MariaDBLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         MariaDB server linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'MariaDB')
@@ -12450,14 +12450,14 @@ class MariaDBLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12474,14 +12474,14 @@ class MariaDBLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -12498,14 +12498,14 @@ class MariaDBLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -12526,18 +12526,18 @@ class MariaDBTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         MariaDB server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'MariaDBTable')
@@ -12576,14 +12576,14 @@ class MariaDBTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12612,46 +12612,46 @@ class MariaDBTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class MarketoLinkedServiceArgs:
     def __init__(__self__, *,
-                 client_id: pulumi.Input[Mapping[str, Any]],
-                 endpoint: pulumi.Input[Mapping[str, Any]],
+                 client_id: Any,
+                 endpoint: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Marketo server linked service.
-        :param pulumi.Input[Mapping[str, Any]] client_id: The client Id of your Marketo service.
-        :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
+        :param Any client_id: The client Id of your Marketo service.
+        :param Any endpoint: The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret of your Marketo service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -12677,26 +12677,26 @@ class MarketoLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def client_id(self) -> Any:
         """
         The client Id of your Marketo service.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def client_id(self, value: Any):
         pulumi.set(self, "client_id", value)
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Input[Mapping[str, Any]]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: pulumi.Input[Mapping[str, Any]]):
+    def endpoint(self, value: Any):
         pulumi.set(self, "endpoint", value)
 
     @property
@@ -12713,14 +12713,14 @@ class MarketoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12761,14 +12761,14 @@ class MarketoLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -12785,38 +12785,38 @@ class MarketoLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -12825,18 +12825,18 @@ class MarketoObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Marketo server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'MarketoObject')
@@ -12875,14 +12875,14 @@ class MarketoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -12911,36 +12911,36 @@ class MarketoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class MongoDbCollectionDatasetArgs:
     def __init__(__self__, *,
-                 collection_name: pulumi.Input[Mapping[str, Any]],
+                 collection_name: Any,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The MongoDB database dataset.
-        :param pulumi.Input[Mapping[str, Any]] collection_name: The table name of the MongoDB database. Type: string (or Expression with resultType string).
+        :param Any collection_name: The table name of the MongoDB database. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "collection_name", collection_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -12956,14 +12956,14 @@ class MongoDbCollectionDatasetArgs:
 
     @property
     @pulumi.getter(name="collectionName")
-    def collection_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def collection_name(self) -> Any:
         """
         The table name of the MongoDB database. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "collection_name")
 
     @collection_name.setter
-    def collection_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def collection_name(self, value: Any):
         pulumi.set(self, "collection_name", value)
 
     @property
@@ -12992,14 +12992,14 @@ class MongoDbCollectionDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -13028,52 +13028,52 @@ class MongoDbCollectionDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class MongoDbLinkedServiceArgs:
     def __init__(__self__, *,
-                 database_name: pulumi.Input[Mapping[str, Any]],
-                 server: pulumi.Input[Mapping[str, Any]],
+                 database_name: Any,
+                 server: Any,
                  type: pulumi.Input[str],
-                 allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 auth_source: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 auth_source: Optional[Any] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 port: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Linked service for MongoDb data source.
-        :param pulumi.Input[Mapping[str, Any]] database_name: The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] server: The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
+        :param Any database_name: The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
+        :param Any server: The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[Mapping[str, Any]] auth_source: Database to verify the username and password. Type: string (or Expression with resultType string).
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any auth_source: Database to verify the username and password. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the MongoDB database.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for authentication.
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param pulumi.Input[Mapping[str, Any]] username: Username for authentication. Type: string (or Expression with resultType string).
+        :param Any port: The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "server", server)
@@ -13105,26 +13105,26 @@ class MongoDbLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def database_name(self) -> Any:
         """
         The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def database_name(self, value: Any):
         pulumi.set(self, "database_name", value)
 
     @property
     @pulumi.getter
-    def server(self) -> pulumi.Input[Mapping[str, Any]]:
+    def server(self) -> Any:
         """
         The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: pulumi.Input[Mapping[str, Any]]):
+    def server(self, value: Any):
         pulumi.set(self, "server", value)
 
     @property
@@ -13141,38 +13141,38 @@ class MongoDbLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "allow_self_signed_server_cert")
 
     @allow_self_signed_server_cert.setter
-    def allow_self_signed_server_cert(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_self_signed_server_cert(self, value: Optional[Any]):
         pulumi.set(self, "allow_self_signed_server_cert", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
     @pulumi.getter(name="authSource")
-    def auth_source(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def auth_source(self) -> Optional[Any]:
         """
         Database to verify the username and password. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "auth_source")
 
     @auth_source.setter
-    def auth_source(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def auth_source(self, value: Optional[Any]):
         pulumi.set(self, "auth_source", value)
 
     @property
@@ -13213,26 +13213,26 @@ class MongoDbLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_ssl")
 
     @enable_ssl.setter
-    def enable_ssl(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def enable_ssl(self, value: Optional[Any]):
         pulumi.set(self, "enable_ssl", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -13261,26 +13261,26 @@ class MongoDbLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         Username for authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
@@ -13344,19 +13344,19 @@ class MySqlLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Linked service for MySQL data source.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] connection_string: The connection string.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -13398,14 +13398,14 @@ class MySqlLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -13434,14 +13434,14 @@ class MySqlLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -13461,20 +13461,20 @@ class MySqlLinkedServiceArgs:
 class NetezzaLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Netezza linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Netezza')
@@ -13505,14 +13505,14 @@ class NetezzaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -13529,14 +13529,14 @@ class NetezzaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -13553,14 +13553,14 @@ class NetezzaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -13581,18 +13581,18 @@ class NetezzaTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Netezza dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'NetezzaTable')
@@ -13631,14 +13631,14 @@ class NetezzaTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -13667,14 +13667,14 @@ class NetezzaTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -13682,27 +13682,27 @@ class NetezzaTableDatasetArgs:
 class ODataLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 url: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 url: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_name: Optional[Any] = None):
         """
         Open Data Protocol (OData) linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] url: The URL of the OData service endpoint. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any url: The URL of the OData service endpoint. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] authentication_type: Type of authentication used to connect to the OData service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password of the OData service.
-        :param pulumi.Input[Mapping[str, Any]] user_name: User name of the OData service. Type: string (or Expression with resultType string).
+        :param Any user_name: User name of the OData service. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'OData')
         pulumi.set(__self__, "url", url)
@@ -13737,26 +13737,26 @@ class ODataLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Input[Mapping[str, Any]]:
+    def url(self) -> Any:
         """
         The URL of the OData service endpoint. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: pulumi.Input[Mapping[str, Any]]):
+    def url(self, value: Any):
         pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -13797,14 +13797,14 @@ class ODataLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -13833,14 +13833,14 @@ class ODataLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_name(self) -> Optional[Any]:
         """
         User name of the OData service. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
 
 
@@ -13849,20 +13849,20 @@ class ODataResourceDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 path: Optional[Any] = None,
+                 structure: Optional[Any] = None):
         """
         The Open Data Protocol (OData) resource dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] path: The OData resource path. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any path: The OData resource path. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ODataResource')
@@ -13903,14 +13903,14 @@ class ODataResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -13939,56 +13939,56 @@ class ODataResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def path(self) -> Optional[Any]:
         """
         The OData resource path. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def path(self, value: Optional[Any]):
         pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class OdbcLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[Mapping[str, Any]],
+                 connection_string: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 authentication_type: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_name: Optional[Any] = None):
         """
         Open Database Connectivity (ODBC) linked service.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[Mapping[str, Any]] authentication_type: Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any authentication_type: Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] credential: The access credential portion of the connection string specified in driver-specific property-value format.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for Basic authentication.
-        :param pulumi.Input[Mapping[str, Any]] user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
+        :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Odbc')
@@ -14013,14 +14013,14 @@ class OdbcLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[Mapping[str, Any]]:
+    def connection_string(self) -> Any:
         """
         The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: pulumi.Input[Mapping[str, Any]]):
+    def connection_string(self, value: Any):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -14037,26 +14037,26 @@ class OdbcLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def authentication_type(self) -> Optional[Any]:
         """
         Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def authentication_type(self, value: Optional[Any]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -14097,14 +14097,14 @@ class OdbcLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -14133,35 +14133,35 @@ class OdbcLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_name(self) -> Optional[Any]:
         """
         User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type
 class OracleLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[Mapping[str, Any]],
+                 connection_string: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Oracle database.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -14179,14 +14179,14 @@ class OracleLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[Mapping[str, Any]]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: pulumi.Input[Mapping[str, Any]]):
+    def connection_string(self, value: Any):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -14203,14 +14203,14 @@ class OracleLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -14239,14 +14239,14 @@ class OracleLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -14266,21 +14266,21 @@ class OracleLinkedServiceArgs:
 class OracleTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 table_name: pulumi.Input[Mapping[str, Any]],
+                 table_name: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The on-premises Oracle database dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Mapping[str, Any]] table_name: The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
+        :param Any table_name: The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -14308,14 +14308,14 @@ class OracleTableDatasetArgs:
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def table_name(self) -> Any:
         """
         The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def table_name(self, value: Any):
         pulumi.set(self, "table_name", value)
 
     @property
@@ -14332,14 +14332,14 @@ class OracleTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -14368,14 +14368,14 @@ class OracleTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -14383,13 +14383,13 @@ class OracleTableDatasetArgs:
 class OrcFormatArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 deserializer: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 serializer: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 deserializer: Optional[Any] = None,
+                 serializer: Optional[Any] = None):
         """
         The data stored in Optimized Row Columnar (ORC) format.
         :param pulumi.Input[str] type: Type of dataset storage format.
-        :param pulumi.Input[Mapping[str, Any]] deserializer: Deserializer. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] serializer: Serializer. Type: string (or Expression with resultType string).
+        :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
+        :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'OrcFormat')
         if deserializer is not None:
@@ -14411,26 +14411,26 @@ class OrcFormatArgs:
 
     @property
     @pulumi.getter
-    def deserializer(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def deserializer(self) -> Optional[Any]:
         """
         Deserializer. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "deserializer")
 
     @deserializer.setter
-    def deserializer(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def deserializer(self, value: Optional[Any]):
         pulumi.set(self, "deserializer", value)
 
     @property
     @pulumi.getter
-    def serializer(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def serializer(self) -> Optional[Any]:
         """
         Serializer. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "serializer")
 
     @serializer.setter
-    def serializer(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def serializer(self, value: Optional[Any]):
         pulumi.set(self, "serializer", value)
 
 
@@ -14438,11 +14438,11 @@ class OrcFormatArgs:
 class ParameterSpecificationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 default_value: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 default_value: Optional[Any] = None):
         """
         Definition of a single parameter for an entity.
         :param pulumi.Input[str] type: Parameter type.
-        :param pulumi.Input[Mapping[str, Any]] default_value: Default value of parameter.
+        :param Any default_value: Default value of parameter.
         """
         pulumi.set(__self__, "type", type)
         if default_value is not None:
@@ -14462,14 +14462,14 @@ class ParameterSpecificationArgs:
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def default_value(self) -> Optional[Any]:
         """
         Default value of parameter.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def default_value(self, value: Optional[Any]):
         pulumi.set(self, "default_value", value)
 
 
@@ -14477,13 +14477,13 @@ class ParameterSpecificationArgs:
 class ParquetFormatArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 deserializer: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 serializer: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 deserializer: Optional[Any] = None,
+                 serializer: Optional[Any] = None):
         """
         The data stored in Parquet format.
         :param pulumi.Input[str] type: Type of dataset storage format.
-        :param pulumi.Input[Mapping[str, Any]] deserializer: Deserializer. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] serializer: Serializer. Type: string (or Expression with resultType string).
+        :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
+        :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'ParquetFormat')
         if deserializer is not None:
@@ -14505,58 +14505,58 @@ class ParquetFormatArgs:
 
     @property
     @pulumi.getter
-    def deserializer(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def deserializer(self) -> Optional[Any]:
         """
         Deserializer. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "deserializer")
 
     @deserializer.setter
-    def deserializer(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def deserializer(self, value: Optional[Any]):
         pulumi.set(self, "deserializer", value)
 
     @property
     @pulumi.getter
-    def serializer(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def serializer(self) -> Optional[Any]:
         """
         Serializer. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "serializer")
 
     @serializer.setter
-    def serializer(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def serializer(self, value: Optional[Any]):
         pulumi.set(self, "serializer", value)
 
 
 @pulumi.input_type
 class PaypalLinkedServiceArgs:
     def __init__(__self__, *,
-                 client_id: pulumi.Input[Mapping[str, Any]],
-                 host: pulumi.Input[Mapping[str, Any]],
+                 client_id: Any,
+                 host: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Paypal Service linked service.
-        :param pulumi.Input[Mapping[str, Any]] client_id: The client ID associated with your PayPal application.
-        :param pulumi.Input[Mapping[str, Any]] host: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
+        :param Any client_id: The client ID associated with your PayPal application.
+        :param Any host: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret associated with your PayPal application.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "host", host)
@@ -14582,26 +14582,26 @@ class PaypalLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def client_id(self) -> Any:
         """
         The client ID associated with your PayPal application.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def client_id(self, value: Any):
         pulumi.set(self, "client_id", value)
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -14618,14 +14618,14 @@ class PaypalLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -14666,14 +14666,14 @@ class PaypalLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -14690,38 +14690,38 @@ class PaypalLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -14730,18 +14730,18 @@ class PaypalObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Paypal Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'PaypalObject')
@@ -14780,14 +14780,14 @@ class PaypalObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -14816,14 +14816,14 @@ class PaypalObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -14831,41 +14831,41 @@ class PaypalObjectDatasetArgs:
 class PhoenixLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
-                 allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 http_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 http_path: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 trusted_cert_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_system_trust_store: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 port: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Phoenix server linked service.
         :param pulumi.Input[str] authentication_type: The authentication mechanism used to connect to the Phoenix server.
-        :param pulumi.Input[Mapping[str, Any]] host: The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
+        :param Any host: The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] http_path: The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any http_path: The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name.
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
-        :param pulumi.Input[Mapping[str, Any]] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param pulumi.Input[Mapping[str, Any]] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] username: The user name used to connect to the Phoenix server.
+        :param Any port: The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any username: The user name used to connect to the Phoenix server.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -14913,14 +14913,14 @@ class PhoenixLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -14937,38 +14937,38 @@ class PhoenixLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
         return pulumi.get(self, "allow_host_name_cn_mismatch")
 
     @allow_host_name_cn_mismatch.setter
-    def allow_host_name_cn_mismatch(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_host_name_cn_mismatch(self, value: Optional[Any]):
         pulumi.set(self, "allow_host_name_cn_mismatch", value)
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
         return pulumi.get(self, "allow_self_signed_server_cert")
 
     @allow_self_signed_server_cert.setter
-    def allow_self_signed_server_cert(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_self_signed_server_cert(self, value: Optional[Any]):
         pulumi.set(self, "allow_self_signed_server_cert", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -14997,38 +14997,38 @@ class PhoenixLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
         return pulumi.get(self, "enable_ssl")
 
     @enable_ssl.setter
-    def enable_ssl(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def enable_ssl(self, value: Optional[Any]):
         pulumi.set(self, "enable_ssl", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
     @pulumi.getter(name="httpPath")
-    def http_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def http_path(self) -> Optional[Any]:
         """
         The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
         """
         return pulumi.get(self, "http_path")
 
     @http_path.setter
-    def http_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def http_path(self, value: Optional[Any]):
         pulumi.set(self, "http_path", value)
 
     @property
@@ -15057,50 +15057,50 @@ class PhoenixLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
         return pulumi.get(self, "trusted_cert_path")
 
     @trusted_cert_path.setter
-    def trusted_cert_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def trusted_cert_path(self, value: Optional[Any]):
         pulumi.set(self, "trusted_cert_path", value)
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
         return pulumi.get(self, "use_system_trust_store")
 
     @use_system_trust_store.setter
-    def use_system_trust_store(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_system_trust_store(self, value: Optional[Any]):
         pulumi.set(self, "use_system_trust_store", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         The user name used to connect to the Phoenix server.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
@@ -15109,18 +15109,18 @@ class PhoenixObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Phoenix server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'PhoenixObject')
@@ -15159,14 +15159,14 @@ class PhoenixObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -15195,14 +15195,14 @@ class PhoenixObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -15265,19 +15265,19 @@ class PostgreSqlLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Linked service for PostgreSQL data source.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] connection_string: The connection string.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -15319,14 +15319,14 @@ class PostgreSqlLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -15355,14 +15355,14 @@ class PostgreSqlLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -15382,45 +15382,45 @@ class PostgreSqlLinkedServiceArgs:
 class PrestoLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 catalog: pulumi.Input[Mapping[str, Any]],
-                 host: pulumi.Input[Mapping[str, Any]],
-                 server_version: pulumi.Input[Mapping[str, Any]],
+                 catalog: Any,
+                 host: Any,
+                 server_version: Any,
                  type: pulumi.Input[str],
-                 allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 time_zone_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 trusted_cert_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_system_trust_store: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 port: Optional[Any] = None,
+                 time_zone_id: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Presto server linked service.
         :param pulumi.Input[str] authentication_type: The authentication mechanism used to connect to the Presto server.
-        :param pulumi.Input[Mapping[str, Any]] catalog: The catalog context for all request against the server.
-        :param pulumi.Input[Mapping[str, Any]] host: The IP address or host name of the Presto server. (i.e. 192.168.222.160)
-        :param pulumi.Input[Mapping[str, Any]] server_version: The version of the Presto server. (i.e. 0.148-t)
+        :param Any catalog: The catalog context for all request against the server.
+        :param Any host: The IP address or host name of the Presto server. (i.e. 192.168.222.160)
+        :param Any server_version: The version of the Presto server. (i.e. 0.148-t)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name.
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
-        :param pulumi.Input[Mapping[str, Any]] time_zone_id: The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
-        :param pulumi.Input[Mapping[str, Any]] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param pulumi.Input[Mapping[str, Any]] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] username: The user name used to connect to the Presto server.
+        :param Any port: The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
+        :param Any time_zone_id: The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any username: The user name used to connect to the Presto server.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "catalog", catalog)
@@ -15470,38 +15470,38 @@ class PrestoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def catalog(self) -> pulumi.Input[Mapping[str, Any]]:
+    def catalog(self) -> Any:
         """
         The catalog context for all request against the server.
         """
         return pulumi.get(self, "catalog")
 
     @catalog.setter
-    def catalog(self, value: pulumi.Input[Mapping[str, Any]]):
+    def catalog(self, value: Any):
         pulumi.set(self, "catalog", value)
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The IP address or host name of the Presto server. (i.e. 192.168.222.160)
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
     @pulumi.getter(name="serverVersion")
-    def server_version(self) -> pulumi.Input[Mapping[str, Any]]:
+    def server_version(self) -> Any:
         """
         The version of the Presto server. (i.e. 0.148-t)
         """
         return pulumi.get(self, "server_version")
 
     @server_version.setter
-    def server_version(self, value: pulumi.Input[Mapping[str, Any]]):
+    def server_version(self, value: Any):
         pulumi.set(self, "server_version", value)
 
     @property
@@ -15518,38 +15518,38 @@ class PrestoLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
         return pulumi.get(self, "allow_host_name_cn_mismatch")
 
     @allow_host_name_cn_mismatch.setter
-    def allow_host_name_cn_mismatch(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_host_name_cn_mismatch(self, value: Optional[Any]):
         pulumi.set(self, "allow_host_name_cn_mismatch", value)
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
         return pulumi.get(self, "allow_self_signed_server_cert")
 
     @allow_self_signed_server_cert.setter
-    def allow_self_signed_server_cert(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_self_signed_server_cert(self, value: Optional[Any]):
         pulumi.set(self, "allow_self_signed_server_cert", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -15578,26 +15578,26 @@ class PrestoLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
         return pulumi.get(self, "enable_ssl")
 
     @enable_ssl.setter
-    def enable_ssl(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def enable_ssl(self, value: Optional[Any]):
         pulumi.set(self, "enable_ssl", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -15626,62 +15626,62 @@ class PrestoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="timeZoneID")
-    def time_zone_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def time_zone_id(self) -> Optional[Any]:
         """
         The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
         """
         return pulumi.get(self, "time_zone_id")
 
     @time_zone_id.setter
-    def time_zone_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def time_zone_id(self, value: Optional[Any]):
         pulumi.set(self, "time_zone_id", value)
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
         return pulumi.get(self, "trusted_cert_path")
 
     @trusted_cert_path.setter
-    def trusted_cert_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def trusted_cert_path(self, value: Optional[Any]):
         pulumi.set(self, "trusted_cert_path", value)
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
         return pulumi.get(self, "use_system_trust_store")
 
     @use_system_trust_store.setter
-    def use_system_trust_store(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_system_trust_store(self, value: Optional[Any]):
         pulumi.set(self, "use_system_trust_store", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         The user name used to connect to the Presto server.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
@@ -15690,18 +15690,18 @@ class PrestoObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Presto server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'PrestoObject')
@@ -15740,14 +15740,14 @@ class PrestoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -15776,14 +15776,14 @@ class PrestoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -15792,32 +15792,32 @@ class QuickBooksLinkedServiceArgs:
     def __init__(__self__, *,
                  access_token: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  access_token_secret: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
-                 company_id: pulumi.Input[Mapping[str, Any]],
-                 consumer_key: pulumi.Input[Mapping[str, Any]],
+                 company_id: Any,
+                 consumer_key: Any,
                  consumer_secret: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
-                 endpoint: pulumi.Input[Mapping[str, Any]],
+                 endpoint: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None):
         """
         QuickBooks server linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: The access token for OAuth 1.0 authentication.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token_secret: The access token secret for OAuth 1.0 authentication.
-        :param pulumi.Input[Mapping[str, Any]] company_id: The company ID of the QuickBooks company to authorize.
-        :param pulumi.Input[Mapping[str, Any]] consumer_key: The consumer key for OAuth 1.0 authentication.
+        :param Any company_id: The company ID of the QuickBooks company to authorize.
+        :param Any consumer_key: The consumer key for OAuth 1.0 authentication.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] consumer_secret: The consumer secret for OAuth 1.0 authentication.
-        :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
+        :param Any endpoint: The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         pulumi.set(__self__, "access_token", access_token)
         pulumi.set(__self__, "access_token_secret", access_token_secret)
@@ -15865,26 +15865,26 @@ class QuickBooksLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="companyId")
-    def company_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def company_id(self) -> Any:
         """
         The company ID of the QuickBooks company to authorize.
         """
         return pulumi.get(self, "company_id")
 
     @company_id.setter
-    def company_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def company_id(self, value: Any):
         pulumi.set(self, "company_id", value)
 
     @property
     @pulumi.getter(name="consumerKey")
-    def consumer_key(self) -> pulumi.Input[Mapping[str, Any]]:
+    def consumer_key(self) -> Any:
         """
         The consumer key for OAuth 1.0 authentication.
         """
         return pulumi.get(self, "consumer_key")
 
     @consumer_key.setter
-    def consumer_key(self, value: pulumi.Input[Mapping[str, Any]]):
+    def consumer_key(self, value: Any):
         pulumi.set(self, "consumer_key", value)
 
     @property
@@ -15901,14 +15901,14 @@ class QuickBooksLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Input[Mapping[str, Any]]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: pulumi.Input[Mapping[str, Any]]):
+    def endpoint(self, value: Any):
         pulumi.set(self, "endpoint", value)
 
     @property
@@ -15925,14 +15925,14 @@ class QuickBooksLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -15961,14 +15961,14 @@ class QuickBooksLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -15985,14 +15985,14 @@ class QuickBooksLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
 
@@ -16001,18 +16001,18 @@ class QuickBooksObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         QuickBooks server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'QuickBooksObject')
@@ -16051,14 +16051,14 @@ class QuickBooksObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16087,14 +16087,14 @@ class QuickBooksObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -16103,20 +16103,20 @@ class RelationalTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 table_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None,
+                 table_name: Optional[Any] = None):
         """
         The relational table dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param pulumi.Input[Mapping[str, Any]] table_name: The relational table name. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table_name: The relational table name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'RelationalTable')
@@ -16157,14 +16157,14 @@ class RelationalTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16193,58 +16193,58 @@ class RelationalTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def table_name(self) -> Optional[Any]:
         """
         The relational table name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def table_name(self, value: Optional[Any]):
         pulumi.set(self, "table_name", value)
 
 
 @pulumi.input_type
 class ResponsysLinkedServiceArgs:
     def __init__(__self__, *,
-                 client_id: pulumi.Input[Mapping[str, Any]],
-                 endpoint: pulumi.Input[Mapping[str, Any]],
+                 client_id: Any,
+                 endpoint: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Responsys linked service.
-        :param pulumi.Input[Mapping[str, Any]] client_id: The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the Responsys server.
+        :param Any client_id: The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
+        :param Any endpoint: The endpoint of the Responsys server.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -16270,26 +16270,26 @@ class ResponsysLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def client_id(self) -> Any:
         """
         The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def client_id(self, value: Any):
         pulumi.set(self, "client_id", value)
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Input[Mapping[str, Any]]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the Responsys server.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: pulumi.Input[Mapping[str, Any]]):
+    def endpoint(self, value: Any):
         pulumi.set(self, "endpoint", value)
 
     @property
@@ -16306,14 +16306,14 @@ class ResponsysLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16354,14 +16354,14 @@ class ResponsysLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -16378,38 +16378,38 @@ class ResponsysLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -16418,18 +16418,18 @@ class ResponsysObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Responsys dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ResponsysObject')
@@ -16468,14 +16468,14 @@ class ResponsysObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16504,25 +16504,25 @@ class ResponsysObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class RetryPolicyArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 count: Optional[Any] = None,
                  interval_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         Execution policy for an activity.
-        :param pulumi.Input[Mapping[str, Any]] count: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any count: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         :param pulumi.Input[int] interval_in_seconds: Interval between retries in seconds. Default is 30.
         """
         if count is not None:
@@ -16532,14 +16532,14 @@ class RetryPolicyArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def count(self) -> Optional[Any]:
         """
         Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def count(self, value: Optional[Any]):
         pulumi.set(self, "count", value)
 
     @property
@@ -16559,27 +16559,27 @@ class RetryPolicyArgs:
 class SalesforceLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 environment_url: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 environment_url: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  security_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 username: Optional[Any] = None):
         """
         Linked service for Salesforce.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] environment_url: The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any environment_url: The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password for Basic authentication of the Salesforce instance.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] security_token: The security token is required to remotely access Salesforce instance.
-        :param pulumi.Input[Mapping[str, Any]] username: The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
+        :param Any username: The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'Salesforce')
         if annotations is not None:
@@ -16615,14 +16615,14 @@ class SalesforceLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16651,26 +16651,26 @@ class SalesforceLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
     @pulumi.getter(name="environmentUrl")
-    def environment_url(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def environment_url(self) -> Optional[Any]:
         """
         The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "environment_url")
 
     @environment_url.setter
-    def environment_url(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def environment_url(self, value: Optional[Any]):
         pulumi.set(self, "environment_url", value)
 
     @property
@@ -16711,44 +16711,44 @@ class SalesforceLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class SalesforceMarketingCloudLinkedServiceArgs:
     def __init__(__self__, *,
-                 client_id: pulumi.Input[Mapping[str, Any]],
+                 client_id: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Salesforce Marketing Cloud linked service.
-        :param pulumi.Input[Mapping[str, Any]] client_id: The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
+        :param Any client_id: The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "type", 'SalesforceMarketingCloud')
@@ -16773,14 +16773,14 @@ class SalesforceMarketingCloudLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def client_id(self) -> Any:
         """
         The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def client_id(self, value: Any):
         pulumi.set(self, "client_id", value)
 
     @property
@@ -16797,14 +16797,14 @@ class SalesforceMarketingCloudLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16845,14 +16845,14 @@ class SalesforceMarketingCloudLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -16869,38 +16869,38 @@ class SalesforceMarketingCloudLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -16909,18 +16909,18 @@ class SalesforceMarketingCloudObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Salesforce Marketing Cloud dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'SalesforceMarketingCloudObject')
@@ -16959,14 +16959,14 @@ class SalesforceMarketingCloudObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -16995,14 +16995,14 @@ class SalesforceMarketingCloudObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -17011,20 +17011,20 @@ class SalesforceObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 object_api_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 object_api_name: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The Salesforce object dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
-        :param pulumi.Input[Mapping[str, Any]] object_api_name: The Salesforce object API name. Type: string (or Expression with resultType string).
+        :param Any object_api_name: The Salesforce object API name. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'SalesforceObject')
@@ -17065,14 +17065,14 @@ class SalesforceObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -17089,14 +17089,14 @@ class SalesforceObjectDatasetArgs:
 
     @property
     @pulumi.getter(name="objectApiName")
-    def object_api_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def object_api_name(self) -> Optional[Any]:
         """
         The Salesforce object API name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "object_api_name")
 
     @object_api_name.setter
-    def object_api_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def object_api_name(self, value: Optional[Any]):
         pulumi.set(self, "object_api_name", value)
 
     @property
@@ -17113,44 +17113,44 @@ class SalesforceObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class SapBWLinkedServiceArgs:
     def __init__(__self__, *,
-                 client_id: pulumi.Input[Mapping[str, Any]],
-                 server: pulumi.Input[Mapping[str, Any]],
-                 system_number: pulumi.Input[Mapping[str, Any]],
+                 client_id: Any,
+                 server: Any,
+                 system_number: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_name: Optional[Any] = None):
         """
         SAP Business Warehouse Linked Service.
-        :param pulumi.Input[Mapping[str, Any]] client_id: Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] server: Host name of the SAP BW instance. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] system_number: System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
+        :param Any client_id: Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
+        :param Any server: Host name of the SAP BW instance. Type: string (or Expression with resultType string).
+        :param Any system_number: System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password to access the SAP BW server.
-        :param pulumi.Input[Mapping[str, Any]] user_name: Username to access the SAP BW server. Type: string (or Expression with resultType string).
+        :param Any user_name: Username to access the SAP BW server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "server", server)
@@ -17173,38 +17173,38 @@ class SapBWLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def client_id(self) -> Any:
         """
         Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def client_id(self, value: Any):
         pulumi.set(self, "client_id", value)
 
     @property
     @pulumi.getter
-    def server(self) -> pulumi.Input[Mapping[str, Any]]:
+    def server(self) -> Any:
         """
         Host name of the SAP BW instance. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: pulumi.Input[Mapping[str, Any]]):
+    def server(self, value: Any):
         pulumi.set(self, "server", value)
 
     @property
     @pulumi.getter(name="systemNumber")
-    def system_number(self) -> pulumi.Input[Mapping[str, Any]]:
+    def system_number(self) -> Any:
         """
         System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "system_number")
 
     @system_number.setter
-    def system_number(self, value: pulumi.Input[Mapping[str, Any]]):
+    def system_number(self, value: Any):
         pulumi.set(self, "system_number", value)
 
     @property
@@ -17221,14 +17221,14 @@ class SapBWLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -17257,14 +17257,14 @@ class SapBWLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -17293,14 +17293,14 @@ class SapBWLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_name(self) -> Optional[Any]:
         """
         Username to access the SAP BW server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
 
 
@@ -17308,25 +17308,25 @@ class SapBWLinkedServiceArgs:
 class SapCloudForCustomerLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 url: pulumi.Input[Mapping[str, Any]],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 url: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 username: Optional[Any] = None):
         """
         Linked service for SAP Cloud for Customer.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] url: The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any url: The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password for Basic authentication.
-        :param pulumi.Input[Mapping[str, Any]] username: The username for Basic authentication. Type: string (or Expression with resultType string).
+        :param Any username: The username for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SapCloudForCustomer')
         pulumi.set(__self__, "url", url)
@@ -17359,26 +17359,26 @@ class SapCloudForCustomerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Input[Mapping[str, Any]]:
+    def url(self) -> Any:
         """
         The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: pulumi.Input[Mapping[str, Any]]):
+    def url(self, value: Any):
         pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -17407,14 +17407,14 @@ class SapCloudForCustomerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -17443,14 +17443,14 @@ class SapCloudForCustomerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         The username for Basic authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
@@ -17458,21 +17458,21 @@ class SapCloudForCustomerLinkedServiceArgs:
 class SapCloudForCustomerResourceDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 path: pulumi.Input[Mapping[str, Any]],
+                 path: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The path of the SAP Cloud for Customer OData entity.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Mapping[str, Any]] path: The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
+        :param Any path: The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "path", path)
@@ -17500,14 +17500,14 @@ class SapCloudForCustomerResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def path(self) -> pulumi.Input[Mapping[str, Any]]:
+    def path(self) -> Any:
         """
         The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: pulumi.Input[Mapping[str, Any]]):
+    def path(self, value: Any):
         pulumi.set(self, "path", value)
 
     @property
@@ -17524,14 +17524,14 @@ class SapCloudForCustomerResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -17560,14 +17560,14 @@ class SapCloudForCustomerResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -17576,7 +17576,7 @@ class SapEccLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  url: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
@@ -17587,7 +17587,7 @@ class SapEccLinkedServiceArgs:
         Linked service for SAP ERP Central Component(SAP ECC).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[str] url: The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
@@ -17638,14 +17638,14 @@ class SapEccLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -17725,21 +17725,21 @@ class SapEccLinkedServiceArgs:
 class SapEccResourceDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 path: pulumi.Input[Mapping[str, Any]],
+                 path: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The path of the SAP ECC OData entity.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Mapping[str, Any]] path: The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
+        :param Any path: The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "path", path)
@@ -17767,14 +17767,14 @@ class SapEccResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def path(self) -> pulumi.Input[Mapping[str, Any]]:
+    def path(self) -> Any:
         """
         The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: pulumi.Input[Mapping[str, Any]]):
+    def path(self, value: Any):
         pulumi.set(self, "path", value)
 
     @property
@@ -17791,14 +17791,14 @@ class SapEccResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -17827,42 +17827,42 @@ class SapEccResourceDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class SapHanaLinkedServiceArgs:
     def __init__(__self__, *,
-                 server: pulumi.Input[Mapping[str, Any]],
+                 server: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_name: Optional[Any] = None):
         """
         SAP HANA Linked Service.
-        :param pulumi.Input[Mapping[str, Any]] server: Host name of the SAP HANA server. Type: string (or Expression with resultType string).
+        :param Any server: Host name of the SAP HANA server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the SAP HANA server.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password to access the SAP HANA server.
-        :param pulumi.Input[Mapping[str, Any]] user_name: Username to access the SAP HANA server. Type: string (or Expression with resultType string).
+        :param Any user_name: Username to access the SAP HANA server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "server", server)
         pulumi.set(__self__, "type", 'SapHana')
@@ -17885,14 +17885,14 @@ class SapHanaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def server(self) -> pulumi.Input[Mapping[str, Any]]:
+    def server(self) -> Any:
         """
         Host name of the SAP HANA server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: pulumi.Input[Mapping[str, Any]]):
+    def server(self, value: Any):
         pulumi.set(self, "server", value)
 
     @property
@@ -17909,14 +17909,14 @@ class SapHanaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -17957,14 +17957,14 @@ class SapHanaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -17993,14 +17993,14 @@ class SapHanaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_name(self) -> Optional[Any]:
         """
         Username to access the SAP HANA server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
 
 
@@ -18101,37 +18101,37 @@ class SelfHostedIntegrationRuntimeArgs:
 class ServiceNowLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 endpoint: pulumi.Input[Mapping[str, Any]],
+                 endpoint: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 client_id: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 client_id: Optional[Any] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         ServiceNow server linked service.
         :param pulumi.Input[str] authentication_type: The authentication type to use.
-        :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
+        :param Any endpoint: The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[Mapping[str, Any]] client_id: The client id for OAuth2 authentication.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any client_id: The client id for OAuth2 authentication.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret for OAuth2 authentication.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name for Basic and OAuth2 authentication.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] username: The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any username: The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -18175,14 +18175,14 @@ class ServiceNowLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Input[Mapping[str, Any]]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: pulumi.Input[Mapping[str, Any]]):
+    def endpoint(self, value: Any):
         pulumi.set(self, "endpoint", value)
 
     @property
@@ -18199,26 +18199,26 @@ class ServiceNowLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def client_id(self) -> Optional[Any]:
         """
         The client id for OAuth2 authentication.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def client_id(self, value: Optional[Any]):
         pulumi.set(self, "client_id", value)
 
     @property
@@ -18259,14 +18259,14 @@ class ServiceNowLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -18295,50 +18295,50 @@ class ServiceNowLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
@@ -18347,18 +18347,18 @@ class ServiceNowObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         ServiceNow server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ServiceNowObject')
@@ -18397,14 +18397,14 @@ class ServiceNowObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -18433,54 +18433,54 @@ class ServiceNowObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class SftpServerLinkedServiceArgs:
     def __init__(__self__, *,
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 host_key_fingerprint: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 host_key_fingerprint: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  pass_phrase: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 port: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 port: Optional[Any] = None,
                  private_key_content: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 private_key_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 skip_host_key_validation: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 private_key_path: Optional[Any] = None,
+                 skip_host_key_validation: Optional[Any] = None,
+                 user_name: Optional[Any] = None):
         """
         A linked service for an SSH File Transfer Protocol (SFTP) server. 
-        :param pulumi.Input[Mapping[str, Any]] host: The SFTP server host name. Type: string (or Expression with resultType string).
+        :param Any host: The SFTP server host name. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the FTP server.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] host_key_fingerprint: The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any host_key_fingerprint: The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] pass_phrase: The password to decrypt the SSH private key if the SSH private key is encrypted.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password to logon the SFTP server for Basic authentication.
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any port: The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] private_key_content: Base64 encoded SSH private key content for SshPublicKey authentication. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format.
-        :param pulumi.Input[Mapping[str, Any]] private_key_path: The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] skip_host_key_validation: If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] user_name: The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
+        :param Any private_key_path: The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
+        :param Any skip_host_key_validation: If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Any user_name: The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Sftp')
@@ -18515,14 +18515,14 @@ class SftpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The SFTP server host name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -18539,14 +18539,14 @@ class SftpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -18587,26 +18587,26 @@ class SftpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
     @pulumi.getter(name="hostKeyFingerprint")
-    def host_key_fingerprint(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def host_key_fingerprint(self) -> Optional[Any]:
         """
         The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "host_key_fingerprint")
 
     @host_key_fingerprint.setter
-    def host_key_fingerprint(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def host_key_fingerprint(self, value: Optional[Any]):
         pulumi.set(self, "host_key_fingerprint", value)
 
     @property
@@ -18647,14 +18647,14 @@ class SftpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def port(self, value: Optional[Any]):
         pulumi.set(self, "port", value)
 
     @property
@@ -18671,68 +18671,68 @@ class SftpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="privateKeyPath")
-    def private_key_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def private_key_path(self) -> Optional[Any]:
         """
         The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "private_key_path")
 
     @private_key_path.setter
-    def private_key_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def private_key_path(self, value: Optional[Any]):
         pulumi.set(self, "private_key_path", value)
 
     @property
     @pulumi.getter(name="skipHostKeyValidation")
-    def skip_host_key_validation(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def skip_host_key_validation(self) -> Optional[Any]:
         """
         If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "skip_host_key_validation")
 
     @skip_host_key_validation.setter
-    def skip_host_key_validation(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def skip_host_key_validation(self, value: Optional[Any]):
         pulumi.set(self, "skip_host_key_validation", value)
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_name(self) -> Optional[Any]:
         """
         The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type
 class ShopifyLinkedServiceArgs:
     def __init__(__self__, *,
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Shopify Service linked service.
-        :param pulumi.Input[Mapping[str, Any]] host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
+        :param Any host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Shopify')
@@ -18757,14 +18757,14 @@ class ShopifyLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -18793,14 +18793,14 @@ class ShopifyLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -18829,14 +18829,14 @@ class ShopifyLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -18853,38 +18853,38 @@ class ShopifyLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -18893,18 +18893,18 @@ class ShopifyObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Shopify Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ShopifyObject')
@@ -18943,14 +18943,14 @@ class ShopifyObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -18979,14 +18979,14 @@ class ShopifyObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -18994,45 +18994,45 @@ class ShopifyObjectDatasetArgs:
 class SparkLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 host: pulumi.Input[Mapping[str, Any]],
-                 port: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
+                 port: Any,
                  type: pulumi.Input[str],
-                 allow_host_name_cn_mismatch: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 allow_self_signed_server_cert: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enable_ssl: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 http_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 http_path: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
                  thrift_transport_protocol: Optional[pulumi.Input[str]] = None,
-                 trusted_cert_path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_system_trust_store: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Spark Server linked service.
         :param pulumi.Input[str] authentication_type: The authentication method used to access the Spark server.
-        :param pulumi.Input[Mapping[str, Any]] host: IP address or host name of the Spark server
-        :param pulumi.Input[Mapping[str, Any]] port: The TCP port that the Spark server uses to listen for client connections.
+        :param Any host: IP address or host name of the Spark server
+        :param Any port: The TCP port that the Spark server uses to listen for client connections.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Mapping[str, Any]] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] http_path: The partial URL corresponding to the Spark server.
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any http_path: The partial URL corresponding to the Spark server.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name that you provided in the Username field
         :param pulumi.Input[str] server_type: The type of Spark server.
         :param pulumi.Input[str] thrift_transport_protocol: The transport protocol to use in the Thrift layer.
-        :param pulumi.Input[Mapping[str, Any]] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param pulumi.Input[Mapping[str, Any]] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-        :param pulumi.Input[Mapping[str, Any]] username: The user name that you use to access Spark Server.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any username: The user name that you use to access Spark Server.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -19083,26 +19083,26 @@ class SparkLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         IP address or host name of the Spark server
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[Mapping[str, Any]]:
+    def port(self) -> Any:
         """
         The TCP port that the Spark server uses to listen for client connections.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[Mapping[str, Any]]):
+    def port(self, value: Any):
         pulumi.set(self, "port", value)
 
     @property
@@ -19119,38 +19119,38 @@ class SparkLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
         return pulumi.get(self, "allow_host_name_cn_mismatch")
 
     @allow_host_name_cn_mismatch.setter
-    def allow_host_name_cn_mismatch(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_host_name_cn_mismatch(self, value: Optional[Any]):
         pulumi.set(self, "allow_host_name_cn_mismatch", value)
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
         return pulumi.get(self, "allow_self_signed_server_cert")
 
     @allow_self_signed_server_cert.setter
-    def allow_self_signed_server_cert(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def allow_self_signed_server_cert(self, value: Optional[Any]):
         pulumi.set(self, "allow_self_signed_server_cert", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -19179,38 +19179,38 @@ class SparkLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
         return pulumi.get(self, "enable_ssl")
 
     @enable_ssl.setter
-    def enable_ssl(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def enable_ssl(self, value: Optional[Any]):
         pulumi.set(self, "enable_ssl", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
     @pulumi.getter(name="httpPath")
-    def http_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def http_path(self) -> Optional[Any]:
         """
         The partial URL corresponding to the Spark server.
         """
         return pulumi.get(self, "http_path")
 
     @http_path.setter
-    def http_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def http_path(self, value: Optional[Any]):
         pulumi.set(self, "http_path", value)
 
     @property
@@ -19263,38 +19263,38 @@ class SparkLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
         return pulumi.get(self, "trusted_cert_path")
 
     @trusted_cert_path.setter
-    def trusted_cert_path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def trusted_cert_path(self, value: Optional[Any]):
         pulumi.set(self, "trusted_cert_path", value)
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
         return pulumi.get(self, "use_system_trust_store")
 
     @use_system_trust_store.setter
-    def use_system_trust_store(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_system_trust_store(self, value: Optional[Any]):
         pulumi.set(self, "use_system_trust_store", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         The user name that you use to access Spark Server.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
@@ -19303,18 +19303,18 @@ class SparkObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Spark Server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'SparkObject')
@@ -19353,14 +19353,14 @@ class SparkObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -19389,40 +19389,40 @@ class SparkObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class SqlServerLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[Mapping[str, Any]],
+                 connection_string: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 user_name: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_name: Optional[Any] = None):
         """
         SQL Server linked service.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The on-premises Windows authentication password.
-        :param pulumi.Input[Mapping[str, Any]] user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
+        :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'SqlServer')
@@ -19443,14 +19443,14 @@ class SqlServerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[Mapping[str, Any]]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: pulumi.Input[Mapping[str, Any]]):
+    def connection_string(self, value: Any):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -19467,14 +19467,14 @@ class SqlServerLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -19503,14 +19503,14 @@ class SqlServerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -19539,14 +19539,14 @@ class SqlServerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_name(self) -> Optional[Any]:
         """
         The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_name(self, value: Optional[Any]):
         pulumi.set(self, "user_name", value)
 
 
@@ -19554,21 +19554,21 @@ class SqlServerLinkedServiceArgs:
 class SqlServerTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 table_name: pulumi.Input[Mapping[str, Any]],
+                 table_name: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         The on-premises SQL Server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Mapping[str, Any]] table_name: The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
+        :param Any table_name: The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -19596,14 +19596,14 @@ class SqlServerTableDatasetArgs:
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Input[Mapping[str, Any]]:
+    def table_name(self) -> Any:
         """
         The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: pulumi.Input[Mapping[str, Any]]):
+    def table_name(self, value: Any):
         pulumi.set(self, "table_name", value)
 
     @property
@@ -19620,14 +19620,14 @@ class SqlServerTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -19656,48 +19656,48 @@ class SqlServerTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class SquareLinkedServiceArgs:
     def __init__(__self__, *,
-                 client_id: pulumi.Input[Mapping[str, Any]],
-                 host: pulumi.Input[Mapping[str, Any]],
-                 redirect_uri: pulumi.Input[Mapping[str, Any]],
+                 client_id: Any,
+                 host: Any,
+                 redirect_uri: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Square Service linked service.
-        :param pulumi.Input[Mapping[str, Any]] client_id: The client ID associated with your Square application.
-        :param pulumi.Input[Mapping[str, Any]] host: The URL of the Square instance. (i.e. mystore.mysquare.com)
-        :param pulumi.Input[Mapping[str, Any]] redirect_uri: The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
+        :param Any client_id: The client ID associated with your Square application.
+        :param Any host: The URL of the Square instance. (i.e. mystore.mysquare.com)
+        :param Any redirect_uri: The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret associated with your Square application.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "host", host)
@@ -19724,38 +19724,38 @@ class SquareLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[Mapping[str, Any]]:
+    def client_id(self) -> Any:
         """
         The client ID associated with your Square application.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: pulumi.Input[Mapping[str, Any]]):
+    def client_id(self, value: Any):
         pulumi.set(self, "client_id", value)
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The URL of the Square instance. (i.e. mystore.mysquare.com)
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
     @pulumi.getter(name="redirectUri")
-    def redirect_uri(self) -> pulumi.Input[Mapping[str, Any]]:
+    def redirect_uri(self) -> Any:
         """
         The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
         """
         return pulumi.get(self, "redirect_uri")
 
     @redirect_uri.setter
-    def redirect_uri(self, value: pulumi.Input[Mapping[str, Any]]):
+    def redirect_uri(self, value: Any):
         pulumi.set(self, "redirect_uri", value)
 
     @property
@@ -19772,14 +19772,14 @@ class SquareLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -19820,14 +19820,14 @@ class SquareLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -19844,38 +19844,38 @@ class SquareLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -19884,18 +19884,18 @@ class SquareObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Square Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'SquareObject')
@@ -19934,14 +19934,14 @@ class SquareObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -19970,46 +19970,46 @@ class SquareObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class SybaseLinkedServiceArgs:
     def __init__(__self__, *,
-                 database: pulumi.Input[Mapping[str, Any]],
-                 server: pulumi.Input[Mapping[str, Any]],
+                 database: Any,
+                 server: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 schema: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 schema: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Linked service for Sybase data source.
-        :param pulumi.Input[Mapping[str, Any]] database: Database name for connection. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] server: Server name for connection. Type: string (or Expression with resultType string).
+        :param Any database: Database name for connection. Type: string (or Expression with resultType string).
+        :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] authentication_type: AuthenticationType to be used for connection.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for authentication.
-        :param pulumi.Input[Mapping[str, Any]] schema: Schema name for connection. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] username: Username for authentication. Type: string (or Expression with resultType string).
+        :param Any schema: Schema name for connection. Type: string (or Expression with resultType string).
+        :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "server", server)
@@ -20035,26 +20035,26 @@ class SybaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def database(self) -> pulumi.Input[Mapping[str, Any]]:
+    def database(self) -> Any:
         """
         Database name for connection. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: pulumi.Input[Mapping[str, Any]]):
+    def database(self, value: Any):
         pulumi.set(self, "database", value)
 
     @property
     @pulumi.getter
-    def server(self) -> pulumi.Input[Mapping[str, Any]]:
+    def server(self) -> Any:
         """
         Server name for connection. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: pulumi.Input[Mapping[str, Any]]):
+    def server(self, value: Any):
         pulumi.set(self, "server", value)
 
     @property
@@ -20071,14 +20071,14 @@ class SybaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -20119,14 +20119,14 @@ class SybaseLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -20155,54 +20155,54 @@ class SybaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def schema(self) -> Optional[Any]:
         """
         Schema name for connection. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def schema(self, value: Optional[Any]):
         pulumi.set(self, "schema", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         Username for authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class TeradataLinkedServiceArgs:
     def __init__(__self__, *,
-                 server: pulumi.Input[Mapping[str, Any]],
+                 server: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 username: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 username: Optional[Any] = None):
         """
         Linked service for Teradata data source.
-        :param pulumi.Input[Mapping[str, Any]] server: Server name for connection. Type: string (or Expression with resultType string).
+        :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] authentication_type: AuthenticationType to be used for connection.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for authentication.
-        :param pulumi.Input[Mapping[str, Any]] username: Username for authentication. Type: string (or Expression with resultType string).
+        :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "server", server)
         pulumi.set(__self__, "type", 'Teradata')
@@ -20225,14 +20225,14 @@ class TeradataLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def server(self) -> pulumi.Input[Mapping[str, Any]]:
+    def server(self) -> Any:
         """
         Server name for connection. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: pulumi.Input[Mapping[str, Any]]):
+    def server(self, value: Any):
         pulumi.set(self, "server", value)
 
     @property
@@ -20249,14 +20249,14 @@ class TeradataLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -20297,14 +20297,14 @@ class TeradataLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -20333,14 +20333,14 @@ class TeradataLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def username(self) -> Optional[Any]:
         """
         Username for authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 
@@ -20348,31 +20348,31 @@ class TeradataLinkedServiceArgs:
 class TextFormatArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 column_delimiter: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 deserializer: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 encoding_name: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 escape_char: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 first_row_as_header: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 null_value: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 quote_char: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 row_delimiter: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 serializer: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 skip_line_count: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 treat_empty_as_null: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 column_delimiter: Optional[Any] = None,
+                 deserializer: Optional[Any] = None,
+                 encoding_name: Optional[Any] = None,
+                 escape_char: Optional[Any] = None,
+                 first_row_as_header: Optional[Any] = None,
+                 null_value: Optional[Any] = None,
+                 quote_char: Optional[Any] = None,
+                 row_delimiter: Optional[Any] = None,
+                 serializer: Optional[Any] = None,
+                 skip_line_count: Optional[Any] = None,
+                 treat_empty_as_null: Optional[Any] = None):
         """
         The data stored in text format.
         :param pulumi.Input[str] type: Type of dataset storage format.
-        :param pulumi.Input[Mapping[str, Any]] column_delimiter: The column delimiter. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] deserializer: Deserializer. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] encoding_name: The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] escape_char: The escape character. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] null_value: The null value string. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] quote_char: The quote character. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] row_delimiter: The row delimiter. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] serializer: Serializer. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] skip_line_count: The number of lines/rows to be skipped when parsing text files. The default value is 0. Type: integer (or Expression with resultType integer).
-        :param pulumi.Input[Mapping[str, Any]] treat_empty_as_null: Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any column_delimiter: The column delimiter. Type: string (or Expression with resultType string).
+        :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
+        :param Any encoding_name: The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
+        :param Any escape_char: The escape character. Type: string (or Expression with resultType string).
+        :param Any first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Any null_value: The null value string. Type: string (or Expression with resultType string).
+        :param Any quote_char: The quote character. Type: string (or Expression with resultType string).
+        :param Any row_delimiter: The row delimiter. Type: string (or Expression with resultType string).
+        :param Any serializer: Serializer. Type: string (or Expression with resultType string).
+        :param Any skip_line_count: The number of lines/rows to be skipped when parsing text files. The default value is 0. Type: integer (or Expression with resultType integer).
+        :param Any treat_empty_as_null: Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "type", 'TextFormat')
         if column_delimiter is not None:
@@ -20412,145 +20412,145 @@ class TextFormatArgs:
 
     @property
     @pulumi.getter(name="columnDelimiter")
-    def column_delimiter(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def column_delimiter(self) -> Optional[Any]:
         """
         The column delimiter. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "column_delimiter")
 
     @column_delimiter.setter
-    def column_delimiter(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def column_delimiter(self, value: Optional[Any]):
         pulumi.set(self, "column_delimiter", value)
 
     @property
     @pulumi.getter
-    def deserializer(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def deserializer(self) -> Optional[Any]:
         """
         Deserializer. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "deserializer")
 
     @deserializer.setter
-    def deserializer(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def deserializer(self, value: Optional[Any]):
         pulumi.set(self, "deserializer", value)
 
     @property
     @pulumi.getter(name="encodingName")
-    def encoding_name(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encoding_name(self) -> Optional[Any]:
         """
         The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encoding_name")
 
     @encoding_name.setter
-    def encoding_name(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encoding_name(self, value: Optional[Any]):
         pulumi.set(self, "encoding_name", value)
 
     @property
     @pulumi.getter(name="escapeChar")
-    def escape_char(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def escape_char(self) -> Optional[Any]:
         """
         The escape character. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "escape_char")
 
     @escape_char.setter
-    def escape_char(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def escape_char(self, value: Optional[Any]):
         pulumi.set(self, "escape_char", value)
 
     @property
     @pulumi.getter(name="firstRowAsHeader")
-    def first_row_as_header(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def first_row_as_header(self) -> Optional[Any]:
         """
         When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "first_row_as_header")
 
     @first_row_as_header.setter
-    def first_row_as_header(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def first_row_as_header(self, value: Optional[Any]):
         pulumi.set(self, "first_row_as_header", value)
 
     @property
     @pulumi.getter(name="nullValue")
-    def null_value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def null_value(self) -> Optional[Any]:
         """
         The null value string. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "null_value")
 
     @null_value.setter
-    def null_value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def null_value(self, value: Optional[Any]):
         pulumi.set(self, "null_value", value)
 
     @property
     @pulumi.getter(name="quoteChar")
-    def quote_char(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def quote_char(self) -> Optional[Any]:
         """
         The quote character. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "quote_char")
 
     @quote_char.setter
-    def quote_char(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def quote_char(self, value: Optional[Any]):
         pulumi.set(self, "quote_char", value)
 
     @property
     @pulumi.getter(name="rowDelimiter")
-    def row_delimiter(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def row_delimiter(self) -> Optional[Any]:
         """
         The row delimiter. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "row_delimiter")
 
     @row_delimiter.setter
-    def row_delimiter(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def row_delimiter(self, value: Optional[Any]):
         pulumi.set(self, "row_delimiter", value)
 
     @property
     @pulumi.getter
-    def serializer(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def serializer(self) -> Optional[Any]:
         """
         Serializer. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "serializer")
 
     @serializer.setter
-    def serializer(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def serializer(self, value: Optional[Any]):
         pulumi.set(self, "serializer", value)
 
     @property
     @pulumi.getter(name="skipLineCount")
-    def skip_line_count(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def skip_line_count(self) -> Optional[Any]:
         """
         The number of lines/rows to be skipped when parsing text files. The default value is 0. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "skip_line_count")
 
     @skip_line_count.setter
-    def skip_line_count(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def skip_line_count(self, value: Optional[Any]):
         pulumi.set(self, "skip_line_count", value)
 
     @property
     @pulumi.getter(name="treatEmptyAsNull")
-    def treat_empty_as_null(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def treat_empty_as_null(self) -> Optional[Any]:
         """
         Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "treat_empty_as_null")
 
     @treat_empty_as_null.setter
-    def treat_empty_as_null(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def treat_empty_as_null(self, value: Optional[Any]):
         pulumi.set(self, "treat_empty_as_null", value)
 
 
 @pulumi.input_type
 class TriggerPipelineReferenceArgs:
     def __init__(__self__, *,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  pipeline_reference: Optional[pulumi.Input['PipelineReferenceArgs']] = None):
         """
         Pipeline that needs to be triggered with the given parameters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] parameters: Pipeline parameters.
+        :param pulumi.Input[Mapping[str, Any]] parameters: Pipeline parameters.
         :param pulumi.Input['PipelineReferenceArgs'] pipeline_reference: Pipeline reference.
         """
         if parameters is not None:
@@ -20560,14 +20560,14 @@ class TriggerPipelineReferenceArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Pipeline parameters.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -20592,7 +20592,7 @@ class TumblingWindowTriggerArgs:
                  pipeline: pulumi.Input['TriggerPipelineReferenceArgs'],
                  start_time: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 delay: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 delay: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None):
@@ -20604,7 +20604,7 @@ class TumblingWindowTriggerArgs:
         :param pulumi.Input['TriggerPipelineReferenceArgs'] pipeline: Pipeline for which runs are created when an event is fired for trigger window that is ready.
         :param pulumi.Input[str] start_time: The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param pulumi.Input[str] type: Trigger type.
-        :param pulumi.Input[Mapping[str, Any]] delay: Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any delay: Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param pulumi.Input[str] description: Trigger description.
         :param pulumi.Input[str] end_time: The end time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param pulumi.Input['RetryPolicyArgs'] retry_policy: Retry policy that will be applied for failed pipeline runs.
@@ -20698,14 +20698,14 @@ class TumblingWindowTriggerArgs:
 
     @property
     @pulumi.getter
-    def delay(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def delay(self) -> Optional[Any]:
         """
         Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         return pulumi.get(self, "delay")
 
     @delay.setter
-    def delay(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def delay(self, value: Optional[Any]):
         pulumi.set(self, "delay", value)
 
     @property
@@ -20749,20 +20749,20 @@ class TumblingWindowTriggerArgs:
 class VerticaLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 connection_string: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Vertica linked service.
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param pulumi.Input[Mapping[str, Any]] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Vertica')
@@ -20793,14 +20793,14 @@ class VerticaLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -20817,14 +20817,14 @@ class VerticaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
 
     @property
@@ -20841,14 +20841,14 @@ class VerticaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -20869,18 +20869,18 @@ class VerticaTableDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Vertica dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'VerticaTable')
@@ -20919,14 +20919,14 @@ class VerticaTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -20955,14 +20955,14 @@ class VerticaTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
@@ -20970,11 +20970,11 @@ class VerticaTableDatasetArgs:
 class WebAnonymousAuthenticationArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 url: pulumi.Input[Mapping[str, Any]]):
+                 url: Any):
         """
         A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
         :param pulumi.Input[str] authentication_type: Type of authentication used to connect to the web table source.
-        :param pulumi.Input[Mapping[str, Any]] url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'Anonymous')
         pulumi.set(__self__, "url", url)
@@ -20993,14 +20993,14 @@ class WebAnonymousAuthenticationArgs:
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Input[Mapping[str, Any]]:
+    def url(self) -> Any:
         """
         The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: pulumi.Input[Mapping[str, Any]]):
+    def url(self, value: Any):
         pulumi.set(self, "url", value)
 
 
@@ -21009,14 +21009,14 @@ class WebBasicAuthenticationArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
                  password: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
-                 url: pulumi.Input[Mapping[str, Any]],
-                 username: pulumi.Input[Mapping[str, Any]]):
+                 url: Any,
+                 username: Any):
         """
         A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
         :param pulumi.Input[str] authentication_type: Type of authentication used to connect to the web table source.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password for Basic authentication.
-        :param pulumi.Input[Mapping[str, Any]] url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] username: User name for Basic authentication. Type: string (or Expression with resultType string).
+        :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        :param Any username: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'Basic')
         pulumi.set(__self__, "password", password)
@@ -21049,26 +21049,26 @@ class WebBasicAuthenticationArgs:
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Input[Mapping[str, Any]]:
+    def url(self) -> Any:
         """
         The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: pulumi.Input[Mapping[str, Any]]):
+    def url(self, value: Any):
         pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[Mapping[str, Any]]:
+    def username(self) -> Any:
         """
         User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[Mapping[str, Any]]):
+    def username(self, value: Any):
         pulumi.set(self, "username", value)
 
 
@@ -21078,13 +21078,13 @@ class WebClientCertificateAuthenticationArgs:
                  authentication_type: pulumi.Input[str],
                  password: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  pfx: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
-                 url: pulumi.Input[Mapping[str, Any]]):
+                 url: Any):
         """
         A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
         :param pulumi.Input[str] authentication_type: Type of authentication used to connect to the web table source.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for the PFX file.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] pfx: Base64-encoded contents of a PFX file.
-        :param pulumi.Input[Mapping[str, Any]] url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'ClientCertificate')
         pulumi.set(__self__, "password", password)
@@ -21129,14 +21129,14 @@ class WebClientCertificateAuthenticationArgs:
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Input[Mapping[str, Any]]:
+    def url(self) -> Any:
         """
         The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: pulumi.Input[Mapping[str, Any]]):
+    def url(self, value: Any):
         pulumi.set(self, "url", value)
 
 
@@ -21145,7 +21145,7 @@ class WebLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  type_properties: pulumi.Input[Union['WebAnonymousAuthenticationArgs', 'WebBasicAuthenticationArgs', 'WebClientCertificateAuthenticationArgs']],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
@@ -21153,7 +21153,7 @@ class WebLinkedServiceArgs:
         Web linked service.
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['WebAnonymousAuthenticationArgs', 'WebBasicAuthenticationArgs', 'WebClientCertificateAuthenticationArgs']] type_properties: Web linked service properties.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -21195,14 +21195,14 @@ class WebLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -21245,24 +21245,24 @@ class WebLinkedServiceArgs:
 @pulumi.input_type
 class WebTableDatasetArgs:
     def __init__(__self__, *,
-                 index: pulumi.Input[Mapping[str, Any]],
+                 index: Any,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 path: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 path: Optional[Any] = None,
+                 structure: Optional[Any] = None):
         """
         The dataset points to a HTML table in the web page.
-        :param pulumi.Input[Mapping[str, Any]] index: The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any index: The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] path: The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any path: The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "index", index)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -21280,14 +21280,14 @@ class WebTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def index(self) -> pulumi.Input[Mapping[str, Any]]:
+    def index(self) -> Any:
         """
         The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
         """
         return pulumi.get(self, "index")
 
     @index.setter
-    def index(self, value: pulumi.Input[Mapping[str, Any]]):
+    def index(self, value: Any):
         pulumi.set(self, "index", value)
 
     @property
@@ -21316,14 +21316,14 @@ class WebTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -21352,59 +21352,59 @@ class WebTableDatasetArgs:
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def path(self) -> Optional[Any]:
         """
         The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def path(self, value: Optional[Any]):
         pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class XeroLinkedServiceArgs:
     def __init__(__self__, *,
-                 host: pulumi.Input[Mapping[str, Any]],
+                 host: Any,
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  consumer_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  private_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Xero Service linked service.
-        :param pulumi.Input[Mapping[str, Any]] host: The endpoint of the Xero server. (i.e. api.xero.com)
+        :param Any host: The endpoint of the Xero server. (i.e. api.xero.com)
         :param pulumi.Input[str] type: Type of linked service.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] consumer_key: The consumer key associated with the Xero application.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] private_key: The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(
                ).
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Xero')
@@ -21431,14 +21431,14 @@ class XeroLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> pulumi.Input[Mapping[str, Any]]:
+    def host(self) -> Any:
         """
         The endpoint of the Xero server. (i.e. api.xero.com)
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: pulumi.Input[Mapping[str, Any]]):
+    def host(self, value: Any):
         pulumi.set(self, "host", value)
 
     @property
@@ -21455,14 +21455,14 @@ class XeroLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -21503,14 +21503,14 @@ class XeroLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -21540,38 +21540,38 @@ class XeroLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -21580,18 +21580,18 @@ class XeroObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Xero Service dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'XeroObject')
@@ -21630,14 +21630,14 @@ class XeroObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -21666,44 +21666,44 @@ class XeroObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 
 @pulumi.input_type
 class ZohoLinkedServiceArgs:
     def __init__(__self__, *,
-                 endpoint: pulumi.Input[Mapping[str, Any]],
+                 endpoint: Any,
                  type: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encrypted_credential: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 use_encrypted_endpoints: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_host_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 use_peer_verification: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Zoho server linked service.
-        :param pulumi.Input[Mapping[str, Any]] endpoint: The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
+        :param Any endpoint: The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: The access token for Zoho authentication.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
-        :param pulumi.Input[Mapping[str, Any]] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
-        :param pulumi.Input[Mapping[str, Any]] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param pulumi.Input[Mapping[str, Any]] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "type", 'Zoho')
@@ -21728,14 +21728,14 @@ class ZohoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Input[Mapping[str, Any]]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: pulumi.Input[Mapping[str, Any]]):
+    def endpoint(self, value: Any):
         pulumi.set(self, "endpoint", value)
 
     @property
@@ -21764,14 +21764,14 @@ class ZohoLinkedServiceArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -21800,14 +21800,14 @@ class ZohoLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "encrypted_credential")
 
     @encrypted_credential.setter
-    def encrypted_credential(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def encrypted_credential(self, value: Optional[Any]):
         pulumi.set(self, "encrypted_credential", value)
 
     @property
@@ -21824,38 +21824,38 @@ class ZohoLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
     @use_encrypted_endpoints.setter
-    def use_encrypted_endpoints(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_encrypted_endpoints(self, value: Optional[Any]):
         pulumi.set(self, "use_encrypted_endpoints", value)
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_host_verification")
 
     @use_host_verification.setter
-    def use_host_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_host_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_host_verification", value)
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
 
     @use_peer_verification.setter
-    def use_peer_verification(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def use_peer_verification(self, value: Optional[Any]):
         pulumi.set(self, "use_peer_verification", value)
 
 
@@ -21864,18 +21864,18 @@ class ZohoObjectDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
-                 structure: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 structure: Optional[Any] = None):
         """
         Zoho server dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[str] type: Type of dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
-        :param pulumi.Input[Mapping[str, Any]] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ZohoObject')
@@ -21914,14 +21914,14 @@ class ZohoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -21950,14 +21950,14 @@ class ZohoObjectDatasetArgs:
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
 
     @structure.setter
-    def structure(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
 
 

@@ -163,7 +163,7 @@ class BindingResourcePropertiesResponse(dict):
                  resource_name: str,
                  resource_type: str,
                  updated_at: str,
-                 binding_parameters: Optional[Mapping[str, Mapping[str, Any]]] = None,
+                 binding_parameters: Optional[Mapping[str, Any]] = None,
                  key: Optional[str] = None,
                  resource_id: Optional[str] = None):
         """
@@ -173,7 +173,7 @@ class BindingResourcePropertiesResponse(dict):
         :param str resource_name: The name of the bound resource
         :param str resource_type: The standard Azure resource type of the bound resource
         :param str updated_at: Update time of the Binding resource
-        :param Mapping[str, Mapping[str, Any]] binding_parameters: Binding parameters of the Binding resource
+        :param Mapping[str, Any] binding_parameters: Binding parameters of the Binding resource
         :param str key: The key of the bound resource
         :param str resource_id: The Azure resource id of the bound resource
         """
@@ -231,7 +231,7 @@ class BindingResourcePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="bindingParameters")
-    def binding_parameters(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def binding_parameters(self) -> Optional[Mapping[str, Any]]:
         """
         Binding parameters of the Binding resource
         """

@@ -353,8 +353,8 @@ class DeploymentPropertiesExtendedResponse(dict):
                  mode: str,
                  on_error_deployment: 'outputs.OnErrorDeploymentExtendedResponse',
                  output_resources: Sequence['outputs.ResourceReferenceResponse'],
-                 outputs: Mapping[str, Any],
-                 parameters: Mapping[str, Any],
+                 outputs: Any,
+                 parameters: Any,
                  parameters_link: 'outputs.ParametersLinkResponse',
                  providers: Sequence['outputs.ProviderResponse'],
                  provisioning_state: str,
@@ -372,8 +372,8 @@ class DeploymentPropertiesExtendedResponse(dict):
         :param str mode: The deployment mode. Possible values are Incremental and Complete.
         :param 'OnErrorDeploymentExtendedResponseArgs' on_error_deployment: The deployment on error behavior.
         :param Sequence['ResourceReferenceResponseArgs'] output_resources: Array of provisioned resources.
-        :param Mapping[str, Any] outputs: Key/value pairs that represent deployment output.
-        :param Mapping[str, Any] parameters: Deployment parameters. 
+        :param Any outputs: Key/value pairs that represent deployment output.
+        :param Any parameters: Deployment parameters. 
         :param 'ParametersLinkResponseArgs' parameters_link: The URI referencing the parameters. 
         :param Sequence['ProviderResponseArgs'] providers: The list of resource providers needed for the deployment.
         :param str provisioning_state: The state of the provisioning.
@@ -466,7 +466,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, Any]:
+    def outputs(self) -> Any:
         """
         Key/value pairs that represent deployment output.
         """
@@ -474,7 +474,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, Any]:
+    def parameters(self) -> Any:
         """
         Deployment parameters. 
         """
@@ -546,11 +546,11 @@ class ErrorAdditionalInfoResponse(dict):
     The resource management error additional info.
     """
     def __init__(__self__, *,
-                 info: Mapping[str, Any],
+                 info: Any,
                  type: str):
         """
         The resource management error additional info.
-        :param Mapping[str, Any] info: The additional info.
+        :param Any info: The additional info.
         :param str type: The additional info type.
         """
         pulumi.set(__self__, "info", info)
@@ -558,7 +558,7 @@ class ErrorAdditionalInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def info(self) -> Mapping[str, Any]:
+    def info(self) -> Any:
         """
         The additional info.
         """

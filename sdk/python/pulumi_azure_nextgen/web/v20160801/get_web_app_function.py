@@ -59,7 +59,7 @@ class GetWebAppFunctionResult:
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[Mapping[str, Any]]:
+    def config(self) -> Optional[Any]:
         """
         Config information.
         """

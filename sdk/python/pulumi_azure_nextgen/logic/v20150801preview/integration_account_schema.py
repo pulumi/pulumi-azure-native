@@ -16,12 +16,12 @@ class IntegrationAccountSchema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 content: Optional[Any] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
@@ -36,12 +36,12 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         Create a IntegrationAccountSchema resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] content: The content.
+        :param Any content: The content.
         :param pulumi.Input[str] content_type: The content type.
         :param pulumi.Input[str] id: The resource id.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
+        :param Any metadata: The metadata.
         :param pulumi.Input[str] name: The resource name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] schema_name: The integration account schema name.
@@ -125,7 +125,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def content(self) -> pulumi.Output[Optional[Any]]:
         """
         The content.
         """
@@ -165,7 +165,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
         """
         The metadata.
         """

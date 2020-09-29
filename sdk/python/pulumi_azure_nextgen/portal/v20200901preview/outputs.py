@@ -26,12 +26,12 @@ class DashboardLensResponse(dict):
     def __init__(__self__, *,
                  order: int,
                  parts: Sequence['outputs.DashboardPartsResponse'],
-                 metadata: Optional[Mapping[str, Mapping[str, Any]]] = None):
+                 metadata: Optional[Mapping[str, Any]] = None):
         """
         A dashboard lens.
         :param int order: The lens order.
         :param Sequence['DashboardPartsResponseArgs'] parts: The dashboard parts.
-        :param Mapping[str, Mapping[str, Any]] metadata: The dashboard len's metadata.
+        :param Mapping[str, Any] metadata: The dashboard len's metadata.
         """
         pulumi.set(__self__, "order", order)
         pulumi.set(__self__, "parts", parts)
@@ -56,7 +56,7 @@ class DashboardLensResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Mapping[str, Any]]:
         """
         The dashboard len's metadata.
         """
@@ -113,14 +113,14 @@ class DashboardPartsResponsePosition(dict):
                  row_span: int,
                  x: int,
                  y: int,
-                 metadata: Optional[Mapping[str, Mapping[str, Any]]] = None):
+                 metadata: Optional[Mapping[str, Any]] = None):
         """
         The dashboard's part position.
         :param int col_span: The dashboard's part column span.
         :param int row_span: The dashboard's part row span.
         :param int x: The dashboard's part x coordinate.
         :param int y: The dashboard's part y coordinate.
-        :param Mapping[str, Mapping[str, Any]] metadata: The dashboard part's metadata.
+        :param Mapping[str, Any] metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "col_span", col_span)
         pulumi.set(__self__, "row_span", row_span)
@@ -163,7 +163,7 @@ class DashboardPartsResponsePosition(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Mapping[str, Any]]:
         """
         The dashboard part's metadata.
         """
@@ -180,12 +180,12 @@ class MarkdownPartMetadataResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 inputs: Optional[Sequence[Mapping[str, Any]]] = None,
+                 inputs: Optional[Sequence[Any]] = None,
                  settings: Optional['outputs.MarkdownPartMetadataResponseSettings'] = None):
         """
         Markdown part metadata.
         :param str type: The type of dashboard part.
-        :param Sequence[Mapping[str, Any]] inputs: Input to dashboard part.
+        :param Sequence[Any] inputs: Input to dashboard part.
         :param 'MarkdownPartMetadataResponseSettingsArgs' settings: Markdown part settings.
         """
         pulumi.set(__self__, "type", 'Extension/HubsExtension/PartType/MarkdownPart')
@@ -204,7 +204,7 @@ class MarkdownPartMetadataResponse(dict):
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def inputs(self) -> Optional[Sequence[Any]]:
         """
         Input to dashboard part.
         """

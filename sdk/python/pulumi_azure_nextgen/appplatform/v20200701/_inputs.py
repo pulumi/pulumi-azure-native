@@ -131,12 +131,12 @@ class AppResourcePropertiesArgs:
 @pulumi.input_type
 class BindingResourcePropertiesArgs:
     def __init__(__self__, *,
-                 binding_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 binding_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         Binding resource properties payload
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] binding_parameters: Binding parameters of the Binding resource
+        :param pulumi.Input[Mapping[str, Any]] binding_parameters: Binding parameters of the Binding resource
         :param pulumi.Input[str] key: The key of the bound resource
         :param pulumi.Input[str] resource_id: The Azure resource id of the bound resource
         """
@@ -149,14 +149,14 @@ class BindingResourcePropertiesArgs:
 
     @property
     @pulumi.getter(name="bindingParameters")
-    def binding_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def binding_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Binding parameters of the Binding resource
         """
         return pulumi.get(self, "binding_parameters")
 
     @binding_parameters.setter
-    def binding_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def binding_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "binding_parameters", value)
 
     @property

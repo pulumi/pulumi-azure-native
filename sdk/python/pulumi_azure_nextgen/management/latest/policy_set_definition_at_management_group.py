@@ -20,7 +20,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]]] = None,
                  policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionGroupArgs']]]]] = None,
                  policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]]] = None,
@@ -37,7 +37,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The policy set definition description.
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+        :param Any metadata: The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]] parameters: The policy set definition parameters that can be used in policy definition references.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionGroupArgs']]]] policy_definition_groups: The metadata describing groups of policy definition references within the policy set definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]] policy_definitions: An array of policy definition references.
@@ -122,7 +122,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         """

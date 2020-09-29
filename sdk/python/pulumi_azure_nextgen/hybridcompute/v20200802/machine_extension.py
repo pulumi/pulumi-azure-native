@@ -21,10 +21,10 @@ class MachineExtension(pulumi.CustomResource):
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protected_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 protected_settings: Optional[Any] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 settings: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
@@ -41,10 +41,10 @@ class MachineExtension(pulumi.CustomResource):
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The name of the machine where the extension should be created or updated.
-        :param pulumi.Input[Mapping[str, Any]] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Mapping[str, Any]] settings: Json formatted public settings for the extension.
+        :param Any settings: Json formatted public settings for the extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
@@ -156,7 +156,7 @@ class MachineExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def protected_settings(self) -> pulumi.Output[Optional[Any]]:
         """
         The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         """
@@ -180,7 +180,7 @@ class MachineExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def settings(self) -> pulumi.Output[Optional[Any]]:
         """
         Json formatted public settings for the extension.
         """

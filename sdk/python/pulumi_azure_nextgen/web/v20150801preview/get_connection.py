@@ -147,7 +147,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         return pulumi.get(self, "metadata")
 
     @property
@@ -160,7 +160,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="nonSecretParameterValues")
-    def non_secret_parameter_values(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def non_secret_parameter_values(self) -> Optional[Mapping[str, Any]]:
         """
         Tokens/Claim
         """
@@ -168,7 +168,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def parameter_values(self) -> Optional[Mapping[str, Any]]:
         """
         Tokens/Claim
         """

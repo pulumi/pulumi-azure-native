@@ -208,7 +208,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, Any]:
+    def outputs(self) -> Any:
         """
         Name and value pairs that define the managed application outputs.
         """
@@ -216,7 +216,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         """

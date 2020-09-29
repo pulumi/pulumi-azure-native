@@ -1491,9 +1491,9 @@ class VirtualMachineScaleSetExtensionArgs:
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protected_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 protected_settings: Optional[Any] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 settings: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None):
         """
@@ -1501,9 +1501,9 @@ class VirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[bool] auto_upgrade_minor_version: Whether the extension handler should be automatically upgraded across minor versions.
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] name: The name of the extension.
-        :param pulumi.Input[Mapping[str, Any]] protected_settings: Json formatted protected settings for the extension.
+        :param Any protected_settings: Json formatted protected settings for the extension.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
-        :param pulumi.Input[Mapping[str, Any]] settings: Json formatted public settings for the extension.
+        :param Any settings: Json formatted public settings for the extension.
         :param pulumi.Input[str] type: The type of the extension handler.
         :param pulumi.Input[str] type_handler_version: The type version of the extension handler.
         """
@@ -1562,14 +1562,14 @@ class VirtualMachineScaleSetExtensionArgs:
 
     @property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def protected_settings(self) -> Optional[Any]:
         """
         Json formatted protected settings for the extension.
         """
         return pulumi.get(self, "protected_settings")
 
     @protected_settings.setter
-    def protected_settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def protected_settings(self, value: Optional[Any]):
         pulumi.set(self, "protected_settings", value)
 
     @property
@@ -1586,14 +1586,14 @@ class VirtualMachineScaleSetExtensionArgs:
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def settings(self) -> Optional[Any]:
         """
         Json formatted public settings for the extension.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def settings(self, value: Optional[Any]):
         pulumi.set(self, "settings", value)
 
     @property

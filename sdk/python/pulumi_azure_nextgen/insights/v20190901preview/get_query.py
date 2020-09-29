@@ -100,7 +100,7 @@ class GetQueryResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, Any]:
+    def properties(self) -> Any:
         """
         Additional properties that can be set for the query.
         """

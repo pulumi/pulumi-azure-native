@@ -21,7 +21,7 @@ class Pool(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 tags: Optional[Any] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,7 +36,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_level: The service level of the file system
         :param pulumi.Input[int] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-        :param pulumi.Input[Mapping[str, Any]] tags: Resource tags
+        :param Any tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -154,7 +154,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         """
         Resource tags
         """

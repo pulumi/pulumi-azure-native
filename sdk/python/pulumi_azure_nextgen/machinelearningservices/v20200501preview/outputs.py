@@ -94,7 +94,7 @@ class ACIServiceResponseResponse(dict):
     def __init__(__self__, *,
                  compute_type: str,
                  error: 'outputs.ServiceResponseBaseResponseError',
-                 model_config_map: Mapping[str, Mapping[str, Any]],
+                 model_config_map: Mapping[str, Any],
                  scoring_uri: str,
                  state: str,
                  swagger_uri: str,
@@ -121,7 +121,7 @@ class ACIServiceResponseResponse(dict):
         The response for an ACI service.
         :param str compute_type: The compute environment type for the service.
         :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
-        :param Mapping[str, Mapping[str, Any]] model_config_map: Details on the models and configurations.
+        :param Mapping[str, Any] model_config_map: Details on the models and configurations.
         :param str scoring_uri: The Uri for sending scoring requests.
         :param str state: The current state of the service.
         :param str swagger_uri: The Uri for sending swagger requests.
@@ -208,7 +208,7 @@ class ACIServiceResponseResponse(dict):
 
     @property
     @pulumi.getter(name="modelConfigMap")
-    def model_config_map(self) -> Mapping[str, Mapping[str, Any]]:
+    def model_config_map(self) -> Mapping[str, Any]:
         """
         Details on the models and configurations.
         """
@@ -3219,7 +3219,7 @@ class DatasetResponseDataPath(dict):
                  partition_format_ignore_error: bool,
                  paths: Sequence[str],
                  relative_path: str,
-                 additional_properties: Optional[Mapping[str, Mapping[str, Any]]] = None,
+                 additional_properties: Optional[Mapping[str, Any]] = None,
                  sql_data_path: Optional['outputs.DatasetResponseSqlDataPath'] = None):
         """
          Datastore and reference to location of data such as relativePath, Sql Query and etc.
@@ -3230,7 +3230,7 @@ class DatasetResponseDataPath(dict):
         :param bool partition_format_ignore_error: Whether or not to ignore unmatched path.
         :param Sequence[str] paths: List of files expanded from a file GLOB specified
         :param str relative_path: Relative path in the data store
-        :param Mapping[str, Mapping[str, Any]] additional_properties: Additional Properties.
+        :param Mapping[str, Any] additional_properties: Additional Properties.
         :param 'DatasetResponseSqlDataPathArgs' sql_data_path: Sql Query/Table/Stored Procedure details.
         """
         pulumi.set(__self__, "azure_file_path", azure_file_path)
@@ -3303,7 +3303,7 @@ class DatasetResponseDataPath(dict):
 
     @property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def additional_properties(self) -> Optional[Mapping[str, Any]]:
         """
         Additional Properties.
         """
@@ -3344,7 +3344,7 @@ class DatasetResponseLatest(dict):
                  created_by: Optional['outputs.UserInfoResponse'] = None,
                  data_path: Optional['outputs.DatasetResponseDataPath'] = None,
                  dataset_definition_state: Optional['outputs.DatasetStateResponse'] = None,
-                 properties: Optional[Mapping[str, Mapping[str, Any]]] = None):
+                 properties: Optional[Mapping[str, Any]] = None):
         """
         Last created Dataset definition.
         :param str created_time: The dataset creation time (UTC).
@@ -3364,7 +3364,7 @@ class DatasetResponseLatest(dict):
         :param 'UserInfoResponseArgs' created_by: User who created.
         :param 'DatasetResponseDataPathArgs' data_path:  Datastore and reference to location of data such as relativePath, Sql Query and etc.
         :param 'DatasetStateResponseArgs' dataset_definition_state: Dataset state
-        :param Mapping[str, Mapping[str, Any]] properties: Properties stores information like name of time series column for time series dataset.
+        :param Mapping[str, Any] properties: Properties stores information like name of time series column for time series dataset.
         """
         pulumi.set(__self__, "created_time", created_time)
         pulumi.set(__self__, "dataflow", dataflow)
@@ -3527,7 +3527,7 @@ class DatasetResponseLatest(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def properties(self) -> Optional[Mapping[str, Any]]:
         """
         Properties stores information like name of time series column for time series dataset.
         """
@@ -4689,12 +4689,12 @@ class ModelEnvironmentDefinitionResponseResponsePython(dict):
     """
     def __init__(__self__, *,
                  base_conda_environment: Optional[str] = None,
-                 conda_dependencies: Optional[Mapping[str, Any]] = None,
+                 conda_dependencies: Optional[Any] = None,
                  interpreter_path: Optional[str] = None,
                  user_managed_dependencies: Optional[bool] = None):
         """
         Settings for a Python environment.
-        :param Mapping[str, Any] conda_dependencies: A JObject containing Conda dependencies.
+        :param Any conda_dependencies: A JObject containing Conda dependencies.
         :param str interpreter_path: The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
         :param bool user_managed_dependencies: True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
         """
@@ -4714,7 +4714,7 @@ class ModelEnvironmentDefinitionResponseResponsePython(dict):
 
     @property
     @pulumi.getter(name="condaDependencies")
-    def conda_dependencies(self) -> Optional[Mapping[str, Any]]:
+    def conda_dependencies(self) -> Optional[Any]:
         """
         A JObject containing Conda dependencies.
         """

@@ -4372,10 +4372,10 @@ class VirtualMachineScaleSetExtensionArgs:
                  enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protected_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 protected_settings: Optional[Any] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 settings: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None):
         """
@@ -4384,10 +4384,10 @@ class VirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param pulumi.Input[str] force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[str] name: The name of the extension.
-        :param pulumi.Input[Mapping[str, Any]] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
-        :param pulumi.Input[Mapping[str, Any]] settings: Json formatted public settings for the extension.
+        :param Any settings: Json formatted public settings for the extension.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         """
@@ -4462,14 +4462,14 @@ class VirtualMachineScaleSetExtensionArgs:
 
     @property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def protected_settings(self) -> Optional[Any]:
         """
         The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         """
         return pulumi.get(self, "protected_settings")
 
     @protected_settings.setter
-    def protected_settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def protected_settings(self, value: Optional[Any]):
         pulumi.set(self, "protected_settings", value)
 
     @property
@@ -4498,14 +4498,14 @@ class VirtualMachineScaleSetExtensionArgs:
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def settings(self) -> Optional[Any]:
         """
         Json formatted public settings for the extension.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def settings(self, value: Optional[Any]):
         pulumi.set(self, "settings", value)
 
     @property

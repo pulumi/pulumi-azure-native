@@ -20,12 +20,12 @@ class EnterpriseKnowledgeGraphPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  description: Optional[str] = None,
-                 metadata: Optional[Mapping[str, Any]] = None,
+                 metadata: Optional[Any] = None,
                  provisioning_state: Optional[str] = None):
         """
         The parameters to provide for the EnterpriseKnowledgeGraph.
         :param str description: The description of the EnterpriseKnowledgeGraph
-        :param Mapping[str, Any] metadata: Specifies the metadata  of the resource.
+        :param Any metadata: Specifies the metadata  of the resource.
         :param str provisioning_state: The state of EnterpriseKnowledgeGraph provisioning
         """
         if description is not None:
@@ -45,7 +45,7 @@ class EnterpriseKnowledgeGraphPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         Specifies the metadata  of the resource.
         """

@@ -19,11 +19,11 @@ class PolicyDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]]] = None,
                  policy_definition_name: Optional[pulumi.Input[str]] = None,
-                 policy_rule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 policy_rule: Optional[Any] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,11 +35,11 @@ class PolicyDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The policy definition description.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+        :param Any metadata: The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[str] mode: The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]] parameters: The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         :param pulumi.Input[str] policy_definition_name: The name of the policy definition to create.
-        :param pulumi.Input[Mapping[str, Any]] policy_rule: The policy rule.
+        :param Any policy_rule: The policy rule.
         :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         if __name__ is not None:
@@ -115,7 +115,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         """
@@ -147,7 +147,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyRule")
-    def policy_rule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def policy_rule(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy rule.
         """

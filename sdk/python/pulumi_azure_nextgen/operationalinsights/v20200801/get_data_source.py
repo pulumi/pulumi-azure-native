@@ -65,7 +65,7 @@ class GetDataSourceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, Any]:
+    def properties(self) -> Any:
         """
         The data source properties in raw json format, each kind of data source have it's own schema.
         """

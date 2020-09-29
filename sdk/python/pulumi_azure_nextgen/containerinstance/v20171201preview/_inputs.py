@@ -612,14 +612,14 @@ class VolumeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  azure_file: Optional[pulumi.Input['AzureFileVolumeArgs']] = None,
-                 empty_dir: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 empty_dir: Optional[Any] = None,
                  git_repo: Optional[pulumi.Input['GitRepoVolumeArgs']] = None,
                  secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The properties of the volume.
         :param pulumi.Input[str] name: The name of the volume.
         :param pulumi.Input['AzureFileVolumeArgs'] azure_file: The Azure File volume.
-        :param pulumi.Input[Mapping[str, Any]] empty_dir: The empty directory volume.
+        :param Any empty_dir: The empty directory volume.
         :param pulumi.Input['GitRepoVolumeArgs'] git_repo: The git repo volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret: The secret volume.
         """
@@ -659,14 +659,14 @@ class VolumeArgs:
 
     @property
     @pulumi.getter(name="emptyDir")
-    def empty_dir(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def empty_dir(self) -> Optional[Any]:
         """
         The empty directory volume.
         """
         return pulumi.get(self, "empty_dir")
 
     @empty_dir.setter
-    def empty_dir(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def empty_dir(self, value: Optional[Any]):
         pulumi.set(self, "empty_dir", value)
 
     @property

@@ -355,8 +355,8 @@ class VirtualNetworkFunctionRoleConfigurationArgs:
                  os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
-                 user_data_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 user_data_template: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 user_data_parameters: Optional[Any] = None,
+                 user_data_template: Optional[Any] = None,
                  virtual_machine_size: Optional[pulumi.Input[str]] = None):
         """
         Virtual network function role configuration.
@@ -365,8 +365,8 @@ class VirtualNetworkFunctionRoleConfigurationArgs:
         :param pulumi.Input['OsProfileArgs'] os_profile: Specifies the operating system settings for the role instance. This value can be updated during the deployment of virtual network function.
         :param pulumi.Input[str] role_name: The name of the virtual network function role.
         :param pulumi.Input[str] role_type: Role type.
-        :param pulumi.Input[Mapping[str, Any]] user_data_parameters: The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-        :param pulumi.Input[Mapping[str, Any]] user_data_template: The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
+        :param Any user_data_parameters: The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
+        :param Any user_data_template: The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
         :param pulumi.Input[str] virtual_machine_size: The size of the virtual machine.
         """
         if image_reference is not None:
@@ -448,26 +448,26 @@ class VirtualNetworkFunctionRoleConfigurationArgs:
 
     @property
     @pulumi.getter(name="userDataParameters")
-    def user_data_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_data_parameters(self) -> Optional[Any]:
         """
         The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
         """
         return pulumi.get(self, "user_data_parameters")
 
     @user_data_parameters.setter
-    def user_data_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_data_parameters(self, value: Optional[Any]):
         pulumi.set(self, "user_data_parameters", value)
 
     @property
     @pulumi.getter(name="userDataTemplate")
-    def user_data_template(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_data_template(self) -> Optional[Any]:
         """
         The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
         """
         return pulumi.get(self, "user_data_template")
 
     @user_data_template.setter
-    def user_data_template(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_data_template(self, value: Optional[Any]):
         pulumi.set(self, "user_data_template", value)
 
     @property
@@ -512,12 +512,12 @@ class VirtualNetworkFunctionUserConfigurationArgs:
     def __init__(__self__, *,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 user_data_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_data_parameters: Optional[Any] = None):
         """
         The virtual network function user configuration.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: The network interface configuration.
         :param pulumi.Input[str] role_name: The name of the virtual network function role.
-        :param pulumi.Input[Mapping[str, Any]] user_data_parameters: The user data parameters from the customer.
+        :param Any user_data_parameters: The user data parameters from the customer.
         """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
@@ -552,14 +552,14 @@ class VirtualNetworkFunctionUserConfigurationArgs:
 
     @property
     @pulumi.getter(name="userDataParameters")
-    def user_data_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_data_parameters(self) -> Optional[Any]:
         """
         The user data parameters from the customer.
         """
         return pulumi.get(self, "user_data_parameters")
 
     @user_data_parameters.setter
-    def user_data_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_data_parameters(self, value: Optional[Any]):
         pulumi.set(self, "user_data_parameters", value)
 
 

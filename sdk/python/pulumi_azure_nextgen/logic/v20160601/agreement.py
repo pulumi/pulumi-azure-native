@@ -26,7 +26,7 @@ class Agreement(pulumi.CustomResource):
                  host_partner: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -46,7 +46,7 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[str] host_partner: The integration account partner that is set as host partner for this agreement.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
+        :param Any metadata: The metadata.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -201,7 +201,7 @@ class Agreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
         """
         The metadata.
         """

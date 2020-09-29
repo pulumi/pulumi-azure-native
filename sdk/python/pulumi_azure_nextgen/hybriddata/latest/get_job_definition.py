@@ -65,7 +65,7 @@ class GetJobDefinitionResult:
 
     @property
     @pulumi.getter(name="dataServiceInput")
-    def data_service_input(self) -> Optional[Mapping[str, Any]]:
+    def data_service_input(self) -> Optional[Any]:
         """
         A generic json used differently by each data service type.
         """

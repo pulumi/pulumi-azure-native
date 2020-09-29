@@ -117,11 +117,11 @@ class AdditionalErrorInfoResponse(dict):
     Additional error info.
     """
     def __init__(__self__, *,
-                 info: Optional[Mapping[str, Any]] = None,
+                 info: Optional[Any] = None,
                  type: Optional[str] = None):
         """
         Additional error info.
-        :param Mapping[str, Any] info: Additional error info.
+        :param Any info: Additional error info.
         :param str type: Additional error type.
         """
         if info is not None:
@@ -131,7 +131,7 @@ class AdditionalErrorInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def info(self) -> Optional[Mapping[str, Any]]:
+    def info(self) -> Optional[Any]:
         """
         Additional error info.
         """
@@ -1991,14 +1991,14 @@ class JobStagesResponse(dict):
     """
     def __init__(__self__, *,
                  display_name: str,
-                 job_stage_details: Mapping[str, Any],
+                 job_stage_details: Any,
                  stage_name: str,
                  stage_status: str,
                  stage_time: str):
         """
         Job stages.
         :param str display_name: Display name of the job stage.
-        :param Mapping[str, Any] job_stage_details: Job Stage Details
+        :param Any job_stage_details: Job Stage Details
         :param str stage_name: Name of the job stage.
         :param str stage_status: Status of the job stage.
         :param str stage_time: Time for the job stage in UTC ISO 8601 format.
@@ -2019,7 +2019,7 @@ class JobStagesResponse(dict):
 
     @property
     @pulumi.getter(name="jobStageDetails")
-    def job_stage_details(self) -> Mapping[str, Any]:
+    def job_stage_details(self) -> Any:
         """
         Job Stage Details
         """

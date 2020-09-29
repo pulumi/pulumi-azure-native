@@ -58,7 +58,7 @@ class GetDashboardResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Mapping[str, Any]]:
         """
         The dashboard metadata.
         """

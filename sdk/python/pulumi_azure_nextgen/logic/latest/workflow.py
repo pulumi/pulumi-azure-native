@@ -18,7 +18,7 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control: Optional[pulumi.Input[pulumi.InputType['FlowAccessControlConfigurationArgs']]] = None,
-                 definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 definition: Optional[Any] = None,
                  endpoints_configuration: Optional[pulumi.Input[pulumi.InputType['FlowEndpointsConfigurationArgs']]] = None,
                  integration_account: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
@@ -37,7 +37,7 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FlowAccessControlConfigurationArgs']] access_control: The access control configuration.
-        :param pulumi.Input[Mapping[str, Any]] definition: The definition.
+        :param Any definition: The definition.
         :param pulumi.Input[pulumi.InputType['FlowEndpointsConfigurationArgs']] endpoints_configuration: The endpoints configuration.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_account: The integration account.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_service_environment: The integration service environment.
@@ -148,7 +148,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def definition(self) -> pulumi.Output[Optional[Any]]:
         """
         The definition.
         """

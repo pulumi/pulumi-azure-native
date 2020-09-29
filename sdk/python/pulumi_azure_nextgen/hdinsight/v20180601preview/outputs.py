@@ -570,13 +570,13 @@ class ClusterDefinitionResponse(dict):
     def __init__(__self__, *,
                  blueprint: Optional[str] = None,
                  component_version: Optional[Mapping[str, str]] = None,
-                 configurations: Optional[Mapping[str, Any]] = None,
+                 configurations: Optional[Any] = None,
                  kind: Optional[str] = None):
         """
         The cluster definition.
         :param str blueprint: The link to the blueprint.
         :param Mapping[str, str] component_version: The versions of different services in the cluster.
-        :param Mapping[str, Any] configurations: The cluster configurations.
+        :param Any configurations: The cluster configurations.
         :param str kind: The type of cluster.
         """
         if blueprint is not None:
@@ -606,7 +606,7 @@ class ClusterDefinitionResponse(dict):
 
     @property
     @pulumi.getter
-    def configurations(self) -> Optional[Mapping[str, Any]]:
+    def configurations(self) -> Optional[Any]:
         """
         The cluster configurations.
         """

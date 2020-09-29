@@ -121,7 +121,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> Optional[Any]:
         """
         Resource tags
         """

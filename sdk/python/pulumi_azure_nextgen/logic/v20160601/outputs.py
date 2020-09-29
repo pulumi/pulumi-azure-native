@@ -905,9 +905,11 @@ class AssemblyPropertiesResponse(dict):
                  assembly_public_key_token: Optional[str] = None,
                  assembly_version: Optional[str] = None,
                  changed_time: Optional[str] = None,
+                 content: Optional[Any] = None,
                  content_link: Optional['outputs.ContentLinkResponse'] = None,
                  content_type: Optional[str] = None,
-                 created_time: Optional[str] = None):
+                 created_time: Optional[str] = None,
+                 metadata: Optional[Any] = None):
         """
         The assembly properties definition.
         :param str assembly_name: The assembly name.
@@ -928,12 +930,16 @@ class AssemblyPropertiesResponse(dict):
             pulumi.set(__self__, "assembly_version", assembly_version)
         if changed_time is not None:
             pulumi.set(__self__, "changed_time", changed_time)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
         if content_link is not None:
             pulumi.set(__self__, "content_link", content_link)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
         if created_time is not None:
             pulumi.set(__self__, "created_time", created_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
 
     @property
     @pulumi.getter(name="assemblyName")
@@ -976,6 +982,11 @@ class AssemblyPropertiesResponse(dict):
         return pulumi.get(self, "changed_time")
 
     @property
+    @pulumi.getter
+    def content(self) -> Optional[Any]:
+        return pulumi.get(self, "content")
+
+    @property
     @pulumi.getter(name="contentLink")
     def content_link(self) -> Optional['outputs.ContentLinkResponse']:
         """
@@ -998,6 +1009,11 @@ class AssemblyPropertiesResponse(dict):
         The artifact creation time.
         """
         return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1083,7 +1099,8 @@ class BatchConfigurationPropertiesResponse(dict):
                  batch_group_name: str,
                  release_criteria: 'outputs.BatchReleaseCriteriaResponse',
                  changed_time: Optional[str] = None,
-                 created_time: Optional[str] = None):
+                 created_time: Optional[str] = None,
+                 metadata: Optional[Any] = None):
         """
         The batch configuration properties definition.
         :param str batch_group_name: The name of the batch group.
@@ -1097,6 +1114,8 @@ class BatchConfigurationPropertiesResponse(dict):
             pulumi.set(__self__, "changed_time", changed_time)
         if created_time is not None:
             pulumi.set(__self__, "created_time", created_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
 
     @property
     @pulumi.getter(name="batchGroupName")
@@ -1129,6 +1148,11 @@ class BatchConfigurationPropertiesResponse(dict):
         The artifact creation time.
         """
         return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1267,14 +1291,14 @@ class ContentLinkResponse(dict):
                  content_hash: Optional['outputs.ContentHashResponse'] = None,
                  content_size: Optional[int] = None,
                  content_version: Optional[str] = None,
-                 metadata: Optional[Mapping[str, Any]] = None,
+                 metadata: Optional[Any] = None,
                  uri: Optional[str] = None):
         """
         The content link.
         :param 'ContentHashResponseArgs' content_hash: The content hash.
         :param int content_size: The content size.
         :param str content_version: The content version.
-        :param Mapping[str, Any] metadata: The metadata.
+        :param Any metadata: The metadata.
         :param str uri: The content link URI.
         """
         if content_hash is not None:
@@ -1314,7 +1338,7 @@ class ContentLinkResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The metadata.
         """
@@ -3098,7 +3122,8 @@ class ExpressionResponseResult(dict):
     def __init__(__self__, *,
                  error: Optional['outputs.AzureResourceErrorInfoResponseResult'] = None,
                  subexpressions: Optional[Sequence['outputs.ExpressionResponseResult']] = None,
-                 text: Optional[str] = None):
+                 text: Optional[str] = None,
+                 value: Optional[Any] = None):
         """
         :param 'AzureResourceErrorInfoResponseArgs' error: The azure resource error info.
         """
@@ -3108,6 +3133,8 @@ class ExpressionResponseResult(dict):
             pulumi.set(__self__, "subexpressions", subexpressions)
         if text is not None:
             pulumi.set(__self__, "text", text)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3127,6 +3154,11 @@ class ExpressionResponseResult(dict):
     def text(self) -> Optional[str]:
         return pulumi.get(self, "text")
 
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class ExpressionRootResponseResult(dict):
@@ -3134,7 +3166,8 @@ class ExpressionRootResponseResult(dict):
                  error: Optional['outputs.AzureResourceErrorInfoResponseResult'] = None,
                  path: Optional[str] = None,
                  subexpressions: Optional[Sequence['outputs.ExpressionResponseResult']] = None,
-                 text: Optional[str] = None):
+                 text: Optional[str] = None,
+                 value: Optional[Any] = None):
         """
         :param 'AzureResourceErrorInfoResponseArgs' error: The azure resource error info.
         :param str path: The path.
@@ -3147,6 +3180,8 @@ class ExpressionRootResponseResult(dict):
             pulumi.set(__self__, "subexpressions", subexpressions)
         if text is not None:
             pulumi.set(__self__, "text", text)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3173,6 +3208,11 @@ class ExpressionRootResponseResult(dict):
     @pulumi.getter
     def text(self) -> Optional[str]:
         return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -3958,15 +3998,15 @@ class WorkflowParameterResponse(dict):
     """
     def __init__(__self__, *,
                  description: Optional[str] = None,
-                 metadata: Optional[Mapping[str, Any]] = None,
+                 metadata: Optional[Any] = None,
                  type: Optional[str] = None,
-                 value: Optional[Mapping[str, Any]] = None):
+                 value: Optional[Any] = None):
         """
         The workflow parameters.
         :param str description: The description.
-        :param Mapping[str, Any] metadata: The metadata.
+        :param Any metadata: The metadata.
         :param str type: The type.
-        :param Mapping[str, Any] value: The value.
+        :param Any value: The value.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -3987,7 +4027,7 @@ class WorkflowParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The metadata.
         """
@@ -4003,7 +4043,7 @@ class WorkflowParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Mapping[str, Any]]:
+    def value(self) -> Optional[Any]:
         """
         The value.
         """

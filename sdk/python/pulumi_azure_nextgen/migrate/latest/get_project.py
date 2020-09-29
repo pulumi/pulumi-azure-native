@@ -74,7 +74,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> Optional[Any]:
         """
         Tags provided by Azure Tagging service.
         """

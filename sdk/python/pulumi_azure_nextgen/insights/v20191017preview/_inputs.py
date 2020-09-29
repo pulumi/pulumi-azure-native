@@ -169,11 +169,11 @@ class WorkbookTemplateGalleryArgs:
 class WorkbookTemplateLocalizedGalleryArgs:
     def __init__(__self__, *,
                  galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
-                 template_data: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 template_data: Optional[Any] = None):
         """
         Localized template data and gallery information.
         :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: Workbook galleries supported by the template.
-        :param pulumi.Input[Mapping[str, Any]] template_data: Valid JSON object containing workbook template payload.
+        :param Any template_data: Valid JSON object containing workbook template payload.
         """
         if galleries is not None:
             pulumi.set(__self__, "galleries", galleries)
@@ -194,14 +194,14 @@ class WorkbookTemplateLocalizedGalleryArgs:
 
     @property
     @pulumi.getter(name="templateData")
-    def template_data(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def template_data(self) -> Optional[Any]:
         """
         Valid JSON object containing workbook template payload.
         """
         return pulumi.get(self, "template_data")
 
     @template_data.setter
-    def template_data(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def template_data(self, value: Optional[Any]):
         pulumi.set(self, "template_data", value)
 
 

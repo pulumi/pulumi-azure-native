@@ -96,6 +96,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['availability_zone_name'] = None
             __props__['cloud_rack_name'] = None
+            __props__['created'] = None
             __props__['placement_group_name'] = None
             __props__['private_cloud_id'] = None
             __props__['private_cloud_name'] = None
@@ -152,6 +153,14 @@ class DedicatedCloudNode(pulumi.CustomResource):
         VMWare Cloud Rack Name
         """
         return pulumi.get(self, "cloud_rack_name")
+
+    @property
+    @pulumi.getter
+    def created(self) -> pulumi.Output[Any]:
+        """
+        date time the resource was created
+        """
+        return pulumi.get(self, "created")
 
     @property
     @pulumi.getter

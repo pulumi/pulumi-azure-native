@@ -41,7 +41,7 @@ class ApiEntityArgs:
                  general_information: Optional[pulumi.Input['GeneralApiInformationArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input['ApiPoliciesArgs']] = None,
@@ -61,7 +61,7 @@ class ApiEntityArgs:
         :param pulumi.Input['GeneralApiInformationArgs'] general_information: the URL path of this API when exposed via APIM
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
-        :param pulumi.Input[Mapping[str, Any]] metadata: Free form object for the data caller wants to store
+        :param Any metadata: Free form object for the data caller wants to store
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] path: the URL path of this API when exposed via APIM
         :param pulumi.Input['ApiPoliciesArgs'] policies: API policies
@@ -228,14 +228,14 @@ class ApiEntityArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Any]:
         """
         Free form object for the data caller wants to store
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
     @property
@@ -330,7 +330,7 @@ class ApiOAuthSettingsArgs:
                  client_secret: Optional[pulumi.Input[str]] = None,
                  custom_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]]] = None,
                  identity_provider: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 properties: Optional[Any] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -339,7 +339,7 @@ class ApiOAuthSettingsArgs:
         :param pulumi.Input[str] client_secret: Client Secret needed for OAuth
         :param pulumi.Input[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]] custom_parameters: OAuth parameters key is the name of parameter
         :param pulumi.Input[str] identity_provider: Identity provider
-        :param pulumi.Input[Mapping[str, Any]] properties: Read only properties for this oauth setting.
+        :param Any properties: Read only properties for this oauth setting.
         :param pulumi.Input[str] redirect_url: Url
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: OAuth scopes
         """
@@ -408,14 +408,14 @@ class ApiOAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def properties(self) -> Optional[Any]:
         """
         Read only properties for this oauth setting.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def properties(self, value: Optional[Any]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -446,13 +446,13 @@ class ApiOAuthSettingsArgs:
 @pulumi.input_type
 class ApiOAuthSettingsParameterArgs:
     def __init__(__self__, *,
-                 options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 ui_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 options: Optional[Any] = None,
+                 ui_definition: Optional[Any] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         OAuth Settings Parameter
-        :param pulumi.Input[Mapping[str, Any]] options: Read only: Options available to this parameter
-        :param pulumi.Input[Mapping[str, Any]] ui_definition: UI definitions per culture as caller can specify the culture
+        :param Any options: Read only: Options available to this parameter
+        :param Any ui_definition: UI definitions per culture as caller can specify the culture
         :param pulumi.Input[str] value: Value
         """
         if options is not None:
@@ -464,26 +464,26 @@ class ApiOAuthSettingsParameterArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def options(self) -> Optional[Any]:
         """
         Read only: Options available to this parameter
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def options(self, value: Optional[Any]):
         pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter(name="uiDefinition")
-    def ui_definition(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def ui_definition(self) -> Optional[Any]:
         """
         UI definitions per culture as caller can specify the culture
         """
         return pulumi.get(self, "ui_definition")
 
     @ui_definition.setter
-    def ui_definition(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def ui_definition(self, value: Optional[Any]):
         pulumi.set(self, "ui_definition", value)
 
     @property
@@ -979,16 +979,16 @@ class ConnectionErrorArgs:
 @pulumi.input_type
 class ConnectionParameterArgs:
     def __init__(__self__, *,
-                 default_value: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 default_value: Optional[Any] = None,
                  o_auth_settings: Optional[pulumi.Input['ApiOAuthSettingsArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 ui_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 ui_definition: Optional[Any] = None):
         """
         connection provider parameters
-        :param pulumi.Input[Mapping[str, Any]] default_value: Default parameter value
+        :param Any default_value: Default parameter value
         :param pulumi.Input['ApiOAuthSettingsArgs'] o_auth_settings: Settings defining OAuth flow for the back end provider
         :param pulumi.Input[str] type: Type of the parameter
-        :param pulumi.Input[Mapping[str, Any]] ui_definition: UI definitions
+        :param Any ui_definition: UI definitions
         """
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
@@ -1001,14 +1001,14 @@ class ConnectionParameterArgs:
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def default_value(self) -> Optional[Any]:
         """
         Default parameter value
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def default_value(self, value: Optional[Any]):
         pulumi.set(self, "default_value", value)
 
     @property
@@ -1037,14 +1037,14 @@ class ConnectionParameterArgs:
 
     @property
     @pulumi.getter(name="uiDefinition")
-    def ui_definition(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def ui_definition(self) -> Optional[Any]:
         """
         UI definitions
         """
         return pulumi.get(self, "ui_definition")
 
     @ui_definition.setter
-    def ui_definition(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def ui_definition(self, value: Optional[Any]):
         pulumi.set(self, "ui_definition", value)
 
 
@@ -1531,7 +1531,7 @@ class GeneralApiInformationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  connection_display_name: Optional[pulumi.Input[str]] = None,
-                 connection_portal_url: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 connection_portal_url: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
@@ -1545,7 +1545,7 @@ class GeneralApiInformationArgs:
         General API information
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] connection_display_name: DefaultConnectionNameTemplate
-        :param pulumi.Input[Mapping[str, Any]] connection_portal_url: ConnectionPortalUrl
+        :param Any connection_portal_url: ConnectionPortalUrl
         :param pulumi.Input[str] description: Description
         :param pulumi.Input[str] display_name: Display Name
         :param pulumi.Input[str] icon_url: Icon Url
@@ -1606,14 +1606,14 @@ class GeneralApiInformationArgs:
 
     @property
     @pulumi.getter(name="connectionPortalUrl")
-    def connection_portal_url(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def connection_portal_url(self) -> Optional[Any]:
         """
         ConnectionPortalUrl
         """
         return pulumi.get(self, "connection_portal_url")
 
     @connection_portal_url.setter
-    def connection_portal_url(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def connection_portal_url(self, value: Optional[Any]):
         pulumi.set(self, "connection_portal_url", value)
 
     @property

@@ -249,17 +249,25 @@ class ParameterDefinitionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
+                 allowed_values: Optional[Sequence[Any]] = None,
+                 default_value: Optional[Any] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  strong_type: Optional[str] = None):
         """
         Represent a parameter with constrains and metadata.
         :param str type: Allowed data types for Resource Manager template parameters.
+        :param Sequence[Any] allowed_values: Array of allowed values for this parameter.
+        :param Any default_value: Default Value for this parameter.
         :param str description: Description of this parameter/resourceGroup.
         :param str display_name: DisplayName of this parameter/resourceGroup.
         :param str strong_type: StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
         """
         pulumi.set(__self__, "type", type)
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -274,6 +282,22 @@ class ParameterDefinitionResponse(dict):
         Allowed data types for Resource Manager template parameters.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[Any]]:
+        """
+        Array of allowed values for this parameter.
+        """
+        return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[Any]:
+        """
+        Default Value for this parameter.
+        """
+        return pulumi.get(self, "default_value")
 
     @property
     @pulumi.getter
@@ -310,11 +334,11 @@ class ParameterValueResponse(dict):
     """
     def __init__(__self__, *,
                  reference: Optional['outputs.SecretValueReferenceResponse'] = None,
-                 value: Optional[Mapping[str, Any]] = None):
+                 value: Optional[Any] = None):
         """
         Value for the specified parameter. Can be either 'value' or 'reference' but not both.
         :param 'SecretValueReferenceResponseArgs' reference: Parameter value as reference type.
-        :param Mapping[str, Any] value: Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
+        :param Any value: Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
         """
         if reference is not None:
             pulumi.set(__self__, "reference", reference)
@@ -331,7 +355,7 @@ class ParameterValueResponse(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Mapping[str, Any]]:
+    def value(self) -> Optional[Any]:
         """
         Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
         """

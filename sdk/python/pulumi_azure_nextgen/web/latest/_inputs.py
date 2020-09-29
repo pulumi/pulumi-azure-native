@@ -306,7 +306,7 @@ class ApiOAuthSettingsArgs:
                  client_secret: Optional[pulumi.Input[str]] = None,
                  custom_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]]] = None,
                  identity_provider: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 properties: Optional[Any] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -315,7 +315,7 @@ class ApiOAuthSettingsArgs:
         :param pulumi.Input[str] client_secret: Client Secret needed for OAuth
         :param pulumi.Input[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]] custom_parameters: OAuth parameters key is the name of parameter
         :param pulumi.Input[str] identity_provider: Identity provider
-        :param pulumi.Input[Mapping[str, Any]] properties: Read only properties for this oauth setting.
+        :param Any properties: Read only properties for this oauth setting.
         :param pulumi.Input[str] redirect_url: Url
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: OAuth scopes
         """
@@ -384,14 +384,14 @@ class ApiOAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def properties(self) -> Optional[Any]:
         """
         Read only properties for this oauth setting.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def properties(self, value: Optional[Any]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -422,13 +422,13 @@ class ApiOAuthSettingsArgs:
 @pulumi.input_type
 class ApiOAuthSettingsParameterArgs:
     def __init__(__self__, *,
-                 options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 ui_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 options: Optional[Any] = None,
+                 ui_definition: Optional[Any] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         OAuth settings for the API
-        :param pulumi.Input[Mapping[str, Any]] options: Options available to this parameter
-        :param pulumi.Input[Mapping[str, Any]] ui_definition: UI definitions per culture as caller can specify the culture
+        :param Any options: Options available to this parameter
+        :param Any ui_definition: UI definitions per culture as caller can specify the culture
         :param pulumi.Input[str] value: Value of the setting
         """
         if options is not None:
@@ -440,26 +440,26 @@ class ApiOAuthSettingsParameterArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def options(self) -> Optional[Any]:
         """
         Options available to this parameter
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def options(self, value: Optional[Any]):
         pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter(name="uiDefinition")
-    def ui_definition(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def ui_definition(self) -> Optional[Any]:
         """
         UI definitions per culture as caller can specify the culture
         """
         return pulumi.get(self, "ui_definition")
 
     @ui_definition.setter
-    def ui_definition(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def ui_definition(self, value: Optional[Any]):
         pulumi.set(self, "ui_definition", value)
 
     @property
@@ -484,7 +484,7 @@ class ApiReferenceArgs:
                  icon_uri: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 swagger: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 swagger: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] brand_color: Brand color
@@ -493,7 +493,7 @@ class ApiReferenceArgs:
         :param pulumi.Input[str] icon_uri: The icon URI
         :param pulumi.Input[str] id: Resource reference id
         :param pulumi.Input[str] name: The name of the API
-        :param pulumi.Input[Mapping[str, Any]] swagger: The JSON representation of the swagger
+        :param Any swagger: The JSON representation of the swagger
         :param pulumi.Input[str] type: Resource reference type
         """
         if brand_color is not None:
@@ -587,14 +587,14 @@ class ApiReferenceArgs:
 
     @property
     @pulumi.getter
-    def swagger(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def swagger(self) -> Optional[Any]:
         """
         The JSON representation of the swagger
         """
         return pulumi.get(self, "swagger")
 
     @swagger.setter
-    def swagger(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def swagger(self, value: Optional[Any]):
         pulumi.set(self, "swagger", value)
 
     @property
@@ -1371,7 +1371,7 @@ class ConnectionGatewayDefinitionPropertiesArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 status: Optional[Any] = None):
         """
         :param pulumi.Input[str] backend_uri: The URI of the backend
         :param pulumi.Input['ConnectionGatewayReferenceArgs'] connection_gateway_installation: The gateway installation reference
@@ -1379,7 +1379,7 @@ class ConnectionGatewayDefinitionPropertiesArgs:
         :param pulumi.Input[str] description: The gateway description
         :param pulumi.Input[str] display_name: The gateway display name
         :param pulumi.Input[str] machine_name: The machine name of the gateway
-        :param pulumi.Input[Mapping[str, Any]] status: The gateway status
+        :param Any status: The gateway status
         """
         if backend_uri is not None:
             pulumi.set(__self__, "backend_uri", backend_uri)
@@ -1470,14 +1470,14 @@ class ConnectionGatewayDefinitionPropertiesArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def status(self) -> Optional[Any]:
         """
         The gateway status
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def status(self, value: Optional[Any]):
         pulumi.set(self, "status", value)
 
 
@@ -1780,7 +1780,7 @@ class CustomApiPropertiesDefinitionArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  icon_uri: Optional[pulumi.Input[str]] = None,
                  runtime_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 swagger: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 swagger: Optional[Any] = None,
                  wsdl_definition: Optional[pulumi.Input['WsdlDefinitionArgs']] = None):
         """
         Custom API properties
@@ -1794,7 +1794,7 @@ class CustomApiPropertiesDefinitionArgs:
         :param pulumi.Input[str] display_name: The display name
         :param pulumi.Input[str] icon_uri: The icon URI
         :param pulumi.Input[Sequence[pulumi.Input[str]]] runtime_urls: Runtime URLs
-        :param pulumi.Input[Mapping[str, Any]] swagger: The JSON representation of the swagger
+        :param Any swagger: The JSON representation of the swagger
         :param pulumi.Input['WsdlDefinitionArgs'] wsdl_definition: The WSDL definition
         """
         if api_definitions is not None:
@@ -1944,14 +1944,14 @@ class CustomApiPropertiesDefinitionArgs:
 
     @property
     @pulumi.getter
-    def swagger(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def swagger(self) -> Optional[Any]:
         """
         The JSON representation of the swagger
         """
         return pulumi.get(self, "swagger")
 
     @swagger.setter
-    def swagger(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def swagger(self, value: Optional[Any]):
         pulumi.set(self, "swagger", value)
 
     @property

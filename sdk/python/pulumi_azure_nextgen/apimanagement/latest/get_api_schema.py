@@ -46,7 +46,7 @@ class GetApiSchemaResult:
 
     @property
     @pulumi.getter
-    def definitions(self) -> Optional[Mapping[str, Any]]:
+    def definitions(self) -> Optional[Any]:
         """
         Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         """

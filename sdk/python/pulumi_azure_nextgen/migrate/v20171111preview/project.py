@@ -21,7 +21,7 @@ class Project(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 tags: Optional[Any] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,7 +36,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] provisioning_state: Provisioning state of the project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
-        :param pulumi.Input[Mapping[str, Any]] tags: Tags provided by Azure Tagging service.
+        :param Any tags: Tags provided by Azure Tagging service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -182,7 +182,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         """
         Tags provided by Azure Tagging service.
         """

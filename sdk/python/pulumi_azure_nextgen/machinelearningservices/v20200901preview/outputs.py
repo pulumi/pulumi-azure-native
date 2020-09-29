@@ -88,7 +88,7 @@ class ACIServiceResponseResponse(dict):
     def __init__(__self__, *,
                  compute_type: str,
                  error: 'outputs.ServiceResponseBaseResponseError',
-                 model_config_map: Mapping[str, Mapping[str, Any]],
+                 model_config_map: Mapping[str, Any],
                  scoring_uri: str,
                  state: str,
                  swagger_uri: str,
@@ -115,7 +115,7 @@ class ACIServiceResponseResponse(dict):
         The response for an ACI service.
         :param str compute_type: The compute environment type for the service.
         :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
-        :param Mapping[str, Mapping[str, Any]] model_config_map: Details on the models and configurations.
+        :param Mapping[str, Any] model_config_map: Details on the models and configurations.
         :param str scoring_uri: The Uri for sending scoring requests.
         :param str state: The current state of the service.
         :param str swagger_uri: The Uri for sending swagger requests.
@@ -202,7 +202,7 @@ class ACIServiceResponseResponse(dict):
 
     @property
     @pulumi.getter(name="modelConfigMap")
-    def model_config_map(self) -> Mapping[str, Mapping[str, Any]]:
+    def model_config_map(self) -> Mapping[str, Any]:
         """
         Details on the models and configurations.
         """
@@ -3227,12 +3227,12 @@ class ModelEnvironmentDefinitionResponseResponsePython(dict):
     """
     def __init__(__self__, *,
                  base_conda_environment: Optional[str] = None,
-                 conda_dependencies: Optional[Mapping[str, Any]] = None,
+                 conda_dependencies: Optional[Any] = None,
                  interpreter_path: Optional[str] = None,
                  user_managed_dependencies: Optional[bool] = None):
         """
         Settings for a Python environment.
-        :param Mapping[str, Any] conda_dependencies: A JObject containing Conda dependencies.
+        :param Any conda_dependencies: A JObject containing Conda dependencies.
         :param str interpreter_path: The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
         :param bool user_managed_dependencies: True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
         """
@@ -3252,7 +3252,7 @@ class ModelEnvironmentDefinitionResponseResponsePython(dict):
 
     @property
     @pulumi.getter(name="condaDependencies")
-    def conda_dependencies(self) -> Optional[Mapping[str, Any]]:
+    def conda_dependencies(self) -> Optional[Any]:
         """
         A JObject containing Conda dependencies.
         """

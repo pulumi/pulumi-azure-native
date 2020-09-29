@@ -23,7 +23,7 @@ class Resource(pulumi.CustomResource):
                  managed_by: Optional[pulumi.Input[str]] = None,
                  parent_resource_path: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 properties: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  resource_provider_namespace: Optional[pulumi.Input[str]] = None,
@@ -44,7 +44,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[str] managed_by: Id of the resource that manages this resource.
         :param pulumi.Input[str] parent_resource_path: Resource identity.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: The plan of the resource.
-        :param pulumi.Input[Mapping[str, Any]] properties: The resource properties.
+        :param Any properties: The resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: Resource identity.
         :param pulumi.Input[str] resource_provider_namespace: Resource identity.
@@ -170,7 +170,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[Mapping[str, Any]]:
+    def properties(self) -> pulumi.Output[Any]:
         """
         The resource properties.
         """

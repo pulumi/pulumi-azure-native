@@ -19,7 +19,7 @@ class PolicyDefinition(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_definition_name: Optional[pulumi.Input[str]] = None,
-                 policy_rule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 policy_rule: Optional[Any] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,7 +33,7 @@ class PolicyDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param pulumi.Input[str] name: The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
         :param pulumi.Input[str] policy_definition_name: The name of the policy definition to create.
-        :param pulumi.Input[Mapping[str, Any]] policy_rule: The policy rule.
+        :param Any policy_rule: The policy rule.
         :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
         if __name__ is not None:
@@ -113,7 +113,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyRule")
-    def policy_rule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def policy_rule(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy rule.
         """

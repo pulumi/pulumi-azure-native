@@ -68,11 +68,11 @@ class PolicyDefinitionReferenceResponse(dict):
     The policy definition reference.
     """
     def __init__(__self__, *,
-                 parameters: Optional[Mapping[str, Any]] = None,
+                 parameters: Optional[Any] = None,
                  policy_definition_id: Optional[str] = None):
         """
         The policy definition reference.
-        :param Mapping[str, Any] parameters: Required if a parameter is used in policy rule.
+        :param Any parameters: Required if a parameter is used in policy rule.
         :param str policy_definition_id: The ID of the policy definition or policy set definition.
         """
         if parameters is not None:
@@ -82,7 +82,7 @@ class PolicyDefinitionReferenceResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Required if a parameter is used in policy rule.
         """

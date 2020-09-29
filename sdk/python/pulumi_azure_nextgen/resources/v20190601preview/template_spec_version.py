@@ -22,7 +22,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 template: Optional[Any] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None,
                  template_spec_version: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -38,7 +38,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the Template Spec Version. It must match the location of the parent Template Spec.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Mapping[str, Any]] template: The Azure Resource Manager template content.
+        :param Any template: The Azure Resource Manager template content.
         :param pulumi.Input[str] template_spec_name: Name of the Template Spec.
         :param pulumi.Input[str] template_spec_version: The version of the Template Spec.
         """
@@ -152,7 +152,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def template(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def template(self) -> pulumi.Output[Optional[Any]]:
         """
         The Azure Resource Manager template content.
         """

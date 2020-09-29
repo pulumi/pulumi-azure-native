@@ -57,13 +57,13 @@ class ContentLinkResponse(dict):
                  content_hash: Optional['outputs.ContentHashResponse'] = None,
                  content_size: Optional[int] = None,
                  content_version: Optional[str] = None,
-                 metadata: Optional[Mapping[str, Any]] = None,
+                 metadata: Optional[Any] = None,
                  uri: Optional[str] = None):
         """
         :param 'ContentHashResponseArgs' content_hash: Gets or sets the content hash.
         :param int content_size: Gets or sets the content size.
         :param str content_version: Gets or sets the content version.
-        :param Mapping[str, Any] metadata: Gets or sets the metadata.
+        :param Any metadata: Gets or sets the metadata.
         :param str uri: Gets or sets the content link URI.
         """
         if content_hash is not None:
@@ -103,7 +103,7 @@ class ContentLinkResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         Gets or sets the metadata.
         """
@@ -202,13 +202,13 @@ class SkuResponse(dict):
 @pulumi.output_type
 class WorkflowParameterResponse(dict):
     def __init__(__self__, *,
-                 metadata: Optional[Mapping[str, Any]] = None,
+                 metadata: Optional[Any] = None,
                  type: Optional[str] = None,
-                 value: Optional[Mapping[str, Any]] = None):
+                 value: Optional[Any] = None):
         """
-        :param Mapping[str, Any] metadata: Gets or sets the metadata.
+        :param Any metadata: Gets or sets the metadata.
         :param str type: Gets or sets the type.
-        :param Mapping[str, Any] value: Gets or sets the value.
+        :param Any value: Gets or sets the value.
         """
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
@@ -219,7 +219,7 @@ class WorkflowParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         Gets or sets the metadata.
         """
@@ -235,7 +235,7 @@ class WorkflowParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Mapping[str, Any]]:
+    def value(self) -> Optional[Any]:
         """
         Gets or sets the value.
         """

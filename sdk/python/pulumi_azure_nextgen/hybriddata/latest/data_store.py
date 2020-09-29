@@ -21,7 +21,7 @@ class DataStore(pulumi.CustomResource):
                  data_manager_name: Optional[pulumi.Input[str]] = None,
                  data_store_name: Optional[pulumi.Input[str]] = None,
                  data_store_type_id: Optional[pulumi.Input[str]] = None,
-                 extended_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extended_properties: Optional[Any] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -37,7 +37,7 @@ class DataStore(pulumi.CustomResource):
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[str] data_store_name: The data store/repository name to be created or updated.
         :param pulumi.Input[str] data_store_type_id: The arm id of the data store type.
-        :param pulumi.Input[Mapping[str, Any]] extended_properties: A generic json used differently by each data source type.
+        :param Any extended_properties: A generic json used differently by each data source type.
         :param pulumi.Input[str] repository_id: Arm Id for the manager resource to which the data source is associated. This is optional.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input[str] state: State of the data source.
@@ -123,7 +123,7 @@ class DataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def extended_properties(self) -> pulumi.Output[Optional[Any]]:
         """
         A generic json used differently by each data source type.
         """

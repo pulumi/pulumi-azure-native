@@ -20,7 +20,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_name: Optional[pulumi.Input[str]] = None,
                  lenses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardLensArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -34,7 +34,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] dashboard_name: The name of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardLensArgs']]]] lenses: The dashboard lenses.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] metadata: The dashboard metadata.
+        :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard metadata.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -113,7 +113,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Mapping[str, Any]]]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The dashboard metadata.
         """

@@ -18,7 +18,7 @@ class Pipeline(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ControlActivityArgs'], pulumi.InputType['ExecutionActivityArgs']]]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  concurrency: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
@@ -26,7 +26,7 @@ class Pipeline(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterSpecificationArgs']]]]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 run_dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 run_dimensions: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['VariableSpecificationArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,7 +37,7 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ControlActivityArgs'], pulumi.InputType['ExecutionActivityArgs']]]]] activities: List of activities in pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Pipeline.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Pipeline.
         :param pulumi.Input[int] concurrency: The max number of concurrent runs for the pipeline.
         :param pulumi.Input[str] description: The description of the pipeline.
         :param pulumi.Input[str] factory_name: The factory name.
@@ -45,7 +45,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterSpecificationArgs']]]] parameters: List of parameters for pipeline.
         :param pulumi.Input[str] pipeline_name: The pipeline name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] run_dimensions: Dimensions emitted by Pipeline.
+        :param pulumi.Input[Mapping[str, Any]] run_dimensions: Dimensions emitted by Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['VariableSpecificationArgs']]]] variables: List of variables for pipeline.
         """
         if __name__ is not None:
@@ -121,7 +121,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def annotations(self) -> pulumi.Output[Optional[Sequence[Mapping[str, Any]]]]:
+    def annotations(self) -> pulumi.Output[Optional[Sequence[Any]]]:
         """
         List of tags that can be used for describing the Pipeline.
         """
@@ -177,7 +177,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runDimensions")
-    def run_dimensions(self) -> pulumi.Output[Optional[Mapping[str, Mapping[str, Any]]]]:
+    def run_dimensions(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Dimensions emitted by Pipeline.
         """

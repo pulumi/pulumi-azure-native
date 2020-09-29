@@ -45,7 +45,7 @@ class ApiEntityResponse(dict):
                  general_information: Optional['outputs.GeneralApiInformationResponse'] = None,
                  id: Optional[str] = None,
                  kind: Optional[str] = None,
-                 metadata: Optional[Mapping[str, Any]] = None,
+                 metadata: Optional[Any] = None,
                  name: Optional[str] = None,
                  path: Optional[str] = None,
                  policies: Optional['outputs.ApiPoliciesResponse'] = None,
@@ -65,7 +65,7 @@ class ApiEntityResponse(dict):
         :param 'GeneralApiInformationResponseArgs' general_information: the URL path of this API when exposed via APIM
         :param str id: Resource Id
         :param str kind: Kind of resource
-        :param Mapping[str, Any] metadata: Free form object for the data caller wants to store
+        :param Any metadata: Free form object for the data caller wants to store
         :param str name: Resource Name
         :param str path: the URL path of this API when exposed via APIM
         :param 'ApiPoliciesResponseArgs' policies: API policies
@@ -192,7 +192,7 @@ class ApiEntityResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         Free form object for the data caller wants to store
         """
@@ -264,13 +264,13 @@ class ApiOAuthSettingsParameterResponse(dict):
     OAuth Settings Parameter
     """
     def __init__(__self__, *,
-                 options: Optional[Mapping[str, Any]] = None,
-                 ui_definition: Optional[Mapping[str, Any]] = None,
+                 options: Optional[Any] = None,
+                 ui_definition: Optional[Any] = None,
                  value: Optional[str] = None):
         """
         OAuth Settings Parameter
-        :param Mapping[str, Any] options: Read only: Options available to this parameter
-        :param Mapping[str, Any] ui_definition: UI definitions per culture as caller can specify the culture
+        :param Any options: Read only: Options available to this parameter
+        :param Any ui_definition: UI definitions per culture as caller can specify the culture
         :param str value: Value
         """
         if options is not None:
@@ -282,7 +282,7 @@ class ApiOAuthSettingsParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[Mapping[str, Any]]:
+    def options(self) -> Optional[Any]:
         """
         Read only: Options available to this parameter
         """
@@ -290,7 +290,7 @@ class ApiOAuthSettingsParameterResponse(dict):
 
     @property
     @pulumi.getter(name="uiDefinition")
-    def ui_definition(self) -> Optional[Mapping[str, Any]]:
+    def ui_definition(self) -> Optional[Any]:
         """
         UI definitions per culture as caller can specify the culture
         """
@@ -318,7 +318,7 @@ class ApiOAuthSettingsResponse(dict):
                  client_secret: Optional[str] = None,
                  custom_parameters: Optional[Mapping[str, 'outputs.ApiOAuthSettingsParameterResponse']] = None,
                  identity_provider: Optional[str] = None,
-                 properties: Optional[Mapping[str, Any]] = None,
+                 properties: Optional[Any] = None,
                  redirect_url: Optional[str] = None,
                  scopes: Optional[Sequence[str]] = None):
         """
@@ -327,7 +327,7 @@ class ApiOAuthSettingsResponse(dict):
         :param str client_secret: Client Secret needed for OAuth
         :param Mapping[str, 'ApiOAuthSettingsParameterResponseArgs'] custom_parameters: OAuth parameters key is the name of parameter
         :param str identity_provider: Identity provider
-        :param Mapping[str, Any] properties: Read only properties for this oauth setting.
+        :param Any properties: Read only properties for this oauth setting.
         :param str redirect_url: Url
         :param Sequence[str] scopes: OAuth scopes
         """
@@ -380,7 +380,7 @@ class ApiOAuthSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, Any]]:
+    def properties(self) -> Optional[Any]:
         """
         Read only properties for this oauth setting.
         """
@@ -801,16 +801,16 @@ class ConnectionParameterResponse(dict):
     connection provider parameters
     """
     def __init__(__self__, *,
-                 default_value: Optional[Mapping[str, Any]] = None,
+                 default_value: Optional[Any] = None,
                  o_auth_settings: Optional['outputs.ApiOAuthSettingsResponse'] = None,
                  type: Optional[str] = None,
-                 ui_definition: Optional[Mapping[str, Any]] = None):
+                 ui_definition: Optional[Any] = None):
         """
         connection provider parameters
-        :param Mapping[str, Any] default_value: Default parameter value
+        :param Any default_value: Default parameter value
         :param 'ApiOAuthSettingsResponseArgs' o_auth_settings: Settings defining OAuth flow for the back end provider
         :param str type: Type of the parameter
-        :param Mapping[str, Any] ui_definition: UI definitions
+        :param Any ui_definition: UI definitions
         """
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
@@ -823,7 +823,7 @@ class ConnectionParameterResponse(dict):
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[Mapping[str, Any]]:
+    def default_value(self) -> Optional[Any]:
         """
         Default parameter value
         """
@@ -847,7 +847,7 @@ class ConnectionParameterResponse(dict):
 
     @property
     @pulumi.getter(name="uiDefinition")
-    def ui_definition(self) -> Optional[Mapping[str, Any]]:
+    def ui_definition(self) -> Optional[Any]:
         """
         UI definitions
         """
@@ -1235,7 +1235,7 @@ class GeneralApiInformationResponse(dict):
     def __init__(__self__, *,
                  location: str,
                  connection_display_name: Optional[str] = None,
-                 connection_portal_url: Optional[Mapping[str, Any]] = None,
+                 connection_portal_url: Optional[Any] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  icon_url: Optional[str] = None,
@@ -1249,7 +1249,7 @@ class GeneralApiInformationResponse(dict):
         General API information
         :param str location: Resource Location
         :param str connection_display_name: DefaultConnectionNameTemplate
-        :param Mapping[str, Any] connection_portal_url: ConnectionPortalUrl
+        :param Any connection_portal_url: ConnectionPortalUrl
         :param str description: Description
         :param str display_name: Display Name
         :param str icon_url: Icon Url
@@ -1302,7 +1302,7 @@ class GeneralApiInformationResponse(dict):
 
     @property
     @pulumi.getter(name="connectionPortalUrl")
-    def connection_portal_url(self) -> Optional[Mapping[str, Any]]:
+    def connection_portal_url(self) -> Optional[Any]:
         """
         ConnectionPortalUrl
         """

@@ -180,7 +180,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="syncStatus")
-    def sync_status(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def sync_status(self) -> pulumi.Output[Optional[Any]]:
         """
         Sync Health Status
         """
