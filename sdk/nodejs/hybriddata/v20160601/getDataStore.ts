@@ -51,7 +51,7 @@ export interface GetDataStoreResult {
     /**
      * A generic json used differently by each data source type.
      */
-    readonly extendedProperties?: {[key: string]: any};
+    readonly extendedProperties?: any;
     /**
      * Name of the object.
      */

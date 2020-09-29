@@ -45,7 +45,7 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**
      * The policy definition metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
      */
@@ -57,11 +57,11 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**
      * Required if a parameter is used in policy rule.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<any | undefined>;
     /**
      * The policy rule.
      */
-    public readonly policyRule!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly policyRule!: pulumi.Output<any | undefined>;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
@@ -141,7 +141,7 @@ export interface PolicyDefinitionAtManagementGroupArgs {
     /**
      * The policy definition metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: any;
     /**
      * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
      */
@@ -149,7 +149,7 @@ export interface PolicyDefinitionAtManagementGroupArgs {
     /**
      * Required if a parameter is used in policy rule.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: any;
     /**
      * The name of the policy definition to create.
      */
@@ -157,7 +157,7 @@ export interface PolicyDefinitionAtManagementGroupArgs {
     /**
      * The policy rule.
      */
-    readonly policyRule?: pulumi.Input<{[key: string]: any}>;
+    readonly policyRule?: any;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */

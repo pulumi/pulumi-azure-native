@@ -45,7 +45,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The connector properties.
      */
-    public readonly connectorProperties!: pulumi.Output<{[key: string]: {[key: string]: any}}>;
+    public readonly connectorProperties!: pulumi.Output<{[key: string]: any}>;
     /**
      * Type of connector.
      */
@@ -166,7 +166,7 @@ export interface ConnectorArgs {
     /**
      * The connector properties.
      */
-    readonly connectorProperties: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    readonly connectorProperties: pulumi.Input<{[key: string]: any}>;
     /**
      * Type of connector.
      */

@@ -55,7 +55,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Specifies the tags that are assigned to the job.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<any | undefined>;
     /**
      * Specifies the type of the job resource.
      */
@@ -129,5 +129,5 @@ export interface JobArgs {
     /**
      * Specifies the tags that will be assigned to the job.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: any;
 }

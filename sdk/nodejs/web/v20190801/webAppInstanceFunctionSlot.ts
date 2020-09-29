@@ -37,7 +37,7 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     /**
      * Config information.
      */
-    public readonly config!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly config!: pulumi.Output<any | undefined>;
     /**
      * Config URI.
      */
@@ -178,7 +178,7 @@ export interface WebAppInstanceFunctionSlotArgs {
     /**
      * Config information.
      */
-    readonly config?: pulumi.Input<{[key: string]: any}>;
+    readonly config?: any;
     /**
      * Config URI.
      */

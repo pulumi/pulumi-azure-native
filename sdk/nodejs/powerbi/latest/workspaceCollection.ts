@@ -44,7 +44,7 @@ export class WorkspaceCollection extends pulumi.CustomResource {
     /**
      * Properties
      */
-    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly properties!: pulumi.Output<any>;
     public readonly sku!: pulumi.Output<outputs.powerbi.latest.AzureSkuResponse | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**

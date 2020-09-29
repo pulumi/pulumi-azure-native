@@ -51,7 +51,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
      */
-    public readonly definition!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly definition!: pulumi.Output<any | undefined>;
     /**
      * The integration account.
      */
@@ -161,7 +161,7 @@ export interface WorkflowArgs {
     /**
      * The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
      */
-    readonly definition?: pulumi.Input<{[key: string]: any}>;
+    readonly definition?: any;
     /**
      * The integration account.
      */

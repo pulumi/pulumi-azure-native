@@ -47,7 +47,7 @@ export class Blueprint extends pulumi.CustomResource {
     /**
      * Layout view of the blueprint definition for UI reference.
      */
-    public readonly layout!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly layout!: pulumi.Output<any | undefined>;
     /**
      * Name of this resource.
      */
@@ -75,7 +75,7 @@ export class Blueprint extends pulumi.CustomResource {
     /**
      * Published versions of this blueprint definition.
      */
-    public readonly versions!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly versions!: pulumi.Output<any | undefined>;
 
     /**
      * Create a Blueprint resource with the given unique name, arguments, and options.
@@ -150,7 +150,7 @@ export interface BlueprintArgs {
     /**
      * Layout view of the blueprint definition for UI reference.
      */
-    readonly layout?: pulumi.Input<{[key: string]: any}>;
+    readonly layout?: any;
     /**
      * Parameters required by this blueprint definition.
      */
@@ -170,5 +170,5 @@ export interface BlueprintArgs {
     /**
      * Published versions of this blueprint definition.
      */
-    readonly versions?: pulumi.Input<{[key: string]: any}>;
+    readonly versions?: any;
 }

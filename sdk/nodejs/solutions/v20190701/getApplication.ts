@@ -94,11 +94,11 @@ export interface GetApplicationResult {
     /**
      * Name and value pairs that define the managed application outputs.
      */
-    readonly outputs: {[key: string]: any};
+    readonly outputs: any;
     /**
      * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
      */
-    readonly parameters?: {[key: string]: any};
+    readonly parameters?: any;
     /**
      * The plan information.
      */

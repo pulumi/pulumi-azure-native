@@ -46,7 +46,7 @@ export interface GetApplicationDefinitionResult {
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
-    readonly createUiDefinition?: {[key: string]: any};
+    readonly createUiDefinition?: any;
     /**
      * The managed application deployment policy.
      */
@@ -78,7 +78,7 @@ export interface GetApplicationDefinitionResult {
     /**
      * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
      */
-    readonly mainTemplate?: {[key: string]: any};
+    readonly mainTemplate?: any;
     /**
      * ID of the resource that manages this resource.
      */

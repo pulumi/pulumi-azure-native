@@ -72,7 +72,7 @@ export class Connection extends pulumi.CustomResource {
      * Resource Location
      */
     public readonly location!: pulumi.Output<string>;
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * Resource Name
      */
@@ -80,11 +80,11 @@ export class Connection extends pulumi.CustomResource {
     /**
      * Tokens/Claim
      */
-    public readonly nonSecretParameterValues!: pulumi.Output<{[key: string]: {[key: string]: any}} | undefined>;
+    public readonly nonSecretParameterValues!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Tokens/Claim
      */
-    public readonly parameterValues!: pulumi.Output<{[key: string]: {[key: string]: any}} | undefined>;
+    public readonly parameterValues!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Status of the connection
      */
@@ -218,7 +218,7 @@ export interface ConnectionArgs {
      * Resource Location
      */
     readonly location: pulumi.Input<string>;
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: any;
     /**
      * Resource Name
      */
@@ -226,11 +226,11 @@ export interface ConnectionArgs {
     /**
      * Tokens/Claim
      */
-    readonly nonSecretParameterValues?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    readonly nonSecretParameterValues?: pulumi.Input<{[key: string]: any}>;
     /**
      * Tokens/Claim
      */
-    readonly parameterValues?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    readonly parameterValues?: pulumi.Input<{[key: string]: any}>;
     /**
      * The resource group name.
      */

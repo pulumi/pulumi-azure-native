@@ -64,7 +64,7 @@ export interface GetVirtualMachineScaleSetExtensionResult {
     /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    readonly protectedSettings?: {[key: string]: any};
+    readonly protectedSettings?: any;
     /**
      * Collection of extension names after which this extension needs to be provisioned.
      */
@@ -80,7 +80,7 @@ export interface GetVirtualMachineScaleSetExtensionResult {
     /**
      * Json formatted public settings for the extension.
      */
-    readonly settings?: {[key: string]: any};
+    readonly settings?: any;
     /**
      * Resource type
      */

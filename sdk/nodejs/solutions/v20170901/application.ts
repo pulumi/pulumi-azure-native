@@ -67,11 +67,11 @@ export class Application extends pulumi.CustomResource {
     /**
      * Name and value pairs that define the managed application outputs.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly outputs!: pulumi.Output<any>;
     /**
      * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<any | undefined>;
     /**
      * The plan information.
      */
@@ -201,7 +201,7 @@ export interface ApplicationArgs {
     /**
      * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: any;
     /**
      * The plan information.
      */

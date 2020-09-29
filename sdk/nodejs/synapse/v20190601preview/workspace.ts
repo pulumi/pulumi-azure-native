@@ -47,7 +47,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Workspace level configs and feature flags
      */
-    public /*out*/ readonly extraProperties!: pulumi.Output<{[key: string]: {[key: string]: any}}>;
+    public /*out*/ readonly extraProperties!: pulumi.Output<{[key: string]: any}>;
     /**
      * Identity of the workspace
      */

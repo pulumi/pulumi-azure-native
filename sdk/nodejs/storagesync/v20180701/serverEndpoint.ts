@@ -69,7 +69,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
     /**
      * Sync Health Status
      */
-    public /*out*/ readonly syncStatus!: pulumi.Output<{[key: string]: any} | undefined>;
+    public /*out*/ readonly syncStatus!: pulumi.Output<any | undefined>;
     /**
      * Tier files older than days.
      */

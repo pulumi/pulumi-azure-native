@@ -49,7 +49,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The data source properties in raw json format, each kind of data source have it's own schema.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: any}>;
+    public readonly properties!: pulumi.Output<any>;
     /**
      * Resource tags.
      */
@@ -133,7 +133,7 @@ export interface DataSourceArgs {
     /**
      * The data source properties in raw json format, each kind of data source have it's own schema.
      */
-    readonly properties: pulumi.Input<{[key: string]: any}>;
+    readonly properties: any;
     /**
      * The name of the resource group. The name is case insensitive.
      */

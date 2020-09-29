@@ -67,7 +67,7 @@ export interface GetTemplateSpecVersionResult {
     /**
      * The Azure Resource Manager template content.
      */
-    readonly template?: {[key: string]: any};
+    readonly template?: any;
     /**
      * Type of this resource.
      */

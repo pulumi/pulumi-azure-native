@@ -52,7 +52,7 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
     /**
      * The metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * The resource name.
      */
@@ -153,7 +153,7 @@ export interface IntegrationAccountCertificateArgs {
     /**
      * The metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: any;
     /**
      * The resource name.
      */

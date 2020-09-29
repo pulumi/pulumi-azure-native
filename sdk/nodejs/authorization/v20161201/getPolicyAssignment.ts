@@ -50,7 +50,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * Required if a parameter is used in policy rule.
      */
-    readonly parameters?: {[key: string]: any};
+    readonly parameters?: any;
     /**
      * The ID of the policy definition.
      */

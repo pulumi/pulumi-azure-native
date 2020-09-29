@@ -63,7 +63,7 @@ export interface GetQueryResult {
     /**
      * Additional properties that can be set for the query.
      */
-    readonly properties: {[key: string]: any};
+    readonly properties: any;
     /**
      * The related metadata items for the function.
      */

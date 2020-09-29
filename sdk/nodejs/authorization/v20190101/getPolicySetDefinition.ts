@@ -41,7 +41,7 @@ export interface GetPolicySetDefinitionResult {
     /**
      * The policy set definition metadata.
      */
-    readonly metadata?: {[key: string]: any};
+    readonly metadata?: any;
     /**
      * The name of the policy set definition.
      */
@@ -49,7 +49,7 @@ export interface GetPolicySetDefinitionResult {
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    readonly parameters?: {[key: string]: any};
+    readonly parameters?: any;
     /**
      * An array of policy definition references.
      */

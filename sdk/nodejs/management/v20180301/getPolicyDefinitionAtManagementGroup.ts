@@ -46,7 +46,7 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
     /**
      * The policy definition metadata.
      */
-    readonly metadata?: {[key: string]: any};
+    readonly metadata?: any;
     /**
      * The policy definition mode. Possible values are NotSpecified, Indexed, and All.
      */
@@ -58,11 +58,11 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
     /**
      * Required if a parameter is used in policy rule.
      */
-    readonly parameters?: {[key: string]: any};
+    readonly parameters?: any;
     /**
      * The policy rule.
      */
-    readonly policyRule?: {[key: string]: any};
+    readonly policyRule?: any;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */

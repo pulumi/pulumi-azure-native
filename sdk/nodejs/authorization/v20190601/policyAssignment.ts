@@ -59,7 +59,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * The policy assignment metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * The name of the policy assignment.
      */
@@ -71,7 +71,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * Required if a parameter is used in policy rule.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<any | undefined>;
     /**
      * The ID of the policy definition or policy set definition being assigned.
      */
@@ -174,7 +174,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The policy assignment metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: any;
     /**
      * The policy's excluded scopes.
      */
@@ -182,7 +182,7 @@ export interface PolicyAssignmentArgs {
     /**
      * Required if a parameter is used in policy rule.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: any;
     /**
      * The name of the policy assignment.
      */

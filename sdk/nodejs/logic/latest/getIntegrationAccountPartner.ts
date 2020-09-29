@@ -59,7 +59,7 @@ export interface GetIntegrationAccountPartnerResult {
     /**
      * The metadata.
      */
-    readonly metadata?: {[key: string]: any};
+    readonly metadata?: any;
     /**
      * Gets the resource name.
      */

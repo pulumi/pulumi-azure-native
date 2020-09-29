@@ -47,7 +47,7 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
     /**
      * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * The name of the policy set definition.
      */
@@ -146,7 +146,7 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
     /**
      * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: any;
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */

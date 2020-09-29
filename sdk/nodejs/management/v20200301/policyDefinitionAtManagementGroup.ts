@@ -47,7 +47,7 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**
      * The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
      */
@@ -63,7 +63,7 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**
      * The policy rule.
      */
-    public readonly policyRule!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly policyRule!: pulumi.Output<any | undefined>;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
@@ -143,7 +143,7 @@ export interface PolicyDefinitionAtManagementGroupArgs {
     /**
      * The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: any;
     /**
      * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
      */
@@ -159,7 +159,7 @@ export interface PolicyDefinitionAtManagementGroupArgs {
     /**
      * The policy rule.
      */
-    readonly policyRule?: pulumi.Input<{[key: string]: any}>;
+    readonly policyRule?: any;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */

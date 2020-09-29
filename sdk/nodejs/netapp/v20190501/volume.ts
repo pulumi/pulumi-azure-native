@@ -87,7 +87,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<any | undefined>;
     /**
      * Resource type
      */
@@ -231,7 +231,7 @@ export interface VolumeArgs {
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: any;
     /**
      * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
      */

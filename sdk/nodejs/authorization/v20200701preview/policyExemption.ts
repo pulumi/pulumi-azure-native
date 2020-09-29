@@ -55,7 +55,7 @@ export class PolicyExemption extends pulumi.CustomResource {
     /**
      * The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * The name of the resource
      */
@@ -157,7 +157,7 @@ export interface PolicyExemptionArgs {
     /**
      * The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: any;
     /**
      * The ID of the policy assignment that is being exempted.
      */

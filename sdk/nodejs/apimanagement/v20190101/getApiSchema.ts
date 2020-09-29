@@ -52,7 +52,7 @@ export interface GetApiSchemaResult {
     /**
      * Properties of the Schema Document.
      */
-    readonly document?: {[key: string]: any};
+    readonly document?: any;
     /**
      * Resource name.
      */

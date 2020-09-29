@@ -52,7 +52,7 @@ export interface GetApiSchemaResult {
     /**
      * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
      */
-    readonly definitions?: {[key: string]: any};
+    readonly definitions?: any;
     /**
      * Resource name.
      */

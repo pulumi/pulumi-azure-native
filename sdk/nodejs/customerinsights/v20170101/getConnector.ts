@@ -51,7 +51,7 @@ export interface GetConnectorResult {
     /**
      * The connector properties.
      */
-    readonly connectorProperties: {[key: string]: {[key: string]: any}};
+    readonly connectorProperties: {[key: string]: any};
     /**
      * Type of connector.
      */

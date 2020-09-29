@@ -43,7 +43,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * List of tags that can be used for describing the Pipeline.
      */
-    public readonly annotations!: pulumi.Output<{[key: string]: any}[] | undefined>;
+    public readonly annotations!: pulumi.Output<any[] | undefined>;
     /**
      * The max number of concurrent runs for the pipeline.
      */
@@ -133,7 +133,7 @@ export interface PipelineArgs {
     /**
      * List of tags that can be used for describing the Pipeline.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    readonly annotations?: pulumi.Input<any[]>;
     /**
      * The max number of concurrent runs for the pipeline.
      */

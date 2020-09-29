@@ -37,7 +37,7 @@ export class WebAppFunction extends pulumi.CustomResource {
     /**
      * Config information.
      */
-    public readonly config!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly config!: pulumi.Output<any | undefined>;
     /**
      * Config URI.
      */
@@ -150,7 +150,7 @@ export interface WebAppFunctionArgs {
     /**
      * Config information.
      */
-    readonly config?: pulumi.Input<{[key: string]: any}>;
+    readonly config?: any;
     /**
      * Config URI.
      */

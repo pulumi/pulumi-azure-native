@@ -47,7 +47,7 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The dashboard metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: {[key: string]: any}} | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Resource name
      */
@@ -128,7 +128,7 @@ export interface DashboardArgs {
     /**
      * The dashboard metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the resource group.
      */

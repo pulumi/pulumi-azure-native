@@ -86,7 +86,7 @@ export interface GetCacheResult {
     /**
      * ARM tags as name/value pairs.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: any;
     /**
      * Type of the Cache; Microsoft.StorageCache/Cache
      */

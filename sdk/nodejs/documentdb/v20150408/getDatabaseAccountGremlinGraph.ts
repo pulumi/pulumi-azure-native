@@ -82,6 +82,10 @@ export interface GetDatabaseAccountGremlinGraphResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * A system generated property that denotes the last updated timestamp of the resource.
+     */
+    readonly ts?: any;
+    /**
      * The type of Azure resource.
      */
     readonly type: string;

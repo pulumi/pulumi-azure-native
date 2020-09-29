@@ -48,7 +48,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Gets or sets the definition.
      */
-    public readonly definition!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly definition!: pulumi.Output<any | undefined>;
     /**
      * Gets or sets the link to definition.
      */
@@ -165,7 +165,7 @@ export interface WorkflowArgs {
     /**
      * Gets or sets the definition.
      */
-    readonly definition?: pulumi.Input<{[key: string]: any}>;
+    readonly definition?: any;
     /**
      * Gets or sets the link to definition.
      */

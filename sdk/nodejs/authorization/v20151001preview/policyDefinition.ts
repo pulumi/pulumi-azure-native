@@ -49,7 +49,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
     /**
      * The policy rule.
      */
-    public readonly policyRule!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly policyRule!: pulumi.Output<any | undefined>;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
@@ -117,7 +117,7 @@ export interface PolicyDefinitionArgs {
     /**
      * The policy rule.
      */
-    readonly policyRule?: pulumi.Input<{[key: string]: any}>;
+    readonly policyRule?: any;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */

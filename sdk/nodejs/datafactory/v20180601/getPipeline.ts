@@ -47,7 +47,7 @@ export interface GetPipelineResult {
     /**
      * List of tags that can be used for describing the Pipeline.
      */
-    readonly annotations?: {[key: string]: any}[];
+    readonly annotations?: any[];
     /**
      * The max number of concurrent runs for the pipeline.
      */
@@ -75,7 +75,7 @@ export interface GetPipelineResult {
     /**
      * Dimensions emitted by Pipeline.
      */
-    readonly runDimensions?: {[key: string]: {[key: string]: any}};
+    readonly runDimensions?: {[key: string]: any};
     /**
      * The resource type.
      */

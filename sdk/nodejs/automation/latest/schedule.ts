@@ -61,6 +61,10 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly frequency!: pulumi.Output<string | undefined>;
     /**
+     * Gets or sets the interval of the schedule.
+     */
+    public readonly interval!: pulumi.Output<any | undefined>;
+    /**
      * Gets or sets a value indicating whether this schedule is enabled.
      */
     public /*out*/ readonly isEnabled!: pulumi.Output<boolean | undefined>;
@@ -151,6 +155,7 @@ export class Schedule extends pulumi.CustomResource {
             inputs["expiryTime"] = undefined /*out*/;
             inputs["expiryTimeOffsetMinutes"] = undefined /*out*/;
             inputs["frequency"] = undefined /*out*/;
+            inputs["interval"] = undefined /*out*/;
             inputs["isEnabled"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

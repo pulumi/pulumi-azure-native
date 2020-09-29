@@ -80,7 +80,7 @@ export interface GetServerEndpointResult {
     /**
      * Sync Health Status
      */
-    readonly syncStatus?: {[key: string]: any};
+    readonly syncStatus?: any;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

@@ -47,11 +47,11 @@ export class VendorSkus extends pulumi.CustomResource {
     /**
      * The parameters for the managed application to be supplied by vendor.
      */
-    public readonly managedApplicationParameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly managedApplicationParameters!: pulumi.Output<any | undefined>;
     /**
      * The template for the managed application deployment.
      */
-    public readonly managedApplicationTemplate!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly managedApplicationTemplate!: pulumi.Output<any | undefined>;
     /**
      * Resource name.
      */
@@ -149,11 +149,11 @@ export interface VendorSkusArgs {
     /**
      * The parameters for the managed application to be supplied by vendor.
      */
-    readonly managedApplicationParameters?: pulumi.Input<{[key: string]: any}>;
+    readonly managedApplicationParameters?: any;
     /**
      * The template for the managed application deployment.
      */
-    readonly managedApplicationTemplate?: pulumi.Input<{[key: string]: any}>;
+    readonly managedApplicationTemplate?: any;
     /**
      * Indicates if the vendor sku is in preview mode.
      */

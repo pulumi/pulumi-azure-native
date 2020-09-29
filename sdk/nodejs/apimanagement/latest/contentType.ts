@@ -45,7 +45,7 @@ export class ContentType extends pulumi.CustomResource {
     /**
      * Content type schema.
      */
-    public /*out*/ readonly schema!: pulumi.Output<{[key: string]: any} | undefined>;
+    public /*out*/ readonly schema!: pulumi.Output<any | undefined>;
     /**
      * Resource type for API Management resource.
      */

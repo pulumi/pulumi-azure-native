@@ -46,11 +46,11 @@ export interface GetVendorSkusResult {
     /**
      * The parameters for the managed application to be supplied by vendor.
      */
-    readonly managedApplicationParameters?: {[key: string]: any};
+    readonly managedApplicationParameters?: any;
     /**
      * The template for the managed application deployment.
      */
-    readonly managedApplicationTemplate?: {[key: string]: any};
+    readonly managedApplicationTemplate?: any;
     /**
      * Resource name.
      */

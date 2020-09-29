@@ -43,7 +43,7 @@ export interface GetWebAppFunctionResult {
     /**
      * Config information.
      */
-    readonly config?: {[key: string]: any};
+    readonly config?: any;
     /**
      * Config URI.
      */

@@ -66,11 +66,11 @@ export interface GetApplianceResult {
     /**
      * Name and value pairs that define the appliance outputs.
      */
-    readonly outputs: {[key: string]: any};
+    readonly outputs: any;
     /**
      * Name and value pairs that define the appliance parameters. It can be a JObject or a well formed JSON string.
      */
-    readonly parameters?: {[key: string]: any};
+    readonly parameters?: any;
     /**
      * The plan information.
      */

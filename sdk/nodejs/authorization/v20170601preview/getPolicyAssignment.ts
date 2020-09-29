@@ -46,7 +46,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The policy assignment metadata.
      */
-    readonly metadata?: {[key: string]: any};
+    readonly metadata?: any;
     /**
      * The name of the policy assignment.
      */
@@ -58,7 +58,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * Required if a parameter is used in policy rule.
      */
-    readonly parameters?: {[key: string]: any};
+    readonly parameters?: any;
     /**
      * The ID of the policy definition.
      */

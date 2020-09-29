@@ -57,6 +57,10 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A system generated property that denotes the last updated timestamp of the resource.
+     */
+    public /*out*/ readonly ts!: pulumi.Output<any | undefined>;
+    /**
      * The type of Azure resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["rid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["ts"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -103,6 +108,7 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["rid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["ts"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -55,7 +55,7 @@ export class SqlManagedInstance extends pulumi.CustomResource {
     /**
      * The raw kubernetes information
      */
-    public readonly k8sRaw!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly k8sRaw!: pulumi.Output<any | undefined>;
     /**
      * Last uploaded date from on premise cluster. Defaults to current date time
      */
@@ -174,7 +174,7 @@ export interface SqlManagedInstanceArgs {
     /**
      * The raw kubernetes information
      */
-    readonly k8sRaw?: pulumi.Input<{[key: string]: any}>;
+    readonly k8sRaw?: any;
     /**
      * Last uploaded date from on premise cluster. Defaults to current date time
      */

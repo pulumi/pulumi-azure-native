@@ -52,7 +52,7 @@ export interface GetJobDefinitionResult {
     /**
      * A generic json used differently by each data service type.
      */
-    readonly dataServiceInput?: {[key: string]: any};
+    readonly dataServiceInput?: any;
     /**
      * Data Sink Id associated to the job definition.
      */

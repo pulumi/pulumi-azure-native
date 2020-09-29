@@ -59,7 +59,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * The name of the policy assignment.
      */
@@ -174,7 +174,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: any;
     /**
      * The policy's excluded scopes.
      */

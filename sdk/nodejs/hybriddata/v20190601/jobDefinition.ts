@@ -43,7 +43,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * A generic json used differently by each data service type.
      */
-    public readonly dataServiceInput!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly dataServiceInput!: pulumi.Output<any | undefined>;
     /**
      * Data Sink Id associated to the job definition.
      */
@@ -168,7 +168,7 @@ export interface JobDefinitionArgs {
     /**
      * A generic json used differently by each data service type.
      */
-    readonly dataServiceInput?: pulumi.Input<{[key: string]: any}>;
+    readonly dataServiceInput?: any;
     /**
      * The data service type of the job definition.
      */

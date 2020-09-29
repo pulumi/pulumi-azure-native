@@ -43,7 +43,7 @@ export interface GetWorkspaceCollectionResult {
     /**
      * Properties
      */
-    readonly properties: {[key: string]: any};
+    readonly properties: any;
     readonly sku?: outputs.powerbi.latest.AzureSkuResponse;
     readonly tags?: {[key: string]: string};
     /**

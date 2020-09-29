@@ -43,7 +43,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * List of tags that can be used for describing the Pipeline.
      */
-    public readonly annotations!: pulumi.Output<{[key: string]: any}[] | undefined>;
+    public readonly annotations!: pulumi.Output<any[] | undefined>;
     /**
      * The max number of concurrent runs for the pipeline.
      */
@@ -71,7 +71,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * Dimensions emitted by Pipeline.
      */
-    public readonly runDimensions!: pulumi.Output<{[key: string]: {[key: string]: any}} | undefined>;
+    public readonly runDimensions!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The resource type.
      */
@@ -151,7 +151,7 @@ export interface PipelineArgs {
     /**
      * List of tags that can be used for describing the Pipeline.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    readonly annotations?: pulumi.Input<any[]>;
     /**
      * The max number of concurrent runs for the pipeline.
      */
@@ -183,7 +183,7 @@ export interface PipelineArgs {
     /**
      * Dimensions emitted by Pipeline.
      */
-    readonly runDimensions?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    readonly runDimensions?: pulumi.Input<{[key: string]: any}>;
     /**
      * List of variables for pipeline.
      */

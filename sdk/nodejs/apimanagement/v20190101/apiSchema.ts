@@ -41,7 +41,7 @@ export class ApiSchema extends pulumi.CustomResource {
     /**
      * Properties of the Schema Document.
      */
-    public /*out*/ readonly document!: pulumi.Output<{[key: string]: any} | undefined>;
+    public /*out*/ readonly document!: pulumi.Output<any | undefined>;
     /**
      * Resource name.
      */

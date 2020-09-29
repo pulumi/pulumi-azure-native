@@ -45,7 +45,7 @@ export interface GetPolicyDefinitionResult {
     /**
      * The policy rule.
      */
-    readonly policyRule?: {[key: string]: any};
+    readonly policyRule?: any;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
