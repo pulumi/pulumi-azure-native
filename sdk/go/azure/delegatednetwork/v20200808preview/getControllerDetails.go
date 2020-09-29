@@ -25,16 +25,22 @@ type LookupControllerDetailsArgs struct {
 
 // Represents an instance of a DNC controller.
 type LookupControllerDetailsResult struct {
-	// The current state of dnc controller resource.
-	DncAppId *string `pulumi:"dncAppId"`
+	// dnc application id should be used by customer to authenticate with dnc gateway.
+	DncAppId string `pulumi:"dncAppId"`
 	// dnc endpoint url that customers can use to connect to
-	DncEndpoint *string `pulumi:"dncEndpoint"`
-	// Location of the DNC controller resource.
+	DncEndpoint string `pulumi:"dncEndpoint"`
+	// tenant id of dnc application id
+	DncTenantId string `pulumi:"dncTenantId"`
+	// Location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the DNC controller resource.
+	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The current state of dnc controller resource.
-	State string `pulumi:"state"`
-	// The type of the DNC controller  resource.(Microsoft.DelegatedNetwork/controller)
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource guid.
+	ResourceGuid string `pulumi:"resourceGuid"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of resource.
 	Type string `pulumi:"type"`
 }

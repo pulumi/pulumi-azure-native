@@ -33812,6 +33812,312 @@ func (o PacketCaptureStorageLocationResponsePtrOutput) StoragePath() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines contents of a web application firewall global configuration
+type PolicySettings struct {
+	// describes if the policy is in enabled state or disabled state
+	EnabledState *string `pulumi:"enabledState"`
+	// Describes if it is in detection mode  or prevention mode at policy level
+	Mode *string `pulumi:"mode"`
+}
+
+// PolicySettingsInput is an input type that accepts PolicySettingsArgs and PolicySettingsOutput values.
+// You can construct a concrete instance of `PolicySettingsInput` via:
+//
+//          PolicySettingsArgs{...}
+type PolicySettingsInput interface {
+	pulumi.Input
+
+	ToPolicySettingsOutput() PolicySettingsOutput
+	ToPolicySettingsOutputWithContext(context.Context) PolicySettingsOutput
+}
+
+// Defines contents of a web application firewall global configuration
+type PolicySettingsArgs struct {
+	// describes if the policy is in enabled state or disabled state
+	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
+	// Describes if it is in detection mode  or prevention mode at policy level
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (PolicySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySettings)(nil)).Elem()
+}
+
+func (i PolicySettingsArgs) ToPolicySettingsOutput() PolicySettingsOutput {
+	return i.ToPolicySettingsOutputWithContext(context.Background())
+}
+
+func (i PolicySettingsArgs) ToPolicySettingsOutputWithContext(ctx context.Context) PolicySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsOutput)
+}
+
+func (i PolicySettingsArgs) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
+	return i.ToPolicySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i PolicySettingsArgs) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsOutput).ToPolicySettingsPtrOutputWithContext(ctx)
+}
+
+// PolicySettingsPtrInput is an input type that accepts PolicySettingsArgs, PolicySettingsPtr and PolicySettingsPtrOutput values.
+// You can construct a concrete instance of `PolicySettingsPtrInput` via:
+//
+//          PolicySettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicySettingsPtrInput interface {
+	pulumi.Input
+
+	ToPolicySettingsPtrOutput() PolicySettingsPtrOutput
+	ToPolicySettingsPtrOutputWithContext(context.Context) PolicySettingsPtrOutput
+}
+
+type policySettingsPtrType PolicySettingsArgs
+
+func PolicySettingsPtr(v *PolicySettingsArgs) PolicySettingsPtrInput {
+	return (*policySettingsPtrType)(v)
+}
+
+func (*policySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySettings)(nil)).Elem()
+}
+
+func (i *policySettingsPtrType) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
+	return i.ToPolicySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *policySettingsPtrType) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsPtrOutput)
+}
+
+// Defines contents of a web application firewall global configuration
+type PolicySettingsOutput struct{ *pulumi.OutputState }
+
+func (PolicySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySettings)(nil)).Elem()
+}
+
+func (o PolicySettingsOutput) ToPolicySettingsOutput() PolicySettingsOutput {
+	return o
+}
+
+func (o PolicySettingsOutput) ToPolicySettingsOutputWithContext(ctx context.Context) PolicySettingsOutput {
+	return o
+}
+
+func (o PolicySettingsOutput) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
+	return o.ToPolicySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o PolicySettingsOutput) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
+	return o.ApplyT(func(v PolicySettings) *PolicySettings {
+		return &v
+	}).(PolicySettingsPtrOutput)
+}
+
+// describes if the policy is in enabled state or disabled state
+func (o PolicySettingsOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettings) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// Describes if it is in detection mode  or prevention mode at policy level
+func (o PolicySettingsOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type PolicySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySettings)(nil)).Elem()
+}
+
+func (o PolicySettingsPtrOutput) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
+	return o
+}
+
+func (o PolicySettingsPtrOutput) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
+	return o
+}
+
+func (o PolicySettingsPtrOutput) Elem() PolicySettingsOutput {
+	return o.ApplyT(func(v *PolicySettings) PolicySettings { return *v }).(PolicySettingsOutput)
+}
+
+// describes if the policy is in enabled state or disabled state
+func (o PolicySettingsPtrOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes if it is in detection mode  or prevention mode at policy level
+func (o PolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines contents of a web application firewall global configuration
+type PolicySettingsResponse struct {
+	// describes if the policy is in enabled state or disabled state
+	EnabledState *string `pulumi:"enabledState"`
+	// Describes if it is in detection mode  or prevention mode at policy level
+	Mode *string `pulumi:"mode"`
+}
+
+// PolicySettingsResponseInput is an input type that accepts PolicySettingsResponseArgs and PolicySettingsResponseOutput values.
+// You can construct a concrete instance of `PolicySettingsResponseInput` via:
+//
+//          PolicySettingsResponseArgs{...}
+type PolicySettingsResponseInput interface {
+	pulumi.Input
+
+	ToPolicySettingsResponseOutput() PolicySettingsResponseOutput
+	ToPolicySettingsResponseOutputWithContext(context.Context) PolicySettingsResponseOutput
+}
+
+// Defines contents of a web application firewall global configuration
+type PolicySettingsResponseArgs struct {
+	// describes if the policy is in enabled state or disabled state
+	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
+	// Describes if it is in detection mode  or prevention mode at policy level
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (PolicySettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySettingsResponse)(nil)).Elem()
+}
+
+func (i PolicySettingsResponseArgs) ToPolicySettingsResponseOutput() PolicySettingsResponseOutput {
+	return i.ToPolicySettingsResponseOutputWithContext(context.Background())
+}
+
+func (i PolicySettingsResponseArgs) ToPolicySettingsResponseOutputWithContext(ctx context.Context) PolicySettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsResponseOutput)
+}
+
+func (i PolicySettingsResponseArgs) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
+	return i.ToPolicySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PolicySettingsResponseArgs) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsResponseOutput).ToPolicySettingsResponsePtrOutputWithContext(ctx)
+}
+
+// PolicySettingsResponsePtrInput is an input type that accepts PolicySettingsResponseArgs, PolicySettingsResponsePtr and PolicySettingsResponsePtrOutput values.
+// You can construct a concrete instance of `PolicySettingsResponsePtrInput` via:
+//
+//          PolicySettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicySettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput
+	ToPolicySettingsResponsePtrOutputWithContext(context.Context) PolicySettingsResponsePtrOutput
+}
+
+type policySettingsResponsePtrType PolicySettingsResponseArgs
+
+func PolicySettingsResponsePtr(v *PolicySettingsResponseArgs) PolicySettingsResponsePtrInput {
+	return (*policySettingsResponsePtrType)(v)
+}
+
+func (*policySettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySettingsResponse)(nil)).Elem()
+}
+
+func (i *policySettingsResponsePtrType) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
+	return i.ToPolicySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *policySettingsResponsePtrType) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsResponsePtrOutput)
+}
+
+// Defines contents of a web application firewall global configuration
+type PolicySettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (PolicySettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySettingsResponse)(nil)).Elem()
+}
+
+func (o PolicySettingsResponseOutput) ToPolicySettingsResponseOutput() PolicySettingsResponseOutput {
+	return o
+}
+
+func (o PolicySettingsResponseOutput) ToPolicySettingsResponseOutputWithContext(ctx context.Context) PolicySettingsResponseOutput {
+	return o
+}
+
+func (o PolicySettingsResponseOutput) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
+	return o.ToPolicySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PolicySettingsResponseOutput) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
+	return o.ApplyT(func(v PolicySettingsResponse) *PolicySettingsResponse {
+		return &v
+	}).(PolicySettingsResponsePtrOutput)
+}
+
+// describes if the policy is in enabled state or disabled state
+func (o PolicySettingsResponseOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettingsResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// Describes if it is in detection mode  or prevention mode at policy level
+func (o PolicySettingsResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettingsResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type PolicySettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySettingsResponse)(nil)).Elem()
+}
+
+func (o PolicySettingsResponsePtrOutput) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
+	return o
+}
+
+func (o PolicySettingsResponsePtrOutput) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
+	return o
+}
+
+func (o PolicySettingsResponsePtrOutput) Elem() PolicySettingsResponseOutput {
+	return o.ApplyT(func(v *PolicySettingsResponse) PolicySettingsResponse { return *v }).(PolicySettingsResponseOutput)
+}
+
+// describes if the policy is in enabled state or disabled state
+func (o PolicySettingsResponsePtrOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes if it is in detection mode  or prevention mode at policy level
+func (o PolicySettingsResponsePtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
 // A load balancer probe.
 type Probe struct {
 	// A unique read-only string that changes whenever the resource is updated.
@@ -46384,312 +46690,6 @@ func (o VpnConnectionResponseArrayOutput) Index(i pulumi.IntInput) VpnConnection
 	}).(VpnConnectionResponseOutput)
 }
 
-// Defines contents of a web application firewall global configuration
-type PolicySettings struct {
-	// describes if the policy is in enabled state or disabled state
-	EnabledState *string `pulumi:"enabledState"`
-	// Describes if it is in detection mode  or prevention mode at policy level
-	Mode *string `pulumi:"mode"`
-}
-
-// PolicySettingsInput is an input type that accepts PolicySettingsArgs and PolicySettingsOutput values.
-// You can construct a concrete instance of `PolicySettingsInput` via:
-//
-//          PolicySettingsArgs{...}
-type PolicySettingsInput interface {
-	pulumi.Input
-
-	ToPolicySettingsOutput() PolicySettingsOutput
-	ToPolicySettingsOutputWithContext(context.Context) PolicySettingsOutput
-}
-
-// Defines contents of a web application firewall global configuration
-type PolicySettingsArgs struct {
-	// describes if the policy is in enabled state or disabled state
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Describes if it is in detection mode  or prevention mode at policy level
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-}
-
-func (PolicySettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySettings)(nil)).Elem()
-}
-
-func (i PolicySettingsArgs) ToPolicySettingsOutput() PolicySettingsOutput {
-	return i.ToPolicySettingsOutputWithContext(context.Background())
-}
-
-func (i PolicySettingsArgs) ToPolicySettingsOutputWithContext(ctx context.Context) PolicySettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsOutput)
-}
-
-func (i PolicySettingsArgs) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
-	return i.ToPolicySettingsPtrOutputWithContext(context.Background())
-}
-
-func (i PolicySettingsArgs) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsOutput).ToPolicySettingsPtrOutputWithContext(ctx)
-}
-
-// PolicySettingsPtrInput is an input type that accepts PolicySettingsArgs, PolicySettingsPtr and PolicySettingsPtrOutput values.
-// You can construct a concrete instance of `PolicySettingsPtrInput` via:
-//
-//          PolicySettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicySettingsPtrInput interface {
-	pulumi.Input
-
-	ToPolicySettingsPtrOutput() PolicySettingsPtrOutput
-	ToPolicySettingsPtrOutputWithContext(context.Context) PolicySettingsPtrOutput
-}
-
-type policySettingsPtrType PolicySettingsArgs
-
-func PolicySettingsPtr(v *PolicySettingsArgs) PolicySettingsPtrInput {
-	return (*policySettingsPtrType)(v)
-}
-
-func (*policySettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySettings)(nil)).Elem()
-}
-
-func (i *policySettingsPtrType) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
-	return i.ToPolicySettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *policySettingsPtrType) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsPtrOutput)
-}
-
-// Defines contents of a web application firewall global configuration
-type PolicySettingsOutput struct{ *pulumi.OutputState }
-
-func (PolicySettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySettings)(nil)).Elem()
-}
-
-func (o PolicySettingsOutput) ToPolicySettingsOutput() PolicySettingsOutput {
-	return o
-}
-
-func (o PolicySettingsOutput) ToPolicySettingsOutputWithContext(ctx context.Context) PolicySettingsOutput {
-	return o
-}
-
-func (o PolicySettingsOutput) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
-	return o.ToPolicySettingsPtrOutputWithContext(context.Background())
-}
-
-func (o PolicySettingsOutput) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
-	return o.ApplyT(func(v PolicySettings) *PolicySettings {
-		return &v
-	}).(PolicySettingsPtrOutput)
-}
-
-// describes if the policy is in enabled state or disabled state
-func (o PolicySettingsOutput) EnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicySettings) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
-}
-
-// Describes if it is in detection mode  or prevention mode at policy level
-func (o PolicySettingsOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
-}
-
-type PolicySettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicySettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySettings)(nil)).Elem()
-}
-
-func (o PolicySettingsPtrOutput) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
-	return o
-}
-
-func (o PolicySettingsPtrOutput) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
-	return o
-}
-
-func (o PolicySettingsPtrOutput) Elem() PolicySettingsOutput {
-	return o.ApplyT(func(v *PolicySettings) PolicySettings { return *v }).(PolicySettingsOutput)
-}
-
-// describes if the policy is in enabled state or disabled state
-func (o PolicySettingsPtrOutput) EnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnabledState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes if it is in detection mode  or prevention mode at policy level
-func (o PolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Mode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines contents of a web application firewall global configuration
-type PolicySettingsResponse struct {
-	// describes if the policy is in enabled state or disabled state
-	EnabledState *string `pulumi:"enabledState"`
-	// Describes if it is in detection mode  or prevention mode at policy level
-	Mode *string `pulumi:"mode"`
-}
-
-// PolicySettingsResponseInput is an input type that accepts PolicySettingsResponseArgs and PolicySettingsResponseOutput values.
-// You can construct a concrete instance of `PolicySettingsResponseInput` via:
-//
-//          PolicySettingsResponseArgs{...}
-type PolicySettingsResponseInput interface {
-	pulumi.Input
-
-	ToPolicySettingsResponseOutput() PolicySettingsResponseOutput
-	ToPolicySettingsResponseOutputWithContext(context.Context) PolicySettingsResponseOutput
-}
-
-// Defines contents of a web application firewall global configuration
-type PolicySettingsResponseArgs struct {
-	// describes if the policy is in enabled state or disabled state
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Describes if it is in detection mode  or prevention mode at policy level
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-}
-
-func (PolicySettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySettingsResponse)(nil)).Elem()
-}
-
-func (i PolicySettingsResponseArgs) ToPolicySettingsResponseOutput() PolicySettingsResponseOutput {
-	return i.ToPolicySettingsResponseOutputWithContext(context.Background())
-}
-
-func (i PolicySettingsResponseArgs) ToPolicySettingsResponseOutputWithContext(ctx context.Context) PolicySettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsResponseOutput)
-}
-
-func (i PolicySettingsResponseArgs) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
-	return i.ToPolicySettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PolicySettingsResponseArgs) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsResponseOutput).ToPolicySettingsResponsePtrOutputWithContext(ctx)
-}
-
-// PolicySettingsResponsePtrInput is an input type that accepts PolicySettingsResponseArgs, PolicySettingsResponsePtr and PolicySettingsResponsePtrOutput values.
-// You can construct a concrete instance of `PolicySettingsResponsePtrInput` via:
-//
-//          PolicySettingsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicySettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput
-	ToPolicySettingsResponsePtrOutputWithContext(context.Context) PolicySettingsResponsePtrOutput
-}
-
-type policySettingsResponsePtrType PolicySettingsResponseArgs
-
-func PolicySettingsResponsePtr(v *PolicySettingsResponseArgs) PolicySettingsResponsePtrInput {
-	return (*policySettingsResponsePtrType)(v)
-}
-
-func (*policySettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySettingsResponse)(nil)).Elem()
-}
-
-func (i *policySettingsResponsePtrType) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
-	return i.ToPolicySettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *policySettingsResponsePtrType) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsResponsePtrOutput)
-}
-
-// Defines contents of a web application firewall global configuration
-type PolicySettingsResponseOutput struct{ *pulumi.OutputState }
-
-func (PolicySettingsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySettingsResponse)(nil)).Elem()
-}
-
-func (o PolicySettingsResponseOutput) ToPolicySettingsResponseOutput() PolicySettingsResponseOutput {
-	return o
-}
-
-func (o PolicySettingsResponseOutput) ToPolicySettingsResponseOutputWithContext(ctx context.Context) PolicySettingsResponseOutput {
-	return o
-}
-
-func (o PolicySettingsResponseOutput) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
-	return o.ToPolicySettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PolicySettingsResponseOutput) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
-	return o.ApplyT(func(v PolicySettingsResponse) *PolicySettingsResponse {
-		return &v
-	}).(PolicySettingsResponsePtrOutput)
-}
-
-// describes if the policy is in enabled state or disabled state
-func (o PolicySettingsResponseOutput) EnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicySettingsResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
-}
-
-// Describes if it is in detection mode  or prevention mode at policy level
-func (o PolicySettingsResponseOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicySettingsResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
-}
-
-type PolicySettingsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PolicySettingsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySettingsResponse)(nil)).Elem()
-}
-
-func (o PolicySettingsResponsePtrOutput) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
-	return o
-}
-
-func (o PolicySettingsResponsePtrOutput) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
-	return o
-}
-
-func (o PolicySettingsResponsePtrOutput) Elem() PolicySettingsResponseOutput {
-	return o.ApplyT(func(v *PolicySettingsResponse) PolicySettingsResponse { return *v }).(PolicySettingsResponseOutput)
-}
-
-// describes if the policy is in enabled state or disabled state
-func (o PolicySettingsResponsePtrOutput) EnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnabledState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes if it is in detection mode  or prevention mode at policy level
-func (o PolicySettingsResponsePtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Mode
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AddressSpaceOutput{})
 	pulumi.RegisterOutputType(AddressSpacePtrOutput{})
@@ -47096,6 +47096,10 @@ func init() {
 	pulumi.RegisterOutputType(PacketCaptureStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(PacketCaptureStorageLocationResponseOutput{})
 	pulumi.RegisterOutputType(PacketCaptureStorageLocationResponsePtrOutput{})
+	pulumi.RegisterOutputType(PolicySettingsOutput{})
+	pulumi.RegisterOutputType(PolicySettingsPtrOutput{})
+	pulumi.RegisterOutputType(PolicySettingsResponseOutput{})
+	pulumi.RegisterOutputType(PolicySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProbeOutput{})
 	pulumi.RegisterOutputType(ProbeArrayOutput{})
 	pulumi.RegisterOutputType(ProbeResponseOutput{})
@@ -47230,8 +47234,4 @@ func init() {
 	pulumi.RegisterOutputType(VpnConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(VpnConnectionResponseOutput{})
 	pulumi.RegisterOutputType(VpnConnectionResponseArrayOutput{})
-	pulumi.RegisterOutputType(PolicySettingsOutput{})
-	pulumi.RegisterOutputType(PolicySettingsPtrOutput{})
-	pulumi.RegisterOutputType(PolicySettingsResponseOutput{})
-	pulumi.RegisterOutputType(PolicySettingsResponsePtrOutput{})
 }

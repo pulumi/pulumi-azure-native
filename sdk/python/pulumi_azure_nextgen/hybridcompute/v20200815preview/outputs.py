@@ -11,6 +11,7 @@ from . import outputs
 
 __all__ = [
     'ErrorDetailResponse',
+    'LocationDataResponse',
     'MachineExtensionInstanceViewResponse',
     'MachineExtensionInstanceViewResponseStatus',
     'MachineExtensionPropertiesResponseInstanceView',
@@ -19,7 +20,6 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
-    'LocationDataResponse',
 ]
 
 @pulumi.output_type
@@ -73,6 +73,67 @@ class ErrorDetailResponse(dict):
         Indicates which property in the request is responsible for the error.
         """
         return pulumi.get(self, "target")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LocationDataResponse(dict):
+    """
+    Metadata pertaining to the geographic location of the resource.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 city: Optional[str] = None,
+                 country_or_region: Optional[str] = None,
+                 district: Optional[str] = None):
+        """
+        Metadata pertaining to the geographic location of the resource.
+        :param str name: A canonical name for the geographic or physical location.
+        :param str city: The city or locality where the resource is located.
+        :param str country_or_region: The country or region where the resource is located
+        :param str district: The district, state, or province where the resource is located.
+        """
+        pulumi.set(__self__, "name", name)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if country_or_region is not None:
+            pulumi.set(__self__, "country_or_region", country_or_region)
+        if district is not None:
+            pulumi.set(__self__, "district", district)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A canonical name for the geographic or physical location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional[str]:
+        """
+        The city or locality where the resource is located.
+        """
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter(name="countryOrRegion")
+    def country_or_region(self) -> Optional[str]:
+        """
+        The country or region where the resource is located
+        """
+        return pulumi.get(self, "country_or_region")
+
+    @property
+    @pulumi.getter
+    def district(self) -> Optional[str]:
+        """
+        The district, state, or province where the resource is located.
+        """
+        return pulumi.get(self, "district")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -495,67 +556,6 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         The private link service connection status.
         """
         return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class LocationDataResponse(dict):
-    """
-    Metadata pertaining to the geographic location of the resource.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 city: Optional[str] = None,
-                 country_or_region: Optional[str] = None,
-                 district: Optional[str] = None):
-        """
-        Metadata pertaining to the geographic location of the resource.
-        :param str name: A canonical name for the geographic or physical location.
-        :param str city: The city or locality where the resource is located.
-        :param str country_or_region: The country or region where the resource is located
-        :param str district: The district, state, or province where the resource is located.
-        """
-        pulumi.set(__self__, "name", name)
-        if city is not None:
-            pulumi.set(__self__, "city", city)
-        if country_or_region is not None:
-            pulumi.set(__self__, "country_or_region", country_or_region)
-        if district is not None:
-            pulumi.set(__self__, "district", district)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        A canonical name for the geographic or physical location.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def city(self) -> Optional[str]:
-        """
-        The city or locality where the resource is located.
-        """
-        return pulumi.get(self, "city")
-
-    @property
-    @pulumi.getter(name="countryOrRegion")
-    def country_or_region(self) -> Optional[str]:
-        """
-        The country or region where the resource is located
-        """
-        return pulumi.get(self, "country_or_region")
-
-    @property
-    @pulumi.getter
-    def district(self) -> Optional[str]:
-        """
-        The district, state, or province where the resource is located.
-        """
-        return pulumi.get(self, "district")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

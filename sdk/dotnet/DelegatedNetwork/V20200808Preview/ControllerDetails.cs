@@ -15,25 +15,31 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
     public partial class ControllerDetails : Pulumi.CustomResource
     {
         /// <summary>
-        /// The current state of dnc controller resource.
+        /// dnc application id should be used by customer to authenticate with dnc gateway.
         /// </summary>
         [Output("dncAppId")]
-        public Output<string?> DncAppId { get; private set; } = null!;
+        public Output<string> DncAppId { get; private set; } = null!;
 
         /// <summary>
         /// dnc endpoint url that customers can use to connect to
         /// </summary>
         [Output("dncEndpoint")]
-        public Output<string?> DncEndpoint { get; private set; } = null!;
+        public Output<string> DncEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Location of the DNC controller resource.
+        /// tenant id of dnc application id
+        /// </summary>
+        [Output("dncTenantId")]
+        public Output<string> DncTenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// Location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DNC controller resource.
+        /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -41,11 +47,23 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         /// <summary>
         /// The current state of dnc controller resource.
         /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the DNC controller  resource.(Microsoft.DelegatedNetwork/controller)
+        /// Resource guid.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -96,22 +114,10 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
     public sealed class ControllerDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// APIServer url
+        /// Location of the resource.
         /// </summary>
-        [Input("apiServerEndpoint")]
-        public Input<string>? ApiServerEndpoint { get; set; }
-
-        /// <summary>
-        /// RootCA certificate of kubernetes cluster
-        /// </summary>
-        [Input("clusterRootCA")]
-        public Input<string>? ClusterRootCA { get; set; }
-
-        /// <summary>
-        /// Type of controller
-        /// </summary>
-        [Input("controllerType")]
-        public Input<string>? ControllerType { get; set; }
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
@@ -125,17 +131,17 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
-        /// <summary>
-        /// AAD ID used with apiserver
-        /// </summary>
-        [Input("serverAppID")]
-        public Input<string>? ServerAppID { get; set; }
+        [Input("tags")]
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// TenantID of server App ID
+        /// The resource tags.
         /// </summary>
-        [Input("serverTenantID")]
-        public Input<string>? ServerTenantID { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ControllerDetailsArgs()
         {

@@ -104,6 +104,7 @@ __all__ = [
     'P2SVpnServerConfigurationArgs',
     'PacketCaptureFilterArgs',
     'PacketCaptureStorageLocationArgs',
+    'PolicySettingsArgs',
     'ProbeArgs',
     'PublicIPAddressArgs',
     'PublicIPAddressDnsSettingsArgs',
@@ -135,7 +136,6 @@ __all__ = [
     'VpnClientRevokedCertificateArgs',
     'VpnClientRootCertificateArgs',
     'VpnConnectionArgs',
-    'PolicySettingsArgs',
 ]
 
 @pulumi.input_type
@@ -9098,6 +9098,46 @@ class PacketCaptureStorageLocationArgs:
 
 
 @pulumi.input_type
+class PolicySettingsArgs:
+    def __init__(__self__, *,
+                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None):
+        """
+        Defines contents of a web application firewall global configuration
+        :param pulumi.Input[str] enabled_state: describes if the policy is in enabled state or disabled state
+        :param pulumi.Input[str] mode: Describes if it is in detection mode  or prevention mode at policy level
+        """
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        describes if the policy is in enabled state or disabled state
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @enabled_state.setter
+    def enabled_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enabled_state", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes if it is in detection mode  or prevention mode at policy level
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
 class ProbeArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
@@ -12387,45 +12427,5 @@ class VpnConnectionArgs:
     @vpn_connection_protocol_type.setter
     def vpn_connection_protocol_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpn_connection_protocol_type", value)
-
-
-@pulumi.input_type
-class PolicySettingsArgs:
-    def __init__(__self__, *,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
-                 mode: Optional[pulumi.Input[str]] = None):
-        """
-        Defines contents of a web application firewall global configuration
-        :param pulumi.Input[str] enabled_state: describes if the policy is in enabled state or disabled state
-        :param pulumi.Input[str] mode: Describes if it is in detection mode  or prevention mode at policy level
-        """
-        if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-
-    @property
-    @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        describes if the policy is in enabled state or disabled state
-        """
-        return pulumi.get(self, "enabled_state")
-
-    @enabled_state.setter
-    def enabled_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "enabled_state", value)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        Describes if it is in detection mode  or prevention mode at policy level
-        """
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "mode", value)
 
 

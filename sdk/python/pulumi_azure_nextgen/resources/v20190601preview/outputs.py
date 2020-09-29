@@ -9,56 +9,9 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'TemplateSpecTemplateArtifactResponse',
     'SystemDataResponse',
+    'TemplateSpecTemplateArtifactResponse',
 ]
-
-@pulumi.output_type
-class TemplateSpecTemplateArtifactResponse(dict):
-    """
-    Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
-    """
-    def __init__(__self__, *,
-                 kind: str,
-                 path: str,
-                 template: Mapping[str, Any]):
-        """
-        Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
-        :param str kind: The kind of artifact.
-        :param str path: A filesystem safe relative path of the artifact.
-        :param Mapping[str, Any] template: The Azure Resource Manager template.
-        """
-        pulumi.set(__self__, "kind", 'template')
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "template", template)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        """
-        The kind of artifact.
-        """
-        return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        """
-        A filesystem safe relative path of the artifact.
-        """
-        return pulumi.get(self, "path")
-
-    @property
-    @pulumi.getter
-    def template(self) -> Mapping[str, Any]:
-        """
-        The Azure Resource Manager template.
-        """
-        return pulumi.get(self, "template")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
@@ -141,6 +94,53 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TemplateSpecTemplateArtifactResponse(dict):
+    """
+    Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 path: str,
+                 template: Mapping[str, Any]):
+        """
+        Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+        :param str kind: The kind of artifact.
+        :param str path: A filesystem safe relative path of the artifact.
+        :param Mapping[str, Any] template: The Azure Resource Manager template.
+        """
+        pulumi.set(__self__, "kind", 'template')
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of artifact.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        A filesystem safe relative path of the artifact.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Mapping[str, Any]:
+        """
+        The Azure Resource Manager template.
+        """
+        return pulumi.get(self, "template")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

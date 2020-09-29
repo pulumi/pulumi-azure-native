@@ -2459,6 +2459,312 @@ func (o SchedulePropertiesResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Task properties of the software update configuration.
+type SoftwareUpdateConfigurationTasks struct {
+	// Post task properties.
+	PostTask *TaskProperties `pulumi:"postTask"`
+	// Pre task properties.
+	PreTask *TaskProperties `pulumi:"preTask"`
+}
+
+// SoftwareUpdateConfigurationTasksInput is an input type that accepts SoftwareUpdateConfigurationTasksArgs and SoftwareUpdateConfigurationTasksOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationTasksInput` via:
+//
+//          SoftwareUpdateConfigurationTasksArgs{...}
+type SoftwareUpdateConfigurationTasksInput interface {
+	pulumi.Input
+
+	ToSoftwareUpdateConfigurationTasksOutput() SoftwareUpdateConfigurationTasksOutput
+	ToSoftwareUpdateConfigurationTasksOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksOutput
+}
+
+// Task properties of the software update configuration.
+type SoftwareUpdateConfigurationTasksArgs struct {
+	// Post task properties.
+	PostTask TaskPropertiesPtrInput `pulumi:"postTask"`
+	// Pre task properties.
+	PreTask TaskPropertiesPtrInput `pulumi:"preTask"`
+}
+
+func (SoftwareUpdateConfigurationTasksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationTasks)(nil)).Elem()
+}
+
+func (i SoftwareUpdateConfigurationTasksArgs) ToSoftwareUpdateConfigurationTasksOutput() SoftwareUpdateConfigurationTasksOutput {
+	return i.ToSoftwareUpdateConfigurationTasksOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationTasksArgs) ToSoftwareUpdateConfigurationTasksOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksOutput)
+}
+
+func (i SoftwareUpdateConfigurationTasksArgs) ToSoftwareUpdateConfigurationTasksPtrOutput() SoftwareUpdateConfigurationTasksPtrOutput {
+	return i.ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationTasksArgs) ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksOutput).ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx)
+}
+
+// SoftwareUpdateConfigurationTasksPtrInput is an input type that accepts SoftwareUpdateConfigurationTasksArgs, SoftwareUpdateConfigurationTasksPtr and SoftwareUpdateConfigurationTasksPtrOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationTasksPtrInput` via:
+//
+//          SoftwareUpdateConfigurationTasksArgs{...}
+//
+//  or:
+//
+//          nil
+type SoftwareUpdateConfigurationTasksPtrInput interface {
+	pulumi.Input
+
+	ToSoftwareUpdateConfigurationTasksPtrOutput() SoftwareUpdateConfigurationTasksPtrOutput
+	ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksPtrOutput
+}
+
+type softwareUpdateConfigurationTasksPtrType SoftwareUpdateConfigurationTasksArgs
+
+func SoftwareUpdateConfigurationTasksPtr(v *SoftwareUpdateConfigurationTasksArgs) SoftwareUpdateConfigurationTasksPtrInput {
+	return (*softwareUpdateConfigurationTasksPtrType)(v)
+}
+
+func (*softwareUpdateConfigurationTasksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationTasks)(nil)).Elem()
+}
+
+func (i *softwareUpdateConfigurationTasksPtrType) ToSoftwareUpdateConfigurationTasksPtrOutput() SoftwareUpdateConfigurationTasksPtrOutput {
+	return i.ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(context.Background())
+}
+
+func (i *softwareUpdateConfigurationTasksPtrType) ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksPtrOutput)
+}
+
+// Task properties of the software update configuration.
+type SoftwareUpdateConfigurationTasksOutput struct{ *pulumi.OutputState }
+
+func (SoftwareUpdateConfigurationTasksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationTasks)(nil)).Elem()
+}
+
+func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTasksOutput() SoftwareUpdateConfigurationTasksOutput {
+	return o
+}
+
+func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTasksOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksOutput {
+	return o
+}
+
+func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTasksPtrOutput() SoftwareUpdateConfigurationTasksPtrOutput {
+	return o.ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksPtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationTasks) *SoftwareUpdateConfigurationTasks {
+		return &v
+	}).(SoftwareUpdateConfigurationTasksPtrOutput)
+}
+
+// Post task properties.
+func (o SoftwareUpdateConfigurationTasksOutput) PostTask() TaskPropertiesPtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationTasks) *TaskProperties { return v.PostTask }).(TaskPropertiesPtrOutput)
+}
+
+// Pre task properties.
+func (o SoftwareUpdateConfigurationTasksOutput) PreTask() TaskPropertiesPtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationTasks) *TaskProperties { return v.PreTask }).(TaskPropertiesPtrOutput)
+}
+
+type SoftwareUpdateConfigurationTasksPtrOutput struct{ *pulumi.OutputState }
+
+func (SoftwareUpdateConfigurationTasksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationTasks)(nil)).Elem()
+}
+
+func (o SoftwareUpdateConfigurationTasksPtrOutput) ToSoftwareUpdateConfigurationTasksPtrOutput() SoftwareUpdateConfigurationTasksPtrOutput {
+	return o
+}
+
+func (o SoftwareUpdateConfigurationTasksPtrOutput) ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksPtrOutput {
+	return o
+}
+
+func (o SoftwareUpdateConfigurationTasksPtrOutput) Elem() SoftwareUpdateConfigurationTasksOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasks) SoftwareUpdateConfigurationTasks { return *v }).(SoftwareUpdateConfigurationTasksOutput)
+}
+
+// Post task properties.
+func (o SoftwareUpdateConfigurationTasksPtrOutput) PostTask() TaskPropertiesPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasks) *TaskProperties {
+		if v == nil {
+			return nil
+		}
+		return v.PostTask
+	}).(TaskPropertiesPtrOutput)
+}
+
+// Pre task properties.
+func (o SoftwareUpdateConfigurationTasksPtrOutput) PreTask() TaskPropertiesPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasks) *TaskProperties {
+		if v == nil {
+			return nil
+		}
+		return v.PreTask
+	}).(TaskPropertiesPtrOutput)
+}
+
+// Task properties of the software update configuration.
+type SoftwareUpdateConfigurationTasksResponse struct {
+	// Post task properties.
+	PostTask *TaskPropertiesResponse `pulumi:"postTask"`
+	// Pre task properties.
+	PreTask *TaskPropertiesResponse `pulumi:"preTask"`
+}
+
+// SoftwareUpdateConfigurationTasksResponseInput is an input type that accepts SoftwareUpdateConfigurationTasksResponseArgs and SoftwareUpdateConfigurationTasksResponseOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationTasksResponseInput` via:
+//
+//          SoftwareUpdateConfigurationTasksResponseArgs{...}
+type SoftwareUpdateConfigurationTasksResponseInput interface {
+	pulumi.Input
+
+	ToSoftwareUpdateConfigurationTasksResponseOutput() SoftwareUpdateConfigurationTasksResponseOutput
+	ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksResponseOutput
+}
+
+// Task properties of the software update configuration.
+type SoftwareUpdateConfigurationTasksResponseArgs struct {
+	// Post task properties.
+	PostTask TaskPropertiesResponsePtrInput `pulumi:"postTask"`
+	// Pre task properties.
+	PreTask TaskPropertiesResponsePtrInput `pulumi:"preTask"`
+}
+
+func (SoftwareUpdateConfigurationTasksResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationTasksResponse)(nil)).Elem()
+}
+
+func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponseOutput() SoftwareUpdateConfigurationTasksResponseOutput {
+	return i.ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksResponseOutput)
+}
+
+func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
+	return i.ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksResponseOutput).ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx)
+}
+
+// SoftwareUpdateConfigurationTasksResponsePtrInput is an input type that accepts SoftwareUpdateConfigurationTasksResponseArgs, SoftwareUpdateConfigurationTasksResponsePtr and SoftwareUpdateConfigurationTasksResponsePtrOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationTasksResponsePtrInput` via:
+//
+//          SoftwareUpdateConfigurationTasksResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SoftwareUpdateConfigurationTasksResponsePtrInput interface {
+	pulumi.Input
+
+	ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput
+	ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput
+}
+
+type softwareUpdateConfigurationTasksResponsePtrType SoftwareUpdateConfigurationTasksResponseArgs
+
+func SoftwareUpdateConfigurationTasksResponsePtr(v *SoftwareUpdateConfigurationTasksResponseArgs) SoftwareUpdateConfigurationTasksResponsePtrInput {
+	return (*softwareUpdateConfigurationTasksResponsePtrType)(v)
+}
+
+func (*softwareUpdateConfigurationTasksResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationTasksResponse)(nil)).Elem()
+}
+
+func (i *softwareUpdateConfigurationTasksResponsePtrType) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
+	return i.ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *softwareUpdateConfigurationTasksResponsePtrType) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksResponsePtrOutput)
+}
+
+// Task properties of the software update configuration.
+type SoftwareUpdateConfigurationTasksResponseOutput struct{ *pulumi.OutputState }
+
+func (SoftwareUpdateConfigurationTasksResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationTasksResponse)(nil)).Elem()
+}
+
+func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponseOutput() SoftwareUpdateConfigurationTasksResponseOutput {
+	return o
+}
+
+func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponseOutput {
+	return o
+}
+
+func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
+	return o.ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksResponse) *SoftwareUpdateConfigurationTasksResponse {
+		return &v
+	}).(SoftwareUpdateConfigurationTasksResponsePtrOutput)
+}
+
+// Post task properties.
+func (o SoftwareUpdateConfigurationTasksResponseOutput) PostTask() TaskPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse { return v.PostTask }).(TaskPropertiesResponsePtrOutput)
+}
+
+// Pre task properties.
+func (o SoftwareUpdateConfigurationTasksResponseOutput) PreTask() TaskPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse { return v.PreTask }).(TaskPropertiesResponsePtrOutput)
+}
+
+type SoftwareUpdateConfigurationTasksResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SoftwareUpdateConfigurationTasksResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationTasksResponse)(nil)).Elem()
+}
+
+func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
+	return o
+}
+
+func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
+	return o
+}
+
+func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) Elem() SoftwareUpdateConfigurationTasksResponseOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasksResponse) SoftwareUpdateConfigurationTasksResponse { return *v }).(SoftwareUpdateConfigurationTasksResponseOutput)
+}
+
+// Post task properties.
+func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) PostTask() TaskPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PostTask
+	}).(TaskPropertiesResponsePtrOutput)
+}
+
+// Pre task properties.
+func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) PreTask() TaskPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PreTask
+	}).(TaskPropertiesResponsePtrOutput)
+}
+
 type SourceControlSecurityTokenProperties struct {
 	// The access token.
 	AccessToken *string `pulumi:"accessToken"`
@@ -3238,694 +3544,6 @@ func (o TargetPropertiesResponsePtrOutput) NonAzureQueries() NonAzureQueryProper
 		}
 		return v.NonAzureQueries
 	}).(NonAzureQueryPropertiesResponseArrayOutput)
-}
-
-// Windows specific update configuration.
-type WindowsProperties struct {
-	// KB numbers excluded from the software update configuration.
-	ExcludedKbNumbers []string `pulumi:"excludedKbNumbers"`
-	// KB numbers included from the software update configuration.
-	IncludedKbNumbers []string `pulumi:"includedKbNumbers"`
-	// Update classification included in the software update configuration. A comma separated string with required values
-	IncludedUpdateClassifications *string `pulumi:"includedUpdateClassifications"`
-	// Reboot setting for the software update configuration.
-	RebootSetting *string `pulumi:"rebootSetting"`
-}
-
-// WindowsPropertiesInput is an input type that accepts WindowsPropertiesArgs and WindowsPropertiesOutput values.
-// You can construct a concrete instance of `WindowsPropertiesInput` via:
-//
-//          WindowsPropertiesArgs{...}
-type WindowsPropertiesInput interface {
-	pulumi.Input
-
-	ToWindowsPropertiesOutput() WindowsPropertiesOutput
-	ToWindowsPropertiesOutputWithContext(context.Context) WindowsPropertiesOutput
-}
-
-// Windows specific update configuration.
-type WindowsPropertiesArgs struct {
-	// KB numbers excluded from the software update configuration.
-	ExcludedKbNumbers pulumi.StringArrayInput `pulumi:"excludedKbNumbers"`
-	// KB numbers included from the software update configuration.
-	IncludedKbNumbers pulumi.StringArrayInput `pulumi:"includedKbNumbers"`
-	// Update classification included in the software update configuration. A comma separated string with required values
-	IncludedUpdateClassifications pulumi.StringPtrInput `pulumi:"includedUpdateClassifications"`
-	// Reboot setting for the software update configuration.
-	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
-}
-
-func (WindowsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsProperties)(nil)).Elem()
-}
-
-func (i WindowsPropertiesArgs) ToWindowsPropertiesOutput() WindowsPropertiesOutput {
-	return i.ToWindowsPropertiesOutputWithContext(context.Background())
-}
-
-func (i WindowsPropertiesArgs) ToWindowsPropertiesOutputWithContext(ctx context.Context) WindowsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesOutput)
-}
-
-func (i WindowsPropertiesArgs) ToWindowsPropertiesPtrOutput() WindowsPropertiesPtrOutput {
-	return i.ToWindowsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i WindowsPropertiesArgs) ToWindowsPropertiesPtrOutputWithContext(ctx context.Context) WindowsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesOutput).ToWindowsPropertiesPtrOutputWithContext(ctx)
-}
-
-// WindowsPropertiesPtrInput is an input type that accepts WindowsPropertiesArgs, WindowsPropertiesPtr and WindowsPropertiesPtrOutput values.
-// You can construct a concrete instance of `WindowsPropertiesPtrInput` via:
-//
-//          WindowsPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type WindowsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToWindowsPropertiesPtrOutput() WindowsPropertiesPtrOutput
-	ToWindowsPropertiesPtrOutputWithContext(context.Context) WindowsPropertiesPtrOutput
-}
-
-type windowsPropertiesPtrType WindowsPropertiesArgs
-
-func WindowsPropertiesPtr(v *WindowsPropertiesArgs) WindowsPropertiesPtrInput {
-	return (*windowsPropertiesPtrType)(v)
-}
-
-func (*windowsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsProperties)(nil)).Elem()
-}
-
-func (i *windowsPropertiesPtrType) ToWindowsPropertiesPtrOutput() WindowsPropertiesPtrOutput {
-	return i.ToWindowsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *windowsPropertiesPtrType) ToWindowsPropertiesPtrOutputWithContext(ctx context.Context) WindowsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesPtrOutput)
-}
-
-// Windows specific update configuration.
-type WindowsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (WindowsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsProperties)(nil)).Elem()
-}
-
-func (o WindowsPropertiesOutput) ToWindowsPropertiesOutput() WindowsPropertiesOutput {
-	return o
-}
-
-func (o WindowsPropertiesOutput) ToWindowsPropertiesOutputWithContext(ctx context.Context) WindowsPropertiesOutput {
-	return o
-}
-
-func (o WindowsPropertiesOutput) ToWindowsPropertiesPtrOutput() WindowsPropertiesPtrOutput {
-	return o.ToWindowsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o WindowsPropertiesOutput) ToWindowsPropertiesPtrOutputWithContext(ctx context.Context) WindowsPropertiesPtrOutput {
-	return o.ApplyT(func(v WindowsProperties) *WindowsProperties {
-		return &v
-	}).(WindowsPropertiesPtrOutput)
-}
-
-// KB numbers excluded from the software update configuration.
-func (o WindowsPropertiesOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WindowsProperties) []string { return v.ExcludedKbNumbers }).(pulumi.StringArrayOutput)
-}
-
-// KB numbers included from the software update configuration.
-func (o WindowsPropertiesOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WindowsProperties) []string { return v.IncludedKbNumbers }).(pulumi.StringArrayOutput)
-}
-
-// Update classification included in the software update configuration. A comma separated string with required values
-func (o WindowsPropertiesOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WindowsProperties) *string { return v.IncludedUpdateClassifications }).(pulumi.StringPtrOutput)
-}
-
-// Reboot setting for the software update configuration.
-func (o WindowsPropertiesOutput) RebootSetting() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WindowsProperties) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
-}
-
-type WindowsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (WindowsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsProperties)(nil)).Elem()
-}
-
-func (o WindowsPropertiesPtrOutput) ToWindowsPropertiesPtrOutput() WindowsPropertiesPtrOutput {
-	return o
-}
-
-func (o WindowsPropertiesPtrOutput) ToWindowsPropertiesPtrOutputWithContext(ctx context.Context) WindowsPropertiesPtrOutput {
-	return o
-}
-
-func (o WindowsPropertiesPtrOutput) Elem() WindowsPropertiesOutput {
-	return o.ApplyT(func(v *WindowsProperties) WindowsProperties { return *v }).(WindowsPropertiesOutput)
-}
-
-// KB numbers excluded from the software update configuration.
-func (o WindowsPropertiesPtrOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WindowsProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ExcludedKbNumbers
-	}).(pulumi.StringArrayOutput)
-}
-
-// KB numbers included from the software update configuration.
-func (o WindowsPropertiesPtrOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WindowsProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IncludedKbNumbers
-	}).(pulumi.StringArrayOutput)
-}
-
-// Update classification included in the software update configuration. A comma separated string with required values
-func (o WindowsPropertiesPtrOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IncludedUpdateClassifications
-	}).(pulumi.StringPtrOutput)
-}
-
-// Reboot setting for the software update configuration.
-func (o WindowsPropertiesPtrOutput) RebootSetting() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RebootSetting
-	}).(pulumi.StringPtrOutput)
-}
-
-// Windows specific update configuration.
-type WindowsPropertiesResponse struct {
-	// KB numbers excluded from the software update configuration.
-	ExcludedKbNumbers []string `pulumi:"excludedKbNumbers"`
-	// KB numbers included from the software update configuration.
-	IncludedKbNumbers []string `pulumi:"includedKbNumbers"`
-	// Update classification included in the software update configuration. A comma separated string with required values
-	IncludedUpdateClassifications *string `pulumi:"includedUpdateClassifications"`
-	// Reboot setting for the software update configuration.
-	RebootSetting *string `pulumi:"rebootSetting"`
-}
-
-// WindowsPropertiesResponseInput is an input type that accepts WindowsPropertiesResponseArgs and WindowsPropertiesResponseOutput values.
-// You can construct a concrete instance of `WindowsPropertiesResponseInput` via:
-//
-//          WindowsPropertiesResponseArgs{...}
-type WindowsPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToWindowsPropertiesResponseOutput() WindowsPropertiesResponseOutput
-	ToWindowsPropertiesResponseOutputWithContext(context.Context) WindowsPropertiesResponseOutput
-}
-
-// Windows specific update configuration.
-type WindowsPropertiesResponseArgs struct {
-	// KB numbers excluded from the software update configuration.
-	ExcludedKbNumbers pulumi.StringArrayInput `pulumi:"excludedKbNumbers"`
-	// KB numbers included from the software update configuration.
-	IncludedKbNumbers pulumi.StringArrayInput `pulumi:"includedKbNumbers"`
-	// Update classification included in the software update configuration. A comma separated string with required values
-	IncludedUpdateClassifications pulumi.StringPtrInput `pulumi:"includedUpdateClassifications"`
-	// Reboot setting for the software update configuration.
-	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
-}
-
-func (WindowsPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsPropertiesResponse)(nil)).Elem()
-}
-
-func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponseOutput() WindowsPropertiesResponseOutput {
-	return i.ToWindowsPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponseOutputWithContext(ctx context.Context) WindowsPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesResponseOutput)
-}
-
-func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
-	return i.ToWindowsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesResponseOutput).ToWindowsPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// WindowsPropertiesResponsePtrInput is an input type that accepts WindowsPropertiesResponseArgs, WindowsPropertiesResponsePtr and WindowsPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `WindowsPropertiesResponsePtrInput` via:
-//
-//          WindowsPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type WindowsPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput
-	ToWindowsPropertiesResponsePtrOutputWithContext(context.Context) WindowsPropertiesResponsePtrOutput
-}
-
-type windowsPropertiesResponsePtrType WindowsPropertiesResponseArgs
-
-func WindowsPropertiesResponsePtr(v *WindowsPropertiesResponseArgs) WindowsPropertiesResponsePtrInput {
-	return (*windowsPropertiesResponsePtrType)(v)
-}
-
-func (*windowsPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsPropertiesResponse)(nil)).Elem()
-}
-
-func (i *windowsPropertiesResponsePtrType) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
-	return i.ToWindowsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *windowsPropertiesResponsePtrType) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesResponsePtrOutput)
-}
-
-// Windows specific update configuration.
-type WindowsPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (WindowsPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsPropertiesResponse)(nil)).Elem()
-}
-
-func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponseOutput() WindowsPropertiesResponseOutput {
-	return o
-}
-
-func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponseOutputWithContext(ctx context.Context) WindowsPropertiesResponseOutput {
-	return o
-}
-
-func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
-	return o.ToWindowsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v WindowsPropertiesResponse) *WindowsPropertiesResponse {
-		return &v
-	}).(WindowsPropertiesResponsePtrOutput)
-}
-
-// KB numbers excluded from the software update configuration.
-func (o WindowsPropertiesResponseOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WindowsPropertiesResponse) []string { return v.ExcludedKbNumbers }).(pulumi.StringArrayOutput)
-}
-
-// KB numbers included from the software update configuration.
-func (o WindowsPropertiesResponseOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WindowsPropertiesResponse) []string { return v.IncludedKbNumbers }).(pulumi.StringArrayOutput)
-}
-
-// Update classification included in the software update configuration. A comma separated string with required values
-func (o WindowsPropertiesResponseOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WindowsPropertiesResponse) *string { return v.IncludedUpdateClassifications }).(pulumi.StringPtrOutput)
-}
-
-// Reboot setting for the software update configuration.
-func (o WindowsPropertiesResponseOutput) RebootSetting() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WindowsPropertiesResponse) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
-}
-
-type WindowsPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (WindowsPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsPropertiesResponse)(nil)).Elem()
-}
-
-func (o WindowsPropertiesResponsePtrOutput) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o WindowsPropertiesResponsePtrOutput) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o WindowsPropertiesResponsePtrOutput) Elem() WindowsPropertiesResponseOutput {
-	return o.ApplyT(func(v *WindowsPropertiesResponse) WindowsPropertiesResponse { return *v }).(WindowsPropertiesResponseOutput)
-}
-
-// KB numbers excluded from the software update configuration.
-func (o WindowsPropertiesResponsePtrOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WindowsPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ExcludedKbNumbers
-	}).(pulumi.StringArrayOutput)
-}
-
-// KB numbers included from the software update configuration.
-func (o WindowsPropertiesResponsePtrOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WindowsPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IncludedKbNumbers
-	}).(pulumi.StringArrayOutput)
-}
-
-// Update classification included in the software update configuration. A comma separated string with required values
-func (o WindowsPropertiesResponsePtrOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IncludedUpdateClassifications
-	}).(pulumi.StringPtrOutput)
-}
-
-// Reboot setting for the software update configuration.
-func (o WindowsPropertiesResponsePtrOutput) RebootSetting() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RebootSetting
-	}).(pulumi.StringPtrOutput)
-}
-
-// Task properties of the software update configuration.
-type SoftwareUpdateConfigurationTasks struct {
-	// Post task properties.
-	PostTask *TaskProperties `pulumi:"postTask"`
-	// Pre task properties.
-	PreTask *TaskProperties `pulumi:"preTask"`
-}
-
-// SoftwareUpdateConfigurationTasksInput is an input type that accepts SoftwareUpdateConfigurationTasksArgs and SoftwareUpdateConfigurationTasksOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationTasksInput` via:
-//
-//          SoftwareUpdateConfigurationTasksArgs{...}
-type SoftwareUpdateConfigurationTasksInput interface {
-	pulumi.Input
-
-	ToSoftwareUpdateConfigurationTasksOutput() SoftwareUpdateConfigurationTasksOutput
-	ToSoftwareUpdateConfigurationTasksOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksOutput
-}
-
-// Task properties of the software update configuration.
-type SoftwareUpdateConfigurationTasksArgs struct {
-	// Post task properties.
-	PostTask TaskPropertiesPtrInput `pulumi:"postTask"`
-	// Pre task properties.
-	PreTask TaskPropertiesPtrInput `pulumi:"preTask"`
-}
-
-func (SoftwareUpdateConfigurationTasksArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationTasks)(nil)).Elem()
-}
-
-func (i SoftwareUpdateConfigurationTasksArgs) ToSoftwareUpdateConfigurationTasksOutput() SoftwareUpdateConfigurationTasksOutput {
-	return i.ToSoftwareUpdateConfigurationTasksOutputWithContext(context.Background())
-}
-
-func (i SoftwareUpdateConfigurationTasksArgs) ToSoftwareUpdateConfigurationTasksOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksOutput)
-}
-
-func (i SoftwareUpdateConfigurationTasksArgs) ToSoftwareUpdateConfigurationTasksPtrOutput() SoftwareUpdateConfigurationTasksPtrOutput {
-	return i.ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(context.Background())
-}
-
-func (i SoftwareUpdateConfigurationTasksArgs) ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksOutput).ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx)
-}
-
-// SoftwareUpdateConfigurationTasksPtrInput is an input type that accepts SoftwareUpdateConfigurationTasksArgs, SoftwareUpdateConfigurationTasksPtr and SoftwareUpdateConfigurationTasksPtrOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationTasksPtrInput` via:
-//
-//          SoftwareUpdateConfigurationTasksArgs{...}
-//
-//  or:
-//
-//          nil
-type SoftwareUpdateConfigurationTasksPtrInput interface {
-	pulumi.Input
-
-	ToSoftwareUpdateConfigurationTasksPtrOutput() SoftwareUpdateConfigurationTasksPtrOutput
-	ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksPtrOutput
-}
-
-type softwareUpdateConfigurationTasksPtrType SoftwareUpdateConfigurationTasksArgs
-
-func SoftwareUpdateConfigurationTasksPtr(v *SoftwareUpdateConfigurationTasksArgs) SoftwareUpdateConfigurationTasksPtrInput {
-	return (*softwareUpdateConfigurationTasksPtrType)(v)
-}
-
-func (*softwareUpdateConfigurationTasksPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SoftwareUpdateConfigurationTasks)(nil)).Elem()
-}
-
-func (i *softwareUpdateConfigurationTasksPtrType) ToSoftwareUpdateConfigurationTasksPtrOutput() SoftwareUpdateConfigurationTasksPtrOutput {
-	return i.ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(context.Background())
-}
-
-func (i *softwareUpdateConfigurationTasksPtrType) ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksPtrOutput)
-}
-
-// Task properties of the software update configuration.
-type SoftwareUpdateConfigurationTasksOutput struct{ *pulumi.OutputState }
-
-func (SoftwareUpdateConfigurationTasksOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationTasks)(nil)).Elem()
-}
-
-func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTasksOutput() SoftwareUpdateConfigurationTasksOutput {
-	return o
-}
-
-func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTasksOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksOutput {
-	return o
-}
-
-func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTasksPtrOutput() SoftwareUpdateConfigurationTasksPtrOutput {
-	return o.ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(context.Background())
-}
-
-func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksPtrOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationTasks) *SoftwareUpdateConfigurationTasks {
-		return &v
-	}).(SoftwareUpdateConfigurationTasksPtrOutput)
-}
-
-// Post task properties.
-func (o SoftwareUpdateConfigurationTasksOutput) PostTask() TaskPropertiesPtrOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationTasks) *TaskProperties { return v.PostTask }).(TaskPropertiesPtrOutput)
-}
-
-// Pre task properties.
-func (o SoftwareUpdateConfigurationTasksOutput) PreTask() TaskPropertiesPtrOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationTasks) *TaskProperties { return v.PreTask }).(TaskPropertiesPtrOutput)
-}
-
-type SoftwareUpdateConfigurationTasksPtrOutput struct{ *pulumi.OutputState }
-
-func (SoftwareUpdateConfigurationTasksPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SoftwareUpdateConfigurationTasks)(nil)).Elem()
-}
-
-func (o SoftwareUpdateConfigurationTasksPtrOutput) ToSoftwareUpdateConfigurationTasksPtrOutput() SoftwareUpdateConfigurationTasksPtrOutput {
-	return o
-}
-
-func (o SoftwareUpdateConfigurationTasksPtrOutput) ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksPtrOutput {
-	return o
-}
-
-func (o SoftwareUpdateConfigurationTasksPtrOutput) Elem() SoftwareUpdateConfigurationTasksOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasks) SoftwareUpdateConfigurationTasks { return *v }).(SoftwareUpdateConfigurationTasksOutput)
-}
-
-// Post task properties.
-func (o SoftwareUpdateConfigurationTasksPtrOutput) PostTask() TaskPropertiesPtrOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasks) *TaskProperties {
-		if v == nil {
-			return nil
-		}
-		return v.PostTask
-	}).(TaskPropertiesPtrOutput)
-}
-
-// Pre task properties.
-func (o SoftwareUpdateConfigurationTasksPtrOutput) PreTask() TaskPropertiesPtrOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasks) *TaskProperties {
-		if v == nil {
-			return nil
-		}
-		return v.PreTask
-	}).(TaskPropertiesPtrOutput)
-}
-
-// Task properties of the software update configuration.
-type SoftwareUpdateConfigurationTasksResponse struct {
-	// Post task properties.
-	PostTask *TaskPropertiesResponse `pulumi:"postTask"`
-	// Pre task properties.
-	PreTask *TaskPropertiesResponse `pulumi:"preTask"`
-}
-
-// SoftwareUpdateConfigurationTasksResponseInput is an input type that accepts SoftwareUpdateConfigurationTasksResponseArgs and SoftwareUpdateConfigurationTasksResponseOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationTasksResponseInput` via:
-//
-//          SoftwareUpdateConfigurationTasksResponseArgs{...}
-type SoftwareUpdateConfigurationTasksResponseInput interface {
-	pulumi.Input
-
-	ToSoftwareUpdateConfigurationTasksResponseOutput() SoftwareUpdateConfigurationTasksResponseOutput
-	ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksResponseOutput
-}
-
-// Task properties of the software update configuration.
-type SoftwareUpdateConfigurationTasksResponseArgs struct {
-	// Post task properties.
-	PostTask TaskPropertiesResponsePtrInput `pulumi:"postTask"`
-	// Pre task properties.
-	PreTask TaskPropertiesResponsePtrInput `pulumi:"preTask"`
-}
-
-func (SoftwareUpdateConfigurationTasksResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationTasksResponse)(nil)).Elem()
-}
-
-func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponseOutput() SoftwareUpdateConfigurationTasksResponseOutput {
-	return i.ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(context.Background())
-}
-
-func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksResponseOutput)
-}
-
-func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return i.ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksResponseOutput).ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx)
-}
-
-// SoftwareUpdateConfigurationTasksResponsePtrInput is an input type that accepts SoftwareUpdateConfigurationTasksResponseArgs, SoftwareUpdateConfigurationTasksResponsePtr and SoftwareUpdateConfigurationTasksResponsePtrOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationTasksResponsePtrInput` via:
-//
-//          SoftwareUpdateConfigurationTasksResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SoftwareUpdateConfigurationTasksResponsePtrInput interface {
-	pulumi.Input
-
-	ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput
-	ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput
-}
-
-type softwareUpdateConfigurationTasksResponsePtrType SoftwareUpdateConfigurationTasksResponseArgs
-
-func SoftwareUpdateConfigurationTasksResponsePtr(v *SoftwareUpdateConfigurationTasksResponseArgs) SoftwareUpdateConfigurationTasksResponsePtrInput {
-	return (*softwareUpdateConfigurationTasksResponsePtrType)(v)
-}
-
-func (*softwareUpdateConfigurationTasksResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SoftwareUpdateConfigurationTasksResponse)(nil)).Elem()
-}
-
-func (i *softwareUpdateConfigurationTasksResponsePtrType) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return i.ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *softwareUpdateConfigurationTasksResponsePtrType) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksResponsePtrOutput)
-}
-
-// Task properties of the software update configuration.
-type SoftwareUpdateConfigurationTasksResponseOutput struct{ *pulumi.OutputState }
-
-func (SoftwareUpdateConfigurationTasksResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationTasksResponse)(nil)).Elem()
-}
-
-func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponseOutput() SoftwareUpdateConfigurationTasksResponseOutput {
-	return o
-}
-
-func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponseOutput {
-	return o
-}
-
-func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return o.ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksResponse) *SoftwareUpdateConfigurationTasksResponse {
-		return &v
-	}).(SoftwareUpdateConfigurationTasksResponsePtrOutput)
-}
-
-// Post task properties.
-func (o SoftwareUpdateConfigurationTasksResponseOutput) PostTask() TaskPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse { return v.PostTask }).(TaskPropertiesResponsePtrOutput)
-}
-
-// Pre task properties.
-func (o SoftwareUpdateConfigurationTasksResponseOutput) PreTask() TaskPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse { return v.PreTask }).(TaskPropertiesResponsePtrOutput)
-}
-
-type SoftwareUpdateConfigurationTasksResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SoftwareUpdateConfigurationTasksResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SoftwareUpdateConfigurationTasksResponse)(nil)).Elem()
-}
-
-func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return o
-}
-
-func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return o
-}
-
-func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) Elem() SoftwareUpdateConfigurationTasksResponseOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasksResponse) SoftwareUpdateConfigurationTasksResponse { return *v }).(SoftwareUpdateConfigurationTasksResponseOutput)
-}
-
-// Post task properties.
-func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) PostTask() TaskPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PostTask
-	}).(TaskPropertiesResponsePtrOutput)
-}
-
-// Pre task properties.
-func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) PreTask() TaskPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasksResponse) *TaskPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PreTask
-	}).(TaskPropertiesResponsePtrOutput)
 }
 
 // Task properties of the software update configuration.
@@ -4730,6 +4348,388 @@ func (o UpdateConfigurationResponsePtrOutput) Windows() WindowsPropertiesRespons
 	}).(WindowsPropertiesResponsePtrOutput)
 }
 
+// Windows specific update configuration.
+type WindowsProperties struct {
+	// KB numbers excluded from the software update configuration.
+	ExcludedKbNumbers []string `pulumi:"excludedKbNumbers"`
+	// KB numbers included from the software update configuration.
+	IncludedKbNumbers []string `pulumi:"includedKbNumbers"`
+	// Update classification included in the software update configuration. A comma separated string with required values
+	IncludedUpdateClassifications *string `pulumi:"includedUpdateClassifications"`
+	// Reboot setting for the software update configuration.
+	RebootSetting *string `pulumi:"rebootSetting"`
+}
+
+// WindowsPropertiesInput is an input type that accepts WindowsPropertiesArgs and WindowsPropertiesOutput values.
+// You can construct a concrete instance of `WindowsPropertiesInput` via:
+//
+//          WindowsPropertiesArgs{...}
+type WindowsPropertiesInput interface {
+	pulumi.Input
+
+	ToWindowsPropertiesOutput() WindowsPropertiesOutput
+	ToWindowsPropertiesOutputWithContext(context.Context) WindowsPropertiesOutput
+}
+
+// Windows specific update configuration.
+type WindowsPropertiesArgs struct {
+	// KB numbers excluded from the software update configuration.
+	ExcludedKbNumbers pulumi.StringArrayInput `pulumi:"excludedKbNumbers"`
+	// KB numbers included from the software update configuration.
+	IncludedKbNumbers pulumi.StringArrayInput `pulumi:"includedKbNumbers"`
+	// Update classification included in the software update configuration. A comma separated string with required values
+	IncludedUpdateClassifications pulumi.StringPtrInput `pulumi:"includedUpdateClassifications"`
+	// Reboot setting for the software update configuration.
+	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
+}
+
+func (WindowsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsProperties)(nil)).Elem()
+}
+
+func (i WindowsPropertiesArgs) ToWindowsPropertiesOutput() WindowsPropertiesOutput {
+	return i.ToWindowsPropertiesOutputWithContext(context.Background())
+}
+
+func (i WindowsPropertiesArgs) ToWindowsPropertiesOutputWithContext(ctx context.Context) WindowsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesOutput)
+}
+
+func (i WindowsPropertiesArgs) ToWindowsPropertiesPtrOutput() WindowsPropertiesPtrOutput {
+	return i.ToWindowsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsPropertiesArgs) ToWindowsPropertiesPtrOutputWithContext(ctx context.Context) WindowsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesOutput).ToWindowsPropertiesPtrOutputWithContext(ctx)
+}
+
+// WindowsPropertiesPtrInput is an input type that accepts WindowsPropertiesArgs, WindowsPropertiesPtr and WindowsPropertiesPtrOutput values.
+// You can construct a concrete instance of `WindowsPropertiesPtrInput` via:
+//
+//          WindowsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WindowsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWindowsPropertiesPtrOutput() WindowsPropertiesPtrOutput
+	ToWindowsPropertiesPtrOutputWithContext(context.Context) WindowsPropertiesPtrOutput
+}
+
+type windowsPropertiesPtrType WindowsPropertiesArgs
+
+func WindowsPropertiesPtr(v *WindowsPropertiesArgs) WindowsPropertiesPtrInput {
+	return (*windowsPropertiesPtrType)(v)
+}
+
+func (*windowsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsProperties)(nil)).Elem()
+}
+
+func (i *windowsPropertiesPtrType) ToWindowsPropertiesPtrOutput() WindowsPropertiesPtrOutput {
+	return i.ToWindowsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsPropertiesPtrType) ToWindowsPropertiesPtrOutputWithContext(ctx context.Context) WindowsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesPtrOutput)
+}
+
+// Windows specific update configuration.
+type WindowsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WindowsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsProperties)(nil)).Elem()
+}
+
+func (o WindowsPropertiesOutput) ToWindowsPropertiesOutput() WindowsPropertiesOutput {
+	return o
+}
+
+func (o WindowsPropertiesOutput) ToWindowsPropertiesOutputWithContext(ctx context.Context) WindowsPropertiesOutput {
+	return o
+}
+
+func (o WindowsPropertiesOutput) ToWindowsPropertiesPtrOutput() WindowsPropertiesPtrOutput {
+	return o.ToWindowsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsPropertiesOutput) ToWindowsPropertiesPtrOutputWithContext(ctx context.Context) WindowsPropertiesPtrOutput {
+	return o.ApplyT(func(v WindowsProperties) *WindowsProperties {
+		return &v
+	}).(WindowsPropertiesPtrOutput)
+}
+
+// KB numbers excluded from the software update configuration.
+func (o WindowsPropertiesOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsProperties) []string { return v.ExcludedKbNumbers }).(pulumi.StringArrayOutput)
+}
+
+// KB numbers included from the software update configuration.
+func (o WindowsPropertiesOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsProperties) []string { return v.IncludedKbNumbers }).(pulumi.StringArrayOutput)
+}
+
+// Update classification included in the software update configuration. A comma separated string with required values
+func (o WindowsPropertiesOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsProperties) *string { return v.IncludedUpdateClassifications }).(pulumi.StringPtrOutput)
+}
+
+// Reboot setting for the software update configuration.
+func (o WindowsPropertiesOutput) RebootSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsProperties) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
+}
+
+type WindowsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsProperties)(nil)).Elem()
+}
+
+func (o WindowsPropertiesPtrOutput) ToWindowsPropertiesPtrOutput() WindowsPropertiesPtrOutput {
+	return o
+}
+
+func (o WindowsPropertiesPtrOutput) ToWindowsPropertiesPtrOutputWithContext(ctx context.Context) WindowsPropertiesPtrOutput {
+	return o
+}
+
+func (o WindowsPropertiesPtrOutput) Elem() WindowsPropertiesOutput {
+	return o.ApplyT(func(v *WindowsProperties) WindowsProperties { return *v }).(WindowsPropertiesOutput)
+}
+
+// KB numbers excluded from the software update configuration.
+func (o WindowsPropertiesPtrOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WindowsProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedKbNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+// KB numbers included from the software update configuration.
+func (o WindowsPropertiesPtrOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WindowsProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedKbNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Update classification included in the software update configuration. A comma separated string with required values
+func (o WindowsPropertiesPtrOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedUpdateClassifications
+	}).(pulumi.StringPtrOutput)
+}
+
+// Reboot setting for the software update configuration.
+func (o WindowsPropertiesPtrOutput) RebootSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RebootSetting
+	}).(pulumi.StringPtrOutput)
+}
+
+// Windows specific update configuration.
+type WindowsPropertiesResponse struct {
+	// KB numbers excluded from the software update configuration.
+	ExcludedKbNumbers []string `pulumi:"excludedKbNumbers"`
+	// KB numbers included from the software update configuration.
+	IncludedKbNumbers []string `pulumi:"includedKbNumbers"`
+	// Update classification included in the software update configuration. A comma separated string with required values
+	IncludedUpdateClassifications *string `pulumi:"includedUpdateClassifications"`
+	// Reboot setting for the software update configuration.
+	RebootSetting *string `pulumi:"rebootSetting"`
+}
+
+// WindowsPropertiesResponseInput is an input type that accepts WindowsPropertiesResponseArgs and WindowsPropertiesResponseOutput values.
+// You can construct a concrete instance of `WindowsPropertiesResponseInput` via:
+//
+//          WindowsPropertiesResponseArgs{...}
+type WindowsPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToWindowsPropertiesResponseOutput() WindowsPropertiesResponseOutput
+	ToWindowsPropertiesResponseOutputWithContext(context.Context) WindowsPropertiesResponseOutput
+}
+
+// Windows specific update configuration.
+type WindowsPropertiesResponseArgs struct {
+	// KB numbers excluded from the software update configuration.
+	ExcludedKbNumbers pulumi.StringArrayInput `pulumi:"excludedKbNumbers"`
+	// KB numbers included from the software update configuration.
+	IncludedKbNumbers pulumi.StringArrayInput `pulumi:"includedKbNumbers"`
+	// Update classification included in the software update configuration. A comma separated string with required values
+	IncludedUpdateClassifications pulumi.StringPtrInput `pulumi:"includedUpdateClassifications"`
+	// Reboot setting for the software update configuration.
+	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
+}
+
+func (WindowsPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsPropertiesResponse)(nil)).Elem()
+}
+
+func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponseOutput() WindowsPropertiesResponseOutput {
+	return i.ToWindowsPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponseOutputWithContext(ctx context.Context) WindowsPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesResponseOutput)
+}
+
+func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
+	return i.ToWindowsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesResponseOutput).ToWindowsPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// WindowsPropertiesResponsePtrInput is an input type that accepts WindowsPropertiesResponseArgs, WindowsPropertiesResponsePtr and WindowsPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `WindowsPropertiesResponsePtrInput` via:
+//
+//          WindowsPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WindowsPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput
+	ToWindowsPropertiesResponsePtrOutputWithContext(context.Context) WindowsPropertiesResponsePtrOutput
+}
+
+type windowsPropertiesResponsePtrType WindowsPropertiesResponseArgs
+
+func WindowsPropertiesResponsePtr(v *WindowsPropertiesResponseArgs) WindowsPropertiesResponsePtrInput {
+	return (*windowsPropertiesResponsePtrType)(v)
+}
+
+func (*windowsPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsPropertiesResponse)(nil)).Elem()
+}
+
+func (i *windowsPropertiesResponsePtrType) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
+	return i.ToWindowsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *windowsPropertiesResponsePtrType) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesResponsePtrOutput)
+}
+
+// Windows specific update configuration.
+type WindowsPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (WindowsPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsPropertiesResponse)(nil)).Elem()
+}
+
+func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponseOutput() WindowsPropertiesResponseOutput {
+	return o
+}
+
+func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponseOutputWithContext(ctx context.Context) WindowsPropertiesResponseOutput {
+	return o
+}
+
+func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
+	return o.ToWindowsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v WindowsPropertiesResponse) *WindowsPropertiesResponse {
+		return &v
+	}).(WindowsPropertiesResponsePtrOutput)
+}
+
+// KB numbers excluded from the software update configuration.
+func (o WindowsPropertiesResponseOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsPropertiesResponse) []string { return v.ExcludedKbNumbers }).(pulumi.StringArrayOutput)
+}
+
+// KB numbers included from the software update configuration.
+func (o WindowsPropertiesResponseOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsPropertiesResponse) []string { return v.IncludedKbNumbers }).(pulumi.StringArrayOutput)
+}
+
+// Update classification included in the software update configuration. A comma separated string with required values
+func (o WindowsPropertiesResponseOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsPropertiesResponse) *string { return v.IncludedUpdateClassifications }).(pulumi.StringPtrOutput)
+}
+
+// Reboot setting for the software update configuration.
+func (o WindowsPropertiesResponseOutput) RebootSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsPropertiesResponse) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
+}
+
+type WindowsPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsPropertiesResponse)(nil)).Elem()
+}
+
+func (o WindowsPropertiesResponsePtrOutput) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o WindowsPropertiesResponsePtrOutput) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o WindowsPropertiesResponsePtrOutput) Elem() WindowsPropertiesResponseOutput {
+	return o.ApplyT(func(v *WindowsPropertiesResponse) WindowsPropertiesResponse { return *v }).(WindowsPropertiesResponseOutput)
+}
+
+// KB numbers excluded from the software update configuration.
+func (o WindowsPropertiesResponsePtrOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WindowsPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedKbNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+// KB numbers included from the software update configuration.
+func (o WindowsPropertiesResponsePtrOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WindowsPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedKbNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Update classification included in the software update configuration. A comma separated string with required values
+func (o WindowsPropertiesResponsePtrOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedUpdateClassifications
+	}).(pulumi.StringPtrOutput)
+}
+
+// Reboot setting for the software update configuration.
+func (o WindowsPropertiesResponsePtrOutput) RebootSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RebootSetting
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AdvancedScheduleOutput{})
 	pulumi.RegisterOutputType(AdvancedSchedulePtrOutput{})
@@ -4759,6 +4759,10 @@ func init() {
 	pulumi.RegisterOutputType(SchedulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SchedulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SchedulePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksPtrOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksResponseOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceControlSecurityTokenPropertiesOutput{})
 	pulumi.RegisterOutputType(SourceControlSecurityTokenPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TagSettingsPropertiesOutput{})
@@ -4769,14 +4773,6 @@ func init() {
 	pulumi.RegisterOutputType(TargetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TargetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TargetPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(WindowsPropertiesOutput{})
-	pulumi.RegisterOutputType(WindowsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(WindowsPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(WindowsPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksPtrOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksResponseOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksResponsePtrOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesResponseOutput{})
@@ -4785,4 +4781,8 @@ func init() {
 	pulumi.RegisterOutputType(UpdateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UpdateConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(UpdateConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(WindowsPropertiesOutput{})
+	pulumi.RegisterOutputType(WindowsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WindowsPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(WindowsPropertiesResponsePtrOutput{})
 }

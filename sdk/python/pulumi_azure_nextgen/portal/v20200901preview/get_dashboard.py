@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetDashboardResult',
@@ -41,7 +42,7 @@ class GetDashboardResult:
 
     @property
     @pulumi.getter
-    def lenses(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def lenses(self) -> Optional[Sequence['outputs.DashboardLensResponse']]:
         """
         The dashboard lenses.
         """

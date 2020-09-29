@@ -14,11 +14,9 @@ export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetService
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200808preview:getDelegatedSubnetServiceDetails", {
+    return pulumi.runtime.invoke("azure-nextgen:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
-        "subnetName": args.subnetName,
-        "vnetName": args.vnetName,
     }, opts);
 }
 
@@ -31,38 +29,42 @@ export interface GetDelegatedSubnetServiceDetailsArgs {
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
     readonly resourceName: string;
-    /**
-     * The name of the delegated subnet. This name must be at least 1 character in length, and no more than 90.
-     */
-    readonly subnetName: string;
-    /**
-     * The name of the virtual network. This name must be at least 1 character in length, and no more than 90.
-     */
-    readonly vnetName: string;
 }
 
 /**
- * Delegated subnet details
+ * Represents an instance of a orchestrator.
  */
 export interface GetDelegatedSubnetServiceDetailsResult {
     /**
-     * Location of the DelegatedSubnet resource.
+     * controller details
+     */
+    readonly controllerDetails?: outputs.delegatednetwork.v20200808preview.ControllerDetailsResponse;
+    /**
+     * Location of the resource.
      */
     readonly location?: string;
     /**
-     * The name of the DelegatedSubnet resource.
+     * The name of the resource.
      */
     readonly name: string;
     /**
-     * Guid for the resource(delegatedSubnet) created
+     * The current state of dnc delegated subnet resource.
      */
-    readonly resourceGuid?: string;
+    readonly provisioningState: string;
     /**
-     * The current state of delegated subnet resource.
+     * Resource guid.
      */
-    readonly state: string;
+    readonly resourceGuid: string;
     /**
-     * The type of the DelegatedSubnet  resource.(Microsoft.DelegatedNetwork/delegatedSubnet)
+     * orchestrator details
+     */
+    readonly subnetDetails?: outputs.delegatednetwork.v20200808preview.SubnetDetailsResponse;
+    /**
+     * The resource tags.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * The type of resource.
      */
     readonly type: string;
 }

@@ -10,6 +10,7 @@ from ... import _utilities, _tables
 
 __all__ = [
     'AssignmentLockSettingsArgs',
+    'KeyVaultReferenceArgs',
     'ManagedServiceIdentityArgs',
     'ParameterDefinitionArgs',
     'ParameterValueArgs',
@@ -17,7 +18,6 @@ __all__ = [
     'ResourceGroupValueArgs',
     'SecretValueReferenceArgs',
     'UserAssignedIdentityArgs',
-    'KeyVaultReferenceArgs',
 ]
 
 @pulumi.input_type
@@ -74,6 +74,29 @@ class AssignmentLockSettingsArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
+class KeyVaultReferenceArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Specifies the link to a Key Vault.
+        :param pulumi.Input[str] id: Azure resource ID of the Key Vault.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Azure resource ID of the Key Vault.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -542,28 +565,5 @@ class UserAssignedIdentityArgs:
     @principal_id.setter
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
-
-
-@pulumi.input_type
-class KeyVaultReferenceArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        Specifies the link to a Key Vault.
-        :param pulumi.Input[str] id: Azure resource ID of the Key Vault.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        Azure resource ID of the Key Vault.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
 
 

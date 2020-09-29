@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200808Preview
+namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
 {
     public static class GetDelegatedSubnetServiceDetails
     {
         public static Task<GetDelegatedSubnetServiceDetailsResult> InvokeAsync(GetDelegatedSubnetServiceDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedSubnetServiceDetailsResult>("azure-nextgen:network/v20200808preview:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedSubnetServiceDetailsResult>("azure-nextgen:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsArgs(), options.WithVersion());
     }
 
 
@@ -30,18 +30,6 @@ namespace Pulumi.AzureNextGen.Network.V20200808Preview
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the delegated subnet. This name must be at least 1 character in length, and no more than 90.
-        /// </summary>
-        [Input("subnetName", required: true)]
-        public string SubnetName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the virtual network. This name must be at least 1 character in length, and no more than 90.
-        /// </summary>
-        [Input("vnetName", required: true)]
-        public string VnetName { get; set; } = null!;
-
         public GetDelegatedSubnetServiceDetailsArgs()
         {
         }
@@ -52,42 +40,63 @@ namespace Pulumi.AzureNextGen.Network.V20200808Preview
     public sealed class GetDelegatedSubnetServiceDetailsResult
     {
         /// <summary>
-        /// Location of the DelegatedSubnet resource.
+        /// controller details
+        /// </summary>
+        public readonly Outputs.ControllerDetailsResponse? ControllerDetails;
+        /// <summary>
+        /// Location of the resource.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The name of the DelegatedSubnet resource.
+        /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Guid for the resource(delegatedSubnet) created
+        /// The current state of dnc delegated subnet resource.
         /// </summary>
-        public readonly string? ResourceGuid;
+        public readonly string ProvisioningState;
         /// <summary>
-        /// The current state of delegated subnet resource.
+        /// Resource guid.
         /// </summary>
-        public readonly string State;
+        public readonly string ResourceGuid;
         /// <summary>
-        /// The type of the DelegatedSubnet  resource.(Microsoft.DelegatedNetwork/delegatedSubnet)
+        /// orchestrator details
+        /// </summary>
+        public readonly Outputs.SubnetDetailsResponse? SubnetDetails;
+        /// <summary>
+        /// The resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The type of resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetDelegatedSubnetServiceDetailsResult(
+            Outputs.ControllerDetailsResponse? controllerDetails,
+
             string? location,
 
             string name,
 
-            string? resourceGuid,
+            string provisioningState,
 
-            string state,
+            string resourceGuid,
+
+            Outputs.SubnetDetailsResponse? subnetDetails,
+
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ControllerDetails = controllerDetails;
             Location = location;
             Name = name;
+            ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
-            State = state;
+            SubnetDetails = subnetDetails;
+            Tags = tags;
             Type = type;
         }
     }

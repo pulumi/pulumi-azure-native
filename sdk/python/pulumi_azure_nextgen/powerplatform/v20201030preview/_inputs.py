@@ -10,10 +10,10 @@ from ... import _utilities, _tables
 
 __all__ = [
     'EnterprisePolicyIdentityArgs',
+    'KeyPropertiesArgs',
     'KeyVaultPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'PropertiesEncryptionArgs',
-    'KeyPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -38,6 +38,46 @@ class EnterprisePolicyIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class KeyPropertiesArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Url and version of the KeyVault Secret
+        :param pulumi.Input[str] name: The identifier of the key vault key used to encrypt data.
+        :param pulumi.Input[str] version: The version of the identity which will be used to access key vault.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the key vault key used to encrypt data.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -158,45 +198,5 @@ class PropertiesEncryptionArgs:
     @key_vault_properties.setter
     def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
-
-
-@pulumi.input_type
-class KeyPropertiesArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
-        """
-        Url and version of the KeyVault Secret
-        :param pulumi.Input[str] name: The identifier of the key vault key used to encrypt data.
-        :param pulumi.Input[str] version: The version of the identity which will be used to access key vault.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier of the key vault key used to encrypt data.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The version of the identity which will be used to access key vault.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "version", value)
 
 

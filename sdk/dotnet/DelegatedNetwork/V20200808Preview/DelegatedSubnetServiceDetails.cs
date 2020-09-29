@@ -7,39 +7,57 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200808Preview
+namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
 {
     /// <summary>
-    /// Delegated subnet details
+    /// Represents an instance of a orchestrator.
     /// </summary>
     public partial class DelegatedSubnetServiceDetails : Pulumi.CustomResource
     {
         /// <summary>
-        /// Location of the DelegatedSubnet resource.
+        /// controller details
+        /// </summary>
+        [Output("controllerDetails")]
+        public Output<Outputs.ControllerDetailsResponse?> ControllerDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// Location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DelegatedSubnet resource.
+        /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Guid for the resource(delegatedSubnet) created
+        /// The current state of dnc delegated subnet resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource guid.
         /// </summary>
         [Output("resourceGuid")]
-        public Output<string?> ResourceGuid { get; private set; } = null!;
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of delegated subnet resource.
+        /// orchestrator details
         /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        [Output("subnetDetails")]
+        public Output<Outputs.SubnetDetailsResponse?> SubnetDetails { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the DelegatedSubnet  resource.(Microsoft.DelegatedNetwork/delegatedSubnet)
+        /// The resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -53,12 +71,12 @@ namespace Pulumi.AzureNextGen.Network.V20200808Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DelegatedSubnetServiceDetails(string name, DelegatedSubnetServiceDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200808preview:DelegatedSubnetServiceDetails", name, args ?? new DelegatedSubnetServiceDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails", name, args ?? new DelegatedSubnetServiceDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DelegatedSubnetServiceDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200808preview:DelegatedSubnetServiceDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -90,10 +108,16 @@ namespace Pulumi.AzureNextGen.Network.V20200808Preview
     public sealed class DelegatedSubnetServiceDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Delegated Network Controller ARM resource ID
+        /// controller details
         /// </summary>
-        [Input("controllerID")]
-        public Input<string>? ControllerID { get; set; }
+        [Input("controllerDetails")]
+        public Input<Inputs.ControllerDetailsArgs>? ControllerDetails { get; set; }
+
+        /// <summary>
+        /// Location of the resource.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
@@ -108,16 +132,22 @@ namespace Pulumi.AzureNextGen.Network.V20200808Preview
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the delegated subnet. This name must be at least 1 character in length, and no more than 90.
+        /// orchestrator details
         /// </summary>
-        [Input("subnetName", required: true)]
-        public Input<string> SubnetName { get; set; } = null!;
+        [Input("subnetDetails")]
+        public Input<Inputs.SubnetDetailsArgs>? SubnetDetails { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// The name of the virtual network. This name must be at least 1 character in length, and no more than 90.
+        /// The resource tags.
         /// </summary>
-        [Input("vnetName", required: true)]
-        public Input<string> VnetName { get; set; } = null!;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public DelegatedSubnetServiceDetailsArgs()
         {

@@ -102,7 +102,7 @@ type Database struct {
 	SourceDatabaseId pulumi.StringPtrOutput `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -258,7 +258,7 @@ type databaseState struct {
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status *string `pulumi:"status"`
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -357,7 +357,7 @@ type DatabaseState struct {
 	SourceDatabaseId pulumi.StringPtrInput
 	// The status of the database.
 	Status pulumi.StringPtrInput
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
@@ -436,7 +436,7 @@ type databaseArgs struct {
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
 	// The resource identifier of the source database associated with create operation of this database.
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -510,7 +510,7 @@ type DatabaseArgs struct {
 	SourceDatabaseDeletionDate pulumi.StringPtrInput
 	// The resource identifier of the source database associated with create operation of this database.
 	SourceDatabaseId pulumi.StringPtrInput
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput

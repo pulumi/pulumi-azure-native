@@ -38,7 +38,7 @@ export interface GetDashboardResult {
     /**
      * The dashboard lenses.
      */
-    readonly lenses?: {[key: string]: any}[];
+    readonly lenses?: outputs.portal.v20200901preview.DashboardLensResponse[];
     /**
      * Resource location
      */

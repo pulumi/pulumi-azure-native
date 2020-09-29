@@ -35,27 +35,39 @@ export class ControllerDetails extends pulumi.CustomResource {
     }
 
     /**
-     * The current state of dnc controller resource.
+     * dnc application id should be used by customer to authenticate with dnc gateway.
      */
-    public /*out*/ readonly dncAppId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly dncAppId!: pulumi.Output<string>;
     /**
      * dnc endpoint url that customers can use to connect to
      */
-    public /*out*/ readonly dncEndpoint!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly dncEndpoint!: pulumi.Output<string>;
     /**
-     * Location of the DNC controller resource.
+     * tenant id of dnc application id
      */
-    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly dncTenantId!: pulumi.Output<string>;
     /**
-     * The name of the DNC controller resource.
+     * Location of the resource.
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The current state of dnc controller resource.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The type of the DNC controller  resource.(Microsoft.DelegatedNetwork/controller)
+     * Resource guid.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
+     * The resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -75,25 +87,26 @@ export class ControllerDetails extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["apiServerEndpoint"] = args ? args.apiServerEndpoint : undefined;
-            inputs["clusterRootCA"] = args ? args.clusterRootCA : undefined;
-            inputs["controllerType"] = args ? args.controllerType : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["serverAppID"] = args ? args.serverAppID : undefined;
-            inputs["serverTenantID"] = args ? args.serverTenantID : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["dncAppId"] = undefined /*out*/;
             inputs["dncEndpoint"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
+            inputs["dncTenantId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["dncAppId"] = undefined /*out*/;
             inputs["dncEndpoint"] = undefined /*out*/;
+            inputs["dncTenantId"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,17 +125,9 @@ export class ControllerDetails extends pulumi.CustomResource {
  */
 export interface ControllerDetailsArgs {
     /**
-     * APIServer url
+     * Location of the resource.
      */
-    readonly apiServerEndpoint?: pulumi.Input<string>;
-    /**
-     * RootCA certificate of kubernetes cluster
-     */
-    readonly clusterRootCA?: pulumi.Input<string>;
-    /**
-     * Type of controller
-     */
-    readonly controllerType?: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
      */
@@ -132,11 +137,7 @@ export interface ControllerDetailsArgs {
      */
     readonly resourceName: pulumi.Input<string>;
     /**
-     * AAD ID used with apiserver
+     * The resource tags.
      */
-    readonly serverAppID?: pulumi.Input<string>;
-    /**
-     * TenantID of server App ID
-     */
-    readonly serverTenantID?: pulumi.Input<string>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

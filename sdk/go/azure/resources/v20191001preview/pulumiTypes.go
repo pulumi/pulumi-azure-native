@@ -318,224 +318,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAs
 	}).(UserAssignedIdentityResponseMapOutput)
 }
 
-// User-assigned managed identity.
-type UserAssignedIdentity struct {
-	// Client App Id associated with this identity.
-	ClientId *string `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this identity.
-	PrincipalId *string `pulumi:"principalId"`
-}
-
-// UserAssignedIdentityInput is an input type that accepts UserAssignedIdentityArgs and UserAssignedIdentityOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityInput` via:
-//
-//          UserAssignedIdentityArgs{...}
-type UserAssignedIdentityInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityOutput() UserAssignedIdentityOutput
-	ToUserAssignedIdentityOutputWithContext(context.Context) UserAssignedIdentityOutput
-}
-
-// User-assigned managed identity.
-type UserAssignedIdentityArgs struct {
-	// Client App Id associated with this identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this identity.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-}
-
-func (UserAssignedIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
-	return i.ToUserAssignedIdentityOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
-}
-
-// UserAssignedIdentityMapInput is an input type that accepts UserAssignedIdentityMap and UserAssignedIdentityMapOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityMapInput` via:
-//
-//          UserAssignedIdentityMap{ "key": UserAssignedIdentityArgs{...} }
-type UserAssignedIdentityMapInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput
-	ToUserAssignedIdentityMapOutputWithContext(context.Context) UserAssignedIdentityMapOutput
-}
-
-type UserAssignedIdentityMap map[string]UserAssignedIdentityInput
-
-func (UserAssignedIdentityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentity)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
-	return i.ToUserAssignedIdentityMapOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput)
-}
-
-// User-assigned managed identity.
-type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
-	return o
-}
-
-func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
-	return o
-}
-
-// Client App Id associated with this identity.
-func (o UserAssignedIdentityOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// Azure Active Directory principal ID associated with this identity.
-func (o UserAssignedIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-type UserAssignedIdentityMapOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentity)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentity {
-		return vs[0].(map[string]UserAssignedIdentity)[vs[1].(string)]
-	}).(UserAssignedIdentityOutput)
-}
-
-// User-assigned managed identity.
-type UserAssignedIdentityResponse struct {
-	// Client App Id associated with this identity.
-	ClientId *string `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this identity.
-	PrincipalId *string `pulumi:"principalId"`
-}
-
-// UserAssignedIdentityResponseInput is an input type that accepts UserAssignedIdentityResponseArgs and UserAssignedIdentityResponseOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityResponseInput` via:
-//
-//          UserAssignedIdentityResponseArgs{...}
-type UserAssignedIdentityResponseInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput
-	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
-}
-
-// User-assigned managed identity.
-type UserAssignedIdentityResponseArgs struct {
-	// Client App Id associated with this identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this identity.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-}
-
-func (UserAssignedIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
-	return i.ToUserAssignedIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseOutput)
-}
-
-// UserAssignedIdentityResponseMapInput is an input type that accepts UserAssignedIdentityResponseMap and UserAssignedIdentityResponseMapOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityResponseMapInput` via:
-//
-//          UserAssignedIdentityResponseMap{ "key": UserAssignedIdentityResponseArgs{...} }
-type UserAssignedIdentityResponseMapInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput
-	ToUserAssignedIdentityResponseMapOutputWithContext(context.Context) UserAssignedIdentityResponseMapOutput
-}
-
-type UserAssignedIdentityResponseMap map[string]UserAssignedIdentityResponseInput
-
-func (UserAssignedIdentityResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
-	return i.ToUserAssignedIdentityResponseMapOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
-}
-
-// User-assigned managed identity.
-type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
-	return o
-}
-
-func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
-	return o
-}
-
-// Client App Id associated with this identity.
-func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// Azure Active Directory principal ID associated with this identity.
-func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
-		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
-	}).(UserAssignedIdentityResponseOutput)
-}
-
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -765,15 +547,233 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// User-assigned managed identity.
+type UserAssignedIdentity struct {
+	// Client App Id associated with this identity.
+	ClientId *string `pulumi:"clientId"`
+	// Azure Active Directory principal ID associated with this identity.
+	PrincipalId *string `pulumi:"principalId"`
+}
+
+// UserAssignedIdentityInput is an input type that accepts UserAssignedIdentityArgs and UserAssignedIdentityOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityInput` via:
+//
+//          UserAssignedIdentityArgs{...}
+type UserAssignedIdentityInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityOutput() UserAssignedIdentityOutput
+	ToUserAssignedIdentityOutputWithContext(context.Context) UserAssignedIdentityOutput
+}
+
+// User-assigned managed identity.
+type UserAssignedIdentityArgs struct {
+	// Client App Id associated with this identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Azure Active Directory principal ID associated with this identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+}
+
+func (UserAssignedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return i.ToUserAssignedIdentityOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
+}
+
+// UserAssignedIdentityMapInput is an input type that accepts UserAssignedIdentityMap and UserAssignedIdentityMapOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityMapInput` via:
+//
+//          UserAssignedIdentityMap{ "key": UserAssignedIdentityArgs{...} }
+type UserAssignedIdentityMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput
+	ToUserAssignedIdentityMapOutputWithContext(context.Context) UserAssignedIdentityMapOutput
+}
+
+type UserAssignedIdentityMap map[string]UserAssignedIdentityInput
+
+func (UserAssignedIdentityMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentity)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
+	return i.ToUserAssignedIdentityMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput)
+}
+
+// User-assigned managed identity.
+type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return o
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return o
+}
+
+// Client App Id associated with this identity.
+func (o UserAssignedIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory principal ID associated with this identity.
+func (o UserAssignedIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+type UserAssignedIdentityMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentity)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentity {
+		return vs[0].(map[string]UserAssignedIdentity)[vs[1].(string)]
+	}).(UserAssignedIdentityOutput)
+}
+
+// User-assigned managed identity.
+type UserAssignedIdentityResponse struct {
+	// Client App Id associated with this identity.
+	ClientId *string `pulumi:"clientId"`
+	// Azure Active Directory principal ID associated with this identity.
+	PrincipalId *string `pulumi:"principalId"`
+}
+
+// UserAssignedIdentityResponseInput is an input type that accepts UserAssignedIdentityResponseArgs and UserAssignedIdentityResponseOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityResponseInput` via:
+//
+//          UserAssignedIdentityResponseArgs{...}
+type UserAssignedIdentityResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput
+	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
+}
+
+// User-assigned managed identity.
+type UserAssignedIdentityResponseArgs struct {
+	// Client App Id associated with this identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Azure Active Directory principal ID associated with this identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+}
+
+func (UserAssignedIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return i.ToUserAssignedIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseOutput)
+}
+
+// UserAssignedIdentityResponseMapInput is an input type that accepts UserAssignedIdentityResponseMap and UserAssignedIdentityResponseMapOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityResponseMapInput` via:
+//
+//          UserAssignedIdentityResponseMap{ "key": UserAssignedIdentityResponseArgs{...} }
+type UserAssignedIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput
+	ToUserAssignedIdentityResponseMapOutputWithContext(context.Context) UserAssignedIdentityResponseMapOutput
+}
+
+type UserAssignedIdentityResponseMap map[string]UserAssignedIdentityResponseInput
+
+func (UserAssignedIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return i.ToUserAssignedIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
+}
+
+// User-assigned managed identity.
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// Client App Id associated with this identity.
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory principal ID associated with this identity.
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityMapOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
-	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

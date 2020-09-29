@@ -329,6 +329,12 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
         public Input<bool>? ScmIpSecurityRestrictionsUseMain { get; set; }
 
         /// <summary>
+        /// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+        /// </summary>
+        [Input("scmMinTlsVersion")]
+        public Input<string>? ScmMinTlsVersion { get; set; }
+
+        /// <summary>
         /// SCM type.
         /// </summary>
         [Input("scmType")]

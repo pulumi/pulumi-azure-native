@@ -3,4 +3,8 @@
 
 // Export members:
 export * from "./controllerDetails";
+export * from "./delegatedSubnetServiceDetails";
 export * from "./getControllerDetails";
+export * from "./getDelegatedSubnetServiceDetails";
+export * from "./getOrchestratorInstanceServiceDetails";
+export * from "./orchestratorInstanceServiceDetails";

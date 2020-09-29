@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['Dashboard']
 
@@ -16,7 +18,7 @@ class Dashboard(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
-                 lenses: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 lenses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardLensArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +32,7 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dashboard_name: The name of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] lenses: The dashboard lenses.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardLensArgs']]]] lenses: The dashboard lenses.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] metadata: The dashboard metadata.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -95,7 +97,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def lenses(self) -> pulumi.Output[Optional[Sequence[Mapping[str, Any]]]]:
+    def lenses(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardLensResponse']]]:
         """
         The dashboard lenses.
         """

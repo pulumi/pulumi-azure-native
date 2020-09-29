@@ -14,12 +14,12 @@ __all__ = [
     'IncidentInfoArgs',
     'IncidentLabelArgs',
     'IncidentOwnerInfoArgs',
+    'KeyVaultPropertiesArgs',
     'StorageAccountArgs',
     'TagArgs',
     'UserInfoArgs',
     'WorkspaceCappingArgs',
     'WorkspaceSkuArgs',
-    'KeyVaultPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -249,6 +249,62 @@ class IncidentOwnerInfoArgs:
 
 
 @pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
+                 key_version: Optional[pulumi.Input[str]] = None):
+        """
+        The key vault properties.
+        :param pulumi.Input[str] key_name: The name of the key associated with the Log Analytics cluster.
+        :param pulumi.Input[str] key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        :param pulumi.Input[str] key_version: The version of the key associated with the Log Analytics cluster.
+        """
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
 class StorageAccountArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
@@ -408,61 +464,5 @@ class WorkspaceSkuArgs:
     @capacity_reservation_level.setter
     def capacity_reservation_level(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity_reservation_level", value)
-
-
-@pulumi.input_type
-class KeyVaultPropertiesArgs:
-    def __init__(__self__, *,
-                 key_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_uri: Optional[pulumi.Input[str]] = None,
-                 key_version: Optional[pulumi.Input[str]] = None):
-        """
-        The key vault properties.
-        :param pulumi.Input[str] key_name: The name of the key associated with the Log Analytics cluster.
-        :param pulumi.Input[str] key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
-        :param pulumi.Input[str] key_version: The version of the key associated with the Log Analytics cluster.
-        """
-        if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
-        if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the key associated with the Log Analytics cluster.
-        """
-        return pulumi.get(self, "key_name")
-
-    @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_name", value)
-
-    @property
-    @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Key Vault uri which holds they key associated with the Log Analytics cluster.
-        """
-        return pulumi.get(self, "key_vault_uri")
-
-    @key_vault_uri.setter
-    def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_vault_uri", value)
-
-    @property
-    @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The version of the key associated with the Log Analytics cluster.
-        """
-        return pulumi.get(self, "key_version")
-
-    @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_version", value)
 
 

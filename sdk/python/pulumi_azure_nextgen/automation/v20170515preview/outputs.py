@@ -17,12 +17,12 @@ __all__ = [
     'LinuxPropertiesResponse',
     'NonAzureQueryPropertiesResponse',
     'SchedulePropertiesResponse',
+    'SoftwareUpdateConfigurationTasksResponse',
     'TagSettingsPropertiesResponse',
     'TargetPropertiesResponse',
-    'WindowsPropertiesResponse',
-    'SoftwareUpdateConfigurationTasksResponse',
     'TaskPropertiesResponse',
     'UpdateConfigurationResponse',
+    'WindowsPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -483,6 +483,44 @@ class SchedulePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class SoftwareUpdateConfigurationTasksResponse(dict):
+    """
+    Task properties of the software update configuration.
+    """
+    def __init__(__self__, *,
+                 post_task: Optional['outputs.TaskPropertiesResponse'] = None,
+                 pre_task: Optional['outputs.TaskPropertiesResponse'] = None):
+        """
+        Task properties of the software update configuration.
+        :param 'TaskPropertiesResponseArgs' post_task: Post task properties.
+        :param 'TaskPropertiesResponseArgs' pre_task: Pre task properties.
+        """
+        if post_task is not None:
+            pulumi.set(__self__, "post_task", post_task)
+        if pre_task is not None:
+            pulumi.set(__self__, "pre_task", pre_task)
+
+    @property
+    @pulumi.getter(name="postTask")
+    def post_task(self) -> Optional['outputs.TaskPropertiesResponse']:
+        """
+        Post task properties.
+        """
+        return pulumi.get(self, "post_task")
+
+    @property
+    @pulumi.getter(name="preTask")
+    def pre_task(self) -> Optional['outputs.TaskPropertiesResponse']:
+        """
+        Pre task properties.
+        """
+        return pulumi.get(self, "pre_task")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class TagSettingsPropertiesResponse(dict):
     """
     Tag filter information for the VM.
@@ -553,106 +591,6 @@ class TargetPropertiesResponse(dict):
         List of non Azure queries in the software update configuration.
         """
         return pulumi.get(self, "non_azure_queries")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class WindowsPropertiesResponse(dict):
-    """
-    Windows specific update configuration.
-    """
-    def __init__(__self__, *,
-                 excluded_kb_numbers: Optional[Sequence[str]] = None,
-                 included_kb_numbers: Optional[Sequence[str]] = None,
-                 included_update_classifications: Optional[str] = None,
-                 reboot_setting: Optional[str] = None):
-        """
-        Windows specific update configuration.
-        :param Sequence[str] excluded_kb_numbers: KB numbers excluded from the software update configuration.
-        :param Sequence[str] included_kb_numbers: KB numbers included from the software update configuration.
-        :param str included_update_classifications: Update classification included in the software update configuration. A comma separated string with required values
-        :param str reboot_setting: Reboot setting for the software update configuration.
-        """
-        if excluded_kb_numbers is not None:
-            pulumi.set(__self__, "excluded_kb_numbers", excluded_kb_numbers)
-        if included_kb_numbers is not None:
-            pulumi.set(__self__, "included_kb_numbers", included_kb_numbers)
-        if included_update_classifications is not None:
-            pulumi.set(__self__, "included_update_classifications", included_update_classifications)
-        if reboot_setting is not None:
-            pulumi.set(__self__, "reboot_setting", reboot_setting)
-
-    @property
-    @pulumi.getter(name="excludedKbNumbers")
-    def excluded_kb_numbers(self) -> Optional[Sequence[str]]:
-        """
-        KB numbers excluded from the software update configuration.
-        """
-        return pulumi.get(self, "excluded_kb_numbers")
-
-    @property
-    @pulumi.getter(name="includedKbNumbers")
-    def included_kb_numbers(self) -> Optional[Sequence[str]]:
-        """
-        KB numbers included from the software update configuration.
-        """
-        return pulumi.get(self, "included_kb_numbers")
-
-    @property
-    @pulumi.getter(name="includedUpdateClassifications")
-    def included_update_classifications(self) -> Optional[str]:
-        """
-        Update classification included in the software update configuration. A comma separated string with required values
-        """
-        return pulumi.get(self, "included_update_classifications")
-
-    @property
-    @pulumi.getter(name="rebootSetting")
-    def reboot_setting(self) -> Optional[str]:
-        """
-        Reboot setting for the software update configuration.
-        """
-        return pulumi.get(self, "reboot_setting")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class SoftwareUpdateConfigurationTasksResponse(dict):
-    """
-    Task properties of the software update configuration.
-    """
-    def __init__(__self__, *,
-                 post_task: Optional['outputs.TaskPropertiesResponse'] = None,
-                 pre_task: Optional['outputs.TaskPropertiesResponse'] = None):
-        """
-        Task properties of the software update configuration.
-        :param 'TaskPropertiesResponseArgs' post_task: Post task properties.
-        :param 'TaskPropertiesResponseArgs' pre_task: Pre task properties.
-        """
-        if post_task is not None:
-            pulumi.set(__self__, "post_task", post_task)
-        if pre_task is not None:
-            pulumi.set(__self__, "pre_task", pre_task)
-
-    @property
-    @pulumi.getter(name="postTask")
-    def post_task(self) -> Optional['outputs.TaskPropertiesResponse']:
-        """
-        Post task properties.
-        """
-        return pulumi.get(self, "post_task")
-
-    @property
-    @pulumi.getter(name="preTask")
-    def pre_task(self) -> Optional['outputs.TaskPropertiesResponse']:
-        """
-        Pre task properties.
-        """
-        return pulumi.get(self, "pre_task")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -788,6 +726,68 @@ class UpdateConfigurationResponse(dict):
         Windows specific update configuration.
         """
         return pulumi.get(self, "windows")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WindowsPropertiesResponse(dict):
+    """
+    Windows specific update configuration.
+    """
+    def __init__(__self__, *,
+                 excluded_kb_numbers: Optional[Sequence[str]] = None,
+                 included_kb_numbers: Optional[Sequence[str]] = None,
+                 included_update_classifications: Optional[str] = None,
+                 reboot_setting: Optional[str] = None):
+        """
+        Windows specific update configuration.
+        :param Sequence[str] excluded_kb_numbers: KB numbers excluded from the software update configuration.
+        :param Sequence[str] included_kb_numbers: KB numbers included from the software update configuration.
+        :param str included_update_classifications: Update classification included in the software update configuration. A comma separated string with required values
+        :param str reboot_setting: Reboot setting for the software update configuration.
+        """
+        if excluded_kb_numbers is not None:
+            pulumi.set(__self__, "excluded_kb_numbers", excluded_kb_numbers)
+        if included_kb_numbers is not None:
+            pulumi.set(__self__, "included_kb_numbers", included_kb_numbers)
+        if included_update_classifications is not None:
+            pulumi.set(__self__, "included_update_classifications", included_update_classifications)
+        if reboot_setting is not None:
+            pulumi.set(__self__, "reboot_setting", reboot_setting)
+
+    @property
+    @pulumi.getter(name="excludedKbNumbers")
+    def excluded_kb_numbers(self) -> Optional[Sequence[str]]:
+        """
+        KB numbers excluded from the software update configuration.
+        """
+        return pulumi.get(self, "excluded_kb_numbers")
+
+    @property
+    @pulumi.getter(name="includedKbNumbers")
+    def included_kb_numbers(self) -> Optional[Sequence[str]]:
+        """
+        KB numbers included from the software update configuration.
+        """
+        return pulumi.get(self, "included_kb_numbers")
+
+    @property
+    @pulumi.getter(name="includedUpdateClassifications")
+    def included_update_classifications(self) -> Optional[str]:
+        """
+        Update classification included in the software update configuration. A comma separated string with required values
+        """
+        return pulumi.get(self, "included_update_classifications")
+
+    @property
+    @pulumi.getter(name="rebootSetting")
+    def reboot_setting(self) -> Optional[str]:
+        """
+        Reboot setting for the software update configuration.
+        """
+        return pulumi.get(self, "reboot_setting")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

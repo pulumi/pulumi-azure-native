@@ -15,13 +15,10 @@ class ControllerDetails(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_server_endpoint: Optional[pulumi.Input[str]] = None,
-                 cluster_root_ca: Optional[pulumi.Input[str]] = None,
-                 controller_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 server_app_id: Optional[pulumi.Input[str]] = None,
-                 server_tenant_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,13 +27,10 @@ class ControllerDetails(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_server_endpoint: APIServer url
-        :param pulumi.Input[str] cluster_root_ca: RootCA certificate of kubernetes cluster
-        :param pulumi.Input[str] controller_type: Type of controller
+        :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input[str] resource_name_: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-        :param pulumi.Input[str] server_app_id: AAD ID used with apiserver
-        :param pulumi.Input[str] server_tenant_id: TenantID of server App ID
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,22 +49,20 @@ class ControllerDetails(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['api_server_endpoint'] = api_server_endpoint
-            __props__['cluster_root_ca'] = cluster_root_ca
-            __props__['controller_type'] = controller_type
+            __props__['location'] = location
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if resource_name_ is None:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            __props__['server_app_id'] = server_app_id
-            __props__['server_tenant_id'] = server_tenant_id
+            __props__['tags'] = tags
             __props__['dnc_app_id'] = None
             __props__['dnc_endpoint'] = None
-            __props__['location'] = None
+            __props__['dnc_tenant_id'] = None
             __props__['name'] = None
-            __props__['state'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_guid'] = None
             __props__['type'] = None
         super(ControllerDetails, __self__).__init__(
             'azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails',
@@ -98,25 +90,33 @@ class ControllerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dncAppId")
-    def dnc_app_id(self) -> pulumi.Output[Optional[str]]:
+    def dnc_app_id(self) -> pulumi.Output[str]:
         """
-        The current state of dnc controller resource.
+        dnc application id should be used by customer to authenticate with dnc gateway.
         """
         return pulumi.get(self, "dnc_app_id")
 
     @property
     @pulumi.getter(name="dncEndpoint")
-    def dnc_endpoint(self) -> pulumi.Output[Optional[str]]:
+    def dnc_endpoint(self) -> pulumi.Output[str]:
         """
         dnc endpoint url that customers can use to connect to
         """
         return pulumi.get(self, "dnc_endpoint")
 
     @property
+    @pulumi.getter(name="dncTenantId")
+    def dnc_tenant_id(self) -> pulumi.Output[str]:
+        """
+        tenant id of dnc application id
+        """
+        return pulumi.get(self, "dnc_tenant_id")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
-        Location of the DNC controller resource.
+        Location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -124,23 +124,39 @@ class ControllerDetails(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the DNC controller resource.
+        The name of the resource.
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current state of dnc controller resource.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        Resource guid.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the DNC controller  resource.(Microsoft.DelegatedNetwork/controller)
+        The type of resource.
         """
         return pulumi.get(self, "type")
 

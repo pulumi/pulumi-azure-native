@@ -14,17 +14,23 @@ import (
 type ControllerDetails struct {
 	pulumi.CustomResourceState
 
-	// The current state of dnc controller resource.
-	DncAppId pulumi.StringPtrOutput `pulumi:"dncAppId"`
+	// dnc application id should be used by customer to authenticate with dnc gateway.
+	DncAppId pulumi.StringOutput `pulumi:"dncAppId"`
 	// dnc endpoint url that customers can use to connect to
-	DncEndpoint pulumi.StringPtrOutput `pulumi:"dncEndpoint"`
-	// Location of the DNC controller resource.
+	DncEndpoint pulumi.StringOutput `pulumi:"dncEndpoint"`
+	// tenant id of dnc application id
+	DncTenantId pulumi.StringOutput `pulumi:"dncTenantId"`
+	// Location of the resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the DNC controller resource.
+	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current state of dnc controller resource.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The type of the DNC controller  resource.(Microsoft.DelegatedNetwork/controller)
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Resource guid.
+	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
+	// The resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The type of resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -62,32 +68,44 @@ func GetControllerDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ControllerDetails resources.
 type controllerDetailsState struct {
-	// The current state of dnc controller resource.
+	// dnc application id should be used by customer to authenticate with dnc gateway.
 	DncAppId *string `pulumi:"dncAppId"`
 	// dnc endpoint url that customers can use to connect to
 	DncEndpoint *string `pulumi:"dncEndpoint"`
-	// Location of the DNC controller resource.
+	// tenant id of dnc application id
+	DncTenantId *string `pulumi:"dncTenantId"`
+	// Location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the DNC controller resource.
+	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// The current state of dnc controller resource.
-	State *string `pulumi:"state"`
-	// The type of the DNC controller  resource.(Microsoft.DelegatedNetwork/controller)
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource guid.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of resource.
 	Type *string `pulumi:"type"`
 }
 
 type ControllerDetailsState struct {
-	// The current state of dnc controller resource.
+	// dnc application id should be used by customer to authenticate with dnc gateway.
 	DncAppId pulumi.StringPtrInput
 	// dnc endpoint url that customers can use to connect to
 	DncEndpoint pulumi.StringPtrInput
-	// Location of the DNC controller resource.
+	// tenant id of dnc application id
+	DncTenantId pulumi.StringPtrInput
+	// Location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the DNC controller resource.
+	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// The current state of dnc controller resource.
-	State pulumi.StringPtrInput
-	// The type of the DNC controller  resource.(Microsoft.DelegatedNetwork/controller)
+	ProvisioningState pulumi.StringPtrInput
+	// Resource guid.
+	ResourceGuid pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The type of resource.
 	Type pulumi.StringPtrInput
 }
 
@@ -96,38 +114,26 @@ func (ControllerDetailsState) ElementType() reflect.Type {
 }
 
 type controllerDetailsArgs struct {
-	// APIServer url
-	ApiServerEndpoint *string `pulumi:"apiServerEndpoint"`
-	// RootCA certificate of kubernetes cluster
-	ClusterRootCA *string `pulumi:"clusterRootCA"`
-	// Type of controller
-	ControllerType *string `pulumi:"controllerType"`
+	// Location of the resource.
+	Location *string `pulumi:"location"`
 	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
 	ResourceName string `pulumi:"resourceName"`
-	// AAD ID used with apiserver
-	ServerAppID *string `pulumi:"serverAppID"`
-	// TenantID of server App ID
-	ServerTenantID *string `pulumi:"serverTenantID"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ControllerDetails resource.
 type ControllerDetailsArgs struct {
-	// APIServer url
-	ApiServerEndpoint pulumi.StringPtrInput
-	// RootCA certificate of kubernetes cluster
-	ClusterRootCA pulumi.StringPtrInput
-	// Type of controller
-	ControllerType pulumi.StringPtrInput
+	// Location of the resource.
+	Location pulumi.StringPtrInput
 	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
 	ResourceName pulumi.StringInput
-	// AAD ID used with apiserver
-	ServerAppID pulumi.StringPtrInput
-	// TenantID of server App ID
-	ServerTenantID pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (ControllerDetailsArgs) ElementType() reflect.Type {
