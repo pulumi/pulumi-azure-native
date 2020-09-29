@@ -19,10 +19,20 @@ const virtualMachinesPulumirancherNameParam = config.get("virtualMachinesPulumir
 const extensionResource = new azure_nextgen.compute.v20190701.VirtualMachineExtension("extensionResource", {
     autoUpgradeMinorVersion: true,
     location: "westus2",
-    protectedSettings: {},
+    protectedSettings: {
+        certs: {
+            ca: extensionsDockerExtensionCaParam,
+            cert: extensionsDockerExtensionCertParam,
+            key: extensionsDockerExtensionKeyParam,
+        },
+    },
     publisher: "Microsoft.Azure.Extensions",
     resourceGroupName: resourceGroupNameParam,
-    settings: {},
+    settings: {
+        docker: {
+            port: "2375",
+        },
+    },
     type: "DockerExtension",
     typeHandlerVersion: "1.0",
     vmExtensionName: `${virtualMachinesPulumirancherNameParam}/DockerExtension`,
@@ -36,7 +46,14 @@ const extensionsEnablevmaccessUsernameParam = config.require("extensionsEnablevm
 const extensionResource0 = new azure_nextgen.compute.v20190701.VirtualMachineExtension("extensionResource0", {
     autoUpgradeMinorVersion: true,
     location: "westus2",
-    protectedSettings: {},
+    protectedSettings: {
+        expiration: extensionsEnablevmaccessExpirationParam,
+        password: extensionsEnablevmaccessPasswordParam,
+        remove_user: extensionsEnablevmaccessRemoveUserParam,
+        reset_ssh: extensionsEnablevmaccessResetSshParam,
+        ssh_key: extensionsEnablevmaccessSshKeyParam,
+        username: extensionsEnablevmaccessUsernameParam,
+    },
     publisher: "Microsoft.OSTCExtensions",
     resourceGroupName: resourceGroupNameParam,
     settings: {},
