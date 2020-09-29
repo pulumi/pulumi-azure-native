@@ -84,6 +84,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20180402
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20191001:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:StorageSyncService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Inputs
     /// </summary>
     public sealed class RequestMethodMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
-        [Input("matchValues", required: true)]
+        [Input("matchValues")]
         private InputList<string>? _matchValues;
 
         /// <summary>

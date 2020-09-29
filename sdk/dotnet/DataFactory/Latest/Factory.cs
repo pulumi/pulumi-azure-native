@@ -57,6 +57,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Whether or not public network access is allowed for the data factory.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// Git repo information of the factory.
         /// </summary>
         [Output("repoConfiguration")]
@@ -159,6 +165,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Whether or not public network access is allowed for the data factory.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Git repo information of the factory.

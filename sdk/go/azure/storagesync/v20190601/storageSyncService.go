@@ -71,6 +71,9 @@ func NewStorageSyncService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200301:StorageSyncService"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:storagesync/v20200901:StorageSyncService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StorageSyncService

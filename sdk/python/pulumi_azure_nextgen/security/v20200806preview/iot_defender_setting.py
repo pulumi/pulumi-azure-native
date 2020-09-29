@@ -15,6 +15,8 @@ class IotDefenderSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 device_quota: Optional[pulumi.Input[int]] = None,
+                 sentinel_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -23,6 +25,8 @@ class IotDefenderSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] device_quota: Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sentinel_workspace_resource_ids: Sentinel Workspace Resource Ids
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -41,6 +45,12 @@ class IotDefenderSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if device_quota is None:
+                raise TypeError("Missing required property 'device_quota'")
+            __props__['device_quota'] = device_quota
+            if sentinel_workspace_resource_ids is None:
+                raise TypeError("Missing required property 'sentinel_workspace_resource_ids'")
+            __props__['sentinel_workspace_resource_ids'] = sentinel_workspace_resource_ids
             __props__['name'] = None
             __props__['type'] = None
         super(IotDefenderSetting, __self__).__init__(
@@ -68,12 +78,28 @@ class IotDefenderSetting(pulumi.CustomResource):
         return IotDefenderSetting(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="deviceQuota")
+    def device_quota(self) -> pulumi.Output[int]:
+        """
+        Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        """
+        return pulumi.get(self, "device_quota")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sentinelWorkspaceResourceIds")
+    def sentinel_workspace_resource_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Sentinel Workspace Resource Ids
+        """
+        return pulumi.get(self, "sentinel_workspace_resource_ids")
 
     @property
     @pulumi.getter

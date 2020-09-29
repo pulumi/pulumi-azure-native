@@ -65,6 +65,10 @@ export class Factory extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Whether or not public network access is allowed for the data factory.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * Git repo information of the factory.
      */
     public readonly repoConfiguration!: pulumi.Output<outputs.datafactory.latest.FactoryGitHubConfigurationResponse | outputs.datafactory.latest.FactoryVSTSConfigurationResponse | undefined>;
@@ -101,6 +105,7 @@ export class Factory extends pulumi.CustomResource {
             inputs["globalParameters"] = args ? args.globalParameters : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["repoConfiguration"] = args ? args.repoConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -118,6 +123,7 @@ export class Factory extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["repoConfiguration"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface FactoryArgs {
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for the data factory.
+     */
+    readonly publicNetworkAccess?: pulumi.Input<string>;
     /**
      * Git repo information of the factory.
      */

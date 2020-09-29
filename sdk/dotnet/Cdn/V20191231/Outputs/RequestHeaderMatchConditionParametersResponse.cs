@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231.Outputs
         /// <summary>
         /// Name of Header to be matched
         /// </summary>
-        public readonly string Selector;
+        public readonly string? Selector;
         /// <summary>
         /// List of transforms
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231.Outputs
 
             string @operator,
 
-            string selector,
+            string? selector,
 
             ImmutableArray<string> transforms)
         {

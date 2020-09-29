@@ -27,9 +27,17 @@ export interface GetIotDefenderSettingArgs {
  */
 export interface GetIotDefenderSettingResult {
     /**
+     * Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+     */
+    readonly deviceQuota: number;
+    /**
      * Resource name
      */
     readonly name: string;
+    /**
+     * Sentinel Workspace Resource Ids
+     */
+    readonly sentinelWorkspaceResourceIds: string[];
     /**
      * Resource type
      */

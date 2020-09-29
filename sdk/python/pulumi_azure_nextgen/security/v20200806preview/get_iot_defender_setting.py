@@ -19,13 +19,27 @@ class GetIotDefenderSettingResult:
     """
     IoT Defender settings
     """
-    def __init__(__self__, name=None, type=None):
+    def __init__(__self__, device_quota=None, name=None, sentinel_workspace_resource_ids=None, type=None):
+        if device_quota and not isinstance(device_quota, int):
+            raise TypeError("Expected argument 'device_quota' to be a int")
+        pulumi.set(__self__, "device_quota", device_quota)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if sentinel_workspace_resource_ids and not isinstance(sentinel_workspace_resource_ids, list):
+            raise TypeError("Expected argument 'sentinel_workspace_resource_ids' to be a list")
+        pulumi.set(__self__, "sentinel_workspace_resource_ids", sentinel_workspace_resource_ids)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="deviceQuota")
+    def device_quota(self) -> int:
+        """
+        Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        """
+        return pulumi.get(self, "device_quota")
 
     @property
     @pulumi.getter
@@ -34,6 +48,14 @@ class GetIotDefenderSettingResult:
         Resource name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sentinelWorkspaceResourceIds")
+    def sentinel_workspace_resource_ids(self) -> Sequence[str]:
+        """
+        Sentinel Workspace Resource Ids
+        """
+        return pulumi.get(self, "sentinel_workspace_resource_ids")
 
     @property
     @pulumi.getter
@@ -50,7 +72,9 @@ class AwaitableGetIotDefenderSettingResult(GetIotDefenderSettingResult):
         if False:
             yield self
         return GetIotDefenderSettingResult(
+            device_quota=self.device_quota,
             name=self.name,
+            sentinel_workspace_resource_ids=self.sentinel_workspace_resource_ids,
             type=self.type)
 
 
@@ -66,5 +90,7 @@ def get_iot_defender_setting(opts: Optional[pulumi.InvokeOptions] = None) -> Awa
     __ret__ = pulumi.runtime.invoke('azure-nextgen:security/v20200806preview:getIotDefenderSetting', __args__, opts=opts, typ=GetIotDefenderSettingResult).value
 
     return AwaitableGetIotDefenderSettingResult(
+        device_quota=__ret__.device_quota,
         name=__ret__.name,
+        sentinel_workspace_resource_ids=__ret__.sentinel_workspace_resource_ids,
         type=__ret__.type)

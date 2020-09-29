@@ -563,7 +563,7 @@ type CookiesMatchConditionParameters struct {
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
 	// Name of Cookies to be matched
-	Selector string `pulumi:"selector"`
+	Selector *string `pulumi:"selector"`
 	// List of transforms
 	Transforms []string `pulumi:"transforms"`
 }
@@ -589,7 +589,7 @@ type CookiesMatchConditionParametersArgs struct {
 	// Describes operator to be matched
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Name of Cookies to be matched
-	Selector pulumi.StringInput `pulumi:"selector"`
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// List of transforms
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
@@ -641,8 +641,8 @@ func (o CookiesMatchConditionParametersOutput) Operator() pulumi.StringOutput {
 }
 
 // Name of Cookies to be matched
-func (o CookiesMatchConditionParametersOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func(v CookiesMatchConditionParameters) string { return v.Selector }).(pulumi.StringOutput)
+func (o CookiesMatchConditionParametersOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParameters) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
 // List of transforms
@@ -660,7 +660,7 @@ type CookiesMatchConditionParametersResponse struct {
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
 	// Name of Cookies to be matched
-	Selector string `pulumi:"selector"`
+	Selector *string `pulumi:"selector"`
 	// List of transforms
 	Transforms []string `pulumi:"transforms"`
 }
@@ -686,7 +686,7 @@ type CookiesMatchConditionParametersResponseArgs struct {
 	// Describes operator to be matched
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Name of Cookies to be matched
-	Selector pulumi.StringInput `pulumi:"selector"`
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// List of transforms
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
@@ -738,8 +738,8 @@ func (o CookiesMatchConditionParametersResponseOutput) Operator() pulumi.StringO
 }
 
 // Name of Cookies to be matched
-func (o CookiesMatchConditionParametersResponseOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func(v CookiesMatchConditionParametersResponse) string { return v.Selector }).(pulumi.StringOutput)
+func (o CookiesMatchConditionParametersResponseOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersResponse) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
 // List of transforms
@@ -7258,7 +7258,7 @@ type PostArgsMatchConditionParameters struct {
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
 	// Name of PostArg to be matched
-	Selector string `pulumi:"selector"`
+	Selector *string `pulumi:"selector"`
 	// List of transforms
 	Transforms []string `pulumi:"transforms"`
 }
@@ -7284,7 +7284,7 @@ type PostArgsMatchConditionParametersArgs struct {
 	// Describes operator to be matched
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Name of PostArg to be matched
-	Selector pulumi.StringInput `pulumi:"selector"`
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// List of transforms
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
@@ -7336,8 +7336,8 @@ func (o PostArgsMatchConditionParametersOutput) Operator() pulumi.StringOutput {
 }
 
 // Name of PostArg to be matched
-func (o PostArgsMatchConditionParametersOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func(v PostArgsMatchConditionParameters) string { return v.Selector }).(pulumi.StringOutput)
+func (o PostArgsMatchConditionParametersOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParameters) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
 // List of transforms
@@ -7355,7 +7355,7 @@ type PostArgsMatchConditionParametersResponse struct {
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
 	// Name of PostArg to be matched
-	Selector string `pulumi:"selector"`
+	Selector *string `pulumi:"selector"`
 	// List of transforms
 	Transforms []string `pulumi:"transforms"`
 }
@@ -7381,7 +7381,7 @@ type PostArgsMatchConditionParametersResponseArgs struct {
 	// Describes operator to be matched
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Name of PostArg to be matched
-	Selector pulumi.StringInput `pulumi:"selector"`
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// List of transforms
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
@@ -7433,8 +7433,8 @@ func (o PostArgsMatchConditionParametersResponseOutput) Operator() pulumi.String
 }
 
 // Name of PostArg to be matched
-func (o PostArgsMatchConditionParametersResponseOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func(v PostArgsMatchConditionParametersResponse) string { return v.Selector }).(pulumi.StringOutput)
+func (o PostArgsMatchConditionParametersResponseOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersResponse) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
 // List of transforms
@@ -8556,7 +8556,7 @@ type RequestHeaderMatchConditionParameters struct {
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
 	// Name of Header to be matched
-	Selector string `pulumi:"selector"`
+	Selector *string `pulumi:"selector"`
 	// List of transforms
 	Transforms []string `pulumi:"transforms"`
 }
@@ -8582,7 +8582,7 @@ type RequestHeaderMatchConditionParametersArgs struct {
 	// Describes operator to be matched
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Name of Header to be matched
-	Selector pulumi.StringInput `pulumi:"selector"`
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// List of transforms
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
@@ -8634,8 +8634,8 @@ func (o RequestHeaderMatchConditionParametersOutput) Operator() pulumi.StringOut
 }
 
 // Name of Header to be matched
-func (o RequestHeaderMatchConditionParametersOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func(v RequestHeaderMatchConditionParameters) string { return v.Selector }).(pulumi.StringOutput)
+func (o RequestHeaderMatchConditionParametersOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParameters) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
 // List of transforms
@@ -8653,7 +8653,7 @@ type RequestHeaderMatchConditionParametersResponse struct {
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
 	// Name of Header to be matched
-	Selector string `pulumi:"selector"`
+	Selector *string `pulumi:"selector"`
 	// List of transforms
 	Transforms []string `pulumi:"transforms"`
 }
@@ -8679,7 +8679,7 @@ type RequestHeaderMatchConditionParametersResponseArgs struct {
 	// Describes operator to be matched
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Name of Header to be matched
-	Selector pulumi.StringInput `pulumi:"selector"`
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// List of transforms
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
@@ -8731,8 +8731,8 @@ func (o RequestHeaderMatchConditionParametersResponseOutput) Operator() pulumi.S
 }
 
 // Name of Header to be matched
-func (o RequestHeaderMatchConditionParametersResponseOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func(v RequestHeaderMatchConditionParametersResponse) string { return v.Selector }).(pulumi.StringOutput)
+func (o RequestHeaderMatchConditionParametersResponseOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersResponse) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
 // List of transforms

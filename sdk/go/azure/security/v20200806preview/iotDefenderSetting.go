@@ -6,6 +6,7 @@ package v20200806preview
 import (
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -13,8 +14,12 @@ import (
 type IotDefenderSetting struct {
 	pulumi.CustomResourceState
 
+	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+	DeviceQuota pulumi.IntOutput `pulumi:"deviceQuota"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Sentinel Workspace Resource Ids
+	SentinelWorkspaceResourceIds pulumi.StringArrayOutput `pulumi:"sentinelWorkspaceResourceIds"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -22,6 +27,12 @@ type IotDefenderSetting struct {
 // NewIotDefenderSetting registers a new resource with the given unique name, arguments, and options.
 func NewIotDefenderSetting(ctx *pulumi.Context,
 	name string, args *IotDefenderSettingArgs, opts ...pulumi.ResourceOption) (*IotDefenderSetting, error) {
+	if args == nil || args.DeviceQuota == nil {
+		return nil, errors.New("missing required argument 'DeviceQuota'")
+	}
+	if args == nil || args.SentinelWorkspaceResourceIds == nil {
+		return nil, errors.New("missing required argument 'SentinelWorkspaceResourceIds'")
+	}
 	if args == nil {
 		args = &IotDefenderSettingArgs{}
 	}
@@ -47,15 +58,23 @@ func GetIotDefenderSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotDefenderSetting resources.
 type iotDefenderSettingState struct {
+	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+	DeviceQuota *int `pulumi:"deviceQuota"`
 	// Resource name
 	Name *string `pulumi:"name"`
+	// Sentinel Workspace Resource Ids
+	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type IotDefenderSettingState struct {
+	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+	DeviceQuota pulumi.IntPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
+	// Sentinel Workspace Resource Ids
+	SentinelWorkspaceResourceIds pulumi.StringArrayInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -65,10 +84,18 @@ func (IotDefenderSettingState) ElementType() reflect.Type {
 }
 
 type iotDefenderSettingArgs struct {
+	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+	DeviceQuota int `pulumi:"deviceQuota"`
+	// Sentinel Workspace Resource Ids
+	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
 }
 
 // The set of arguments for constructing a IotDefenderSetting resource.
 type IotDefenderSettingArgs struct {
+	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+	DeviceQuota pulumi.IntInput
+	// Sentinel Workspace Resource Ids
+	SentinelWorkspaceResourceIds pulumi.StringArrayInput
 }
 
 func (IotDefenderSettingArgs) ElementType() reflect.Type {

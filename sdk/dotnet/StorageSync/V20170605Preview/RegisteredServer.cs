@@ -132,6 +132,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20191001:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:RegisteredServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:RegisteredServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

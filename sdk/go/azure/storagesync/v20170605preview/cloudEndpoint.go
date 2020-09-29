@@ -86,6 +86,9 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200301:CloudEndpoint"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:storagesync/v20200901:CloudEndpoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CloudEndpoint

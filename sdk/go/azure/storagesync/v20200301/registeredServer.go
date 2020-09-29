@@ -103,6 +103,9 @@ func NewRegisteredServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20191001:RegisteredServer"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:storagesync/v20200901:RegisteredServer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RegisteredServer

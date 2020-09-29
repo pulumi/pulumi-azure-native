@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

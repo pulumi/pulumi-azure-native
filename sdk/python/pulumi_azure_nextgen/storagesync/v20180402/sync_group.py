@@ -66,7 +66,7 @@ class SyncGroup(pulumi.CustomResource):
             __props__['sync_group_status'] = None
             __props__['type'] = None
             __props__['unique_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync/latest:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:SyncGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync/latest:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:SyncGroup"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200901:SyncGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SyncGroup, __self__).__init__(
             'azure-nextgen:storagesync/v20180402:SyncGroup',

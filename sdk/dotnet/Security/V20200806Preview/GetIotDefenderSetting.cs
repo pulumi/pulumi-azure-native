@@ -28,9 +28,17 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
     public sealed class GetIotDefenderSettingResult
     {
         /// <summary>
+        /// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        /// </summary>
+        public readonly int DeviceQuota;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Sentinel Workspace Resource Ids
+        /// </summary>
+        public readonly ImmutableArray<string> SentinelWorkspaceResourceIds;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -38,11 +46,17 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
 
         [OutputConstructor]
         private GetIotDefenderSettingResult(
+            int deviceQuota,
+
             string name,
+
+            ImmutableArray<string> sentinelWorkspaceResourceIds,
 
             string type)
         {
+            DeviceQuota = deviceQuota;
             Name = name;
+            SentinelWorkspaceResourceIds = sentinelWorkspaceResourceIds;
             Type = type;
         }
     }

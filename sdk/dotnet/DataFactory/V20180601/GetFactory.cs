@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Whether or not public network access is allowed for the data factory.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Git repo information of the factory.
         /// </summary>
         public readonly Union<Outputs.FactoryGitHubConfigurationResponse, Outputs.FactoryVSTSConfigurationResponse>? RepoConfiguration;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
             Union<Outputs.FactoryGitHubConfigurationResponse, Outputs.FactoryVSTSConfigurationResponse>? repoConfiguration,
 
             ImmutableDictionary<string, string>? tags,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             RepoConfiguration = repoConfiguration;
             Tags = tags;
             Type = type;

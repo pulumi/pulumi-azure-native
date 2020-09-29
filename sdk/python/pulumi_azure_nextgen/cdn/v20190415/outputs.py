@@ -256,36 +256,30 @@ class CookiesMatchConditionParametersResponse(dict):
     Defines the parameters for Cookies match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
-                 selector: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
+                 selector: Optional[str] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for Cookies match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
-        :param str selector: Name of Cookies to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
+        :param str selector: Name of Cookies to be matched
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "selector", selector)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -301,12 +295,12 @@ class CookiesMatchConditionParametersResponse(dict):
         return pulumi.get(self, "operator")
 
     @property
-    @pulumi.getter
-    def selector(self) -> str:
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
         """
-        Name of Cookies to be matched
+        The match value for the condition of the delivery rule
         """
-        return pulumi.get(self, "selector")
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -315,6 +309,14 @@ class CookiesMatchConditionParametersResponse(dict):
         Describes if this is negate condition or not
         """
         return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Name of Cookies to be matched
+        """
+        return pulumi.get(self, "selector")
 
     @property
     @pulumi.getter
@@ -1241,29 +1243,22 @@ class HttpVersionMatchConditionParametersResponse(dict):
     Defines the parameters for HttpVersion match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None):
         """
         Defines the parameters for HttpVersion match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -1277,6 +1272,14 @@ class HttpVersionMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1296,33 +1299,26 @@ class IsDeviceMatchConditionParametersResponse(dict):
     Defines the parameters for IsDevice match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for IsDevice match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -1336,6 +1332,14 @@ class IsDeviceMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1461,36 +1465,30 @@ class PostArgsMatchConditionParametersResponse(dict):
     Defines the parameters for PostArgs match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
-                 selector: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
+                 selector: Optional[str] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for PostArgs match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
-        :param str selector: Name of PostArg to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
+        :param str selector: Name of PostArg to be matched
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "selector", selector)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -1506,12 +1504,12 @@ class PostArgsMatchConditionParametersResponse(dict):
         return pulumi.get(self, "operator")
 
     @property
-    @pulumi.getter
-    def selector(self) -> str:
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
         """
-        Name of PostArg to be matched
+        The match value for the condition of the delivery rule
         """
-        return pulumi.get(self, "selector")
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1520,6 +1518,14 @@ class PostArgsMatchConditionParametersResponse(dict):
         Describes if this is negate condition or not
         """
         return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Name of PostArg to be matched
+        """
+        return pulumi.get(self, "selector")
 
     @property
     @pulumi.getter
@@ -1539,33 +1545,26 @@ class QueryStringMatchConditionParametersResponse(dict):
     Defines the parameters for QueryString match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for QueryString match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -1579,6 +1578,14 @@ class QueryStringMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1606,33 +1613,26 @@ class RemoteAddressMatchConditionParametersResponse(dict):
     Defines the parameters for RemoteAddress match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for RemoteAddress match conditions
-        :param Sequence[str] match_values: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
         :param bool negate_condition: Describes if this is negate condition or not
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -1646,6 +1646,14 @@ class RemoteAddressMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1673,33 +1681,26 @@ class RequestBodyMatchConditionParametersResponse(dict):
     Defines the parameters for RequestBody match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for RequestBody match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -1713,6 +1714,14 @@ class RequestBodyMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1740,36 +1749,30 @@ class RequestHeaderMatchConditionParametersResponse(dict):
     Defines the parameters for RequestHeader match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
-                 selector: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
+                 selector: Optional[str] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for RequestHeader match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
-        :param str selector: Name of Header to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
+        :param str selector: Name of Header to be matched
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "selector", selector)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -1785,12 +1788,12 @@ class RequestHeaderMatchConditionParametersResponse(dict):
         return pulumi.get(self, "operator")
 
     @property
-    @pulumi.getter
-    def selector(self) -> str:
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
         """
-        Name of Header to be matched
+        The match value for the condition of the delivery rule
         """
-        return pulumi.get(self, "selector")
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1799,6 +1802,14 @@ class RequestHeaderMatchConditionParametersResponse(dict):
         Describes if this is negate condition or not
         """
         return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Name of Header to be matched
+        """
+        return pulumi.get(self, "selector")
 
     @property
     @pulumi.getter
@@ -1818,29 +1829,22 @@ class RequestMethodMatchConditionParametersResponse(dict):
     Defines the parameters for RequestMethod match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None):
         """
         Defines the parameters for RequestMethod match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -1854,6 +1858,14 @@ class RequestMethodMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1873,29 +1885,22 @@ class RequestSchemeMatchConditionParametersResponse(dict):
     Defines the parameters for RequestScheme match conditions 
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None):
         """
         Defines the parameters for RequestScheme match conditions 
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -1909,6 +1914,14 @@ class RequestSchemeMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1928,33 +1941,26 @@ class RequestUriMatchConditionParametersResponse(dict):
     Defines the parameters for RequestUri match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for RequestUri match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -1968,6 +1974,14 @@ class RequestUriMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -2021,33 +2035,26 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
     Defines the parameters for UrlFileExtension match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for UrlFileExtension match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -2061,6 +2068,14 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -2088,33 +2103,26 @@ class UrlFileNameMatchConditionParametersResponse(dict):
     Defines the parameters for UrlFilename match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for UrlFilename match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -2128,6 +2136,14 @@ class UrlFileNameMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -2155,33 +2171,26 @@ class UrlPathMatchConditionParametersResponse(dict):
     Defines the parameters for UrlPath match conditions
     """
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negate_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for UrlPath match conditions
-        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        The match value for the condition of the delivery rule
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="odataType")
@@ -2195,6 +2204,14 @@ class UrlPathMatchConditionParametersResponse(dict):
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negateCondition")

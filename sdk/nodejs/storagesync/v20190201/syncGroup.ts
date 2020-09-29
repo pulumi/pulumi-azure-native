@@ -90,7 +90,7 @@ export class SyncGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagesync/latest:SyncGroup" }, { type: "azure-nextgen:storagesync/v20170605preview:SyncGroup" }, { type: "azure-nextgen:storagesync/v20180402:SyncGroup" }, { type: "azure-nextgen:storagesync/v20180701:SyncGroup" }, { type: "azure-nextgen:storagesync/v20181001:SyncGroup" }, { type: "azure-nextgen:storagesync/v20190301:SyncGroup" }, { type: "azure-nextgen:storagesync/v20190601:SyncGroup" }, { type: "azure-nextgen:storagesync/v20191001:SyncGroup" }, { type: "azure-nextgen:storagesync/v20200301:SyncGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagesync/latest:SyncGroup" }, { type: "azure-nextgen:storagesync/v20170605preview:SyncGroup" }, { type: "azure-nextgen:storagesync/v20180402:SyncGroup" }, { type: "azure-nextgen:storagesync/v20180701:SyncGroup" }, { type: "azure-nextgen:storagesync/v20181001:SyncGroup" }, { type: "azure-nextgen:storagesync/v20190301:SyncGroup" }, { type: "azure-nextgen:storagesync/v20190601:SyncGroup" }, { type: "azure-nextgen:storagesync/v20191001:SyncGroup" }, { type: "azure-nextgen:storagesync/v20200301:SyncGroup" }, { type: "azure-nextgen:storagesync/v20200901:SyncGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SyncGroup.__pulumiType, name, inputs, opts);
     }
