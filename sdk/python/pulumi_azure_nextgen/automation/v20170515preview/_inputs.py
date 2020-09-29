@@ -16,13 +16,13 @@ __all__ = [
     'LinuxPropertiesArgs',
     'NonAzureQueryPropertiesArgs',
     'SchedulePropertiesArgs',
+    'SoftwareUpdateConfigurationTasksArgs',
     'SourceControlSecurityTokenPropertiesArgs',
     'TagSettingsPropertiesArgs',
     'TargetPropertiesArgs',
-    'WindowsPropertiesArgs',
-    'SoftwareUpdateConfigurationTasksArgs',
     'TaskPropertiesArgs',
     'UpdateConfigurationArgs',
+    'WindowsPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -546,6 +546,46 @@ class SchedulePropertiesArgs:
 
 
 @pulumi.input_type
+class SoftwareUpdateConfigurationTasksArgs:
+    def __init__(__self__, *,
+                 post_task: Optional[pulumi.Input['TaskPropertiesArgs']] = None,
+                 pre_task: Optional[pulumi.Input['TaskPropertiesArgs']] = None):
+        """
+        Task properties of the software update configuration.
+        :param pulumi.Input['TaskPropertiesArgs'] post_task: Post task properties.
+        :param pulumi.Input['TaskPropertiesArgs'] pre_task: Pre task properties.
+        """
+        if post_task is not None:
+            pulumi.set(__self__, "post_task", post_task)
+        if pre_task is not None:
+            pulumi.set(__self__, "pre_task", pre_task)
+
+    @property
+    @pulumi.getter(name="postTask")
+    def post_task(self) -> Optional[pulumi.Input['TaskPropertiesArgs']]:
+        """
+        Post task properties.
+        """
+        return pulumi.get(self, "post_task")
+
+    @post_task.setter
+    def post_task(self, value: Optional[pulumi.Input['TaskPropertiesArgs']]):
+        pulumi.set(self, "post_task", value)
+
+    @property
+    @pulumi.getter(name="preTask")
+    def pre_task(self) -> Optional[pulumi.Input['TaskPropertiesArgs']]:
+        """
+        Pre task properties.
+        """
+        return pulumi.get(self, "pre_task")
+
+    @pre_task.setter
+    def pre_task(self, value: Optional[pulumi.Input['TaskPropertiesArgs']]):
+        pulumi.set(self, "pre_task", value)
+
+
+@pulumi.input_type
 class SourceControlSecurityTokenPropertiesArgs:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
@@ -678,118 +718,6 @@ class TargetPropertiesArgs:
     @non_azure_queries.setter
     def non_azure_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NonAzureQueryPropertiesArgs']]]]):
         pulumi.set(self, "non_azure_queries", value)
-
-
-@pulumi.input_type
-class WindowsPropertiesArgs:
-    def __init__(__self__, *,
-                 excluded_kb_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 included_kb_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 included_update_classifications: Optional[pulumi.Input[str]] = None,
-                 reboot_setting: Optional[pulumi.Input[str]] = None):
-        """
-        Windows specific update configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_kb_numbers: KB numbers excluded from the software update configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_kb_numbers: KB numbers included from the software update configuration.
-        :param pulumi.Input[str] included_update_classifications: Update classification included in the software update configuration. A comma separated string with required values
-        :param pulumi.Input[str] reboot_setting: Reboot setting for the software update configuration.
-        """
-        if excluded_kb_numbers is not None:
-            pulumi.set(__self__, "excluded_kb_numbers", excluded_kb_numbers)
-        if included_kb_numbers is not None:
-            pulumi.set(__self__, "included_kb_numbers", included_kb_numbers)
-        if included_update_classifications is not None:
-            pulumi.set(__self__, "included_update_classifications", included_update_classifications)
-        if reboot_setting is not None:
-            pulumi.set(__self__, "reboot_setting", reboot_setting)
-
-    @property
-    @pulumi.getter(name="excludedKbNumbers")
-    def excluded_kb_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        KB numbers excluded from the software update configuration.
-        """
-        return pulumi.get(self, "excluded_kb_numbers")
-
-    @excluded_kb_numbers.setter
-    def excluded_kb_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "excluded_kb_numbers", value)
-
-    @property
-    @pulumi.getter(name="includedKbNumbers")
-    def included_kb_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        KB numbers included from the software update configuration.
-        """
-        return pulumi.get(self, "included_kb_numbers")
-
-    @included_kb_numbers.setter
-    def included_kb_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "included_kb_numbers", value)
-
-    @property
-    @pulumi.getter(name="includedUpdateClassifications")
-    def included_update_classifications(self) -> Optional[pulumi.Input[str]]:
-        """
-        Update classification included in the software update configuration. A comma separated string with required values
-        """
-        return pulumi.get(self, "included_update_classifications")
-
-    @included_update_classifications.setter
-    def included_update_classifications(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "included_update_classifications", value)
-
-    @property
-    @pulumi.getter(name="rebootSetting")
-    def reboot_setting(self) -> Optional[pulumi.Input[str]]:
-        """
-        Reboot setting for the software update configuration.
-        """
-        return pulumi.get(self, "reboot_setting")
-
-    @reboot_setting.setter
-    def reboot_setting(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "reboot_setting", value)
-
-
-@pulumi.input_type
-class SoftwareUpdateConfigurationTasksArgs:
-    def __init__(__self__, *,
-                 post_task: Optional[pulumi.Input['TaskPropertiesArgs']] = None,
-                 pre_task: Optional[pulumi.Input['TaskPropertiesArgs']] = None):
-        """
-        Task properties of the software update configuration.
-        :param pulumi.Input['TaskPropertiesArgs'] post_task: Post task properties.
-        :param pulumi.Input['TaskPropertiesArgs'] pre_task: Pre task properties.
-        """
-        if post_task is not None:
-            pulumi.set(__self__, "post_task", post_task)
-        if pre_task is not None:
-            pulumi.set(__self__, "pre_task", pre_task)
-
-    @property
-    @pulumi.getter(name="postTask")
-    def post_task(self) -> Optional[pulumi.Input['TaskPropertiesArgs']]:
-        """
-        Post task properties.
-        """
-        return pulumi.get(self, "post_task")
-
-    @post_task.setter
-    def post_task(self, value: Optional[pulumi.Input['TaskPropertiesArgs']]):
-        pulumi.set(self, "post_task", value)
-
-    @property
-    @pulumi.getter(name="preTask")
-    def pre_task(self) -> Optional[pulumi.Input['TaskPropertiesArgs']]:
-        """
-        Pre task properties.
-        """
-        return pulumi.get(self, "pre_task")
-
-    @pre_task.setter
-    def pre_task(self, value: Optional[pulumi.Input['TaskPropertiesArgs']]):
-        pulumi.set(self, "pre_task", value)
 
 
 @pulumi.input_type
@@ -949,5 +877,77 @@ class UpdateConfigurationArgs:
     @windows.setter
     def windows(self, value: Optional[pulumi.Input['WindowsPropertiesArgs']]):
         pulumi.set(self, "windows", value)
+
+
+@pulumi.input_type
+class WindowsPropertiesArgs:
+    def __init__(__self__, *,
+                 excluded_kb_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_kb_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_update_classifications: Optional[pulumi.Input[str]] = None,
+                 reboot_setting: Optional[pulumi.Input[str]] = None):
+        """
+        Windows specific update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_kb_numbers: KB numbers excluded from the software update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_kb_numbers: KB numbers included from the software update configuration.
+        :param pulumi.Input[str] included_update_classifications: Update classification included in the software update configuration. A comma separated string with required values
+        :param pulumi.Input[str] reboot_setting: Reboot setting for the software update configuration.
+        """
+        if excluded_kb_numbers is not None:
+            pulumi.set(__self__, "excluded_kb_numbers", excluded_kb_numbers)
+        if included_kb_numbers is not None:
+            pulumi.set(__self__, "included_kb_numbers", included_kb_numbers)
+        if included_update_classifications is not None:
+            pulumi.set(__self__, "included_update_classifications", included_update_classifications)
+        if reboot_setting is not None:
+            pulumi.set(__self__, "reboot_setting", reboot_setting)
+
+    @property
+    @pulumi.getter(name="excludedKbNumbers")
+    def excluded_kb_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        KB numbers excluded from the software update configuration.
+        """
+        return pulumi.get(self, "excluded_kb_numbers")
+
+    @excluded_kb_numbers.setter
+    def excluded_kb_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_kb_numbers", value)
+
+    @property
+    @pulumi.getter(name="includedKbNumbers")
+    def included_kb_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        KB numbers included from the software update configuration.
+        """
+        return pulumi.get(self, "included_kb_numbers")
+
+    @included_kb_numbers.setter
+    def included_kb_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_kb_numbers", value)
+
+    @property
+    @pulumi.getter(name="includedUpdateClassifications")
+    def included_update_classifications(self) -> Optional[pulumi.Input[str]]:
+        """
+        Update classification included in the software update configuration. A comma separated string with required values
+        """
+        return pulumi.get(self, "included_update_classifications")
+
+    @included_update_classifications.setter
+    def included_update_classifications(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "included_update_classifications", value)
+
+    @property
+    @pulumi.getter(name="rebootSetting")
+    def reboot_setting(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reboot setting for the software update configuration.
+        """
+        return pulumi.get(self, "reboot_setting")
+
+    @reboot_setting.setter
+    def reboot_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reboot_setting", value)
 
 

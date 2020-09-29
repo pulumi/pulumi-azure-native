@@ -26,7 +26,7 @@ type LookupDashboardArgs struct {
 // The shared dashboard resource definition.
 type LookupDashboardResult struct {
 	// The dashboard lenses.
-	Lenses []map[string]interface{} `pulumi:"lenses"`
+	Lenses []DashboardLensResponse `pulumi:"lenses"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The dashboard metadata.

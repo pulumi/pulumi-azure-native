@@ -50,6 +50,7 @@ __all__ = [
     'ManagedRuleSetListResponse',
     'ManagedRuleSetResponse',
     'MatchConditionResponse',
+    'PolicySettingsResponse',
     'PostArgsMatchConditionParametersResponse',
     'QueryStringMatchConditionParametersResponse',
     'RateLimitRuleListResponse',
@@ -69,7 +70,6 @@ __all__ = [
     'UrlRewriteActionParametersResponse',
     'UrlRewriteActionResponse',
     'UserManagedHttpsParametersResponse',
-    'PolicySettingsResponse',
 ]
 
 @pulumi.output_type
@@ -1871,6 +1871,80 @@ class MatchConditionResponse(dict):
 
 
 @pulumi.output_type
+class PolicySettingsResponse(dict):
+    """
+    Defines contents of a web application firewall global configuration
+    """
+    def __init__(__self__, *,
+                 default_custom_block_response_body: Optional[str] = None,
+                 default_custom_block_response_status_code: Optional[int] = None,
+                 default_redirect_url: Optional[str] = None,
+                 enabled_state: Optional[str] = None,
+                 mode: Optional[str] = None):
+        """
+        Defines contents of a web application firewall global configuration
+        :param str default_custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        :param int default_custom_block_response_status_code: If the action type is block, this field defines the default customer overridable http response status code.
+        :param str default_redirect_url: If action type is redirect, this field represents the default redirect URL for the client.
+        :param str enabled_state: describes if the policy is in enabled state or disabled state
+        :param str mode: Describes if it is in detection mode or prevention mode at policy level.
+        """
+        if default_custom_block_response_body is not None:
+            pulumi.set(__self__, "default_custom_block_response_body", default_custom_block_response_body)
+        if default_custom_block_response_status_code is not None:
+            pulumi.set(__self__, "default_custom_block_response_status_code", default_custom_block_response_status_code)
+        if default_redirect_url is not None:
+            pulumi.set(__self__, "default_redirect_url", default_redirect_url)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="defaultCustomBlockResponseBody")
+    def default_custom_block_response_body(self) -> Optional[str]:
+        """
+        If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        """
+        return pulumi.get(self, "default_custom_block_response_body")
+
+    @property
+    @pulumi.getter(name="defaultCustomBlockResponseStatusCode")
+    def default_custom_block_response_status_code(self) -> Optional[int]:
+        """
+        If the action type is block, this field defines the default customer overridable http response status code.
+        """
+        return pulumi.get(self, "default_custom_block_response_status_code")
+
+    @property
+    @pulumi.getter(name="defaultRedirectUrl")
+    def default_redirect_url(self) -> Optional[str]:
+        """
+        If action type is redirect, this field represents the default redirect URL for the client.
+        """
+        return pulumi.get(self, "default_redirect_url")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        describes if the policy is in enabled state or disabled state
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Describes if it is in detection mode or prevention mode at policy level.
+        """
+        return pulumi.get(self, "mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PostArgsMatchConditionParametersResponse(dict):
     """
     Defines the parameters for PostArgs match conditions
@@ -3022,80 +3096,6 @@ class UserManagedHttpsParametersResponse(dict):
         TLS protocol version that will be used for Https
         """
         return pulumi.get(self, "minimum_tls_version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PolicySettingsResponse(dict):
-    """
-    Defines contents of a web application firewall global configuration
-    """
-    def __init__(__self__, *,
-                 default_custom_block_response_body: Optional[str] = None,
-                 default_custom_block_response_status_code: Optional[int] = None,
-                 default_redirect_url: Optional[str] = None,
-                 enabled_state: Optional[str] = None,
-                 mode: Optional[str] = None):
-        """
-        Defines contents of a web application firewall global configuration
-        :param str default_custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-        :param int default_custom_block_response_status_code: If the action type is block, this field defines the default customer overridable http response status code.
-        :param str default_redirect_url: If action type is redirect, this field represents the default redirect URL for the client.
-        :param str enabled_state: describes if the policy is in enabled state or disabled state
-        :param str mode: Describes if it is in detection mode or prevention mode at policy level.
-        """
-        if default_custom_block_response_body is not None:
-            pulumi.set(__self__, "default_custom_block_response_body", default_custom_block_response_body)
-        if default_custom_block_response_status_code is not None:
-            pulumi.set(__self__, "default_custom_block_response_status_code", default_custom_block_response_status_code)
-        if default_redirect_url is not None:
-            pulumi.set(__self__, "default_redirect_url", default_redirect_url)
-        if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-
-    @property
-    @pulumi.getter(name="defaultCustomBlockResponseBody")
-    def default_custom_block_response_body(self) -> Optional[str]:
-        """
-        If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-        """
-        return pulumi.get(self, "default_custom_block_response_body")
-
-    @property
-    @pulumi.getter(name="defaultCustomBlockResponseStatusCode")
-    def default_custom_block_response_status_code(self) -> Optional[int]:
-        """
-        If the action type is block, this field defines the default customer overridable http response status code.
-        """
-        return pulumi.get(self, "default_custom_block_response_status_code")
-
-    @property
-    @pulumi.getter(name="defaultRedirectUrl")
-    def default_redirect_url(self) -> Optional[str]:
-        """
-        If action type is redirect, this field represents the default redirect URL for the client.
-        """
-        return pulumi.get(self, "default_redirect_url")
-
-    @property
-    @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[str]:
-        """
-        describes if the policy is in enabled state or disabled state
-        """
-        return pulumi.get(self, "enabled_state")
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[str]:
-        """
-        Describes if it is in detection mode or prevention mode at policy level.
-        """
-        return pulumi.get(self, "mode")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

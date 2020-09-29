@@ -2962,6 +2962,7 @@ class SiteConfigArgs:
                  request_tracing_expiration_time: Optional[pulumi.Input[str]] = None,
                  scm_ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
                  scm_ip_security_restrictions_use_main: Optional[pulumi.Input[bool]] = None,
+                 scm_min_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  tracing_options: Optional[pulumi.Input[str]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
@@ -3019,6 +3020,7 @@ class SiteConfigArgs:
         :param pulumi.Input[str] request_tracing_expiration_time: Request tracing expiration time.
         :param pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]] scm_ip_security_restrictions: IP security restrictions for scm.
         :param pulumi.Input[bool] scm_ip_security_restrictions_use_main: IP security restrictions for scm to use main.
+        :param pulumi.Input[str] scm_min_tls_version: ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
         :param pulumi.Input[str] scm_type: SCM type.
         :param pulumi.Input[str] tracing_options: Tracing options.
         :param pulumi.Input[bool] use32_bit_worker_process: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
@@ -3120,6 +3122,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "scm_ip_security_restrictions", scm_ip_security_restrictions)
         if scm_ip_security_restrictions_use_main is not None:
             pulumi.set(__self__, "scm_ip_security_restrictions_use_main", scm_ip_security_restrictions_use_main)
+        if scm_min_tls_version is not None:
+            pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
         if scm_type is not None:
             pulumi.set(__self__, "scm_type", scm_type)
         if tracing_options is not None:
@@ -3689,6 +3693,18 @@ class SiteConfigArgs:
     @scm_ip_security_restrictions_use_main.setter
     def scm_ip_security_restrictions_use_main(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "scm_ip_security_restrictions_use_main", value)
+
+    @property
+    @pulumi.getter(name="scmMinTlsVersion")
+    def scm_min_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+        """
+        return pulumi.get(self, "scm_min_tls_version")
+
+    @scm_min_tls_version.setter
+    def scm_min_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_min_tls_version", value)
 
     @property
     @pulumi.getter(name="scmType")

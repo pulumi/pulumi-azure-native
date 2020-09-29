@@ -19,47 +19,64 @@ class GetControllerDetailsResult:
     """
     Represents an instance of a DNC controller.
     """
-    def __init__(__self__, dnc_app_id=None, dnc_endpoint=None, location=None, name=None, state=None, type=None):
+    def __init__(__self__, dnc_app_id=None, dnc_endpoint=None, dnc_tenant_id=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
         if dnc_app_id and not isinstance(dnc_app_id, str):
             raise TypeError("Expected argument 'dnc_app_id' to be a str")
         pulumi.set(__self__, "dnc_app_id", dnc_app_id)
         if dnc_endpoint and not isinstance(dnc_endpoint, str):
             raise TypeError("Expected argument 'dnc_endpoint' to be a str")
         pulumi.set(__self__, "dnc_endpoint", dnc_endpoint)
+        if dnc_tenant_id and not isinstance(dnc_tenant_id, str):
+            raise TypeError("Expected argument 'dnc_tenant_id' to be a str")
+        pulumi.set(__self__, "dnc_tenant_id", dnc_tenant_id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        pulumi.set(__self__, "state", state)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="dncAppId")
-    def dnc_app_id(self) -> Optional[str]:
+    def dnc_app_id(self) -> str:
         """
-        The current state of dnc controller resource.
+        dnc application id should be used by customer to authenticate with dnc gateway.
         """
         return pulumi.get(self, "dnc_app_id")
 
     @property
     @pulumi.getter(name="dncEndpoint")
-    def dnc_endpoint(self) -> Optional[str]:
+    def dnc_endpoint(self) -> str:
         """
         dnc endpoint url that customers can use to connect to
         """
         return pulumi.get(self, "dnc_endpoint")
 
     @property
+    @pulumi.getter(name="dncTenantId")
+    def dnc_tenant_id(self) -> str:
+        """
+        tenant id of dnc application id
+        """
+        return pulumi.get(self, "dnc_tenant_id")
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        Location of the DNC controller resource.
+        Location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -67,23 +84,39 @@ class GetControllerDetailsResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the DNC controller resource.
+        The name of the resource.
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def state(self) -> str:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The current state of dnc controller resource.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Resource guid.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the DNC controller  resource.(Microsoft.DelegatedNetwork/controller)
+        The type of resource.
         """
         return pulumi.get(self, "type")
 
@@ -96,9 +129,12 @@ class AwaitableGetControllerDetailsResult(GetControllerDetailsResult):
         return GetControllerDetailsResult(
             dnc_app_id=self.dnc_app_id,
             dnc_endpoint=self.dnc_endpoint,
+            dnc_tenant_id=self.dnc_tenant_id,
             location=self.location,
             name=self.name,
-            state=self.state,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
+            tags=self.tags,
             type=self.type)
 
 
@@ -123,7 +159,10 @@ def get_controller_details(resource_group_name: Optional[str] = None,
     return AwaitableGetControllerDetailsResult(
         dnc_app_id=__ret__.dnc_app_id,
         dnc_endpoint=__ret__.dnc_endpoint,
+        dnc_tenant_id=__ret__.dnc_tenant_id,
         location=__ret__.location,
         name=__ret__.name,
-        state=__ret__.state,
+        provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
+        tags=__ret__.tags,
         type=__ret__.type)

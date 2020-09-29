@@ -203,6 +203,10 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Outputs
         /// </summary>
         public readonly bool? ScmIpSecurityRestrictionsUseMain;
         /// <summary>
+        /// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+        /// </summary>
+        public readonly string? ScmMinTlsVersion;
+        /// <summary>
         /// SCM type.
         /// </summary>
         public readonly string? ScmType;
@@ -331,6 +335,8 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Outputs
 
             bool? scmIpSecurityRestrictionsUseMain,
 
+            string? scmMinTlsVersion,
+
             string? scmType,
 
             string? tracingOptions,
@@ -394,6 +400,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Outputs
             RequestTracingExpirationTime = requestTracingExpirationTime;
             ScmIpSecurityRestrictions = scmIpSecurityRestrictions;
             ScmIpSecurityRestrictionsUseMain = scmIpSecurityRestrictionsUseMain;
+            ScmMinTlsVersion = scmMinTlsVersion;
             ScmType = scmType;
             TracingOptions = tracingOptions;
             Use32BitWorkerProcess = use32BitWorkerProcess;

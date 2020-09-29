@@ -622,6 +622,350 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The key vault properties.
+type KeyVaultProperties struct {
+	// The name of the key associated with the Log Analytics cluster.
+	KeyName *string `pulumi:"keyName"`
+	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
+	// The version of the key associated with the Log Analytics cluster.
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesInput` via:
+//
+//          KeyVaultPropertiesArgs{...}
+type KeyVaultPropertiesInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput
+	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
+}
+
+// The key vault properties.
+type KeyVaultPropertiesArgs struct {
+	// The name of the key associated with the Log Analytics cluster.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
+	// The version of the key associated with the Log Analytics cluster.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+}
+
+func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
+	return i.ToKeyVaultPropertiesOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput)
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput).ToKeyVaultPropertiesPtrOutputWithContext(ctx)
+}
+
+// KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
+//
+//          KeyVaultPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput
+	ToKeyVaultPropertiesPtrOutputWithContext(context.Context) KeyVaultPropertiesPtrOutput
+}
+
+type keyVaultPropertiesPtrType KeyVaultPropertiesArgs
+
+func KeyVaultPropertiesPtr(v *KeyVaultPropertiesArgs) KeyVaultPropertiesPtrInput {
+	return (*keyVaultPropertiesPtrType)(v)
+}
+
+func (*keyVaultPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
+}
+
+func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
+}
+
+// The key vault properties.
+type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return o.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+		return &v
+	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// The name of the key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
+}
+
+// The version of the key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+}
+
+// The name of the key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key vault properties.
+type KeyVaultPropertiesResponse struct {
+	// The name of the key associated with the Log Analytics cluster.
+	KeyName *string `pulumi:"keyName"`
+	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
+	// The version of the key associated with the Log Analytics cluster.
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesResponseInput` via:
+//
+//          KeyVaultPropertiesResponseArgs{...}
+type KeyVaultPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput
+	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
+}
+
+// The key vault properties.
+type KeyVaultPropertiesResponseArgs struct {
+	// The name of the key associated with the Log Analytics cluster.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
+	// The version of the key associated with the Log Analytics cluster.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+}
+
+func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
+	return i.ToKeyVaultPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponseOutput)
+}
+
+func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
+	return i.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponseOutput).ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultPropertiesResponsePtrInput is an input type that accepts KeyVaultPropertiesResponseArgs, KeyVaultPropertiesResponsePtr and KeyVaultPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesResponsePtrInput` via:
+//
+//          KeyVaultPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput
+	ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Context) KeyVaultPropertiesResponsePtrOutput
+}
+
+type keyVaultPropertiesResponsePtrType KeyVaultPropertiesResponseArgs
+
+func KeyVaultPropertiesResponsePtr(v *KeyVaultPropertiesResponseArgs) KeyVaultPropertiesResponsePtrInput {
+	return (*keyVaultPropertiesResponsePtrType)(v)
+}
+
+func (*keyVaultPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
+	return i.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The key vault properties.
+type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
+	return o.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+		return &v
+	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The name of the key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
+}
+
+// The version of the key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+}
+
+// The name of the key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Key Vault uri which holds they key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the key associated with the Log Analytics cluster.
+func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // The private link scope resource reference.
 type PrivateLinkScopedResourceResponse struct {
 	// The full resource Id of the private link scope resource.
@@ -2058,350 +2402,6 @@ func (o WorkspaceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key vault properties.
-type KeyVaultProperties struct {
-	// The name of the key associated with the Log Analytics cluster.
-	KeyName *string `pulumi:"keyName"`
-	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
-	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// The version of the key associated with the Log Analytics cluster.
-	KeyVersion *string `pulumi:"keyVersion"`
-}
-
-// KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
-// You can construct a concrete instance of `KeyVaultPropertiesInput` via:
-//
-//          KeyVaultPropertiesArgs{...}
-type KeyVaultPropertiesInput interface {
-	pulumi.Input
-
-	ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput
-	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
-}
-
-// The key vault properties.
-type KeyVaultPropertiesArgs struct {
-	// The name of the key associated with the Log Analytics cluster.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
-	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// The version of the key associated with the Log Analytics cluster.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-}
-
-func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
-}
-
-func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
-	return i.ToKeyVaultPropertiesOutputWithContext(context.Background())
-}
-
-func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput)
-}
-
-func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
-	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput).ToKeyVaultPropertiesPtrOutputWithContext(ctx)
-}
-
-// KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
-// You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
-//
-//          KeyVaultPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput
-	ToKeyVaultPropertiesPtrOutputWithContext(context.Context) KeyVaultPropertiesPtrOutput
-}
-
-type keyVaultPropertiesPtrType KeyVaultPropertiesArgs
-
-func KeyVaultPropertiesPtr(v *KeyVaultPropertiesArgs) KeyVaultPropertiesPtrInput {
-	return (*keyVaultPropertiesPtrType)(v)
-}
-
-func (*keyVaultPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
-}
-
-func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
-	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
-}
-
-// The key vault properties.
-type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
-}
-
-func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
-	return o.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
-		return &v
-	}).(KeyVaultPropertiesPtrOutput)
-}
-
-// The name of the key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
-}
-
-// The Key Vault uri which holds they key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
-}
-
-// The version of the key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
-}
-
-func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
-}
-
-// The name of the key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Key Vault uri which holds they key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version of the key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The key vault properties.
-type KeyVaultPropertiesResponse struct {
-	// The name of the key associated with the Log Analytics cluster.
-	KeyName *string `pulumi:"keyName"`
-	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
-	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// The version of the key associated with the Log Analytics cluster.
-	KeyVersion *string `pulumi:"keyVersion"`
-}
-
-// KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
-// You can construct a concrete instance of `KeyVaultPropertiesResponseInput` via:
-//
-//          KeyVaultPropertiesResponseArgs{...}
-type KeyVaultPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput
-	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
-}
-
-// The key vault properties.
-type KeyVaultPropertiesResponseArgs struct {
-	// The name of the key associated with the Log Analytics cluster.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
-	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// The version of the key associated with the Log Analytics cluster.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-}
-
-func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
-}
-
-func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
-	return i.ToKeyVaultPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponseOutput)
-}
-
-func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
-	return i.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponseOutput).ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// KeyVaultPropertiesResponsePtrInput is an input type that accepts KeyVaultPropertiesResponseArgs, KeyVaultPropertiesResponsePtr and KeyVaultPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `KeyVaultPropertiesResponsePtrInput` via:
-//
-//          KeyVaultPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput
-	ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Context) KeyVaultPropertiesResponsePtrOutput
-}
-
-type keyVaultPropertiesResponsePtrType KeyVaultPropertiesResponseArgs
-
-func KeyVaultPropertiesResponsePtr(v *KeyVaultPropertiesResponseArgs) KeyVaultPropertiesResponsePtrInput {
-	return (*keyVaultPropertiesResponsePtrType)(v)
-}
-
-func (*keyVaultPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultPropertiesResponse)(nil)).Elem()
-}
-
-func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
-	return i.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
-}
-
-// The key vault properties.
-type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
-}
-
-func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
-	return o.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
-		return &v
-	}).(KeyVaultPropertiesResponsePtrOutput)
-}
-
-// The name of the key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
-}
-
-// The Key Vault uri which holds they key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
-}
-
-// The version of the key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultPropertiesResponse)(nil)).Elem()
-}
-
-func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
-}
-
-// The name of the key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Key Vault uri which holds they key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version of the key associated with the Log Analytics cluster.
-func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVersion
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ClusterSkuOutput{})
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
@@ -2411,6 +2411,10 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
@@ -2431,8 +2435,4 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceSkuPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceSkuResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceSkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
-	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
 }

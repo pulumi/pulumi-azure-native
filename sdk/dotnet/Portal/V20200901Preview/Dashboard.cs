@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
         /// The dashboard lenses.
         /// </summary>
         [Output("lenses")]
-        public Output<ImmutableArray<ImmutableDictionary<string, object>>> Lenses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DashboardLensResponse>> Lenses { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -108,14 +108,14 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
         public Input<string> DashboardName { get; set; } = null!;
 
         [Input("lenses")]
-        private InputList<ImmutableDictionary<string, object>>? _lenses;
+        private InputList<Inputs.DashboardLensArgs>? _lenses;
 
         /// <summary>
         /// The dashboard lenses.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Lenses
+        public InputList<Inputs.DashboardLensArgs> Lenses
         {
-            get => _lenses ?? (_lenses = new InputList<ImmutableDictionary<string, object>>());
+            get => _lenses ?? (_lenses = new InputList<Inputs.DashboardLensArgs>());
             set => _lenses = value;
         }
 

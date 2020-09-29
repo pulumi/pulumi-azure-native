@@ -15,7 +15,8 @@ var excludeResourcePatterns = []string{
 	"azure-nextgen:costmanagement/.*:Budget",
 	"azure-nextgen:datamigration/.*:Task",
 	"azure-nextgen:media/latest:Job",
-	"azure-nextgen:migrate/.*:MoveResource", // go codegen stack overflow
+	"azure-nextgen:migrate/.*:MoveResource",
+	"azure-nextgen:portal/v20200901preview:Dashboard", // go codegen stack overflow
 
 	"azure-nextgen:hybridcompute/v20181120:GuestConfigurationHCRPAssignment",
 	"azure-nextgen:hybridcompute/v20200625:GuestConfigurationHCRPAssignment", // python name mismatch

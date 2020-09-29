@@ -13,6 +13,7 @@ __all__ = [
     'AssignmentLockSettingsResponse',
     'AssignmentStatusResponse',
     'BlueprintStatusResponse',
+    'KeyVaultReferenceResponse',
     'ManagedServiceIdentityResponse',
     'ParameterDefinitionResponse',
     'ParameterValueResponse',
@@ -20,7 +21,6 @@ __all__ = [
     'ResourceGroupValueResponse',
     'SecretValueReferenceResponse',
     'UserAssignedIdentityResponse',
-    'KeyVaultReferenceResponse',
 ]
 
 @pulumi.output_type
@@ -151,6 +151,31 @@ class BlueprintStatusResponse(dict):
         Creation time of this blueprint definition.
         """
         return pulumi.get(self, "time_created")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyVaultReferenceResponse(dict):
+    """
+    Specifies the link to a Key Vault.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Specifies the link to a Key Vault.
+        :param str id: Azure resource ID of the Key Vault.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource ID of the Key Vault.
+        """
+        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -533,31 +558,6 @@ class UserAssignedIdentityResponse(dict):
         Azure Active Directory principal ID associated with this Identity.
         """
         return pulumi.get(self, "principal_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class KeyVaultReferenceResponse(dict):
-    """
-    Specifies the link to a Key Vault.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        Specifies the link to a Key Vault.
-        :param str id: Azure resource ID of the Key Vault.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Azure resource ID of the Key Vault.
-        """
-        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

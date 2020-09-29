@@ -679,6 +679,274 @@ func (o BlueprintStatusResponsePtrOutput) TimeCreated() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the link to a Key Vault.
+type KeyVaultReference struct {
+	// Azure resource ID of the Key Vault.
+	Id string `pulumi:"id"`
+}
+
+// KeyVaultReferenceInput is an input type that accepts KeyVaultReferenceArgs and KeyVaultReferenceOutput values.
+// You can construct a concrete instance of `KeyVaultReferenceInput` via:
+//
+//          KeyVaultReferenceArgs{...}
+type KeyVaultReferenceInput interface {
+	pulumi.Input
+
+	ToKeyVaultReferenceOutput() KeyVaultReferenceOutput
+	ToKeyVaultReferenceOutputWithContext(context.Context) KeyVaultReferenceOutput
+}
+
+// Specifies the link to a Key Vault.
+type KeyVaultReferenceArgs struct {
+	// Azure resource ID of the Key Vault.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (KeyVaultReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultReference)(nil)).Elem()
+}
+
+func (i KeyVaultReferenceArgs) ToKeyVaultReferenceOutput() KeyVaultReferenceOutput {
+	return i.ToKeyVaultReferenceOutputWithContext(context.Background())
+}
+
+func (i KeyVaultReferenceArgs) ToKeyVaultReferenceOutputWithContext(ctx context.Context) KeyVaultReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceOutput)
+}
+
+func (i KeyVaultReferenceArgs) ToKeyVaultReferencePtrOutput() KeyVaultReferencePtrOutput {
+	return i.ToKeyVaultReferencePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultReferenceArgs) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceOutput).ToKeyVaultReferencePtrOutputWithContext(ctx)
+}
+
+// KeyVaultReferencePtrInput is an input type that accepts KeyVaultReferenceArgs, KeyVaultReferencePtr and KeyVaultReferencePtrOutput values.
+// You can construct a concrete instance of `KeyVaultReferencePtrInput` via:
+//
+//          KeyVaultReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultReferencePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultReferencePtrOutput() KeyVaultReferencePtrOutput
+	ToKeyVaultReferencePtrOutputWithContext(context.Context) KeyVaultReferencePtrOutput
+}
+
+type keyVaultReferencePtrType KeyVaultReferenceArgs
+
+func KeyVaultReferencePtr(v *KeyVaultReferenceArgs) KeyVaultReferencePtrInput {
+	return (*keyVaultReferencePtrType)(v)
+}
+
+func (*keyVaultReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultReference)(nil)).Elem()
+}
+
+func (i *keyVaultReferencePtrType) ToKeyVaultReferencePtrOutput() KeyVaultReferencePtrOutput {
+	return i.ToKeyVaultReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultReferencePtrType) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferencePtrOutput)
+}
+
+// Specifies the link to a Key Vault.
+type KeyVaultReferenceOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultReference)(nil)).Elem()
+}
+
+func (o KeyVaultReferenceOutput) ToKeyVaultReferenceOutput() KeyVaultReferenceOutput {
+	return o
+}
+
+func (o KeyVaultReferenceOutput) ToKeyVaultReferenceOutputWithContext(ctx context.Context) KeyVaultReferenceOutput {
+	return o
+}
+
+func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutput() KeyVaultReferencePtrOutput {
+	return o.ToKeyVaultReferencePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
+	return o.ApplyT(func(v KeyVaultReference) *KeyVaultReference {
+		return &v
+	}).(KeyVaultReferencePtrOutput)
+}
+
+// Azure resource ID of the Key Vault.
+func (o KeyVaultReferenceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type KeyVaultReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultReference)(nil)).Elem()
+}
+
+func (o KeyVaultReferencePtrOutput) ToKeyVaultReferencePtrOutput() KeyVaultReferencePtrOutput {
+	return o
+}
+
+func (o KeyVaultReferencePtrOutput) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
+	return o
+}
+
+func (o KeyVaultReferencePtrOutput) Elem() KeyVaultReferenceOutput {
+	return o.ApplyT(func(v *KeyVaultReference) KeyVaultReference { return *v }).(KeyVaultReferenceOutput)
+}
+
+// Azure resource ID of the Key Vault.
+func (o KeyVaultReferencePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the link to a Key Vault.
+type KeyVaultReferenceResponse struct {
+	// Azure resource ID of the Key Vault.
+	Id string `pulumi:"id"`
+}
+
+// KeyVaultReferenceResponseInput is an input type that accepts KeyVaultReferenceResponseArgs and KeyVaultReferenceResponseOutput values.
+// You can construct a concrete instance of `KeyVaultReferenceResponseInput` via:
+//
+//          KeyVaultReferenceResponseArgs{...}
+type KeyVaultReferenceResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultReferenceResponseOutput() KeyVaultReferenceResponseOutput
+	ToKeyVaultReferenceResponseOutputWithContext(context.Context) KeyVaultReferenceResponseOutput
+}
+
+// Specifies the link to a Key Vault.
+type KeyVaultReferenceResponseArgs struct {
+	// Azure resource ID of the Key Vault.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (KeyVaultReferenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultReferenceResponse)(nil)).Elem()
+}
+
+func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponseOutput() KeyVaultReferenceResponseOutput {
+	return i.ToKeyVaultReferenceResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponseOutputWithContext(ctx context.Context) KeyVaultReferenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponseOutput)
+}
+
+func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
+	return i.ToKeyVaultReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponseOutput).ToKeyVaultReferenceResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultReferenceResponsePtrInput is an input type that accepts KeyVaultReferenceResponseArgs, KeyVaultReferenceResponsePtr and KeyVaultReferenceResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultReferenceResponsePtrInput` via:
+//
+//          KeyVaultReferenceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultReferenceResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput
+	ToKeyVaultReferenceResponsePtrOutputWithContext(context.Context) KeyVaultReferenceResponsePtrOutput
+}
+
+type keyVaultReferenceResponsePtrType KeyVaultReferenceResponseArgs
+
+func KeyVaultReferenceResponsePtr(v *KeyVaultReferenceResponseArgs) KeyVaultReferenceResponsePtrInput {
+	return (*keyVaultReferenceResponsePtrType)(v)
+}
+
+func (*keyVaultReferenceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultReferenceResponse)(nil)).Elem()
+}
+
+func (i *keyVaultReferenceResponsePtrType) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
+	return i.ToKeyVaultReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultReferenceResponsePtrType) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponsePtrOutput)
+}
+
+// Specifies the link to a Key Vault.
+type KeyVaultReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultReferenceResponse)(nil)).Elem()
+}
+
+func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponseOutput() KeyVaultReferenceResponseOutput {
+	return o
+}
+
+func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponseOutputWithContext(ctx context.Context) KeyVaultReferenceResponseOutput {
+	return o
+}
+
+func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
+	return o.ToKeyVaultReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
+		return &v
+	}).(KeyVaultReferenceResponsePtrOutput)
+}
+
+// Azure resource ID of the Key Vault.
+func (o KeyVaultReferenceResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultReferenceResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type KeyVaultReferenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultReferenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultReferenceResponse)(nil)).Elem()
+}
+
+func (o KeyVaultReferenceResponsePtrOutput) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultReferenceResponsePtrOutput) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultReferenceResponsePtrOutput) Elem() KeyVaultReferenceResponseOutput {
+	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse { return *v }).(KeyVaultReferenceResponseOutput)
+}
+
+// Azure resource ID of the Key Vault.
+func (o KeyVaultReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 // Managed identity generic object.
 type ManagedServiceIdentity struct {
 	// Azure Active Directory principal ID associated with this Identity.
@@ -2641,274 +2909,6 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 	}).(UserAssignedIdentityResponseOutput)
 }
 
-// Specifies the link to a Key Vault.
-type KeyVaultReference struct {
-	// Azure resource ID of the Key Vault.
-	Id string `pulumi:"id"`
-}
-
-// KeyVaultReferenceInput is an input type that accepts KeyVaultReferenceArgs and KeyVaultReferenceOutput values.
-// You can construct a concrete instance of `KeyVaultReferenceInput` via:
-//
-//          KeyVaultReferenceArgs{...}
-type KeyVaultReferenceInput interface {
-	pulumi.Input
-
-	ToKeyVaultReferenceOutput() KeyVaultReferenceOutput
-	ToKeyVaultReferenceOutputWithContext(context.Context) KeyVaultReferenceOutput
-}
-
-// Specifies the link to a Key Vault.
-type KeyVaultReferenceArgs struct {
-	// Azure resource ID of the Key Vault.
-	Id pulumi.StringInput `pulumi:"id"`
-}
-
-func (KeyVaultReferenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultReference)(nil)).Elem()
-}
-
-func (i KeyVaultReferenceArgs) ToKeyVaultReferenceOutput() KeyVaultReferenceOutput {
-	return i.ToKeyVaultReferenceOutputWithContext(context.Background())
-}
-
-func (i KeyVaultReferenceArgs) ToKeyVaultReferenceOutputWithContext(ctx context.Context) KeyVaultReferenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceOutput)
-}
-
-func (i KeyVaultReferenceArgs) ToKeyVaultReferencePtrOutput() KeyVaultReferencePtrOutput {
-	return i.ToKeyVaultReferencePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultReferenceArgs) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceOutput).ToKeyVaultReferencePtrOutputWithContext(ctx)
-}
-
-// KeyVaultReferencePtrInput is an input type that accepts KeyVaultReferenceArgs, KeyVaultReferencePtr and KeyVaultReferencePtrOutput values.
-// You can construct a concrete instance of `KeyVaultReferencePtrInput` via:
-//
-//          KeyVaultReferenceArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultReferencePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultReferencePtrOutput() KeyVaultReferencePtrOutput
-	ToKeyVaultReferencePtrOutputWithContext(context.Context) KeyVaultReferencePtrOutput
-}
-
-type keyVaultReferencePtrType KeyVaultReferenceArgs
-
-func KeyVaultReferencePtr(v *KeyVaultReferenceArgs) KeyVaultReferencePtrInput {
-	return (*keyVaultReferencePtrType)(v)
-}
-
-func (*keyVaultReferencePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultReference)(nil)).Elem()
-}
-
-func (i *keyVaultReferencePtrType) ToKeyVaultReferencePtrOutput() KeyVaultReferencePtrOutput {
-	return i.ToKeyVaultReferencePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultReferencePtrType) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferencePtrOutput)
-}
-
-// Specifies the link to a Key Vault.
-type KeyVaultReferenceOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultReference)(nil)).Elem()
-}
-
-func (o KeyVaultReferenceOutput) ToKeyVaultReferenceOutput() KeyVaultReferenceOutput {
-	return o
-}
-
-func (o KeyVaultReferenceOutput) ToKeyVaultReferenceOutputWithContext(ctx context.Context) KeyVaultReferenceOutput {
-	return o
-}
-
-func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutput() KeyVaultReferencePtrOutput {
-	return o.ToKeyVaultReferencePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultReference) *KeyVaultReference {
-		return &v
-	}).(KeyVaultReferencePtrOutput)
-}
-
-// Azure resource ID of the Key Vault.
-func (o KeyVaultReferenceOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
-}
-
-type KeyVaultReferencePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultReference)(nil)).Elem()
-}
-
-func (o KeyVaultReferencePtrOutput) ToKeyVaultReferencePtrOutput() KeyVaultReferencePtrOutput {
-	return o
-}
-
-func (o KeyVaultReferencePtrOutput) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
-	return o
-}
-
-func (o KeyVaultReferencePtrOutput) Elem() KeyVaultReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultReference) KeyVaultReference { return *v }).(KeyVaultReferenceOutput)
-}
-
-// Azure resource ID of the Key Vault.
-func (o KeyVaultReferencePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the link to a Key Vault.
-type KeyVaultReferenceResponse struct {
-	// Azure resource ID of the Key Vault.
-	Id string `pulumi:"id"`
-}
-
-// KeyVaultReferenceResponseInput is an input type that accepts KeyVaultReferenceResponseArgs and KeyVaultReferenceResponseOutput values.
-// You can construct a concrete instance of `KeyVaultReferenceResponseInput` via:
-//
-//          KeyVaultReferenceResponseArgs{...}
-type KeyVaultReferenceResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultReferenceResponseOutput() KeyVaultReferenceResponseOutput
-	ToKeyVaultReferenceResponseOutputWithContext(context.Context) KeyVaultReferenceResponseOutput
-}
-
-// Specifies the link to a Key Vault.
-type KeyVaultReferenceResponseArgs struct {
-	// Azure resource ID of the Key Vault.
-	Id pulumi.StringInput `pulumi:"id"`
-}
-
-func (KeyVaultReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultReferenceResponse)(nil)).Elem()
-}
-
-func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponseOutput() KeyVaultReferenceResponseOutput {
-	return i.ToKeyVaultReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponseOutputWithContext(ctx context.Context) KeyVaultReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponseOutput)
-}
-
-func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
-	return i.ToKeyVaultReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponseOutput).ToKeyVaultReferenceResponsePtrOutputWithContext(ctx)
-}
-
-// KeyVaultReferenceResponsePtrInput is an input type that accepts KeyVaultReferenceResponseArgs, KeyVaultReferenceResponsePtr and KeyVaultReferenceResponsePtrOutput values.
-// You can construct a concrete instance of `KeyVaultReferenceResponsePtrInput` via:
-//
-//          KeyVaultReferenceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultReferenceResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput
-	ToKeyVaultReferenceResponsePtrOutputWithContext(context.Context) KeyVaultReferenceResponsePtrOutput
-}
-
-type keyVaultReferenceResponsePtrType KeyVaultReferenceResponseArgs
-
-func KeyVaultReferenceResponsePtr(v *KeyVaultReferenceResponseArgs) KeyVaultReferenceResponsePtrInput {
-	return (*keyVaultReferenceResponsePtrType)(v)
-}
-
-func (*keyVaultReferenceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultReferenceResponse)(nil)).Elem()
-}
-
-func (i *keyVaultReferenceResponsePtrType) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
-	return i.ToKeyVaultReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultReferenceResponsePtrType) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponsePtrOutput)
-}
-
-// Specifies the link to a Key Vault.
-type KeyVaultReferenceResponseOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultReferenceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultReferenceResponse)(nil)).Elem()
-}
-
-func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponseOutput() KeyVaultReferenceResponseOutput {
-	return o
-}
-
-func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponseOutputWithContext(ctx context.Context) KeyVaultReferenceResponseOutput {
-	return o
-}
-
-func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
-	return o.ToKeyVaultReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
-		return &v
-	}).(KeyVaultReferenceResponsePtrOutput)
-}
-
-// Azure resource ID of the Key Vault.
-func (o KeyVaultReferenceResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultReferenceResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-type KeyVaultReferenceResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultReferenceResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultReferenceResponse)(nil)).Elem()
-}
-
-func (o KeyVaultReferenceResponsePtrOutput) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultReferenceResponsePtrOutput) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultReferenceResponsePtrOutput) Elem() KeyVaultReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse { return *v }).(KeyVaultReferenceResponseOutput)
-}
-
-// Azure resource ID of the Key Vault.
-func (o KeyVaultReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultReferenceResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AssignmentLockSettingsOutput{})
 	pulumi.RegisterOutputType(AssignmentLockSettingsPtrOutput{})
@@ -2918,6 +2918,10 @@ func init() {
 	pulumi.RegisterOutputType(AssignmentStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(BlueprintStatusResponseOutput{})
 	pulumi.RegisterOutputType(BlueprintStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultReferenceOutput{})
+	pulumi.RegisterOutputType(KeyVaultReferencePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultReferenceResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
@@ -2946,8 +2950,4 @@ func init() {
 	pulumi.RegisterOutputType(UserAssignedIdentityMapOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
-	pulumi.RegisterOutputType(KeyVaultReferenceOutput{})
-	pulumi.RegisterOutputType(KeyVaultReferencePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultReferenceResponseOutput{})
-	pulumi.RegisterOutputType(KeyVaultReferenceResponsePtrOutput{})
 }

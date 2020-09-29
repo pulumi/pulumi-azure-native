@@ -115,7 +115,7 @@ type LookupDatabaseResult struct {
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status string `pulumi:"status"`
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`

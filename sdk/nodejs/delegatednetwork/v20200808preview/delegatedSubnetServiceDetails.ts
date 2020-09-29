@@ -2,10 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * Delegated subnet details
+ * Represents an instance of a orchestrator.
  */
 export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     /**
@@ -21,7 +23,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20200808preview:DelegatedSubnetServiceDetails';
+    public static readonly __pulumiType = 'azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails';
 
     /**
      * Returns true if the given object is an instance of DelegatedSubnetServiceDetails.  This is designed to work even
@@ -35,23 +37,35 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     }
 
     /**
-     * Location of the DelegatedSubnet resource.
+     * controller details
      */
-    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
+    public readonly controllerDetails!: pulumi.Output<outputs.delegatednetwork.v20200808preview.ControllerDetailsResponse | undefined>;
     /**
-     * The name of the DelegatedSubnet resource.
+     * Location of the resource.
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Guid for the resource(delegatedSubnet) created
+     * The current state of dnc delegated subnet resource.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The current state of delegated subnet resource.
+     * Resource guid.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
-     * The type of the DelegatedSubnet  resource.(Microsoft.DelegatedNetwork/delegatedSubnet)
+     * orchestrator details
+     */
+    public readonly subnetDetails!: pulumi.Output<outputs.delegatednetwork.v20200808preview.SubnetDetailsResponse | undefined>;
+    /**
+     * The resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -71,27 +85,24 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if (!args || args.subnetName === undefined) {
-                throw new Error("Missing required property 'subnetName'");
-            }
-            if (!args || args.vnetName === undefined) {
-                throw new Error("Missing required property 'vnetName'");
-            }
-            inputs["controllerID"] = args ? args.controllerID : undefined;
+            inputs["controllerDetails"] = args ? args.controllerDetails : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["subnetName"] = args ? args.subnetName : undefined;
-            inputs["vnetName"] = args ? args.vnetName : undefined;
-            inputs["location"] = undefined /*out*/;
+            inputs["subnetDetails"] = args ? args.subnetDetails : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["controllerDetails"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            inputs["subnetDetails"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,9 +121,13 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
  */
 export interface DelegatedSubnetServiceDetailsArgs {
     /**
-     * Delegated Network Controller ARM resource ID
+     * controller details
      */
-    readonly controllerID?: pulumi.Input<string>;
+    readonly controllerDetails?: pulumi.Input<inputs.delegatednetwork.v20200808preview.ControllerDetails>;
+    /**
+     * Location of the resource.
+     */
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
      */
@@ -122,11 +137,11 @@ export interface DelegatedSubnetServiceDetailsArgs {
      */
     readonly resourceName: pulumi.Input<string>;
     /**
-     * The name of the delegated subnet. This name must be at least 1 character in length, and no more than 90.
+     * orchestrator details
      */
-    readonly subnetName: pulumi.Input<string>;
+    readonly subnetDetails?: pulumi.Input<inputs.delegatednetwork.v20200808preview.SubnetDetails>;
     /**
-     * The name of the virtual network. This name must be at least 1 character in length, and no more than 90.
+     * The resource tags.
      */
-    readonly vnetName: pulumi.Input<string>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

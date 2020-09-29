@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,7 +39,7 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The dashboard lenses.
      */
-    public readonly lenses!: pulumi.Output<{[key: string]: any}[] | undefined>;
+    public readonly lenses!: pulumi.Output<outputs.portal.v20200901preview.DashboardLensResponse[] | undefined>;
     /**
      * Resource location
      */
@@ -118,7 +120,7 @@ export interface DashboardArgs {
     /**
      * The dashboard lenses.
      */
-    readonly lenses?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    readonly lenses?: pulumi.Input<pulumi.Input<inputs.portal.v20200901preview.DashboardLens>[]>;
     /**
      * Resource location
      */

@@ -212,7 +212,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        /// The storage account type used to store backups for this database.
         /// </summary>
         public readonly string? StorageAccountType;
         /// <summary>

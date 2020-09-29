@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetDelegatedSubnetServiceDetailsResult',
@@ -17,30 +18,47 @@ __all__ = [
 @pulumi.output_type
 class GetDelegatedSubnetServiceDetailsResult:
     """
-    Delegated subnet details
+    Represents an instance of a orchestrator.
     """
-    def __init__(__self__, location=None, name=None, resource_guid=None, state=None, type=None):
+    def __init__(__self__, controller_details=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnet_details=None, tags=None, type=None):
+        if controller_details and not isinstance(controller_details, dict):
+            raise TypeError("Expected argument 'controller_details' to be a dict")
+        pulumi.set(__self__, "controller_details", controller_details)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if resource_guid and not isinstance(resource_guid, str):
             raise TypeError("Expected argument 'resource_guid' to be a str")
         pulumi.set(__self__, "resource_guid", resource_guid)
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        pulumi.set(__self__, "state", state)
+        if subnet_details and not isinstance(subnet_details, dict):
+            raise TypeError("Expected argument 'subnet_details' to be a dict")
+        pulumi.set(__self__, "subnet_details", subnet_details)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="controllerDetails")
+    def controller_details(self) -> Optional['outputs.ControllerDetailsResponse']:
+        """
+        controller details
+        """
+        return pulumi.get(self, "controller_details")
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        Location of the DelegatedSubnet resource.
+        Location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -48,31 +66,47 @@ class GetDelegatedSubnetServiceDetailsResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the DelegatedSubnet resource.
+        The name of the resource.
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> Optional[str]:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
-        Guid for the resource(delegatedSubnet) created
+        The current state of dnc delegated subnet resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Resource guid.
         """
         return pulumi.get(self, "resource_guid")
 
     @property
+    @pulumi.getter(name="subnetDetails")
+    def subnet_details(self) -> Optional['outputs.SubnetDetailsResponse']:
+        """
+        orchestrator details
+        """
+        return pulumi.get(self, "subnet_details")
+
+    @property
     @pulumi.getter
-    def state(self) -> str:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
-        The current state of delegated subnet resource.
+        The resource tags.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the DelegatedSubnet  resource.(Microsoft.DelegatedNetwork/delegatedSubnet)
+        The type of resource.
         """
         return pulumi.get(self, "type")
 
@@ -83,40 +117,40 @@ class AwaitableGetDelegatedSubnetServiceDetailsResult(GetDelegatedSubnetServiceD
         if False:
             yield self
         return GetDelegatedSubnetServiceDetailsResult(
+            controller_details=self.controller_details,
             location=self.location,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             resource_guid=self.resource_guid,
-            state=self.state,
+            subnet_details=self.subnet_details,
+            tags=self.tags,
             type=self.type)
 
 
 def get_delegated_subnet_service_details(resource_group_name: Optional[str] = None,
                                          resource_name: Optional[str] = None,
-                                         subnet_name: Optional[str] = None,
-                                         vnet_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDelegatedSubnetServiceDetailsResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str resource_group_name: The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
     :param str resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-    :param str subnet_name: The name of the delegated subnet. This name must be at least 1 character in length, and no more than 90.
-    :param str vnet_name: The name of the virtual network. This name must be at least 1 character in length, and no more than 90.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    __args__['subnetName'] = subnet_name
-    __args__['vnetName'] = vnet_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-nextgen:network/v20200808preview:getDelegatedSubnetServiceDetails', __args__, opts=opts, typ=GetDelegatedSubnetServiceDetailsResult).value
+    __ret__ = pulumi.runtime.invoke('azure-nextgen:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails', __args__, opts=opts, typ=GetDelegatedSubnetServiceDetailsResult).value
 
     return AwaitableGetDelegatedSubnetServiceDetailsResult(
+        controller_details=__ret__.controller_details,
         location=__ret__.location,
         name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
         resource_guid=__ret__.resource_guid,
-        state=__ret__.state,
+        subnet_details=__ret__.subnet_details,
+        tags=__ret__.tags,
         type=__ret__.type)

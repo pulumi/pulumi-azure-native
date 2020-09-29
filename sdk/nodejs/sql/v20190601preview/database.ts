@@ -203,7 +203,7 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+     * The storage account type used to store backups for this database.
      */
     public readonly storageAccountType!: pulumi.Output<string | undefined>;
     /**
@@ -460,7 +460,7 @@ export interface DatabaseArgs {
      */
     readonly sourceDatabaseId?: pulumi.Input<string>;
     /**
-     * The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+     * The storage account type used to store backups for this database.
      */
     readonly storageAccountType?: pulumi.Input<string>;
     /**

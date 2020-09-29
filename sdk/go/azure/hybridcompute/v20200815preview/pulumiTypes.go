@@ -134,6 +134,388 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 	}).(ErrorDetailResponseOutput)
 }
 
+// Metadata pertaining to the geographic location of the resource.
+type LocationData struct {
+	// The city or locality where the resource is located.
+	City *string `pulumi:"city"`
+	// The country or region where the resource is located
+	CountryOrRegion *string `pulumi:"countryOrRegion"`
+	// The district, state, or province where the resource is located.
+	District *string `pulumi:"district"`
+	// A canonical name for the geographic or physical location.
+	Name string `pulumi:"name"`
+}
+
+// LocationDataInput is an input type that accepts LocationDataArgs and LocationDataOutput values.
+// You can construct a concrete instance of `LocationDataInput` via:
+//
+//          LocationDataArgs{...}
+type LocationDataInput interface {
+	pulumi.Input
+
+	ToLocationDataOutput() LocationDataOutput
+	ToLocationDataOutputWithContext(context.Context) LocationDataOutput
+}
+
+// Metadata pertaining to the geographic location of the resource.
+type LocationDataArgs struct {
+	// The city or locality where the resource is located.
+	City pulumi.StringPtrInput `pulumi:"city"`
+	// The country or region where the resource is located
+	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
+	// The district, state, or province where the resource is located.
+	District pulumi.StringPtrInput `pulumi:"district"`
+	// A canonical name for the geographic or physical location.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LocationDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationData)(nil)).Elem()
+}
+
+func (i LocationDataArgs) ToLocationDataOutput() LocationDataOutput {
+	return i.ToLocationDataOutputWithContext(context.Background())
+}
+
+func (i LocationDataArgs) ToLocationDataOutputWithContext(ctx context.Context) LocationDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataOutput)
+}
+
+func (i LocationDataArgs) ToLocationDataPtrOutput() LocationDataPtrOutput {
+	return i.ToLocationDataPtrOutputWithContext(context.Background())
+}
+
+func (i LocationDataArgs) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataOutput).ToLocationDataPtrOutputWithContext(ctx)
+}
+
+// LocationDataPtrInput is an input type that accepts LocationDataArgs, LocationDataPtr and LocationDataPtrOutput values.
+// You can construct a concrete instance of `LocationDataPtrInput` via:
+//
+//          LocationDataArgs{...}
+//
+//  or:
+//
+//          nil
+type LocationDataPtrInput interface {
+	pulumi.Input
+
+	ToLocationDataPtrOutput() LocationDataPtrOutput
+	ToLocationDataPtrOutputWithContext(context.Context) LocationDataPtrOutput
+}
+
+type locationDataPtrType LocationDataArgs
+
+func LocationDataPtr(v *LocationDataArgs) LocationDataPtrInput {
+	return (*locationDataPtrType)(v)
+}
+
+func (*locationDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationData)(nil)).Elem()
+}
+
+func (i *locationDataPtrType) ToLocationDataPtrOutput() LocationDataPtrOutput {
+	return i.ToLocationDataPtrOutputWithContext(context.Background())
+}
+
+func (i *locationDataPtrType) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataPtrOutput)
+}
+
+// Metadata pertaining to the geographic location of the resource.
+type LocationDataOutput struct{ *pulumi.OutputState }
+
+func (LocationDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationData)(nil)).Elem()
+}
+
+func (o LocationDataOutput) ToLocationDataOutput() LocationDataOutput {
+	return o
+}
+
+func (o LocationDataOutput) ToLocationDataOutputWithContext(ctx context.Context) LocationDataOutput {
+	return o
+}
+
+func (o LocationDataOutput) ToLocationDataPtrOutput() LocationDataPtrOutput {
+	return o.ToLocationDataPtrOutputWithContext(context.Background())
+}
+
+func (o LocationDataOutput) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
+	return o.ApplyT(func(v LocationData) *LocationData {
+		return &v
+	}).(LocationDataPtrOutput)
+}
+
+// The city or locality where the resource is located.
+func (o LocationDataOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationData) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// The country or region where the resource is located
+func (o LocationDataOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationData) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
+}
+
+// The district, state, or province where the resource is located.
+func (o LocationDataOutput) District() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationData) *string { return v.District }).(pulumi.StringPtrOutput)
+}
+
+// A canonical name for the geographic or physical location.
+func (o LocationDataOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationData) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type LocationDataPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationData)(nil)).Elem()
+}
+
+func (o LocationDataPtrOutput) ToLocationDataPtrOutput() LocationDataPtrOutput {
+	return o
+}
+
+func (o LocationDataPtrOutput) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
+	return o
+}
+
+func (o LocationDataPtrOutput) Elem() LocationDataOutput {
+	return o.ApplyT(func(v *LocationData) LocationData { return *v }).(LocationDataOutput)
+}
+
+// The city or locality where the resource is located.
+func (o LocationDataPtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+// The country or region where the resource is located
+func (o LocationDataPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CountryOrRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The district, state, or province where the resource is located.
+func (o LocationDataPtrOutput) District() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.District
+	}).(pulumi.StringPtrOutput)
+}
+
+// A canonical name for the geographic or physical location.
+func (o LocationDataPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to the geographic location of the resource.
+type LocationDataResponse struct {
+	// The city or locality where the resource is located.
+	City *string `pulumi:"city"`
+	// The country or region where the resource is located
+	CountryOrRegion *string `pulumi:"countryOrRegion"`
+	// The district, state, or province where the resource is located.
+	District *string `pulumi:"district"`
+	// A canonical name for the geographic or physical location.
+	Name string `pulumi:"name"`
+}
+
+// LocationDataResponseInput is an input type that accepts LocationDataResponseArgs and LocationDataResponseOutput values.
+// You can construct a concrete instance of `LocationDataResponseInput` via:
+//
+//          LocationDataResponseArgs{...}
+type LocationDataResponseInput interface {
+	pulumi.Input
+
+	ToLocationDataResponseOutput() LocationDataResponseOutput
+	ToLocationDataResponseOutputWithContext(context.Context) LocationDataResponseOutput
+}
+
+// Metadata pertaining to the geographic location of the resource.
+type LocationDataResponseArgs struct {
+	// The city or locality where the resource is located.
+	City pulumi.StringPtrInput `pulumi:"city"`
+	// The country or region where the resource is located
+	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
+	// The district, state, or province where the resource is located.
+	District pulumi.StringPtrInput `pulumi:"district"`
+	// A canonical name for the geographic or physical location.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LocationDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationDataResponse)(nil)).Elem()
+}
+
+func (i LocationDataResponseArgs) ToLocationDataResponseOutput() LocationDataResponseOutput {
+	return i.ToLocationDataResponseOutputWithContext(context.Background())
+}
+
+func (i LocationDataResponseArgs) ToLocationDataResponseOutputWithContext(ctx context.Context) LocationDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponseOutput)
+}
+
+func (i LocationDataResponseArgs) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
+	return i.ToLocationDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LocationDataResponseArgs) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponseOutput).ToLocationDataResponsePtrOutputWithContext(ctx)
+}
+
+// LocationDataResponsePtrInput is an input type that accepts LocationDataResponseArgs, LocationDataResponsePtr and LocationDataResponsePtrOutput values.
+// You can construct a concrete instance of `LocationDataResponsePtrInput` via:
+//
+//          LocationDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LocationDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput
+	ToLocationDataResponsePtrOutputWithContext(context.Context) LocationDataResponsePtrOutput
+}
+
+type locationDataResponsePtrType LocationDataResponseArgs
+
+func LocationDataResponsePtr(v *LocationDataResponseArgs) LocationDataResponsePtrInput {
+	return (*locationDataResponsePtrType)(v)
+}
+
+func (*locationDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationDataResponse)(nil)).Elem()
+}
+
+func (i *locationDataResponsePtrType) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
+	return i.ToLocationDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *locationDataResponsePtrType) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponsePtrOutput)
+}
+
+// Metadata pertaining to the geographic location of the resource.
+type LocationDataResponseOutput struct{ *pulumi.OutputState }
+
+func (LocationDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationDataResponse)(nil)).Elem()
+}
+
+func (o LocationDataResponseOutput) ToLocationDataResponseOutput() LocationDataResponseOutput {
+	return o
+}
+
+func (o LocationDataResponseOutput) ToLocationDataResponseOutputWithContext(ctx context.Context) LocationDataResponseOutput {
+	return o
+}
+
+func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
+	return o.ToLocationDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
+	return o.ApplyT(func(v LocationDataResponse) *LocationDataResponse {
+		return &v
+	}).(LocationDataResponsePtrOutput)
+}
+
+// The city or locality where the resource is located.
+func (o LocationDataResponseOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationDataResponse) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// The country or region where the resource is located
+func (o LocationDataResponseOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationDataResponse) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
+}
+
+// The district, state, or province where the resource is located.
+func (o LocationDataResponseOutput) District() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationDataResponse) *string { return v.District }).(pulumi.StringPtrOutput)
+}
+
+// A canonical name for the geographic or physical location.
+func (o LocationDataResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationDataResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type LocationDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LocationDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationDataResponse)(nil)).Elem()
+}
+
+func (o LocationDataResponsePtrOutput) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
+	return o
+}
+
+func (o LocationDataResponsePtrOutput) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
+	return o
+}
+
+func (o LocationDataResponsePtrOutput) Elem() LocationDataResponseOutput {
+	return o.ApplyT(func(v *LocationDataResponse) LocationDataResponse { return *v }).(LocationDataResponseOutput)
+}
+
+// The city or locality where the resource is located.
+func (o LocationDataResponsePtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+// The country or region where the resource is located
+func (o LocationDataResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CountryOrRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The district, state, or province where the resource is located.
+func (o LocationDataResponsePtrOutput) District() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.District
+	}).(pulumi.StringPtrOutput)
+}
+
+// A canonical name for the geographic or physical location.
+func (o LocationDataResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // Describes the Machine Extension Instance View.
 type MachineExtensionInstanceView struct {
 	// The machine extension name.
@@ -2376,391 +2758,13 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to the geographic location of the resource.
-type LocationData struct {
-	// The city or locality where the resource is located.
-	City *string `pulumi:"city"`
-	// The country or region where the resource is located
-	CountryOrRegion *string `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District *string `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name string `pulumi:"name"`
-}
-
-// LocationDataInput is an input type that accepts LocationDataArgs and LocationDataOutput values.
-// You can construct a concrete instance of `LocationDataInput` via:
-//
-//          LocationDataArgs{...}
-type LocationDataInput interface {
-	pulumi.Input
-
-	ToLocationDataOutput() LocationDataOutput
-	ToLocationDataOutputWithContext(context.Context) LocationDataOutput
-}
-
-// Metadata pertaining to the geographic location of the resource.
-type LocationDataArgs struct {
-	// The city or locality where the resource is located.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country or region where the resource is located
-	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District pulumi.StringPtrInput `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (LocationDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationData)(nil)).Elem()
-}
-
-func (i LocationDataArgs) ToLocationDataOutput() LocationDataOutput {
-	return i.ToLocationDataOutputWithContext(context.Background())
-}
-
-func (i LocationDataArgs) ToLocationDataOutputWithContext(ctx context.Context) LocationDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationDataOutput)
-}
-
-func (i LocationDataArgs) ToLocationDataPtrOutput() LocationDataPtrOutput {
-	return i.ToLocationDataPtrOutputWithContext(context.Background())
-}
-
-func (i LocationDataArgs) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationDataOutput).ToLocationDataPtrOutputWithContext(ctx)
-}
-
-// LocationDataPtrInput is an input type that accepts LocationDataArgs, LocationDataPtr and LocationDataPtrOutput values.
-// You can construct a concrete instance of `LocationDataPtrInput` via:
-//
-//          LocationDataArgs{...}
-//
-//  or:
-//
-//          nil
-type LocationDataPtrInput interface {
-	pulumi.Input
-
-	ToLocationDataPtrOutput() LocationDataPtrOutput
-	ToLocationDataPtrOutputWithContext(context.Context) LocationDataPtrOutput
-}
-
-type locationDataPtrType LocationDataArgs
-
-func LocationDataPtr(v *LocationDataArgs) LocationDataPtrInput {
-	return (*locationDataPtrType)(v)
-}
-
-func (*locationDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationData)(nil)).Elem()
-}
-
-func (i *locationDataPtrType) ToLocationDataPtrOutput() LocationDataPtrOutput {
-	return i.ToLocationDataPtrOutputWithContext(context.Background())
-}
-
-func (i *locationDataPtrType) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationDataPtrOutput)
-}
-
-// Metadata pertaining to the geographic location of the resource.
-type LocationDataOutput struct{ *pulumi.OutputState }
-
-func (LocationDataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationData)(nil)).Elem()
-}
-
-func (o LocationDataOutput) ToLocationDataOutput() LocationDataOutput {
-	return o
-}
-
-func (o LocationDataOutput) ToLocationDataOutputWithContext(ctx context.Context) LocationDataOutput {
-	return o
-}
-
-func (o LocationDataOutput) ToLocationDataPtrOutput() LocationDataPtrOutput {
-	return o.ToLocationDataPtrOutputWithContext(context.Background())
-}
-
-func (o LocationDataOutput) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
-	return o.ApplyT(func(v LocationData) *LocationData {
-		return &v
-	}).(LocationDataPtrOutput)
-}
-
-// The city or locality where the resource is located.
-func (o LocationDataOutput) City() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationData) *string { return v.City }).(pulumi.StringPtrOutput)
-}
-
-// The country or region where the resource is located
-func (o LocationDataOutput) CountryOrRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationData) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
-}
-
-// The district, state, or province where the resource is located.
-func (o LocationDataOutput) District() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationData) *string { return v.District }).(pulumi.StringPtrOutput)
-}
-
-// A canonical name for the geographic or physical location.
-func (o LocationDataOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationData) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type LocationDataPtrOutput struct{ *pulumi.OutputState }
-
-func (LocationDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationData)(nil)).Elem()
-}
-
-func (o LocationDataPtrOutput) ToLocationDataPtrOutput() LocationDataPtrOutput {
-	return o
-}
-
-func (o LocationDataPtrOutput) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
-	return o
-}
-
-func (o LocationDataPtrOutput) Elem() LocationDataOutput {
-	return o.ApplyT(func(v *LocationData) LocationData { return *v }).(LocationDataOutput)
-}
-
-// The city or locality where the resource is located.
-func (o LocationDataPtrOutput) City() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.City
-	}).(pulumi.StringPtrOutput)
-}
-
-// The country or region where the resource is located
-func (o LocationDataPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CountryOrRegion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The district, state, or province where the resource is located.
-func (o LocationDataPtrOutput) District() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.District
-	}).(pulumi.StringPtrOutput)
-}
-
-// A canonical name for the geographic or physical location.
-func (o LocationDataPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationData) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Metadata pertaining to the geographic location of the resource.
-type LocationDataResponse struct {
-	// The city or locality where the resource is located.
-	City *string `pulumi:"city"`
-	// The country or region where the resource is located
-	CountryOrRegion *string `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District *string `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name string `pulumi:"name"`
-}
-
-// LocationDataResponseInput is an input type that accepts LocationDataResponseArgs and LocationDataResponseOutput values.
-// You can construct a concrete instance of `LocationDataResponseInput` via:
-//
-//          LocationDataResponseArgs{...}
-type LocationDataResponseInput interface {
-	pulumi.Input
-
-	ToLocationDataResponseOutput() LocationDataResponseOutput
-	ToLocationDataResponseOutputWithContext(context.Context) LocationDataResponseOutput
-}
-
-// Metadata pertaining to the geographic location of the resource.
-type LocationDataResponseArgs struct {
-	// The city or locality where the resource is located.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country or region where the resource is located
-	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District pulumi.StringPtrInput `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (LocationDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationDataResponse)(nil)).Elem()
-}
-
-func (i LocationDataResponseArgs) ToLocationDataResponseOutput() LocationDataResponseOutput {
-	return i.ToLocationDataResponseOutputWithContext(context.Background())
-}
-
-func (i LocationDataResponseArgs) ToLocationDataResponseOutputWithContext(ctx context.Context) LocationDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponseOutput)
-}
-
-func (i LocationDataResponseArgs) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
-	return i.ToLocationDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LocationDataResponseArgs) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponseOutput).ToLocationDataResponsePtrOutputWithContext(ctx)
-}
-
-// LocationDataResponsePtrInput is an input type that accepts LocationDataResponseArgs, LocationDataResponsePtr and LocationDataResponsePtrOutput values.
-// You can construct a concrete instance of `LocationDataResponsePtrInput` via:
-//
-//          LocationDataResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type LocationDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput
-	ToLocationDataResponsePtrOutputWithContext(context.Context) LocationDataResponsePtrOutput
-}
-
-type locationDataResponsePtrType LocationDataResponseArgs
-
-func LocationDataResponsePtr(v *LocationDataResponseArgs) LocationDataResponsePtrInput {
-	return (*locationDataResponsePtrType)(v)
-}
-
-func (*locationDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationDataResponse)(nil)).Elem()
-}
-
-func (i *locationDataResponsePtrType) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
-	return i.ToLocationDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *locationDataResponsePtrType) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponsePtrOutput)
-}
-
-// Metadata pertaining to the geographic location of the resource.
-type LocationDataResponseOutput struct{ *pulumi.OutputState }
-
-func (LocationDataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationDataResponse)(nil)).Elem()
-}
-
-func (o LocationDataResponseOutput) ToLocationDataResponseOutput() LocationDataResponseOutput {
-	return o
-}
-
-func (o LocationDataResponseOutput) ToLocationDataResponseOutputWithContext(ctx context.Context) LocationDataResponseOutput {
-	return o
-}
-
-func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
-	return o.ToLocationDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
-	return o.ApplyT(func(v LocationDataResponse) *LocationDataResponse {
-		return &v
-	}).(LocationDataResponsePtrOutput)
-}
-
-// The city or locality where the resource is located.
-func (o LocationDataResponseOutput) City() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationDataResponse) *string { return v.City }).(pulumi.StringPtrOutput)
-}
-
-// The country or region where the resource is located
-func (o LocationDataResponseOutput) CountryOrRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationDataResponse) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
-}
-
-// The district, state, or province where the resource is located.
-func (o LocationDataResponseOutput) District() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationDataResponse) *string { return v.District }).(pulumi.StringPtrOutput)
-}
-
-// A canonical name for the geographic or physical location.
-func (o LocationDataResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationDataResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type LocationDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LocationDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationDataResponse)(nil)).Elem()
-}
-
-func (o LocationDataResponsePtrOutput) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
-	return o
-}
-
-func (o LocationDataResponsePtrOutput) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
-	return o
-}
-
-func (o LocationDataResponsePtrOutput) Elem() LocationDataResponseOutput {
-	return o.ApplyT(func(v *LocationDataResponse) LocationDataResponse { return *v }).(LocationDataResponseOutput)
-}
-
-// The city or locality where the resource is located.
-func (o LocationDataResponsePtrOutput) City() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.City
-	}).(pulumi.StringPtrOutput)
-}
-
-// The country or region where the resource is located
-func (o LocationDataResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CountryOrRegion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The district, state, or province where the resource is located.
-func (o LocationDataResponsePtrOutput) District() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.District
-	}).(pulumi.StringPtrOutput)
-}
-
-// A canonical name for the geographic or physical location.
-func (o LocationDataResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
+	pulumi.RegisterOutputType(LocationDataOutput{})
+	pulumi.RegisterOutputType(LocationDataPtrOutput{})
+	pulumi.RegisterOutputType(LocationDataResponseOutput{})
+	pulumi.RegisterOutputType(LocationDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewArrayOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseOutput{})
@@ -2789,8 +2793,4 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(LocationDataOutput{})
-	pulumi.RegisterOutputType(LocationDataPtrOutput{})
-	pulumi.RegisterOutputType(LocationDataResponseOutput{})
-	pulumi.RegisterOutputType(LocationDataResponsePtrOutput{})
 }

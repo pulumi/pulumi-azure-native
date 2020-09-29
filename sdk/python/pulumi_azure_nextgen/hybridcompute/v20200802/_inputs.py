@@ -9,32 +9,9 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'MachineIdentityArgs',
     'LocationDataArgs',
+    'MachineIdentityArgs',
 ]
-
-@pulumi.input_type
-class MachineIdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] type: The identity type.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
 
 @pulumi.input_type
 class LocationDataArgs:
@@ -105,5 +82,28 @@ class LocationDataArgs:
     @district.setter
     def district(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "district", value)
+
+
+@pulumi.input_type
+class MachineIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The identity type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 

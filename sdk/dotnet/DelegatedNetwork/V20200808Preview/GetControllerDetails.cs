@@ -40,49 +40,70 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
     public sealed class GetControllerDetailsResult
     {
         /// <summary>
-        /// The current state of dnc controller resource.
+        /// dnc application id should be used by customer to authenticate with dnc gateway.
         /// </summary>
-        public readonly string? DncAppId;
+        public readonly string DncAppId;
         /// <summary>
         /// dnc endpoint url that customers can use to connect to
         /// </summary>
-        public readonly string? DncEndpoint;
+        public readonly string DncEndpoint;
         /// <summary>
-        /// Location of the DNC controller resource.
+        /// tenant id of dnc application id
+        /// </summary>
+        public readonly string DncTenantId;
+        /// <summary>
+        /// Location of the resource.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The name of the DNC controller resource.
+        /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// The current state of dnc controller resource.
         /// </summary>
-        public readonly string State;
+        public readonly string ProvisioningState;
         /// <summary>
-        /// The type of the DNC controller  resource.(Microsoft.DelegatedNetwork/controller)
+        /// Resource guid.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
+        /// The resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The type of resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetControllerDetailsResult(
-            string? dncAppId,
+            string dncAppId,
 
-            string? dncEndpoint,
+            string dncEndpoint,
+
+            string dncTenantId,
 
             string? location,
 
             string name,
 
-            string state,
+            string provisioningState,
+
+            string resourceGuid,
+
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             DncAppId = dncAppId;
             DncEndpoint = dncEndpoint;
+            DncTenantId = dncTenantId;
             Location = location;
             Name = name;
-            State = state;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
+            Tags = tags;
             Type = type;
         }
     }

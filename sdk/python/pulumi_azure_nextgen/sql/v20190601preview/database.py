@@ -100,7 +100,7 @@ class Database(pulumi.CustomResource):
                ````
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the database was deleted.
         :param pulumi.Input[str] source_database_id: The resource identifier of the source database associated with create operation of this database.
-        :param pulumi.Input[str] storage_account_type: The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        :param pulumi.Input[str] storage_account_type: The storage account type used to store backups for this database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
@@ -507,7 +507,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        The storage account type used to store backups for this database.
         """
         return pulumi.get(self, "storage_account_type")
 

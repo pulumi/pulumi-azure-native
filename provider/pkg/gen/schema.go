@@ -1167,7 +1167,8 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 	if isOutput {
 		suffix = "Response"
 	}
-	return fmt.Sprintf("azure-nextgen:%s:%s%s", m.module, MakeLegalIdentifier(ctx.ReferenceName), suffix)
+	referenceName := ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName))
+	return fmt.Sprintf("azure-nextgen:%s:%s%s", m.module, referenceName, suffix)
 }
 
 // parameterBag keeps the schema and metadata parameters for a single resource or invocation.

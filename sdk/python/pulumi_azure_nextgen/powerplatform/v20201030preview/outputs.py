@@ -11,12 +11,12 @@ from . import outputs
 
 __all__ = [
     'EnterprisePolicyIdentityResponse',
+    'KeyPropertiesResponse',
     'KeyVaultPropertiesResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'PropertiesResponseEncryption',
     'PropertiesResponseLockbox',
-    'KeyPropertiesResponse',
     'SystemDataResponse',
 ]
 
@@ -63,6 +63,44 @@ class EnterprisePolicyIdentityResponse(dict):
         The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         """
         return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyPropertiesResponse(dict):
+    """
+    Url and version of the KeyVault Secret
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Url and version of the KeyVault Secret
+        :param str name: The identifier of the key vault key used to encrypt data.
+        :param str version: The version of the identity which will be used to access key vault.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The identifier of the key vault key used to encrypt data.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The version of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -238,44 +276,6 @@ class PropertiesResponseLockbox(dict):
         lockbox configuration
         """
         return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class KeyPropertiesResponse(dict):
-    """
-    Url and version of the KeyVault Secret
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 version: Optional[str] = None):
-        """
-        Url and version of the KeyVault Secret
-        :param str name: The identifier of the key vault key used to encrypt data.
-        :param str version: The version of the identity which will be used to access key vault.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The identifier of the key vault key used to encrypt data.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[str]:
-        """
-        The version of the identity which will be used to access key vault.
-        """
-        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -114,6 +114,7 @@ __all__ = [
     'P2SVpnServerConfigurationResponse',
     'PacketCaptureFilterResponse',
     'PacketCaptureStorageLocationResponse',
+    'PolicySettingsResponse',
     'ProbeResponse',
     'PublicIPAddressDnsSettingsResponse',
     'PublicIPAddressResponse',
@@ -147,7 +148,6 @@ __all__ = [
     'VpnClientRevokedCertificateResponse',
     'VpnClientRootCertificateResponse',
     'VpnConnectionResponse',
-    'PolicySettingsResponse',
 ]
 
 @pulumi.output_type
@@ -9326,6 +9326,44 @@ class PacketCaptureStorageLocationResponse(dict):
 
 
 @pulumi.output_type
+class PolicySettingsResponse(dict):
+    """
+    Defines contents of a web application firewall global configuration
+    """
+    def __init__(__self__, *,
+                 enabled_state: Optional[str] = None,
+                 mode: Optional[str] = None):
+        """
+        Defines contents of a web application firewall global configuration
+        :param str enabled_state: describes if the policy is in enabled state or disabled state
+        :param str mode: Describes if it is in detection mode  or prevention mode at policy level
+        """
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        describes if the policy is in enabled state or disabled state
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Describes if it is in detection mode  or prevention mode at policy level
+        """
+        return pulumi.get(self, "mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ProbeResponse(dict):
     """
     A load balancer probe.
@@ -12655,44 +12693,6 @@ class VpnConnectionResponse(dict):
         Connection protocol used for this connection
         """
         return pulumi.get(self, "vpn_connection_protocol_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PolicySettingsResponse(dict):
-    """
-    Defines contents of a web application firewall global configuration
-    """
-    def __init__(__self__, *,
-                 enabled_state: Optional[str] = None,
-                 mode: Optional[str] = None):
-        """
-        Defines contents of a web application firewall global configuration
-        :param str enabled_state: describes if the policy is in enabled state or disabled state
-        :param str mode: Describes if it is in detection mode  or prevention mode at policy level
-        """
-        if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-
-    @property
-    @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[str]:
-        """
-        describes if the policy is in enabled state or disabled state
-        """
-        return pulumi.get(self, "enabled_state")
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[str]:
-        """
-        Describes if it is in detection mode  or prevention mode at policy level
-        """
-        return pulumi.get(self, "mode")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

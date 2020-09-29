@@ -1977,6 +1977,7 @@ class SiteConfigResponse(dict):
                  request_tracing_expiration_time: Optional[str] = None,
                  scm_ip_security_restrictions: Optional[Sequence['outputs.IpSecurityRestrictionResponse']] = None,
                  scm_ip_security_restrictions_use_main: Optional[bool] = None,
+                 scm_min_tls_version: Optional[str] = None,
                  scm_type: Optional[str] = None,
                  tracing_options: Optional[str] = None,
                  use32_bit_worker_process: Optional[bool] = None,
@@ -2035,6 +2036,7 @@ class SiteConfigResponse(dict):
         :param str request_tracing_expiration_time: Request tracing expiration time.
         :param Sequence['IpSecurityRestrictionResponseArgs'] scm_ip_security_restrictions: IP security restrictions for scm.
         :param bool scm_ip_security_restrictions_use_main: IP security restrictions for scm to use main.
+        :param str scm_min_tls_version: ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
         :param str scm_type: SCM type.
         :param str tracing_options: Tracing options.
         :param bool use32_bit_worker_process: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
@@ -2137,6 +2139,8 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "scm_ip_security_restrictions", scm_ip_security_restrictions)
         if scm_ip_security_restrictions_use_main is not None:
             pulumi.set(__self__, "scm_ip_security_restrictions_use_main", scm_ip_security_restrictions_use_main)
+        if scm_min_tls_version is not None:
+            pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
         if scm_type is not None:
             pulumi.set(__self__, "scm_type", scm_type)
         if tracing_options is not None:
@@ -2530,6 +2534,14 @@ class SiteConfigResponse(dict):
         IP security restrictions for scm to use main.
         """
         return pulumi.get(self, "scm_ip_security_restrictions_use_main")
+
+    @property
+    @pulumi.getter(name="scmMinTlsVersion")
+    def scm_min_tls_version(self) -> Optional[str]:
+        """
+        ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+        """
+        return pulumi.get(self, "scm_min_tls_version")
 
     @property
     @pulumi.getter(name="scmType")

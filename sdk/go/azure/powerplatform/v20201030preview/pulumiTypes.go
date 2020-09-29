@@ -316,6 +316,312 @@ func (o EnterprisePolicyIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Url and version of the KeyVault Secret
+type KeyProperties struct {
+	// The identifier of the key vault key used to encrypt data.
+	Name *string `pulumi:"name"`
+	// The version of the identity which will be used to access key vault.
+	Version *string `pulumi:"version"`
+}
+
+// KeyPropertiesInput is an input type that accepts KeyPropertiesArgs and KeyPropertiesOutput values.
+// You can construct a concrete instance of `KeyPropertiesInput` via:
+//
+//          KeyPropertiesArgs{...}
+type KeyPropertiesInput interface {
+	pulumi.Input
+
+	ToKeyPropertiesOutput() KeyPropertiesOutput
+	ToKeyPropertiesOutputWithContext(context.Context) KeyPropertiesOutput
+}
+
+// Url and version of the KeyVault Secret
+type KeyPropertiesArgs struct {
+	// The identifier of the key vault key used to encrypt data.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The version of the identity which will be used to access key vault.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (KeyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyProperties)(nil)).Elem()
+}
+
+func (i KeyPropertiesArgs) ToKeyPropertiesOutput() KeyPropertiesOutput {
+	return i.ToKeyPropertiesOutputWithContext(context.Background())
+}
+
+func (i KeyPropertiesArgs) ToKeyPropertiesOutputWithContext(ctx context.Context) KeyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesOutput)
+}
+
+func (i KeyPropertiesArgs) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
+	return i.ToKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyPropertiesArgs) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesOutput).ToKeyPropertiesPtrOutputWithContext(ctx)
+}
+
+// KeyPropertiesPtrInput is an input type that accepts KeyPropertiesArgs, KeyPropertiesPtr and KeyPropertiesPtrOutput values.
+// You can construct a concrete instance of `KeyPropertiesPtrInput` via:
+//
+//          KeyPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput
+	ToKeyPropertiesPtrOutputWithContext(context.Context) KeyPropertiesPtrOutput
+}
+
+type keyPropertiesPtrType KeyPropertiesArgs
+
+func KeyPropertiesPtr(v *KeyPropertiesArgs) KeyPropertiesPtrInput {
+	return (*keyPropertiesPtrType)(v)
+}
+
+func (*keyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyProperties)(nil)).Elem()
+}
+
+func (i *keyPropertiesPtrType) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
+	return i.ToKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyPropertiesPtrType) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesPtrOutput)
+}
+
+// Url and version of the KeyVault Secret
+type KeyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KeyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyProperties)(nil)).Elem()
+}
+
+func (o KeyPropertiesOutput) ToKeyPropertiesOutput() KeyPropertiesOutput {
+	return o
+}
+
+func (o KeyPropertiesOutput) ToKeyPropertiesOutputWithContext(ctx context.Context) KeyPropertiesOutput {
+	return o
+}
+
+func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
+	return o.ToKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
+	return o.ApplyT(func(v KeyProperties) *KeyProperties {
+		return &v
+	}).(KeyPropertiesPtrOutput)
+}
+
+// The identifier of the key vault key used to encrypt data.
+func (o KeyPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The version of the identity which will be used to access key vault.
+func (o KeyPropertiesOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyProperties) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type KeyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyProperties)(nil)).Elem()
+}
+
+func (o KeyPropertiesPtrOutput) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyPropertiesPtrOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyPropertiesPtrOutput) Elem() KeyPropertiesOutput {
+	return o.ApplyT(func(v *KeyProperties) KeyProperties { return *v }).(KeyPropertiesOutput)
+}
+
+// The identifier of the key vault key used to encrypt data.
+func (o KeyPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the identity which will be used to access key vault.
+func (o KeyPropertiesPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// Url and version of the KeyVault Secret
+type KeyPropertiesResponse struct {
+	// The identifier of the key vault key used to encrypt data.
+	Name *string `pulumi:"name"`
+	// The version of the identity which will be used to access key vault.
+	Version *string `pulumi:"version"`
+}
+
+// KeyPropertiesResponseInput is an input type that accepts KeyPropertiesResponseArgs and KeyPropertiesResponseOutput values.
+// You can construct a concrete instance of `KeyPropertiesResponseInput` via:
+//
+//          KeyPropertiesResponseArgs{...}
+type KeyPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToKeyPropertiesResponseOutput() KeyPropertiesResponseOutput
+	ToKeyPropertiesResponseOutputWithContext(context.Context) KeyPropertiesResponseOutput
+}
+
+// Url and version of the KeyVault Secret
+type KeyPropertiesResponseArgs struct {
+	// The identifier of the key vault key used to encrypt data.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The version of the identity which will be used to access key vault.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (KeyPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPropertiesResponse)(nil)).Elem()
+}
+
+func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponseOutput() KeyPropertiesResponseOutput {
+	return i.ToKeyPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponseOutputWithContext(ctx context.Context) KeyPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponseOutput)
+}
+
+func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
+	return i.ToKeyPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponseOutput).ToKeyPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// KeyPropertiesResponsePtrInput is an input type that accepts KeyPropertiesResponseArgs, KeyPropertiesResponsePtr and KeyPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `KeyPropertiesResponsePtrInput` via:
+//
+//          KeyPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput
+	ToKeyPropertiesResponsePtrOutputWithContext(context.Context) KeyPropertiesResponsePtrOutput
+}
+
+type keyPropertiesResponsePtrType KeyPropertiesResponseArgs
+
+func KeyPropertiesResponsePtr(v *KeyPropertiesResponseArgs) KeyPropertiesResponsePtrInput {
+	return (*keyPropertiesResponsePtrType)(v)
+}
+
+func (*keyPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyPropertiesResponse)(nil)).Elem()
+}
+
+func (i *keyPropertiesResponsePtrType) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
+	return i.ToKeyPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyPropertiesResponsePtrType) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponsePtrOutput)
+}
+
+// Url and version of the KeyVault Secret
+type KeyPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponseOutput() KeyPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponseOutputWithContext(ctx context.Context) KeyPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
+	return o.ToKeyPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v KeyPropertiesResponse) *KeyPropertiesResponse {
+		return &v
+	}).(KeyPropertiesResponsePtrOutput)
+}
+
+// The identifier of the key vault key used to encrypt data.
+func (o KeyPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The version of the identity which will be used to access key vault.
+func (o KeyPropertiesResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyPropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type KeyPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyPropertiesResponsePtrOutput) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyPropertiesResponsePtrOutput) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyPropertiesResponsePtrOutput) Elem() KeyPropertiesResponseOutput {
+	return o.ApplyT(func(v *KeyPropertiesResponse) KeyPropertiesResponse { return *v }).(KeyPropertiesResponseOutput)
+}
+
+// The identifier of the key vault key used to encrypt data.
+func (o KeyPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the identity which will be used to access key vault.
+func (o KeyPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 // Settings concerning key vault encryption for a configuration store.
 type KeyVaultProperties struct {
 	// Uri of KeyVault
@@ -1523,312 +1829,6 @@ func (o PropertiesResponseLockboxPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Url and version of the KeyVault Secret
-type KeyProperties struct {
-	// The identifier of the key vault key used to encrypt data.
-	Name *string `pulumi:"name"`
-	// The version of the identity which will be used to access key vault.
-	Version *string `pulumi:"version"`
-}
-
-// KeyPropertiesInput is an input type that accepts KeyPropertiesArgs and KeyPropertiesOutput values.
-// You can construct a concrete instance of `KeyPropertiesInput` via:
-//
-//          KeyPropertiesArgs{...}
-type KeyPropertiesInput interface {
-	pulumi.Input
-
-	ToKeyPropertiesOutput() KeyPropertiesOutput
-	ToKeyPropertiesOutputWithContext(context.Context) KeyPropertiesOutput
-}
-
-// Url and version of the KeyVault Secret
-type KeyPropertiesArgs struct {
-	// The identifier of the key vault key used to encrypt data.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The version of the identity which will be used to access key vault.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (KeyPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyProperties)(nil)).Elem()
-}
-
-func (i KeyPropertiesArgs) ToKeyPropertiesOutput() KeyPropertiesOutput {
-	return i.ToKeyPropertiesOutputWithContext(context.Background())
-}
-
-func (i KeyPropertiesArgs) ToKeyPropertiesOutputWithContext(ctx context.Context) KeyPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesOutput)
-}
-
-func (i KeyPropertiesArgs) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
-	return i.ToKeyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i KeyPropertiesArgs) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesOutput).ToKeyPropertiesPtrOutputWithContext(ctx)
-}
-
-// KeyPropertiesPtrInput is an input type that accepts KeyPropertiesArgs, KeyPropertiesPtr and KeyPropertiesPtrOutput values.
-// You can construct a concrete instance of `KeyPropertiesPtrInput` via:
-//
-//          KeyPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput
-	ToKeyPropertiesPtrOutputWithContext(context.Context) KeyPropertiesPtrOutput
-}
-
-type keyPropertiesPtrType KeyPropertiesArgs
-
-func KeyPropertiesPtr(v *KeyPropertiesArgs) KeyPropertiesPtrInput {
-	return (*keyPropertiesPtrType)(v)
-}
-
-func (*keyPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyProperties)(nil)).Elem()
-}
-
-func (i *keyPropertiesPtrType) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
-	return i.ToKeyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *keyPropertiesPtrType) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesPtrOutput)
-}
-
-// Url and version of the KeyVault Secret
-type KeyPropertiesOutput struct{ *pulumi.OutputState }
-
-func (KeyPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyProperties)(nil)).Elem()
-}
-
-func (o KeyPropertiesOutput) ToKeyPropertiesOutput() KeyPropertiesOutput {
-	return o
-}
-
-func (o KeyPropertiesOutput) ToKeyPropertiesOutputWithContext(ctx context.Context) KeyPropertiesOutput {
-	return o
-}
-
-func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
-	return o.ToKeyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyProperties) *KeyProperties {
-		return &v
-	}).(KeyPropertiesPtrOutput)
-}
-
-// The identifier of the key vault key used to encrypt data.
-func (o KeyPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The version of the identity which will be used to access key vault.
-func (o KeyPropertiesOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyProperties) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type KeyPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (KeyPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyProperties)(nil)).Elem()
-}
-
-func (o KeyPropertiesPtrOutput) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
-	return o
-}
-
-func (o KeyPropertiesPtrOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
-	return o
-}
-
-func (o KeyPropertiesPtrOutput) Elem() KeyPropertiesOutput {
-	return o.ApplyT(func(v *KeyProperties) KeyProperties { return *v }).(KeyPropertiesOutput)
-}
-
-// The identifier of the key vault key used to encrypt data.
-func (o KeyPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version of the identity which will be used to access key vault.
-func (o KeyPropertiesPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-// Url and version of the KeyVault Secret
-type KeyPropertiesResponse struct {
-	// The identifier of the key vault key used to encrypt data.
-	Name *string `pulumi:"name"`
-	// The version of the identity which will be used to access key vault.
-	Version *string `pulumi:"version"`
-}
-
-// KeyPropertiesResponseInput is an input type that accepts KeyPropertiesResponseArgs and KeyPropertiesResponseOutput values.
-// You can construct a concrete instance of `KeyPropertiesResponseInput` via:
-//
-//          KeyPropertiesResponseArgs{...}
-type KeyPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToKeyPropertiesResponseOutput() KeyPropertiesResponseOutput
-	ToKeyPropertiesResponseOutputWithContext(context.Context) KeyPropertiesResponseOutput
-}
-
-// Url and version of the KeyVault Secret
-type KeyPropertiesResponseArgs struct {
-	// The identifier of the key vault key used to encrypt data.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The version of the identity which will be used to access key vault.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (KeyPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyPropertiesResponse)(nil)).Elem()
-}
-
-func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponseOutput() KeyPropertiesResponseOutput {
-	return i.ToKeyPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponseOutputWithContext(ctx context.Context) KeyPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponseOutput)
-}
-
-func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
-	return i.ToKeyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponseOutput).ToKeyPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// KeyPropertiesResponsePtrInput is an input type that accepts KeyPropertiesResponseArgs, KeyPropertiesResponsePtr and KeyPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `KeyPropertiesResponsePtrInput` via:
-//
-//          KeyPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput
-	ToKeyPropertiesResponsePtrOutputWithContext(context.Context) KeyPropertiesResponsePtrOutput
-}
-
-type keyPropertiesResponsePtrType KeyPropertiesResponseArgs
-
-func KeyPropertiesResponsePtr(v *KeyPropertiesResponseArgs) KeyPropertiesResponsePtrInput {
-	return (*keyPropertiesResponsePtrType)(v)
-}
-
-func (*keyPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyPropertiesResponse)(nil)).Elem()
-}
-
-func (i *keyPropertiesResponsePtrType) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
-	return i.ToKeyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyPropertiesResponsePtrType) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponsePtrOutput)
-}
-
-// Url and version of the KeyVault Secret
-type KeyPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (KeyPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyPropertiesResponse)(nil)).Elem()
-}
-
-func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponseOutput() KeyPropertiesResponseOutput {
-	return o
-}
-
-func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponseOutputWithContext(ctx context.Context) KeyPropertiesResponseOutput {
-	return o
-}
-
-func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
-	return o.ToKeyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyPropertiesResponse) *KeyPropertiesResponse {
-		return &v
-	}).(KeyPropertiesResponsePtrOutput)
-}
-
-// The identifier of the key vault key used to encrypt data.
-func (o KeyPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The version of the identity which will be used to access key vault.
-func (o KeyPropertiesResponseOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyPropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type KeyPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyPropertiesResponse)(nil)).Elem()
-}
-
-func (o KeyPropertiesResponsePtrOutput) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KeyPropertiesResponsePtrOutput) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KeyPropertiesResponsePtrOutput) Elem() KeyPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyPropertiesResponse) KeyPropertiesResponse { return *v }).(KeyPropertiesResponseOutput)
-}
-
-// The identifier of the key vault key used to encrypt data.
-func (o KeyPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version of the identity which will be used to access key vault.
-func (o KeyPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -2063,6 +2063,10 @@ func init() {
 	pulumi.RegisterOutputType(EnterprisePolicyIdentityPtrOutput{})
 	pulumi.RegisterOutputType(EnterprisePolicyIdentityResponseOutput{})
 	pulumi.RegisterOutputType(EnterprisePolicyIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyPropertiesOutput{})
+	pulumi.RegisterOutputType(KeyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(KeyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
@@ -2079,10 +2083,6 @@ func init() {
 	pulumi.RegisterOutputType(PropertiesResponseEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(PropertiesResponseLockboxOutput{})
 	pulumi.RegisterOutputType(PropertiesResponseLockboxPtrOutput{})
-	pulumi.RegisterOutputType(KeyPropertiesOutput{})
-	pulumi.RegisterOutputType(KeyPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(KeyPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(KeyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

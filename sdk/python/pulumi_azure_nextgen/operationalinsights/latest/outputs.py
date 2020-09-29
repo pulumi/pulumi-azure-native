@@ -15,6 +15,7 @@ __all__ = [
     'IncidentInfoResponse',
     'IncidentLabelResponse',
     'IncidentOwnerInfoResponse',
+    'KeyVaultPropertiesResponse',
     'PrivateLinkScopedResourceResponse',
     'StorageAccountResponse',
     'StorageInsightStatusResponse',
@@ -22,7 +23,6 @@ __all__ = [
     'UserInfoResponse',
     'WorkspaceCappingResponse',
     'WorkspaceSkuResponse',
-    'KeyVaultPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -336,6 +336,56 @@ class IncidentOwnerInfoResponse(dict):
 
 
 @pulumi.output_type
+class KeyVaultPropertiesResponse(dict):
+    """
+    The key vault properties.
+    """
+    def __init__(__self__, *,
+                 key_name: Optional[str] = None,
+                 key_vault_uri: Optional[str] = None,
+                 key_version: Optional[str] = None):
+        """
+        The key vault properties.
+        :param str key_name: The name of the key associated with the Log Analytics cluster.
+        :param str key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        :param str key_version: The version of the key associated with the Log Analytics cluster.
+        """
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        """
+        The name of the key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[str]:
+        """
+        The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        The version of the key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PrivateLinkScopedResourceResponse(dict):
     """
     The private link scope resource reference.
@@ -631,56 +681,6 @@ class WorkspaceSkuResponse(dict):
         The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """
         return pulumi.get(self, "capacity_reservation_level")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class KeyVaultPropertiesResponse(dict):
-    """
-    The key vault properties.
-    """
-    def __init__(__self__, *,
-                 key_name: Optional[str] = None,
-                 key_vault_uri: Optional[str] = None,
-                 key_version: Optional[str] = None):
-        """
-        The key vault properties.
-        :param str key_name: The name of the key associated with the Log Analytics cluster.
-        :param str key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
-        :param str key_version: The version of the key associated with the Log Analytics cluster.
-        """
-        if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
-        if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[str]:
-        """
-        The name of the key associated with the Log Analytics cluster.
-        """
-        return pulumi.get(self, "key_name")
-
-    @property
-    @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[str]:
-        """
-        The Key Vault uri which holds they key associated with the Log Analytics cluster.
-        """
-        return pulumi.get(self, "key_vault_uri")
-
-    @property
-    @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[str]:
-        """
-        The version of the key associated with the Log Analytics cluster.
-        """
-        return pulumi.get(self, "key_version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
